@@ -1,0 +1,19 @@
+syntax = "proto3";
+package pb;
+option  go_package = "../pb";  // 声明生成的 go 文件所属的包
+
+// 错误码
+enum ErrorCode {
+    Success         = 0;   // 成功
+    Unmarshal       = 1;   // 反序列化失败
+    NotSupported    = 2;   // 不支持
+    BuildEtcdClient = 3;   // 客户端建立错误
+    NotExist        = 4;   // 不存在
+    Parameter       = 5;   // 参数错误
+    NotFound        = 6;   // 未找到
+    Marhsal         = 7;   // 序列化失败
+    NatsPublish     = 8;   // 发布错误
+    NewClient       = 9;   // 客户端连接失败
+    SocketClose     = 10;  // 断开网络连接失败
+    NatsSubscribe = 11; // 订阅错误
+};
