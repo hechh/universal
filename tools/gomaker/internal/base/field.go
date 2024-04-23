@@ -25,5 +25,5 @@ func (d *Field) GetType(pkg string) string {
 }
 
 func (d *Field) String() string {
-	return fmt.Sprintf("\t%s %s // %s", d.name, d.GetType(""), d.comment)
+	return fmt.Sprintf("\t%s %s %s", d.name, d.GetType(""), d.comment)
 }

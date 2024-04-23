@@ -8,8 +8,8 @@ import (
 
 type Type struct {
 	token   int32  // 类型
-	name    string // 引用的类型名称
 	pkgName string // 引用类型所在的包
+	name    string // 引用的类型名称
 	key     *Type  // map特殊处理（key类型）
 	value   *Type  // map特殊处理（value类型）
 }
@@ -29,6 +29,7 @@ func parseType(val ast.Expr, typ *Type) {
 		parseType(v.Key, typ.key)
 		parseType(v.Value, typ.value)
 	case *ast.SelectorExpr:
+		typ.AddToken(domain.IDENT)
 		typ.pkgName = v.X.(*ast.Ident).Name
 		typ.name = v.Sel.Name
 	case *ast.StarExpr:

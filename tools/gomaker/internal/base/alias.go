@@ -29,5 +29,5 @@ func (d *Alias) GetType(pkg string) string {
 }
 
 func (d *Alias) String() string {
-	return fmt.Sprintf("type %s %s", d.name, d.realType.String())
+	return fmt.Sprintf("type %s %s %s", d.name, d.realType.String(), d.comment)
 }

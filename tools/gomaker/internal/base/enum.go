@@ -49,7 +49,7 @@ func (d *Enum) GetType(pkg string) string {
 func (d *Enum) String() string {
 	str := ""
 	for _, v := range d.fields {
-		str += fmt.Sprintf("\t %s %s = %d // %s\n", v.name, d.name, v.value, v.comment)
+		str += fmt.Sprintf("\t %s %s = %d %s\n", v.name, d.name, v.value, v.comment)
 	}
 	return fmt.Sprintf("const (\n %s )", str)
 }

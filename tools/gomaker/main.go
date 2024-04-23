@@ -19,5 +19,5 @@ func main() {
 		panic(err)
 	}
 
-	tmgr.Print()
+	//tmgr.Print()
 }
