@@ -1,4 +1,4 @@
-package visitor
+package parse
 
 import (
 	"go/ast"

@@ -1,4 +1,4 @@
-package base
+package typespec
 
 import (
 	"fmt"
@@ -7,11 +7,12 @@ import (
 )
 
 type Type struct {
-	token   int32  // 类型
-	pkgName string // 引用类型所在的包
-	name    string // 引用的类型名称
-	key     *Type  // map特殊处理（key类型）
-	value   *Type  // map特殊处理（value类型）
+	BaseFunc
+	Token   int32  // 类型
+	PkgName string // 引用类型所在的包
+	Name    string // 引用的类型名称
+	Key     *Type  // map特殊处理（key类型）
+	Value   *Type  // map特殊处理（value类型）
 }
 
 func NewType(val ast.Expr) *Type {
@@ -24,14 +25,14 @@ func parseType(val ast.Expr, typ *Type) {
 	switch v := val.(type) {
 	case *ast.MapType:
 		typ.AddToken(domain.MAP)
-		typ.key = &Type{}
-		typ.value = &Type{}
-		parseType(v.Key, typ.key)
-		parseType(v.Value, typ.value)
+		typ.Key = &Type{}
+		typ.Value = &Type{}
+		parseType(v.Key, typ.Key)
+		parseType(v.Value, typ.Value)
 	case *ast.SelectorExpr:
 		typ.AddToken(domain.IDENT)
-		typ.pkgName = v.X.(*ast.Ident).Name
-		typ.name = v.Sel.Name
+		typ.PkgName = v.X.(*ast.Ident).Name
+		typ.Name = v.Sel.Name
 	case *ast.StarExpr:
 		typ.AddToken(domain.POINTER)
 		parseType(v.X, typ)
@@ -40,25 +41,25 @@ func parseType(val ast.Expr, typ *Type) {
 		parseType(v.Elt, typ)
 	case *ast.Ident:
 		typ.AddToken(domain.IDENT)
-		typ.name = v.Name
+		typ.Name = v.Name
 	}
 }
 
 func (d *Type) AddToken(val int32) {
-	d.token <<= 4
-	d.token |= val & 0x0f
+	d.Token <<= 4
+	d.Token |= val & 0x0f
 }
 
 func (d *Type) GetName(pkg string) string {
-	if len(d.pkgName) > 0 && pkg != d.pkgName {
-		return d.pkgName + "." + d.name
+	if len(d.PkgName) > 0 && pkg != d.PkgName {
+		return d.PkgName + "." + d.Name
 	}
-	return d.name
+	return d.Name
 }
 
 func (d *Type) GetType(pkg string) (str string) {
 	for i := 7; i >= 0; i-- {
-		switch (d.token >> (i * 4)) & 0x0f {
+		switch (d.Token >> (i * 4)) & 0x0f {
 		case domain.IDENT:
 			str += d.GetName(pkg)
 		case domain.POINTER:
@@ -66,7 +67,7 @@ func (d *Type) GetType(pkg string) (str string) {
 		case domain.ARRAY:
 			str += "[]"
 		case domain.MAP:
-			str += fmt.Sprintf("map[%s]%s", d.key.GetType(pkg), d.value.GetType(pkg))
+			str += fmt.Sprintf("map[%s]%s", d.Key.GetType(pkg), d.Value.GetType(pkg))
 		}
 	}
 	return
