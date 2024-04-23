@@ -7,7 +7,6 @@ import (
 	"os"
 	"path/filepath"
 	"testing"
-	"universal/tools/gomaker/internal/manager"
 	"universal/tools/gomaker/internal/parse"
 )
 
@@ -29,7 +28,7 @@ func TestParse(t *testing.T) {
 }
 
 func TestMM(t *testing.T) {
-	par := parse.NewTypeParser(manager.GetTypeMgr())
+	par := parse.NewTypeParser()
 
 	// 构建指定目录下所有文件的匹配模式
 	files, err := filepath.Glob("./*.pb.go")

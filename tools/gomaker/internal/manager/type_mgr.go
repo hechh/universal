@@ -7,40 +7,24 @@ import (
 )
 
 var (
-	typeMgr = NewTypeMgr()
+	structs = make(map[string]*typespec.Struct) // 结构类型
+	enums   = make(map[string]*typespec.Enum)   // 枚举类型
+	alias   = make(map[string]*typespec.Alias)  // 类型别名
 )
 
-type TypeMgr struct {
-	structs map[string]*typespec.Struct // 结构类型
-	enums   map[string]*typespec.Enum   // 枚举类型
-	alias   map[string]*typespec.Alias  // 类型别名
+func GetAlias(name string) *typespec.Alias {
+	return alias[name]
 }
 
-func GetTypeMgr() *TypeMgr {
-	return typeMgr
+func GetEnum(name string) *typespec.Enum {
+	return enums[name]
 }
 
-func NewTypeMgr() *TypeMgr {
-	return &TypeMgr{
-		structs: make(map[string]*typespec.Struct),
-		enums:   make(map[string]*typespec.Enum),
-		alias:   make(map[string]*typespec.Alias),
-	}
+func GetStruct(name string) *typespec.Struct {
+	return structs[name]
 }
 
-func (d *TypeMgr) GetAlias(name string) *typespec.Alias {
-	return d.alias[name]
-}
-
-func (d *TypeMgr) GetEnum(name string) *typespec.Enum {
-	return d.enums[name]
-}
-
-func (d *TypeMgr) GetStruct(name string) *typespec.Struct {
-	return d.structs[name]
-}
-
-func (d *TypeMgr) AddType(pkgName string, specs []ast.Spec) {
+func AddType(pkgName string, specs []ast.Spec) {
 	for _, spec := range specs {
 		// 判断是否有效
 		node, ok := spec.(*ast.TypeSpec)
@@ -50,28 +34,28 @@ func (d *TypeMgr) AddType(pkgName string, specs []ast.Spec) {
 		// 解析结构
 		switch vv := node.Type.(type) {
 		case *ast.StructType:
-			d.structs[node.Name.Name] = typespec.NewStruct(pkgName, node.Name.Name, vv.Fields.List)
+			structs[node.Name.Name] = typespec.NewStruct(pkgName, node.Name.Name, vv.Fields.List)
 		default:
-			d.alias[node.Name.Name] = typespec.NewAlias(pkgName, node.Name.Name, node)
+			alias[node.Name.Name] = typespec.NewAlias(pkgName, node.Name.Name, node)
 		}
 	}
 }
 
-func (d *TypeMgr) AddConst(pkgName string, specs []ast.Spec) {
+func AddConst(pkgName string, specs []ast.Spec) {
 	ee := typespec.NewEnum(pkgName, specs)
-	if _, ok := d.alias[ee.Name]; ok {
-		d.enums[ee.Name] = ee
+	if _, ok := alias[ee.Name]; ok {
+		enums[ee.Name] = ee
 	}
 }
 
-func (d *TypeMgr) Print() {
-	for _, st := range d.structs {
+func Print() {
+	for _, st := range structs {
 		fmt.Println(st.String())
 	}
-	for _, en := range d.enums {
+	for _, en := range enums {
 		fmt.Println(en.String())
 	}
-	for _, al := range d.alias {
+	for _, al := range alias {
 		fmt.Println(al.String())
 	}
 }

@@ -4,16 +4,15 @@ import (
 	"go/ast"
 	"go/parser"
 	"go/token"
-	"universal/tools/gomaker/domain"
+	"universal/tools/gomaker/internal/manager"
 )
 
 type TypeParser struct {
-	pkgName string         // 当前解析文件的包名
-	types   domain.IParser // 类型管理
+	pkgName string // 当前解析文件的包名
 }
 
-func NewTypeParser(t domain.IParser) *TypeParser {
-	return &TypeParser{types: t}
+func NewTypeParser() *TypeParser {
+	return &TypeParser{}
 }
 
 func (d *TypeParser) Visit(node ast.Node) ast.Visitor {
@@ -23,9 +22,9 @@ func (d *TypeParser) Visit(node ast.Node) ast.Visitor {
 		return d
 	case *ast.GenDecl:
 		if n.Tok == token.CONST {
-			d.types.AddConst(d.pkgName, n.Specs)
+			manager.AddConst(d.pkgName, n.Specs)
 		} else if n.Tok == token.TYPE {
-			d.types.AddType(d.pkgName, n.Specs)
+			manager.AddType(d.pkgName, n.Specs)
 		}
 	}
 	return nil

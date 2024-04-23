@@ -11,7 +11,7 @@ import (
 )
 
 func Gen() error {
-	en := manager.GetTypeMgr().GetEnum("ErrorCode")
+	en := manager.GetEnum("ErrorCode")
 	if en == nil {
 		return nil
 	}

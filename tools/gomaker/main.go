@@ -2,13 +2,12 @@ package main
 
 import (
 	"path/filepath"
-	"universal/tools/gomaker/internal/manager"
 	"universal/tools/gomaker/internal/parse"
 	"universal/tools/gomaker/repository/uerrors"
 )
 
 func main() {
-	par := parse.NewTypeParser(manager.GetTypeMgr())
+	par := parse.NewTypeParser()
 
 	// 构建指定目录下所有文件的匹配模式
 	files, err := filepath.Glob(filepath.Join("../../common/pb/", "*.pb.go"))
