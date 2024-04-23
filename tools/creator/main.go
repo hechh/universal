@@ -1,5 +1,0 @@
-package creator
-
-func main() {
-
-}

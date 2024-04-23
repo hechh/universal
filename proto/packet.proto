@@ -4,10 +4,10 @@ option  go_package = "../pb";  // 声明生成的 go 文件所属的包
 
 // 服务器类型
 enum ClusterType {
-    NONE   = 0;  // 网关,转发服务
-    GATE   = 1;  // 网关,转发服务
-    GAME   = 2;  // game
-    DB     = 3;  // db
+    NONE = 0;  // 网关,转发服务
+    GATE = 1;  // 网关,转发服务
+    GAME = 2;  // game
+    DB   = 3;  // db
 };
 
 // 发送标志
@@ -18,25 +18,24 @@ enum SendType {
 
 // 集群信息
 message ClusterNode {
-    ClusterType ClusterType      = 1;
-    string  Ip        = 2;
-    int32   Port      = 3;
-    int32   Weight    = 4;
-    uint32  Version   = 5;  // 版本号
-    uint32  ClusterID = 6;
+    ClusterType ClusterType = 1;
+    string      Ip          = 2;
+    int32       Port        = 3;
+    int32       Weight      = 4;
+    uint32      Version     = 5;  // 版本号
+    uint32      ClusterID   = 6;
 }
 
 // 包头
 message PacketHead {
-    uint32  SrcClusterID  = 1;   // 源集群id
-    ClusterType SrcClusterType = 2;   // 源服务类型
-    uint32  DstClusterID  = 3;   // 目标集群id 大于0优先
-    ClusterType DstClusterType = 4;   // 目标集群类型
-    SendType    SendType      = 5;   // 传输协议
-    uint64  UID           = 6;   // 目标玩家uid
-    uint32  SeqID         = 7;   // 序列号
-    string  ActorName     = 8;   // actor名称
-    string  FuncName      = 9;  // actor函数名称
+    uint32      SrcClusterID   = 1;  // 源集群id
+    ClusterType SrcClusterType = 2;  // 源服务类型
+    uint32      DstClusterID   = 3;  // 目标集群id 大于0优先
+    ClusterType DstClusterType = 4;  // 目标集群类型
+    SendType    SendType       = 5;  // 传输协议
+    uint64      UID            = 6;  // 目标玩家uid
+    uint32      SeqID          = 7;  // 序列号
+    uint32      UUID           = 8;  // 请求接口唯一id
 }
 
 // 原始包
@@ -49,11 +48,11 @@ message Packet {
 
 // 客户端包头
 message RpcHead {
-    uint32  stx            = 1;
-    uint32  ckx            = 2;
+    uint32      stx            = 1;
+    uint32      ckx            = 2;
     ClusterType DstClusterType = 3;  // 发送者服务器类型
-    uint64  id             = 4;  // 目标ID
-    uint32  seqid          = 5;  // 序列号
-    int32   code           = 6;  // 错误码 ErrorCode
-    string  errMsg         = 7;  // 错误信息
+    uint64      id             = 4;  // 目标ID
+    uint32      seqid          = 5;  // 序列号
+    int32       code           = 6;  // 错误码 ErrorCode
+    string      errMsg         = 7;  // 错误信息
 }

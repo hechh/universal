@@ -13,6 +13,11 @@ import (
 	"google.golang.org/protobuf/proto"
 )
 
+type Etcd struct {
+	client *clientv3.Client
+	self   *ClusterNode
+}
+
 type ClusterNode struct {
 	node     *pb.ClusterNode
 	lease    clientv3.Lease
@@ -20,11 +25,29 @@ type ClusterNode struct {
 	notifyCh chan struct{}
 }
 
-type Etcd struct {
-	client *clientv3.Client
-	self   *ClusterNode
+func (d *ClusterNode) KeepAliveOnce(client *clientv3.Client) {
+	if _, err := client.KeepAliveOnce(context.Background(), d.leaseID); err != nil {
+		d.notifyCh <- struct{}{}
+		log.Print(err)
+	}
 }
 
+func (d *ClusterNode) Put(client *clientv3.Client) {
+	leaseResp, err := d.lease.Create(context.Background(), 10)
+	if err != nil {
+		log.Print(err)
+		d.notifyCh <- struct{}{}
+		return
+	}
+	d.leaseID = clientv3.LeaseID(leaseResp.ID)
+	// 重新注册服务
+	key := domain.GetNodeChannel(d.node.ClusterType, d.node.ClusterID)
+	buf, _ := proto.Marshal(d.node)
+	if _, err = client.Put(context.TODO(), key, string(buf), clientv3.WithLease(d.leaseID)); err != nil {
+		log.Print(err)
+		d.notifyCh <- struct{}{}
+	}
+}
 func NewEtcd(node *pb.ClusterNode, endpoints ...string) (*Etcd, error) {
 	client, err := clientv3.New(clientv3.Config{Endpoints: endpoints})
 	if err != nil {
@@ -88,28 +111,4 @@ func (d *Etcd) Watch(path string, f domain.DiscoveryFunc) {
 			}
 		}
 	}()
-}
-
-func (d *ClusterNode) KeepAliveOnce(client *clientv3.Client) {
-	if _, err := client.KeepAliveOnce(context.Background(), d.leaseID); err != nil {
-		d.notifyCh <- struct{}{}
-		log.Print(err)
-	}
-}
-
-func (d *ClusterNode) Put(client *clientv3.Client) {
-	leaseResp, err := d.lease.Create(context.Background(), 10)
-	if err != nil {
-		log.Print(err)
-		d.notifyCh <- struct{}{}
-		return
-	}
-	d.leaseID = clientv3.LeaseID(leaseResp.ID)
-	// 重新注册服务
-	key := domain.GetNodeChannel(d.node.ClusterType, d.node.ClusterID)
-	buf, _ := proto.Marshal(d.node)
-	if _, err = client.Put(context.TODO(), key, string(buf), clientv3.WithLease(d.leaseID)); err != nil {
-		log.Print(err)
-		d.notifyCh <- struct{}{}
-	}
 }
