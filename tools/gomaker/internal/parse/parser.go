@@ -4,6 +4,7 @@ import (
 	"go/ast"
 	"go/parser"
 	"go/token"
+	"universal/framework/basic"
 	"universal/tools/gomaker/internal/manager"
 )
 
@@ -36,7 +37,7 @@ func (d *TypeParser) ParseFiles(files ...string) error {
 	for _, file := range files {
 		f, err := parser.ParseFile(fset, file, nil, parser.ParseComments)
 		if err != nil {
-			return err
+			return basic.NewUError(2, -1, err)
 		}
 		ast.Walk(d, f)
 	}

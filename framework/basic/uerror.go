@@ -14,7 +14,7 @@ type UError struct {
 	errMsg   string // 错误
 }
 
-func NewUError(skip int, code pb.ErrorCode, msg interface{}) *UError {
+func NewUError(skip int, code pb.ErrorCode, msg interface{}) error {
 	var errMsg string
 	switch v := msg.(type) {
 	case *UError:
@@ -44,7 +44,7 @@ func ToUError(err error) *UError {
 	case nil:
 		return &UError{}
 	}
-	return NewUError(3, -1, err.Error())
+	return NewUError(3, -1, err.Error()).(*UError)
 }
 
 func (d *UError) GetCode() int32 {

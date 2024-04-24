@@ -3,9 +3,10 @@ package manager
 import (
 	"flag"
 	"fmt"
+	"universal/framework/basic"
 )
 
-type GenFunc func(action string, src string) error
+type GenFunc func(action string, src string, params string) error
 
 type GenInfo struct {
 	action string
@@ -33,12 +34,12 @@ func Register(action string, f GenFunc, helps ...string) {
 	}
 }
 
-func Gen(action string, src string) error {
+func Gen(action string, src string, params string) error {
 	val, ok := genMgr[action]
 	if !ok {
-		return fmt.Errorf("%s is not suppported", action)
+		return basic.NewUError(2, -1, fmt.Sprintf("%s is not suppported", action))
 	}
-	return val.gen(action, src)
+	return val.gen(action, src, params)
 }
 
 func HelpAction() {

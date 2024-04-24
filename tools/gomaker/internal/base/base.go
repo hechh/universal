@@ -4,11 +4,12 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
+	"universal/framework/basic"
 )
 
 func GetAbsPath(src string, root string) (string, error) {
 	if len(src) <= 0 {
-		return "", fmt.Errorf("Relative path is empty")
+		return "", basic.NewUError(2, -1, fmt.Sprintf("Relative path is empty"))
 	}
 	if !filepath.IsAbs(src) {
 		return filepath.Join(root, src), nil

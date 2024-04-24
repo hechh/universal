@@ -6,6 +6,7 @@ import (
 	"html/template"
 	"os"
 	"path/filepath"
+	"universal/framework/basic"
 	"universal/tools/gomaker/domain"
 	"universal/tools/gomaker/internal/base"
 )
@@ -27,11 +28,6 @@ func InitTpl(root string) {
 		}
 		if info.IsDir() {
 			tpls[filepath.Base(path)] = template.Must(template.ParseGlob(path + "/*.tpl"))
-			/*
-				for _, tt := range tpls[filepath.Base(path)].Templates() {
-					fmt.Println("----------->", tt.Name())
-				}
-			*/
 			return nil
 		}
 		return nil
@@ -41,7 +37,8 @@ func InitTpl(root string) {
 func GenPackage(dst string, buf *bytes.Buffer) error {
 	pkg := GetTpl(domain.PACKAGE)
 	if pkg == nil {
-		return fmt.Errorf("The tpl of %s.tpl is not supported", domain.PACKAGE)
+		return basic.NewUError(2, -1, fmt.Sprintf("The tpl of %s.tpl is not supported", domain.PACKAGE))
 	}
-	return pkg.ExecuteTemplate(buf, domain.PACKAGE+".tpl", base.GetFilePathBase(dst))
+	err := pkg.ExecuteTemplate(buf, domain.PACKAGE+".tpl", base.GetFilePathBase(dst))
+	return basic.NewUError(2, -1, err)
 }

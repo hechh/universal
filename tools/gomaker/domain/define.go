@@ -9,5 +9,7 @@ const (
 )
 
 const (
-	PACKAGE = "package"
+	PACKAGE    = "package"
+	UERRORS    = "uerrors"
+	PlayerFunc = "playerFun"
 )
