@@ -36,7 +36,7 @@ func (d *FuncPacket) GetFuncName() string {
 	return d.name
 }
 
-func (d *FuncPacket) Call(ctx *basic.Context, pac *pb.Packet) *pb.Packet {
+func (d *FuncPacket) Call(ctx *basic.Context, pac *pb.Packet) (*pb.Packet, error) {
 	// 解析参数
 	params := make([]reflect.Value, len(d.params))
 	decode := gob.NewDecoder(bytes.NewReader(pac.Buff))

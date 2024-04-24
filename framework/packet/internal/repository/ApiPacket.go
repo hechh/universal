@@ -9,15 +9,15 @@ import (
 	"google.golang.org/protobuf/proto"
 )
 
-type CmdPacket struct {
+type ApiPacket struct {
 	name   string
-	handle domain.CmdFunc
+	handle domain.ApiFunc
 	req    reflect.Type
 	rsp    reflect.Type
 }
 
-func NewCmdPacket(h domain.CmdFunc, req, rsp proto.Message) *CmdPacket {
-	return &CmdPacket{
+func NewApiPacket(h domain.ApiFunc, req, rsp proto.Message) *ApiPacket {
+	return &ApiPacket{
 		name:   basic.GetFuncName(h),
 		handle: h,
 		req:    reflect.TypeOf(req).Elem(),
@@ -25,16 +25,19 @@ func NewCmdPacket(h domain.CmdFunc, req, rsp proto.Message) *CmdPacket {
 	}
 }
 
-func (d *CmdPacket) GetFuncName() string {
+func (d *ApiPacket) GetFuncName() string {
 	return d.name
 }
 
-func (d *CmdPacket) Call(ctx *basic.Context, pac *pb.Packet) *pb.Packet {
-	newRsp := reflect.New(d.rsp).Interface().(proto.Message)
+func (d *ApiPacket) Call(ctx *basic.Context, pac *pb.Packet) (*pb.Packet, error) {
 	newReq := reflect.New(d.req).Interface().(proto.Message)
+	newRsp := reflect.New(d.rsp).Interface().(proto.Message)
+
 	if err := proto.Unmarshal(pac.Buff, newReq); err != nil {
-		return basic.ToRspPacket(ctx.PacketHead, basic.NewUError(2, pb.ErrorCode_Unmarshal, err), newRsp)
+		return nil, basic.NewUError(2, pb.ErrorCode_Unmarshal, err)
 	}
+	// 执行API
+	err := d.handle(ctx, newReq, newRsp)
 	// 执行函数
-	return basic.ToRspPacket(ctx.PacketHead, d.handle(ctx, newReq, newRsp), newRsp)
+	return basic.RspToPacket(ctx.PacketHead, err, newRsp)
 }

@@ -9,23 +9,22 @@ import (
 )
 
 var (
-	packetPool = make(map[IndexPacket]domain.IPacket)
+	apiPool = make(map[int32]domain.IPacket)
 )
 
-type IndexPacket struct {
-	ActorName string
-	FuncName  string
-}
-
-func RegisterCMD(h domain.CmdFunc, req, rsp proto.Message) {
-	attr := repository.NewCmdPacket(h, req, rsp)
-	index := IndexPacket{"", attr.GetFuncName()}
-	if _, ok := packetPool[index]; ok {
-		panic(fmt.Sprintf("CMD(%s) has already registered", attr.GetFuncName()))
+func RegisterApi(apiCode int32, h domain.ApiFunc, req, rsp proto.Message) {
+	attr := repository.NewApiPacket(h, req, rsp)
+	if _, ok := apiPool[apiCode]; ok {
+		panic(fmt.Sprintf("ApiCode(%d) has already registered", apiCode))
 	}
-	packetPool[index] = attr
+	apiPool[apiCode] = attr
 }
 
+func RegisterActor(apiCode int32, h interface{}) {
+
+}
+
+/*
 func RegiserFunc(h interface{}) {
 	attr := repository.NewFuncPacket(h)
 	index := IndexPacket{"", attr.GetFuncName()}
@@ -51,3 +50,4 @@ func GetIPacket(actorName, fname string) domain.IPacket {
 	}
 	return repository.NewEmptyPacket(actorName, fname)
 }
+*/

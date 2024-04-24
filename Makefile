@@ -35,3 +35,6 @@ ifeq (${SYSTEM}, windows)
 else # linux darwin(mac)
 	protoc -I${PROTO_PATH} ${PROTO_PATH}/*.proto --go_opt paths=source_relative --go_out=${GEN_GO_PATH}
 endif 
+
+uerrors:
+	gomaker -action=uerrors -src="common/pb/*pb.go" -dst="common/uerrors/" -tpl="tools/gomaker/templates"

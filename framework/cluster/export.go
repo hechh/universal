@@ -25,7 +25,7 @@ func SendToGame(head *pb.PacketHead, params ...interface{}) error {
 
 	head.DstClusterType = pb.ClusterType_GAME
 	head.SendType = pb.SendType_POINT
-	pac, err := basic.ToReqPacket(head, params...)
+	pac, err := basic.ReqToPacket(head, params...)
 	if err != nil {
 		return err
 	}
@@ -40,7 +40,7 @@ func SendToDb(head *pb.PacketHead, params ...interface{}) error {
 
 	head.DstClusterType = pb.ClusterType_DB
 	head.SendType = pb.SendType_POINT
-	pac, err := basic.ToReqPacket(head, params...)
+	pac, err := basic.ReqToPacket(head, params...)
 	if err != nil {
 		return err
 	}
@@ -55,7 +55,7 @@ func SendToGate(head *pb.PacketHead, params ...interface{}) error {
 
 	head.DstClusterType = pb.ClusterType_GATE
 	head.SendType = pb.SendType_POINT
-	pac, err := basic.ToReqPacket(head, params...)
+	pac, err := basic.ReqToPacket(head, params...)
 	if err != nil {
 		return err
 	}
@@ -70,8 +70,9 @@ func SendToClient(head *pb.PacketHead, rsp proto.Message, err error) error {
 
 	head.DstClusterType = pb.ClusterType_GATE
 	head.DstClusterID = 0
-
-	head.ActorName = ""
-	head.FuncName = ""
-	return service.GetCluster().Send(basic.ToRspPacket(head, err, rsp))
+	pac, err := basic.RspToPacket(head, err, rsp)
+	if err != nil {
+		return err
+	}
+	return service.GetCluster().Send(pac)
 }

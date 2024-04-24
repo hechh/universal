@@ -4,16 +4,15 @@ option  go_package = "../pb";  // 声明生成的 go 文件所属的包
 
 // 服务器类型
 enum ClusterType {
-    NONE = 0;  // 网关,转发服务
-    GATE = 1;  // 网关,转发服务
-    GAME = 2;  // game
-    DB   = 3;  // db
+    GATE = 0;  // 网关,转发服务
+    GAME = 1;  // game
+    DB   = 2;  // db
 };
 
 // 发送标志
 enum SendType {
     POINT      = 0;  // 指定集群id
-    BOARD_CAST = 1;  // 广播
+    BOARDCAST = 1;  // 广播
 };
 
 // 集群信息
@@ -21,9 +20,7 @@ message ClusterNode {
     ClusterType ClusterType = 1;
     string      Ip          = 2;
     int32       Port        = 3;
-    int32       Weight      = 4;
-    uint32      Version     = 5;  // 版本号
-    uint32      ClusterID   = 6;
+    uint32      ClusterID   = 4;
 }
 
 // 包头
@@ -33,26 +30,37 @@ message PacketHead {
     uint32      DstClusterID   = 3;  // 目标集群id 大于0优先
     ClusterType DstClusterType = 4;  // 目标集群类型
     SendType    SendType       = 5;  // 传输协议
-    uint64      UID            = 6;  // 目标玩家uid
-    uint32      SeqID          = 7;  // 序列号
-    uint32      UUID           = 8;  // 请求接口唯一id
+    uint32      SeqID          = 6;  // 序列号
+    uint64      UID            = 7;  // 目标玩家uid
+    int32      ApiCode        = 8;  // 请求接口唯一id
+    int64       Time           = 9;
 }
 
 // 原始包
 message Packet {
     PacketHead Head   = 1;  // 包头
     bytes      Buff   = 2;  // proto压缩数据
-    int32      Code   = 3;  // 错误码 ErrorCode
-    string     ErrMsg = 4;  // 错误信息
 }
 
 // 客户端包头
 message RpcHead {
-    uint32      stx            = 1;
-    uint32      ckx            = 2;
-    ClusterType DstClusterType = 3;  // 发送者服务器类型
-    uint64      id             = 4;  // 目标ID
-    uint32      seqid          = 5;  // 序列号
-    int32       code           = 6;  // 错误码 ErrorCode
-    string      errMsg         = 7;  // 错误信息
+    int32       Code           = 1;  // 错误码 ErrorCode
+    string      ErrMsg         = 2;  // 错误信息
 }
+
+// 服务之前调用包头（任意参数接口调用）
+message ActorRequest {
+    RpcHead Head = 1;
+    string ActorName = 2;
+    string FuncName = 3;
+    bytes   Buff = 4;
+}
+
+message ActorResponse {
+    RpcHead Head = 1;
+    string ActorName = 2;
+    string FuncName = 3;
+    bytes   Buff = 2;
+}
+
+

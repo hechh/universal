@@ -8,7 +8,7 @@ import (
 )
 
 type IPacket interface {
-	Call(*basic.Context, *pb.Packet) *pb.Packet
+	Call(*basic.Context, *pb.Packet) (*pb.Packet, error)
 }
 
-type CmdFunc func(*basic.Context, proto.Message, proto.Message) error
+type ApiFunc func(*basic.Context, proto.Message, proto.Message) error

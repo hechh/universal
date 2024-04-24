@@ -14,13 +14,11 @@ type UError struct {
 	errMsg   string // 错误
 }
 
-func NewUError(skip int, code pb.ErrorCode, msg interface{}) error {
+func NewUError(skip int, code pb.ErrorCode, msg interface{}) *UError {
 	var errMsg string
 	switch v := msg.(type) {
 	case *UError:
 		return v
-	case nil:
-		return nil
 	case string:
 		errMsg = v
 	case error:
@@ -37,6 +35,20 @@ func NewUError(skip int, code pb.ErrorCode, msg interface{}) error {
 	}
 }
 
+func GetCodeMsg(err error) (code int32, errmsg string) {
+	switch vv := err.(type) {
+	case *UError:
+		code = vv.GetCode()
+		errmsg = vv.GetErrMsg()
+	case nil:
+		code, errmsg = int32(pb.ErrorCode_Success), ""
+	default:
+		code = -1
+		errmsg = err.Error()
+	}
+	return
+}
+
 func (d *UError) GetCode() int32 {
 	return d.code
 }
@@ -46,5 +58,6 @@ func (d *UError) GetErrMsg() string {
 }
 
 func (d *UError) Error() string {
-	return fmt.Sprintf("%s:%d %s code: %d, errmsg: %s", d.file, d.line, d.funcName, d.code, d.errMsg)
+	ctype := pb.ErrorCode(d.code)
+	return fmt.Sprintf("%s:%d %s %s(%d): %s", d.file, d.line, d.funcName, ctype.String(), d.code, d.errMsg)
 }
