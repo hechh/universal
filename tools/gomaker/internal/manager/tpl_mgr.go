@@ -1,9 +1,13 @@
 package manager
 
 import (
+	"bytes"
+	"fmt"
 	"html/template"
 	"os"
 	"path/filepath"
+	"universal/tools/gomaker/domain"
+	"universal/tools/gomaker/internal/base"
 )
 
 var (
@@ -32,4 +36,12 @@ func InitTpl(root string) {
 		}
 		return nil
 	})
+}
+
+func GenPackage(dst string, buf *bytes.Buffer) error {
+	pkg := GetTpl(domain.PACKAGE)
+	if pkg == nil {
+		return fmt.Errorf("The tpl of %s.tpl is not supported", domain.PACKAGE)
+	}
+	return pkg.ExecuteTemplate(buf, domain.PACKAGE+".tpl", base.GetFilePathBase(dst))
 }

@@ -1,5 +1,3 @@
-package uerrors
-
 import (
 	"universal/common/pb"
 	"universal/framework/basic"

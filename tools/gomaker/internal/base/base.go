@@ -22,3 +22,11 @@ func GetPathDefault(dst string, defaultEnv string) string {
 	}
 	return os.Getenv(defaultEnv)
 }
+
+func GetFilePathBase(dst string) string {
+	ext := filepath.Ext(dst)
+	if len(ext) <= 0 {
+		return filepath.Base(dst)
+	}
+	return filepath.Base(filepath.Dir(dst))
+}

@@ -7,3 +7,7 @@ const (
 	ARRAY   = 0x04
 	MAP     = 0x08
 )
+
+const (
+	PACKAGE = "package"
+)
