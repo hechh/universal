@@ -2,23 +2,28 @@ package uerrors
 
 import (
 	"bytes"
+	"fmt"
 	"go/format"
 	"io/ioutil"
 	"os"
 	"path/filepath"
-	"text/template"
+	"strings"
 	"universal/tools/gomaker/internal/manager"
 )
 
-func Gen() error {
+func Gen(action string, dst string) error {
 	en := manager.GetEnum("ErrorCode")
 	if en == nil {
-		return nil
+		return fmt.Errorf("The enum of ErrorCode is not found in typespec")
 	}
 	// 模版
-	tpl := template.Must(template.ParseFiles("./templates/uerrors/uerrors.tpl"))
+	tpl := manager.GetTpl(action)
+	if tpl == nil {
+		return fmt.Errorf("The action of %s is not supported", action)
+	}
+	// 生成文件
 	buf := bytes.NewBuffer(nil)
-	if err := tpl.Execute(buf, en); err != nil {
+	if err := tpl.ExecuteTemplate(buf, "uerrors.tpl", en); err != nil {
 		return err
 	}
 	// 格式化
@@ -28,11 +33,13 @@ func Gen() error {
 		return err
 	}
 	// 生成文档
-	genFile := "../../common/uerrors/uerrors.gen.go"
-	if err := os.MkdirAll(filepath.Dir(genFile), os.FileMode(0777)); err != nil {
+	if !strings.HasSuffix(dst, ".go") {
+		dst += "/uerrors.gen.go"
+	}
+	if err := os.MkdirAll(filepath.Dir(dst), os.FileMode(0777)); err != nil {
 		return err
 	}
-	if err := ioutil.WriteFile(genFile, result, os.FileMode(0666)); err != nil {
+	if err := ioutil.WriteFile(dst, result, os.FileMode(0666)); err != nil {
 		return err
 	}
 	return nil
