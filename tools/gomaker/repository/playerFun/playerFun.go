@@ -10,13 +10,30 @@ import (
 	"strings"
 	"universal/framework/basic"
 	"universal/tools/gomaker/internal/manager"
+	"universal/tools/gomaker/internal/typespec"
 )
 
+type PlayerFunAttr struct {
+	typespec.BaseFunc
+	Name    string
+	ReqList []string
+}
+
 // name, pbname
-func Gen(action string, dst string, name string) error {
+func Gen(action string, dst string, params string) error {
+	strs := strings.Split(params, ",")
+	attr := &PlayerFunAttr{
+		Name: strs[0],
+		ReqList: func() (ret []string) {
+			if len(strs) > 1 {
+				ret = strs[1:]
+			}
+			return
+		}(),
+	}
 	// 生成文档
 	if !strings.HasSuffix(dst, ".go") {
-		dst += fmt.Sprintf("/%s.go", name)
+		dst += fmt.Sprintf("/%s.go", attr.Name)
 	}
 	// 生成包头
 	buf := bytes.NewBuffer(nil)
@@ -28,7 +45,7 @@ func Gen(action string, dst string, name string) error {
 		return basic.NewUError(2, -1, fmt.Sprintf("The action of %s is not supported", action))
 	} else {
 		// 生成文件
-		if err := tpl.ExecuteTemplate(buf, action+".tpl", name); err != nil {
+		if err := tpl.ExecuteTemplate(buf, action+".tpl", attr); err != nil {
 			return basic.NewUError(2, -1, err)
 		}
 	}

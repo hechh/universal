@@ -15,3 +15,7 @@ func (d *BaseFunc) TrimSuffix(str, prefix string) string {
 func (d *BaseFunc) Split(str, sp string) []string {
 	return strings.Split(str, sp)
 }
+
+func (d *BaseFunc) Join(a, b string) string {
+	return a + b
+}

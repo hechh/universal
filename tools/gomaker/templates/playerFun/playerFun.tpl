@@ -11,12 +11,14 @@ import (
 	"github.com/golang/protobuf/proto"
 )
 
-{{$name := .}}
+// ----gomaker生成模板-------
+{{$name := .Name}}
 
 type {{$name}} struct {
 	PlayerFun
 }
 
+// --------------------通用接口实现------------------------------
 //初始化
 func (this *{{$name}}) Init(pbType pb.PlayerDataType, common *FunCommon) {
 	this.PlayerFun.Init(pbType, common)
@@ -53,32 +55,13 @@ func (this *{{$name}}) SaveSystem(pbSystem *pb.PBPlayerSystem) bool {
     return false
 }
 
-// ----------以上被playerMgr调用----------
-//初始化
-func (this *{{$name}}) UpdateCommon(common *FunCommon) {
-}
+// --------------------交互接口实现------------------------------
+{{range $req := .ReqList}} {{$rsp := $.Join ($.TrimSuffix $req "Request") "Response"}}
+func (this *{{$name}}) {{$req}}(head *pb.RpcHead, request, response proto.Message) error {
+	req := request.(*pb.{{$req}})
+	rsp := response.(*pb.{{$rsp}})
 
-//是否存储数据
-func (this *{{$name}}) IsSave() bool {
-   return false 
+	return nil
 }
+{{end}}
 
-//加载完成
-func (this *{{$name}}) LoadComplete() {
-}
-
-//加载系统数据DB数据 数据初始化用
-func (this *{{$name}}) LoadPlayerDBFinish()  {
-}
-
-//心跳包
-func (this *{{$name}}) Heat()  {
-}
-
-//是否跨天
-func (this *{{$name}}) PassDay(isDay, isWeek, isMonth bool) {
-}
-
-//保存
-func (this *{{$name}}) UpdateSave(bSave bool) {
-}
