@@ -37,16 +37,6 @@ func NewUError(skip int, code pb.ErrorCode, msg interface{}) error {
 	}
 }
 
-func ToUError(err error) *UError {
-	switch v := err.(type) {
-	case *UError:
-		return v
-	case nil:
-		return &UError{}
-	}
-	return NewUError(3, -1, err.Error()).(*UError)
-}
-
 func (d *UError) GetCode() int32 {
 	return d.code
 }

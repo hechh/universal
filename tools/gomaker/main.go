@@ -4,13 +4,10 @@ import (
 	"flag"
 	"fmt"
 	"os"
-	"path/filepath"
-	"strings"
-	"universal/framework/basic"
 	"universal/tools/gomaker/domain"
 	"universal/tools/gomaker/internal/base"
 	"universal/tools/gomaker/internal/manager"
-	"universal/tools/gomaker/internal/parse"
+	"universal/tools/gomaker/internal/service"
 	"universal/tools/gomaker/repository/playerFun"
 	"universal/tools/gomaker/repository/uerrors"
 )
@@ -28,12 +25,12 @@ func main() {
 	flag.StringVar(&dst, "dst", "", "生成.gen.go文件路径")
 	flag.Parse()
 
+	var err error
 	// 将相对路径转成绝对路径
 	if len(action) <= 0 {
 		fmt.Println("-action: parametar is empty")
 		return
 	}
-	var err error
 	if tpl, err = base.GetAbsPath(base.GetPathDefault(tpl, "TPL_GO"), CwdPath); err != nil {
 		fmt.Println("-tpl: ", err)
 		return
@@ -45,17 +42,14 @@ func main() {
 		fmt.Println("-dst: ", err)
 		return
 	}
-
-	// 加载配置文件
-	fmt.Println("tpl: ", tpl)
+	// 加载模板文件
 	manager.InitTpl(tpl)
 	// 解析go文件
-	if err := parseFiles(src); err != nil {
+	if err := service.ParseFiles(src, CwdPath); err != nil {
 		fmt.Printf("parseFiles is faield, error: %v", err)
 		return
 	}
 	// 生成文件
-	fmt.Println("dst: ", dst)
 	if err := manager.Gen(action, dst, param); err != nil {
 		fmt.Printf("error: %v", err.Error())
 	}
@@ -71,34 +65,7 @@ func init() {
 		flag.PrintDefaults()
 		manager.HelpAction()
 	}
-	initRegister()
-}
 
-func initRegister() {
 	manager.Register(domain.UERRORS, uerrors.Gen, "生成errorCode错误码文件")
-	manager.Register(domain.PlayerFunc, playerFun.Gen, "生成playerFun模板, 减少手写")
-}
-
-func parseFiles(src string) error {
-	if len(src) <= 0 {
-		return nil
-	}
-	par := parse.NewTypeParser()
-	for _, pp := range strings.Split(src, ",") {
-		if !filepath.IsAbs(pp) {
-			pp = filepath.Join(CwdPath, pp)
-		}
-		if !strings.HasSuffix(pp, ".go") {
-			pp = filepath.Join(pp, "*.go")
-		}
-		fmt.Println("src: ", pp)
-		files, err := filepath.Glob(pp)
-		if err != nil {
-			return basic.NewUError(2, -1, err)
-		}
-		if err = par.ParseFiles(files...); err != nil {
-			return basic.NewUError(2, -1, err)
-		}
-	}
-	return nil
+	manager.Register(domain.PLAYER_FUN, playerFun.Gen, "生成playerFun模板, 减少手写")
 }

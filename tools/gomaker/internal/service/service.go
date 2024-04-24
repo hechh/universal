@@ -1,19 +1,17 @@
-package parse
+package service
 
 import (
 	"go/ast"
 	"go/parser"
 	"go/token"
+	"path/filepath"
+	"strings"
 	"universal/framework/basic"
 	"universal/tools/gomaker/internal/manager"
 )
 
 type TypeParser struct {
 	pkgName string // 当前解析文件的包名
-}
-
-func NewTypeParser() *TypeParser {
-	return &TypeParser{}
 }
 
 func (d *TypeParser) Visit(node ast.Node) ast.Visitor {
@@ -31,15 +29,33 @@ func (d *TypeParser) Visit(node ast.Node) ast.Visitor {
 	return nil
 }
 
-func (d *TypeParser) ParseFiles(files ...string) error {
+func ParseFiles(src string, CwdPath string) error {
+	if len(src) <= 0 {
+		return nil
+	}
 	//解析文件
 	fset := token.NewFileSet()
-	for _, file := range files {
-		f, err := parser.ParseFile(fset, file, nil, parser.ParseComments)
+	d := &TypeParser{}
+	for _, pp := range strings.Split(src, ",") {
+		if !filepath.IsAbs(pp) {
+			pp = filepath.Join(CwdPath, pp)
+		}
+		if !strings.HasSuffix(pp, ".go") {
+			pp = filepath.Join(pp, "*.go")
+		}
+		// 读取所有文件
+		files, err := filepath.Glob(pp)
 		if err != nil {
 			return basic.NewUError(2, -1, err)
 		}
-		ast.Walk(d, f)
+		// 解析文件
+		for _, file := range files {
+			f, err := parser.ParseFile(fset, file, nil, parser.ParseComments)
+			if err != nil {
+				return basic.NewUError(2, -1, err)
+			}
+			ast.Walk(d, f)
+		}
 	}
 	return nil
 }

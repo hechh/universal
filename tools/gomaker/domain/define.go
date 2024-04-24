@@ -11,5 +11,5 @@ const (
 const (
 	PACKAGE    = "package"
 	UERRORS    = "uerrors"
-	PlayerFunc = "playerFun"
+	PLAYER_FUN = "playerFun"
 )
