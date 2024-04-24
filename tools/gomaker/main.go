@@ -17,31 +17,24 @@ var (
 )
 
 func main() {
-	var src, dst, tpl, action, param string
+	var action, param, tpl, src, dst string
 	flag.StringVar(&action, "action", "", "操作模式")
-	flag.StringVar(&param, "param", "", "设置参数，不同的action的params含义不同")
-	flag.StringVar(&tpl, "tpl", "", "加载.tpl文件路径, 默认从${TPL_GO}环境变量中读取")
-	flag.StringVar(&src, "src", "", "解析.go文件路径")
-	flag.StringVar(&dst, "dst", "", "生成.gen.go文件路径")
+	flag.StringVar(&param, "param", "", "生成参数（不同的action的params含义不同）")
+	flag.StringVar(&tpl, "tpl", "", "加载.tpl文件路径（默认从${TPL_GO}环境变量中读取）")
+	flag.StringVar(&src, "src", "", "解析.go文件路径（默认不解析go文件）")
+	flag.StringVar(&dst, "dst", "", "生成.gen.go文件路径（默认为当前工作目录）")
 	flag.Parse()
 
-	var err error
 	// 将相对路径转成绝对路径
 	if len(action) <= 0 {
-		fmt.Println("-action: parametar is empty")
+		fmt.Println("-action: parameter is empty")
 		return
 	}
-	if tpl, err = base.GetAbsPath(base.GetPathDefault(tpl, "TPL_GO"), CwdPath); err != nil {
-		fmt.Println("-tpl: ", err)
+	if tpl = base.GetAbsPath(base.GetPathDefault(tpl, os.Getenv("TPL_GO")), CwdPath); len(tpl) <= 0 {
+		fmt.Println("-tpl(TPL_GO): parameter is empty")
 		return
 	}
-	if len(src) > 0 {
-		src, _ = base.GetAbsPath(src, CwdPath)
-	}
-	if dst, err = base.GetAbsPath(dst, CwdPath); err != nil {
-		fmt.Println("-dst: ", err)
-		return
-	}
+	dst = base.GetAbsPath(base.GetPathDefault(dst, CwdPath), CwdPath)
 	// 加载模板文件
 	manager.InitTpl(tpl)
 	// 解析go文件

@@ -7,6 +7,7 @@ import (
 	"path/filepath"
 	"strings"
 	"universal/framework/basic"
+	"universal/tools/gomaker/internal/base"
 	"universal/tools/gomaker/internal/manager"
 )
 
@@ -37,9 +38,8 @@ func ParseFiles(src string, CwdPath string) error {
 	fset := token.NewFileSet()
 	d := &TypeParser{}
 	for _, pp := range strings.Split(src, ",") {
-		if !filepath.IsAbs(pp) {
-			pp = filepath.Join(CwdPath, pp)
-		}
+		pp = base.GetAbsPath(pp, CwdPath)
+
 		if !strings.HasSuffix(pp, ".go") {
 			pp = filepath.Join(pp, "*.go")
 		}

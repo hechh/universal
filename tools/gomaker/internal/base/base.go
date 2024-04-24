@@ -1,27 +1,24 @@
 package base
 
 import (
-	"fmt"
-	"os"
 	"path/filepath"
-	"universal/framework/basic"
 )
 
-func GetAbsPath(src string, root string) (string, error) {
+func GetAbsPath(src string, root string) string {
 	if len(src) <= 0 {
-		return "", basic.NewUError(2, -1, fmt.Sprintf("Relative path is empty"))
+		return src
 	}
 	if !filepath.IsAbs(src) {
-		return filepath.Join(root, src), nil
+		return filepath.Join(root, src)
 	}
-	return src, nil
+	return src
 }
 
 func GetPathDefault(dst string, defaultEnv string) string {
 	if len(dst) > 0 {
 		return dst
 	}
-	return os.Getenv(defaultEnv)
+	return defaultEnv
 }
 
 func GetFilePathBase(dst string) string {
