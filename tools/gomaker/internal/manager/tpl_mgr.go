@@ -27,7 +27,7 @@ func InitTpl(root string) {
 			return nil
 		}
 		if info.IsDir() {
-			tpls[filepath.Base(path)] = template.Must(template.ParseGlob(path + "/*.tpl"))
+			tpls[filepath.Base(path)] = template.Must(template.ParseGlob(path + "/*.tpl")).Funcs(template.FuncMap{"html": func(s string) string { return s }})
 			return nil
 		}
 		return nil
@@ -39,6 +39,8 @@ func GenPackage(dst string, buf *bytes.Buffer) error {
 	if pkg == nil {
 		return basic.NewUError(2, -1, fmt.Sprintf("The tpl of %s.tpl is not supported", domain.PACKAGE))
 	}
-	err := pkg.ExecuteTemplate(buf, domain.PACKAGE+".tpl", base.GetFilePathBase(dst))
-	return basic.NewUError(2, -1, err)
+	if err := pkg.ExecuteTemplate(buf, domain.PACKAGE+".tpl", base.GetFilePathBase(dst)); err != nil {
+		return basic.NewUError(2, -1, err)
+	}
+	return nil
 }

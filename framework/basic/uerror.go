@@ -17,12 +17,14 @@ type UError struct {
 func NewUError(skip int, code pb.ErrorCode, msg interface{}) *UError {
 	var errMsg string
 	switch v := msg.(type) {
-	case *UError:
-		return v
 	case string:
 		errMsg = v
+		break
+	case *UError:
+		return v
 	case error:
 		errMsg = v.Error()
+		break
 	}
 	pc, file, line, _ := runtime.Caller(skip)
 	funcName := runtime.FuncForPC(pc).Name()
@@ -59,5 +61,5 @@ func (d *UError) GetErrMsg() string {
 
 func (d *UError) Error() string {
 	ctype := pb.ErrorCode(d.code)
-	return fmt.Sprintf("%s:%d %s %s(%d): %s", d.file, d.line, d.funcName, ctype.String(), d.code, d.errMsg)
+	return fmt.Sprintf("%s:%d %s \n\t%s(%d): %s\n", d.file, d.line, d.funcName, ctype.String(), d.code, d.errMsg)
 }

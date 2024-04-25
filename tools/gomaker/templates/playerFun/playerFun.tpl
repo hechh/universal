@@ -54,6 +54,16 @@ func (this *{{$name}}) SetUserTypeInfo(message proto.Message) bool {
 
 // --------------------交互接口实现------------------------------
 {{range $req := .ReqList}} {{$rsp := $.Join ($.TrimSuffix $req "Request") "Response"}}
+func (this *{{$name}}) {{$req}}(head *pb.RpcHead, request, response proto.Message) error {
+	//req := request.(*pb.{{$req}})
+	//rsp := response.(*pb.{{$rsp}})
+	// to
+	return nil
+}
+{{end}}
+
+/*
+{{range $req := .ReqList}} {{$rsp := $.Join ($.TrimSuffix $req "Request") "Response"}}
 func (this *Player) {{$req}}(ctx context.Context, req *pb.{{$req}}) {
 	head := this.GetRpcHead(ctx)
 	rsp := &pb.{{$rsp}}{PacketHead: &pb.IPacket{}}
@@ -64,13 +74,11 @@ func (this *Player) {{$req}}(ctx context.Context, req *pb.{{$req}}) {
 	packet.SendToClient(head, rsp, uerror.GetCode(err))
 }
 {{end}}
+*/
 
+
+/*
 {{range $req := .ReqList}} {{$rsp := $.Join ($.TrimSuffix $req "Request") "Response"}}
-func (this *{{$name}}) {{$req}}(head *pb.RpcHead, request, response proto.Message) error {
-	//req := request.(*pb.{{$req}})
-	//rsp := response.(*pb.{{$rsp}})
-	// to
-	return nil
-}
+RegisterPacket(&pb.{{$req}}{}, "game{{html "<"}}-Player.{{$req}}", &pb.{{$rsp}}{}, WithCmd(true))
 {{end}}
-
+*/
