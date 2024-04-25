@@ -2,6 +2,7 @@ package manager
 
 import (
 	"fmt"
+	"universal/common/pb"
 	"universal/framework/packet/domain"
 	"universal/framework/packet/internal/repository"
 
@@ -21,7 +22,14 @@ func RegisterApi(apiCode int32, h domain.ApiFunc, req, rsp proto.Message) {
 }
 
 func RegisterActor(apiCode int32, h interface{}) {
-
+	if _, ok := apiPool[apiCode]; !ok {
+		apiPool[apiCode] = newActorMgr(&pb.ActorRequest{}, &pb.ActorResponse{})
+	}
+	mgr, ok := apiPool[apiCode].(*ActorMgr)
+	if !ok {
+		panic(fmt.Sprintf("%d is not ActorPacket", apiCode))
+	}
+	mgr.Register(h)
 }
 
 /*

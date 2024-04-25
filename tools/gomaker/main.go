@@ -61,4 +61,5 @@ func init() {
 
 	manager.Register(domain.UERRORS, uerrors.Gen, "生成errorCode错误码文件")
 	manager.Register(domain.PLAYER_FUN, playerFun.Gen, "生成playerFun模板, 减少手写")
+	manager.Register(domain.PLAYER_TEST, playerFun.Gen, "生成playerFunc测试模板, 减少手写")
 }

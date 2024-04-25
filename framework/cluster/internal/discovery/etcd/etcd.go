@@ -71,13 +71,13 @@ func (d *Etcd) GetSelf() *pb.ClusterNode {
 func (d *Etcd) Walk(path string, f domain.DiscoveryFunc) error {
 	resp, err := d.client.Get(context.Background(), path, clientv3.WithPrefix())
 	if err != nil {
-		return basic.NewUError(2, pb.ErrorCode_BuildEtcdClient, err)
+		return basic.NewUError(1, pb.ErrorCode_BuildEtcdClient, err)
 	}
 	for _, kv := range resp.Kvs {
 		if node, err := basic.UnmarhsalClusterNode(kv.Value); err == nil {
 			f(domain.ActionTypeNone, node)
 		} else {
-			return basic.NewUError(2, pb.ErrorCode_Unmarshal, err)
+			return basic.NewUError(1, pb.ErrorCode_Unmarshal, err)
 		}
 	}
 	// 自身节点

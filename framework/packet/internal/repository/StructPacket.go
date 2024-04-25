@@ -3,7 +3,6 @@ package repository
 import (
 	"bytes"
 	"encoding/gob"
-	"fmt"
 	"reflect"
 	"universal/common/pb"
 	"universal/framework/basic"
@@ -46,16 +45,12 @@ func (d *StructPacket) GetStructName() string {
 	return d.stName
 }
 
-func (d *StructPacket) Call(ctx *basic.Context, pac *pb.Packet) *pb.Packet {
+func (d *StructPacket) Call(ctx *basic.Context, pac *pb.Packet) (*pb.Packet, error) {
 	params := make([]reflect.Value, len(d.params))
 	if val := ctx.GetValue(d.stName); val != nil {
 		params[0] = reflect.ValueOf(val)
 	} else {
-		return &pb.Packet{
-			Head:   pac.Head,
-			Code:   -1,
-			ErrMsg: fmt.Sprintf("The object of %s is not found", d.stName),
-		}
+		return &pb.Packet{Head: pac.Head}, nil
 	}
 	// 解析参数
 	decode := gob.NewDecoder(bytes.NewReader(pac.Buff))
@@ -73,10 +68,12 @@ func (d *StructPacket) Call(ctx *basic.Context, pac *pb.Packet) *pb.Packet {
 	// 返回
 	result := &pb.Packet{Head: ctx.PacketHead}
 	if ll := len(results); ll > 0 {
-		basic.ToErrorPacket(result, results[ll-1].Interface().(error))
-		if ll > 1 {
-			result.Buff = basic.ToGobBytes(results[:ll-1])
-		}
+		/*
+			basic.ToErrorPacket(result, results[ll-1].Interface().(error))
+			if ll > 1 {
+				result.Buff = basic.ToGobBytes(results[:ll-1])
+			}
+		*/
 	}
-	return result
+	return result, nil
 }

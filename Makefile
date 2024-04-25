@@ -14,7 +14,7 @@ BUILD=$(TARGET:%=%_build)
 #--------设置target变量---------
 race:RACE=-race
 #---------程序编译选项-----------
-all: $(TARGET)
+all: uerrors $(TARGET)
 
 $(TARGET): gen
 ifeq (${SYSTEM}, windows)

@@ -11,7 +11,7 @@ enum ClusterType {
 
 // 发送标志
 enum SendType {
-    POINT      = 0;  // 指定集群id
+    POINT     = 0;  // 指定集群id
     BOARDCAST = 1;  // 广播
 };
 
@@ -32,35 +32,31 @@ message PacketHead {
     SendType    SendType       = 5;  // 传输协议
     uint32      SeqID          = 6;  // 序列号
     uint64      UID            = 7;  // 目标玩家uid
-    int32      ApiCode        = 8;  // 请求接口唯一id
+    int32       ApiCode        = 8;  // 请求接口唯一id
     int64       Time           = 9;
 }
 
 // 原始包
 message Packet {
-    PacketHead Head   = 1;  // 包头
-    bytes      Buff   = 2;  // proto压缩数据
+    PacketHead Head = 1;  // 包头
+    bytes      Buff = 2;  // proto压缩数据
 }
 
 // 客户端包头
 message RpcHead {
-    int32       Code           = 1;  // 错误码 ErrorCode
-    string      ErrMsg         = 2;  // 错误信息
+    int32  Code   = 1;  // 错误码 ErrorCode
+    string ErrMsg = 2;  // 错误信息
 }
 
 // 服务之前调用包头（任意参数接口调用）
 message ActorRequest {
-    RpcHead Head = 1;
-    string ActorName = 2;
-    string FuncName = 3;
-    bytes   Buff = 4;
+    RpcHead Head      = 1;
+    string  ActorName = 2;
+    string  FuncName  = 3;
+    bytes   Buff      = 4;
 }
 
 message ActorResponse {
     RpcHead Head = 1;
-    string ActorName = 2;
-    string FuncName = 3;
     bytes   Buff = 2;
 }
-
-

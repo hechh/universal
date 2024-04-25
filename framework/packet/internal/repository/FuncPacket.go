@@ -54,10 +54,12 @@ func (d *FuncPacket) Call(ctx *basic.Context, pac *pb.Packet) (*pb.Packet, error
 	// 返回
 	result := &pb.Packet{Head: ctx.PacketHead}
 	if ll := len(results); ll > 0 {
-		basic.ToErrorPacket(result, results[ll-1].Interface().(error))
-		if ll > 1 {
-			result.Buff = basic.ToGobBytes(results[:ll-1])
-		}
+		/*
+			basic.ToErrorPacket(result, results[ll-1].Interface().(error))
+			if ll > 1 {
+				result.Buff = basic.ToGobBytes(results[:ll-1])
+			}
+		*/
 	}
-	return result
+	return result, nil
 }

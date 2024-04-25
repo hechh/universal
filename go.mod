@@ -3,10 +3,10 @@ module universal
 go 1.22.1
 
 require (
+	github.com/golang/protobuf v1.5.0
 	github.com/nats-io/nats.go v1.34.1
 	github.com/spf13/cast v1.6.0
 	go.etcd.io/etcd v2.3.8+incompatible
-	golang.org/x/net v0.24.0
 	google.golang.org/protobuf v1.33.0
 )
 

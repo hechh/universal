@@ -5,15 +5,13 @@ import (
 	"go/parser"
 	"go/token"
 	"os"
-	"path/filepath"
 	"testing"
-	"universal/tools/gomaker/internal/parse"
 )
 
 func TestParse(t *testing.T) {
 	//analysis := &Analysis{}
 	fset := token.NewFileSet()
-	for _, file := range []string{"error.pb.go", "packet.pb.go"} {
+	for _, file := range []string{"error.pb.go", "packet.pb.go", "IPacket.go"} {
 		f, err := parser.ParseFile(fset, file, nil, parser.ParseComments)
 		if err != nil {
 			panic(err)
@@ -25,23 +23,4 @@ func TestParse(t *testing.T) {
 
 		//ast.Walk(analysis, f)
 	}
-}
-
-func TestMM(t *testing.T) {
-	par := parse.NewTypeParser()
-
-	// 构建指定目录下所有文件的匹配模式
-	files, err := filepath.Glob("./*.pb.go")
-	if err != nil {
-		panic(err)
-	}
-	if err = par.ParseFiles(files...); err != nil {
-		panic(err)
-	}
-	//manager.GetTypeMgr().Print()
-	// 生成文件
-	//if err := uerrors.Gen(); err != nil {
-	//panic(err)
-	//}
-	//tmgr.Print()
 }

@@ -1,0 +1,35 @@
+{
+    "git.terminalGitEditor": true,
+    "terminal.integrated.defaultProfile.windows": "Git Bash",
+    "editor.minimap.enabled": false,
+    "editor.fontSize": 12,
+    "go.generateTestsFlags": [
+    ],
+    "go.testFlags": [
+        "-v",
+        //"-race"
+    ],
+    "cmake.configureOnOpen": true,
+    "diffEditor.hideUnchangedRegions.enabled": true,
+    "vim.useCtrlKeys": false,
+    "go.testTags": "",
+    "php.validate.executablePath": "E:\\php-8.3.3\\php.exe",
+    "go.testEnvVars": {
+
+    },
+    "go.delveConfig": {
+    },
+    "go.toolsManagement.autoUpdate": true,
+    "clang-format.style": "{BasedOnStyle: Google, AlignConsecutiveAssignments: true, AlignConsecutiveDeclarations: true, ColumnLimit: 0, IndentWidth: 4}",
+    "clang-format.executable": "E:\\clang-llvm\\bin\\clang-format.exe",
+    "editor.defaultFormatter": "xaver.clang-format",
+    "go.formatTool": "gofmt",
+    "protobuf3.clang-format.arguments": [
+        "-style=google"
+    ],
+    "editor.formatOnSave": true,
+    "[go]": {
+        "editor.defaultFormatter": "golang.go"
+    },
+    "editor.largeFileOptimizations": false,
+}

@@ -60,10 +60,10 @@ func toErrorRsp(err error, rsp proto.Message) {
 func RspToPacket(head *pb.PacketHead, err error, params ...interface{}) (*pb.Packet, error) {
 	var rsp proto.Message
 	if len(params) <= 0 {
-		rsp = &pb.CommonResponse{Head: &pb.RpcHead{}}
+		rsp = &pb.ActorResponse{Head: &pb.RpcHead{}}
 	} else {
 		if val, ok := params[0].(proto.Message); !ok {
-			rsp = &pb.CommonResponse{Head: &pb.RpcHead{}, Buff: ToGobBytes(params)}
+			rsp = &pb.ActorResponse{Head: &pb.RpcHead{}, Buff: ToGobBytes(params)}
 		} else {
 			rsp = val
 		}
@@ -73,7 +73,7 @@ func RspToPacket(head *pb.PacketHead, err error, params ...interface{}) (*pb.Pac
 	}
 	buf, err := proto.Marshal(rsp)
 	if err != nil {
-		return nil, NewUError(2, pb.ErrorCode_Marhsal, err)
+		return nil, NewUError(1, pb.ErrorCode_Marhsal, err)
 	}
 	return &pb.Packet{Head: head, Buff: buf}, nil
 }
@@ -81,10 +81,10 @@ func RspToPacket(head *pb.PacketHead, err error, params ...interface{}) (*pb.Pac
 func ReqToPacket(head *pb.PacketHead, params ...interface{}) (*pb.Packet, error) {
 	var req proto.Message
 	if len(params) <= 0 {
-		req = &pb.CommonRequest{Head: &pb.RpcHead{}}
+		req = &pb.ActorRequest{Head: &pb.RpcHead{}}
 	} else {
 		if val, ok := params[0].(proto.Message); !ok {
-			req = &pb.CommonRequest{Head: &pb.RpcHead{}, Buff: ToGobBytes(params)}
+			req = &pb.ActorRequest{Head: &pb.RpcHead{}, Buff: ToGobBytes(params)}
 		} else {
 			req = val
 		}
@@ -92,7 +92,7 @@ func ReqToPacket(head *pb.PacketHead, params ...interface{}) (*pb.Packet, error)
 	// 封装
 	buf, err := proto.Marshal(req)
 	if err != nil {
-		return nil, NewUError(2, pb.ErrorCode_Marhsal, err)
+		return nil, NewUError(1, pb.ErrorCode_Marhsal, err)
 	}
 	return &pb.Packet{Head: head, Buff: buf}, nil
 }
