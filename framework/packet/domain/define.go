@@ -15,5 +15,5 @@ type IApi interface {
 }
 
 type IPacket interface {
-	Call(*basic.Context, *pb.Packet) (*pb.Packet, error)
+	Call(*basic.Context, []byte) (*pb.Packet, error)
 }

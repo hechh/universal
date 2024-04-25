@@ -29,7 +29,7 @@ func NewStructPacket(f interface{}) (rets []*StructPacket) {
 		}
 		// 返回函数
 		rets = append(rets, &StructPacket{
-			actorName:  v.Name(),
+			actorName:  v.Elem().Name(),
 			fname:      m.Name,
 			isVariadic: m.Type.IsVariadic(),
 			handle:     m.Func,

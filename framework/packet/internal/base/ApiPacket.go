@@ -29,11 +29,11 @@ func (d *ApiPacket) GetFuncName() string {
 	return d.name
 }
 
-func (d *ApiPacket) Call(ctx *basic.Context, pac *pb.Packet) (*pb.Packet, error) {
+func (d *ApiPacket) Call(ctx *basic.Context, buf []byte) (*pb.Packet, error) {
 	newReq := reflect.New(d.req).Interface().(proto.Message)
 	newRsp := reflect.New(d.rsp).Interface().(proto.Message)
 
-	if err := proto.Unmarshal(pac.Buff, newReq); err != nil {
+	if err := proto.Unmarshal(buf, newReq); err != nil {
 		return nil, basic.NewUError(1, pb.ErrorCode_Unmarshal, err)
 	}
 	// 执行API

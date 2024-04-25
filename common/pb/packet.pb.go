@@ -540,6 +540,100 @@ func (x *ActorResponse) GetBuff() []byte {
 	return nil
 }
 
+type LoginRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Head *RpcHead `protobuf:"bytes,1,opt,name=Head,proto3" json:"Head,omitempty"`
+}
+
+func (x *LoginRequest) Reset() {
+	*x = LoginRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_packet_proto_msgTypes[6]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *LoginRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*LoginRequest) ProtoMessage() {}
+
+func (x *LoginRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_packet_proto_msgTypes[6]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use LoginRequest.ProtoReflect.Descriptor instead.
+func (*LoginRequest) Descriptor() ([]byte, []int) {
+	return file_packet_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *LoginRequest) GetHead() *RpcHead {
+	if x != nil {
+		return x.Head
+	}
+	return nil
+}
+
+type LoginResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Head *RpcHead `protobuf:"bytes,1,opt,name=Head,proto3" json:"Head,omitempty"`
+}
+
+func (x *LoginResponse) Reset() {
+	*x = LoginResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_packet_proto_msgTypes[7]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *LoginResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*LoginResponse) ProtoMessage() {}
+
+func (x *LoginResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_packet_proto_msgTypes[7]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use LoginResponse.ProtoReflect.Descriptor instead.
+func (*LoginResponse) Descriptor() ([]byte, []int) {
+	return file_packet_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *LoginResponse) GetHead() *RpcHead {
+	if x != nil {
+		return x.Head
+	}
+	return nil
+}
+
 var File_packet_proto protoreflect.FileDescriptor
 
 var file_packet_proto_rawDesc = []byte{
@@ -592,13 +686,20 @@ var file_packet_proto_rawDesc = []byte{
 	0x72, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x1f, 0x0a, 0x04, 0x48, 0x65, 0x61,
 	0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x0b, 0x2e, 0x70, 0x62, 0x2e, 0x52, 0x70, 0x63,
 	0x48, 0x65, 0x61, 0x64, 0x52, 0x04, 0x48, 0x65, 0x61, 0x64, 0x12, 0x12, 0x0a, 0x04, 0x42, 0x75,
-	0x66, 0x66, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0c, 0x52, 0x04, 0x42, 0x75, 0x66, 0x66, 0x2a, 0x29,
-	0x0a, 0x0b, 0x43, 0x6c, 0x75, 0x73, 0x74, 0x65, 0x72, 0x54, 0x79, 0x70, 0x65, 0x12, 0x08, 0x0a,
-	0x04, 0x47, 0x41, 0x54, 0x45, 0x10, 0x00, 0x12, 0x08, 0x0a, 0x04, 0x47, 0x41, 0x4d, 0x45, 0x10,
-	0x01, 0x12, 0x06, 0x0a, 0x02, 0x44, 0x42, 0x10, 0x02, 0x2a, 0x24, 0x0a, 0x08, 0x53, 0x65, 0x6e,
-	0x64, 0x54, 0x79, 0x70, 0x65, 0x12, 0x09, 0x0a, 0x05, 0x50, 0x4f, 0x49, 0x4e, 0x54, 0x10, 0x00,
-	0x12, 0x0d, 0x0a, 0x09, 0x42, 0x4f, 0x41, 0x52, 0x44, 0x43, 0x41, 0x53, 0x54, 0x10, 0x01, 0x42,
-	0x07, 0x5a, 0x05, 0x2e, 0x2e, 0x2f, 0x70, 0x62, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x66, 0x66, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0c, 0x52, 0x04, 0x42, 0x75, 0x66, 0x66, 0x22, 0x2f,
+	0x0a, 0x0c, 0x4c, 0x6f, 0x67, 0x69, 0x6e, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x1f,
+	0x0a, 0x04, 0x48, 0x65, 0x61, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x0b, 0x2e, 0x70,
+	0x62, 0x2e, 0x52, 0x70, 0x63, 0x48, 0x65, 0x61, 0x64, 0x52, 0x04, 0x48, 0x65, 0x61, 0x64, 0x22,
+	0x30, 0x0a, 0x0d, 0x4c, 0x6f, 0x67, 0x69, 0x6e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
+	0x12, 0x1f, 0x0a, 0x04, 0x48, 0x65, 0x61, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x0b,
+	0x2e, 0x70, 0x62, 0x2e, 0x52, 0x70, 0x63, 0x48, 0x65, 0x61, 0x64, 0x52, 0x04, 0x48, 0x65, 0x61,
+	0x64, 0x2a, 0x29, 0x0a, 0x0b, 0x43, 0x6c, 0x75, 0x73, 0x74, 0x65, 0x72, 0x54, 0x79, 0x70, 0x65,
+	0x12, 0x08, 0x0a, 0x04, 0x47, 0x41, 0x54, 0x45, 0x10, 0x00, 0x12, 0x08, 0x0a, 0x04, 0x47, 0x41,
+	0x4d, 0x45, 0x10, 0x01, 0x12, 0x06, 0x0a, 0x02, 0x44, 0x42, 0x10, 0x02, 0x2a, 0x24, 0x0a, 0x08,
+	0x53, 0x65, 0x6e, 0x64, 0x54, 0x79, 0x70, 0x65, 0x12, 0x09, 0x0a, 0x05, 0x50, 0x4f, 0x49, 0x4e,
+	0x54, 0x10, 0x00, 0x12, 0x0d, 0x0a, 0x09, 0x42, 0x4f, 0x41, 0x52, 0x44, 0x43, 0x41, 0x53, 0x54,
+	0x10, 0x01, 0x42, 0x07, 0x5a, 0x05, 0x2e, 0x2e, 0x2f, 0x70, 0x62, 0x62, 0x06, 0x70, 0x72, 0x6f,
+	0x74, 0x6f, 0x33,
 }
 
 var (
@@ -614,7 +715,7 @@ func file_packet_proto_rawDescGZIP() []byte {
 }
 
 var file_packet_proto_enumTypes = make([]protoimpl.EnumInfo, 2)
-var file_packet_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
+var file_packet_proto_msgTypes = make([]protoimpl.MessageInfo, 8)
 var file_packet_proto_goTypes = []interface{}{
 	(ClusterType)(0),      // 0: pb.ClusterType
 	(SendType)(0),         // 1: pb.SendType
@@ -624,6 +725,8 @@ var file_packet_proto_goTypes = []interface{}{
 	(*RpcHead)(nil),       // 5: pb.RpcHead
 	(*ActorRequest)(nil),  // 6: pb.ActorRequest
 	(*ActorResponse)(nil), // 7: pb.ActorResponse
+	(*LoginRequest)(nil),  // 8: pb.LoginRequest
+	(*LoginResponse)(nil), // 9: pb.LoginResponse
 }
 var file_packet_proto_depIdxs = []int32{
 	0, // 0: pb.ClusterNode.ClusterType:type_name -> pb.ClusterType
@@ -633,11 +736,13 @@ var file_packet_proto_depIdxs = []int32{
 	3, // 4: pb.Packet.Head:type_name -> pb.PacketHead
 	5, // 5: pb.ActorRequest.Head:type_name -> pb.RpcHead
 	5, // 6: pb.ActorResponse.Head:type_name -> pb.RpcHead
-	7, // [7:7] is the sub-list for method output_type
-	7, // [7:7] is the sub-list for method input_type
-	7, // [7:7] is the sub-list for extension type_name
-	7, // [7:7] is the sub-list for extension extendee
-	0, // [0:7] is the sub-list for field type_name
+	5, // 7: pb.LoginRequest.Head:type_name -> pb.RpcHead
+	5, // 8: pb.LoginResponse.Head:type_name -> pb.RpcHead
+	9, // [9:9] is the sub-list for method output_type
+	9, // [9:9] is the sub-list for method input_type
+	9, // [9:9] is the sub-list for extension type_name
+	9, // [9:9] is the sub-list for extension extendee
+	0, // [0:9] is the sub-list for field type_name
 }
 
 func init() { file_packet_proto_init() }
@@ -718,6 +823,30 @@ func file_packet_proto_init() {
 				return nil
 			}
 		}
+		file_packet_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*LoginRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_packet_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*LoginResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
@@ -725,7 +854,7 @@ func file_packet_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_packet_proto_rawDesc,
 			NumEnums:      2,
-			NumMessages:   6,
+			NumMessages:   8,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

@@ -17,8 +17,14 @@ func GetCrc32(str string) uint32 {
 }
 
 func GetFuncName(h interface{}) string {
-	v := reflect.ValueOf(h)
-	name := runtime.FuncForPC(v.Pointer()).Name()
+	var name string
+	switch vv := h.(type) {
+	case reflect.Value:
+		name = runtime.FuncForPC(vv.Pointer()).Name()
+	default:
+		v := reflect.ValueOf(vv)
+		name = runtime.FuncForPC(v.Pointer()).Name()
+	}
 	return strings.Split(name, ".")[1]
 }
 

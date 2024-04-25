@@ -1,4 +1,4 @@
-package actor
+package packet
 
 import (
 	"universal/common/pb"
@@ -21,6 +21,6 @@ func RegisterFunc(apiCode int32, h interface{}) {
 	manager.RegisterFunc(apiCode, h)
 }
 
-func Call(ctx *basic.Context, pac *pb.Packet) (*pb.Packet, error) {
-	return manager.Call(ctx, pac)
+func Call(ctx *basic.Context, buf []byte) (*pb.Packet, error) {
+	return manager.Call(ctx, buf)
 }

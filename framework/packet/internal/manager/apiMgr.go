@@ -44,10 +44,10 @@ func RegisterFunc(apiCode int32, h interface{}) {
 	mgr.RegisterFunc(h)
 }
 
-func Call(ctx *basic.Context, pac *pb.Packet) (*pb.Packet, error) {
+func Call(ctx *basic.Context, buf []byte) (*pb.Packet, error) {
 	val, ok := apiPool[ctx.ApiCode]
 	if !ok {
 		return nil, basic.NewUError(1, pb.ErrorCode_ApiCodeNotFound, ctx.String())
 	}
-	return val.Call(ctx, pac)
+	return val.Call(ctx, buf)
 }

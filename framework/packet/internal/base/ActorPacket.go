@@ -23,8 +23,9 @@ type ActorPacket struct {
 
 func NewActorPacket(req, rsp proto.Message) *ActorPacket {
 	return &ActorPacket{
-		req: reflect.TypeOf(req).Elem(),
-		rsp: reflect.TypeOf(rsp).Elem(),
+		req:  reflect.TypeOf(req).Elem(),
+		rsp:  reflect.TypeOf(rsp).Elem(),
+		apis: make(map[index]domain.IApi),
 	}
 }
 
@@ -47,10 +48,10 @@ func (d *ActorPacket) RegisterFunc(f interface{}) {
 	d.apis[index] = attr
 }
 
-func (d *ActorPacket) Call(ctx *basic.Context, pac *pb.Packet) (*pb.Packet, error) {
+func (d *ActorPacket) Call(ctx *basic.Context, buf []byte) (*pb.Packet, error) {
 	newReq := reflect.New(d.req).Interface().(proto.Message)
 	newRsp := reflect.New(d.rsp).Interface().(proto.Message)
-	if err := proto.Unmarshal(pac.Buff, newReq); err != nil {
+	if err := proto.Unmarshal(buf, newReq); err != nil {
 		return nil, basic.NewUError(1, pb.ErrorCode_Unmarshal, err)
 	}
 	// 获取index
