@@ -3,8 +3,9 @@ package manager
 import (
 	"fmt"
 	"universal/common/pb"
+	"universal/framework/basic"
 	"universal/framework/packet/domain"
-	"universal/framework/packet/internal/repository"
+	"universal/framework/packet/internal/base"
 
 	"google.golang.org/protobuf/proto"
 )
@@ -14,48 +15,39 @@ var (
 )
 
 func RegisterApi(apiCode int32, h domain.ApiFunc, req, rsp proto.Message) {
-	attr := repository.NewApiPacket(h, req, rsp)
+	attr := base.NewApiPacket(h, req, rsp)
 	if _, ok := apiPool[apiCode]; ok {
 		panic(fmt.Sprintf("ApiCode(%d) has already registered", apiCode))
 	}
 	apiPool[apiCode] = attr
 }
 
-func RegisterActor(apiCode int32, h interface{}) {
+func RegisterStruct(apiCode int32, h interface{}) {
 	if _, ok := apiPool[apiCode]; !ok {
-		apiPool[apiCode] = newActorMgr(&pb.ActorRequest{}, &pb.ActorResponse{})
+		apiPool[apiCode] = base.NewActorPacket(&pb.ActorRequest{}, &pb.ActorResponse{})
 	}
-	mgr, ok := apiPool[apiCode].(*ActorMgr)
+	mgr, ok := apiPool[apiCode].(*base.ActorPacket)
 	if !ok {
 		panic(fmt.Sprintf("%d is not ActorPacket", apiCode))
 	}
-	mgr.Register(h)
+	mgr.RegisterStruct(h)
 }
 
-/*
-func RegiserFunc(h interface{}) {
-	attr := repository.NewFuncPacket(h)
-	index := IndexPacket{"", attr.GetFuncName()}
-	if _, ok := packetPool[index]; ok {
-		panic(fmt.Sprintf("Func(%s) has already registered", attr.GetFuncName()))
+func RegisterFunc(apiCode int32, h interface{}) {
+	if _, ok := apiPool[apiCode]; !ok {
+		apiPool[apiCode] = base.NewActorPacket(&pb.ActorRequest{}, &pb.ActorResponse{})
 	}
-	packetPool[index] = attr
+	mgr, ok := apiPool[apiCode].(*base.ActorPacket)
+	if !ok {
+		panic(fmt.Sprintf("%d is not ActorPacket", apiCode))
+	}
+	mgr.RegisterFunc(h)
 }
 
-func RegisterStruct(st interface{}) {
-	for _, attr := range repository.NewStructPacket(st) {
-		index := IndexPacket{attr.GetStructName(), attr.GetFuncName()}
-		if _, ok := packetPool[index]; ok {
-			panic(fmt.Sprintf("%s.%s() has already registered", attr.GetStructName(), attr.GetFuncName()))
-		}
-		packetPool[index] = attr
+func Call(ctx *basic.Context, pac *pb.Packet) (*pb.Packet, error) {
+	val, ok := apiPool[ctx.ApiCode]
+	if !ok {
+		return nil, basic.NewUError(1, pb.ErrorCode_ApiCodeNotFound, ctx.String())
 	}
+	return val.Call(ctx, pac)
 }
-
-func GetIPacket(actorName, fname string) domain.IPacket {
-	if val, ok := packetPool[IndexPacket{actorName, fname}]; ok {
-		return val
-	}
-	return repository.NewEmptyPacket(actorName, fname)
-}
-*/

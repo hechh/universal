@@ -52,3 +52,11 @@ func SocketClose() *basic.UError {
 func NatsSubscribe() *basic.UError {
 	return basic.NewUError(2, pb.ErrorCode_NatsSubscribe, "NatsSubscribe")
 }
+
+func ActorNameNotFound() *basic.UError {
+	return basic.NewUError(2, pb.ErrorCode_ActorNameNotFound, "ActorNameNotFound")
+}
+
+func ApiCodeNotFound() *basic.UError {
+	return basic.NewUError(2, pb.ErrorCode_ApiCodeNotFound, "ApiCodeNotFound")
+}

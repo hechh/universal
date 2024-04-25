@@ -7,8 +7,13 @@ import (
 	"google.golang.org/protobuf/proto"
 )
 
+// 对外接口定义
+type ApiFunc func(*basic.Context, proto.Message, proto.Message) error
+
+type IApi interface {
+	Call(*basic.Context, proto.Message, proto.Message) error
+}
+
 type IPacket interface {
 	Call(*basic.Context, *pb.Packet) (*pb.Packet, error)
 }
-
-type ApiFunc func(*basic.Context, proto.Message, proto.Message) error

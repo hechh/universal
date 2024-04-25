@@ -1,4 +1,4 @@
-package repository
+package base
 
 import (
 	"bytes"
@@ -6,6 +6,8 @@ import (
 	"reflect"
 	"universal/common/pb"
 	"universal/framework/basic"
+
+	"google.golang.org/protobuf/proto"
 )
 
 type FuncPacket struct {
@@ -32,14 +34,15 @@ func NewFuncPacket(f interface{}) *FuncPacket {
 	}
 }
 
-func (d *FuncPacket) GetFuncName() string {
+func (d *FuncPacket) FuncName() string {
 	return d.name
 }
 
-func (d *FuncPacket) Call(ctx *basic.Context, pac *pb.Packet) (*pb.Packet, error) {
+func (d *FuncPacket) Call(ctx *basic.Context, req, rsp proto.Message) (err error) {
 	// 解析参数
 	params := make([]reflect.Value, len(d.params))
-	decode := gob.NewDecoder(bytes.NewReader(pac.Buff))
+	newReq := req.(*pb.ActorRequest)
+	decode := gob.NewDecoder(bytes.NewReader(newReq.Buff))
 	for i, paramType := range d.params {
 		params[i] = reflect.New(paramType).Elem()
 		decode.DecodeValue(params[i])
@@ -52,14 +55,10 @@ func (d *FuncPacket) Call(ctx *basic.Context, pac *pb.Packet) (*pb.Packet, error
 		results = d.handle.CallSlice(params)
 	}
 	// 返回
-	result := &pb.Packet{Head: ctx.PacketHead}
+	newRsp := req.(*pb.ActorResponse)
 	if ll := len(results); ll > 0 {
-		/*
-			basic.ToErrorPacket(result, results[ll-1].Interface().(error))
-			if ll > 1 {
-				result.Buff = basic.ToGobBytes(results[:ll-1])
-			}
-		*/
+		err, _ = results[ll-1].Interface().(error)
+		newRsp.Buff = basic.ToGobBytes(results[:ll-1])
 	}
-	return result, nil
+	return
 }

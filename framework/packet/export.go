@@ -1,24 +1,26 @@
 package actor
 
 import (
+	"universal/common/pb"
+	"universal/framework/basic"
 	"universal/framework/packet/domain"
 	"universal/framework/packet/internal/manager"
 
 	"google.golang.org/protobuf/proto"
 )
 
-func RegisterCMD(h domain.CmdFunc, req, rsp proto.Message) {
-	manager.RegisterCMD(h, req, rsp)
+func RegisterApi(apiCode int32, h domain.ApiFunc, req, rsp proto.Message) {
+	manager.RegisterApi(apiCode, h, req, rsp)
 }
 
-func RegiserFunc(h interface{}) {
-	manager.RegiserFunc(h)
+func RegisterStruct(apiCode int32, h interface{}) {
+	manager.RegisterStruct(apiCode, h)
 }
 
-func RegisterStruct(st interface{}) {
-	manager.RegisterStruct(st)
+func RegisterFunc(apiCode int32, h interface{}) {
+	manager.RegisterFunc(apiCode, h)
 }
 
-func GetIPacket(actorName, fname string) domain.IPacket {
-	return manager.GetIPacket(actorName, fname)
+func Call(ctx *basic.Context, pac *pb.Packet) (*pb.Packet, error) {
+	return manager.Call(ctx, pac)
 }

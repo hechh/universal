@@ -16,6 +16,8 @@ enum ErrorCode {
     NewClient       = 9;   // 客户端连接失败
     SocketClose     = 10;  // 断开网络连接失败
     NatsSubscribe   = 11;  // 订阅错误
+    ActorNameNotFound = 12; // 
+    ApiCodeNotFound = 13;
 };
 
 // 请求uuid

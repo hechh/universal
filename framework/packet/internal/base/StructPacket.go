@@ -1,4 +1,4 @@
-package repository
+package base
 
 import (
 	"bytes"
@@ -6,11 +6,13 @@ import (
 	"reflect"
 	"universal/common/pb"
 	"universal/framework/basic"
+
+	"google.golang.org/protobuf/proto"
 )
 
 type StructPacket struct {
-	stName     string         // 结构名字
-	name       string         // 函数名
+	actorName  string         // 结构名字
+	fname      string         // 函数名
 	isVariadic bool           // 是否为可变参数
 	handle     reflect.Value  // 函数
 	params     []reflect.Type // 参数
@@ -27,8 +29,8 @@ func NewStructPacket(f interface{}) (rets []*StructPacket) {
 		}
 		// 返回函数
 		rets = append(rets, &StructPacket{
-			stName:     v.Name(),
-			name:       m.Name,
+			actorName:  v.Name(),
+			fname:      m.Name,
 			isVariadic: m.Type.IsVariadic(),
 			handle:     m.Func,
 			params:     params,
@@ -37,23 +39,24 @@ func NewStructPacket(f interface{}) (rets []*StructPacket) {
 	return
 }
 
-func (d *StructPacket) GetFuncName() string {
-	return d.name
+func (d *StructPacket) FuncName() string {
+	return d.fname
 }
 
-func (d *StructPacket) GetStructName() string {
-	return d.stName
+func (d *StructPacket) ActorName() string {
+	return d.actorName
 }
 
-func (d *StructPacket) Call(ctx *basic.Context, pac *pb.Packet) (*pb.Packet, error) {
+func (d *StructPacket) Call(ctx *basic.Context, req, rsp proto.Message) (err error) {
 	params := make([]reflect.Value, len(d.params))
-	if val := ctx.GetValue(d.stName); val != nil {
-		params[0] = reflect.ValueOf(val)
-	} else {
-		return &pb.Packet{Head: pac.Head}, nil
+	obj := ctx.GetValue(d.actorName)
+	if obj == nil {
+		return basic.NewUError(1, pb.ErrorCode_ActorNameNotFound, d.actorName)
 	}
+	params[0] = reflect.ValueOf(obj)
 	// 解析参数
-	decode := gob.NewDecoder(bytes.NewReader(pac.Buff))
+	newReq := req.(*pb.ActorRequest)
+	decode := gob.NewDecoder(bytes.NewReader(newReq.Buff))
 	for i := 1; i < len(d.params); i++ {
 		params[i] = reflect.New(d.params[i]).Elem()
 		decode.DecodeValue(params[i])
@@ -66,14 +69,10 @@ func (d *StructPacket) Call(ctx *basic.Context, pac *pb.Packet) (*pb.Packet, err
 		results = d.handle.CallSlice(params)
 	}
 	// 返回
-	result := &pb.Packet{Head: ctx.PacketHead}
+	newRsp := req.(*pb.ActorResponse)
 	if ll := len(results); ll > 0 {
-		/*
-			basic.ToErrorPacket(result, results[ll-1].Interface().(error))
-			if ll > 1 {
-				result.Buff = basic.ToGobBytes(results[:ll-1])
-			}
-		*/
+		err, _ = results[ll-1].Interface().(error)
+		newRsp.Buff = basic.ToGobBytes(results[:ll-1])
 	}
-	return result, nil
+	return
 }
