@@ -69,10 +69,14 @@ func (d *StructPacket) Call(ctx *basic.Context, req, rsp proto.Message) (err err
 		results = d.handle.CallSlice(params)
 	}
 	// 返回
-	newRsp := req.(*pb.ActorResponse)
+	var ok bool
+	newRsp := rsp.(*pb.ActorResponse)
 	if ll := len(results); ll > 0 {
-		err, _ = results[ll-1].Interface().(error)
-		newRsp.Buff = basic.ToGobBytes(results[:ll-1])
+		if err, ok = results[ll-1].Interface().(error); ok {
+			newRsp.Buff = basic.ToGobBytes(results[:ll-1])
+		} else {
+			newRsp.Buff = basic.ToGobBytes(results)
+		}
 	}
 	return
 }

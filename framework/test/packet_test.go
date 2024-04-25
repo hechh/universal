@@ -16,7 +16,7 @@ func Print(name string, val int32) {
 }
 
 func Login(ctx *basic.Context, req, rsp proto.Message) error {
-	fmt.Println(ctx, "---->", req, rsp)
+	fmt.Println(ctx, "--Login-->", req, rsp)
 	return nil
 }
 
@@ -56,11 +56,20 @@ func TestApi(t *testing.T) {
 	data := map[string]interface{}{
 		"Person": &Person{"hch", 120},
 	}
-	head := &pb.PacketHead{UID: 1234000, ApiCode: 1}
-	ctx := basic.NewContext(head, data)
-
-	req := &pb.LoginRequest{}
-	buf, _ := proto.Marshal(req)
-	ret, err := packet.Call(ctx, buf)
-	t.Log(ret, err)
+	t.Run("Login", func(t *testing.T) {
+		head := &pb.PacketHead{UID: 1234000, ApiCode: 1}
+		ctx := basic.NewContext(head, data)
+		req := &pb.LoginRequest{}
+		buf, _ := proto.Marshal(req)
+		ret, err := packet.Call(ctx, buf)
+		fmt.Println(ret, "-----------", err)
+	})
+	t.Run("Func", func(t *testing.T) {
+		head := &pb.PacketHead{UID: 1234000, ApiCode: 2}
+		ctx := basic.NewContext(head, data)
+		req := &pb.ActorRequest{ActorName: "Person", FuncName: "GetName"}
+		buf, _ := proto.Marshal(req)
+		ret, err := packet.Call(ctx, buf)
+		fmt.Println(ret, "-----------", err)
+	})
 }
