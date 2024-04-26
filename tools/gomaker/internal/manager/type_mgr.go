@@ -12,6 +12,33 @@ var (
 	alias   = make(map[string]*typespec.Alias)  // 类型别名
 )
 
+func initPkgName(typ *typespec.Type) {
+	if typ.Key != nil {
+		initPkgName(typ.Key)
+		initPkgName(typ.Value)
+	} else {
+		if val, ok := alias[typ.Name]; ok {
+			typ.PkgName = val.PkgName
+			return
+		}
+		if val, ok := structs[typ.Name]; ok {
+			typ.PkgName = val.PkgName
+			return
+		}
+	}
+}
+
+func Finished() {
+	for _, aa := range alias {
+		initPkgName(aa.Type)
+	}
+	for _, st := range structs {
+		for _, ff := range st.List {
+			initPkgName(ff.Type)
+		}
+	}
+}
+
 func GetMapStruct() map[string]*typespec.Struct {
 	return structs
 }

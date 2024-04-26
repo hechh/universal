@@ -7,6 +7,7 @@ import (
 	"universal/tools/gomaker/internal/base"
 	"universal/tools/gomaker/internal/manager"
 	"universal/tools/gomaker/internal/service"
+	"universal/tools/gomaker/repository/entity"
 	"universal/tools/gomaker/repository/playerFun"
 	"universal/tools/gomaker/repository/uerrors"
 )
@@ -60,4 +61,5 @@ func init() {
 
 	playerFun.Init()
 	uerrors.Init()
+	entity.Init()
 }

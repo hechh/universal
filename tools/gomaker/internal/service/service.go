@@ -39,7 +39,6 @@ func ParseFiles(src string, CwdPath string) error {
 	d := &TypeParser{}
 	for _, pp := range strings.Split(src, ",") {
 		pp = base.GetAbsPath(pp, CwdPath)
-
 		if !strings.HasSuffix(pp, ".go") {
 			pp = filepath.Join(pp, "*.go")
 		}
@@ -57,5 +56,7 @@ func ParseFiles(src string, CwdPath string) error {
 			ast.Walk(d, f)
 		}
 	}
+	// 修复pkgname
+	manager.Finished()
 	return nil
 }

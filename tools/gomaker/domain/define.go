@@ -13,4 +13,5 @@ const (
 	UERRORS     = "uerrors"
 	PLAYER_FUN  = "playerFun"
 	PLAYER_TEST = "playerTest"
+	ENTITY      = "entity"
 )
