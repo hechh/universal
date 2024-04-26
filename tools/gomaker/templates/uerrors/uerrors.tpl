@@ -6,7 +6,7 @@ import (
 {{range $v := .List}}
 {{$funcName := $.TrimPrefix $v.Name (printf "%s_" $.Name)}}
 func {{$funcName}}() *fbasic.UError {
-	return fbasic.NewUError(2, {{$.PkgName}}.{{$v.Name}}, "{{$funcName}}")
+	return fbasic.NewUError(1, {{$.PkgName}}.{{$v.Name}}, "{{$funcName}}")
 }
 {{end}}
 

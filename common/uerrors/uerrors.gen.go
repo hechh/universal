@@ -6,57 +6,57 @@ import (
 )
 
 func Success() *fbasic.UError {
-	return fbasic.NewUError(2, pb.ErrorCode_Success, "Success")
+	return fbasic.NewUError(1, pb.ErrorCode_Success, "Success")
 }
 
 func Unmarshal() *fbasic.UError {
-	return fbasic.NewUError(2, pb.ErrorCode_Unmarshal, "Unmarshal")
+	return fbasic.NewUError(1, pb.ErrorCode_Unmarshal, "Unmarshal")
 }
 
 func NotSupported() *fbasic.UError {
-	return fbasic.NewUError(2, pb.ErrorCode_NotSupported, "NotSupported")
+	return fbasic.NewUError(1, pb.ErrorCode_NotSupported, "NotSupported")
 }
 
 func BuildEtcdClient() *fbasic.UError {
-	return fbasic.NewUError(2, pb.ErrorCode_BuildEtcdClient, "BuildEtcdClient")
+	return fbasic.NewUError(1, pb.ErrorCode_BuildEtcdClient, "BuildEtcdClient")
 }
 
 func NotExist() *fbasic.UError {
-	return fbasic.NewUError(2, pb.ErrorCode_NotExist, "NotExist")
+	return fbasic.NewUError(1, pb.ErrorCode_NotExist, "NotExist")
 }
 
 func Parameter() *fbasic.UError {
-	return fbasic.NewUError(2, pb.ErrorCode_Parameter, "Parameter")
+	return fbasic.NewUError(1, pb.ErrorCode_Parameter, "Parameter")
 }
 
 func NotFound() *fbasic.UError {
-	return fbasic.NewUError(2, pb.ErrorCode_NotFound, "NotFound")
+	return fbasic.NewUError(1, pb.ErrorCode_NotFound, "NotFound")
 }
 
 func Marhsal() *fbasic.UError {
-	return fbasic.NewUError(2, pb.ErrorCode_Marhsal, "Marhsal")
+	return fbasic.NewUError(1, pb.ErrorCode_Marhsal, "Marhsal")
 }
 
 func NatsPublish() *fbasic.UError {
-	return fbasic.NewUError(2, pb.ErrorCode_NatsPublish, "NatsPublish")
+	return fbasic.NewUError(1, pb.ErrorCode_NatsPublish, "NatsPublish")
 }
 
 func NewClient() *fbasic.UError {
-	return fbasic.NewUError(2, pb.ErrorCode_NewClient, "NewClient")
+	return fbasic.NewUError(1, pb.ErrorCode_NewClient, "NewClient")
 }
 
 func SocketClose() *fbasic.UError {
-	return fbasic.NewUError(2, pb.ErrorCode_SocketClose, "SocketClose")
+	return fbasic.NewUError(1, pb.ErrorCode_SocketClose, "SocketClose")
 }
 
 func NatsSubscribe() *fbasic.UError {
-	return fbasic.NewUError(2, pb.ErrorCode_NatsSubscribe, "NatsSubscribe")
+	return fbasic.NewUError(1, pb.ErrorCode_NatsSubscribe, "NatsSubscribe")
 }
 
 func ActorNameNotFound() *fbasic.UError {
-	return fbasic.NewUError(2, pb.ErrorCode_ActorNameNotFound, "ActorNameNotFound")
+	return fbasic.NewUError(1, pb.ErrorCode_ActorNameNotFound, "ActorNameNotFound")
 }
 
 func ApiCodeNotFound() *fbasic.UError {
-	return fbasic.NewUError(2, pb.ErrorCode_ApiCodeNotFound, "ApiCodeNotFound")
+	return fbasic.NewUError(1, pb.ErrorCode_ApiCodeNotFound, "ApiCodeNotFound")
 }
