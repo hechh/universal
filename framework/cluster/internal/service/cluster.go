@@ -3,11 +3,11 @@ package service
 import (
 	"log"
 	"universal/common/pb"
-	"universal/framework/basic"
 	"universal/framework/cluster/domain"
 	"universal/framework/cluster/internal/balance"
 	"universal/framework/cluster/internal/discovery/etcd"
 	"universal/framework/cluster/internal/routine"
+	"universal/framework/fbasic"
 
 	"github.com/nats-io/nats.go"
 	"google.golang.org/protobuf/proto"
@@ -41,7 +41,7 @@ func InitCluster(node *pb.ClusterNode, natsUrl string, etcds []string) error {
 	// 连接nats
 	conn, err := nats.Connect(natsUrl)
 	if err != nil {
-		return basic.NewUError(1, pb.ErrorCode_NewClient, err)
+		return fbasic.NewUError(1, pb.ErrorCode_NewClient, err)
 	}
 	// 监听
 	dis.Watch(ROOT_DIR, func(action int, item *pb.ClusterNode) {
@@ -95,7 +95,7 @@ func (d *Cluster) Subscribe(h domain.ClusterFunc) {
 func (d *Cluster) Send(pac *pb.Packet) (err error) {
 	buf, err := proto.Marshal(pac)
 	if err != nil {
-		return basic.NewUError(1, pb.ErrorCode_Marhsal, err)
+		return fbasic.NewUError(1, pb.ErrorCode_Marhsal, err)
 	}
 	// 转发
 	head := pac.Head
@@ -111,7 +111,7 @@ func (d *Cluster) Send(pac *pb.Packet) (err error) {
 		// 转发
 		err = d.conn.Publish(domain.GetTopicChannel(head.DstClusterType), buf)
 	}
-	return basic.NewUError(1, pb.ErrorCode_NatsPublish, err)
+	return fbasic.NewUError(1, pb.ErrorCode_NatsPublish, err)
 }
 
 // 路由

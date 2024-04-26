@@ -6,7 +6,7 @@ import (
 	"go/token"
 	"path/filepath"
 	"strings"
-	"universal/framework/basic"
+	"universal/framework/fbasic"
 	"universal/tools/gomaker/internal/base"
 	"universal/tools/gomaker/internal/manager"
 )
@@ -46,13 +46,13 @@ func ParseFiles(src string, CwdPath string) error {
 		// 读取所有文件
 		files, err := filepath.Glob(pp)
 		if err != nil {
-			return basic.NewUError(2, -1, err)
+			return fbasic.NewUError(2, -1, err)
 		}
 		// 解析文件
 		for _, file := range files {
 			f, err := parser.ParseFile(fset, file, nil, parser.ParseComments)
 			if err != nil {
-				return basic.NewUError(2, -1, err)
+				return fbasic.NewUError(2, -1, err)
 			}
 			ast.Walk(d, f)
 		}

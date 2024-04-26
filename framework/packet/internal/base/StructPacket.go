@@ -5,7 +5,7 @@ import (
 	"encoding/gob"
 	"reflect"
 	"universal/common/pb"
-	"universal/framework/basic"
+	"universal/framework/fbasic"
 
 	"google.golang.org/protobuf/proto"
 )
@@ -47,11 +47,11 @@ func (d *StructPacket) ActorName() string {
 	return d.actorName
 }
 
-func (d *StructPacket) Call(ctx *basic.Context, req, rsp proto.Message) (err error) {
+func (d *StructPacket) Call(ctx *fbasic.Context, req, rsp proto.Message) (err error) {
 	params := make([]reflect.Value, len(d.params))
 	obj := ctx.GetValue(d.actorName)
 	if obj == nil {
-		return basic.NewUError(1, pb.ErrorCode_ActorNameNotFound, d.actorName)
+		return fbasic.NewUError(1, pb.ErrorCode_ActorNameNotFound, d.actorName)
 	}
 	params[0] = reflect.ValueOf(obj)
 	// 解析参数
@@ -73,9 +73,9 @@ func (d *StructPacket) Call(ctx *basic.Context, req, rsp proto.Message) (err err
 	newRsp := rsp.(*pb.ActorResponse)
 	if ll := len(results); ll > 0 {
 		if err, ok = results[ll-1].Interface().(error); ok {
-			newRsp.Buff = basic.ToGobBytes(results[:ll-1])
+			newRsp.Buff = fbasic.ToGobBytes(results[:ll-1])
 		} else {
-			newRsp.Buff = basic.ToGobBytes(results)
+			newRsp.Buff = fbasic.ToGobBytes(results)
 		}
 	}
 	return

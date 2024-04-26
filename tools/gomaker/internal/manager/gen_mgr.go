@@ -3,7 +3,7 @@ package manager
 import (
 	"flag"
 	"fmt"
-	"universal/framework/basic"
+	"universal/framework/fbasic"
 )
 
 type GenFunc func(action string, src string, params string) error
@@ -37,13 +37,13 @@ func Register(action string, f GenFunc, helps ...string) {
 func Gen(action string, src string, params string) error {
 	val, ok := genMgr[action]
 	if !ok {
-		return basic.NewUError(2, -1, fmt.Sprintf("%s is not suppported", action))
+		return fbasic.NewUError(2, -1, fmt.Sprintf("%s is not suppported", action))
 	}
 	return val.gen(action, src, params)
 }
 
 func HelpAction() {
-	fmt.Fprintf(flag.CommandLine.Output(), "action参数说明：\n")
+	fmt.Fprintf(flag.CommandLine.Output(), "-a 参数说明：\n")
 	for _, item := range genMgr {
 		fmt.Fprintf(flag.CommandLine.Output(), "\t %s: %s \n", item.action, item.help)
 	}

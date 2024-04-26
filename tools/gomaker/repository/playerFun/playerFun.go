@@ -8,7 +8,7 @@ import (
 	"os"
 	"path/filepath"
 	"strings"
-	"universal/framework/basic"
+	"universal/framework/fbasic"
 	"universal/tools/gomaker/internal/manager"
 	"universal/tools/gomaker/internal/typespec"
 )
@@ -42,24 +42,24 @@ func Gen(action string, dst string, params string) error {
 	}
 	// 模版
 	if tpl := manager.GetTpl(action); tpl == nil {
-		return basic.NewUError(2, -1, fmt.Sprintf("The action of %s is not supported", action))
+		return fbasic.NewUError(2, -1, fmt.Sprintf("The action of %s is not supported", action))
 	} else {
 		// 生成文件
 		if err := tpl.ExecuteTemplate(buf, action+".tpl", attr); err != nil {
-			return basic.NewUError(2, -1, err)
+			return fbasic.NewUError(2, -1, err)
 		}
 	}
 	// 格式化
 	result, err := format.Source(buf.Bytes())
 	if err != nil {
 		//ioutil.WriteFile("./gen.go", buf.Bytes(), os.FileMode(0644))
-		return basic.NewUError(2, -1, err)
+		return fbasic.NewUError(2, -1, err)
 	}
 	if err := os.MkdirAll(filepath.Dir(dst), os.FileMode(0777)); err != nil {
-		return basic.NewUError(2, -1, err)
+		return fbasic.NewUError(2, -1, err)
 	}
 	if err := ioutil.WriteFile(dst, result, os.FileMode(0666)); err != nil {
-		return basic.NewUError(2, -1, err)
+		return fbasic.NewUError(2, -1, err)
 	}
 	return nil
 }

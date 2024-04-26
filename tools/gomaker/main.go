@@ -18,8 +18,8 @@ var (
 
 func main() {
 	var action, param, tpl, src, dst string
-	flag.StringVar(&action, "action", "", "操作模式")
-	flag.StringVar(&param, "param", "", "生成参数（不同的action的params含义不同）")
+	flag.StringVar(&action, "a", "", "操作模式")
+	flag.StringVar(&param, "p", "", "参数（不同的action的params含义不同）")
 	flag.StringVar(&tpl, "tpl", "", "加载.tpl文件路径（默认从${TPL_GO}环境变量中读取）")
 	flag.StringVar(&src, "src", "", "解析.go文件路径（默认不解析go文件）")
 	flag.StringVar(&dst, "dst", "", "生成.gen.go文件路径（默认为当前工作目录）")
@@ -27,7 +27,7 @@ func main() {
 
 	// 将相对路径转成绝对路径
 	if len(action) <= 0 {
-		fmt.Println("-action: parameter is empty")
+		fmt.Println("-a: parameter is empty")
 		return
 	}
 	if tpl = base.GetAbsPath(base.GetPathDefault(tpl, os.Getenv("TPL_GO")), CwdPath); len(tpl) <= 0 {

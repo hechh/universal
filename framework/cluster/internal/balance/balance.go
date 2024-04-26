@@ -5,7 +5,7 @@ import (
 	"sort"
 	"sync"
 	"universal/common/pb"
-	"universal/framework/basic"
+	"universal/framework/fbasic"
 )
 
 type Balance struct {
@@ -37,7 +37,7 @@ func (d *Balance) GetNode(head *pb.PacketHead) *pb.ClusterNode {
 
 // 删除节点
 func (d *Balance) DelNode(node *pb.ClusterNode) {
-	node.ClusterID = basic.GetCrc32(fmt.Sprintf("%s:%d", node.Ip, node.Port))
+	node.ClusterID = fbasic.GetCrc32(fmt.Sprintf("%s:%d", node.Ip, node.Port))
 
 	d.Lock()
 	defer d.Unlock()
@@ -56,7 +56,7 @@ func (d *Balance) DelNode(node *pb.ClusterNode) {
 
 // 添加节点
 func (d *Balance) AddNode(node *pb.ClusterNode) {
-	node.ClusterID = basic.GetCrc32(fmt.Sprintf("%s:%d", node.Ip, node.Port))
+	node.ClusterID = fbasic.GetCrc32(fmt.Sprintf("%s:%d", node.Ip, node.Port))
 
 	d.Lock()
 	defer d.Unlock()

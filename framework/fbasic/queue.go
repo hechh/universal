@@ -1,4 +1,4 @@
-package basic
+package fbasic
 
 import (
 	"sync/atomic"

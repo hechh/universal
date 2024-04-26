@@ -5,7 +5,7 @@ import (
 	"encoding/gob"
 	"reflect"
 	"universal/common/pb"
-	"universal/framework/basic"
+	"universal/framework/fbasic"
 
 	"google.golang.org/protobuf/proto"
 )
@@ -27,7 +27,7 @@ func NewFuncPacket(f interface{}) *FuncPacket {
 	}
 	// 返回数据
 	return &FuncPacket{
-		name:       basic.GetFuncName(v),
+		name:       fbasic.GetFuncName(v),
 		isVariadic: t.IsVariadic(),
 		handle:     v,
 		params:     params,
@@ -38,7 +38,7 @@ func (d *FuncPacket) FuncName() string {
 	return d.name
 }
 
-func (d *FuncPacket) Call(ctx *basic.Context, req, rsp proto.Message) (err error) {
+func (d *FuncPacket) Call(ctx *fbasic.Context, req, rsp proto.Message) (err error) {
 	// 解析参数
 	params := make([]reflect.Value, len(d.params))
 	newReq := req.(*pb.ActorRequest)
@@ -59,9 +59,9 @@ func (d *FuncPacket) Call(ctx *basic.Context, req, rsp proto.Message) (err error
 	newRsp := rsp.(*pb.ActorResponse)
 	if ll := len(results); ll > 0 {
 		if err, ok = results[ll-1].Interface().(error); ok {
-			newRsp.Buff = basic.ToGobBytes(results[:ll-1])
+			newRsp.Buff = fbasic.ToGobBytes(results[:ll-1])
 		} else {
-			newRsp.Buff = basic.ToGobBytes(results)
+			newRsp.Buff = fbasic.ToGobBytes(results)
 		}
 	}
 	return

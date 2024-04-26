@@ -5,7 +5,7 @@ import (
 	"sync/atomic"
 	"time"
 	"universal/common/pb"
-	"universal/framework/basic"
+	"universal/framework/fbasic"
 )
 
 type Routine struct {
@@ -83,7 +83,7 @@ func (d *RoutineInfoList) GetAndNew(typ pb.ClusterType) (dst *RoutineInfo) {
 // 对玩家路由
 func (d *RoutineInfoList) UpdateRoutine(head *pb.PacketHead, node *pb.ClusterNode) error {
 	if node == nil {
-		return basic.NewUError(1, pb.ErrorCode_NotExist, "Node not found")
+		return fbasic.NewUError(1, pb.ErrorCode_NotExist, "Node not found")
 	}
 	// 设置路由关系
 	head.DstClusterID = node.ClusterID

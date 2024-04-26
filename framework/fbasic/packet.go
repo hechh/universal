@@ -1,8 +1,9 @@
-package basic
+package fbasic
 
 import (
 	"bytes"
 	"encoding/gob"
+	"encoding/json"
 	"hash/crc32"
 	"reflect"
 	"runtime"
@@ -12,8 +13,19 @@ import (
 	"google.golang.org/protobuf/proto"
 )
 
-func GetCrc32(str string) uint32 {
-	return crc32.ChecksumIEEE([]byte(str))
+func GetCrc32(str interface{}) uint32 {
+	var buf []byte
+	switch vv := str.(type) {
+	case string:
+		buf = []byte(vv)
+	case []byte:
+		buf = vv
+	case proto.Message:
+		buf, _ = proto.Marshal(vv)
+	default:
+		buf, _ = json.Marshal(str)
+	}
+	return crc32.ChecksumIEEE(buf)
 }
 
 func GetFuncName(h interface{}) string {

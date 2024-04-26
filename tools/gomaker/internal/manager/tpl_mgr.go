@@ -6,7 +6,7 @@ import (
 	"html/template"
 	"os"
 	"path/filepath"
-	"universal/framework/basic"
+	"universal/framework/fbasic"
 	"universal/tools/gomaker/domain"
 	"universal/tools/gomaker/internal/base"
 )
@@ -37,10 +37,10 @@ func InitTpl(root string) {
 func GenPackage(dst string, buf *bytes.Buffer) error {
 	pkg := GetTpl(domain.PACKAGE)
 	if pkg == nil {
-		return basic.NewUError(2, -1, fmt.Sprintf("The tpl of %s.tpl is not supported", domain.PACKAGE))
+		return fbasic.NewUError(2, -1, fmt.Sprintf("The tpl of %s.tpl is not supported", domain.PACKAGE))
 	}
 	if err := pkg.ExecuteTemplate(buf, domain.PACKAGE+".tpl", base.GetFilePathBase(dst)); err != nil {
-		return basic.NewUError(2, -1, err)
+		return fbasic.NewUError(2, -1, err)
 	}
 	return nil
 }

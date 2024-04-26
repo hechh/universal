@@ -3,7 +3,7 @@ package manager
 import (
 	"fmt"
 	"universal/common/pb"
-	"universal/framework/basic"
+	"universal/framework/fbasic"
 	"universal/framework/packet/domain"
 	"universal/framework/packet/internal/base"
 
@@ -44,10 +44,10 @@ func RegisterFunc(apiCode int32, h interface{}) {
 	mgr.RegisterFunc(h)
 }
 
-func Call(ctx *basic.Context, buf []byte) (*pb.Packet, error) {
+func Call(ctx *fbasic.Context, buf []byte) (*pb.Packet, error) {
 	val, ok := apiPool[ctx.ApiCode]
 	if !ok {
-		return nil, basic.NewUError(1, pb.ErrorCode_ApiCodeNotFound, ctx.String())
+		return nil, fbasic.NewUError(1, pb.ErrorCode_ApiCodeNotFound, ctx.String())
 	}
 	return val.Call(ctx, buf)
 }

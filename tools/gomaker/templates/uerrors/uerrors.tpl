@@ -1,12 +1,12 @@
 import (
 	"universal/common/pb"
-	"universal/framework/basic"
+	"universal/framework/fbasic"
 )
 
 {{range $v := .List}}
 {{$funcName := $.TrimPrefix $v.Name (printf "%s_" $.Name)}}
-func {{$funcName}}() *basic.UError {
-	return basic.NewUError(2, {{$.PkgName}}.{{$v.Name}}, "{{$funcName}}")
+func {{$funcName}}() *fbasic.UError {
+	return fbasic.NewUError(2, {{$.PkgName}}.{{$v.Name}}, "{{$funcName}}")
 }
 {{end}}
 

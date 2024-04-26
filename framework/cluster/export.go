@@ -2,9 +2,9 @@ package cluster
 
 import (
 	"universal/common/pb"
-	"universal/framework/basic"
 	"universal/framework/cluster/domain"
 	"universal/framework/cluster/internal/service"
+	"universal/framework/fbasic"
 
 	"google.golang.org/protobuf/proto"
 )
@@ -25,7 +25,7 @@ func SendToGame(head *pb.PacketHead, params ...interface{}) error {
 
 	head.DstClusterType = pb.ClusterType_GAME
 	head.SendType = pb.SendType_POINT
-	pac, err := basic.ReqToPacket(head, params...)
+	pac, err := fbasic.ReqToPacket(head, params...)
 	if err != nil {
 		return err
 	}
@@ -40,7 +40,7 @@ func SendToDb(head *pb.PacketHead, params ...interface{}) error {
 
 	head.DstClusterType = pb.ClusterType_DB
 	head.SendType = pb.SendType_POINT
-	pac, err := basic.ReqToPacket(head, params...)
+	pac, err := fbasic.ReqToPacket(head, params...)
 	if err != nil {
 		return err
 	}
@@ -55,7 +55,7 @@ func SendToGate(head *pb.PacketHead, params ...interface{}) error {
 
 	head.DstClusterType = pb.ClusterType_GATE
 	head.SendType = pb.SendType_POINT
-	pac, err := basic.ReqToPacket(head, params...)
+	pac, err := fbasic.ReqToPacket(head, params...)
 	if err != nil {
 		return err
 	}
@@ -70,7 +70,7 @@ func SendToClient(head *pb.PacketHead, rsp proto.Message, err error) error {
 
 	head.DstClusterType = pb.ClusterType_GATE
 	head.DstClusterID = 0
-	pac, err := basic.RspToPacket(head, err, rsp)
+	pac, err := fbasic.RspToPacket(head, err, rsp)
 	if err != nil {
 		return err
 	}

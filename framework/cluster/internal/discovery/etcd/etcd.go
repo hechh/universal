@@ -6,8 +6,8 @@ import (
 	"log"
 	"time"
 	"universal/common/pb"
-	"universal/framework/basic"
 	"universal/framework/cluster/domain"
+	"universal/framework/fbasic"
 
 	"go.etcd.io/etcd/clientv3"
 	"google.golang.org/protobuf/proto"
@@ -53,7 +53,7 @@ func NewEtcd(node *pb.ClusterNode, endpoints ...string) (*Etcd, error) {
 	if err != nil {
 		return nil, err
 	}
-	node.ClusterID = basic.GetCrc32(fmt.Sprintf("%s:%d", node.Ip, node.Port))
+	node.ClusterID = fbasic.GetCrc32(fmt.Sprintf("%s:%d", node.Ip, node.Port))
 	return &Etcd{
 		client: client,
 		self: &ClusterNode{
@@ -71,13 +71,13 @@ func (d *Etcd) GetSelf() *pb.ClusterNode {
 func (d *Etcd) Walk(path string, f domain.DiscoveryFunc) error {
 	resp, err := d.client.Get(context.Background(), path, clientv3.WithPrefix())
 	if err != nil {
-		return basic.NewUError(1, pb.ErrorCode_BuildEtcdClient, err)
+		return fbasic.NewUError(1, pb.ErrorCode_BuildEtcdClient, err)
 	}
 	for _, kv := range resp.Kvs {
-		if node, err := basic.UnmarhsalClusterNode(kv.Value); err == nil {
+		if node, err := fbasic.UnmarhsalClusterNode(kv.Value); err == nil {
 			f(domain.ActionTypeNone, node)
 		} else {
-			return basic.NewUError(1, pb.ErrorCode_Unmarshal, err)
+			return fbasic.NewUError(1, pb.ErrorCode_Unmarshal, err)
 		}
 	}
 	// 自身节点
@@ -103,7 +103,7 @@ func (d *Etcd) Watch(path string, f domain.DiscoveryFunc) {
 					action = domain.ActionTypeAdd
 				}
 
-				if node, err := basic.UnmarhsalClusterNode(event.Kv.Value); err == nil {
+				if node, err := fbasic.UnmarhsalClusterNode(event.Kv.Value); err == nil {
 					f(action, node)
 				} else {
 					log.Print(err)

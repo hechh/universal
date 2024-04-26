@@ -2,16 +2,14 @@ package domain
 
 import (
 	"universal/common/pb"
-	"universal/framework/basic"
+	"universal/framework/fbasic"
 )
 
-const (
-	SessionExpireTime = 30 * 60 //单位：秒
-)
-
-type ISession interface {
+type IActor interface {
+	Start()
+	Stop()
 	Send(*pb.Packet)
-	SetActor(string, interface{}) error
+	SetObject(string, fbasic.IData) error
 }
 
-type PacketHandle func(*basic.Context, *pb.Packet) func()
+type ActorHandle func(*fbasic.Context, []byte) func()
