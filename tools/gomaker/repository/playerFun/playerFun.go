@@ -61,7 +61,7 @@ func Init() {
 	manager.Register(&base.Action{
 		Name:  domain.PLAYER_FUN,
 		Help:  "生成playerFun模板文件",
-		Param: `"{PlayerXxxxFun}:{req1},{req2},..."`,
+		Param: "{PlayerXxxxFun}:{req1},{req2},...",
 		Gen:   Gen,
 	})
 }

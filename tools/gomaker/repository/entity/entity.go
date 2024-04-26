@@ -28,7 +28,7 @@ func Init() {
 	manager.Register(&base.Action{
 		Name:  domain.ENTITY,
 		Help:  "生成entity模板文件",
-		Param: `"{XxxEntity}:field@pbname|..."`,
+		Param: "{XxxEntity}:field@pbname|...",
 		Gen:   Gen,
 	})
 }

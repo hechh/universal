@@ -29,10 +29,12 @@ func Gen(action string, src string, params string) error {
 func Help() {
 	fmt.Fprintf(flag.CommandLine.Output(), "action使用说明: \n")
 	for _, item := range genMgr {
+		var str string
 		if len(item.Param) > 0 {
-			fmt.Fprintf(flag.CommandLine.Output(), "\t-action=%s -param=%s  //%s\n", item.Name, item.Param, item.Help)
+			str = fmt.Sprintf("    -action=%s -param=%s", item.Name, item.Param)
 		} else {
-			fmt.Fprintf(flag.CommandLine.Output(), "\t-action=%s  //%s\n", item.Name, item.Help)
+			str = fmt.Sprintf("    -action=%s", item.Name)
 		}
+		fmt.Fprintf(flag.CommandLine.Output(), "%-80s #%s\n", str, item.Help)
 	}
 }
