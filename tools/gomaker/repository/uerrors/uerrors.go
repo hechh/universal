@@ -9,6 +9,8 @@ import (
 	"path/filepath"
 	"strings"
 	"universal/framework/fbasic"
+	"universal/tools/gomaker/domain"
+	"universal/tools/gomaker/internal/base"
 	"universal/tools/gomaker/internal/manager"
 )
 
@@ -47,4 +49,12 @@ func Gen(action string, dst string, params string) error {
 		return fbasic.NewUError(2, -1, err)
 	}
 	return nil
+}
+
+func Init() {
+	manager.Register(&base.Action{
+		Name: domain.UERRORS,
+		Help: "ErrorCode生成UError错误码",
+		Gen:  Gen,
+	})
 }

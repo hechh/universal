@@ -4,34 +4,18 @@ import (
 	"flag"
 	"fmt"
 	"universal/framework/fbasic"
+	"universal/tools/gomaker/internal/base"
 )
-
-type GenFunc func(action string, src string, params string) error
-
-type GenInfo struct {
-	action string
-	help   string
-	gen    GenFunc
-}
 
 var (
-	genMgr = make(map[string]*GenInfo)
+	genMgr = make(map[string]*base.Action)
 )
 
-func Register(action string, f GenFunc, helps ...string) {
-	if _, ok := genMgr[action]; ok {
-		panic(fmt.Sprintf("%s has already registered", action))
+func Register(act *base.Action) {
+	if _, ok := genMgr[act.Name]; ok {
+		panic(fmt.Sprintf("%s has already registered", act.Name))
 	}
-	genMgr[action] = &GenInfo{
-		action: action,
-		gen:    f,
-		help: func() string {
-			if len(helps) <= 0 {
-				return ""
-			}
-			return helps[0]
-		}(),
-	}
+	genMgr[act.Name] = act
 }
 
 func Gen(action string, src string, params string) error {
@@ -39,12 +23,16 @@ func Gen(action string, src string, params string) error {
 	if !ok {
 		return fbasic.NewUError(2, -1, fmt.Sprintf("%s is not suppported", action))
 	}
-	return val.gen(action, src, params)
+	return val.Gen(action, src, params)
 }
 
-func HelpAction() {
-	fmt.Fprintf(flag.CommandLine.Output(), "-a 参数说明：\n")
+func Help() {
+	fmt.Fprintf(flag.CommandLine.Output(), "action使用说明: \n")
 	for _, item := range genMgr {
-		fmt.Fprintf(flag.CommandLine.Output(), "\t %s: %s \n", item.action, item.help)
+		if len(item.Param) > 0 {
+			fmt.Fprintf(flag.CommandLine.Output(), "\t-action=%s -param=%s  //%s\n", item.Name, item.Param, item.Help)
+		} else {
+			fmt.Fprintf(flag.CommandLine.Output(), "\t-action=%s  //%s\n", item.Name, item.Help)
+		}
 	}
 }

@@ -2,61 +2,61 @@ package uerrors
 
 import (
 	"universal/common/pb"
-	"universal/framework/basic"
+	"universal/framework/fbasic"
 )
 
-func Success() *basic.UError {
-	return basic.NewUError(2, pb.ErrorCode_Success, "Success")
+func Success() *fbasic.UError {
+	return fbasic.NewUError(2, pb.ErrorCode_Success, "Success")
 }
 
-func Unmarshal() *basic.UError {
-	return basic.NewUError(2, pb.ErrorCode_Unmarshal, "Unmarshal")
+func Unmarshal() *fbasic.UError {
+	return fbasic.NewUError(2, pb.ErrorCode_Unmarshal, "Unmarshal")
 }
 
-func NotSupported() *basic.UError {
-	return basic.NewUError(2, pb.ErrorCode_NotSupported, "NotSupported")
+func NotSupported() *fbasic.UError {
+	return fbasic.NewUError(2, pb.ErrorCode_NotSupported, "NotSupported")
 }
 
-func BuildEtcdClient() *basic.UError {
-	return basic.NewUError(2, pb.ErrorCode_BuildEtcdClient, "BuildEtcdClient")
+func BuildEtcdClient() *fbasic.UError {
+	return fbasic.NewUError(2, pb.ErrorCode_BuildEtcdClient, "BuildEtcdClient")
 }
 
-func NotExist() *basic.UError {
-	return basic.NewUError(2, pb.ErrorCode_NotExist, "NotExist")
+func NotExist() *fbasic.UError {
+	return fbasic.NewUError(2, pb.ErrorCode_NotExist, "NotExist")
 }
 
-func Parameter() *basic.UError {
-	return basic.NewUError(2, pb.ErrorCode_Parameter, "Parameter")
+func Parameter() *fbasic.UError {
+	return fbasic.NewUError(2, pb.ErrorCode_Parameter, "Parameter")
 }
 
-func NotFound() *basic.UError {
-	return basic.NewUError(2, pb.ErrorCode_NotFound, "NotFound")
+func NotFound() *fbasic.UError {
+	return fbasic.NewUError(2, pb.ErrorCode_NotFound, "NotFound")
 }
 
-func Marhsal() *basic.UError {
-	return basic.NewUError(2, pb.ErrorCode_Marhsal, "Marhsal")
+func Marhsal() *fbasic.UError {
+	return fbasic.NewUError(2, pb.ErrorCode_Marhsal, "Marhsal")
 }
 
-func NatsPublish() *basic.UError {
-	return basic.NewUError(2, pb.ErrorCode_NatsPublish, "NatsPublish")
+func NatsPublish() *fbasic.UError {
+	return fbasic.NewUError(2, pb.ErrorCode_NatsPublish, "NatsPublish")
 }
 
-func NewClient() *basic.UError {
-	return basic.NewUError(2, pb.ErrorCode_NewClient, "NewClient")
+func NewClient() *fbasic.UError {
+	return fbasic.NewUError(2, pb.ErrorCode_NewClient, "NewClient")
 }
 
-func SocketClose() *basic.UError {
-	return basic.NewUError(2, pb.ErrorCode_SocketClose, "SocketClose")
+func SocketClose() *fbasic.UError {
+	return fbasic.NewUError(2, pb.ErrorCode_SocketClose, "SocketClose")
 }
 
-func NatsSubscribe() *basic.UError {
-	return basic.NewUError(2, pb.ErrorCode_NatsSubscribe, "NatsSubscribe")
+func NatsSubscribe() *fbasic.UError {
+	return fbasic.NewUError(2, pb.ErrorCode_NatsSubscribe, "NatsSubscribe")
 }
 
-func ActorNameNotFound() *basic.UError {
-	return basic.NewUError(2, pb.ErrorCode_ActorNameNotFound, "ActorNameNotFound")
+func ActorNameNotFound() *fbasic.UError {
+	return fbasic.NewUError(2, pb.ErrorCode_ActorNameNotFound, "ActorNameNotFound")
 }
 
-func ApiCodeNotFound() *basic.UError {
-	return basic.NewUError(2, pb.ErrorCode_ApiCodeNotFound, "ApiCodeNotFound")
+func ApiCodeNotFound() *fbasic.UError {
+	return fbasic.NewUError(2, pb.ErrorCode_ApiCodeNotFound, "ApiCodeNotFound")
 }

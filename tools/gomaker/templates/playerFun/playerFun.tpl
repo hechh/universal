@@ -63,6 +63,7 @@ func (this *{{$name}}) {{$req}}(head *pb.RpcHead, request, response proto.Messag
 {{end}}
 
 /*
+// -----------------------Player转发接口实现---------------------------
 {{range $req := .ReqList}} {{$rsp := $.Join ($.TrimSuffix $req "Request") "Response"}}
 func (this *Player) {{$req}}(ctx context.Context, req *pb.{{$req}}) {
 	head := this.GetRpcHead(ctx)
@@ -78,7 +79,25 @@ func (this *Player) {{$req}}(ctx context.Context, req *pb.{{$req}}) {
 
 
 /*
+// -----------------------Packet注册实现---------------------------
 {{range $req := .ReqList}} {{$rsp := $.Join ($.TrimSuffix $req "Request") "Response"}}
 RegisterPacket(&pb.{{$req}}{}, "game{{html "<"}}-Player.{{$req}}", &pb.{{$rsp}}{}, WithCmd(true))
 {{end}}
+*/
+
+/*
+// -----------------------单元测试实现---------------------------
+func Test_{{$name}}(t *testing.T) {
+    obj := &playerFun.{{$name}}{}
+    obj.NewPlayer()
+{{range $req := .ReqList}} {{$rsp := $.Join ($.TrimSuffix $req "Request") "Response"}}
+	t.Run("{{$req}}接口测试", func(t *testing.T){
+		head := &pb.RpcHead{Id: 100000123}
+    	req := &pb.{{$req}}{}    
+    	rsp := &pb.{{$rsp}}{}
+    	err := obj.{{$req}}(head, req, rsp)
+    	assert.Equal(t, nil, err)
+	})
+{{end}}
+}
 */

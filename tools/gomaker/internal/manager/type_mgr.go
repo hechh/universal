@@ -12,6 +12,14 @@ var (
 	alias   = make(map[string]*typespec.Alias)  // 类型别名
 )
 
+func GetMapStruct() map[string]*typespec.Struct {
+	return structs
+}
+
+func GetMapEnum() map[string]*typespec.Enum {
+	return enums
+}
+
 func GetAlias(name string) *typespec.Alias {
 	return alias[name]
 }
