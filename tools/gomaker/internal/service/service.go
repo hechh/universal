@@ -9,6 +9,7 @@ import (
 	"universal/framework/fbasic"
 	"universal/tools/gomaker/internal/base"
 	"universal/tools/gomaker/internal/manager"
+	"universal/tools/gomaker/internal/typespec"
 )
 
 type TypeParser struct {
@@ -22,9 +23,9 @@ func (d *TypeParser) Visit(node ast.Node) ast.Visitor {
 		return d
 	case *ast.GenDecl:
 		if n.Tok == token.CONST {
-			manager.AddConst(d.pkgName, n.Specs)
+			manager.AddConst(d.pkgName, typespec.ParseComment(n.Doc), n.Specs)
 		} else if n.Tok == token.TYPE {
-			manager.AddType(d.pkgName, n.Specs)
+			manager.AddType(d.pkgName, typespec.ParseComment(n.Doc), n.Specs)
 		}
 	}
 	return nil

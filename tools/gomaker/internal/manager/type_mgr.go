@@ -59,7 +59,7 @@ func GetStruct(name string) *typespec.Struct {
 	return structs[name]
 }
 
-func AddType(pkgName string, specs []ast.Spec) {
+func AddType(pkgName string, doc string, specs []ast.Spec) {
 	for _, spec := range specs {
 		// 判断是否有效
 		node, ok := spec.(*ast.TypeSpec)
@@ -69,15 +69,15 @@ func AddType(pkgName string, specs []ast.Spec) {
 		// 解析结构
 		switch vv := node.Type.(type) {
 		case *ast.StructType:
-			structs[node.Name.Name] = typespec.NewStruct(pkgName, node.Name.Name, vv.Fields.List)
+			structs[node.Name.Name] = typespec.NewStruct(pkgName, node.Name.Name, doc, vv.Fields.List)
 		default:
-			alias[node.Name.Name] = typespec.NewAlias(pkgName, node.Name.Name, node)
+			alias[node.Name.Name] = typespec.NewAlias(pkgName, node.Name.Name, doc, node)
 		}
 	}
 }
 
-func AddConst(pkgName string, specs []ast.Spec) {
-	ee := typespec.NewEnum(pkgName, specs)
+func AddConst(pkgName, doc string, specs []ast.Spec) {
+	ee := typespec.NewEnum(pkgName, doc, specs)
 	if _, ok := alias[ee.Name]; ok {
 		enums[ee.Name] = ee
 	}

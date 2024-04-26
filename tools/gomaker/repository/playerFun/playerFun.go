@@ -61,22 +61,12 @@ func Init() {
 	manager.Register(&base.Action{
 		Name:  domain.PLAYER_FUN,
 		Help:  "生成playerFun模板文件",
-		Param: `"fun:{PlayerXxxxFun}|req:{req1},{req2},..."`,
+		Param: `"{PlayerXxxxFun}:{req1},{req2},..."`,
 		Gen:   Gen,
 	})
 }
 
 func parseParams(params string) *PlayerFunAttr {
-	ret := &PlayerFunAttr{}
 	strs := strings.Split(params, "|")
-	for _, str := range strs {
-		pos := strings.Index(str, ":")
-		switch str[:pos+1] {
-		case "fun":
-			ret.Name = str[pos:]
-		case "req":
-			ret.ReqList = strings.Split(str[:pos], ",")
-		}
-	}
-	return ret
+	return &PlayerFunAttr{Name: strs[0], ReqList: strings.Split(strs[1], ",")}
 }

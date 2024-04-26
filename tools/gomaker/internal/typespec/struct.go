@@ -5,32 +5,39 @@ import (
 	"go/ast"
 	"sort"
 	"strings"
+	"unicode"
 )
 
 type Struct struct {
 	BaseFunc
 	PkgName string            // 所在包名
 	Name    string            // 引用的类型名称
+	Doc     string            // 注释
 	Fields  map[string]*Field // 解析的字段
 	List    []*Field          // 排序
 }
 
-func parseComment(g *ast.CommentGroup) string {
+func ParseComment(g *ast.CommentGroup) string {
 	if g == nil || len(g.List) <= 0 {
 		return ""
 	}
 	return g.List[0].Text
 }
 
-func NewStruct(pkg, Name string, Fields []*ast.Field) *Struct {
+func NewStruct(pkg, Name, doc string, Fields []*ast.Field) *Struct {
 	item := &Struct{
 		PkgName: pkg,
 		Name:    Name,
+		Doc:     doc,
 		Fields:  make(map[string]*Field),
 		List:    make([]*Field, 0),
 	}
 	for _, field := range Fields {
-		ff := NewField(field.Names[0].Name, parseComment(field.Comment), NewType(field.Type))
+		// 过滤不对外开放接
+		if unicode.IsLower(rune(field.Names[0].Name[0])) {
+			continue
+		}
+		ff := NewField(field.Names[0].Name, ParseComment(field.Comment), NewType(field.Type))
 		item.Fields[field.Names[0].Name] = ff
 		item.List = append(item.List, ff)
 	}
@@ -40,7 +47,7 @@ func NewStruct(pkg, Name string, Fields []*ast.Field) *Struct {
 	return item
 }
 
-func (d *Struct) GetType(pkg string) string {
+func (d *Struct) GetTypeString(pkg string) string {
 	if len(d.PkgName) > 0 || pkg != d.PkgName {
 		return d.PkgName + "." + d.Name
 	}

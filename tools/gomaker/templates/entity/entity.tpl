@@ -3,12 +3,15 @@
 {{$name := .Name}}
 {{$field := .Field}}
 {{$st := .Struct}}
-{{$pbname := .Struct.GetType .PkgName}}
-{{$ftype := .Field.GetType .PkgName}}
+{{$pbname := .Struct.GetTypeString $pkgName}}
+{{$ftype := .Field.GetTypeString $pkgName}}
 
 type {{$name}}Entity struct {
+/*
+{{range $f := $st.List}} {{if ne $f.Name $field.Name}} {{$.FirstCharToLower $f.Name}} {{$f.GetTypeString $pkgName}}
+{{end}} {{end}} 
+*/
     datas map[{{$ftype}}]*{{$pbname}}
-    changes []{{$ftype}}
 }
 
 func New{{$name}}Entity(list ...*{{$pbname}}) *{{$name}}Entity {
@@ -28,6 +31,3 @@ func (e *{{$name}}Entity) ToProto() (rets []*{{$pbname}}) {
     return
 }
 
-func (e *{{$name}}Entity) IsChange() bool {
-    return len(e.changes) > 0
-}

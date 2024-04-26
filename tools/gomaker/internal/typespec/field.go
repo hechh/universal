@@ -17,10 +17,10 @@ func NewField(Name, Comment string, typ *Type) *Field {
 	}
 }
 
-func (d *Field) GetType(pkg string) string {
-	return d.Type.GetType(pkg)
+func (d *Field) GetTypeString(pkg string) string {
+	return d.Type.GetTypeString(pkg)
 }
 
 func (d *Field) String() string {
-	return fmt.Sprintf("\t%s %s %s", d.Name, d.GetType(""), d.Comment)
+	return fmt.Sprintf("\t%s %s %s", d.Name, d.GetTypeString(""), d.Comment)
 }

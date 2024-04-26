@@ -18,13 +18,15 @@ type Enum struct {
 	BaseFunc
 	PkgName string            // 所在包名
 	Name    string            // 引用的类型名称
+	Doc     string            // 注释规则
 	Fields  map[string]*Value // 解析的字段
 	List    []*Value          // 排序队列
 }
 
-func NewEnum(pkg string, specs []ast.Spec) *Enum {
+func NewEnum(pkg, doc string, specs []ast.Spec) *Enum {
 	item := &Enum{
 		PkgName: pkg,
+		Doc:     doc,
 		Fields:  make(map[string]*Value),
 	}
 	for _, node := range specs {
@@ -38,7 +40,7 @@ func NewEnum(pkg string, specs []ast.Spec) *Enum {
 		// 保存字段
 		val := &Value{
 			Name:    vv.Names[0].Name,
-			Comment: parseComment(vv.Comment),
+			Comment: ParseComment(vv.Comment),
 			Value:   cast.ToInt32(vv.Values[0].(*ast.BasicLit).Value),
 		}
 		item.Fields[vv.Names[0].Name] = val
@@ -50,7 +52,7 @@ func NewEnum(pkg string, specs []ast.Spec) *Enum {
 	return item
 }
 
-func (d *Enum) GetType(pkg string) string {
+func (d *Enum) GetTypeString(pkg string) string {
 	if len(d.PkgName) > 0 && pkg != d.PkgName {
 		return d.PkgName + "." + d.Name
 	}

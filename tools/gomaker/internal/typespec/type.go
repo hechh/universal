@@ -57,7 +57,7 @@ func (d *Type) GetName(pkg string) string {
 	return d.Name
 }
 
-func (d *Type) GetType(pkg string) (str string) {
+func (d *Type) GetTypeString(pkg string) (str string) {
 	for i := 7; i >= 0; i-- {
 		switch (d.Token >> (i * 4)) & 0x0f {
 		case domain.IDENT:
@@ -67,12 +67,35 @@ func (d *Type) GetType(pkg string) (str string) {
 		case domain.ARRAY:
 			str += "[]"
 		case domain.MAP:
-			str += fmt.Sprintf("map[%s]%s", d.Key.GetType(pkg), d.Value.GetType(pkg))
+			str += fmt.Sprintf("map[%s]%s", d.Key.GetTypeString(pkg), d.Value.GetTypeString(pkg))
 		}
 	}
 	return
 }
 
 func (d *Type) String() string {
-	return d.GetType("")
+	return d.GetTypeString("")
+}
+
+// 判单是否为基础数据类型
+func (d *Type) IsMap() bool {
+	for i := 7; i >= 0; i-- {
+		if val := (d.Token >> (i * 4)) & 0x0f; val > 0 {
+			return (val & domain.MAP) == domain.MAP
+		}
+	}
+	return false
+}
+
+func (d *Type) IsArray() bool {
+	for i := 7; i >= 0; i-- {
+		if val := (d.Token >> (i * 4)) & 0x0f; val > 0 {
+			return (val & domain.ARRAY) == domain.ARRAY
+		}
+	}
+	return false
+}
+
+func (d *Type) IsCustom() bool {
+	return len(d.PkgName) > 0
 }
