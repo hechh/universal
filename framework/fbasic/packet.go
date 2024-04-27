@@ -40,14 +40,6 @@ func GetFuncName(h interface{}) string {
 	return strings.Split(name, ".")[1]
 }
 
-func UnmarhsalClusterNode(buf []byte) (*pb.ClusterNode, error) {
-	node := &pb.ClusterNode{}
-	if err := proto.Unmarshal(buf, node); err != nil {
-		return nil, err
-	}
-	return node, nil
-}
-
 func ToGobBytes(params interface{}) []byte {
 	var buf bytes.Buffer
 	enc := gob.NewEncoder(&buf)
@@ -91,7 +83,7 @@ func RspToPacket(head *pb.PacketHead, err error, params ...interface{}) (*pb.Pac
 	}
 	buf, err := proto.Marshal(rsp)
 	if err != nil {
-		return nil, NewUError(1, pb.ErrorCode_Marhsal, err)
+		return nil, NewUError(1, pb.ErrorCode_ProtoMarshal, err)
 	}
 	return &pb.Packet{Head: head, Buff: buf}, nil
 }
@@ -110,7 +102,7 @@ func ReqToPacket(head *pb.PacketHead, params ...interface{}) (*pb.Packet, error)
 	// 封装
 	buf, err := proto.Marshal(req)
 	if err != nil {
-		return nil, NewUError(1, pb.ErrorCode_Marhsal, err)
+		return nil, NewUError(1, pb.ErrorCode_ProtoMarshal, err)
 	}
 	return &pb.Packet{Head: head, Buff: buf}, nil
 }

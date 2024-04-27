@@ -51,7 +51,7 @@ func (d *ClusterNode) Put(client *clientv3.Client) {
 func NewEtcd(node *pb.ClusterNode, endpoints ...string) (*Etcd, error) {
 	client, err := clientv3.New(clientv3.Config{Endpoints: endpoints})
 	if err != nil {
-		return nil, err
+		return nil, fbasic.NewUError(1, pb.ErrorCode_EtcdBuildClient, err)
 	}
 	node.ClusterID = fbasic.GetCrc32(fmt.Sprintf("%s:%d", node.Ip, node.Port))
 	return &Etcd{
@@ -71,14 +71,14 @@ func (d *Etcd) GetSelf() *pb.ClusterNode {
 func (d *Etcd) Walk(path string, f domain.DiscoveryFunc) error {
 	resp, err := d.client.Get(context.Background(), path, clientv3.WithPrefix())
 	if err != nil {
-		return fbasic.NewUError(1, pb.ErrorCode_BuildEtcdClient, err)
+		return fbasic.NewUError(1, pb.ErrorCode_EtcdClientGet, err)
 	}
 	for _, kv := range resp.Kvs {
-		if node, err := fbasic.UnmarhsalClusterNode(kv.Value); err == nil {
-			f(domain.ActionTypeNone, node)
-		} else {
-			return fbasic.NewUError(1, pb.ErrorCode_Unmarshal, err)
+		node := &pb.ClusterNode{}
+		if err := proto.Unmarshal(kv.Value, node); err != nil {
+			return fbasic.NewUError(1, pb.ErrorCode_ProtoUnmarshal, err)
 		}
+		f(domain.ActionTypeNone, node)
 	}
 	// 自身节点
 	f(domain.ActionTypeNone, d.self.node)
@@ -103,11 +103,11 @@ func (d *Etcd) Watch(path string, f domain.DiscoveryFunc) {
 					action = domain.ActionTypeAdd
 				}
 
-				if node, err := fbasic.UnmarhsalClusterNode(event.Kv.Value); err == nil {
-					f(action, node)
-				} else {
+				node := &pb.ClusterNode{}
+				if err := proto.Unmarshal(event.Kv.Value, node); err != nil {
 					log.Print(err)
 				}
+				f(action, node)
 			}
 		}
 	}()

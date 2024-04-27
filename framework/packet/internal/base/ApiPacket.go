@@ -34,7 +34,7 @@ func (d *ApiPacket) Call(ctx *fbasic.Context, buf []byte) (*pb.Packet, error) {
 	newRsp := reflect.New(d.rsp).Interface().(proto.Message)
 
 	if err := proto.Unmarshal(buf, newReq); err != nil {
-		return nil, fbasic.NewUError(1, pb.ErrorCode_Unmarshal, err)
+		return nil, fbasic.NewUError(1, pb.ErrorCode_ProtoUnmarshal, err)
 	}
 	// 执行API
 	err := d.handle(ctx, newReq, newRsp)

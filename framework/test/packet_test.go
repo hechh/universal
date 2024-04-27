@@ -38,6 +38,7 @@ func (d *Person) SetAge(age int32) {
 }
 
 func (d *Person) GetAge() int32 {
+	fmt.Println("=====>", d.name, d.age)
 	return d.age
 }
 
@@ -56,6 +57,16 @@ func TestApi(t *testing.T) {
 	data := map[string]fbasic.IData{
 		"Person": &Person{"hch", 120},
 	}
+	t.Run("Person", func(t *testing.T) {
+		head := &pb.PacketHead{UID: 1234000, ApiCode: 2}
+		ctx := fbasic.NewContext(head, data)
+		req := &pb.ActorRequest{ActorName: "Person", FuncName: "GetAge"}
+		buf, _ := proto.Marshal(req)
+		ret, err := packet.Call(ctx, buf)
+		rsp := &pb.ActorResponse{}
+		proto.Unmarshal(ret.Buff, rsp)
+		t.Log(string(rsp.Buff), "-----Actor Result------", err)
+	})
 	t.Run("Login", func(t *testing.T) {
 		head := &pb.PacketHead{UID: 1234000, ApiCode: 1}
 		ctx := fbasic.NewContext(head, data)

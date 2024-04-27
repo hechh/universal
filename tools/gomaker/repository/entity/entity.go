@@ -8,7 +8,7 @@ import (
 	"os"
 	"path/filepath"
 	"strings"
-	"universal/common/pb"
+	"universal/common/uerrors"
 	"universal/framework/fbasic"
 	"universal/tools/gomaker/domain"
 	"universal/tools/gomaker/internal/base"
@@ -39,13 +39,12 @@ func parseParams(params string) (rets []*EntityAttr, err error) {
 		pos2 := strings.Index(str, "@")
 		st := manager.GetStruct(str[pos2+1:])
 		if st == nil {
-			return nil, fbasic.NewUError(1, pb.ErrorCode_NotFound, fmt.Sprintf("Struct not found, %s", str))
+			return nil, uerrors.NotFound(fmt.Sprintf("Struct not found, %s", str))
 		}
 		field := st.Fields[str[pos1+1:pos2]]
 		if st == nil {
-			return nil, fbasic.NewUError(1, pb.ErrorCode_NotFound, fmt.Sprintf("Field not found, %s", str))
+			return nil, uerrors.NotFound(fmt.Sprintf("Field not found, %s", str))
 		}
-
 		rets = append(rets, &EntityAttr{
 			Name:   str[:pos1],
 			Struct: st,

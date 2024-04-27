@@ -1,10 +1,10 @@
 package base
 
 import (
-	"fmt"
 	"sync/atomic"
 	"time"
 	"universal/common/pb"
+	"universal/common/uerrors"
 	"universal/framework/actor/domain"
 	"universal/framework/fbasic"
 )
@@ -37,7 +37,7 @@ func (d *Actor) GetUpdateTime() int64 {
 
 func (d *Actor) SetObject(name string, data fbasic.IData) error {
 	if _, ok := d.objects[name]; ok {
-		return fbasic.NewUError(3, -1, fmt.Errorf("Actor(%s) has already registered", name))
+		return uerrors.ActorHasRegistered(name)
 	}
 	d.objects[name] = data
 	return nil

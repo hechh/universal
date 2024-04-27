@@ -52,14 +52,14 @@ func (d *ActorPacket) Call(ctx *fbasic.Context, buf []byte) (*pb.Packet, error) 
 	newReq := reflect.New(d.req).Interface().(proto.Message)
 	newRsp := reflect.New(d.rsp).Interface().(proto.Message)
 	if err := proto.Unmarshal(buf, newReq); err != nil {
-		return nil, fbasic.NewUError(1, pb.ErrorCode_Unmarshal, err)
+		return nil, fbasic.NewUError(1, pb.ErrorCode_ProtoUnmarshal, err)
 	}
 	// 获取index
 	req := newReq.(*pb.ActorRequest)
 	index := index{req.ActorName, req.FuncName}
 	api, ok := d.apis[index]
 	if !ok {
-		return nil, fbasic.NewUError(1, pb.ErrorCode_ActorNameNotFound, fmt.Sprintf("%v", index))
+		return nil, fbasic.NewUError(1, pb.ErrorCode_ActorNotSupported, newReq)
 	}
 	// 执行API
 	err := api.Call(ctx, newReq, newRsp)

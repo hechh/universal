@@ -1,62 +1,91 @@
 package uerrors
 
 import (
+	"fmt"
 	"universal/common/pb"
 	"universal/framework/fbasic"
 )
 
-func Success() *fbasic.UError {
-	return fbasic.NewUError(1, pb.ErrorCode_Success, "Success")
+func Success(args ...interface{}) *fbasic.UError {
+	return fbasic.NewUError(2, pb.ErrorCode_Success, fmt.Sprint(args...))
 }
 
-func Unmarshal() *fbasic.UError {
-	return fbasic.NewUError(1, pb.ErrorCode_Unmarshal, "Unmarshal")
+func ProtoMarshal(args ...interface{}) *fbasic.UError {
+	return fbasic.NewUError(2, pb.ErrorCode_ProtoMarshal, fmt.Sprint(args...))
 }
 
-func NotSupported() *fbasic.UError {
-	return fbasic.NewUError(1, pb.ErrorCode_NotSupported, "NotSupported")
+func ProtoUnmarshal(args ...interface{}) *fbasic.UError {
+	return fbasic.NewUError(2, pb.ErrorCode_ProtoUnmarshal, fmt.Sprint(args...))
 }
 
-func BuildEtcdClient() *fbasic.UError {
-	return fbasic.NewUError(1, pb.ErrorCode_BuildEtcdClient, "BuildEtcdClient")
+func JsonMarshal(args ...interface{}) *fbasic.UError {
+	return fbasic.NewUError(2, pb.ErrorCode_JsonMarshal, fmt.Sprint(args...))
 }
 
-func NotExist() *fbasic.UError {
-	return fbasic.NewUError(1, pb.ErrorCode_NotExist, "NotExist")
+func JsonUnmarshal(args ...interface{}) *fbasic.UError {
+	return fbasic.NewUError(2, pb.ErrorCode_JsonUnmarshal, fmt.Sprint(args...))
 }
 
-func Parameter() *fbasic.UError {
-	return fbasic.NewUError(1, pb.ErrorCode_Parameter, "Parameter")
+func Parameter(args ...interface{}) *fbasic.UError {
+	return fbasic.NewUError(2, pb.ErrorCode_Parameter, fmt.Sprint(args...))
 }
 
-func NotFound() *fbasic.UError {
-	return fbasic.NewUError(1, pb.ErrorCode_NotFound, "NotFound")
+func SocketClientSend(args ...interface{}) *fbasic.UError {
+	return fbasic.NewUError(2, pb.ErrorCode_SocketClientSend, fmt.Sprint(args...))
 }
 
-func Marhsal() *fbasic.UError {
-	return fbasic.NewUError(1, pb.ErrorCode_Marhsal, "Marhsal")
+func SocketClientRead(args ...interface{}) *fbasic.UError {
+	return fbasic.NewUError(2, pb.ErrorCode_SocketClientRead, fmt.Sprint(args...))
 }
 
-func NatsPublish() *fbasic.UError {
-	return fbasic.NewUError(1, pb.ErrorCode_NatsPublish, "NatsPublish")
+func SocketClientCheck(args ...interface{}) *fbasic.UError {
+	return fbasic.NewUError(2, pb.ErrorCode_SocketClientCheck, fmt.Sprint(args...))
 }
 
-func NewClient() *fbasic.UError {
-	return fbasic.NewUError(1, pb.ErrorCode_NewClient, "NewClient")
+func SocketClientHeaderSize(args ...interface{}) *fbasic.UError {
+	return fbasic.NewUError(2, pb.ErrorCode_SocketClientHeaderSize, fmt.Sprint(args...))
 }
 
-func SocketClose() *fbasic.UError {
-	return fbasic.NewUError(1, pb.ErrorCode_SocketClose, "SocketClose")
+func SocketClientBodySizeLimit(args ...interface{}) *fbasic.UError {
+	return fbasic.NewUError(2, pb.ErrorCode_SocketClientBodySizeLimit, fmt.Sprint(args...))
 }
 
-func NatsSubscribe() *fbasic.UError {
-	return fbasic.NewUError(1, pb.ErrorCode_NatsSubscribe, "NatsSubscribe")
+func SocketClientMaxLimit(args ...interface{}) *fbasic.UError {
+	return fbasic.NewUError(2, pb.ErrorCode_SocketClientMaxLimit, fmt.Sprint(args...))
 }
 
-func ActorNameNotFound() *fbasic.UError {
-	return fbasic.NewUError(1, pb.ErrorCode_ActorNameNotFound, "ActorNameNotFound")
+func Unknown(args ...interface{}) *fbasic.UError {
+	return fbasic.NewUError(2, pb.ErrorCode_Unknown, fmt.Sprint(args...))
 }
 
-func ApiCodeNotFound() *fbasic.UError {
-	return fbasic.NewUError(1, pb.ErrorCode_ApiCodeNotFound, "ApiCodeNotFound")
+func ActorNotSupported(args ...interface{}) *fbasic.UError {
+	return fbasic.NewUError(2, pb.ErrorCode_ActorNotSupported, fmt.Sprint(args...))
+}
+
+func ActorHasRegistered(args ...interface{}) *fbasic.UError {
+	return fbasic.NewUError(2, pb.ErrorCode_ActorHasRegistered, fmt.Sprint(args...))
+}
+
+func EtcdBuildClient(args ...interface{}) *fbasic.UError {
+	return fbasic.NewUError(2, pb.ErrorCode_EtcdBuildClient, fmt.Sprint(args...))
+}
+
+func EtcdClientGet(args ...interface{}) *fbasic.UError {
+	return fbasic.NewUError(2, pb.ErrorCode_EtcdClientGet, fmt.Sprint(args...))
+}
+
+func NatsBuildClient(args ...interface{}) *fbasic.UError {
+	return fbasic.NewUError(2, pb.ErrorCode_NatsBuildClient, fmt.Sprint(args...))
+}
+
+func NatsPublish(args ...interface{}) *fbasic.UError {
+	return fbasic.NewUError(2, pb.ErrorCode_NatsPublish, fmt.Sprint(args...))
+}
+
+func ApiCodeNotFound(args ...interface{}) *fbasic.UError {
+	return fbasic.NewUError(2, pb.ErrorCode_ApiCodeNotFound, fmt.Sprint(args...))
+}
+
+func NotFound(args ...interface{}) *fbasic.UError {
+	return fbasic.NewUError(2, pb.ErrorCode_NotFound, fmt.Sprint(args...))
 }

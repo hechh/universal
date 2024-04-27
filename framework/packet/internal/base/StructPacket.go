@@ -51,7 +51,7 @@ func (d *StructPacket) Call(ctx *fbasic.Context, req, rsp proto.Message) (err er
 	params := make([]reflect.Value, len(d.params))
 	obj := ctx.GetValue(d.actorName)
 	if obj == nil {
-		return fbasic.NewUError(1, pb.ErrorCode_ActorNameNotFound, d.actorName)
+		return fbasic.NewUError(1, pb.ErrorCode_ActorNotSupported, d.actorName)
 	}
 	params[0] = reflect.ValueOf(obj)
 	// 解析参数

@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"runtime"
 	"universal/common/pb"
+
+	"github.com/spf13/cast"
 )
 
 type UError struct {
@@ -19,12 +21,12 @@ func NewUError(skip int, code pb.ErrorCode, msg interface{}) *UError {
 	switch v := msg.(type) {
 	case string:
 		errMsg = v
-		break
 	case *UError:
 		return v
 	case error:
 		errMsg = v.Error()
-		break
+	default:
+		errMsg = cast.ToString(v)
 	}
 	pc, file, line, _ := runtime.Caller(skip)
 	funcName := runtime.FuncForPC(pc).Name()
@@ -49,6 +51,10 @@ func GetCodeMsg(err error) (code int32, errmsg string) {
 		errmsg = err.Error()
 	}
 	return
+}
+
+func (d *UError) Append(format string, args ...interface{}) {
+	d.errMsg += (" | " + fmt.Sprintf(format, args...))
 }
 
 func (d *UError) GetCode() int32 {
