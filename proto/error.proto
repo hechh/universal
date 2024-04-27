@@ -25,6 +25,7 @@ enum ErrorCode {
     NatsPublish               = 18;  // 订阅失败
     ApiCodeNotFound           = 19;  // apicode不支持
     NotFound                  = 20;  // 未找到
+    TypeNotSupported          = 21;  // 类型不支持
 };
 
 // 请求uuid

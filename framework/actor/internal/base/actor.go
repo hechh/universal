@@ -27,20 +27,8 @@ func NewActor(uuid string, h domain.ActorHandle) *Actor {
 	}
 }
 
-func (d *Actor) GetUUID() string {
+func (d *Actor) UUID() string {
 	return d.uuid
-}
-
-func (d *Actor) GetUpdateTime() int64 {
-	return atomic.LoadInt64(&d.updateTime)
-}
-
-func (d *Actor) SetObject(name string, data fbasic.IData) error {
-	if _, ok := d.objects[name]; ok {
-		return uerrors.ActorHasRegistered(name)
-	}
-	d.objects[name] = data
-	return nil
 }
 
 func (d *Actor) Stop() {
@@ -52,9 +40,23 @@ func (d *Actor) Start() {
 }
 
 func (d *Actor) Send(pa *pb.Packet) {
-	// 刷新时间
-	atomic.StoreInt64(&d.updateTime, time.Now().Unix())
 	// 发送任务
 	ctx := fbasic.NewContext(pa.Head, d.objects)
 	d.tasks.Push(d.handle(ctx, pa.Buff))
+}
+
+func (d *Actor) SetObject(name string, data fbasic.IData) error {
+	if _, ok := d.objects[name]; ok {
+		return uerrors.ActorHasRegistered(name)
+	}
+	d.objects[name] = data
+	return nil
+}
+
+func (d *Actor) GetUpdateTime() int64 {
+	return atomic.LoadInt64(&d.updateTime)
+}
+
+func (d *Actor) SetUpdateTime(up int64) {
+	atomic.StoreInt64(&d.updateTime, up)
 }

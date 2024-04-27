@@ -89,3 +89,7 @@ func ApiCodeNotFound(args ...interface{}) *fbasic.UError {
 func NotFound(args ...interface{}) *fbasic.UError {
 	return fbasic.NewUError(2, pb.ErrorCode_NotFound, fmt.Sprint(args...))
 }
+
+func TypeNotSupported(args ...interface{}) *fbasic.UError {
+	return fbasic.NewUError(2, pb.ErrorCode_TypeNotSupported, fmt.Sprint(args...))
+}

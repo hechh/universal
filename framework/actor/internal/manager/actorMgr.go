@@ -3,6 +3,7 @@ package manager
 import (
 	"sync"
 	"time"
+	"universal/common/pb"
 	"universal/framework/actor/domain"
 	"universal/framework/actor/internal/base"
 	"universal/framework/fbasic"
@@ -21,27 +22,33 @@ func SetActorHandle(h domain.ActorHandle) {
 	srvFunc = h
 }
 
-func LoadActor(uuid string) *base.Actor {
+func Load(uuid string) domain.ICustom {
 	if val, ok := srvPool.Load(uuid); ok && val != nil {
-		return val.(*base.Actor)
+		return val.(domain.ICustom)
 	}
 	return nil
 }
 
-func StoreActor(aa *base.Actor) {
-	srvPool.Store(aa.GetUUID(), aa)
+func Store(aa domain.ICustom) {
+	srvPool.Store(aa.UUID(), aa)
 }
 
-func GetIActor(uuid string) domain.IActor {
-	if val, ok := srvPool.Load(uuid); ok && val != nil {
-		return val.(*base.Actor)
+func Send(key string, pa *pb.Packet) {
+	// 获取actor
+	var act domain.ICustom
+	if val, ok := srvPool.Load(key); ok && val != nil {
+		act = val.(domain.ICustom)
+	} else {
+		act = base.NewActor(key, srvFunc)
+		// 启动协程
+		act.Start()
+		// 存储
+		srvPool.Store(key, act)
 	}
-	user := base.NewActor(uuid, srvFunc)
-	// 启动协程
-	user.Start()
-	// 存储
-	srvPool.Store(uuid, user)
-	return user
+	// 刷新时间
+	act.SetUpdateTime(time.Now().Unix())
+	// 发送
+	act.Send(pa)
 }
 
 // 清理过期玩家
@@ -50,7 +57,7 @@ func init() {
 	for {
 		<-timer.C
 		srvPool.Range(func(key, val interface{}) bool {
-			vv, ok := val.(*base.Actor)
+			vv, ok := val.(domain.ICustom)
 			if !ok || vv == nil {
 				return true
 			}

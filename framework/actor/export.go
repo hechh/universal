@@ -5,6 +5,7 @@ import (
 	"universal/framework/actor/domain"
 	"universal/framework/actor/internal/base"
 	"universal/framework/actor/internal/manager"
+	"universal/framework/fbasic"
 )
 
 func SetActorHandle(h domain.ActorHandle) {
@@ -12,17 +13,25 @@ func SetActorHandle(h domain.ActorHandle) {
 }
 
 func Send(key string, pac *pb.Packet) {
-	manager.GetIActor(key).Send(pac)
+	manager.Send(key, pac)
 }
 
-func NewActor(uuid string, h domain.ActorHandle) *base.Actor {
+func NewActor(uuid string, h domain.ActorHandle) domain.IActor {
 	return base.NewActor(uuid, h)
 }
 
-func LoadActor(uuid string) *base.Actor {
-	return manager.LoadActor(uuid)
+func Load(uuid string) domain.IActor {
+	return manager.Load(uuid)
 }
 
-func StoreActor(aa *base.Actor) {
-	manager.StoreActor(aa)
+func Store(aa interface{}) error {
+	switch vv := aa.(type) {
+	case *base.Actor:
+		manager.Store(vv)
+	case domain.ICustom:
+		manager.Store(vv)
+	default:
+		return fbasic.NewUError(1, pb.ErrorCode_TypeNotSupported, "*Actor or IMgrActor is expected")
+	}
+	return nil
 }
