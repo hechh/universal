@@ -4,28 +4,34 @@ option  go_package = "../pb";  // 声明生成的 go 文件所属的包
 
 // 错误码
 enum ErrorCode {
-    Success                   = 0;   // 成功
-    ProtoMarshal              = 1;   // proto序列化失败
-    ProtoUnmarshal            = 2;   // proto反序列化
-    JsonMarshal               = 3;   // Json序列化失败
-    JsonUnmarshal             = 4;   // Json反序列化
-    Parameter                 = 5;   // 参数错误
-    SocketClientSend          = 6;   // websocket发送失败
-    SocketClientRead          = 7;   // websocket接受失败
-    SocketClientCheck         = 8;   // websocket包体校验失败
-    SocketClientHeaderSize    = 9;   // websocket包头大小错误
-    SocketClientBodySizeLimit = 10;  // body长度限制
-    SocketClientMaxLimit      = 11;  // websocket包体超多最大值
-    Unknown                   = 12;  // 未知错误
-    ActorNotSupported         = 13;  // actor不支持
-    ActorHasRegistered        = 14;  // actor已经注册
-    EtcdBuildClient           = 15;  // etcd创建客户端失败
-    EtcdClientGet             = 16;  // 查询etcd失败
-    NatsBuildClient           = 17;  // nats创建客户端失败
-    NatsPublish               = 18;  // 订阅失败
-    ApiCodeNotFound           = 19;  // apicode不支持
-    NotFound                  = 20;  // 未找到
-    TypeNotSupported          = 21;  // 类型不支持
+    Success                     = 0;   // 成功
+    ProtoMarshal                = 1;   // proto序列化失败
+    ProtoUnmarshal              = 2;   // proto反序列化
+    JsonMarshal                 = 3;   // Json序列化失败
+    JsonUnmarshal               = 4;   // Json反序列化
+    Parameter                   = 5;   // 参数错误
+    SocketClientSend            = 6;   // websocket发送失败
+    SocketClientRead            = 7;   // websocket接受失败
+    SocketFrameCheck            = 8;   // websocket包体校验失败
+    SocketFrameHeaderSize       = 9;   // websocket包头大小错误
+    SocketFrameBodySizeMaxLimit = 10;  // body长度限制
+    SocketFrameSizeMaxLimit     = 11;  // websocket包体超多最大值
+    Unknown                     = 12;  // 未知错误
+    ActorNotSupported           = 13;  // actor不支持
+    ActorHasRegistered          = 14;  // actor已经注册
+    EtcdBuildClient             = 15;  // etcd创建客户端失败
+    EtcdClientGet               = 16;  // 查询etcd失败
+    EtcdClientPut               = 17;  // 查询etcd失败
+    EtcdLeaseCreate             = 18;  // 租赁
+    EtcdLeaseKeepAliveOnce      = 19;  // 租赁
+    NatsBuildClient             = 20;  // nats创建客户端失败
+    NatsPublish                 = 21;  // 订阅失败
+    NatsSubscribe               = 22;  // 订阅失败
+    ApiCodeNotFound             = 23;  // apicode不支持
+    NotFound                    = 24;  // 未找到
+    TypeNotSupported            = 25;  // 类型不支持
+    SendTypeNotSupported        = 26;  // sendtype发送类型不支持
+    ClusterNodeNotFound         = 27;  // 服务节点没发现
 };
 
 // 请求uuid

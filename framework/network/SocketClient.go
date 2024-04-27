@@ -38,18 +38,18 @@ func (d *SocketClient) Send(pac *pb.Packet) error {
 		return fbasic.NewUError(1, pb.ErrorCode_ProtoMarshal, err)
 	}
 	// 限制检测
-	size := len(buf) + WebSocketHeaderSize
-	if size > WebSocketMaxLimit {
-		return fbasic.NewUError(1, pb.ErrorCode_SocketClientMaxLimit, fmt.Sprintf("send: %d, limit: %d", size, WebSocketMaxLimit))
+	size := len(buf) + SocketFrameHeaderSize
+	if size > SocketFrameSizeMaxLimit {
+		return fbasic.NewUError(1, pb.ErrorCode_SocketFrameSizeMaxLimit, fmt.Sprint(size, SocketFrameSizeMaxLimit))
 	}
 	// 获取发送缓存
 	sendBuff := d.getSendBytes(size)
-	head := WebSocketHeader(sendBuff[:WebSocketHeaderSize])
+	head := SocketFrameHeader(sendBuff[:SocketFrameHeaderSize])
 	head.SetSize(uint32(len(buf)))
 	// 设置crc
 	head.SetCrc32(fbasic.GetCrc32(buf))
 	// 设置body
-	copy(sendBuff[:WebSocketHeaderSize], buf)
+	copy(sendBuff[:SocketFrameHeaderSize], buf)
 	// 发送数据包
 	if _, err := d.conn.Write(sendBuff); err != nil {
 		return fbasic.NewUError(1, pb.ErrorCode_SocketClientSend, err)
@@ -71,19 +71,20 @@ func (d *SocketClient) Read() (*pb.Packet, error) {
 		d.conn.SetReadDeadline(time.Now().Add(d.readExpire))
 	}
 	// 读取包头
-	buf := d.getRecvBytes(WebSocketHeaderSize)
+	buf := d.getRecvBytes(SocketFrameHeaderSize)
 	n, err := io.ReadFull(d.conn, buf)
 	if err != nil {
 		return nil, fbasic.NewUError(1, pb.ErrorCode_SocketClientRead, err)
 	}
-	if n != WebSocketHeaderSize {
-		return nil, fbasic.NewUError(1, pb.ErrorCode_SocketClientHeaderSize, fmt.Sprint(n, WebSocketHeaderSize))
+	if n != SocketFrameHeaderSize {
+		return nil, fbasic.NewUError(1, pb.ErrorCode_SocketFrameHeaderSize, fmt.Sprint(n, SocketFrameHeaderSize))
 	}
 	// 获取包体长度
-	crc := WebSocketHeader(buf).GetCrc32()
-	bodySize := WebSocketHeader(buf).GetSize()
-	if bodySize <= 0 || bodySize > WebSocketMaxBodySize {
-		return nil, fbasic.NewUError(1, pb.ErrorCode_SocketClientBodySizeLimit, fmt.Sprint(bodySize, WebSocketMaxBodySize))
+	header := SocketFrameHeader(buf)
+	crc := header.GetCrc32()
+	bodySize := header.GetSize()
+	if bodySize <= 0 || bodySize > SocketFrameBodySizeMaxLimit {
+		return nil, fbasic.NewUError(1, pb.ErrorCode_SocketFrameBodySizeMaxLimit, fmt.Sprint(bodySize, SocketFrameBodySizeMaxLimit))
 	}
 	// 接受包体
 	buf = d.getRecvBytes(int(bodySize))
@@ -96,7 +97,7 @@ func (d *SocketClient) Read() (*pb.Packet, error) {
 	}
 	// 校验包头是否被篡改
 	if vcrc := fbasic.GetCrc32(buf); vcrc != crc {
-		return nil, fbasic.NewUError(1, pb.ErrorCode_SocketClientCheck, fmt.Sprint(crc, vcrc))
+		return nil, fbasic.NewUError(1, pb.ErrorCode_SocketFrameCheck, fmt.Sprint(crc, vcrc))
 	}
 	// 解析包
 	ret := &pb.Packet{}

@@ -38,20 +38,20 @@ func SocketClientRead(args ...interface{}) *fbasic.UError {
 	return fbasic.NewUError(2, pb.ErrorCode_SocketClientRead, fmt.Sprint(args...))
 }
 
-func SocketClientCheck(args ...interface{}) *fbasic.UError {
-	return fbasic.NewUError(2, pb.ErrorCode_SocketClientCheck, fmt.Sprint(args...))
+func SocketFrameCheck(args ...interface{}) *fbasic.UError {
+	return fbasic.NewUError(2, pb.ErrorCode_SocketFrameCheck, fmt.Sprint(args...))
 }
 
-func SocketClientHeaderSize(args ...interface{}) *fbasic.UError {
-	return fbasic.NewUError(2, pb.ErrorCode_SocketClientHeaderSize, fmt.Sprint(args...))
+func SocketFrameHeaderSize(args ...interface{}) *fbasic.UError {
+	return fbasic.NewUError(2, pb.ErrorCode_SocketFrameHeaderSize, fmt.Sprint(args...))
 }
 
-func SocketClientBodySizeLimit(args ...interface{}) *fbasic.UError {
-	return fbasic.NewUError(2, pb.ErrorCode_SocketClientBodySizeLimit, fmt.Sprint(args...))
+func SocketFrameBodySizeMaxLimit(args ...interface{}) *fbasic.UError {
+	return fbasic.NewUError(2, pb.ErrorCode_SocketFrameBodySizeMaxLimit, fmt.Sprint(args...))
 }
 
-func SocketClientMaxLimit(args ...interface{}) *fbasic.UError {
-	return fbasic.NewUError(2, pb.ErrorCode_SocketClientMaxLimit, fmt.Sprint(args...))
+func SocketFrameSizeMaxLimit(args ...interface{}) *fbasic.UError {
+	return fbasic.NewUError(2, pb.ErrorCode_SocketFrameSizeMaxLimit, fmt.Sprint(args...))
 }
 
 func Unknown(args ...interface{}) *fbasic.UError {
@@ -74,12 +74,28 @@ func EtcdClientGet(args ...interface{}) *fbasic.UError {
 	return fbasic.NewUError(2, pb.ErrorCode_EtcdClientGet, fmt.Sprint(args...))
 }
 
+func EtcdClientPut(args ...interface{}) *fbasic.UError {
+	return fbasic.NewUError(2, pb.ErrorCode_EtcdClientPut, fmt.Sprint(args...))
+}
+
+func EtcdLeaseCreate(args ...interface{}) *fbasic.UError {
+	return fbasic.NewUError(2, pb.ErrorCode_EtcdLeaseCreate, fmt.Sprint(args...))
+}
+
+func EtcdLeaseKeepAliveOnce(args ...interface{}) *fbasic.UError {
+	return fbasic.NewUError(2, pb.ErrorCode_EtcdLeaseKeepAliveOnce, fmt.Sprint(args...))
+}
+
 func NatsBuildClient(args ...interface{}) *fbasic.UError {
 	return fbasic.NewUError(2, pb.ErrorCode_NatsBuildClient, fmt.Sprint(args...))
 }
 
 func NatsPublish(args ...interface{}) *fbasic.UError {
 	return fbasic.NewUError(2, pb.ErrorCode_NatsPublish, fmt.Sprint(args...))
+}
+
+func NatsSubscribe(args ...interface{}) *fbasic.UError {
+	return fbasic.NewUError(2, pb.ErrorCode_NatsSubscribe, fmt.Sprint(args...))
 }
 
 func ApiCodeNotFound(args ...interface{}) *fbasic.UError {
@@ -92,4 +108,12 @@ func NotFound(args ...interface{}) *fbasic.UError {
 
 func TypeNotSupported(args ...interface{}) *fbasic.UError {
 	return fbasic.NewUError(2, pb.ErrorCode_TypeNotSupported, fmt.Sprint(args...))
+}
+
+func SendTypeNotSupported(args ...interface{}) *fbasic.UError {
+	return fbasic.NewUError(2, pb.ErrorCode_SendTypeNotSupported, fmt.Sprint(args...))
+}
+
+func ClusterNodeNotFound(args ...interface{}) *fbasic.UError {
+	return fbasic.NewUError(2, pb.ErrorCode_ClusterNodeNotFound, fmt.Sprint(args...))
 }

@@ -12,10 +12,6 @@ func SetActorHandle(h domain.ActorHandle) {
 	manager.SetActorHandle(h)
 }
 
-func Send(key string, pac *pb.Packet) {
-	manager.Send(key, pac)
-}
-
 func NewActor(uuid string, h domain.ActorHandle) domain.IActor {
 	return base.NewActor(uuid, h)
 }
@@ -34,4 +30,8 @@ func Store(aa interface{}) error {
 		return fbasic.NewUError(1, pb.ErrorCode_TypeNotSupported, "*Actor or IMgrActor is expected")
 	}
 	return nil
+}
+
+func Send(key string, pac *pb.Packet) {
+	manager.Send(key, pac)
 }

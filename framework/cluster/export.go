@@ -2,24 +2,35 @@ package cluster
 
 import (
 	"universal/common/pb"
-	"universal/framework/cluster/domain"
 	"universal/framework/cluster/internal/service"
 	"universal/framework/fbasic"
 
 	"google.golang.org/protobuf/proto"
 )
 
-func InitCluster(node *pb.ClusterNode, natsUrl string, etcds []string) error {
-	return service.InitCluster(node, natsUrl, etcds)
+// 初始化连接
+func Init(node *pb.ClusterNode, natsUrl string, etcds []string) error {
+	return service.Init(node, natsUrl, etcds)
 }
 
-func Subscribe(h domain.ClusterFunc) {
-	service.GetCluster().Subscribe(h)
+// 服务发现
+func Discovery() error {
+	return service.Discovery()
+}
+
+// 订阅消息
+func Subscribe(h func(*pb.Packet)) {
+	service.Subscribe(h)
+}
+
+// 夸服务发送消息
+func Publish(pac *pb.Packet) error {
+	return service.Publish(pac)
 }
 
 // 转发到game服务集群
 func SendToGame(head *pb.PacketHead, params ...interface{}) error {
-	node := service.GetCluster().GetDiscovery().GetSelf()
+	node := service.GetLocalClusterNode()
 	head.SrcClusterID = node.ClusterID
 	head.SrcClusterType = node.ClusterType
 
@@ -29,12 +40,12 @@ func SendToGame(head *pb.PacketHead, params ...interface{}) error {
 	if err != nil {
 		return err
 	}
-	return service.GetCluster().Send(pac)
+	return service.Publish(pac)
 }
 
 // 转发到db服务集群
 func SendToDb(head *pb.PacketHead, params ...interface{}) error {
-	node := service.GetCluster().GetDiscovery().GetSelf()
+	node := service.GetLocalClusterNode()
 	head.SrcClusterID = node.ClusterID
 	head.SrcClusterType = node.ClusterType
 
@@ -44,12 +55,12 @@ func SendToDb(head *pb.PacketHead, params ...interface{}) error {
 	if err != nil {
 		return err
 	}
-	return service.GetCluster().Send(pac)
+	return service.Publish(pac)
 }
 
 // 转发到db服务集群
 func SendToGate(head *pb.PacketHead, params ...interface{}) error {
-	node := service.GetCluster().GetDiscovery().GetSelf()
+	node := service.GetLocalClusterNode()
 	head.SrcClusterID = node.ClusterID
 	head.SrcClusterType = node.ClusterType
 
@@ -59,12 +70,12 @@ func SendToGate(head *pb.PacketHead, params ...interface{}) error {
 	if err != nil {
 		return err
 	}
-	return service.GetCluster().Send(pac)
+	return service.Publish(pac)
 }
 
 // 主动发送到客户端
 func SendToClient(head *pb.PacketHead, rsp proto.Message, err error) error {
-	node := service.GetCluster().GetDiscovery().GetSelf()
+	node := service.GetLocalClusterNode()
 	head.SrcClusterID = node.ClusterID
 	head.SrcClusterType = node.ClusterType
 
@@ -74,5 +85,5 @@ func SendToClient(head *pb.PacketHead, rsp proto.Message, err error) error {
 	if err != nil {
 		return err
 	}
-	return service.GetCluster().Send(pac)
+	return service.Publish(pac)
 }

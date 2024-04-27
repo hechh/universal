@@ -12,12 +12,12 @@ const (
 	ActionTypeDel  = 2
 )
 
-type DiscoveryFunc func(int, *pb.ClusterNode)
+type WatchFunc func(key string, value []byte)
 
 type IDiscovery interface {
-	GetSelf() *pb.ClusterNode         // 获取自身节点
-	Watch(string, DiscoveryFunc)      // 监听所有变更
-	Walk(string, DiscoveryFunc) error // 便利所有key-value
+	KeepAlive(string, []byte, int64)    // 设置保活key
+	Walk(string, WatchFunc) error       // 便利所有key-value
+	Watch(string, WatchFunc, WatchFunc) // 监听所有变更
 }
 
 type ClusterFunc func(*pb.Packet)
