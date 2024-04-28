@@ -24,3 +24,8 @@ func RegisterFunc(apiCode int32, h interface{}) {
 func Call(ctx *fbasic.Context, buf []byte) (*pb.Packet, error) {
 	return manager.Call(ctx, buf)
 }
+
+// 解析返回值参数
+func ParseReturns(apiCode int32, actorName, funcName string, buf []byte) ([]interface{}, error) {
+	return manager.ParseReturns(apiCode, actorName, funcName, buf)
+}
