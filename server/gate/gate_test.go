@@ -1,10 +1,17 @@
 package gate_test
 
 import (
+	"fmt"
+	"log"
+	"net/http"
 	"testing"
+	"time"
 	"universal/common/config"
 	"universal/common/pb"
 	"universal/framework/cluster"
+	"universal/framework/network"
+
+	"golang.org/x/net/websocket"
 )
 
 var (
@@ -40,6 +47,24 @@ func TestRun(t *testing.T) {
 	// 设置消息订阅
 	if err := cluster.Subscribe(natsHandle); err != nil {
 		panic(err)
+	}
+	// 注册websocket路由
+	http.Handle("/ws", websocket.Handler(wsHandle))
+	if err := http.ListenAndServe(":8089", nil); err != nil {
+		log.Fatal("ListenAndServer: ", err)
+	}
+}
+
+func wsHandle(conn *websocket.Conn) {
+	client := network.NewSocketClient(conn, 2*time.Second, 2*time.Second)
+	for {
+		pac, err := client.Read()
+		if err != nil {
+			fmt.Sprintln(err)
+			return
+		}
+		// 发送到nats
+		cluster.Publish(pac)
 	}
 }
 

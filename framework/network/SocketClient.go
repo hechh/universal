@@ -19,6 +19,16 @@ type SocketClient struct {
 	sendBuff   []byte        // 接受缓存
 }
 
+func NewSocketClient(conn net.Conn, rexpire, sexpire time.Duration) *SocketClient {
+	return &SocketClient{
+		conn:       conn,
+		readExpire: rexpire,
+		sendExpire: sexpire,
+		recvBuff:   make([]byte, 512*1024),
+		sendBuff:   make([]byte, 512*1024),
+	}
+}
+
 func (d *SocketClient) getSendBytes(size int) []byte {
 	if cap(d.sendBuff) >= size {
 		return d.sendBuff[:size]

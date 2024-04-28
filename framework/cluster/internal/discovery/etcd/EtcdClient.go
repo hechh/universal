@@ -2,6 +2,7 @@ package etcd
 
 import (
 	"context"
+	"log"
 	"time"
 	"universal/common/pb"
 	"universal/framework/cluster/domain"
@@ -12,7 +13,6 @@ import (
 
 type EtcdClient struct {
 	client   *clientv3.Client
-	lease    clientv3.Lease
 	key      *keyMonitor
 	notifyCh chan *keyMonitor
 }
@@ -24,8 +24,7 @@ func NewEtcdClient(ends ...string) (*EtcdClient, error) {
 	}
 	return &EtcdClient{
 		client:   client,
-		lease:    clientv3.NewLease(client),
-		notifyCh: make(chan *keyMonitor, 2),
+		notifyCh: make(chan *keyMonitor, 1),
 	}, nil
 }
 
@@ -54,7 +53,7 @@ func (d *EtcdClient) KeepAlive(key string, value []byte, ttl int64) {
 }
 
 func (d *EtcdClient) run(watch clientv3.WatchChan, addF, delF domain.WatchFunc) {
-	timer := time.NewTicker(4 * time.Second)
+	timer := time.NewTicker(2 * time.Second)
 	for {
 		select {
 		case <-timer.C:
@@ -62,13 +61,12 @@ func (d *EtcdClient) run(watch clientv3.WatchChan, addF, delF domain.WatchFunc) 
 				continue
 			}
 			if err := d.key.KeepAliveOnce(d.client); err != nil {
-				//d.notifyCh <- d.key
-				//log.Println(err)
+				log.Println(err)
 				panic(err)
 			}
 		case d.key = <-d.notifyCh:
-			if err := d.key.Put(d.client, d.lease); err != nil {
-				//d.notifyCh <- d.key
+			if err := d.key.Put(d.client); err != nil {
+				log.Println(err)
 				panic(err)
 			}
 		case item := <-watch:
@@ -92,22 +90,22 @@ type keyMonitor struct {
 	leaseID clientv3.LeaseID
 }
 
-func (d *keyMonitor) Put(client *clientv3.Client, lease clientv3.Lease) error {
-	resp, err := lease.Create(context.Background(), d.ttl)
-	if err == nil {
+func (d *keyMonitor) Put(client *clientv3.Client) error {
+	resp, err := client.Lease.Grant(context.Background(), d.ttl*int64(time.Second))
+	if err != nil {
 		return fbasic.NewUError(1, pb.ErrorCode_EtcdLeaseCreate, err)
 	}
 	d.leaseID = clientv3.LeaseID(resp.ID)
 
 	// 设置key的ttl
-	if _, err = client.Put(context.TODO(), d.key, string(d.value), clientv3.WithLease(d.leaseID)); err != nil {
+	if _, err = client.Put(context.Background(), d.key, string(d.value), clientv3.WithLease(d.leaseID)); err != nil {
 		return fbasic.NewUError(1, pb.ErrorCode_EtcdClientPut, err)
 	}
 	return nil
 }
 
 func (d *keyMonitor) KeepAliveOnce(client *clientv3.Client) error {
-	_, err := client.KeepAliveOnce(context.Background(), d.leaseID)
+	_, err := client.Lease.KeepAliveOnce(context.Background(), d.leaseID)
 	if err != nil {
 		return fbasic.NewUError(1, pb.ErrorCode_EtcdLeaseKeepAliveOnce, err)
 	}

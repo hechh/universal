@@ -19,8 +19,8 @@ gate:
 # 服务发现
 etcd:
   endpoints:
-    - 127.0.0.1:20100
+    - localhost:2379
 
 # nats消息中间件
 nats:
-  endpoints: 127.0.0.1:30100
+  endpoints: localhost:4222

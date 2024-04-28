@@ -50,7 +50,7 @@ func Init(node *pb.ClusterNode, natsUrl string, ends []string) (err error) {
 func addClusterNode(key string, value []byte) {
 	vv := &pb.ClusterNode{}
 	if err := proto.Unmarshal(value, vv); err != nil {
-		fmt.Println("add", key, string(value), err)
+		fmt.Println("--------add--------", key, string(value), err)
 		panic(err)
 	}
 	// 添加服务节点
@@ -60,7 +60,7 @@ func addClusterNode(key string, value []byte) {
 func delClusterNode(key string, value []byte) {
 	vv := &pb.ClusterNode{}
 	if err := proto.Unmarshal(value, vv); err != nil {
-		fmt.Println("del", key, string(value), err)
+		fmt.Println("--------del--------", key, string(value), err)
 		panic(err)
 	}
 	nodes.DeleteNode(vv)
