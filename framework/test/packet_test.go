@@ -2,6 +2,7 @@ package test
 
 import (
 	"fmt"
+	"reflect"
 	"testing"
 	"universal/framework/fbasic"
 	"universal/framework/packet"
@@ -83,4 +84,36 @@ func TestApi(t *testing.T) {
 		ret, err := packet.Call(ctx, buf)
 		t.Log(ret, "-----Func Result------", err)
 	})
+}
+
+func ToTurn(a []byte, b []reflect.Value) {
+	for i := 0; i < len(b); i++ {
+		b[i] = reflect.ValueOf(string(a))
+	}
+}
+
+func TestPrint(t *testing.T) {
+	b := make([]reflect.Value, 10)
+	ToTurn([]byte("hch"), b)
+	t.Log(b, cap(b))
+
+	vv := []reflect.Value{
+		reflect.ValueOf(12),
+		reflect.ValueOf(12),
+		reflect.ValueOf("test"),
+		reflect.ValueOf(12),
+	}
+
+	t.Log(fbasic.EncodeValues(vv).Encode())
+
+	/*
+		bb := bytes.NewBuffer(nil)
+		enc := gob.NewEncoder(bb)
+		for _, param := range []interface{}{123, 1, 2, 4, "aserfa"} {
+			enc.Encode(param)
+		}
+		buf := bb.Bytes()
+		bb.Reset()
+		fmt.Println("q----->", len(buf), cap(buf))
+	*/
 }

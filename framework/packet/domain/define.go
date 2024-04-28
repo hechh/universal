@@ -1,6 +1,7 @@
 package domain
 
 import (
+	"reflect"
 	"universal/common/pb"
 	"universal/framework/fbasic"
 
@@ -11,6 +12,7 @@ import (
 type ApiFunc func(*fbasic.Context, proto.Message, proto.Message) error
 
 type IApi interface {
+	GetReturns() []reflect.Type
 	Call(*fbasic.Context, proto.Message, proto.Message) error
 }
 

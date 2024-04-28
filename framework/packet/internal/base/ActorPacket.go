@@ -29,6 +29,15 @@ func NewActorPacket(req, rsp proto.Message) *ActorPacket {
 	}
 }
 
+func (d *ActorPacket) GetReturns(actorName, funcName string) ([]reflect.Type, error) {
+	index := index{actorName, funcName}
+	val, ok := d.apis[index]
+	if !ok {
+		return nil, fbasic.NewUError(1, pb.ErrorCode_ActorNotSupported, actorName, funcName)
+	}
+	return val.GetReturns(), nil
+}
+
 func (d *ActorPacket) RegisterStruct(st interface{}) {
 	for _, attr := range NewStructPacket(st) {
 		index := index{attr.ActorName(), attr.FuncName()}

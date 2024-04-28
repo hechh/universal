@@ -117,3 +117,7 @@ func SendTypeNotSupported(args ...interface{}) *fbasic.UError {
 func ClusterNodeNotFound(args ...interface{}) *fbasic.UError {
 	return fbasic.NewUError(2, pb.ErrorCode_ClusterNodeNotFound, fmt.Sprint(args...))
 }
+
+func ArrayOutOfBounds(args ...interface{}) *fbasic.UError {
+	return fbasic.NewUError(2, pb.ErrorCode_ArrayOutOfBounds, fmt.Sprint(args...))
+}

@@ -1,8 +1,6 @@
 package fbasic
 
 import (
-	"bytes"
-	"encoding/gob"
 	"encoding/json"
 	"hash/crc32"
 	"reflect"
@@ -40,6 +38,7 @@ func GetFuncName(h interface{}) string {
 	return strings.Split(name, ".")[1]
 }
 
+/*
 func ToGobBytes(params interface{}) []byte {
 	var buf bytes.Buffer
 	enc := gob.NewEncoder(&buf)
@@ -55,6 +54,7 @@ func ToGobBytes(params interface{}) []byte {
 	}
 	return buf.Bytes()
 }
+*/
 
 func toErrorRsp(err error, rsp proto.Message) {
 	code, errMsg := GetCodeMsg(err)
@@ -73,7 +73,7 @@ func RspToPacket(head *pb.PacketHead, err error, params ...interface{}) (*pb.Pac
 		rsp = &pb.ActorResponse{Head: &pb.RpcHead{}}
 	} else {
 		if val, ok := params[0].(proto.Message); !ok {
-			rsp = &pb.ActorResponse{Head: &pb.RpcHead{}, Buff: ToGobBytes(params)}
+			rsp = &pb.ActorResponse{Head: &pb.RpcHead{}, Buff: EncodeAnys(params).Encode()}
 		} else {
 			rsp = val
 		}
@@ -94,7 +94,7 @@ func ReqToPacket(head *pb.PacketHead, params ...interface{}) (*pb.Packet, error)
 		req = &pb.ActorRequest{Head: &pb.RpcHead{}}
 	} else {
 		if val, ok := params[0].(proto.Message); !ok {
-			req = &pb.ActorRequest{Head: &pb.RpcHead{}, Buff: ToGobBytes(params)}
+			req = &pb.ActorRequest{Head: &pb.RpcHead{}, Buff: EncodeAnys(params).Encode()}
 		} else {
 			req = val
 		}

@@ -32,6 +32,7 @@ enum ErrorCode {
     TypeNotSupported            = 25;  // 类型不支持
     SendTypeNotSupported        = 26;  // sendtype发送类型不支持
     ClusterNodeNotFound         = 27;  // 服务节点没发现
+    ArrayOutOfBounds            = 28;  // 数组越界
 };
 
 // 请求uuid

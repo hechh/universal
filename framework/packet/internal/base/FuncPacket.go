@@ -1,8 +1,6 @@
 package base
 
 import (
-	"bytes"
-	"encoding/gob"
 	"reflect"
 	"universal/common/pb"
 	"universal/framework/fbasic"
@@ -15,6 +13,7 @@ type FuncPacket struct {
 	isVariadic bool           // 是否为可变参数
 	handle     reflect.Value  // 函数
 	params     []reflect.Type // 参数
+	returns    []reflect.Type // 返回值
 }
 
 func NewFuncPacket(f interface{}) *FuncPacket {
@@ -25,12 +24,18 @@ func NewFuncPacket(f interface{}) *FuncPacket {
 	for i := 0; i < t.NumIn(); i++ {
 		params[i] = t.In(i)
 	}
+	// 函数返回值
+	returns := make([]reflect.Type, t.NumOut())
+	for i := 0; i < t.NumOut(); i++ {
+		returns[i] = t.Out(i)
+	}
 	// 返回数据
 	return &FuncPacket{
 		name:       fbasic.GetFuncName(v),
 		isVariadic: t.IsVariadic(),
 		handle:     v,
 		params:     params,
+		returns:    returns,
 	}
 }
 
@@ -38,15 +43,15 @@ func (d *FuncPacket) FuncName() string {
 	return d.name
 }
 
+func (d *FuncPacket) GetReturns() []reflect.Type {
+	return d.returns
+}
+
 func (d *FuncPacket) Call(ctx *fbasic.Context, req, rsp proto.Message) (err error) {
 	// 解析参数
 	params := make([]reflect.Value, len(d.params))
 	newReq := req.(*pb.ActorRequest)
-	decode := gob.NewDecoder(bytes.NewReader(newReq.Buff))
-	for i, paramType := range d.params {
-		params[i] = reflect.New(paramType).Elem()
-		decode.DecodeValue(params[i])
-	}
+	fbasic.DecodeTypes(d.params).DecodeValues(newReq.Buff, params)
 	// 执行函数
 	var results []reflect.Value
 	if !d.isVariadic {
@@ -55,14 +60,7 @@ func (d *FuncPacket) Call(ctx *fbasic.Context, req, rsp proto.Message) (err erro
 		results = d.handle.CallSlice(params)
 	}
 	// 返回
-	var ok bool
 	newRsp := rsp.(*pb.ActorResponse)
-	if ll := len(results); ll > 0 {
-		if err, ok = results[ll-1].Interface().(error); ok {
-			newRsp.Buff = fbasic.ToGobBytes(results[:ll-1])
-		} else {
-			newRsp.Buff = fbasic.ToGobBytes(results)
-		}
-	}
+	newRsp.Buff = fbasic.EncodeValues(results).Encode()
 	return
 }

@@ -62,10 +62,9 @@ message ActorResponse {
 }
 
 message LoginRequest {
-    RpcHead Head      = 1;
+    RpcHead Head = 1;
 }
 
 message LoginResponse {
-    RpcHead Head      = 1;
+    RpcHead Head = 1;
 }
-

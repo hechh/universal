@@ -51,3 +51,19 @@ func Call(ctx *fbasic.Context, buf []byte) (*pb.Packet, error) {
 	}
 	return val.Call(ctx, buf)
 }
+
+func ParseReturns(apiCode int32, actorName, funcName string, buf []byte) ([]interface{}, error) {
+	mgr, ok := apiPool[apiCode].(*base.ActorPacket)
+	if !ok || mgr == nil {
+		return nil, fbasic.NewUError(1, pb.ErrorCode_ApiCodeNotFound, apiCode)
+	}
+	// 获取返回值类型
+	types, err := mgr.GetReturns(actorName, funcName)
+	if err != nil {
+		return nil, err
+	}
+	// 解析
+	rets := make([]interface{}, len(types))
+	fbasic.DecodeTypes(types).Decode(buf, rets)
+	return rets, nil
+}
