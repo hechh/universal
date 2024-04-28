@@ -30,7 +30,10 @@ func (d *NatsClient) Subscribe(key string, f func(*pb.Packet)) error {
 			f(pac)
 		}
 	})
-	return fbasic.NewUError(1, pb.ErrorCode_NatsSubscribe, err)
+	if err != nil {
+		return fbasic.NewUError(1, pb.ErrorCode_NatsSubscribe, err)
+	}
+	return nil
 }
 
 func (d *NatsClient) Publish(key string, pac *pb.Packet) error {

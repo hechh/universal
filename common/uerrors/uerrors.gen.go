@@ -120,3 +120,11 @@ func ClusterNodeNotFound(args ...interface{}) *fbasic.UError {
 func ArrayOutOfBounds(args ...interface{}) *fbasic.UError {
 	return fbasic.NewUError(2, pb.ErrorCode_ArrayOutOfBounds, args...)
 }
+
+func ReadYaml(args ...interface{}) *fbasic.UError {
+	return fbasic.NewUError(2, pb.ErrorCode_ReadYaml, args...)
+}
+
+func YamlUnmarshal(args ...interface{}) *fbasic.UError {
+	return fbasic.NewUError(2, pb.ErrorCode_YamlUnmarshal, args...)
+}

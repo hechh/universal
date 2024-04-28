@@ -1,5 +1,7 @@
 package main
 
-func main() {
+import "universal/server/gate"
 
+func main() {
+	gate.Run()
 }

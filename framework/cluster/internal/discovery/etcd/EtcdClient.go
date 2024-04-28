@@ -24,6 +24,7 @@ func NewEtcdClient(ends ...string) (*EtcdClient, error) {
 	}
 	return &EtcdClient{
 		client:   client,
+		lease:    clientv3.NewLease(client),
 		notifyCh: make(chan *keyMonitor, 2),
 	}, nil
 }

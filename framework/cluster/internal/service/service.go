@@ -14,7 +14,7 @@ import (
 )
 
 const (
-	ROOT_DIR = "server/"
+	ROOT_DIR = "server/cluster/"
 )
 
 var (
@@ -50,8 +50,8 @@ func Init(node *pb.ClusterNode, natsUrl string, ends []string) (err error) {
 func addClusterNode(key string, value []byte) {
 	vv := &pb.ClusterNode{}
 	if err := proto.Unmarshal(value, vv); err != nil {
+		fmt.Println("add", key, string(value), err)
 		panic(err)
-		//return fbasic.NewUError(1, pb.ErrorCode_ProtoUnmarshal, err)
 	}
 	// 添加服务节点
 	nodes.AddNode(vv)
@@ -60,6 +60,7 @@ func addClusterNode(key string, value []byte) {
 func delClusterNode(key string, value []byte) {
 	vv := &pb.ClusterNode{}
 	if err := proto.Unmarshal(value, vv); err != nil {
+		fmt.Println("del", key, string(value), err)
 		panic(err)
 	}
 	nodes.DeleteNode(vv)

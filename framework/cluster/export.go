@@ -19,8 +19,8 @@ func Discovery() error {
 }
 
 // 订阅消息
-func Subscribe(h func(*pb.Packet)) {
-	service.Subscribe(h)
+func Subscribe(h func(*pb.Packet)) error {
+	return service.Subscribe(h)
 }
 
 // 夸服务发送消息

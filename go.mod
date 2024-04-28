@@ -7,11 +7,13 @@ require (
 	github.com/spf13/cast v1.6.0
 	go.etcd.io/etcd v2.3.8+incompatible
 	google.golang.org/protobuf v1.33.0
+	gopkg.in/yaml.v2 v2.4.0
 )
 
 require (
 	github.com/coreos/etcd v2.3.8+incompatible // indirect
 	github.com/gogo/protobuf v1.3.2 // indirect
+	github.com/google/go-cmp v0.6.0 // indirect
 	github.com/klauspost/compress v1.17.2 // indirect
 	github.com/nats-io/nkeys v0.4.7 // indirect
 	github.com/nats-io/nuid v1.0.1 // indirect

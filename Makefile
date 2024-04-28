@@ -5,7 +5,7 @@ OUTPUT=./output
 PROTO_PATH=./proto
 GEN_GO_PATH=./common/pb
 
-TARGET=game gate
+TARGET=gate game
 BUILD=$(TARGET:%=%_build)
 
 .PHONY: race build clean all gen gen_go yaml
@@ -14,16 +14,20 @@ BUILD=$(TARGET:%=%_build)
 #--------设置target变量---------
 race:RACE=-race
 #---------程序编译选项-----------
-all: $(TARGET)
+all: clean $(TARGET)
+
+clean:
+	-rm -rf ${OUTPUT}
 
 $(TARGET): gen
+	mkdir -p ${OUTPUT}/$@ && cp -rf ./env/${@}.yaml ${OUTPUT}/$@/
 ifeq (${SYSTEM}, windows)
-	go build ${GCFLAGS} ${RACE} -o ${OUTPUT}/$@.exe ./cmd/$@/...
+	go build ${GCFLAGS} ${RACE} -o ${OUTPUT}/$@/$@.exe ./cmd/$@/...
 else
 ifeq (${SYSTEM}, linux)
-	CGO_ENABLED=0 GOOS=linux go build ${GCFLAGS} ${RACE} -o ${OUTPUT}/$@ ./cmd/$@/...
+	CGO_ENABLED=0 GOOS=linux go build ${GCFLAGS} ${RACE} -o ${OUTPUT}/$@/ ./cmd/$@/...
 else
-	CGO_ENABLED=0 GOOS=darwin go build ${GCFLAGS} ${RACE} -o ${OUTPUT}/$@ ./cmd/$@/...
+	CGO_ENABLED=0 GOOS=darwin go build ${GCFLAGS} ${RACE} -o ${OUTPUT}/$@/ ./cmd/$@/...
 endif
 endif
 

@@ -33,6 +33,8 @@ enum ErrorCode {
     SendTypeNotSupported        = 26;  // sendtype发送类型不支持
     ClusterNodeNotFound         = 27;  // 服务节点没发现
     ArrayOutOfBounds            = 28;  // 数组越界
+    ReadYaml                    = 29;  // yaml配置文件读取失败
+    YamlUnmarshal               = 30;  // yaml文件反序列化
 };
 
 // 请求uuid

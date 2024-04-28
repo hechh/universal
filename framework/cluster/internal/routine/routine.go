@@ -88,7 +88,7 @@ func (d *RoutineInfoList) UpdateRoutine(head *pb.PacketHead, node *pb.ClusterNod
 	return nil
 }
 
-func init() {
+func clearExpire() {
 	timer := time.NewTicker(10 * time.Second)
 	for {
 		<-timer.C
@@ -106,4 +106,8 @@ func init() {
 			return true
 		})
 	}
+}
+
+func init() {
+	go clearExpire()
 }
