@@ -8,6 +8,9 @@ import (
 	"universal/common/pb"
 	"universal/framework/cluster/domain"
 	"universal/framework/cluster/internal/discovery/etcd"
+	"universal/framework/cluster/internal/nodes"
+	"universal/framework/cluster/internal/service"
+	"universal/framework/fbasic"
 
 	"go.etcd.io/etcd/clientv3"
 	"google.golang.org/protobuf/proto"
@@ -75,6 +78,14 @@ func TestDisEtcd(t *testing.T) {
 	buf, _ := proto.Marshal(node)
 	client.KeepAlive(domain.GetNodeChannel(pb.ClusterType_GATE, 123), buf, 10)
 	client.Watch(domain.ROOT_DIR, func(action int, key string, value string) {
+		vv := &pb.ClusterNode{}
+		proto.Unmarshal(fbasic.StringToBytes(value), vv)
+		switch action {
+		case domain.ActionTypeDel:
+			nodes.DeleteNode(vv)
+		default:
+			nodes.AddNode(vv)
+		}
 		t.Log(action, "kv==add>", key, value)
 	})
 	for i := 0; i < 10; i++ {
@@ -82,5 +93,18 @@ func TestDisEtcd(t *testing.T) {
 		buf, _ := proto.Marshal(node)
 		client.Put(domain.GetNodeChannel(pb.ClusterType_GATE, uint32(i)+1), string(buf))
 	}
+
+	nodes.InitNodes(pb.ClusterType_GATE, pb.ClusterType_GAME, pb.ClusterType_DB)
+	t.Run("路由测试", func(t *testing.T) {
+		for i := uint64(1); i < 10; i++ {
+			head := &pb.PacketHead{DstClusterType: pb.ClusterType_GATE, UID: 100000 + i}
+			if err := service.Dispatcher(head); err != nil {
+				t.Log("=========>", err)
+				return
+			}
+			t.Log("----->", head)
+		}
+	})
+
 	client.Close()
 }

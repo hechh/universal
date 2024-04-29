@@ -2,6 +2,7 @@ package service
 
 import (
 	"fmt"
+	"log"
 	"universal/common/pb"
 	"universal/framework/cluster/domain"
 	"universal/framework/cluster/internal/discovery/etcd"
@@ -24,7 +25,7 @@ func GetLocalClusterNode() *pb.ClusterNode {
 }
 
 // 初始化
-func Init(natsUrl string, ends []string) (err error) {
+func Init(natsUrl string, ends []string, types ...pb.ClusterType) (err error) {
 	// 初始化nats
 	if natsClient, err = network.NewNatsClient(natsUrl); err != nil {
 		return err
@@ -33,6 +34,7 @@ func Init(natsUrl string, ends []string) (err error) {
 	if dis, err = etcd.NewEtcdClient(ends...); err != nil {
 		return err
 	}
+	nodes.InitNodes(types...)
 	return
 }
 
@@ -41,6 +43,7 @@ func watchClusterNode(action int, key string, value string) {
 	if err := proto.Unmarshal(fbasic.StringToBytes(value), vv); err != nil {
 		panic(err)
 	}
+	log.Println(" ---->>> etcd watch: ", vv)
 	switch action {
 	case domain.ActionTypeDel:
 		// 添加服务节点
@@ -91,7 +94,7 @@ func Publish(pac *pb.Packet) error {
 	switch head.SendType {
 	case pb.SendType_POINT:
 		// 先路由
-		if err := dispatcher(head); err != nil {
+		if err := Dispatcher(head); err != nil {
 			return err
 		}
 		key = domain.GetNodeChannel(head.DstClusterType, head.DstClusterID)
@@ -103,7 +106,7 @@ func Publish(pac *pb.Packet) error {
 	return natsClient.Publish(key, pac)
 }
 
-func dispatcher(head *pb.PacketHead) error {
+func Dispatcher(head *pb.PacketHead) error {
 	rlist := routine.GetRoutine(head)
 	if rinfo := rlist.Get(head.DstClusterType); rinfo == nil {
 		// 路由

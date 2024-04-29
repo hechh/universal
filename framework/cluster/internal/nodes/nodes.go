@@ -15,7 +15,7 @@ const (
 type Nodes [CLUSTER_SIZE]*atomic.Value
 
 var (
-	_nodes map[pb.ClusterType]Nodes
+	_nodes = make(map[pb.ClusterType]Nodes)
 )
 
 func (d Nodes) Walk(f func(i int, node *pb.ClusterNode) bool) {
