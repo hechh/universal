@@ -63,6 +63,7 @@ func (d *EtcdClient) Watch(path string, watchFunc domain.WatchFunc) error {
 }
 
 func (d *EtcdClient) run(watchCh clientv3.WatchChan, watchFunc domain.WatchFunc) {
+	times := 0
 	var key *keyMonitor
 	timer := time.NewTicker(3 * time.Second)
 	for {
@@ -75,12 +76,18 @@ func (d *EtcdClient) run(watchCh clientv3.WatchChan, watchFunc domain.WatchFunc)
 			}
 			if err := key.KeepAliveOnce(d.client); err != nil {
 				log.Println(err)
-				panic(err)
+				d.notifyCh <- key
+				key = nil
 			}
 		case key = <-d.notifyCh:
 			if err := key.Put(d.client); err != nil {
 				log.Println(err)
-				panic(err)
+				if times >= 5 {
+					panic(err)
+				}
+				times++
+				d.notifyCh <- key
+				key = nil
 			}
 		case item := <-watchCh:
 			for _, event := range item.Events {
