@@ -10,23 +10,26 @@ const (
 	ActionTypeNone = 0
 	ActionTypeAdd  = 1
 	ActionTypeDel  = 2
+
+	ROOT_DIR = "server/cluster/"
 )
 
-type WatchFunc func(key string, value []byte)
+type WatchFunc func(action int, key string, value string)
 
 type IDiscovery interface {
-	KeepAlive(string, []byte, int64)    // 设置保活key
-	Walk(string, WatchFunc) error       // 便利所有key-value
-	Watch(string, WatchFunc, WatchFunc) // 监听所有变更
+	KeepAlive(string, []byte, int64) // 设置保活key
+	Put(string, string) error        // 添加节点
+	Watch(string, WatchFunc) error   // 开启协程watch+keepalive
+	Close()                          // 停止协程watch+keepalive
 }
 
 type ClusterFunc func(*pb.Packet)
 
 // etcd
 func GetNodeChannel(typ pb.ClusterType, clusterID uint32) string {
-	return fmt.Sprintf("server/%s/%d", strings.ToLower(typ.String()), clusterID)
+	return fmt.Sprintf(ROOT_DIR+"%s/%d", strings.ToLower(typ.String()), clusterID)
 }
 
 func GetTopicChannel(typ pb.ClusterType) string {
-	return fmt.Sprintf("server/%s", strings.ToLower(typ.String()))
+	return fmt.Sprintf(ROOT_DIR+"%s", strings.ToLower(typ.String()))
 }

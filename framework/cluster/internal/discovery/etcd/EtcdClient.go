@@ -13,8 +13,8 @@ import (
 
 type EtcdClient struct {
 	client   *clientv3.Client
-	key      *keyMonitor
 	notifyCh chan *keyMonitor
+	exitCh   chan struct{}
 }
 
 func NewEtcdClient(ends ...string) (*EtcdClient, error) {
@@ -25,23 +25,8 @@ func NewEtcdClient(ends ...string) (*EtcdClient, error) {
 	return &EtcdClient{
 		client:   client,
 		notifyCh: make(chan *keyMonitor, 1),
+		exitCh:   make(chan struct{}, 0),
 	}, nil
-}
-
-func (d *EtcdClient) Walk(path string, f domain.WatchFunc) error {
-	resp, err := d.client.Get(context.Background(), path, clientv3.WithPrefix())
-	if err != nil {
-		return fbasic.NewUError(1, pb.ErrorCode_EtcdClientGet, err)
-	}
-	for _, kv := range resp.Kvs {
-		f(string(kv.Key), kv.Value)
-	}
-	return nil
-}
-
-// 阻塞执行
-func (d *EtcdClient) Watch(path string, addF, delF domain.WatchFunc) {
-	go d.run(d.client.Watch(context.Background(), path, clientv3.WithPrefix()), addF, delF)
 }
 
 func (d *EtcdClient) KeepAlive(key string, value []byte, ttl int64) {
@@ -52,32 +37,58 @@ func (d *EtcdClient) KeepAlive(key string, value []byte, ttl int64) {
 	}
 }
 
-func (d *EtcdClient) run(watch clientv3.WatchChan, addF, delF domain.WatchFunc) {
-	timer := time.NewTicker(2 * time.Second)
+func (d *EtcdClient) Put(key string, value string) error {
+	if _, err := d.client.Put(context.Background(), key, value); err != nil {
+		return fbasic.NewUError(1, pb.ErrorCode_EtcdClientPut, err)
+	}
+	return nil
+}
+
+func (d *EtcdClient) Close() {
+	d.exitCh <- struct{}{}
+}
+
+func (d *EtcdClient) Watch(path string, watchFunc domain.WatchFunc) error {
+	resp, err := d.client.Get(context.Background(), path, clientv3.WithPrefix())
+	if err != nil {
+		return fbasic.NewUError(1, pb.ErrorCode_EtcdClientGet, err)
+	}
+	for _, kv := range resp.Kvs {
+		watchFunc(domain.ActionTypeNone, string(kv.Key), fbasic.BytesToString(kv.Value))
+	}
+	// 设置监听
+	watchCh := d.client.Watch(context.Background(), path, clientv3.WithPrefix())
+	go d.run(watchCh, watchFunc)
+	return nil
+}
+
+func (d *EtcdClient) run(watchCh clientv3.WatchChan, watchFunc domain.WatchFunc) {
+	var key *keyMonitor
+	timer := time.NewTicker(3 * time.Second)
 	for {
 		select {
+		case <-d.exitCh:
+			return
 		case <-timer.C:
-			if d.key == nil {
+			if key == nil {
 				continue
 			}
-			if err := d.key.KeepAliveOnce(d.client); err != nil {
+			if err := key.KeepAliveOnce(d.client); err != nil {
 				log.Println(err)
 				panic(err)
 			}
-		case d.key = <-d.notifyCh:
-			if err := d.key.Put(d.client); err != nil {
+		case key = <-d.notifyCh:
+			if err := key.Put(d.client); err != nil {
 				log.Println(err)
 				panic(err)
 			}
-		case item := <-watch:
+		case item := <-watchCh:
 			for _, event := range item.Events {
-				if event.Type.String() == "PUT" && addF != nil {
-					addF(string(event.Kv.Key), event.Kv.Value)
-					continue
+				action := domain.ActionTypeAdd
+				if event.Type.String() != "PUT" {
+					action = domain.ActionTypeDel
 				}
-				if event.Type.String() == "DELETE" && delF != nil {
-					delF(string(event.Kv.Key), event.Kv.Value)
-				}
+				watchFunc(action, string(event.Kv.Key), fbasic.BytesToString(event.Kv.Value))
 			}
 		}
 	}
@@ -91,7 +102,7 @@ type keyMonitor struct {
 }
 
 func (d *keyMonitor) Put(client *clientv3.Client) error {
-	resp, err := client.Lease.Grant(context.Background(), d.ttl*int64(time.Second))
+	resp, err := client.Lease.Grant(context.Background(), d.ttl)
 	if err != nil {
 		return fbasic.NewUError(1, pb.ErrorCode_EtcdLeaseCreate, err)
 	}

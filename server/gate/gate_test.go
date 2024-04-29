@@ -30,18 +30,18 @@ func TestRun(t *testing.T) {
 		panic(err)
 	}
 	serverId := 1
+	// 初始化集群
+	if err := cluster.Init(GateCfg.Nats.Endpoints, GateCfg.Etcd.Endpoints); err != nil {
+		panic(err)
+	}
+	// 进行服务发现
 	serverCfg := GateCfg.Servers[serverId]
 	node := &pb.ClusterNode{
 		ClusterType: pb.ClusterType_GATE,
 		Ip:          serverCfg.IP,
 		Port:        int32(serverCfg.Port),
 	}
-	// 初始化集群
-	if err := cluster.Init(node, GateCfg.Nats.Endpoints, GateCfg.Etcd.Endpoints); err != nil {
-		panic(err)
-	}
-	// 进行服务发现
-	if err := cluster.Discovery(); err != nil {
+	if err := cluster.Discovery(node); err != nil {
 		panic(err)
 	}
 	// 设置消息订阅

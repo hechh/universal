@@ -9,13 +9,13 @@ import (
 )
 
 // 初始化连接
-func Init(node *pb.ClusterNode, natsUrl string, etcds []string) error {
-	return service.Init(node, natsUrl, etcds)
+func Init(natsUrl string, etcds []string) error {
+	return service.Init(natsUrl, etcds)
 }
 
 // 服务发现
-func Discovery() error {
-	return service.Discovery()
+func Discovery(node *pb.ClusterNode) error {
+	return service.Discovery(node)
 }
 
 // 订阅消息

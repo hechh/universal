@@ -13,10 +13,6 @@ import (
 	"google.golang.org/protobuf/proto"
 )
 
-const (
-	ROOT_DIR = "server/cluster/"
-)
-
 var (
 	dis        domain.IDiscovery   // 服务发现
 	natsClient *network.NatsClient // nats客户端
@@ -28,14 +24,7 @@ func GetLocalClusterNode() *pb.ClusterNode {
 }
 
 // 初始化
-func Init(node *pb.ClusterNode, natsUrl string, ends []string) (err error) {
-	if node == nil {
-		return fbasic.NewUError(1, pb.ErrorCode_Parameter, "*pb.ClusterNode is nil")
-	}
-	if node.ClusterID <= 0 {
-		node.ClusterID = fbasic.GetCrc32(fmt.Sprintf("%s:%d", node.Ip, node.Port))
-	}
-	selfNode = node
+func Init(natsUrl string, ends []string) (err error) {
 	// 初始化nats
 	if natsClient, err = network.NewNatsClient(natsUrl); err != nil {
 		return err
@@ -47,33 +36,29 @@ func Init(node *pb.ClusterNode, natsUrl string, ends []string) (err error) {
 	return
 }
 
-func addClusterNode(key string, value []byte) {
+func watchClusterNode(action int, key string, value string) {
 	vv := &pb.ClusterNode{}
-	if err := proto.Unmarshal(value, vv); err != nil {
-		fmt.Println("--------add--------", key, string(value), err)
+	if err := proto.Unmarshal(fbasic.StringToBytes(value), vv); err != nil {
 		panic(err)
 	}
-	// 添加服务节点
-	nodes.AddNode(vv)
-}
-
-func delClusterNode(key string, value []byte) {
-	vv := &pb.ClusterNode{}
-	if err := proto.Unmarshal(value, vv); err != nil {
-		fmt.Println("--------del--------", key, string(value), err)
-		panic(err)
+	switch action {
+	case domain.ActionTypeDel:
+		// 添加服务节点
+		nodes.AddNode(vv)
+	default:
+		nodes.DeleteNode(vv)
 	}
-	nodes.DeleteNode(vv)
 }
 
 // 服务发现
-func Discovery() error {
-	// 扫描其他服务
-	if err := dis.Walk(ROOT_DIR, addClusterNode); err != nil {
-		return err
+func Discovery(node *pb.ClusterNode) error {
+	if node == nil {
+		return fbasic.NewUError(1, pb.ErrorCode_Parameter, "*pb.ClusterNode is nil")
 	}
-	// 设置监听
-	dis.Watch(ROOT_DIR, addClusterNode, delClusterNode)
+	if node.ClusterID <= 0 {
+		node.ClusterID = fbasic.GetCrc32(fmt.Sprintf("%s:%d", node.Ip, node.Port))
+	}
+	selfNode = node
 	// 注册自身服务
 	key := domain.GetNodeChannel(selfNode.ClusterType, selfNode.ClusterID)
 	buf, err := proto.Marshal(selfNode)
@@ -81,6 +66,10 @@ func Discovery() error {
 		return fbasic.NewUError(1, pb.ErrorCode_ProtoMarshal, err)
 	}
 	dis.KeepAlive(key, buf, 10)
+	// 设置监听 + 发现其他服务
+	if err := dis.Watch(domain.ROOT_DIR, watchClusterNode); err != nil {
+		return err
+	}
 	return nil
 }
 

@@ -1,18 +1,22 @@
 package test
 
 import (
+	"context"
 	"log"
 	"testing"
 	"time"
+	"universal/common/pb"
+	"universal/framework/cluster/domain"
+	"universal/framework/cluster/internal/discovery/etcd"
 
 	"go.etcd.io/etcd/clientv3"
-	"golang.org/x/net/context"
+	"google.golang.org/protobuf/proto"
 )
 
 func TestEtcd(t *testing.T) {
 	// 创建Etcd客户端
 	client, err := clientv3.New(clientv3.Config{
-		Endpoints: []string{"localhost:2379"},
+		Endpoints: []string{"172.16.126.208:33501"},
 	})
 	if err != nil {
 		log.Fatal(err)
@@ -55,4 +59,28 @@ func TestEtcd(t *testing.T) {
 		log.Fatal(err)
 	}
 	log.Println("租约已撤销")
+}
+
+func TestDisEtcd(t *testing.T) {
+	client, err := etcd.NewEtcdClient("172.16.126.208:33501")
+	if err != nil {
+		t.Log(err)
+		return
+	}
+	node := &pb.ClusterNode{
+		ClusterType: pb.ClusterType_GATE,
+		Ip:          "127.0.0.1",
+		Port:        10100,
+	}
+	buf, _ := proto.Marshal(node)
+	client.KeepAlive(domain.GetNodeChannel(pb.ClusterType_GATE, 123), buf, 10)
+	client.Watch(domain.ROOT_DIR, func(action int, key string, value string) {
+		t.Log(action, "kv==add>", key, value)
+	})
+	for i := 0; i < 10; i++ {
+		node.Port++
+		buf, _ := proto.Marshal(node)
+		client.Put(domain.GetNodeChannel(pb.ClusterType_GATE, uint32(i)+1), string(buf))
+	}
+	client.Close()
 }
