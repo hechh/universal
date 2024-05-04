@@ -1,111 +1,99 @@
 package nodes
 
 import (
+	"encoding/json"
 	"fmt"
 	"sort"
-	"sync/atomic"
+	"sync"
 	"universal/common/pb"
-	"universal/framework/fbasic"
 )
 
-const (
-	CLUSTER_SIZE = 50 // 集群大小
-)
-
-type Nodes [CLUSTER_SIZE]*atomic.Value
+type NodeTable struct {
+	sync.RWMutex
+	list []*pb.ClusterNode
+}
 
 var (
-	_nodes = make(map[pb.ClusterType]Nodes)
+	_nodes = make(map[pb.ClusterType]*NodeTable)
 )
 
-func (d Nodes) Walk(f func(i int, node *pb.ClusterNode) bool) {
-	for i, n := range d {
-		val, _ := n.Load().(*pb.ClusterNode)
-		if !f(i, val) {
-			return
+func Print() {
+	for _, tt := range _nodes {
+		tt.RLock()
+		defer tt.RUnlock()
+		for i, node := range tt.list {
+			buf, _ := json.Marshal(node)
+			fmt.Println(i, "--->", string(buf))
 		}
 	}
 }
 
-func InitNodes(types ...pb.ClusterType) {
-	for _, typ := range types {
-		list := [CLUSTER_SIZE]*atomic.Value{}
-		for i := 0; i < CLUSTER_SIZE; i++ {
-			list[i] = new(atomic.Value)
-		}
-		_nodes[typ] = list
+func Init(typs ...pb.ClusterType) {
+	for _, typ := range typs {
+		_nodes[typ] = new(NodeTable)
 	}
 }
 
 // 获取节点信息
-func GetNode(head *pb.PacketHead) (ret *pb.ClusterNode) {
-	vals, ok := _nodes[head.DstClusterType]
-	if !ok {
+func Get(clusterType pb.ClusterType, clusterID uint32) *pb.ClusterNode {
+	if tt, ok := _nodes[clusterType]; !ok {
 		return nil
-	}
-	Nodes(vals).Walk(func(_ int, node *pb.ClusterNode) bool {
-		if node != nil && node.ClusterID == head.DstClusterID {
-			ret = node
-			return false
+	} else {
+		tt.RLock()
+		defer tt.RUnlock()
+		for _, node := range tt.list {
+			if node.ClusterID == clusterID {
+				return node
+			}
 		}
-		return true
-	})
-	return
+	}
+	return nil
 }
 
 // 删除节点
-func DeleteNode(node *pb.ClusterNode) {
-	if node.ClusterID <= 0 {
-		node.ClusterID = fbasic.GetCrc32(fmt.Sprintf("%s:%d", node.Ip, node.Port))
-	}
-	vals, ok := _nodes[node.ClusterType]
-	if !ok {
+func Delete(clusterType pb.ClusterType, clusterID uint32) {
+	if tt, ok := _nodes[clusterType]; !ok {
 		return
-	}
-	Nodes(vals).Walk(func(i int, item *pb.ClusterNode) bool {
-		if item != nil && item.ClusterID == node.ClusterID {
-			vals[i].Store(nil)
-			return false
+	} else {
+		tt.Lock()
+		defer tt.Unlock()
+		pos := -1
+		for _, item := range tt.list {
+			if item.ClusterID != clusterID {
+				pos++
+				tt.list[pos] = item
+			}
 		}
-		return true
-	})
+		tt.list = tt.list[:pos+1]
+	}
 }
 
 // 添加节点
-func AddNode(node *pb.ClusterNode) {
-	if node.ClusterID <= 0 {
-		node.ClusterID = fbasic.GetCrc32(fmt.Sprintf("%s:%d", node.Ip, node.Port))
-	}
-	vals, ok := _nodes[node.ClusterType]
-	if !ok {
+func Add(node *pb.ClusterNode) {
+	// 已经存在
+	if nn := Get(node.ClusterType, node.ClusterID); nn != nil {
 		return
 	}
-	Nodes(vals).Walk(func(i int, item *pb.ClusterNode) bool {
-		if item == nil {
-			vals[i].Store(node)
-			return false
-		}
-		return true
-	})
+	// 新建节点
+	if tt, ok := _nodes[node.ClusterType]; !ok {
+		return
+	} else {
+		// 插入
+		tt.Lock()
+		defer tt.Unlock()
+		tt.list = append(tt.list, node)
+		sort.Slice(tt.list, func(i, j int) bool {
+			return tt.list[i].ClusterID < tt.list[j].ClusterID
+		})
+	}
 }
 
 // 随机路由一个节点
-func RandomNode(head *pb.PacketHead) *pb.ClusterNode {
-	vals, ok := _nodes[head.DstClusterType]
-	if !ok {
+func Random(head *pb.PacketHead) *pb.ClusterNode {
+	if tt, ok := _nodes[head.DstClusterType]; !ok {
 		return nil
+	} else if len(tt.list) > 0 {
+		return tt.list[int(head.UID)%len(tt.list)]
 	}
-	// 读取所有节点
-	rets := []*pb.ClusterNode{}
-	Nodes(vals).Walk(func(i int, item *pb.ClusterNode) bool {
-		if item != nil {
-			rets = append(rets, item)
-		}
-		return true
-	})
-	// 排序
-	sort.Slice(rets, func(i, j int) bool {
-		return rets[i].ClusterID < rets[j].ClusterID
-	})
-	return rets[int(head.UID)%len(rets)]
+	return nil
 }

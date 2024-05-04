@@ -77,6 +77,10 @@ func EtcdClientPut(args ...interface{}) *fbasic.UError {
 	return fbasic.NewUError(2, pb.ErrorCode_EtcdClientPut, args...)
 }
 
+func EtcdClientDelete(args ...interface{}) *fbasic.UError {
+	return fbasic.NewUError(2, pb.ErrorCode_EtcdClientDelete, args...)
+}
+
 func EtcdLeaseCreate(args ...interface{}) *fbasic.UError {
 	return fbasic.NewUError(2, pb.ErrorCode_EtcdLeaseCreate, args...)
 }
@@ -101,10 +105,6 @@ func ApiCodeNotFound(args ...interface{}) *fbasic.UError {
 	return fbasic.NewUError(2, pb.ErrorCode_ApiCodeNotFound, args...)
 }
 
-func NotFound(args ...interface{}) *fbasic.UError {
-	return fbasic.NewUError(2, pb.ErrorCode_NotFound, args...)
-}
-
 func TypeNotSupported(args ...interface{}) *fbasic.UError {
 	return fbasic.NewUError(2, pb.ErrorCode_TypeNotSupported, args...)
 }
@@ -127,4 +127,12 @@ func ReadYaml(args ...interface{}) *fbasic.UError {
 
 func YamlUnmarshal(args ...interface{}) *fbasic.UError {
 	return fbasic.NewUError(2, pb.ErrorCode_YamlUnmarshal, args...)
+}
+
+func NotSupported(args ...interface{}) *fbasic.UError {
+	return fbasic.NewUError(2, pb.ErrorCode_NotSupported, args...)
+}
+
+func NotFound(args ...interface{}) *fbasic.UError {
+	return fbasic.NewUError(2, pb.ErrorCode_NotFound, args...)
 }

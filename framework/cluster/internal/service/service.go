@@ -2,7 +2,7 @@ package service
 
 import (
 	"fmt"
-	"log"
+	"strings"
 	"universal/common/pb"
 	"universal/framework/cluster/domain"
 	"universal/framework/cluster/internal/discovery/etcd"
@@ -11,6 +11,7 @@ import (
 	"universal/framework/fbasic"
 	"universal/framework/network"
 
+	"github.com/spf13/cast"
 	"google.golang.org/protobuf/proto"
 )
 
@@ -24,6 +25,15 @@ func GetLocalClusterNode() *pb.ClusterNode {
 	return selfNode
 }
 
+func GetDiscovery() domain.IDiscovery {
+	return dis
+}
+
+func Stop() {
+	natsClient.Close()
+	dis.Close()
+}
+
 // 初始化
 func Init(natsUrl string, ends []string, types ...pb.ClusterType) (err error) {
 	// 初始化nats
@@ -34,7 +44,7 @@ func Init(natsUrl string, ends []string, types ...pb.ClusterType) (err error) {
 	if dis, err = etcd.NewEtcdClient(ends...); err != nil {
 		return err
 	}
-	nodes.InitNodes(types...)
+	nodes.Init(types...)
 	return
 }
 
@@ -43,21 +53,22 @@ func watchClusterNode(action int, key string, value string) {
 	if err := proto.Unmarshal(fbasic.StringToBytes(value), vv); err != nil {
 		panic(err)
 	}
-	log.Println(" ---->>> etcd watch: ", vv)
 	switch action {
 	case domain.ActionTypeDel:
-		// 添加服务节点
-		nodes.AddNode(vv)
+		strs := strings.Split(strings.TrimPrefix(key, domain.ROOT_DIR), "/")
+		clusterType := pb.ClusterType(pb.ClusterType_value[strings.ToUpper(strs[0])])
+		clusterID := cast.ToUint32(strs[1])
+		nodes.Delete(clusterType, clusterID)
+		fmt.Println(action, key, "-----watch----->", clusterType, clusterID)
 	default:
-		nodes.DeleteNode(vv)
+		// 添加服务节点
+		nodes.Add(vv)
+		fmt.Println(action, key, "-----watch----->", vv)
 	}
 }
 
 // 服务发现
 func Discovery(node *pb.ClusterNode) error {
-	if node == nil {
-		return fbasic.NewUError(1, pb.ErrorCode_Parameter, "*pb.ClusterNode is nil")
-	}
 	if node.ClusterID <= 0 {
 		node.ClusterID = fbasic.GetCrc32(fmt.Sprintf("%s:%d", node.Ip, node.Port))
 	}
@@ -68,7 +79,7 @@ func Discovery(node *pb.ClusterNode) error {
 	if err != nil {
 		return fbasic.NewUError(1, pb.ErrorCode_ProtoMarshal, err)
 	}
-	dis.KeepAlive(key, buf, 10)
+	dis.KeepAlive(key, string(buf), 10)
 	// 设置监听 + 发现其他服务
 	if err := dis.Watch(domain.ROOT_DIR, watchClusterNode); err != nil {
 		return err
@@ -110,7 +121,7 @@ func Dispatcher(head *pb.PacketHead) error {
 	rlist := routine.GetRoutine(head)
 	if rinfo := rlist.Get(head.DstClusterType); rinfo == nil {
 		// 路由
-		if err := rlist.UpdateRoutine(head, nodes.RandomNode(head)); err != nil {
+		if err := rlist.UpdateRoutine(head, nodes.Random(head)); err != nil {
 			return err
 		}
 	} else {
@@ -120,14 +131,14 @@ func Dispatcher(head *pb.PacketHead) error {
 		// 节点丢失
 		if head.DstClusterID != rinfo.GetClusterID() {
 			// 重新路由
-			if err := rlist.UpdateRoutine(head, nodes.RandomNode(head)); err != nil {
+			if err := rlist.UpdateRoutine(head, nodes.Random(head)); err != nil {
 				return err
 			}
 		}
 		// 判断节点是否存在
-		if node := nodes.GetNode(head); node == nil {
+		if node := nodes.Get(head.DstClusterType, head.DstClusterID); node == nil {
 			// 重新路由
-			if err := rlist.UpdateRoutine(head, nodes.RandomNode(head)); err != nil {
+			if err := rlist.UpdateRoutine(head, nodes.Random(head)); err != nil {
 				return err
 			}
 		} else {

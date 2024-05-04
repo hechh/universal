@@ -4,9 +4,10 @@ option  go_package = "../pb";  // 声明生成的 go 文件所属的包
 
 // 服务器类型
 enum ClusterType {
-    GATE = 0;  // 网关,转发服务
-    GAME = 1;  // game
-    DB   = 2;  // db
+    NONE = 0;
+    GATE = 1;  // 网关,转发服务
+    GAME = 2;  // game
+    DB   = 3;  // db
 };
 
 // 发送标志

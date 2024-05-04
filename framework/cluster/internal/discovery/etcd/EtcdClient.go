@@ -14,6 +14,7 @@ import (
 type EtcdClient struct {
 	client   *clientv3.Client
 	notifyCh chan *keyMonitor
+	startCh  chan struct{}
 	exitCh   chan struct{}
 }
 
@@ -25,16 +26,9 @@ func NewEtcdClient(ends ...string) (*EtcdClient, error) {
 	return &EtcdClient{
 		client:   client,
 		notifyCh: make(chan *keyMonitor, 1),
+		startCh:  make(chan struct{}, 0),
 		exitCh:   make(chan struct{}, 0),
 	}, nil
-}
-
-func (d *EtcdClient) KeepAlive(key string, value []byte, ttl int64) {
-	d.notifyCh <- &keyMonitor{
-		ttl:   ttl,
-		key:   key,
-		value: value,
-	}
 }
 
 func (d *EtcdClient) Put(key string, value string) error {
@@ -44,8 +38,34 @@ func (d *EtcdClient) Put(key string, value string) error {
 	return nil
 }
 
+func (d *EtcdClient) Delete(key string) error {
+	if _, err := d.client.Delete(context.Background(), key, clientv3.WithPrefix()); err != nil {
+		return fbasic.NewUError(1, pb.ErrorCode_EtcdClientDelete, err)
+	}
+	return nil
+}
+
+func (d *EtcdClient) Walk(path string, f domain.WatchFunc) error {
+	resp, err := d.client.Get(context.Background(), path, clientv3.WithPrefix())
+	if err != nil {
+		return fbasic.NewUError(1, pb.ErrorCode_EtcdClientGet, err)
+	}
+	for _, kv := range resp.Kvs {
+		f(domain.ActionTypeNone, string(kv.Key), fbasic.BytesToString(kv.Value))
+	}
+	return nil
+}
+
 func (d *EtcdClient) Close() {
 	d.exitCh <- struct{}{}
+}
+
+func (d *EtcdClient) KeepAlive(key string, value string, ttl int64) {
+	d.notifyCh <- &keyMonitor{
+		ttl:   ttl,
+		key:   key,
+		value: value,
+	}
 }
 
 func (d *EtcdClient) Watch(path string, watchFunc domain.WatchFunc) error {
@@ -59,6 +79,7 @@ func (d *EtcdClient) Watch(path string, watchFunc domain.WatchFunc) error {
 	// 设置监听
 	watchCh := d.client.Watch(context.Background(), path, clientv3.WithPrefix())
 	go d.run(watchCh, watchFunc)
+	<-d.startCh
 	return nil
 }
 
@@ -88,6 +109,8 @@ func (d *EtcdClient) run(watchCh clientv3.WatchChan, watchFunc domain.WatchFunc)
 				times++
 				d.notifyCh <- key
 				key = nil
+			} else {
+				d.startCh <- struct{}{}
 			}
 		case item := <-watchCh:
 			for _, event := range item.Events {
@@ -104,7 +127,7 @@ func (d *EtcdClient) run(watchCh clientv3.WatchChan, watchFunc domain.WatchFunc)
 type keyMonitor struct {
 	ttl     int64
 	key     string
-	value   []byte
+	value   string
 	leaseID clientv3.LeaseID
 }
 
@@ -116,7 +139,7 @@ func (d *keyMonitor) Put(client *clientv3.Client) error {
 	d.leaseID = clientv3.LeaseID(resp.ID)
 
 	// 设置key的ttl
-	if _, err = client.Put(context.Background(), d.key, string(d.value), clientv3.WithLease(d.leaseID)); err != nil {
+	if _, err = client.Put(context.Background(), d.key, d.value, clientv3.WithLease(d.leaseID)); err != nil {
 		return fbasic.NewUError(1, pb.ErrorCode_EtcdClientPut, err)
 	}
 	return nil

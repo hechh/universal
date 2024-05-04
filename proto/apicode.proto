@@ -1,0 +1,12 @@
+syntax = "proto3";
+package pb;
+option  go_package = "../pb";  // 声明生成的 go 文件所属的包
+
+// 请求uuid
+enum ApiCode {
+    ApiCodeNode      = 0;
+    GameApiCodeBegin = 100000;
+    GameApiCodeEnd   = 199999;
+    GateApiCodeBegin = 200000;
+    GateApiCodeEnd   = 299999;
+}

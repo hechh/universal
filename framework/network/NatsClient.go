@@ -47,3 +47,7 @@ func (d *NatsClient) Publish(key string, pac *pb.Packet) error {
 	}
 	return nil
 }
+
+func (d *NatsClient) Close() {
+	d.conn.Close()
+}

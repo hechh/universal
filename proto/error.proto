@@ -22,26 +22,19 @@ enum ErrorCode {
     EtcdBuildClient             = 15;  // etcd创建客户端失败
     EtcdClientGet               = 16;  // 查询etcd失败
     EtcdClientPut               = 17;  // 查询etcd失败
-    EtcdLeaseCreate             = 18;  // 租赁
-    EtcdLeaseKeepAliveOnce      = 19;  // 租赁
-    NatsBuildClient             = 20;  // nats创建客户端失败
-    NatsPublish                 = 21;  // 订阅失败
-    NatsSubscribe               = 22;  // 订阅失败
-    ApiCodeNotFound             = 23;  // apicode不支持
-    NotFound                    = 24;  // 未找到
+    EtcdClientDelete            = 18;  // 查询etcd失败
+    EtcdLeaseCreate             = 19;  // 租赁
+    EtcdLeaseKeepAliveOnce      = 20;  // 租赁
+    NatsBuildClient             = 21;  // nats创建客户端失败
+    NatsPublish                 = 22;  // 订阅失败
+    NatsSubscribe               = 23;  // 订阅失败
+    ApiCodeNotFound             = 24;  // apicode不支持
     TypeNotSupported            = 25;  // 类型不支持
     SendTypeNotSupported        = 26;  // sendtype发送类型不支持
     ClusterNodeNotFound         = 27;  // 服务节点没发现
     ArrayOutOfBounds            = 28;  // 数组越界
     ReadYaml                    = 29;  // yaml配置文件读取失败
     YamlUnmarshal               = 30;  // yaml文件反序列化
+    NotSupported                = 31;  // 不支持
+    NotFound                    = 32;  // 未找到
 };
-
-// 请求uuid
-enum ApiCode {
-    ApiCodeNode      = 0;
-    GameApiCodeBegin = 100000;
-    GameApiCodeEnd   = 199999;
-    GateApiCodeBegin = 200000;
-    GateApiCodeEnd   = 299999;
-}

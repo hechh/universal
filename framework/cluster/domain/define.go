@@ -17,8 +17,7 @@ const (
 type WatchFunc func(action int, key string, value string)
 
 type IDiscovery interface {
-	KeepAlive(string, []byte, int64) // 设置保活key
-	Put(string, string) error        // 添加节点
+	KeepAlive(string, string, int64) // 设置保活key
 	Watch(string, WatchFunc) error   // 开启协程watch+keepalive
 	Close()                          // 停止协程watch+keepalive
 }
