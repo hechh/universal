@@ -21,11 +21,9 @@ type SocketClient struct {
 
 func NewSocketClient(conn net.Conn) *SocketClient {
 	return &SocketClient{
-		conn:       conn,
-		readExpire: 0,
-		sendExpire: 0,
-		recvBuff:   make([]byte, 512*1024),
-		sendBuff:   make([]byte, 512*1024),
+		conn:     conn,
+		recvBuff: make([]byte, 512*1024),
+		sendBuff: make([]byte, 512*1024),
 	}
 }
 
