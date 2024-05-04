@@ -5,7 +5,7 @@ OUTPUT=./output
 PROTO_PATH=./proto
 GEN_GO_PATH=./common/pb
 
-TARGET=gate game
+TARGET=gate 
 BUILD=$(TARGET:%=%_build)
 
 .PHONY: race build clean all gen gen_go yaml
@@ -20,20 +20,21 @@ clean:
 	-rm -rf ${OUTPUT}
 
 $(TARGET): gen
-	mkdir -p ${OUTPUT}/$@ && cp -rf ./env/${@}.yaml ${OUTPUT}/$@/
+	-mkdir -p ${OUTPUT}/bin
+	-mkdir -p ${OUTPUT}/yaml && cp -rf ./env/${@}.yaml ${OUTPUT}/yaml/
 ifeq (${SYSTEM}, windows)
-	go build ${GCFLAGS} ${RACE} -o ${OUTPUT}/$@/$@.exe ./cmd/$@/...
+	go build ${GCFLAGS} ${RACE} -o ${OUTPUT}/bin/$@.exe ./cmd/$@/...
 else
 ifeq (${SYSTEM}, linux)
-	CGO_ENABLED=0 GOOS=linux go build ${GCFLAGS} ${RACE} -o ${OUTPUT}/$@/ ./cmd/$@/...
+	CGO_ENABLED=0 GOOS=linux go build ${GCFLAGS} ${RACE} -o ${OUTPUT}/bin/ ./cmd/$@/...
 else
-	CGO_ENABLED=0 GOOS=darwin go build ${GCFLAGS} ${RACE} -o ${OUTPUT}/$@/ ./cmd/$@/...
+	CGO_ENABLED=0 GOOS=darwin go build ${GCFLAGS} ${RACE} -o ${OUTPUT}/bin/ ./cmd/$@/...
 endif
 endif
 
 ############################生成代码选项##############################
 gen:
-	mkdir -p ${GEN_GO_PATH} && rm -rf ${GEN_GO_PATH}/*
+	-mkdir -p ${GEN_GO_PATH} && rm -rf ${GEN_GO_PATH}/*
 ifeq (${SYSTEM}, windows)
 	protoc.exe -I${PROTO_PATH} ${PROTO_PATH}/*.proto --go_opt paths=source_relative --go_out=${GEN_GO_PATH}
 else # linux darwin(mac)

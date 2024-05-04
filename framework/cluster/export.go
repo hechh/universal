@@ -14,8 +14,8 @@ func Init(natsUrl string, etcds []string) error {
 }
 
 // 服务发现
-func Discovery(node *pb.ClusterNode) error {
-	return service.Discovery(node)
+func Discovery(typ pb.ClusterType, addr string) error {
+	return service.Discovery(typ, addr)
 }
 
 // 订阅消息

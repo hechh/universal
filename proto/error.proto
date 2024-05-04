@@ -37,4 +37,5 @@ enum ErrorCode {
     YamlUnmarshal               = 30;  // yaml文件反序列化
     NotSupported                = 31;  // 不支持
     NotFound                    = 32;  // 未找到
+    SocketAddr                  = 33;  // 网络地址错误
 };

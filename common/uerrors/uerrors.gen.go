@@ -136,3 +136,7 @@ func NotSupported(args ...interface{}) *fbasic.UError {
 func NotFound(args ...interface{}) *fbasic.UError {
 	return fbasic.NewUError(2, pb.ErrorCode_NotFound, args...)
 }
+
+func SocketAddr(args ...interface{}) *fbasic.UError {
+	return fbasic.NewUError(2, pb.ErrorCode_SocketAddr, args...)
+}

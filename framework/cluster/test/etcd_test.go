@@ -7,6 +7,7 @@ import (
 	"universal/framework/cluster/domain"
 	"universal/framework/cluster/internal/discovery/etcd"
 	"universal/framework/cluster/internal/nodes"
+	"universal/framework/cluster/internal/routine"
 	"universal/framework/cluster/internal/service"
 	"universal/framework/fbasic"
 
@@ -26,16 +27,16 @@ func TestDisEtcd(t *testing.T) {
 	client := service.GetDiscovery().(*etcd.EtcdClient)
 	client.Delete("server/")
 	// 注册服务节点
-	node := &pb.ClusterNode{
-		ClusterType: pb.ClusterType_GATE,
-		Ip:          "127.0.0.1",
-		Port:        10100,
-	}
-	if err := service.Discovery(node); err != nil {
+	if err := service.Discovery(pb.ClusterType_GATE, "127.1.0.1:10100"); err != nil {
 		t.Log(err)
 		return
 	}
 	t.Run("添加路由表", func(t *testing.T) {
+		node := &pb.ClusterNode{
+			ClusterType: pb.ClusterType_GATE,
+			Ip:          "127.0.0.1",
+			Port:        10100,
+		}
 		for i := 1; i < 10; i++ {
 			node.Port++
 			node.ClusterID = fbasic.GetCrc32(fmt.Sprintf("%s:%d", node.Ip, node.Port))
@@ -55,6 +56,7 @@ func TestDisEtcd(t *testing.T) {
 			}
 			t.Log("----->", head)
 		}
+		routine.Print()
 	})
 	t.Run("路由表删除", func(t *testing.T) {
 		node := &pb.ClusterNode{

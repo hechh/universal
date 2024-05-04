@@ -41,12 +41,7 @@ func Run() {
 	}
 	// 进行服务发现
 	serverCfg := GateCfg.Servers[serverId]
-	node := &pb.ClusterNode{
-		ClusterType: pb.ClusterType_GATE,
-		Ip:          serverCfg.IP,
-		Port:        int32(serverCfg.Port),
-	}
-	if err := cluster.Discovery(node); err != nil {
+	if err := cluster.Discovery(pb.ClusterType_GATE, serverCfg.Addr); err != nil {
 		panic(err)
 	}
 	// 设置消息订阅

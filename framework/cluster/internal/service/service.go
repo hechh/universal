@@ -1,7 +1,8 @@
 package service
 
 import (
-	"fmt"
+	"log"
+	"net"
 	"strings"
 	"universal/common/pb"
 	"universal/framework/cluster/domain"
@@ -59,20 +60,25 @@ func watchClusterNode(action int, key string, value string) {
 		clusterType := pb.ClusterType(pb.ClusterType_value[strings.ToUpper(strs[0])])
 		clusterID := cast.ToUint32(strs[1])
 		nodes.Delete(clusterType, clusterID)
-		fmt.Println(action, key, "-----watch----->", clusterType, clusterID)
 	default:
 		// 添加服务节点
 		nodes.Add(vv)
-		fmt.Println(action, key, "-----watch----->", vv)
 	}
+	log.Println(action, key, "-----watch----->", vv)
 }
 
 // 服务发现
-func Discovery(node *pb.ClusterNode) error {
-	if node.ClusterID <= 0 {
-		node.ClusterID = fbasic.GetCrc32(fmt.Sprintf("%s:%d", node.Ip, node.Port))
+func Discovery(typ pb.ClusterType, addr string) error {
+	ip, port, err := net.SplitHostPort(addr)
+	if err != nil {
+		return fbasic.NewUError(1, pb.ErrorCode_SocketAddr, err)
 	}
-	selfNode = node
+	selfNode = &pb.ClusterNode{
+		ClusterType: typ,
+		ClusterID:   fbasic.GetCrc32(addr),
+		Ip:          ip,
+		Port:        cast.ToInt32(port),
+	}
 	// 注册自身服务
 	key := domain.GetNodeChannel(selfNode.ClusterType, selfNode.ClusterID)
 	buf, err := proto.Marshal(selfNode)
@@ -126,10 +132,10 @@ func Dispatcher(head *pb.PacketHead) error {
 		}
 	} else {
 		if head.DstClusterID <= 0 {
-			head.DstClusterID = rinfo.GetClusterID()
+			head.DstClusterID = rinfo.ClusterID
 		}
 		// 节点丢失
-		if head.DstClusterID != rinfo.GetClusterID() {
+		if head.DstClusterID != rinfo.ClusterID {
 			// 重新路由
 			if err := rlist.UpdateRoutine(head, nodes.Random(head)); err != nil {
 				return err

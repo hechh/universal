@@ -9,10 +9,9 @@ import (
 )
 
 type ServerConfig struct {
-	ID    int    `yaml:"id"`
-	IP    string `yaml:"ip"`
-	Port  int    `yaml:"port"`
-	PProf int    `yaml:"pprof"`
+	ServerID int    `yaml:"id"`
+	Addr     string `yaml:"addr"`
+	PProf    string `yaml:"pprof"`
 }
 
 type EtcdConfig struct {
