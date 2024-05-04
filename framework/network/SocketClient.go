@@ -59,7 +59,7 @@ func (d *SocketClient) Send(pac *pb.Packet) error {
 	// 设置crc
 	head.SetCrc32(fbasic.GetCrc32(buf))
 	// 设置body
-	copy(sendBuff[:SocketFrameHeaderSize], buf)
+	copy(sendBuff[SocketFrameHeaderSize:], buf)
 	// 发送数据包
 	if _, err := d.conn.Write(sendBuff); err != nil {
 		return fbasic.NewUError(1, pb.ErrorCode_SocketClientSend, err)
@@ -84,7 +84,7 @@ func (d *SocketClient) Read() (*pb.Packet, error) {
 	buf := d.getRecvBytes(SocketFrameHeaderSize)
 	n, err := io.ReadFull(d.conn, buf)
 	if err != nil {
-		return nil, fbasic.NewUError(1, pb.ErrorCode_SocketClientRead, err)
+		return nil, fbasic.NewUError(1, pb.ErrorCode_SocketClientRead, n, err)
 	}
 	if n != SocketFrameHeaderSize {
 		return nil, fbasic.NewUError(1, pb.ErrorCode_SocketFrameHeaderSize, fmt.Sprint(n, SocketFrameHeaderSize))
