@@ -19,11 +19,11 @@ type SocketClient struct {
 	sendBuff   []byte        // 接受缓存
 }
 
-func NewSocketClient(conn net.Conn, rexpire, sexpire time.Duration) *SocketClient {
+func NewSocketClient(conn net.Conn) *SocketClient {
 	return &SocketClient{
 		conn:       conn,
-		readExpire: rexpire,
-		sendExpire: sexpire,
+		readExpire: 0,
+		sendExpire: 0,
 		recvBuff:   make([]byte, 512*1024),
 		sendBuff:   make([]byte, 512*1024),
 	}

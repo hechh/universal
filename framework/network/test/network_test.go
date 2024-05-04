@@ -4,9 +4,7 @@ import (
 	"fmt"
 	"net/http"
 	"sync"
-	"sync/atomic"
 	"testing"
-	"time"
 	"universal/common/pb"
 	"universal/framework/network"
 
@@ -14,48 +12,73 @@ import (
 )
 
 const (
-	LimitTimes = 10000
+	LimitTimes = 50000
 )
 
 var (
-	times int32
-	cli   = sync.WaitGroup{}
-	sr    = sync.WaitGroup{}
+	client   *network.NatsClient
+	clientWg = sync.WaitGroup{}
 )
 
-func wsHandle(conn *websocket.Conn) {
-	fmt.Println("======> websocket connected")
-	client := network.NewSocketClient(conn, 2*time.Second, 2*time.Second)
-	defer conn.Close()
-
-	for {
-		pac, err := client.Read()
-		fmt.Println(err, "----->", pac)
-		if err != nil {
-			return
-		}
-		cli.Done()
-		sr.Add(1)
-		pac.Head.SeqID++
-		if err := client.Send(pac); err != nil {
-			fmt.Println("---->", err)
-			return
-		}
-		sr.Wait()
-		atomic.AddInt32(&times, 1)
-		if atomic.LoadInt32(&times) > LimitTimes {
-			return
-		}
-	}
-}
 func TestMain(m *testing.M) {
 	go func() {
 		http.Handle("/ws", websocket.Handler(wsHandle))
 		http.ListenAndServe(":8089", nil)
 	}()
+	// nats服务
+	natsAddr := "localhost:4222,172.16.126.208:33601,172.16.126.208:33602,172.16.126.208:33603"
+	var err error
+	if client, err = network.NewNatsClient(natsAddr); err != nil {
+		panic(err)
+	}
+	if err = client.Subscribe("/nats", natsHandle); err != nil {
+		panic(err)
+	}
 	m.Run()
 }
 
+func natsHandle(pac *pb.Packet) {
+	fmt.Println("=======>", pac)
+	clientWg.Done()
+}
+
+func wsHandle(conn *websocket.Conn) {
+	client := network.NewSocketClient(conn)
+	defer conn.Close()
+	sendCh := make(chan *pb.Packet, 1)
+	// 接受数据
+	wg := sync.WaitGroup{}
+	wg.Add(1)
+	go func() {
+		defer wg.Done()
+		for {
+			pac, err := client.Read()
+			if err != nil {
+				return
+			}
+			sendCh <- pac
+			if pac.Head.SeqID >= LimitTimes {
+				fmt.Println("server read finished")
+				return
+			}
+		}
+	}()
+	// 循环处理
+	defer wg.Wait()
+	for {
+		select {
+		case item := <-sendCh:
+			//fmt.Println("---server--->", item)
+			if item.Head.SeqID >= LimitTimes {
+				fmt.Println("select server finished")
+				return
+			}
+			if err := client.Send(item); err != nil {
+				return
+			}
+		}
+	}
+}
 func TestClient(t *testing.T) {
 	ws, err := websocket.Dial("ws://localhost:8089/ws", "", "http://localhost")
 	if err != nil {
@@ -63,7 +86,54 @@ func TestClient(t *testing.T) {
 		return
 	}
 	defer ws.Close()
+	client := network.NewSocketClient(ws)
+	sendCh := make(chan *pb.Packet, 1)
+	// 发送数据
+	sendCh <- &pb.Packet{
+		Head: &pb.PacketHead{
+			SendType:       pb.SendType_POINT,
+			ApiCode:        2,
+			UID:            100100600,
+			SrcClusterType: pb.ClusterType_GATE,
+			DstClusterType: pb.ClusterType_GAME,
+		},
+	}
+	// 接受协程
+	wg := sync.WaitGroup{}
+	wg.Add(1)
+	go func() {
+		defer wg.Done()
+		for {
+			pac, err := client.Read()
+			if err != nil {
+				return
+			}
+			pac.Head.SeqID++
+			sendCh <- pac
+			if pac.Head.SeqID >= LimitTimes {
+				fmt.Println("client read finished")
+				return
+			}
+		}
+	}()
+	// 循环处理
+	defer wg.Wait()
+	for {
+		select {
+		case item := <-sendCh:
+			//fmt.Println("---client--->", item)
+			if item.Head.SeqID >= LimitTimes {
+				fmt.Println("select client finished")
+				return
+			}
+			if err := client.Send(item); err != nil {
+				return
+			}
+		}
+	}
+}
 
+func TestNats(t *testing.T) {
 	pac := &pb.Packet{
 		Head: &pb.PacketHead{
 			SendType:       pb.SendType_POINT,
@@ -73,24 +143,9 @@ func TestClient(t *testing.T) {
 			DstClusterType: pb.ClusterType_GAME,
 		},
 	}
-	client := network.NewSocketClient(ws, 2*time.Second, 2*time.Second)
-	for {
-		cli.Add(1)
-		if err := client.Send(pac); err != nil {
-			t.Log("=====>", err)
-			return
-		}
-		cli.Wait()
-
-		pac, err = client.Read()
-		t.Log(err, "=====>", pac)
-		if err != nil {
-			return
-		}
-		sr.Done()
-		pac.Head.SeqID++
-		if atomic.LoadInt32(&times) > LimitTimes {
-			return
-		}
+	clientWg.Add(1)
+	if err := client.Publish("/nats", pac); err != nil {
+		t.Log(err)
 	}
+	clientWg.Wait()
 }
