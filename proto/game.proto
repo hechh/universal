@@ -5,7 +5,6 @@ option go_package = "../pb";  // 声明生成的 go 文件所属的包
 
 // 登陆请求
 message GameLoginRequest {
-    RpcHead Head = 1;
 }
 
 message GameLoginResponse {

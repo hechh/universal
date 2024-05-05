@@ -12,6 +12,10 @@ type IData interface {
 	//	ToBytes() ([]byte, error)
 }
 
+type IProto interface {
+	GetHead() *pb.RpcHead
+}
+
 type Context struct {
 	*pb.PacketHead                  // rpc请求头
 	readyOnlys     map[string]IData // 零时缓存
@@ -22,6 +26,10 @@ func NewContext(head *pb.PacketHead, datas map[string]IData) *Context {
 		PacketHead: head,
 		readyOnlys: datas,
 	}
+}
+
+func NewDefaultContext(head *pb.PacketHead) *Context {
+	return &Context{PacketHead: head}
 }
 
 func (d *Context) GetValue(key string) IData {

@@ -9,7 +9,8 @@ import (
 	"universal/framework/network"
 	"universal/framework/packet"
 
-	"golang.org/x/net/websocket"
+	"github.com/spf13/cast"
+	"google.golang.org/protobuf/proto"
 )
 
 type User struct {
@@ -17,47 +18,14 @@ type User struct {
 	client *network.SocketClient
 }
 
-func NewUser(conn *websocket.Conn) (*User, error) {
-	log.Println("websocket connected, ", conn.RemoteAddr().String())
-	client := network.NewSocketClient(conn)
-
-	// 登陆认证(第一个请求，一定是登陆认证请求)
-	pac, err := client.Read()
-	if err != nil {
-		return nil, err
-	}
-	// 判断第一个请求是否为登陆认证包
-	if pac.Head.ApiCode != int32(pb.ApiCode_GATE_LOGIN_REQUEST) {
-		return nil, fbasic.NewUError(1, pb.ErrorCode_GateLoginRequestExpected, pac.Head.ApiCode)
-	}
-	// 返回认证结果
-	if err := client.Send(pac); err != nil {
-		return nil, err
-	}
-	return &User{client: client}, nil
-}
-
-func (d *User) LoginRequest(client *network.SocketClient) error {
-	// 登陆认证(第一个请求，一定是登陆认证请求)
-	pac, err := client.Read()
-	if err != nil {
-		return err
-	}
-	// 判断第一个请求是否为登陆认证包
-	if pac.Head.ApiCode != int32(pb.ApiCode_GATE_LOGIN_REQUEST) {
-		return fbasic.NewUError(1, pb.ErrorCode_GateLoginRequestExpected, pac.Head.ApiCode)
-	}
-	// 登陆认证
-	result, err := packet.Call(fbasic.NewContext(pac.Head, nil), pac.Buff)
-	if err != nil {
-		return err
-	}
-	// 返回认证结果
-	return client.Send(result)
+func NewUser(client *network.SocketClient) *User {
+	return &User{client: client}
 }
 
 // nats消息处理
 func (d *User) NatsHandle(pac *pb.Packet) {
+	// 判断是否发送客户端
+
 	/*
 		if err := d.client.Send(pac); err != nil {
 			log.Fatal(err)
@@ -65,37 +33,72 @@ func (d *User) NatsHandle(pac *pb.Packet) {
 	*/
 }
 
+// 认证
+func (d *User) Auth() (flag bool) {
+	var pac *pb.Packet
+	var err error
+	if pac, err = d.client.Read(); err != nil {
+		log.Println("auth failed: ", err)
+		return
+	}
+	d.uid = cast.ToString(pac.Head.UID)
+	// 判断第一个请求是否为登陆认证包
+	if pac.Head.ApiCode != int32(pb.ApiCode_GATE_LOGIN_REQUEST) {
+		log.Println("GateLoginRequest is expected", pac.Head)
+		return
+	}
+	// 登陆认证
+	rsp, err := packet.Call(fbasic.NewDefaultContext(pac.Head), pac.Buff)
+	if err != nil {
+		log.Println("ApiCode not supported: ", err)
+		return
+	}
+	// 返回认证结果
+	if err := d.Reply(pac.Head, rsp); err != nil {
+		log.Println("auth reply is failed: ", err)
+		return
+	}
+	// 判断是否成功
+	return rsp.(fbasic.IProto).GetHead().Code == 0
+}
+
+// 回复客户端
+func (d *User) Reply(head *pb.PacketHead, rsp proto.Message) error {
+	pp, err := fbasic.RspToPacket(head, rsp)
+	if err != nil {
+		return err
+	}
+	return d.client.Send(pp)
+}
+
+// 循环读取客户端请求
 func (d *User) LoopRead() {
 	for {
+		// 接受数据包
 		pac, err := d.client.Read()
 		if err != nil {
 			log.Fatal(err)
-			break
+			return
 		}
-
-		// 转发
-		if err := d.dispatcher(pac); err != nil {
-			log.Fatal(err)
+		// 本地信息
+		head := pac.Head
+		local := cluster.GetLocalClusterNode()
+		head.SrcClusterType = local.ClusterType
+		head.SrcClusterID = local.ClusterID
+		// 设置头信息
+		head.DstClusterType = fbasic.ApiCodeToClusterType(head.ApiCode)
+		if head.DstClusterType == pb.ClusterType_NONE {
+			log.Println(head.ApiCode, head)
 			continue
 		}
+		// 转发
+		if head.SrcClusterType == head.DstClusterType {
+			actor.Send(cast.ToString(pac.Head.UID), pac)
+		} else {
+			// 转发到nats
+			if err := cluster.Publish(pac); err != nil {
+				log.Println(err)
+			}
+		}
 	}
-}
-
-func (d *User) dispatcher(pac *pb.Packet) error {
-	// 设置头信息
-	head := pac.Head
-	head.DstClusterType = fbasic.ApiCodeToClusterType(head.ApiCode)
-	if head.DstClusterType == pb.ClusterType_NONE {
-		return fbasic.NewUError(1, pb.ErrorCode_NotSupported, head.ApiCode)
-	}
-	local := cluster.GetLocalClusterNode()
-	head.SrcClusterType = local.ClusterType
-	head.SrcClusterID = local.ClusterID
-	// 转发
-	if head.SrcClusterType == head.DstClusterType {
-		actor.Send(d.uid, pac)
-		return nil
-	}
-	// 转发到nats
-	return cluster.Publish(pac)
 }

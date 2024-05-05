@@ -50,18 +50,27 @@ func Run() {
 }
 
 func wsHandle(conn *websocket.Conn) {
-	log.Println("wsHandle begin, ", conn.RemoteAddr().String())
+	user := NewUser(network.NewSocketClient(conn))
+	// 认证
+	if user.Auth() {
+		conn.Close()
+		return
+	}
+
+	log.Println("websocket connected...", conn.RemoteAddr().String())
 	defer func() {
-		log.Println("wsHandle closed, ", conn.RemoteAddr().String())
+		log.Println("wsHandle closed: ", conn.RemoteAddr().String())
 		conn.Close()
 	}()
-	client := network.NewSocketClient(conn)
-	// 设置消息订阅
-	cluster.Subscribe(func(pac *pb.Packet) {
-		log.Println("Subscribe: ", pac)
-		if err := client.Send(pac); err != nil {
-			log.Fatal(err)
-		}
-	})
-
+	// 循环接受消息
+	user.LoopRead()
+	/*
+		// 设置消息订阅
+		cluster.Subscribe(func(pac *pb.Packet) {
+			log.Println("Subscribe: ", pac)
+			if err := client.Send(pac); err != nil {
+				log.Fatal(err)
+			}
+		})
+	*/
 }

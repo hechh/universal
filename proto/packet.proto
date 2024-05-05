@@ -24,17 +24,24 @@ message ClusterNode {
     uint32      ClusterID   = 4;
 }
 
+// 状态
+enum StatusType {
+    REQUEST  = 0;  // 请求
+    RESPONSE = 1;  // 应答
+}
+
 // 包头
 message PacketHead {
-    uint32      SrcClusterID   = 1;  // 源集群id
-    ClusterType SrcClusterType = 2;  // 源服务类型
-    uint32      DstClusterID   = 3;  // 目标集群id 大于0优先
-    ClusterType DstClusterType = 4;  // 目标集群类型
-    SendType    SendType       = 5;  // 传输协议
-    int32       ApiCode        = 6;  // 请求接口唯一id
-    uint32      SeqID          = 7;  // 序列号
-    int64       Time           = 8;  // 请求时间戳
-    uint64      UID            = 9;  // 目标玩家uid
+    StatusType  Status         = 1;   // 状态
+    uint32      SrcClusterID   = 2;   // 源集群id
+    ClusterType SrcClusterType = 3;   // 源服务类型
+    uint32      DstClusterID   = 4;   // 目标集群id 大于0优先
+    ClusterType DstClusterType = 5;   // 目标集群类型
+    SendType    SendType       = 6;   // 传输协议
+    int32       ApiCode        = 7;   // 请求接口唯一id
+    uint32      SeqID          = 8;   // 序列号
+    int64       Time           = 9;   // 请求时间戳
+    uint64      UID            = 10;  // 目标玩家uid
 }
 
 // 原始包
@@ -51,10 +58,9 @@ message RpcHead {
 
 // 服务之前调用包头（任意参数接口调用）
 message ActorRequest {
-    RpcHead Head      = 1;
-    string  ActorName = 2;
-    string  FuncName  = 3;
-    bytes   Buff      = 4;
+    string ActorName = 1;
+    string FuncName  = 2;
+    bytes  Buff      = 3;
 }
 
 message ActorResponse {

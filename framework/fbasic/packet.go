@@ -71,10 +71,10 @@ func RspToPacket(head *pb.PacketHead, params ...interface{}) (*pb.Packet, error)
 func ReqToPacket(head *pb.PacketHead, params ...interface{}) (*pb.Packet, error) {
 	var req proto.Message
 	if len(params) <= 0 {
-		req = &pb.ActorRequest{Head: &pb.RpcHead{}}
+		req = &pb.ActorRequest{}
 	} else {
 		if val, ok := params[0].(proto.Message); !ok {
-			req = &pb.ActorRequest{Head: &pb.RpcHead{}, Buff: AnyToEncode(params...)}
+			req = &pb.ActorRequest{Buff: AnyToEncode(params...)}
 		} else {
 			req = val
 		}

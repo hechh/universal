@@ -6,8 +6,6 @@ option go_package = "../pb";  // 声明生成的 go 文件所属的包
 
 // 登陆请求
 message GateLoginRequest {
-    RpcHead Head = 1;
-    uint64  UID  = 2;  // 玩家uid
 }
 
 message GateLoginResponse {
