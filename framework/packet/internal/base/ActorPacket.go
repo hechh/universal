@@ -63,16 +63,16 @@ func (d *ActorPacket) Call(ctx *fbasic.Context, buf []byte) (*pb.Packet, error) 
 	if err := proto.Unmarshal(buf, newReq); err != nil {
 		return nil, fbasic.NewUError(1, pb.ErrorCode_ProtoUnmarshal, err)
 	}
-	// 设置rsp的head
-	newRsp := reflect.New(d.rsp).Interface().(proto.Message)
-	if vv := reflect.ValueOf(newRsp).Elem().Field(3); vv.IsNil() {
-		vv.Set(reflect.ValueOf(&pb.RpcHead{}))
-	}
 	// 获取api
 	req := newReq.(*pb.ActorRequest)
 	api, ok := d.apis[index{req.ActorName, req.FuncName}]
 	if !ok {
 		return nil, fbasic.NewUError(1, pb.ErrorCode_ActorNotSupported, newReq)
+	}
+	// 设置rsp的head
+	newRsp := reflect.New(d.rsp).Interface().(proto.Message)
+	if vv := reflect.ValueOf(newRsp).Elem().Field(3); vv.IsNil() {
+		vv.Set(reflect.ValueOf(&pb.RpcHead{}))
 	}
 	// 执行API
 	err := api.Call(ctx, newReq, newRsp)

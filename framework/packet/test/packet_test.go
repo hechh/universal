@@ -90,6 +90,19 @@ func TestApi(t *testing.T) {
 		rsp := &pb.ActorResponse{}
 		proto.Unmarshal(ret.Buff, rsp)
 		rets, err01 := manager.ParseReturns(2, "Person", "GetAge", rsp.Buff)
-		t.Log(ret.Head, "-----Actor Result------", err, err01, rets, rsp)
+		t.Log(ret.Head, "-----GetAge Result------", err, err01, rets, rsp)
+	})
+	t.Run("Person.SetAge调用测试", func(t *testing.T) {
+		head := &pb.PacketHead{UID: 1234000, ApiCode: 2}
+		pp := &Person{"hch10", 10}
+		ctx := fbasic.NewContext(head, map[string]fbasic.IData{"Person": pp})
+		req := &pb.ActorRequest{ActorName: "Person", FuncName: "SetAge", Buff: fbasic.AnyToEncode(120)}
+		buf, _ := proto.Marshal(req)
+		// 返回值
+		ret, err := packet.Call(ctx, buf)
+		rsp := &pb.ActorResponse{}
+		proto.Unmarshal(ret.Buff, rsp)
+		rets, err01 := manager.ParseReturns(2, "Person", "SetAge", rsp.Buff)
+		t.Log(ret.Head, pp, "-----SetAge Result------", err, err01, rets, rsp)
 	})
 }
