@@ -39,6 +39,7 @@ func (d *Person) GetName() string {
 }
 
 func (d *Person) SetAge(age int32) {
+	fmt.Println("------SetAge------->", d.name, d.age)
 	d.age = age
 	fmt.Println("------SetAge------->", d.name, d.age)
 }
@@ -65,9 +66,7 @@ func TestApi(t *testing.T) {
 		req := &pb.GateLoginRequest{}
 		buf, _ := proto.Marshal(req)
 		ret, err := packet.Call(ctx, buf)
-		rsp := &pb.GateLoginResponse{}
-		proto.Unmarshal(ret.Buff, rsp)
-		t.Log("-----LoginRequest Result------", rsp, err)
+		t.Log("-----LoginRequest Result------", ret, err)
 	})
 	t.Run("Print调用测试", func(t *testing.T) {
 		head := &pb.PacketHead{UID: 1234000, ApiCode: 2}
@@ -76,9 +75,7 @@ func TestApi(t *testing.T) {
 		req := &pb.ActorRequest{FuncName: "Print", Buff: fbasic.AnyToEncode("print", 423)}
 		buf, _ := proto.Marshal(req)
 		ret, err := packet.Call(ctx, buf)
-		rsp := &pb.ActorResponse{}
-		proto.Unmarshal(ret.Buff, rsp)
-		t.Log("------Print Result------", rsp, err)
+		t.Log("------Print Result------", ret, err)
 	})
 	t.Run("Person.GetAge调用测试", func(t *testing.T) {
 		head := &pb.PacketHead{UID: 1234000, ApiCode: 2}
@@ -87,10 +84,9 @@ func TestApi(t *testing.T) {
 		buf, _ := proto.Marshal(req)
 		// 返回值
 		ret, err := packet.Call(ctx, buf)
-		rsp := &pb.ActorResponse{}
-		proto.Unmarshal(ret.Buff, rsp)
+		rsp := ret.(*pb.ActorResponse)
 		rets, err01 := manager.ParseReturns(2, "Person", "GetAge", rsp.Buff)
-		t.Log(ret.Head, "-----GetAge Result------", err, err01, rets, rsp)
+		t.Log(rsp.Head, "-----GetAge Result------", err, err01, rets, rsp)
 	})
 	t.Run("Person.SetAge调用测试", func(t *testing.T) {
 		head := &pb.PacketHead{UID: 1234000, ApiCode: 2}
@@ -100,9 +96,8 @@ func TestApi(t *testing.T) {
 		buf, _ := proto.Marshal(req)
 		// 返回值
 		ret, err := packet.Call(ctx, buf)
-		rsp := &pb.ActorResponse{}
-		proto.Unmarshal(ret.Buff, rsp)
+		rsp := ret.(*pb.ActorResponse)
 		rets, err01 := manager.ParseReturns(2, "Person", "SetAge", rsp.Buff)
-		t.Log(ret.Head, pp, "-----SetAge Result------", err, err01, rets, rsp)
+		t.Log(rsp.Head, pp, "-----SetAge Result------", err, err01, rets, rsp)
 	})
 }

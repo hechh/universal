@@ -140,3 +140,7 @@ func NotFound(args ...interface{}) *fbasic.UError {
 func SocketAddr(args ...interface{}) *fbasic.UError {
 	return fbasic.NewUError(2, pb.ErrorCode_SocketAddr, args...)
 }
+
+func GateLoginRequestExpected(args ...interface{}) *fbasic.UError {
+	return fbasic.NewUError(2, pb.ErrorCode_GateLoginRequestExpected, args...)
+}

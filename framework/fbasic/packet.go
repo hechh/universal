@@ -38,7 +38,7 @@ func GetFuncName(h interface{}) string {
 	return strings.Split(name, ".")[1]
 }
 
-func toErrorRsp(err error, rsp proto.Message) {
+func ErrorToRsp(err error, rsp proto.Message) proto.Message {
 	code, errMsg := GetCodeMsg(err)
 	vv := reflect.ValueOf(rsp).Elem().Field(3)
 	if vv.IsNil() {
@@ -47,9 +47,10 @@ func toErrorRsp(err error, rsp proto.Message) {
 		head.Code = code
 		head.ErrMsg = errMsg
 	}
+	return rsp
 }
 
-func RspToPacket(head *pb.PacketHead, err error, params ...interface{}) (*pb.Packet, error) {
+func RspToPacket(head *pb.PacketHead, params ...interface{}) (*pb.Packet, error) {
 	var rsp proto.Message
 	if len(params) <= 0 {
 		rsp = &pb.ActorResponse{Head: &pb.RpcHead{}}
@@ -59,9 +60,6 @@ func RspToPacket(head *pb.PacketHead, err error, params ...interface{}) (*pb.Pac
 		} else {
 			rsp = val
 		}
-	}
-	if err != nil {
-		toErrorRsp(err, rsp)
 	}
 	buf, err := proto.Marshal(rsp)
 	if err != nil {

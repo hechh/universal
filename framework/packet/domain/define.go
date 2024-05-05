@@ -2,7 +2,6 @@ package domain
 
 import (
 	"reflect"
-	"universal/common/pb"
 	"universal/framework/fbasic"
 
 	"google.golang.org/protobuf/proto"
@@ -17,5 +16,5 @@ type IApi interface {
 }
 
 type IPacket interface {
-	Call(*fbasic.Context, []byte) (*pb.Packet, error)
+	Call(*fbasic.Context, []byte) proto.Message
 }

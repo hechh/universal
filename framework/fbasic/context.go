@@ -4,6 +4,10 @@ import (
 	"universal/common/pb"
 )
 
+const (
+	API_CODE = 1000000
+)
+
 type IData interface {
 	//	ToBytes() ([]byte, error)
 }
@@ -25,7 +29,7 @@ func (d *Context) GetValue(key string) IData {
 }
 
 func ApiCodeToClusterType(val int32) (typ pb.ClusterType) {
-	switch val / 1000000 {
+	switch val / API_CODE {
 	case 1:
 		typ = pb.ClusterType_GATE
 	case 2:

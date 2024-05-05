@@ -29,19 +29,20 @@ func (d *ApiPacket) GetFuncName() string {
 	return d.name
 }
 
-func (d *ApiPacket) Call(ctx *fbasic.Context, buf []byte) (*pb.Packet, error) {
-	// 解析req请求
-	newReq := reflect.New(d.req).Interface().(proto.Message)
-	if err := proto.Unmarshal(buf, newReq); err != nil {
-		return nil, fbasic.NewUError(1, pb.ErrorCode_ProtoUnmarshal, err)
-	}
+func (d *ApiPacket) Call(ctx *fbasic.Context, buf []byte) proto.Message {
 	// 设置rsp的head
 	newRsp := reflect.New(d.rsp).Interface().(proto.Message)
 	if vv := reflect.ValueOf(newRsp).Elem().Field(3); vv.IsNil() {
 		vv.Set(reflect.ValueOf(&pb.RpcHead{}))
 	}
+	// 解析req请求
+	newReq := reflect.New(d.req).Interface().(proto.Message)
+	if err := proto.Unmarshal(buf, newReq); err != nil {
+		return fbasic.ErrorToRsp(fbasic.NewUError(1, pb.ErrorCode_ProtoUnmarshal, err), newRsp)
+	}
 	// 执行API
-	err := d.handle(ctx, newReq, newRsp)
-	// 执行函数
-	return fbasic.RspToPacket(ctx.PacketHead, err, newRsp)
+	if err := d.handle(ctx, newReq, newRsp); err != nil {
+		return fbasic.ErrorToRsp(err, newRsp)
+	}
+	return newRsp
 }

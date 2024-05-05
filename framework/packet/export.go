@@ -1,7 +1,6 @@
 package packet
 
 import (
-	"universal/common/pb"
 	"universal/framework/fbasic"
 	"universal/framework/packet/domain"
 	"universal/framework/packet/internal/manager"
@@ -21,7 +20,7 @@ func RegisterFunc(apiCode int32, h interface{}) {
 	manager.RegisterFunc(apiCode, h)
 }
 
-func Call(ctx *fbasic.Context, buf []byte) (*pb.Packet, error) {
+func Call(ctx *fbasic.Context, buf []byte) (proto.Message, error) {
 	return manager.Call(ctx, buf)
 }
 

@@ -44,12 +44,12 @@ func RegisterFunc(apiCode int32, h interface{}) {
 	mgr.RegisterFunc(h)
 }
 
-func Call(ctx *fbasic.Context, buf []byte) (*pb.Packet, error) {
+func Call(ctx *fbasic.Context, buf []byte) (proto.Message, error) {
 	val, ok := apiPool[ctx.ApiCode]
 	if !ok {
 		return nil, fbasic.NewUError(1, pb.ErrorCode_ApiCodeNotFound, ctx.String())
 	}
-	return val.Call(ctx, buf)
+	return val.Call(ctx, buf), nil
 }
 
 func ParseReturns(apiCode int32, actorName, funcName string, buf []byte) ([]interface{}, error) {

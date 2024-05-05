@@ -9,14 +9,9 @@ option  go_package = "../pb";  // 声明生成的 go 文件所属的包
 
 // 请求uuid
 enum ApiCode {
-    NONE_BEGIN_REQUEST = 0;
-    NONE_END_REQUEST   = 999999;
-    // gate代码
-    GATE_BEGIN_REQUEST = 1000000;
+    NONE_REQUEST       = 0;        // none
+    GATE_ACTOR_REQUEST = 1000000;  // actor请求
     GATE_LOGIN_REQUEST = 1000001;  // 登陆请求
-    GATE_END_REQUEST   = 1999999;
-    // game代码
-    GAME_BEGI_REQUEST  = 2000000;
+    GAME_ACTOR_REQUEST = 2000000;  // actor请求
     GAME_LOGIN_REQUEST = 2000001;  // 登陆请求
-    GAME_END_REQUEST   = 2999999;
 }

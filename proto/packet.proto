@@ -31,10 +31,10 @@ message PacketHead {
     uint32      DstClusterID   = 3;  // 目标集群id 大于0优先
     ClusterType DstClusterType = 4;  // 目标集群类型
     SendType    SendType       = 5;  // 传输协议
-    uint32      SeqID          = 6;  // 序列号
-    uint64      UID            = 7;  // 目标玩家uid
-    int32       ApiCode        = 8;  // 请求接口唯一id
-    int64       Time           = 9;
+    int32       ApiCode        = 6;  // 请求接口唯一id
+    uint32      SeqID          = 7;  // 序列号
+    int64       Time           = 8;  // 请求时间戳
+    uint64      UID            = 9;  // 目标玩家uid
 }
 
 // 原始包
