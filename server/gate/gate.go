@@ -56,21 +56,13 @@ func wsHandle(conn *websocket.Conn) {
 		conn.Close()
 		return
 	}
-
 	log.Println("websocket connected...", conn.RemoteAddr().String())
 	defer func() {
 		log.Println("wsHandle closed: ", conn.RemoteAddr().String())
 		conn.Close()
 	}()
+	// 设置消息订阅
+	cluster.Subscribe(user.NatsHandle)
 	// 循环接受消息
 	user.LoopRead()
-	/*
-		// 设置消息订阅
-		cluster.Subscribe(func(pac *pb.Packet) {
-			log.Println("Subscribe: ", pac)
-			if err := client.Send(pac); err != nil {
-				log.Fatal(err)
-			}
-		})
-	*/
 }

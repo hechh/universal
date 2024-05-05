@@ -22,15 +22,25 @@ func NewUser(client *network.SocketClient) *User {
 	return &User{client: client}
 }
 
-// nats消息处理
+// nats消息处理,(point_send)
 func (d *User) NatsHandle(pac *pb.Packet) {
-	// 判断是否发送客户端
-
-	/*
+	head := pac.Head
+	switch head.Status {
+	case pb.StatusType_REQUEST:
+		local := cluster.GetLocalClusterNode()
+		if local.ClusterType == head.DstClusterType {
+			actor.Send(d.uid, pac)
+		} else {
+			// 转发到nats
+			if err := cluster.Publish(pac); err != nil {
+				log.Println(err)
+			}
+		}
+	case pb.StatusType_RESPONSE:
 		if err := d.client.Send(pac); err != nil {
 			log.Fatal(err)
 		}
-	*/
+	}
 }
 
 // 认证

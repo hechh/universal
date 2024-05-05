@@ -76,5 +76,7 @@ func TestDisEtcd(t *testing.T) {
 	t.Run("路由表print", func(t *testing.T) {
 		nodes.Print()
 	})
+	client.Delete("server/")
+	client.Delete("/")
 	service.Stop()
 }
