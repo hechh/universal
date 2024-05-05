@@ -2,13 +2,12 @@ package gate
 
 import (
 	"flag"
-	"fmt"
 	"log"
 	"net/http"
-	"time"
 	"universal/common/config"
 	"universal/common/pb"
 	"universal/framework/cluster"
+	"universal/framework/fbasic"
 	"universal/framework/network"
 
 	"golang.org/x/net/websocket"
@@ -44,10 +43,6 @@ func Run() {
 	if err := cluster.Discovery(pb.ClusterType_GATE, serverCfg.Addr); err != nil {
 		panic(err)
 	}
-	// 设置消息订阅
-	if err := cluster.Subscribe(natsHandle); err != nil {
-		panic(err)
-	}
 	// 注册websocket路由
 	http.Handle("/ws", websocket.Handler(wsHandle))
 	if err := http.ListenAndServe(":8089", nil); err != nil {
@@ -56,18 +51,45 @@ func Run() {
 }
 
 func wsHandle(conn *websocket.Conn) {
-	client := network.NewSocketClient(conn, 2*time.Second, 2*time.Second)
+	log.Println("wsHandle begin, ", conn.RemoteAddr().String())
+	defer func() {
+		log.Println("wsHandle closed, ", conn.RemoteAddr().String())
+		conn.Close()
+	}()
+	client := network.NewSocketClient(conn)
+	// 设置消息订阅
+	cluster.Subscribe(func(pac *pb.Packet) {
+		log.Println("Subscribe: ", pac)
+		if err := client.Send(pac); err != nil {
+			log.Fatal(err)
+		}
+	})
+
 	for {
 		pac, err := client.Read()
 		if err != nil {
-			fmt.Sprintln(err)
+			log.Println(err)
 			return
 		}
-		// 发送到nats
-		cluster.Publish(pac)
+		log.Println("read: ", pac)
+		// 转发
+		if err := dispatcher(client, pac); err != nil {
+			log.Println(err)
+			return
+		}
 	}
 }
 
-func natsHandle(pac *pb.Packet) {
-
+func dispatcher(client *network.SocketClient, pac *pb.Packet) error {
+	// 设置头信息
+	head := pac.Head
+	if head.ApiCode <= int32(pb.ApiCode_NONE_END_REQUEST) {
+		return fbasic.NewUError(1, pb.ErrorCode_NotSupported, head.ApiCode)
+	}
+	head.DstClusterType = fbasic.ApiCodeToClusterType(head.ApiCode)
+	local := cluster.GetLocalClusterNode()
+	head.SrcClusterType = local.ClusterType
+	head.SrcClusterID = local.ClusterID
+	// 转发到nats
+	return cluster.Publish(pac)
 }

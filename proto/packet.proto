@@ -61,11 +61,3 @@ message ActorResponse {
     RpcHead Head = 1;
     bytes   Buff = 2;
 }
-
-message LoginRequest {
-    RpcHead Head = 1;
-}
-
-message LoginResponse {
-    RpcHead Head = 1;
-}

@@ -65,7 +65,7 @@ func (d *SocketClient) Send(pac *pb.Packet) error {
 	return nil
 }
 
-func (d *SocketClient) getRecvBytes(size int) []byte {
+func (d *SocketClient) getReadBytes(size int) []byte {
 	if cap(d.recvBuff) >= size {
 		return d.recvBuff[:size]
 	}
@@ -79,7 +79,7 @@ func (d *SocketClient) Read() (*pb.Packet, error) {
 		d.conn.SetReadDeadline(time.Now().Add(d.readExpire))
 	}
 	// 读取包头
-	buf := d.getRecvBytes(SocketFrameHeaderSize)
+	buf := d.getReadBytes(SocketFrameHeaderSize)
 	n, err := io.ReadFull(d.conn, buf)
 	if err != nil {
 		return nil, fbasic.NewUError(1, pb.ErrorCode_SocketClientRead, n, err)
@@ -95,7 +95,7 @@ func (d *SocketClient) Read() (*pb.Packet, error) {
 		return nil, fbasic.NewUError(1, pb.ErrorCode_SocketFrameBodySizeMaxLimit, fmt.Sprint(bodySize, SocketFrameBodySizeMaxLimit))
 	}
 	// 接受包体
-	buf = d.getRecvBytes(int(bodySize))
+	buf = d.getReadBytes(int(bodySize))
 	n, err = io.ReadFull(d.conn, buf)
 	if err != nil {
 		return nil, fbasic.NewUError(1, pb.ErrorCode_SocketClientRead, err)

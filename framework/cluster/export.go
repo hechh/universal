@@ -13,6 +13,11 @@ func Init(natsUrl string, etcds []string) error {
 	return service.Init(natsUrl, etcds)
 }
 
+// 获取本地节点
+func GetLocalClusterNode() *pb.ClusterNode {
+	return service.GetLocalClusterNode()
+}
+
 // 服务发现
 func Discovery(typ pb.ClusterType, addr string) error {
 	return service.Discovery(typ, addr)

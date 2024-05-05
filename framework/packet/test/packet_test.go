@@ -13,7 +13,7 @@ import (
 )
 
 func LoginRequest(ctx *fbasic.Context, req, rsp proto.Message) error {
-	resp := rsp.(*pb.LoginResponse)
+	resp := rsp.(*pb.GateLoginResponse)
 	resp.Head.Code = 10
 	resp.Head.ErrMsg = "this is a test"
 	return nil
@@ -49,7 +49,7 @@ func (d *Person) GetAge() int32 {
 }
 
 func TestMain(m *testing.M) {
-	packet.RegisterApi(1, LoginRequest, &pb.LoginRequest{}, &pb.LoginResponse{})
+	packet.RegisterApi(1, LoginRequest, &pb.GateLoginRequest{}, &pb.GateLoginResponse{})
 	packet.RegisterFunc(2, Print)
 	packet.RegisterStruct(2, &Person{})
 	m.Run()
@@ -62,10 +62,10 @@ func TestApi(t *testing.T) {
 	t.Run("LoginRequest调用测试", func(t *testing.T) {
 		head := &pb.PacketHead{UID: 1234000, ApiCode: 1}
 		ctx := fbasic.NewContext(head, data)
-		req := &pb.LoginRequest{}
+		req := &pb.GateLoginRequest{}
 		buf, _ := proto.Marshal(req)
 		ret, err := packet.Call(ctx, buf)
-		rsp := &pb.LoginResponse{}
+		rsp := &pb.GateLoginResponse{}
 		proto.Unmarshal(ret.Buff, rsp)
 		t.Log("-----LoginRequest Result------", rsp, err)
 	})

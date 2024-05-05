@@ -42,9 +42,14 @@ func Init(natsUrl string, ends []string, types ...pb.ClusterType) (err error) {
 		return err
 	}
 	// 初始化etcd
-	if dis, err = etcd.NewEtcdClient(ends...); err != nil {
+	etcd, err := etcd.NewEtcdClient(ends...)
+	if err != nil {
 		return err
 	}
+	etcd.Delete(domain.ROOT_DIR)
+	etcd.Delete("/")
+	dis = etcd
+	// 初始化节点类型
 	nodes.Init(types...)
 	return
 }
@@ -64,7 +69,7 @@ func watchClusterNode(action int, key string, value string) {
 		// 添加服务节点
 		nodes.Add(vv)
 	}
-	log.Println(action, key, "-----watch----->", vv)
+	log.Println("发现服务节点: ", action, key, vv)
 }
 
 // 服务发现
@@ -106,8 +111,8 @@ func Subscribe(f func(*pb.Packet)) (err error) {
 
 // 发送消息
 func Publish(pac *pb.Packet) error {
-	head := pac.Head
 	var key string
+	head := pac.Head
 	switch head.SendType {
 	case pb.SendType_POINT:
 		// 先路由

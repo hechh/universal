@@ -8,13 +8,13 @@ GEN_GO_PATH=./common/pb
 TARGET=gate 
 BUILD=$(TARGET:%=%_build)
 
-.PHONY: race build clean all gen gen_go yaml
+.PHONY: race build clean all gen gen_go yaml copy
 
 ############################编译选项##############################
 #--------设置target变量---------
 race:RACE=-race
 #---------程序编译选项-----------
-all: clean $(TARGET)
+all: clean copy $(TARGET)
 
 clean:
 	-rm -rf ${OUTPUT}
@@ -33,6 +33,9 @@ endif
 endif
 
 ############################生成代码选项##############################
+copy:
+	-mkdir -p ${OUTPUT}/ && cp -rf ./env/*.sh ${OUTPUT}/
+
 gen:
 	-mkdir -p ${GEN_GO_PATH} && rm -rf ${GEN_GO_PATH}/*
 ifeq (${SYSTEM}, windows)
@@ -42,8 +45,8 @@ else # linux darwin(mac)
 endif 
 	gomaker -action=uerrors -src="common/pb/*pb.go" -dst="common/uerrors/" -tpl="tools/gomaker/templates"
 
-start:
-	nats-server -p 4222
-	etcd
-	nohup ./etcd --listen-client-urls http://0.0.0.0:2379 --advertise-client-urls http://0.0.0.0:2379 &
 
+stop:
+	./output/run.sh stop gate
+start:
+	./output/run.sh start gate

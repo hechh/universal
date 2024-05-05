@@ -2,11 +2,21 @@ syntax = "proto3";
 package pb;
 option  go_package = "../pb";  // 声明生成的 go 文件所属的包
 
+/*
+1000000~1999999: gate请求api
+2000000~2999999: game请求api
+*/
+
 // 请求uuid
 enum ApiCode {
-    ApiCodeNode      = 0;
-    GameApiCodeBegin = 100000;
-    GameApiCodeEnd   = 199999;
-    GateApiCodeBegin = 200000;
-    GateApiCodeEnd   = 299999;
+    NONE_BEGIN_REQUEST = 0;
+    NONE_END_REQUEST   = 999999;
+    // gate代码
+    GATE_BEGIN_REQUEST = 1000000;
+    GATE_LOGIN_REQUEST = 1000001;  // 登陆请求
+    GATE_END_REQUEST   = 1999999;
+    // game代码
+    GAME_BEGI_REQUEST  = 2000000;
+    GAME_LOGIN_REQUEST = 2000001;  // 登陆请求
+    GAME_END_REQUEST   = 2999999;
 }
