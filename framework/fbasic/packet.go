@@ -38,24 +38,6 @@ func GetFuncName(h interface{}) string {
 	return strings.Split(name, ".")[1]
 }
 
-/*
-func ToGobBytes(params interface{}) []byte {
-	var buf bytes.Buffer
-	enc := gob.NewEncoder(&buf)
-	switch vals := params.(type) {
-	case []interface{}:
-		for _, param := range vals {
-			enc.Encode(param)
-		}
-	case []reflect.Value:
-		for _, param := range vals {
-			enc.EncodeValue(param)
-		}
-	}
-	return buf.Bytes()
-}
-*/
-
 func toErrorRsp(err error, rsp proto.Message) {
 	code, errMsg := GetCodeMsg(err)
 	vv := reflect.ValueOf(rsp).Elem().Field(3)
@@ -73,7 +55,7 @@ func RspToPacket(head *pb.PacketHead, err error, params ...interface{}) (*pb.Pac
 		rsp = &pb.ActorResponse{Head: &pb.RpcHead{}}
 	} else {
 		if val, ok := params[0].(proto.Message); !ok {
-			rsp = &pb.ActorResponse{Head: &pb.RpcHead{}, Buff: EncodeAnys(params).Encode()}
+			rsp = &pb.ActorResponse{Head: &pb.RpcHead{}, Buff: AnyToEncode(params...)}
 		} else {
 			rsp = val
 		}
@@ -94,7 +76,7 @@ func ReqToPacket(head *pb.PacketHead, params ...interface{}) (*pb.Packet, error)
 		req = &pb.ActorRequest{Head: &pb.RpcHead{}}
 	} else {
 		if val, ok := params[0].(proto.Message); !ok {
-			req = &pb.ActorRequest{Head: &pb.RpcHead{}, Buff: EncodeAnys(params).Encode()}
+			req = &pb.ActorRequest{Head: &pb.RpcHead{}, Buff: AnyToEncode(params...)}
 		} else {
 			req = val
 		}

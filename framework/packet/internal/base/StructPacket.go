@@ -58,16 +58,15 @@ func (d *StructPacket) GetReturns() []reflect.Type {
 }
 
 func (d *StructPacket) Call(ctx *fbasic.Context, req, rsp proto.Message) (err error) {
+	// 解析参数
+	newReq := req.(*pb.ActorRequest)
+	params := fbasic.ValueToDecode(newReq.Buff, d.params, 1)
 	// 设置this指针
-	params := make([]reflect.Value, len(d.params))
 	obj := ctx.GetValue(d.actorName)
 	if obj == nil {
 		return fbasic.NewUError(1, pb.ErrorCode_ActorNotSupported, d.actorName)
 	}
 	params[0] = reflect.ValueOf(obj)
-	// 解析参数
-	newReq := req.(*pb.ActorRequest)
-	fbasic.DecodeTypes(d.params[1:]).DecodeValues(newReq.Buff, params[1:])
 	// 执行函数
 	var results []reflect.Value
 	if !d.isVariadic {
@@ -77,6 +76,6 @@ func (d *StructPacket) Call(ctx *fbasic.Context, req, rsp proto.Message) (err er
 	}
 	// 返回函数返回值
 	newRsp := rsp.(*pb.ActorResponse)
-	newRsp.Buff = fbasic.EncodeValues(results).Encode()
+	newRsp.Buff = fbasic.ValueToEncode(results...)
 	return
 }

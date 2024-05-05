@@ -30,11 +30,15 @@ func (d *ApiPacket) GetFuncName() string {
 }
 
 func (d *ApiPacket) Call(ctx *fbasic.Context, buf []byte) (*pb.Packet, error) {
+	// 解析req请求
 	newReq := reflect.New(d.req).Interface().(proto.Message)
-	newRsp := reflect.New(d.rsp).Interface().(proto.Message)
-
 	if err := proto.Unmarshal(buf, newReq); err != nil {
 		return nil, fbasic.NewUError(1, pb.ErrorCode_ProtoUnmarshal, err)
+	}
+	// 设置rsp的head
+	newRsp := reflect.New(d.rsp).Interface().(proto.Message)
+	if vv := reflect.ValueOf(newRsp).Elem().Field(3); vv.IsNil() {
+		vv.Set(reflect.ValueOf(&pb.RpcHead{}))
 	}
 	// 执行API
 	err := d.handle(ctx, newReq, newRsp)

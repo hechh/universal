@@ -27,7 +27,7 @@ func handle(ctx *fbasic.Context, buf []byte) func() {
 	}
 }
 
-func Test_Send(t *testing.T) {
+func TestSend(t *testing.T) {
 	for i := 0; i <= 100; i++ {
 		wg.Add(1)
 		Head := &pb.PacketHead{

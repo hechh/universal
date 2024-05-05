@@ -45,6 +45,11 @@ func Send(key string, pa *pb.Packet) {
 	act.Send(pa)
 }
 
+// 清理过期玩家
+func init() {
+	go cleanExpire()
+}
+
 func cleanExpire() {
 	timer := time.NewTicker(5 * time.Second)
 	for {
@@ -54,8 +59,7 @@ func cleanExpire() {
 			if !ok || vv == nil {
 				return true
 			}
-			now := fbasic.GetNow()
-			if upTime := vv.GetUpdateTime(); upTime+ActorExpireTime <= now {
+			if upTime := vv.GetUpdateTime(); upTime+ActorExpireTime <= fbasic.GetNow() {
 				// 停止协程
 				vv.Stop()
 				// 删除缓存
@@ -64,9 +68,4 @@ func cleanExpire() {
 			return true
 		})
 	}
-}
-
-// 清理过期玩家
-func init() {
-	go cleanExpire()
 }

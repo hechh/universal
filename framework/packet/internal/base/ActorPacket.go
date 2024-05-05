@@ -58,15 +58,19 @@ func (d *ActorPacket) RegisterFunc(f interface{}) {
 }
 
 func (d *ActorPacket) Call(ctx *fbasic.Context, buf []byte) (*pb.Packet, error) {
+	// 解析请求参数
 	newReq := reflect.New(d.req).Interface().(proto.Message)
-	newRsp := reflect.New(d.rsp).Interface().(proto.Message)
 	if err := proto.Unmarshal(buf, newReq); err != nil {
 		return nil, fbasic.NewUError(1, pb.ErrorCode_ProtoUnmarshal, err)
 	}
-	// 获取index
+	// 设置rsp的head
+	newRsp := reflect.New(d.rsp).Interface().(proto.Message)
+	if vv := reflect.ValueOf(newRsp).Elem().Field(3); vv.IsNil() {
+		vv.Set(reflect.ValueOf(&pb.RpcHead{}))
+	}
+	// 获取api
 	req := newReq.(*pb.ActorRequest)
-	index := index{req.ActorName, req.FuncName}
-	api, ok := d.apis[index]
+	api, ok := d.apis[index{req.ActorName, req.FuncName}]
 	if !ok {
 		return nil, fbasic.NewUError(1, pb.ErrorCode_ActorNotSupported, newReq)
 	}

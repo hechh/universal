@@ -58,12 +58,10 @@ func ParseReturns(apiCode int32, actorName, funcName string, buf []byte) ([]inte
 		return nil, fbasic.NewUError(1, pb.ErrorCode_ApiCodeNotFound, apiCode)
 	}
 	// 获取返回值类型
-	types, err := mgr.GetReturns(actorName, funcName)
+	typs, err := mgr.GetReturns(actorName, funcName)
 	if err != nil {
 		return nil, err
 	}
 	// 解析
-	rets := make([]interface{}, len(types))
-	fbasic.DecodeTypes(types).Decode(buf, rets)
-	return rets, nil
+	return fbasic.AnyToDecode(buf, typs, 0), nil
 }
