@@ -39,6 +39,7 @@ func (d *User) NatsHandle(pac *pb.Packet) {
 	case pb.StatusType_REQUEST:
 		actor.Send(d.uid, pac)
 	}
+	log.Println("user nats handler finished: ", head)
 }
 
 func (d *User) Auth() (flag bool) {
