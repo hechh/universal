@@ -7,9 +7,7 @@ import (
 	"universal/common/config"
 	"universal/common/pb"
 	"universal/framework/cluster"
-	"universal/framework/fbasic"
 	"universal/framework/network"
-	"universal/framework/packet"
 
 	"golang.org/x/net/websocket"
 )
@@ -52,58 +50,23 @@ func Run() {
 }
 
 func wsHandle(conn *websocket.Conn) {
-	client := network.NewSocketClient(conn)
+	user := NewUser(network.NewSocketClient(conn))
 	// 认证
-	uid, flag := auth(client)
-	if !flag {
+	if !user.Auth() {
 		conn.Close()
 		return
 	}
-
+	// 初始化
+	if err := user.Init(); err != nil {
+		log.Fatalln("user init nats handler: ", err)
+		conn.Close()
+		return
+	}
+	// 循环接受消息
 	log.Println("websocket connected...", conn.RemoteAddr().String())
 	defer func() {
 		log.Println("wsHandle closed: ", conn.RemoteAddr().String())
 		conn.Close()
 	}()
-
-	user, err := NewUser(uid, client)
-	if err != nil {
-		log.Println("user init is failed: ", err)
-		return
-	}
-	// 循环接受消息
 	user.LoopRead()
-}
-
-// 登录认证
-func auth(client *network.SocketClient) (uid uint64, flag bool) {
-	pac, err := client.Read()
-	if err != nil {
-		log.Println("auth failed: ", err)
-		return
-	}
-	uid = pac.Head.UID
-	// 判断第一个请求是否为登陆认证包
-	if pac.Head.ApiCode != int32(pb.ApiCode_GATE_LOGIN_REQUEST) {
-		log.Println("GateLoginRequest is expected", pac.Head)
-		return
-	}
-	// 登陆认证
-	ctx := fbasic.NewDefaultContext(pac.Head)
-	rsp, err := packet.Call(ctx, pac.Buff)
-	if err != nil {
-		log.Println("ApiCode not supported: ", err)
-		return
-	}
-	// 返回认证结果
-	if pp, err := fbasic.RspToPacket(pac.Head, rsp); err != nil {
-		log.Println("RspToPacket is failed: ", err)
-		return
-	} else if err := client.Send(pp); err != nil {
-		log.Println("auth reply is failed: ", err)
-		return
-	}
-	// 判断是否成功
-	flag = rsp.(fbasic.IProto).GetHead().Code == 0
-	return
 }
