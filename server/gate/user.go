@@ -7,7 +7,7 @@ import (
 	"universal/framework/cluster"
 	"universal/framework/fbasic"
 	"universal/framework/network"
-	"universal/framework/packet"
+	"universal/framework/notify"
 
 	"github.com/spf13/cast"
 	"google.golang.org/protobuf/proto"
@@ -18,58 +18,20 @@ type User struct {
 	client *network.SocketClient
 }
 
-func NewUser(client *network.SocketClient) *User {
-	return &User{client: client}
+func NewUser(uid uint64, client *network.SocketClient) (*User, error) {
+	ret := &User{cast.ToString(uid), client}
+	// 设置nats消息处理
+	self := cluster.GetLocalClusterNode()
+	err := notify.Subscribe(fbasic.GetPlayerChannel(self.ClusterType, self.ClusterID, uid), ret.NatsHandle)
+	if err != nil {
+		return nil, err
+	}
+	return ret, nil
 }
 
 // nats消息处理,(point_send)
 func (d *User) NatsHandle(pac *pb.Packet) {
-	head := pac.Head
-	switch head.Status {
-	case pb.StatusType_REQUEST:
-		local := cluster.GetLocalClusterNode()
-		if local.ClusterType == head.DstClusterType {
-			actor.Send(d.uid, pac)
-		} else {
-			// 转发到nats
-			if err := cluster.Publish(pac); err != nil {
-				log.Println(err)
-			}
-		}
-	case pb.StatusType_RESPONSE:
-		if err := d.client.Send(pac); err != nil {
-			log.Fatal(err)
-		}
-	}
-}
 
-// 认证
-func (d *User) Auth() (flag bool) {
-	var pac *pb.Packet
-	var err error
-	if pac, err = d.client.Read(); err != nil {
-		log.Println("auth failed: ", err)
-		return
-	}
-	d.uid = cast.ToString(pac.Head.UID)
-	// 判断第一个请求是否为登陆认证包
-	if pac.Head.ApiCode != int32(pb.ApiCode_GATE_LOGIN_REQUEST) {
-		log.Println("GateLoginRequest is expected", pac.Head)
-		return
-	}
-	// 登陆认证
-	rsp, err := packet.Call(fbasic.NewDefaultContext(pac.Head), pac.Buff)
-	if err != nil {
-		log.Println("ApiCode not supported: ", err)
-		return
-	}
-	// 返回认证结果
-	if err := d.Reply(pac.Head, rsp); err != nil {
-		log.Println("auth reply is failed: ", err)
-		return
-	}
-	// 判断是否成功
-	return rsp.(fbasic.IProto).GetHead().Code == 0
 }
 
 // 回复客户端
@@ -90,25 +52,20 @@ func (d *User) LoopRead() {
 			log.Fatal(err)
 			return
 		}
-		// 本地信息
+		// 更新head路由信息
 		head := pac.Head
-		local := cluster.GetLocalClusterNode()
-		head.SrcClusterType = local.ClusterType
-		head.SrcClusterID = local.ClusterID
-		// 设置头信息
-		head.DstClusterType = fbasic.ApiCodeToClusterType(head.ApiCode)
-		if head.DstClusterType == pb.ClusterType_NONE {
-			log.Println(head.ApiCode, head)
+		if err := cluster.Dispatcher(head); err != nil {
+			log.Fatalln(head, string(pac.Buff))
 			continue
 		}
 		// 转发
 		if head.SrcClusterType == head.DstClusterType {
-			actor.Send(cast.ToString(pac.Head.UID), pac)
-		} else {
-			// 转发到nats
-			if err := cluster.Publish(pac); err != nil {
-				log.Println(err)
-			}
+			actor.Send(cast.ToString(head.UID), pac)
+			continue
+		}
+		// 转发到nats
+		if err := notify.Publish(pac); err != nil {
+			log.Println(err)
 		}
 	}
 }

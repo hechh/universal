@@ -3,23 +3,20 @@ package service
 import (
 	"log"
 	"net"
-	"strings"
 	"universal/common/pb"
 	"universal/framework/cluster/domain"
 	"universal/framework/cluster/internal/discovery/etcd"
 	"universal/framework/cluster/internal/nodes"
 	"universal/framework/cluster/internal/routine"
 	"universal/framework/fbasic"
-	"universal/framework/network"
 
 	"github.com/spf13/cast"
 	"google.golang.org/protobuf/proto"
 )
 
 var (
-	dis        domain.IDiscovery   // 服务发现
-	natsClient *network.NatsClient // nats客户端
-	selfNode   *pb.ClusterNode     // 服务自身节点
+	dis      domain.IDiscovery // 服务发现
+	selfNode *pb.ClusterNode   // 服务自身节点
 )
 
 func GetLocalClusterNode() *pb.ClusterNode {
@@ -31,26 +28,20 @@ func GetDiscovery() domain.IDiscovery {
 }
 
 func Stop() {
-	natsClient.Close()
 	dis.Close()
 }
 
 // 初始化
-func Init(natsUrl string, ends []string, types ...pb.ClusterType) (err error) {
-	// 初始化nats
-	if natsClient, err = network.NewNatsClient(natsUrl); err != nil {
-		return err
-	}
+func Init(ends []string, types ...pb.ClusterType) (err error) {
 	// 初始化etcd
 	etcd, err := etcd.NewEtcdClient(ends...)
 	if err != nil {
 		return err
 	}
-	etcd.Delete(domain.ROOT_DIR)
-	etcd.Delete("/")
-	dis = etcd
 	// 初始化节点类型
 	nodes.Init(types...)
+	// 设置服务发现
+	dis = etcd
 	return
 }
 
@@ -61,9 +52,7 @@ func watchClusterNode(action int, key string, value string) {
 	}
 	switch action {
 	case domain.ActionTypeDel:
-		strs := strings.Split(strings.TrimPrefix(key, domain.ROOT_DIR), "/")
-		clusterType := pb.ClusterType(pb.ClusterType_value[strings.ToUpper(strs[0])])
-		clusterID := cast.ToUint32(strs[1])
+		clusterType, clusterID, _ := fbasic.ParseChannel(key)
 		nodes.Delete(clusterType, clusterID)
 	default:
 		// 添加服务节点
@@ -78,57 +67,30 @@ func Discovery(typ pb.ClusterType, addr string) error {
 	if err != nil {
 		return fbasic.NewUError(1, pb.ErrorCode_SocketAddr, err)
 	}
+	// 构建自身节点
 	selfNode = &pb.ClusterNode{
 		ClusterType: typ,
 		ClusterID:   fbasic.GetCrc32(addr),
 		Ip:          ip,
 		Port:        cast.ToInt32(port),
 	}
-	// 注册自身服务
-	key := domain.GetNodeChannel(selfNode.ClusterType, selfNode.ClusterID)
+
+	// 注册自身服务（保活，服务下线会自动删除）
 	buf, err := proto.Marshal(selfNode)
 	if err != nil {
 		return fbasic.NewUError(1, pb.ErrorCode_ProtoMarshal, err)
 	}
-	dis.KeepAlive(key, string(buf), 10)
+	dis.KeepAlive(fbasic.GetNodeChannel(selfNode.ClusterType, selfNode.ClusterID), string(buf), 10)
+
 	// 设置监听 + 发现其他服务
-	if err := dis.Watch(domain.ROOT_DIR, watchClusterNode); err != nil {
+	if err := dis.Watch(fbasic.GetRootDir(), watchClusterNode); err != nil {
 		return err
 	}
 	return nil
 }
 
-// 消息订阅
-func Subscribe(f func(*pb.Packet)) (err error) {
-	// 订阅单点
-	if err = natsClient.Subscribe(domain.GetNodeChannel(selfNode.ClusterType, selfNode.ClusterID), f); err != nil {
-		return
-	}
-	// 订阅广播
-	err = natsClient.Subscribe(domain.GetTopicChannel(selfNode.ClusterType), f)
-	return
-}
-
-// 发送消息
-func Publish(pac *pb.Packet) error {
-	var key string
-	head := pac.Head
-	switch head.SendType {
-	case pb.SendType_POINT:
-		// 先路由
-		if err := Dispatcher(head); err != nil {
-			return err
-		}
-		key = domain.GetNodeChannel(head.DstClusterType, head.DstClusterID)
-	case pb.SendType_BOARDCAST:
-		key = domain.GetTopicChannel(head.DstClusterType)
-	default:
-		return fbasic.NewUError(1, pb.ErrorCode_SendTypeNotSupported, pac.Head.SendType)
-	}
-	return natsClient.Publish(key, pac)
-}
-
-func Dispatcher(head *pb.PacketHead) error {
+// 路由
+func dispatcher(head *pb.PacketHead) error {
 	rlist := routine.GetRoutine(head)
 	if rinfo := rlist.Get(head.DstClusterType); rinfo == nil {
 		// 路由
@@ -157,4 +119,33 @@ func Dispatcher(head *pb.PacketHead) error {
 		}
 	}
 	return nil
+}
+
+// 路由到game集群
+func ToDispatcher(head *pb.PacketHead, sendType pb.SendType, dst pb.ClusterType) (*pb.PacketHead, error) {
+	// 源节点
+	newHead := *head
+	newHead.SrcClusterID = selfNode.ClusterID
+	newHead.SrcClusterType = selfNode.ClusterType
+	// 目的节点
+	newHead.DstClusterType = dst
+	newHead.SendType = sendType
+	// 路由
+	if err := dispatcher(&newHead); err != nil {
+		return nil, err
+	}
+	return &newHead, nil
+}
+
+func Dispatcher(head *pb.PacketHead) error {
+	// 本地信息
+	head.SrcClusterType = selfNode.ClusterType
+	head.SrcClusterID = selfNode.ClusterID
+	head.DstClusterType = fbasic.ApiCodeToClusterType(head.ApiCode)
+	// 路由
+	if head.DstClusterType == selfNode.ClusterType {
+		head.DstClusterID = selfNode.ClusterID
+		return nil
+	}
+	return dispatcher(head)
 }

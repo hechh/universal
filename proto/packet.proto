@@ -7,13 +7,19 @@ enum ClusterType {
     NONE = 0;
     GATE = 1;  // 网关,转发服务
     GAME = 2;  // game
-    DB   = 3;  // db
 };
+
+// 状态
+enum StatusType {
+    REQUEST  = 0;  // 请求
+    RESPONSE = 1;  // 应答
+}
 
 // 发送标志
 enum SendType {
-    POINT     = 0;  // 指定集群id
-    BOARDCAST = 1;  // 广播
+    PLAYER  = 0;  // 指定玩家
+    NODE    = 1;  // 指定节点
+    CLUSTER = 2;  // 集群所有节点
 };
 
 // 集群信息
@@ -24,20 +30,14 @@ message ClusterNode {
     uint32      ClusterID   = 4;
 }
 
-// 状态
-enum StatusType {
-    REQUEST  = 0;  // 请求
-    RESPONSE = 1;  // 应答
-}
-
 // 包头
 message PacketHead {
     StatusType  Status         = 1;   // 状态
-    uint32      SrcClusterID   = 2;   // 源集群id
+    SendType    SendType       = 2;   // 传输协议
     ClusterType SrcClusterType = 3;   // 源服务类型
-    uint32      DstClusterID   = 4;   // 目标集群id 大于0优先
+    uint32      SrcClusterID   = 4;   // 源集群id
     ClusterType DstClusterType = 5;   // 目标集群类型
-    SendType    SendType       = 6;   // 传输协议
+    uint32      DstClusterID   = 6;   // 目标集群id 大于0优先
     int32       ApiCode        = 7;   // 请求接口唯一id
     uint32      SeqID          = 8;   // 序列号
     int64       Time           = 9;   // 请求时间戳

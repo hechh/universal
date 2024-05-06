@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"testing"
 	"universal/common/pb"
-	"universal/framework/cluster/domain"
 	"universal/framework/cluster/internal/discovery/etcd"
 	"universal/framework/cluster/internal/nodes"
 	"universal/framework/cluster/internal/routine"
@@ -16,9 +15,8 @@ import (
 
 func TestDisEtcd(t *testing.T) {
 	// 初始化支持类型
-	err := service.Init("localhost:4222,172.16.126.208:33601,172.16.126.208:33602,172.16.126.208:33603",
-		[]string{"localhost:2379", "172.16.126.208:33501"},
-		pb.ClusterType_GATE, pb.ClusterType_GAME, pb.ClusterType_DB)
+	typs := []pb.ClusterType{pb.ClusterType_GATE, pb.ClusterType_GAME}
+	err := service.Init([]string{"localhost:2379", "172.16.126.208:33501"}, typs...)
 	if err != nil {
 		t.Log(err)
 		return
@@ -41,7 +39,7 @@ func TestDisEtcd(t *testing.T) {
 			node.Port++
 			node.ClusterID = fbasic.GetCrc32(fmt.Sprintf("%s:%d", node.Ip, node.Port))
 			buf, _ := proto.Marshal(node)
-			client.Put(domain.GetNodeChannel(pb.ClusterType_GATE, node.ClusterID), string(buf))
+			client.Put(fbasic.GetNodeChannel(pb.ClusterType_GATE, node.ClusterID), string(buf))
 		}
 	})
 	t.Run("路由表print", func(t *testing.T) {
@@ -66,7 +64,7 @@ func TestDisEtcd(t *testing.T) {
 		}
 		for i := 0; i < 5; i++ {
 			node.ClusterID = fbasic.GetCrc32(fmt.Sprintf("%s:%d", node.Ip, node.Port))
-			if err := client.Delete(domain.GetNodeChannel(pb.ClusterType_GATE, node.ClusterID)); err != nil {
+			if err := client.Delete(fbasic.GetNodeChannel(pb.ClusterType_GATE, node.ClusterID)); err != nil {
 				t.Log("=======>", err)
 				return
 			}

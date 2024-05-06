@@ -20,8 +20,8 @@ func TestClient(t *testing.T) {
 	client := network.NewSocketClient(ws)
 	pac := &pb.Packet{
 		Head: &pb.PacketHead{
-			SendType:       pb.SendType_POINT,
-			ApiCode:        int32(pb.ApiCode_GATE_BEGIN_REQUEST + 1),
+			SendType:       pb.SendType_NODE,
+			ApiCode:        int32(pb.ApiCode_GATE_LOGIN_REQUEST),
 			UID:            100100600,
 			SrcClusterType: pb.ClusterType_GATE,
 			DstClusterType: pb.ClusterType_GAME,

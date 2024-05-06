@@ -31,7 +31,7 @@ func TestSend(t *testing.T) {
 	for i := 0; i <= 100; i++ {
 		wg.Add(1)
 		Head := &pb.PacketHead{
-			SendType:       pb.SendType_POINT,
+			SendType:       pb.SendType_NODE,
 			ApiCode:        2,
 			UID:            100100600 + uint64(i),
 			SrcClusterType: pb.ClusterType_GATE,

@@ -15,31 +15,12 @@ const (
 	LimitTimes = 50000
 )
 
-var (
-	client   *network.NatsClient
-	clientWg = sync.WaitGroup{}
-)
-
 func TestMain(m *testing.M) {
 	go func() {
 		http.Handle("/ws", websocket.Handler(wsHandle))
 		http.ListenAndServe(":8089", nil)
 	}()
-	// nats服务
-	natsAddr := "localhost:4222,172.16.126.208:33601,172.16.126.208:33602,172.16.126.208:33603"
-	var err error
-	if client, err = network.NewNatsClient(natsAddr); err != nil {
-		panic(err)
-	}
-	if err = client.Subscribe("/nats", natsHandle); err != nil {
-		panic(err)
-	}
 	m.Run()
-}
-
-func natsHandle(pac *pb.Packet) {
-	fmt.Println("=======>", pac)
-	clientWg.Done()
 }
 
 func wsHandle(conn *websocket.Conn) {
@@ -91,7 +72,7 @@ func TestClient(t *testing.T) {
 	// 发送数据
 	sendCh <- &pb.Packet{
 		Head: &pb.PacketHead{
-			SendType:       pb.SendType_POINT,
+			SendType:       pb.SendType_NODE,
 			ApiCode:        2,
 			UID:            100100600,
 			SrcClusterType: pb.ClusterType_GATE,
@@ -131,21 +112,4 @@ func TestClient(t *testing.T) {
 			}
 		}
 	}
-}
-
-func TestNats(t *testing.T) {
-	pac := &pb.Packet{
-		Head: &pb.PacketHead{
-			SendType:       pb.SendType_POINT,
-			ApiCode:        2,
-			UID:            100100600,
-			SrcClusterType: pb.ClusterType_GATE,
-			DstClusterType: pb.ClusterType_GAME,
-		},
-	}
-	clientWg.Add(1)
-	if err := client.Publish("/nats", pac); err != nil {
-		t.Log(err)
-	}
-	clientWg.Wait()
 }
