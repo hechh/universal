@@ -33,6 +33,9 @@ func NewDefaultContext(head *pb.PacketHead) *Context {
 }
 
 func (d *Context) GetValue(key string) IData {
+	if d.readyOnlys == nil {
+		return nil
+	}
 	return d.readyOnlys[key]
 }
 
