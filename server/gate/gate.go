@@ -6,8 +6,12 @@ import (
 	"net/http"
 	"universal/common/config"
 	"universal/common/pb"
+	"universal/framework/actor"
 	"universal/framework/cluster"
+	"universal/framework/fbasic"
 	"universal/framework/network"
+	"universal/framework/notify"
+	"universal/framework/packet"
 
 	"golang.org/x/net/websocket"
 )
@@ -42,10 +46,44 @@ func Run() {
 	if err := cluster.Discovery(pb.ClusterType_GATE, serverCfg.Addr); err != nil {
 		panic(err)
 	}
+	// 初始化消息中间件
+	if err := notify.Init(GateCfg.Nats.Endpoints); err != nil {
+		panic(err)
+	}
+	// 设置actor处理
+	actor.SetActorHandle(actorHandle)
 	// 注册websocket路由
 	http.Handle("/ws", websocket.Handler(wsHandle))
 	if err := http.ListenAndServe(":8089", nil); err != nil {
 		log.Fatal("ListenAndServer: ", err)
+	}
+}
+
+// 设置actor处理
+func actorHandle(ctx *fbasic.Context, buf []byte) func() {
+	return func() {
+		rsp, err := packet.Call(ctx, buf)
+		if err != nil {
+			log.Fatalln(err)
+			return
+		}
+		// 设置返回信息
+		head := ctx.PacketHead
+		head.SeqID++
+		head.Status = pb.StatusType_RESPONSE
+		st, sid := head.SrcClusterType, head.SrcClusterID
+		dt, did := head.DstClusterType, head.DstClusterID
+		head.SrcClusterType, head.SrcClusterID = dt, did
+		head.DstClusterType, head.DstClusterID = st, sid
+		// 发送
+		pac, err := fbasic.RspToPacket(head, rsp)
+		if err != nil {
+			log.Fatalln(err)
+			return
+		}
+		if err := notify.Publish(pac); err != nil {
+			log.Fatalln(err)
+		}
 	}
 }
 
