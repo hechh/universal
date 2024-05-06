@@ -42,7 +42,7 @@ func Send(key string, pa *pb.Packet) {
 	// 刷新时间
 	act.SetUpdateTime(time.Now().Unix())
 	// 发送
-	act.Send(pa)
+	act.Send(pa.Head, pa.Buff)
 }
 
 // 清理过期玩家

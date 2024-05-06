@@ -24,8 +24,3 @@ func Discovery(typ pb.ClusterType, addr string) error {
 func Dispatcher(head *pb.PacketHead) error {
 	return service.Dispatcher(head)
 }
-
-// 指定路由
-func ToDispatcher(head *pb.PacketHead, sendType pb.SendType, dst pb.ClusterType) (*pb.PacketHead, error) {
-	return service.ToDispatcher(head, sendType, dst)
-}

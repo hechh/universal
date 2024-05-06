@@ -90,7 +90,7 @@ func Discovery(typ pb.ClusterType, addr string) error {
 }
 
 // 路由
-func dispatcher(head *pb.PacketHead) error {
+func Dispatcher(head *pb.PacketHead) error {
 	rlist := routine.GetRoutine(head)
 	if rinfo := rlist.Get(head.DstClusterType); rinfo == nil {
 		// 路由
@@ -121,6 +121,7 @@ func dispatcher(head *pb.PacketHead) error {
 	return nil
 }
 
+/*
 // 路由到game集群
 func ToDispatcher(head *pb.PacketHead, sendType pb.SendType, dst pb.ClusterType) (*pb.PacketHead, error) {
 	// 源节点
@@ -149,3 +150,4 @@ func Dispatcher(head *pb.PacketHead) error {
 	}
 	return dispatcher(head)
 }
+*/

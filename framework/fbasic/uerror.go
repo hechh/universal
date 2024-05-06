@@ -61,7 +61,7 @@ func (d *UError) GetCode() int32 {
 }
 
 func (d *UError) GetErrMsg() string {
-	return d.errMsg
+	return d.Error()
 }
 
 func (d *UError) Error() string {

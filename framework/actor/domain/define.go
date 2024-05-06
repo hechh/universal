@@ -9,11 +9,11 @@ import (
 type IActor interface {
 	Start()
 	Stop()
-	Send(*pb.Packet)
-	SetObject(string, fbasic.IData) error
+	Send(*pb.PacketHead, []byte)
 	UUID() string
 	GetUpdateTime() int64
 	SetUpdateTime(int64)
+	SetObject(string, fbasic.IData) error
 }
 
 type ActorHandle func(*fbasic.Context, []byte) func()

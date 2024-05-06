@@ -38,49 +38,32 @@ func GetFuncName(h interface{}) string {
 	return strings.Split(name, ".")[1]
 }
 
-func ErrorToRsp(err error, rsp proto.Message) proto.Message {
-	code, errMsg := GetCodeMsg(err)
-	vv := reflect.ValueOf(rsp).Elem().Field(3)
-	if vv.IsNil() {
-		vv.Set(reflect.ValueOf(&pb.RpcHead{Code: code, ErrMsg: errMsg}))
-	} else if head, ok := vv.Interface().(*pb.RpcHead); ok {
-		head.Code = code
-		head.ErrMsg = errMsg
-	}
-	return rsp
-}
-
-func RspToPacket(head *pb.PacketHead, params ...interface{}) (*pb.Packet, error) {
-	var rsp proto.Message
-	if len(params) <= 0 {
-		rsp = &pb.ActorResponse{Head: &pb.RpcHead{}}
-	} else {
-		if val, ok := params[0].(proto.Message); !ok {
-			rsp = &pb.ActorResponse{Head: &pb.RpcHead{}, Buff: AnyToEncode(params...)}
-		} else {
-			rsp = val
+func ReqToPacket(head *pb.PacketHead, req proto.Message, params ...interface{}) (*pb.Packet, error) {
+	// 设置参数
+	if len(params) > 0 {
+		switch vv := req.(type) {
+		case *pb.ActorRequest:
+			vv.Buff = AnyToEncode(params...)
 		}
 	}
-	buf, err := proto.Marshal(rsp)
+	// 封装
+	buf, err := proto.Marshal(req)
 	if err != nil {
 		return nil, NewUError(1, pb.ErrorCode_ProtoMarshal, err)
 	}
 	return &pb.Packet{Head: head, Buff: buf}, nil
 }
 
-func ReqToPacket(head *pb.PacketHead, params ...interface{}) (*pb.Packet, error) {
-	var req proto.Message
-	if len(params) <= 0 {
-		req = &pb.ActorRequest{}
-	} else {
-		if val, ok := params[0].(proto.Message); !ok {
-			req = &pb.ActorRequest{Buff: AnyToEncode(params...)}
-		} else {
-			req = val
+func RspToPacket(head *pb.PacketHead, rsp proto.Message, params ...interface{}) (*pb.Packet, error) {
+	// 设置参数
+	if len(params) > 0 {
+		switch vv := rsp.(type) {
+		case *pb.ActorResponse:
+			vv.Buff = AnyToEncode(params...)
 		}
 	}
-	// 封装
-	buf, err := proto.Marshal(req)
+	// 序列化
+	buf, err := proto.Marshal(rsp)
 	if err != nil {
 		return nil, NewUError(1, pb.ErrorCode_ProtoMarshal, err)
 	}

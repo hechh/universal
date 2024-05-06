@@ -39,10 +39,10 @@ func (d *Actor) Start() {
 	d.tasks.Start()
 }
 
-func (d *Actor) Send(pa *pb.Packet) {
+func (d *Actor) Send(head *pb.PacketHead, buf []byte) {
 	// 发送任务
-	ctx := fbasic.NewContext(pa.Head, d.objects)
-	d.tasks.Push(d.handle(ctx, pa.Buff))
+	ctx := fbasic.NewContext(head, d.objects)
+	d.tasks.Push(d.handle(ctx, buf))
 }
 
 func (d *Actor) SetObject(name string, data fbasic.IData) error {

@@ -57,26 +57,31 @@ func (d *ActorPacket) RegisterFunc(f interface{}) {
 	d.apis[index] = attr
 }
 
-func (d *ActorPacket) Call(ctx *fbasic.Context, buf []byte) proto.Message {
+func (d *ActorPacket) Call(ctx *fbasic.Context, buf []byte) (newRsp proto.Message) {
 	// 设置rsp的head
-	newRsp := reflect.New(d.rsp).Interface().(proto.Message)
+	rspHead := new(pb.RpcHead)
+	newRsp = reflect.New(d.rsp).Interface().(proto.Message)
 	if vv := reflect.ValueOf(newRsp).Elem().Field(3); vv.IsNil() {
-		vv.Set(reflect.ValueOf(&pb.RpcHead{}))
+		vv.Set(reflect.ValueOf(rspHead))
 	}
 	// 解析请求参数
 	newReq := reflect.New(d.req).Interface().(proto.Message)
 	if err := proto.Unmarshal(buf, newReq); err != nil {
-		return fbasic.ErrorToRsp(fbasic.NewUError(1, pb.ErrorCode_ProtoUnmarshal, err), newRsp)
+		uerr := fbasic.NewUError(1, pb.ErrorCode_ProtoUnmarshal, err)
+		rspHead.Code, rspHead.ErrMsg = uerr.GetCode(), uerr.GetErrMsg()
+		return
 	}
 	// 获取api
 	req := newReq.(*pb.ActorRequest)
 	api, ok := d.apis[index{req.ActorName, req.FuncName}]
 	if !ok {
-		return fbasic.ErrorToRsp(fbasic.NewUError(1, pb.ErrorCode_ActorNotSupported, newReq), newRsp)
+		uerr := fbasic.NewUError(1, pb.ErrorCode_ActorNotSupported, newReq)
+		rspHead.Code, rspHead.ErrMsg = uerr.GetCode(), uerr.GetErrMsg()
+		return
 	}
 	// 执行API
 	if err := api.Call(ctx, newReq, newRsp); err != nil {
-		return fbasic.ErrorToRsp(err, newRsp)
+		rspHead.Code, rspHead.ErrMsg = fbasic.GetCodeMsg(err)
 	}
-	return newRsp
+	return
 }
