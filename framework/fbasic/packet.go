@@ -69,3 +69,11 @@ func RspToPacket(head *pb.PacketHead, rsp proto.Message, params ...interface{}) 
 	}
 	return &pb.Packet{Head: head, Buff: buf}, nil
 }
+
+func NewActorRequest(actorName, funcName string, params ...interface{}) proto.Message {
+	return &pb.ActorRequest{
+		ActorName: actorName,
+		FuncName:  funcName,
+		Buff:      AnyToEncode(params...),
+	}
+}
