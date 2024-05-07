@@ -13,7 +13,6 @@ import (
 func SendTo(sendType pb.SendType, apiCode int32, uid uint64, req proto.Message) error {
 	self := cluster.GetLocalClusterNode()
 	head := &pb.PacketHead{
-		Status:         pb.StatusType_REQUEST,
 		SendType:       sendType,
 		SrcClusterType: self.ClusterType,
 		SrcClusterID:   self.ClusterID,
@@ -37,12 +36,11 @@ func SendTo(sendType pb.SendType, apiCode int32, uid uint64, req proto.Message) 
 func SendToClient(sendType pb.SendType, apiCode int32, uid uint64, rsp proto.Message) error {
 	self := cluster.GetLocalClusterNode()
 	head := &pb.PacketHead{
-		Status:         pb.StatusType_RESPONSE,
 		SendType:       sendType,
 		SrcClusterType: self.ClusterType,
 		SrcClusterID:   self.ClusterID,
 		DstClusterType: pb.ClusterType_GATE,
-		ApiCode:        apiCode,
+		ApiCode:        apiCode + 1,
 		Time:           fbasic.GetNow(),
 		UID:            uid,
 	}

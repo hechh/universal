@@ -10,12 +10,6 @@ enum ClusterType {
     MAX  = 3;  // 最大值
 };
 
-// 状态
-enum StatusType {
-    REQUEST  = 0;  // 请求
-    RESPONSE = 1;  // 应答
-}
-
 // 发送标志
 enum SendType {
     PLAYER  = 0;  // 指定玩家
@@ -33,16 +27,15 @@ message ClusterNode {
 
 // 包头
 message PacketHead {
-    StatusType  Status         = 1;   // 状态
-    SendType    SendType       = 2;   // 传输协议
-    ClusterType SrcClusterType = 3;   // 源服务类型
-    uint32      SrcClusterID   = 4;   // 源集群id
-    ClusterType DstClusterType = 5;   // 目标集群类型
-    uint32      DstClusterID   = 6;   // 目标集群id 大于0优先
-    int32       ApiCode        = 7;   // 请求接口唯一id
-    uint32      SeqID          = 8;   // 序列号
-    int64       Time           = 9;   // 请求时间戳
-    uint64      UID            = 10;  // 目标玩家uid
+    ClusterType SrcClusterType = 1;  // 源服务类型
+    uint32      SrcClusterID   = 2;  // 源集群id
+    ClusterType DstClusterType = 3;  // 目标集群类型
+    uint32      DstClusterID   = 4;  // 目标集群id 大于0优先
+    SendType    SendType       = 5;  // 发送类型
+    int32       ApiCode        = 6;  // Api代码
+    uint32      SeqID          = 7;  // 序列号
+    int64       Time           = 8;  // 请求时间戳
+    uint64      UID            = 9;  // 目标玩家uid
 }
 
 // 原始包

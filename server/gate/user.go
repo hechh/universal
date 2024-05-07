@@ -31,12 +31,12 @@ func (d *User) Init() error {
 // nats消息处理
 func (d *User) NatsHandle(pac *pb.Packet) {
 	head := pac.Head
-	switch head.Status {
-	case pb.StatusType_RESPONSE:
+	switch head.ApiCode & 0x01 {
+	case 1:
 		if err := d.client.Send(pac); err != nil {
 			log.Fatalln(err)
 		}
-	case pb.StatusType_REQUEST:
+	case 0:
 		actor.Send(d.uid, pac)
 	}
 	log.Println("user nats handler finished: ", head)

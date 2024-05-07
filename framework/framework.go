@@ -53,7 +53,7 @@ func actorHandle(ctx *fbasic.Context, buf []byte) func() {
 		// 设置返回信息
 		head := ctx.PacketHead
 		head.SeqID++
-		head.Status = pb.StatusType_RESPONSE
+		head.ApiCode++
 		head.SrcClusterType, head.DstClusterType = head.DstClusterType, head.SrcClusterType
 		head.SrcClusterID, head.DstClusterID = head.DstClusterID, head.SrcClusterID
 		// 发送
