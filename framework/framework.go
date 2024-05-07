@@ -20,6 +20,14 @@ func SetGlobal(id int, t pb.ClusterType) {
 	clusterType = t
 }
 
+func GetServerID() int {
+	return serverId
+}
+
+func GetClusterType() pb.ClusterType {
+	return clusterType
+}
+
 // 初始化
 func Init(addr string, etcds []string, natsUrl string) error {
 	// 初始化集群
