@@ -4,7 +4,6 @@ import (
 	"universal/common/pb"
 	"universal/framework/fbasic"
 	"universal/framework/notify/domain"
-
 	"universal/framework/notify/internal/service"
 )
 

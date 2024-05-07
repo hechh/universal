@@ -8,7 +8,7 @@ import (
 )
 
 var (
-	notify domain.INotify
+	client domain.INotify
 )
 
 func Init(typ int, url string) error {
@@ -17,7 +17,7 @@ func Init(typ int, url string) error {
 		if client, err := nats.NewNatsClient(url); err != nil {
 			return err
 		} else {
-			notify = client
+			client = client
 		}
 	default:
 		return fbasic.NewUError(1, pb.ErrorCode_NotSupported, typ)
@@ -26,11 +26,11 @@ func Init(typ int, url string) error {
 }
 
 // 消息订阅
-func Subscribe(key string, f func(*pb.Packet)) error {
-	return notify.Subscribe(key, f)
+func Subscribe(key string, f domain.NotifyHandle) error {
+	return client.Subscribe(key, f)
 }
 
 // 发送消息
 func Publish(key string, pac *pb.Packet) error {
-	return notify.Publish(key, pac)
+	return client.Publish(key, pac)
 }

@@ -2,6 +2,7 @@ package cluster
 
 import (
 	"universal/common/pb"
+	"universal/framework/cluster/internal/nodes"
 	"universal/framework/cluster/internal/service"
 )
 
@@ -20,7 +21,12 @@ func Discovery(typ pb.ClusterType, addr string) error {
 	return service.Discovery(typ, addr)
 }
 
-// 对玩家路由
-func Dispatcher(head *pb.PacketHead) error {
-	return service.Dispatcher(head)
+// 随机路由一个服务节点
+func RandomNode(head *pb.PacketHead) *pb.ClusterNode {
+	return nodes.Random(head)
+}
+
+// 获取服务节点信息
+func GetNode(clusterType pb.ClusterType, clusterID uint32) *pb.ClusterNode {
+	return nodes.Get(clusterType, clusterID)
 }

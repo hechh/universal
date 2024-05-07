@@ -3,6 +3,7 @@ package gate
 import (
 	"log"
 	"universal/common/pb"
+	"universal/framework"
 	"universal/framework/actor"
 	"universal/framework/cluster"
 	"universal/framework/fbasic"
@@ -85,7 +86,7 @@ func (d *User) LoopRead() {
 		}
 		// 更新head路由信息
 		head := pac.Head
-		if err := cluster.Dispatcher(head); err != nil {
+		if err := framework.Dispatcher(head); err != nil {
 			log.Fatalln(head, string(pac.Buff))
 			continue
 		}

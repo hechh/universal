@@ -5,6 +5,7 @@ import (
 	"universal/framework/cluster"
 	"universal/framework/fbasic"
 	"universal/framework/notify"
+	"universal/framework/routine"
 
 	"google.golang.org/protobuf/proto"
 )
@@ -22,7 +23,7 @@ func SendTo(sendType pb.SendType, apiCode int32, uid uint64, req proto.Message) 
 		UID:            uid,
 	}
 	// 路由
-	if err := cluster.Dispatcher(head); err != nil {
+	if err := Dispatcher(head); err != nil {
 		return err
 	}
 	pp, err := fbasic.ReqToPacket(head, req)
@@ -45,7 +46,7 @@ func SendToClient(sendType pb.SendType, apiCode int32, uid uint64, rsp proto.Mes
 		UID:            uid,
 	}
 	// 路由
-	if err := cluster.Dispatcher(head); err != nil {
+	if err := Dispatcher(head); err != nil {
 		return err
 	}
 	pp, err := fbasic.RspToPacket(head, rsp)
@@ -53,4 +54,36 @@ func SendToClient(sendType pb.SendType, apiCode int32, uid uint64, rsp proto.Mes
 		return err
 	}
 	return notify.Publish(pp)
+}
+
+// 对玩家路由
+func Dispatcher(head *pb.PacketHead) error {
+	rlist := routine.GetRoutine(head.UID)
+	if rinfo := rlist.Get(head.DstClusterType); rinfo == nil {
+		// 路由
+		if err := rlist.UpdateRoutine(head, cluster.RandomNode(head)); err != nil {
+			return err
+		}
+	} else {
+		if head.DstClusterID <= 0 {
+			head.DstClusterID = rinfo.ClusterID
+		}
+		// 节点丢失
+		if head.DstClusterID != rinfo.ClusterID {
+			// 重新路由
+			if err := rlist.UpdateRoutine(head, cluster.RandomNode(head)); err != nil {
+				return err
+			}
+		}
+		// 判断节点是否存在
+		if node := cluster.GetNode(head.DstClusterType, head.DstClusterID); node == nil {
+			// 重新路由
+			if err := rlist.UpdateRoutine(head, cluster.RandomNode(head)); err != nil {
+				return err
+			}
+		} else {
+			rlist.UpdateRoutine(head, node)
+		}
+	}
+	return nil
 }

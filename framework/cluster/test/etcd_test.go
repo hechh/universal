@@ -4,11 +4,12 @@ import (
 	"fmt"
 	"testing"
 	"universal/common/pb"
+	"universal/framework"
 	"universal/framework/cluster/internal/discovery/etcd"
 	"universal/framework/cluster/internal/nodes"
-	"universal/framework/cluster/internal/routine"
 	"universal/framework/cluster/internal/service"
 	"universal/framework/fbasic"
+	"universal/framework/routine"
 
 	"google.golang.org/protobuf/proto"
 )
@@ -48,7 +49,7 @@ func TestDisEtcd(t *testing.T) {
 	t.Run("路由测试", func(t *testing.T) {
 		for i := uint64(1); i < 10; i++ {
 			head := &pb.PacketHead{DstClusterType: pb.ClusterType_GATE, UID: 100000 + i}
-			if err := service.Dispatcher(head); err != nil {
+			if err := framework.Dispatcher(head); err != nil {
 				t.Log(err)
 				return
 			}

@@ -6,7 +6,9 @@ const (
 	NotifyTypeNats = 1
 )
 
+type NotifyHandle func(*pb.Packet)
+
 type INotify interface {
-	Subscribe(string, func(*pb.Packet)) error
+	Subscribe(string, NotifyHandle) error
 	Publish(string, *pb.Packet) error
 }
