@@ -4,8 +4,13 @@ import (
 	"log"
 	"net/http"
 	"universal/common/config"
+	"universal/common/pb"
 	"universal/framework"
+	"universal/framework/cluster"
+	"universal/framework/fbasic"
 	"universal/framework/network"
+	"universal/framework/notify"
+	"universal/framework/packet"
 
 	"golang.org/x/net/websocket"
 )
@@ -27,24 +32,56 @@ func Run(lpath, ypath string) {
 	}
 }
 
+func auth(client *network.SocketClient, pac *pb.Packet) error {
+	head := pac.Head
+	// 判断第一个请求是否为登陆认证包
+	if head.ApiCode != int32(pb.ApiCode_GATE_LOGIN_REQUEST) {
+		return fbasic.NewUError(1, pb.ErrorCode_Parameter, pb.ApiCode_GATE_LOGIN_REQUEST, head.ApiCode)
+	}
+	// 登陆认证
+	rsp, err := packet.Call(fbasic.NewDefaultContext(head), pac.Buff)
+	if err != nil {
+		return err
+	}
+	// 返回认证结果
+	if err := client.SendRsp(head, rsp); err != nil {
+		return err
+	}
+	// 判断是否成功
+	if head := rsp.(fbasic.IProto).GetHead(); head.Code > 0 {
+		return fbasic.NewUError(1, pb.ErrorCode(head.Code), "gate login auth is failed")
+	}
+	return nil
+}
+
 func wsHandle(conn *websocket.Conn) {
-	user := NewUser(network.NewSocketClient(conn))
-	// 认证
-	if !user.Auth() {
-		conn.Close()
+	var err error
+	var pac *pb.Packet
+	defer func() {
+		if err != nil {
+			log.Fatalln("websocket connect is failed: ", err)
+			conn.Close()
+		} else {
+			log.Println("websocket closed: ", conn.RemoteAddr().String())
+			conn.Close()
+		}
+	}()
+	client := network.NewSocketClient(conn)
+	// 读取认证请求
+	if pac, err = client.Read(); err != nil {
 		return
 	}
-	// 初始化
-	if err := user.Init(); err != nil {
-		log.Fatalln("user init nats handler: ", err)
-		conn.Close()
+	// 认证
+	if err := auth(client, pac); err != nil {
+		return
+	}
+	// 订阅消息
+	user := NewUser(client)
+	self := cluster.GetLocalClusterNode()
+	if err = notify.Subscribe(fbasic.GetPlayerChannel(self.ClusterType, self.ClusterID, pac.Head.UID), user.NatsHandle); err != nil {
 		return
 	}
 	// 循环接受消息
 	log.Println("websocket connected...", conn.RemoteAddr().String())
-	defer func() {
-		log.Println("wsHandle closed: ", conn.RemoteAddr().String())
-		conn.Close()
-	}()
 	user.LoopRead()
 }

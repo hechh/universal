@@ -35,6 +35,14 @@ func (d *SocketClient) getSendBytes(size int) []byte {
 	return d.sendBuff
 }
 
+func (d *SocketClient) SendRsp(head *pb.PacketHead, item proto.Message, params ...interface{}) error {
+	pac, err := fbasic.RspToPacket(head, item, params...)
+	if err != nil {
+		return err
+	}
+	return d.Send(pac)
+}
+
 func (d *SocketClient) Send(pac *pb.Packet) error {
 	// 设置发送超时时间，避免阻塞
 	if d.sendExpire > 0 {

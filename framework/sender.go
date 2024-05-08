@@ -4,13 +4,14 @@ import (
 	"universal/common/pb"
 	"universal/framework/cluster"
 	"universal/framework/fbasic"
+	"universal/framework/notify"
 	"universal/framework/routine"
 
 	"google.golang.org/protobuf/proto"
 )
 
 // 发送到其他服务
-func SendTo(sendType pb.SendType, apiCode int32, uid uint64, req proto.Message) error {
+func SendTo(sendType pb.SendType, apiCode int32, uid uint64, req proto.Message, params ...interface{}) error {
 	self := cluster.GetLocalClusterNode()
 	head := &pb.PacketHead{
 		SendType:       sendType,
@@ -25,11 +26,16 @@ func SendTo(sendType pb.SendType, apiCode int32, uid uint64, req proto.Message) 
 	if err := Dispatcher(head); err != nil {
 		return err
 	}
-	return PublishReqPacket(head, req)
+	// 获取订阅key
+	key, err := fbasic.GetHeadChannel(head)
+	if err != nil {
+		return err
+	}
+	return notify.PublishReq(key, head, req, params...) //(head, req)
 }
 
 // 发送客户端
-func SendToClient(sendType pb.SendType, apiCode int32, uid uint64, rsp proto.Message) error {
+func SendToClient(sendType pb.SendType, apiCode int32, uid uint64, rsp proto.Message, params ...interface{}) error {
 	self := cluster.GetLocalClusterNode()
 	head := &pb.PacketHead{
 		SendType:       sendType,
@@ -44,7 +50,12 @@ func SendToClient(sendType pb.SendType, apiCode int32, uid uint64, rsp proto.Mes
 	if err := Dispatcher(head); err != nil {
 		return err
 	}
-	return PublishRspPacket(head, rsp)
+	// 获取订阅key
+	key, err := fbasic.GetHeadChannel(head)
+	if err != nil {
+		return err
+	}
+	return notify.PublishRsp(key, head, rsp, params...)
 }
 
 // 对玩家路由

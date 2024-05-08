@@ -5,6 +5,8 @@ import (
 	"universal/framework/fbasic"
 	"universal/framework/notify/domain"
 	"universal/framework/notify/internal/middle/nats"
+
+	"google.golang.org/protobuf/proto"
 )
 
 var (
@@ -33,4 +35,24 @@ func Subscribe(key string, f domain.NotifyHandle) error {
 // 发送消息
 func Publish(key string, pac *pb.Packet) error {
 	return client.Publish(key, pac)
+}
+
+func PublishReq(key string, head *pb.PacketHead, req proto.Message, params ...interface{}) error {
+	// 封装发送包
+	pac, err := fbasic.ReqToPacket(head, req)
+	if err != nil {
+		return err
+	}
+	// 发送
+	return Publish(key, pac)
+}
+
+func PublishRsp(key string, head *pb.PacketHead, rsp proto.Message, params ...interface{}) error {
+	// 封装发送包
+	pac, err := fbasic.RspToPacket(head, rsp, params...)
+	if err != nil {
+		return err
+	}
+	// 发送
+	return Publish(key, pac)
 }
