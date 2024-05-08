@@ -16,10 +16,10 @@ var (
 func Init(typ int, url string) error {
 	switch typ {
 	case domain.NotifyTypeNats:
-		if client, err := nats.NewNatsClient(url); err != nil {
+		if cli, err := nats.NewNatsClient(url); err != nil {
 			return err
 		} else {
-			client = client
+			client = cli
 		}
 	default:
 		return fbasic.NewUError(1, pb.ErrorCode_NotSupported, typ)

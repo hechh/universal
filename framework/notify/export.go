@@ -3,7 +3,6 @@ package notify
 import (
 	"universal/common/pb"
 	"universal/framework/notify/domain"
-	"universal/framework/notify/internal/base"
 	"universal/framework/notify/internal/service"
 
 	"google.golang.org/protobuf/proto"
@@ -29,14 +28,4 @@ func PublishReq(key string, head *pb.PacketHead, req proto.Message, params ...in
 
 func PublishRsp(key string, head *pb.PacketHead, rsp proto.Message, params ...interface{}) error {
 	return service.PublishRsp(key, head, rsp, params...)
-}
-
-// 创建一个广播
-func NewBroadcast(key string) *base.Broadcast {
-	return base.NewBroadcast(key)
-}
-
-// 创建一个单波
-func NewUnicast(key string, f domain.NotifyHandle) *base.Unicast {
-	return base.NewUnicast(key, f)
 }

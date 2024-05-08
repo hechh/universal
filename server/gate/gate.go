@@ -15,6 +15,10 @@ import (
 	"golang.org/x/net/websocket"
 )
 
+var (
+	broadcast = fbasic.NewBroadcast()
+)
+
 func Run(lpath, ypath string) {
 	// 读取配置
 	if err := config.LoadConfig(ypath); err != nil {
@@ -25,11 +29,54 @@ func Run(lpath, ypath string) {
 	if err := framework.Init(serverCfg.Addr, config.GlobalCfg.Etcd.Endpoints, config.GlobalCfg.Nats.Endpoints); err != nil {
 		panic(err)
 	}
+	// 注册节点广播
+	self := cluster.GetLocalClusterNode()
+	if err := notify.Subscribe(fbasic.GetNodeChannel(self.ClusterType, self.ClusterID), broadcast.Handle); err != nil {
+		panic(err)
+	}
+	// 注册全局广播
+	if err := notify.Subscribe(fbasic.GetClusterChannel(self.ClusterType), broadcast.Handle); err != nil {
+		panic(err)
+	}
 	// 注册websocket路由
 	http.Handle("/ws", websocket.Handler(wsHandle))
 	if err := http.ListenAndServe(":8089", nil); err != nil {
 		log.Fatal("ListenAndServer: ", err)
 	}
+}
+
+func wsHandle(conn *websocket.Conn) {
+	var err error
+	var pac *pb.Packet
+	defer func() {
+		if err != nil {
+			log.Fatalln("websocket connect is failed: ", err)
+			conn.Close()
+		} else {
+			// 去除广播
+			broadcast.Del(pac.Head.UID)
+			conn.Close()
+			log.Println("websocket closed: ", conn.RemoteAddr().String())
+		}
+	}()
+	client := network.NewSocketClient(conn)
+	// 读取认证请求
+	if pac, err = client.Read(); err != nil {
+		return
+	}
+	// 认证
+	if err := auth(client, pac); err != nil {
+		return
+	}
+	// 订阅消息
+	user := NewUser(client)
+	self := cluster.GetLocalClusterNode()
+	if err = notify.Subscribe(fbasic.GetPlayerChannel(self.ClusterType, self.ClusterID, pac.Head.UID), user.NatsHandle); err != nil {
+		return
+	}
+	// 循环接受消息
+	log.Println("websocket connected...", conn.RemoteAddr().String())
+	user.LoopRead()
 }
 
 func auth(client *network.SocketClient, pac *pb.Packet) error {
@@ -52,36 +99,4 @@ func auth(client *network.SocketClient, pac *pb.Packet) error {
 		return fbasic.NewUError(1, pb.ErrorCode(head.Code), "gate login auth is failed")
 	}
 	return nil
-}
-
-func wsHandle(conn *websocket.Conn) {
-	var err error
-	var pac *pb.Packet
-	defer func() {
-		if err != nil {
-			log.Fatalln("websocket connect is failed: ", err)
-			conn.Close()
-		} else {
-			log.Println("websocket closed: ", conn.RemoteAddr().String())
-			conn.Close()
-		}
-	}()
-	client := network.NewSocketClient(conn)
-	// 读取认证请求
-	if pac, err = client.Read(); err != nil {
-		return
-	}
-	// 认证
-	if err := auth(client, pac); err != nil {
-		return
-	}
-	// 订阅消息
-	user := NewUser(client)
-	self := cluster.GetLocalClusterNode()
-	if err = notify.Subscribe(fbasic.GetPlayerChannel(self.ClusterType, self.ClusterID, pac.Head.UID), user.NatsHandle); err != nil {
-		return
-	}
-	// 循环接受消息
-	log.Println("websocket connected...", conn.RemoteAddr().String())
-	user.LoopRead()
 }
