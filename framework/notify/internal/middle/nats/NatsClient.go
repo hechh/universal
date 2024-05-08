@@ -4,6 +4,7 @@ import (
 	"log"
 	"universal/common/pb"
 	"universal/framework/fbasic"
+	"universal/framework/notify/domain"
 
 	"github.com/nats-io/nats.go"
 	"google.golang.org/protobuf/proto"
@@ -21,7 +22,7 @@ func NewNatsClient(url string) (*NatsClient, error) {
 	return &NatsClient{conn: conn}, nil
 }
 
-func (d *NatsClient) Subscribe(key string, f func(*pb.Packet)) error {
+func (d *NatsClient) Subscribe(key string, f domain.NotifyHandle) error {
 	_, err := d.conn.Subscribe(key, func(msg *nats.Msg) {
 		pac := &pb.Packet{}
 		if err := proto.Unmarshal(msg.Data, pac); err != nil {

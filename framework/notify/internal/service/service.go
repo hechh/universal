@@ -8,7 +8,7 @@ import (
 )
 
 var (
-	client domain.INotify
+	client domain.IMiddle
 )
 
 func Init(typ int, url string) error {

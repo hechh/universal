@@ -11,6 +11,10 @@ import (
 	"universal/framework/fbasic"
 )
 
+const (
+	EXPIRE = 30 * 60
+)
+
 var (
 	tables sync.Map
 )
@@ -22,7 +26,6 @@ type RoutineInfo struct {
 
 type RoutineTable struct {
 	uid        uint64         // 玩家uid
-	status     int32          // 在线状态
 	updateTime int64          // 更新时间
 	list       []*RoutineInfo // 该玩家的路由信息
 }
@@ -38,31 +41,21 @@ func Print() {
 	})
 }
 
-// 获取在线uid列表
-func GetOnlines() (list []uint64) {
-	tables.Range(func(key, value interface{}) bool {
-		val, ok := value.(*RoutineTable)
-		if !ok || val == nil {
-			return true
-		}
-
-		if val.GetStatus() > 0 {
-			list = append(list, val.uid)
-		}
-		return true
-	})
-	return
+// 删除路由表
+func DelRoutine(uid uint64) {
+	tables.Delete(uid)
 }
 
 // 获取玩家路由信息
 func GetRoutine(uid uint64) *RoutineTable {
-	if val, ok := tables.Load(uid); ok && val != nil {
-		return val.(*RoutineTable)
+	if val, ok := tables.Load(uid); ok {
+		vv := val.(*RoutineTable)
+		atomic.StoreInt64(&vv.updateTime, fbasic.GetNow())
+		return vv
 	}
 	// 新建路由表
 	rlist := &RoutineTable{
 		updateTime: fbasic.GetNow(),
-		status:     1,
 		uid:        uid,
 	}
 	// 存储玩家路由表
@@ -70,25 +63,9 @@ func GetRoutine(uid uint64) *RoutineTable {
 	return rlist
 }
 
-func (d *RoutineTable) SetStatus(online int32) {
-	atomic.StoreInt32(&d.status, online)
-}
-
-func (d *RoutineTable) GetStatus() int32 {
-	return atomic.LoadInt32(&d.status)
-}
-
 func (d *RoutineTable) String() string {
 	buf, _ := json.Marshal(d.list)
 	return fmt.Sprintf("%d: %s", d.updateTime, string(buf))
-}
-
-func (d *RoutineTable) SetUpdateTime(now int64) {
-	atomic.StoreInt64(&d.updateTime, now)
-}
-
-func (d *RoutineTable) GetUpdateTime() int64 {
-	return atomic.LoadInt64(&d.updateTime)
 }
 
 // 查询路由节点
@@ -148,7 +125,7 @@ func clearExpire() {
 
 			// 判断路由信息是否过期
 			now := fbasic.GetNow()
-			if val.GetUpdateTime()+30*60 <= now {
+			if atomic.LoadInt64(&val.updateTime)+EXPIRE <= now {
 				tables.Delete(key)
 			}
 			return true

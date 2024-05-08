@@ -96,8 +96,10 @@ func (d *User) LoopRead() {
 			continue
 		}
 		// 转发到nats
-		if err := notify.Publish(pac); err != nil {
-			log.Println(err)
+		if key, err := fbasic.GetHeadChannel(head); err != nil {
+			log.Fatalln(err)
+		} else if err = notify.Publish(key, pac); err != nil {
+			log.Fatalln(err)
 		}
 	}
 }

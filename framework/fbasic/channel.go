@@ -31,6 +31,21 @@ func GetClusterChannel(typ pb.ClusterType) string {
 	return fmt.Sprintf("%s/%s", rootDir, strings.ToLower(typ.String()))
 }
 
+// 获取channel的key
+func GetHeadChannel(head *pb.PacketHead) (str string, err error) {
+	switch head.SendType {
+	case pb.SendType_PLAYER:
+		str = GetPlayerChannel(head.DstClusterType, head.DstClusterID, head.UID)
+	case pb.SendType_NODE:
+		str = GetNodeChannel(head.DstClusterType, head.DstClusterID)
+	case pb.SendType_CLUSTER:
+		str = GetClusterChannel(head.DstClusterType)
+	default:
+		err = NewUError(1, pb.ErrorCode_SendTypeNotSupported, head.SendType)
+	}
+	return
+}
+
 // 解析channel
 func ParseChannel(str string) (clusterType pb.ClusterType, clusterID uint32, uid uint64) {
 	strs := strings.Split(strings.TrimPrefix(str, rootDir), "/")

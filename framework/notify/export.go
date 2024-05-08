@@ -2,8 +2,8 @@ package notify
 
 import (
 	"universal/common/pb"
-	"universal/framework/fbasic"
 	"universal/framework/notify/domain"
+	"universal/framework/notify/internal/base"
 	"universal/framework/notify/internal/service"
 )
 
@@ -17,17 +17,16 @@ func Subscribe(key string, f func(*pb.Packet)) error {
 }
 
 // 发送
-func Publish(pac *pb.Packet) error {
-	head := pac.Head
-	switch head.SendType {
-	case pb.SendType_PLAYER:
-		return service.Publish(fbasic.GetPlayerChannel(head.DstClusterType, head.DstClusterID, head.UID), pac)
-	case pb.SendType_NODE:
-		return service.Publish(fbasic.GetNodeChannel(head.DstClusterType, head.DstClusterID), pac)
-	case pb.SendType_CLUSTER:
-		return service.Publish(fbasic.GetClusterChannel(head.DstClusterType), pac)
-	default:
-		return fbasic.NewUError(1, pb.ErrorCode_SendTypeNotSupported, head.SendType)
-	}
-	return nil
+func Publish(key string, pac *pb.Packet) error {
+	return service.Publish(key, pac)
+}
+
+// 创建一个广播
+func NewBroadcast(key string) *base.Broadcast {
+	return base.NewBroadcast(key)
+}
+
+// 创建一个单波
+func NewUnicast(key string, f domain.NotifyHandle) *base.Unicast {
+	return base.NewUnicast(key, f)
 }

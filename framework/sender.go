@@ -4,7 +4,6 @@ import (
 	"universal/common/pb"
 	"universal/framework/cluster"
 	"universal/framework/fbasic"
-	"universal/framework/notify"
 	"universal/framework/routine"
 
 	"google.golang.org/protobuf/proto"
@@ -26,11 +25,7 @@ func SendTo(sendType pb.SendType, apiCode int32, uid uint64, req proto.Message) 
 	if err := Dispatcher(head); err != nil {
 		return err
 	}
-	pp, err := fbasic.ReqToPacket(head, req)
-	if err != nil {
-		return err
-	}
-	return notify.Publish(pp)
+	return PublishReqPacket(head, req)
 }
 
 // 发送客户端
@@ -49,11 +44,7 @@ func SendToClient(sendType pb.SendType, apiCode int32, uid uint64, rsp proto.Mes
 	if err := Dispatcher(head); err != nil {
 		return err
 	}
-	pp, err := fbasic.RspToPacket(head, rsp)
-	if err != nil {
-		return err
-	}
-	return notify.Publish(pp)
+	return PublishRspPacket(head, rsp)
 }
 
 // 对玩家路由
