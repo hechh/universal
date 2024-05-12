@@ -39,7 +39,7 @@ func Publish(key string, pac *pb.Packet) error {
 
 func PublishReq(key string, head *pb.PacketHead, req proto.Message, params ...interface{}) error {
 	// 封装发送包
-	pac, err := fbasic.ReqToPacket(head, req)
+	pac, err := fbasic.ReqToPacket(head, req, params...)
 	if err != nil {
 		return err
 	}

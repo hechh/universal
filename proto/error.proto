@@ -39,4 +39,7 @@ enum ErrorCode {
     NotFound                    = 32;  // 未找到
     SocketAddr                  = 33;  // 网络地址错误
     GateLoginRequestExpected    = 34;  // 登陆认证请求
+    HasConnected                = 35;  // 已经连接
+    RedisPing                   = 36;  // redis连接测试
+    HasRegistered               = 37;  // 已经注册
 };

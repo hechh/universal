@@ -144,3 +144,15 @@ func SocketAddr(args ...interface{}) *fbasic.UError {
 func GateLoginRequestExpected(args ...interface{}) *fbasic.UError {
 	return fbasic.NewUError(2, pb.ErrorCode_GateLoginRequestExpected, args...)
 }
+
+func HasConnected(args ...interface{}) *fbasic.UError {
+	return fbasic.NewUError(2, pb.ErrorCode_HasConnected, args...)
+}
+
+func RedisPing(args ...interface{}) *fbasic.UError {
+	return fbasic.NewUError(2, pb.ErrorCode_RedisPing, args...)
+}
+
+func HasRegistered(args ...interface{}) *fbasic.UError {
+	return fbasic.NewUError(2, pb.ErrorCode_HasRegistered, args...)
+}

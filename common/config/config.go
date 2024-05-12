@@ -25,10 +25,18 @@ type NatsConfig struct {
 	Endpoints string `yaml:"endpoints"`
 }
 
+type RedisConfig struct {
+	Name     string `yaml:"name"`
+	User     string `yaml:"user"`
+	Password string `yaml:"password"`
+	Address  string `yaml:"address"`
+}
+
 type GlobalConfig struct {
-	Gate map[int]*ServerConfig `yaml:"gate"`
-	Etcd *EtcdConfig           `yaml:"etcd"`
-	Nats *NatsConfig           `yaml:"nats"`
+	Gate  map[int]*ServerConfig   `yaml:"gate"`
+	Etcd  *EtcdConfig             `yaml:"etcd"`
+	Nats  *NatsConfig             `yaml:"nats"`
+	Redis map[string]*RedisConfig `yaml:"redis"`
 }
 
 func LoadConfig(path string) error {

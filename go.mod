@@ -3,11 +3,13 @@ module universal
 go 1.22.1
 
 require (
+	github.com/gomodule/redigo v1.9.2
 	github.com/nats-io/nats.go v1.34.1
 	github.com/spf13/cast v1.6.0
 	go.etcd.io/etcd v3.3.17+incompatible
 	golang.org/x/net v0.24.0
 	google.golang.org/protobuf v1.33.0
+	gopkg.in/mgo.v2 v2.0.0-20190816093944-a6b53ec6cb22
 	gopkg.in/yaml.v2 v2.4.0
 )
 
