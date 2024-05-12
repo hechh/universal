@@ -10,7 +10,7 @@ import (
 
 var mongoPool = make(map[string]*mgo.Session)
 
-func RegisterMongoPool(dbname, user, passwd string, addrs ...string) (err error) {
+func InitMongo(dbname, user, passwd string, addrs ...string) (err error) {
 	if _, ok := mongoPool[dbname]; ok {
 		return fbasic.NewUError(1, pb.ErrorCode_HasRegistered, dbname, addrs)
 	}
