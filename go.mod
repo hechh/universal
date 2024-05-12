@@ -6,6 +6,7 @@ require (
 	github.com/gomodule/redigo v1.9.2
 	github.com/nats-io/nats.go v1.34.1
 	github.com/spf13/cast v1.6.0
+	github.com/xuri/excelize/v2 v2.8.1
 	go.etcd.io/etcd v3.3.17+incompatible
 	golang.org/x/net v0.24.0
 	google.golang.org/protobuf v1.33.0
@@ -43,8 +44,13 @@ require (
 	github.com/coreos/etcd v3.3.17+incompatible // indirect
 	github.com/gogo/protobuf v1.3.2 // indirect
 	github.com/klauspost/compress v1.17.2 // indirect
+	github.com/mohae/deepcopy v0.0.0-20170929034955-c48cc78d4826 // indirect
 	github.com/nats-io/nkeys v0.4.7 // indirect
 	github.com/nats-io/nuid v1.0.1 // indirect
+	github.com/richardlehane/mscfb v1.0.4 // indirect
+	github.com/richardlehane/msoleps v1.0.3 // indirect
+	github.com/xuri/efp v0.0.0-20231025114914-d1ff6096ae53 // indirect
+	github.com/xuri/nfp v0.0.0-20230919160717-d98342af3f05 // indirect
 	golang.org/x/crypto v0.22.0 // indirect
 	golang.org/x/sys v0.19.0 // indirect
 	google.golang.org/genproto v0.0.0-20200513103714-09dca8ec2884 // indirect
