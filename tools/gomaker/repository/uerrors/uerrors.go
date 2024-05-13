@@ -8,32 +8,34 @@ import (
 	"os"
 	"path/filepath"
 	"strings"
+	"text/template"
 	"universal/framework/fbasic"
 	"universal/tools/gomaker/domain"
 	"universal/tools/gomaker/internal/base"
 	"universal/tools/gomaker/internal/manager"
+	parse "universal/tools/gomaker/internal/parser"
 )
 
-func Gen(action string, dst string, params string) error {
+func Gen(cwd string, cmdLine *domain.CmdLine, tpls map[string]*template.Template) error {
 	en := manager.GetEnum("ErrorCode")
 	if en == nil {
 		return fbasic.NewUError(1, -1, fmt.Sprintf("The enum of ErrorCode is not found in typespec"))
 	}
 	// 生成文档
-	if !strings.HasSuffix(dst, ".go") {
-		dst += "/uerrors.gen.go"
+	if !strings.HasSuffix(cmdLine.Dst, ".go") {
+		cmdLine.Dst += "/uerrors.gen.go"
 	}
 	// 生成包头
 	buf := bytes.NewBuffer(nil)
-	if err := manager.GenPackage(dst, buf); err != nil {
+	if err := base.MapTpl(tpls).GenPackage(cmdLine.Dst, buf); err != nil {
 		return err
 	}
 	// 模版
-	if tpl := manager.GetTpl(action); tpl == nil {
-		return fbasic.NewUError(1, -1, fmt.Sprintf("The action of %s is not supported", action))
+	if tpl, ok := tpls[cmdLine.Action]; !ok {
+		return fbasic.NewUError(1, -1, fmt.Sprintf("The action of %s is not supported", cmdLine.Action))
 	} else {
 		// 生成文件
-		if err := tpl.ExecuteTemplate(buf, action+".tpl", en); err != nil {
+		if err := tpl.ExecuteTemplate(buf, cmdLine.Action+".tpl", en); err != nil {
 			return fbasic.NewUError(1, -1, err)
 		}
 	}
@@ -42,19 +44,15 @@ func Gen(action string, dst string, params string) error {
 	if err != nil {
 		return fbasic.NewUError(1, -1, err)
 	}
-	if err := os.MkdirAll(filepath.Dir(dst), os.FileMode(0777)); err != nil {
+	if err := os.MkdirAll(filepath.Dir(cmdLine.Dst), os.FileMode(0777)); err != nil {
 		return fbasic.NewUError(1, -1, err)
 	}
-	if err := ioutil.WriteFile(dst, result, os.FileMode(0666)); err != nil {
+	if err := ioutil.WriteFile(cmdLine.Dst, result, os.FileMode(0666)); err != nil {
 		return fbasic.NewUError(1, -1, err)
 	}
 	return nil
 }
 
 func Init() {
-	manager.Register(&base.Action{
-		Name: domain.UERRORS,
-		Help: "ErrorCode生成UError错误码",
-		Gen:  Gen,
-	})
+	manager.Register(parse.NewBaseParser(Gen, domain.UERRORS, "", "ErrorCode生成UError错误码"))
 }

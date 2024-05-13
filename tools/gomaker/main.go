@@ -4,11 +4,9 @@ import (
 	"flag"
 	"fmt"
 	"os"
+	"universal/tools/gomaker/domain"
 	"universal/tools/gomaker/internal/base"
 	"universal/tools/gomaker/internal/manager"
-	"universal/tools/gomaker/internal/service"
-	"universal/tools/gomaker/repository/entity"
-	"universal/tools/gomaker/repository/playerFun"
 	"universal/tools/gomaker/repository/uerrors"
 )
 
@@ -17,33 +15,32 @@ var (
 )
 
 func main() {
-	var action, param, tpl, src, dst string
-	flag.StringVar(&action, "action", "", "操作模式")
-	flag.StringVar(&param, "param", "", "不同action的param使用方式不同")
-	flag.StringVar(&tpl, "tpl", "", "模板文件路径, 默认从TPL_GO环境变量中读取, -tpl={tpl文件目录}")
-	flag.StringVar(&src, "src", "", "解析go文件或目录, -param={go文件目录 或 xxx/*.go}")
-	flag.StringVar(&dst, "dst", "", "生成文件或目录, -dst={生成文件目录}")
-	flag.Parse()
-
-	// 将相对路径转成绝对路径
-	if len(action) <= 0 {
-		fmt.Println("-action: parameter is empty")
-		return
+	cmdLine := &domain.CmdLine{}
+	if err := base.InitCmdLine(CwdPath, cmdLine); err != nil {
+		panic(err)
 	}
-	if tpl = base.GetAbsPath(base.GetPathDefault(tpl, os.Getenv("TPL_GO")), CwdPath); len(tpl) <= 0 {
+	if len(cmdLine.Tpl) <= 0 {
 		fmt.Println("-tpl(TPL_GO): parameter is empty")
 		return
 	}
-	dst = base.GetAbsPath(base.GetPathDefault(dst, CwdPath), CwdPath)
+
+	// 获取解析器
+	par := manager.GetParser(cmdLine.Action)
+	if par == nil {
+		panic(fmt.Sprintf("-action=%s not suppoerted", cmdLine.Action))
+	}
 	// 加载模板文件
-	manager.InitTpl(tpl)
+	if err := par.OpenTpl(CwdPath, cmdLine); err != nil {
+		panic(err)
+	}
 	// 解析go文件
-	if err := service.ParseFiles(src, CwdPath); err != nil {
+	if err := par.ParseFile(CwdPath, cmdLine, &manager.TypeParser{}); err != nil {
 		fmt.Printf("parseFiles is faield, error: %v", err)
 		return
 	}
+	manager.Finished()
 	// 生成文件
-	if err := manager.Gen(action, dst, param); err != nil {
+	if err := par.Gen(CwdPath, cmdLine); err != nil {
 		fmt.Printf("error: %v", err.Error())
 	}
 }
@@ -59,7 +56,7 @@ func init() {
 		manager.Help()
 	}
 
-	playerFun.Init()
+	//playerFun.Init()
 	uerrors.Init()
-	entity.Init()
+	//entity.Init()
 }
