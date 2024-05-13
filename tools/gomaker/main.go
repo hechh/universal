@@ -7,6 +7,7 @@ import (
 	"universal/tools/gomaker/domain"
 	"universal/tools/gomaker/internal/base"
 	"universal/tools/gomaker/internal/manager"
+	"universal/tools/gomaker/repository/playerFun"
 	"universal/tools/gomaker/repository/uerrors"
 )
 
@@ -23,7 +24,6 @@ func main() {
 		fmt.Println("-tpl(TPL_GO): parameter is empty")
 		return
 	}
-
 	// 获取解析器
 	par := manager.GetParser(cmdLine.Action)
 	if par == nil {
@@ -56,7 +56,6 @@ func init() {
 		manager.Help()
 	}
 
-	//playerFun.Init()
+	playerFun.Init()
 	uerrors.Init()
-	//entity.Init()
 }

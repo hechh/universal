@@ -28,7 +28,7 @@ func GetParser(name string) domain.IParser {
 func Help() {
 	fmt.Fprintf(flag.CommandLine.Output(), "action使用说明: \n")
 	for _, item := range genMgr {
-		fmt.Fprint(flag.CommandLine.Output(), item.Help())
+		fmt.Fprint(flag.CommandLine.Output(), item.GetHelp())
 	}
 }
 

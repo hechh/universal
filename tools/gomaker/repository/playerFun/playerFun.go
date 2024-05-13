@@ -4,15 +4,16 @@ import (
 	"bytes"
 	"fmt"
 	"go/format"
-	"html/template"
 	"io/ioutil"
 	"os"
 	"path/filepath"
 	"strings"
+	"text/template"
 	"universal/framework/fbasic"
 	"universal/tools/gomaker/domain"
 	"universal/tools/gomaker/internal/base"
 	"universal/tools/gomaker/internal/manager"
+	parse "universal/tools/gomaker/internal/parser"
 	"universal/tools/gomaker/internal/typespec"
 )
 
@@ -22,24 +23,29 @@ type PlayerFunAttr struct {
 	ReqList []string
 }
 
+func parseParams(params string) *PlayerFunAttr {
+	strs := strings.Split(params, ":")
+	return &PlayerFunAttr{Name: strs[0], ReqList: strings.Split(strs[1], ",")}
+}
+
 // name, pbname
 func Gen(cwd string, cmdLine *domain.CmdLine, tpls map[string]*template.Template) error {
-	attr := parseParams(params)
+	attr := parseParams(cmdLine.Param)
 	// 生成文档
-	if !strings.HasSuffix(dst, ".go") {
-		dst += fmt.Sprintf("/%s.go", attr.Name)
+	if !strings.HasSuffix(cmdLine.Dst, ".go") {
+		cmdLine.Dst += fmt.Sprintf("/%s.go", attr.Name)
 	}
 	// 生成包头
 	buf := bytes.NewBuffer(nil)
-	if err := manager.GenPackage(dst, buf); err != nil {
+	if err := base.MapTpl(tpls).GenPackage(cmdLine.Dst, buf); err != nil {
 		return err
 	}
 	// 模版
-	if tpl := manager.GetTpl(action); tpl == nil {
-		return fbasic.NewUError(1, -1, fmt.Sprintf("The action of %s is not supported", action))
+	if tpl, ok := tpls[cmdLine.Action]; !ok {
+		return fbasic.NewUError(1, -1, fmt.Sprintf("The cmdline.action of %s is not supported", cmdLine.Action))
 	} else {
 		// 生成文件
-		if err := tpl.ExecuteTemplate(buf, action+".tpl", attr); err != nil {
+		if err := tpl.ExecuteTemplate(buf, cmdLine.Action+".tpl", attr); err != nil {
 			return fbasic.NewUError(1, -1, err)
 		}
 	}
@@ -49,25 +55,15 @@ func Gen(cwd string, cmdLine *domain.CmdLine, tpls map[string]*template.Template
 		//ioutil.WriteFile("./gen.go", buf.Bytes(), os.FileMode(0644))
 		return fbasic.NewUError(1, -1, err)
 	}
-	if err := os.MkdirAll(filepath.Dir(dst), os.FileMode(0777)); err != nil {
+	if err := os.MkdirAll(filepath.Dir(cmdLine.Dst), os.FileMode(0777)); err != nil {
 		return fbasic.NewUError(1, -1, err)
 	}
-	if err := ioutil.WriteFile(dst, result, os.FileMode(0666)); err != nil {
+	if err := ioutil.WriteFile(cmdLine.Dst, result, os.FileMode(0666)); err != nil {
 		return fbasic.NewUError(1, -1, err)
 	}
 	return nil
 }
 
 func Init() {
-	manager.Register(&base.Action{
-		Name:  domain.PLAYER_FUN,
-		Help:  "生成playerFun模板文件",
-		Param: "{PlayerXxxxFun}:{req1},{req2},...",
-		Gen:   Gen,
-	})
-}
-
-func parseParams(params string) *PlayerFunAttr {
-	strs := strings.Split(params, "|")
-	return &PlayerFunAttr{Name: strs[0], ReqList: strings.Split(strs[1], ",")}
+	manager.Register(parse.NewBaseParser(Gen, domain.PLAYER_FUN, "{PlayerXxxxFun}:{req1},{req2},...", "生成playerFun模板文件"))
 }

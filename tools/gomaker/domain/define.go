@@ -1,6 +1,6 @@
 package domain
 
-import "html/template"
+import "text/template"
 
 // token类型
 const (
@@ -17,12 +17,14 @@ const (
 	ENTITY     = "entity"
 )
 
+type GenFunc func(string, *CmdLine, map[string]*template.Template) error
+
 type IParser interface {
-	GetHelp() string
-	GetAction() string
-	OpenTpl(string, *CmdLine) error
-	ParseFile(string, *CmdLine, interface{}) error
-	Gen(string, *CmdLine) error
+	GetHelp() string                               // help信息
+	GetAction() string                             // action类型
+	OpenTpl(string, *CmdLine) error                // 打开tpl文件
+	ParseFile(string, *CmdLine, interface{}) error // 解析文件
+	Gen(string, *CmdLine) error                    // 生成文件
 }
 
 type CmdLine struct {
@@ -32,5 +34,3 @@ type CmdLine struct {
 	Src    string
 	Dst    string
 }
-
-type GenFunc func(string, *CmdLine, map[string]*template.Template) error
