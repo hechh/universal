@@ -156,3 +156,7 @@ func RedisPing(args ...interface{}) *fbasic.UError {
 func HasRegistered(args ...interface{}) *fbasic.UError {
 	return fbasic.NewUError(2, pb.ErrorCode_HasRegistered, args...)
 }
+
+func OpenFile(args ...interface{}) *fbasic.UError {
+	return fbasic.NewUError(2, pb.ErrorCode_OpenFile, args...)
+}

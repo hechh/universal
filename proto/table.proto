@@ -12,10 +12,14 @@ message LimitUpStockConfig {
     string LimitUpBegin        = 7;   // 首次涨停时间
     string LimitUpEnd          = 8;   // 最终涨停时间
     uint32 ContinueLimitUpDay  = 9;   // 连续涨停天数
-    string LimitUpReasonKind   = 10;  // 涨停原因
+    string LimitUpReason       = 10;  // 涨停原因
     float  LimitUpBuyingVolume = 11;  // 涨停封单量
     float  LimitUpBuyingValue  = 12;  // 涨停封单额
     string Address             = 13;  // 注册地址
     string Business            = 14;  // 经营范围
     string Industry            = 15;  // 行业
+}
+
+message LimitUpStockConfigAry {
+    repeated LimitUpStockConfig Ary = 1;
 }

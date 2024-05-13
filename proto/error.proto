@@ -42,4 +42,5 @@ enum ErrorCode {
     HasConnected                = 35;  // 已经连接
     RedisPing                   = 36;  // redis连接测试
     HasRegistered               = 37;  // 已经注册
+    OpenFile                    = 38;  // 文件打开失败
 };
