@@ -11,13 +11,13 @@ import (
 	"universal/tools/gomaker/repository/uerrors"
 )
 
-var (
-	CwdPath string
-)
-
 func main() {
+	cwd, err := os.Getwd()
+	if err != nil {
+		panic(err)
+	}
 	cmdLine := &domain.CmdLine{}
-	if err := base.InitCmdLine(CwdPath, cmdLine); err != nil {
+	if err := base.InitCmdLine(cwd, cmdLine); err != nil {
 		panic(err)
 	}
 	if len(cmdLine.Tpl) <= 0 {
@@ -30,32 +30,27 @@ func main() {
 		panic(fmt.Sprintf("-action=%s not suppoerted", cmdLine.Action))
 	}
 	// 加载模板文件
-	if err := par.OpenTpl(CwdPath, cmdLine); err != nil {
+	if err := par.OpenTpl(cwd, cmdLine); err != nil {
 		panic(err)
 	}
 	// 解析go文件
-	if err := par.ParseFile(CwdPath, cmdLine, &manager.TypeParser{}); err != nil {
+	if err := par.ParseFile(cwd, cmdLine, &manager.TypeParser{}); err != nil {
 		fmt.Printf("parseFiles is faield, error: %v", err)
 		return
 	}
 	manager.Finished()
 	// 生成文件
-	if err := par.Gen(CwdPath, cmdLine); err != nil {
+	if err := par.Gen(cwd, cmdLine); err != nil {
 		fmt.Printf("error: %v", err.Error())
 	}
 }
 
 func init() {
-	var err error
-	if CwdPath, err = os.Getwd(); err != nil {
-		panic(err)
-	}
+	playerFun.Init()
+	uerrors.Init()
 	// 设置默认的help函数
 	flag.Usage = func() {
 		flag.PrintDefaults()
 		manager.Help()
 	}
-
-	playerFun.Init()
-	uerrors.Init()
 }
