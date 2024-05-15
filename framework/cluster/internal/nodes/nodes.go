@@ -3,6 +3,7 @@ package nodes
 import (
 	"encoding/json"
 	"fmt"
+	"log"
 	"sort"
 	"sync"
 	"universal/common/pb"
@@ -36,9 +37,7 @@ func Init(typs ...pb.ClusterType) {
 
 // 获取节点信息
 func Get(clusterType pb.ClusterType, clusterID uint32) *pb.ClusterNode {
-	if tt, ok := _nodes[clusterType]; !ok {
-		return nil
-	} else {
+	if tt, ok := _nodes[clusterType]; ok {
 		tt.RLock()
 		defer tt.RUnlock()
 		for _, node := range tt.list {
@@ -52,9 +51,13 @@ func Get(clusterType pb.ClusterType, clusterID uint32) *pb.ClusterNode {
 
 // 删除节点
 func Delete(clusterType pb.ClusterType, clusterID uint32) {
-	if tt, ok := _nodes[clusterType]; !ok {
+	// 已经不存在
+	if nn := Get(clusterType, clusterID); nn == nil {
 		return
-	} else {
+	}
+	// 删除节点
+	var del *pb.ClusterNode
+	if tt, ok := _nodes[clusterType]; ok {
 		tt.Lock()
 		defer tt.Unlock()
 		pos := -1
@@ -62,10 +65,13 @@ func Delete(clusterType pb.ClusterType, clusterID uint32) {
 			if item.ClusterID != clusterID {
 				pos++
 				tt.list[pos] = item
+			} else {
+				del = item
 			}
 		}
 		tt.list = tt.list[:pos+1]
 	}
+	log.Println("删除服务节点: ", del.String())
 }
 
 // 添加节点
@@ -75,9 +81,7 @@ func Add(node *pb.ClusterNode) {
 		return
 	}
 	// 新建节点
-	if tt, ok := _nodes[node.ClusterType]; !ok {
-		return
-	} else {
+	if tt, ok := _nodes[node.ClusterType]; ok {
 		// 插入
 		tt.Lock()
 		defer tt.Unlock()
@@ -86,14 +90,16 @@ func Add(node *pb.ClusterNode) {
 			return tt.list[i].ClusterID < tt.list[j].ClusterID
 		})
 	}
+	log.Println("新增服务节点: ", node.String())
 }
 
 // 随机路由一个节点
-func Random(head *pb.PacketHead) *pb.ClusterNode {
-	if tt, ok := _nodes[head.DstClusterType]; !ok {
-		return nil
-	} else if len(tt.list) > 0 {
-		return tt.list[int(head.UID)%len(tt.list)]
+func Random(head *pb.PacketHead) (ret *pb.ClusterNode) {
+	if tt, ok := _nodes[head.DstClusterType]; ok && len(tt.list) > 0 {
+		tt.RLock()
+		defer tt.RUnlock()
+		ret = tt.list[int(head.UID)%len(tt.list)]
 	}
-	return nil
+	log.Println("随机路由节点：", ret, head)
+	return
 }

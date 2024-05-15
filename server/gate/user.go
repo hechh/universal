@@ -41,13 +41,13 @@ func (d *User) LoopRead() {
 		// 接受数据包
 		pac, err := d.client.Read()
 		if err != nil {
-			log.Fatal(err)
+			log.Println("Read: ", err)
 			return
 		}
 		// 更新head路由信息
 		head := pac.Head
 		if err := framework.Dispatcher(head); err != nil {
-			log.Fatalln(head, string(pac.Buff))
+			log.Println("Dispatcher: ", head, string(pac.Buff))
 			continue
 		}
 		// 转发
@@ -57,9 +57,9 @@ func (d *User) LoopRead() {
 		}
 		// 转发到nats
 		if key, err := fbasic.GetHeadChannel(head); err != nil {
-			log.Fatalln(err)
+			log.Println("nats: ", err)
 		} else if err = notify.Publish(key, pac); err != nil {
-			log.Fatalln(err)
+			log.Println("Puslish: ", err)
 		}
 	}
 }

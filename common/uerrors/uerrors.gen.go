@@ -160,3 +160,7 @@ func HasRegistered(args ...interface{}) *fbasic.UError {
 func OpenFile(args ...interface{}) *fbasic.UError {
 	return fbasic.NewUError(2, pb.ErrorCode_OpenFile, args...)
 }
+
+func EOF(args ...interface{}) *fbasic.UError {
+	return fbasic.NewUError(2, pb.ErrorCode_EOF, args...)
+}

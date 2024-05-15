@@ -1,7 +1,6 @@
 package service
 
 import (
-	"log"
 	"net"
 	"universal/common/pb"
 	"universal/framework/cluster/domain"
@@ -57,7 +56,6 @@ func watchClusterNode(action int, key string, value string) {
 		// 添加服务节点
 		nodes.Add(vv)
 	}
-	log.Println("发现服务节点: ", action, key, vv)
 }
 
 // 服务发现

@@ -10,7 +10,7 @@ import (
 )
 
 func LoginRequest(ctx *fbasic.Context, req, rsp proto.Message) error {
-	log.Println(ctx, req, rsp)
+	log.Println("-----LoginRequest-------", ctx, req, rsp)
 	return nil
 }
 
