@@ -49,7 +49,7 @@ func wsHandle(conn *websocket.Conn) {
 	for {
 		select {
 		case item := <-sendCh:
-			//fmt.Println("---server--->", item)
+			fmt.Println("---server--->", item)
 			if item.Head.SeqID >= LimitTimes {
 				fmt.Println("select server finished")
 				return
@@ -102,7 +102,7 @@ func TestClient(t *testing.T) {
 	for {
 		select {
 		case item := <-sendCh:
-			//fmt.Println("---client--->", item)
+			fmt.Println("---client--->", item)
 			if item.Head.SeqID >= LimitTimes {
 				fmt.Println("select client finished")
 				return

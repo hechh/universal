@@ -2,34 +2,38 @@ package network
 
 import (
 	"encoding/binary"
+	"universal/common/pb"
+	"universal/framework/fbasic"
 )
 
-//websocket包结构
+// websocket包结构
 // bodySize(4B) | md5(4B) | body
-
-type SocketFrame []byte
-type SocketFrameHeader []byte
-
-const (
-	SocketFrameHeaderSize       = 8           // 包头大小
-	SocketFrameBodySizeMaxLimit = 1024 * 1024 // 包体大小
-	// 最大包长
-	SocketFrameSizeMaxLimit = SocketFrameHeaderSize + SocketFrameBodySizeMaxLimit
-)
-
-// 包头
-func (d SocketFrameHeader) GetSize() uint32 {
-	return binary.LittleEndian.Uint32(d)
+type SocketFrame struct {
 }
 
-func (d SocketFrameHeader) SetSize(size uint32) {
-	binary.LittleEndian.PutUint32(d, size)
+func (d *SocketFrame) GetHeadSize() int {
+	return 10
 }
 
-func (d SocketFrameHeader) GetCrc32() uint32 {
-	return binary.LittleEndian.Uint32(d[4:])
+func (d *SocketFrame) GetBodySize(head []byte) int {
+	return int(binary.LittleEndian.Uint32(head))
 }
 
-func (d SocketFrameHeader) SetCrc32(crc uint32) {
-	binary.LittleEndian.PutUint32(d[4:], crc)
+func (d *SocketFrame) Check(head []byte, body []byte) error {
+	oldCrc := binary.LittleEndian.Uint32(head[4:])
+	crc := fbasic.GetCrc32(body)
+	if crc != oldCrc {
+		return fbasic.NewUError(1, pb.ErrorCode_SocketFrameCheck, oldCrc, crc)
+	}
+	return nil
+}
+
+func (d *SocketFrame) Build(frame []byte, body []byte) []byte {
+	// 设置包头
+	binary.LittleEndian.PutUint32(frame, uint32(len(body)))
+	binary.LittleEndian.PutUint32(frame[4:], fbasic.GetCrc32(body))
+	// 拷贝
+	headSize := d.GetHeadSize()
+	copy(frame[headSize:], body)
+	return frame
 }
