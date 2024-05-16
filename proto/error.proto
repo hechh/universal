@@ -44,4 +44,5 @@ enum ErrorCode {
     HasRegistered               = 37;  // 已经注册
     OpenFile                    = 38;  // 文件打开失败
     EOF                         = 39;  // 结束符
+    TcpListen                   = 40;  // 网络监听失败
 };

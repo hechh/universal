@@ -11,6 +11,7 @@ import (
 	"universal/framework/network"
 	"universal/framework/notify"
 	"universal/framework/packet"
+	"universal/framework/profiler"
 
 	"golang.org/x/net/websocket"
 )
@@ -20,6 +21,11 @@ var (
 )
 
 func Run(lpath, ypath string) {
+	fbasic.SafeGo(func() {
+		if err := profiler.Init(22345); err != nil {
+			panic(err)
+		}
+	})
 	// 读取配置
 	if err := config.LoadConfig(ypath); err != nil {
 		panic(err)

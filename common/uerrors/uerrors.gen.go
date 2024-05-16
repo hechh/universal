@@ -164,3 +164,7 @@ func OpenFile(args ...interface{}) *fbasic.UError {
 func EOF(args ...interface{}) *fbasic.UError {
 	return fbasic.NewUError(2, pb.ErrorCode_EOF, args...)
 }
+
+func TcpListen(args ...interface{}) *fbasic.UError {
+	return fbasic.NewUError(2, pb.ErrorCode_TcpListen, args...)
+}
