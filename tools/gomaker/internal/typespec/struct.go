@@ -37,7 +37,7 @@ func NewStruct(pkg, Name, doc string, Fields []*ast.Field) *Struct {
 		if unicode.IsLower(rune(field.Names[0].Name[0])) {
 			continue
 		}
-		ff := NewField(field.Names[0].Name, ParseComment(field.Comment), NewType(field.Type))
+		ff := NewField(field.Names[0].Name, ParseComment(field.Comment), NewType(field.Type), field.Tag)
 		item.Fields[field.Names[0].Name] = ff
 		item.List = append(item.List, ff)
 	}

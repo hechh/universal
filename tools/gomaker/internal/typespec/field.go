@@ -1,20 +1,28 @@
 package typespec
 
-import "fmt"
+import (
+	"fmt"
+	"go/ast"
+)
 
 type Field struct {
 	BaseFunc
 	Name    string // 字段名字
 	Comment string // 注释
 	Type    *Type  // 类型
+	Tag     string // 标签
 }
 
-func NewField(Name, Comment string, typ *Type) *Field {
-	return &Field{
+func NewField(Name, Comment string, typ *Type, tag *ast.BasicLit) *Field {
+	ret := &Field{
 		Name:    Name,
 		Comment: Comment,
 		Type:    typ,
 	}
+	if tag != nil {
+		ret.Tag = tag.Value
+	}
+	return ret
 }
 
 func (d *Field) GetTypeString(pkg string) string {
