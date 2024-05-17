@@ -53,7 +53,7 @@ func NewEnum(pkg, doc string, specs []ast.Spec) *Enum {
 }
 
 func (d *Enum) GetTypeString(pkg string) string {
-	if len(d.PkgName) > 0 && pkg != d.PkgName {
+	if len(d.PkgName) > 0 && len(pkg) > 0 && pkg != d.PkgName {
 		return d.PkgName + "." + d.Name
 	}
 	return d.Name
@@ -64,5 +64,5 @@ func (d *Enum) String() string {
 	for _, v := range d.Fields {
 		str += fmt.Sprintf("\t %s %s = %d %s\n", v.Name, d.Name, v.Value, v.Comment)
 	}
-	return fmt.Sprintf("const (\n %s )", str)
+	return fmt.Sprintf("type %s int32\nconst (\n %s )", d.Name, str)
 }
