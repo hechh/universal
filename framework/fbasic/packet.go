@@ -43,7 +43,7 @@ func ReqToPacket(head *pb.PacketHead, req proto.Message, params ...interface{}) 
 	if len(params) > 0 {
 		switch vv := req.(type) {
 		case *pb.ActorRequest:
-			vv.Buff = AnyToEncode(params...)
+			vv.Buff = EncodeAny(params...)
 		}
 	}
 	// 封装
@@ -59,7 +59,7 @@ func RspToPacket(head *pb.PacketHead, rsp proto.Message, params ...interface{}) 
 	if len(params) > 0 {
 		switch vv := rsp.(type) {
 		case *pb.ActorResponse:
-			vv.Buff = AnyToEncode(params...)
+			vv.Buff = EncodeAny(params...)
 		}
 	}
 	// 序列化
@@ -74,6 +74,6 @@ func NewActorRequest(actorName, funcName string, params ...interface{}) proto.Me
 	return &pb.ActorRequest{
 		ActorName: actorName,
 		FuncName:  funcName,
-		Buff:      AnyToEncode(params...),
+		Buff:      EncodeAny(params...),
 	}
 }

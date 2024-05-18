@@ -63,5 +63,5 @@ func ParseReturns(apiCode int32, actorName, funcName string, buf []byte) ([]inte
 		return nil, err
 	}
 	// 解析
-	return fbasic.AnyToDecode(buf, typs, 0), nil
+	return fbasic.DecodeAny(buf, typs, 0), nil
 }

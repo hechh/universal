@@ -25,7 +25,7 @@ func BytesToString(bts []byte) string {
 	return *(*string)(unsafe.Pointer(s))
 }
 
-func ValueToDecode(buf []byte, typs []reflect.Type, pos int) (ps []reflect.Value) {
+func DecodeValue(buf []byte, typs []reflect.Type, pos int) (ps []reflect.Value) {
 	ps = make([]reflect.Value, len(typs))
 	decode := gob.NewDecoder(bytes.NewReader(buf))
 	for i := pos; i < len(typs); i++ {
@@ -35,7 +35,7 @@ func ValueToDecode(buf []byte, typs []reflect.Type, pos int) (ps []reflect.Value
 	return
 }
 
-func AnyToDecode(buf []byte, typs []reflect.Type, pos int) (ps []interface{}) {
+func DecodeAny(buf []byte, typs []reflect.Type, pos int) (ps []interface{}) {
 	ps = make([]interface{}, len(typs))
 	decode := gob.NewDecoder(bytes.NewReader(buf))
 	for i := pos; i < len(typs); i++ {
@@ -46,7 +46,7 @@ func AnyToDecode(buf []byte, typs []reflect.Type, pos int) (ps []interface{}) {
 	return
 }
 
-func AnyToEncode(items ...interface{}) []byte {
+func EncodeAny(items ...interface{}) []byte {
 	bb := GetBuffer()
 	defer PutBuffer(bb)
 	enc := gob.NewEncoder(bb)
@@ -56,7 +56,7 @@ func AnyToEncode(items ...interface{}) []byte {
 	return bb.Bytes()
 }
 
-func ValueToEncode(items ...reflect.Value) []byte {
+func EncodeValue(items ...reflect.Value) []byte {
 	bb := GetBuffer()
 	defer PutBuffer(bb)
 	enc := gob.NewEncoder(bb)

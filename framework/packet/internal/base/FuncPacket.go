@@ -50,7 +50,7 @@ func (d *FuncPacket) GetReturns() []reflect.Type {
 func (d *FuncPacket) Call(ctx *fbasic.Context, req, rsp proto.Message) (err error) {
 	// 解析参数
 	newReq := req.(*pb.ActorRequest)
-	params := fbasic.ValueToDecode(newReq.Buff, d.params, 0)
+	params := fbasic.DecodeValue(newReq.Buff, d.params, 0)
 	// 执行函数
 	var results []reflect.Value
 	if !d.isVariadic {
@@ -60,6 +60,6 @@ func (d *FuncPacket) Call(ctx *fbasic.Context, req, rsp proto.Message) (err erro
 	}
 	// 返回
 	newRsp := rsp.(*pb.ActorResponse)
-	newRsp.Buff = fbasic.ValueToEncode(results...)
+	newRsp.Buff = fbasic.EncodeValue(results...)
 	return
 }

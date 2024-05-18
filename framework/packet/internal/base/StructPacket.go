@@ -60,7 +60,7 @@ func (d *StructPacket) GetReturns() []reflect.Type {
 func (d *StructPacket) Call(ctx *fbasic.Context, req, rsp proto.Message) (err error) {
 	// 解析参数
 	newReq := req.(*pb.ActorRequest)
-	params := fbasic.ValueToDecode(newReq.Buff, d.params, 1)
+	params := fbasic.DecodeValue(newReq.Buff, d.params, 1)
 	// 设置this指针
 	obj := ctx.GetValue(d.actorName)
 	if obj == nil {
@@ -76,6 +76,6 @@ func (d *StructPacket) Call(ctx *fbasic.Context, req, rsp proto.Message) (err er
 	}
 	// 返回函数返回值
 	newRsp := rsp.(*pb.ActorResponse)
-	newRsp.Buff = fbasic.ValueToEncode(results...)
+	newRsp.Buff = fbasic.EncodeValue(results...)
 	return
 }

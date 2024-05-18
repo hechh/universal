@@ -72,7 +72,7 @@ func TestApi(t *testing.T) {
 		head := &pb.PacketHead{UID: 1234000, ApiCode: 2}
 		ctx := fbasic.NewContext(head, data)
 		// 设置参数
-		req := &pb.ActorRequest{FuncName: "Print", Buff: fbasic.AnyToEncode("print", 423)}
+		req := &pb.ActorRequest{FuncName: "Print", Buff: fbasic.EncodeAny("print", 423)}
 		buf, _ := proto.Marshal(req)
 		ret, err := packet.Call(ctx, buf)
 		t.Log("------Print Result------", ret, err)
@@ -92,7 +92,7 @@ func TestApi(t *testing.T) {
 		head := &pb.PacketHead{UID: 1234000, ApiCode: 2}
 		pp := &Person{"hch10", 10}
 		ctx := fbasic.NewContext(head, map[string]fbasic.IData{"Person": pp})
-		req := &pb.ActorRequest{ActorName: "Person", FuncName: "SetAge", Buff: fbasic.AnyToEncode(120)}
+		req := &pb.ActorRequest{ActorName: "Person", FuncName: "SetAge", Buff: fbasic.EncodeAny(120)}
 		buf, _ := proto.Marshal(req)
 		// 返回值
 		ret, err := packet.Call(ctx, buf)
