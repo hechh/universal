@@ -3,16 +3,16 @@ package manager
 import (
 	"fmt"
 	"go/ast"
-	"universal/tools/gomaker/internal/typespec"
+	"universal/tools/gomaker/internal/types"
 )
 
 var (
-	structs = make(map[string]*typespec.Struct) // 结构类型
-	enums   = make(map[string]*typespec.Enum)   // 枚举类型
-	alias   = make(map[string]*typespec.Alias)  // 类型别名
+	structs = make(map[string]*types.Struct) // 结构类型
+	enums   = make(map[string]*types.Enum)   // 枚举类型
+	alias   = make(map[string]*types.Alias)  // 类型别名
 )
 
-func initPkgName(typ *typespec.Type) {
+func initPkgName(typ *types.Type) {
 	if typ.Key != nil {
 		initPkgName(typ.Key)
 		initPkgName(typ.Value)
@@ -39,23 +39,23 @@ func Finished() {
 	}
 }
 
-func GetMapStruct() map[string]*typespec.Struct {
+func GetMapStruct() map[string]*types.Struct {
 	return structs
 }
 
-func GetMapEnum() map[string]*typespec.Enum {
+func GetMapEnum() map[string]*types.Enum {
 	return enums
 }
 
-func GetAlias(name string) *typespec.Alias {
+func GetAlias(name string) *types.Alias {
 	return alias[name]
 }
 
-func GetEnum(name string) *typespec.Enum {
+func GetEnum(name string) *types.Enum {
 	return enums[name]
 }
 
-func GetStruct(name string) *typespec.Struct {
+func GetStruct(name string) *types.Struct {
 	return structs[name]
 }
 
@@ -69,15 +69,15 @@ func AddType(pkgName string, doc string, specs []ast.Spec) {
 		// 解析结构
 		switch vv := node.Type.(type) {
 		case *ast.StructType:
-			structs[node.Name.Name] = typespec.NewStruct(pkgName, node.Name.Name, doc, vv.Fields.List)
+			structs[node.Name.Name] = types.NewStruct(pkgName, node.Name.Name, doc, vv.Fields.List)
 		default:
-			alias[node.Name.Name] = typespec.NewAlias(pkgName, node.Name.Name, doc, node)
+			alias[node.Name.Name] = types.NewAlias(pkgName, node.Name.Name, doc, node)
 		}
 	}
 }
 
 func AddConst(pkgName, doc string, specs []ast.Spec) {
-	ee := typespec.NewEnum(pkgName, doc, specs)
+	ee := types.NewEnum(pkgName, doc, specs)
 	if _, ok := alias[ee.Name]; ok {
 		enums[ee.Name] = ee
 	}

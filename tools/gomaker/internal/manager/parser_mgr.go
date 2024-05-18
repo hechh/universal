@@ -6,29 +6,28 @@ import (
 	"go/ast"
 	"go/token"
 	"universal/tools/gomaker/domain"
-	"universal/tools/gomaker/internal/typespec"
+	"universal/tools/gomaker/internal/types"
 )
 
 var (
-	genMgr = make(map[string]domain.IParser)
+	genMgr = make(map[string]domain.IMaker)
 )
 
-func Register(act domain.IParser) {
-	name := act.GetAction()
+func Register(name string, act domain.IMaker) {
 	if _, ok := genMgr[name]; ok {
 		panic(fmt.Sprintf("%s has already registered", name))
 	}
 	genMgr[name] = act
 }
 
-func GetParser(name string) domain.IParser {
+func GetMaker(name string) domain.IMaker {
 	return genMgr[name]
 }
 
 func Help() {
 	fmt.Fprintf(flag.CommandLine.Output(), "action使用说明: \n")
-	for _, item := range genMgr {
-		fmt.Fprint(flag.CommandLine.Output(), item.GetHelp())
+	for name, item := range genMgr {
+		fmt.Fprint(flag.CommandLine.Output(), item.GetHelp(name))
 	}
 }
 
@@ -43,9 +42,9 @@ func (d *TypeParser) Visit(node ast.Node) ast.Visitor {
 		return d
 	case *ast.GenDecl:
 		if n.Tok == token.CONST {
-			AddConst(d.pkgName, typespec.ParseComment(n.Doc), n.Specs)
+			AddConst(d.pkgName, types.ParseComment(n.Doc), n.Specs)
 		} else if n.Tok == token.TYPE {
-			AddType(d.pkgName, typespec.ParseComment(n.Doc), n.Specs)
+			AddType(d.pkgName, types.ParseComment(n.Doc), n.Specs)
 		}
 	}
 	return nil

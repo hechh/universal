@@ -1,7 +1,5 @@
 package domain
 
-import "text/template"
-
 // token类型
 const (
 	IDENT   = 0x01
@@ -11,20 +9,21 @@ const (
 )
 
 const (
-	PACKAGE    = "package"
-	UERRORS    = "uerrors"
-	PLAYER_FUN = "playerFun"
-	ENTITY     = "entity"
+	PackageAction = "package"
+	PackageTpl    = "package.tpl"
 )
 
-type GenFunc func(string, *CmdLine, map[string]*template.Template) error
+/*
+type ITemplate interface {
+	Execute(string, string, *bytes.Buffer, interface{}) error
+}
+*/
 
-type IParser interface {
-	GetHelp() string                               // help信息
-	GetAction() string                             // action类型
-	OpenTpl(string, *CmdLine) error                // 打开tpl文件
-	ParseFile(string, *CmdLine, interface{}) error // 解析文件
-	Gen(string, *CmdLine) error                    // 生成文件
+type IMaker interface {
+	GetHelp(string) string                 // help信息
+	OpenTpl(*CmdLine) error                // 打开tpl文件
+	ParseFile(*CmdLine, interface{}) error // 解析文件
+	Gen(*CmdLine) error                    // 生成文件
 }
 
 type CmdLine struct {

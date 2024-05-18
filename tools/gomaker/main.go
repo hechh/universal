@@ -3,50 +3,39 @@ package main
 import (
 	"flag"
 	"fmt"
-	"os"
 	"universal/tools/gomaker/domain"
 	"universal/tools/gomaker/internal/base"
 	"universal/tools/gomaker/internal/manager"
-	"universal/tools/gomaker/repository/playerFun"
 	"universal/tools/gomaker/repository/uerrors"
 )
 
 func main() {
-	cwd, err := os.Getwd()
-	if err != nil {
-		panic(err)
-	}
 	cmdLine := &domain.CmdLine{}
-	if err := base.InitCmdLine(cwd, cmdLine); err != nil {
+	if err := base.InitCmdLine(cmdLine); err != nil {
 		panic(err)
-	}
-	if len(cmdLine.Tpl) <= 0 {
-		fmt.Println("-tpl(TPL_GO): parameter is empty")
-		return
 	}
 	// 获取解析器
-	par := manager.GetParser(cmdLine.Action)
+	par := manager.GetMaker(cmdLine.Action)
 	if par == nil {
 		panic(fmt.Sprintf("-action=%s not suppoerted", cmdLine.Action))
 	}
 	// 加载模板文件
-	if err := par.OpenTpl(cwd, cmdLine); err != nil {
+	if err := par.OpenTpl(cmdLine); err != nil {
 		panic(err)
 	}
 	// 解析go文件
-	if err := par.ParseFile(cwd, cmdLine, &manager.TypeParser{}); err != nil {
+	if err := par.ParseFile(cmdLine, &manager.TypeParser{}); err != nil {
 		fmt.Printf("parseFiles is faield, error: %v", err)
 		return
 	}
 	manager.Finished()
 	// 生成文件
-	if err := par.Gen(cwd, cmdLine); err != nil {
+	if err := par.Gen(cmdLine); err != nil {
 		fmt.Printf("error: %v", err.Error())
 	}
 }
 
 func init() {
-	playerFun.Init()
 	uerrors.Init()
 	// 设置默认的help函数
 	flag.Usage = func() {

@@ -1,12 +1,9 @@
 package base
 
 import (
-	"bytes"
 	"flag"
-	"fmt"
 	"os"
 	"path/filepath"
-	"text/template"
 	"universal/common/pb"
 	"universal/framework/fbasic"
 	"universal/tools/gomaker/domain"
@@ -14,10 +11,22 @@ import (
 	"github.com/xuri/excelize/v2"
 )
 
-func GetAbsPath(src string, root string) string {
-	if len(src) <= 0 {
-		return root
+var (
+	cwdPath string
+)
+
+func init() {
+	var err error
+	if cwdPath, err = os.Getwd(); err != nil {
+		panic(err)
 	}
+}
+
+func GetCwd() string {
+	return cwdPath
+}
+
+func GetAbsPath(src string, root string) string {
 	if !filepath.IsAbs(src) {
 		return filepath.Join(root, src)
 	}
@@ -31,7 +40,7 @@ func GetPath(dst string, defaultEnv string) string {
 	return defaultEnv
 }
 
-func GetFilePathBase(dst string) string {
+func GetPkgName(dst string) string {
 	ext := filepath.Ext(dst)
 	if len(ext) <= 0 {
 		return filepath.Base(dst)
@@ -59,7 +68,7 @@ func ParseXlsx(file string, f func(sheet string, row int, cols []string) bool) e
 	return nil
 }
 
-func InitCmdLine(cwdPath string, cmdLine *domain.CmdLine) error {
+func InitCmdLine(cmdLine *domain.CmdLine) error {
 	flag.StringVar(&cmdLine.Action, "action", "", "操作模式")
 	flag.StringVar(&cmdLine.Param, "param", "", "不同action的param使用方式不同")
 	flag.StringVar(&cmdLine.Tpl, "tpl", "", "模板文件路径, 默认从TPL_GO环境变量中读取, -tpl={tpl文件目录}")
@@ -68,24 +77,10 @@ func InitCmdLine(cwdPath string, cmdLine *domain.CmdLine) error {
 	flag.Parse()
 	// action模式
 	if len(cmdLine.Action) <= 0 {
-		return fbasic.NewUError(1, pb.ErrorCode_Parameter, "-action")
+		return fbasic.NewUError(1, -1, "-action")
 	}
 	// 模版文件
 	cmdLine.Tpl = GetAbsPath(GetPath(cmdLine.Tpl, os.Getenv("TPL_GO")), cwdPath)
-	// 地址
 	cmdLine.Dst = GetAbsPath(GetPath(cmdLine.Dst, cwdPath), cwdPath)
-	return nil
-}
-
-type MapTpl map[string]*template.Template
-
-func (d MapTpl) GenPackage(dst string, buf *bytes.Buffer) error {
-	tpl, ok := d[domain.PACKAGE]
-	if !ok {
-		return fbasic.NewUError(1, -1, fmt.Sprintf("The tpl of %s.tpl is not supported", domain.PACKAGE))
-	}
-	if err := tpl.ExecuteTemplate(buf, domain.PACKAGE+".tpl", GetFilePathBase(dst)); err != nil {
-		return fbasic.NewUError(1, -1, err)
-	}
 	return nil
 }
