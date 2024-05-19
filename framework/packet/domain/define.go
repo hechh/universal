@@ -1,8 +1,7 @@
 package domain
 
 import (
-	"reflect"
-	"universal/framework/fbasic"
+	"universal/framework/common/fbasic"
 
 	"google.golang.org/protobuf/proto"
 )
@@ -10,11 +9,6 @@ import (
 // 对外接口定义
 type ApiFunc func(*fbasic.Context, proto.Message, proto.Message) error
 
-type IApi interface {
-	GetReturns() []reflect.Type
-	Call(*fbasic.Context, proto.Message, proto.Message) error
-}
-
-type IPacket interface {
+type IHandler interface {
 	Call(*fbasic.Context, []byte) proto.Message
 }

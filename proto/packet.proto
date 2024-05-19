@@ -3,7 +3,7 @@ package pb;
 option  go_package = "../pb";  // 声明生成的 go 文件所属的包
 
 // 服务器类型
-enum ClusterType {
+enum ServerType {
     NONE = 0;
     GATE = 1;  // 网关,转发服务
     GAME = 2;  // game
@@ -18,30 +18,30 @@ enum SendType {
 };
 
 // 集群信息
-message ClusterNode {
-    ClusterType ClusterType = 1;
-    string      Ip          = 2;
-    int32       Port        = 3;
-    uint32      ClusterID   = 4;
-}
-
-// 包头
-message PacketHead {
-    ClusterType SrcClusterType = 1;  // 源服务类型
-    uint32      SrcClusterID   = 2;  // 源集群id
-    ClusterType DstClusterType = 3;  // 目标集群类型
-    uint32      DstClusterID   = 4;  // 目标集群id 大于0优先
-    SendType    SendType       = 5;  // 发送类型
-    int32       ApiCode        = 6;  // Api代码
-    uint32      SeqID          = 7;  // 序列号
-    int64       Time           = 8;  // 请求时间戳
-    uint64      UID            = 9;  // 目标玩家uid
+message ServerNode {
+    ServerType ServerType = 1;
+    uint32     ServerID   = 2;
+    string     Ip         = 3;
+    int32      Port       = 4;
 }
 
 // 原始包
 message Packet {
     PacketHead Head = 1;  // 包头
     bytes      Buff = 2;  // proto压缩数据
+}
+
+// 包头
+message PacketHead {
+    ServerType SrcServerType = 1;  // 源服务类型
+    uint32     SrcServerID   = 2;  // 源集群id
+    ServerType DstServerType = 3;  // 目标集群类型
+    uint32     DstServerID   = 4;  // 目标集群id 大于0优先
+    SendType   SendType      = 5;  // 发送类型
+    int32      ApiCode       = 6;  // Api代码
+    uint32     SeqID         = 7;  // 序列号
+    int64      Time          = 8;  // 请求时间戳
+    uint64     UID           = 9;  // 目标玩家uid
 }
 
 // 客户端包头

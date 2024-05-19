@@ -2,7 +2,7 @@ package packet
 
 import (
 	"universal/common/pb"
-	"universal/framework/fbasic"
+	"universal/framework/common/fbasic"
 	"universal/framework/packet/domain"
 	"universal/framework/packet/internal/manager"
 

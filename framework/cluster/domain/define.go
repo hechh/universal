@@ -1,9 +1,9 @@
 package domain
 
 const (
-	ActionTypeNone = 0
-	ActionTypeAdd  = 1
-	ActionTypeDel  = 2
+	NONE   = 0
+	ADD    = 1
+	DELETE = 2
 )
 
 type WatchFunc func(action int, key string, value string)

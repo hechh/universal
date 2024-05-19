@@ -5,7 +5,7 @@ import (
 	"os"
 	"path/filepath"
 	"text/template"
-	"universal/framework/fbasic"
+	"universal/framework/common/uerror"
 )
 
 type Templates struct {
@@ -32,10 +32,10 @@ func (d *Templates) GenPackage(buf *bytes.Buffer, data interface{}) error {
 	action := "package"
 	val, ok := d.tpls[action]
 	if !ok {
-		return fbasic.NewUError(1, -1, action)
+		return uerror.NewUError(1, -1, action)
 	}
 	if err := val.ExecuteTemplate(buf, action+".tpl", data); err != nil {
-		return fbasic.NewUError(1, -1, err)
+		return uerror.NewUError(1, -1, err)
 	}
 	return nil
 }
@@ -43,10 +43,10 @@ func (d *Templates) GenPackage(buf *bytes.Buffer, data interface{}) error {
 func (d *Templates) Execute(action string, tplfile string, buf *bytes.Buffer, data interface{}) error {
 	val, ok := d.tpls[action]
 	if !ok {
-		return fbasic.NewUError(1, -1, action)
+		return uerror.NewUError(1, -1, action)
 	}
 	if err := val.ExecuteTemplate(buf, tplfile, data); err != nil {
-		return fbasic.NewUError(1, -1, err)
+		return uerror.NewUError(1, -1, err)
 	}
 	return nil
 }

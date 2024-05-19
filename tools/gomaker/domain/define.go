@@ -13,12 +13,6 @@ const (
 	PackageTpl    = "package.tpl"
 )
 
-/*
-type ITemplate interface {
-	Execute(string, string, *bytes.Buffer, interface{}) error
-}
-*/
-
 type IMaker interface {
 	GetHelp(string) string                 // help信息
 	OpenTpl(*CmdLine) error                // 打开tpl文件

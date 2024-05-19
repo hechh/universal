@@ -1,11 +1,11 @@
 package profiler
 
 import (
-	"fmt"
+	"log"
 	"net/http"
 	"net/http/pprof"
-	"universal/common/pb"
-	"universal/framework/fbasic"
+
+	"universal/framework/common/uerror"
 
 	"github.com/google/gops/agent"
 )
@@ -23,17 +23,21 @@ func Handle(pattern string, handler http.Handler) {
 	local.Handle(pattern, handler)
 }
 
-// 本地服务端口
-func Init(port int) error {
-	addr := fmt.Sprintf("localhost:%d", port)
-	server := &http.Server{Addr: addr, Handler: local}
-	if err := server.ListenAndServe(); err != nil {
-		return fbasic.NewUError(1, pb.ErrorCode_TcpListen, err)
-	}
+func InitGops(addr string) error {
 	if err := agent.Listen(agent.Options{Addr: addr}); err != nil {
-		return fbasic.NewUError(1, pb.ErrorCode_TcpListen, err)
+		return uerror.NewUErrorf(1, -1, "%v", err)
 	}
 	return nil
+}
+
+// 本地服务端口
+func InitPprof(addr string) {
+	go func() {
+		server := &http.Server{Addr: addr, Handler: local}
+		if err := server.ListenAndServe(); err != nil {
+			log.Println("pprof start failed, error: ", err)
+		}
+	}()
 }
 
 // 默认开启pprof工具

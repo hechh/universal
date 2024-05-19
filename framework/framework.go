@@ -2,38 +2,84 @@ package framework
 
 import (
 	"log"
+	"os"
+	"os/signal"
+	"syscall"
 	"universal/common/pb"
-	"universal/framework/actor"
 	"universal/framework/cluster"
-	"universal/framework/fbasic"
-	"universal/framework/notify"
+	"universal/framework/common/fbasic"
+	"universal/framework/network"
 	"universal/framework/packet"
+
+	"google.golang.org/protobuf/proto"
 )
 
-// 初始化
-func Init(addr string, etcds []string, natsUrl string) error {
-	// 初始化集群
-	typs := []pb.ClusterType{}
-	for i := pb.ClusterType_NONE + 1; i < pb.ClusterType_MAX; i++ {
-		typs = append(typs, i)
+const (
+	API_CODE = 1000000
+)
+
+func ApiCodeToServerType(val int32) (typ pb.ServerType) {
+	switch val / API_CODE {
+	case 1:
+		typ = pb.ServerType_GATE
+	case 2:
+		typ = pb.ServerType_GAME
+	default:
+		typ = pb.ServerType_NONE
 	}
-	// 连接etcd
-	if err := cluster.Init(etcds, typs...); err != nil {
+	return
+}
+
+// 发送到其他服务
+func SendTo(sendType pb.SendType, apiCode int32, uid uint64, req proto.Message, params ...interface{}) error {
+	self := cluster.GetSelfServerNode()
+	head := &pb.PacketHead{
+		SendType:      sendType,
+		SrcServerType: self.ServerType,
+		SrcServerID:   self.ServerID,
+		DstServerType: ApiCodeToServerType(apiCode),
+		ApiCode:       apiCode,
+		Time:          fbasic.GetNow(),
+		UID:           uid,
+	}
+	// 路由
+	if err := cluster.Dispatcher(head); err != nil {
 		return err
 	}
-	// 进行服务发现
-	if err := cluster.Discovery(clusterType, addr); err != nil {
+	// 获取订阅key
+	key, err := cluster.GetHeadChannel(head)
+	if err != nil {
 		return err
 	}
-	// 初始化消息中间件
-	if err := notify.Init(natsUrl); err != nil {
+	return network.PublishReq(key, head, req, params...) //(head, req)
+}
+
+// 发送客户端
+func SendToClient(sendType pb.SendType, apiCode int32, uid uint64, rsp proto.Message, params ...interface{}) error {
+	self := cluster.GetSelfServerNode()
+	head := &pb.PacketHead{
+		SendType:      sendType,
+		SrcServerType: self.ServerType,
+		SrcServerID:   self.ServerID,
+		DstServerType: pb.ServerType_GATE,
+		ApiCode:       apiCode + 1,
+		Time:          fbasic.GetNow(),
+		UID:           uid,
+	}
+	// 路由
+	if err := cluster.Dispatcher(head); err != nil {
 		return err
 	}
-	return nil
+	// 获取订阅key
+	key, err := cluster.GetHeadChannel(head)
+	if err != nil {
+		return err
+	}
+	return network.PublishRsp(key, head, rsp, params...)
 }
 
 // 设置actor处理
-func actorHandle(ctx *fbasic.Context, buf []byte) func() {
+func ActorHandle(ctx *fbasic.Context, buf []byte) func() {
 	return func() {
 		// 调用接口
 		rsp, err := packet.Call(ctx, buf)
@@ -45,23 +91,45 @@ func actorHandle(ctx *fbasic.Context, buf []byte) func() {
 		head := ctx.PacketHead
 		head.SeqID++
 		head.ApiCode++
-		head.SrcClusterType, head.DstClusterType = head.DstClusterType, head.SrcClusterType
-		head.SrcClusterID, head.DstClusterID = head.DstClusterID, head.SrcClusterID
+		head.SrcServerType, head.DstServerType = head.DstServerType, head.SrcServerType
+		head.SrcServerID, head.DstServerID = head.DstServerID, head.SrcServerID
 		// 获取订阅key
-		key, err := fbasic.GetHeadChannel(head)
+		key, err := cluster.GetHeadChannel(head)
 		if err != nil {
 			log.Fatalln(err)
 			return
 		}
 		// 发送
-		if err := notify.PublishRsp(key, head, rsp); err != nil {
+		if err := network.PublishRsp(key, head, rsp); err != nil {
 			log.Fatalln(err)
 			return
 		}
 	}
 }
 
-func init() {
-	// 设置actor处理
-	actor.SetActorHandle(actorHandle)
+func SignalHandle(f func(os.Signal)) {
+	ch := make(chan os.Signal, 1)
+	signal.Notify(ch, syscall.SIGTERM, syscall.SIGINT, syscall.SIGQUIT)
+	go func() {
+		for sig := range ch {
+			f(sig)
+		}
+	}()
+}
+
+// 初始化
+func Init(serverType pb.ServerType, addr string, etcds []string, natsUrl string) error {
+	// 连接etcd
+	if err := cluster.Init(etcds); err != nil {
+		return err
+	}
+	// 进行服务发现
+	if err := cluster.Discovery(serverType, addr); err != nil {
+		return err
+	}
+	// 初始化消息中间件
+	if err := network.InitNats(natsUrl); err != nil {
+		return err
+	}
+	return nil
 }

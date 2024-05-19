@@ -4,53 +4,46 @@ import (
 	"sync/atomic"
 	"time"
 	"universal/common/pb"
-	"universal/common/uerrors"
 	"universal/framework/actor/domain"
-	"universal/framework/fbasic"
+	"universal/framework/common/async"
+	"universal/framework/common/fbasic"
 )
 
 type Actor struct {
-	uuid       string
+	*async.Async
+	uid        string
 	updateTime int64
-	tasks      *fbasic.Async
 	handle     domain.ActorHandle
-	objects    map[string]fbasic.IData
+	objects    map[string]interface{}
 }
 
-func NewActor(uuid string, h domain.ActorHandle) *Actor {
+func NewActor(uid string, h domain.ActorHandle) *Actor {
 	return &Actor{
-		tasks:      fbasic.NewAsync(),
-		handle:     h,
-		uuid:       uuid,
+		Async:      async.NewAsync(),
+		uid:        uid,
 		updateTime: time.Now().Unix(),
-		objects:    make(map[string]fbasic.IData),
+		handle:     h,
+		objects:    make(map[string]interface{}),
 	}
 }
 
-func (d *Actor) UUID() string {
-	return d.uuid
-}
-
-func (d *Actor) Stop() {
-	d.tasks.Stop()
-}
-
-func (d *Actor) Start() {
-	d.tasks.Start()
+func (d *Actor) GetUID() string {
+	return d.uid
 }
 
 func (d *Actor) Send(head *pb.PacketHead, buf []byte) {
+	ctx := fbasic.NewContext(head)
+	ctx.SetReadOnly(d.objects)
 	// 发送任务
-	ctx := fbasic.NewContext(head, d.objects)
-	d.tasks.Push(d.handle(ctx, buf))
+	d.Push(d.handle(ctx, buf))
 }
 
-func (d *Actor) SetObject(name string, data fbasic.IData) error {
-	if _, ok := d.objects[name]; ok {
-		return uerrors.ActorHasRegistered(name)
+func (d *Actor) SetObject(name string, data interface{}) interface{} {
+	if _, ok := d.objects[name]; !ok {
+		d.objects[name] = data
+		return nil
 	}
-	d.objects[name] = data
-	return nil
+	return d.objects[name]
 }
 
 func (d *Actor) GetUpdateTime() int64 {

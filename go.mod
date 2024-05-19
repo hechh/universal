@@ -5,7 +5,7 @@ go 1.22.1
 require (
 	github.com/gomodule/redigo v1.9.2
 	github.com/google/gops v0.3.28
-	github.com/nats-io/nats.go v1.34.1
+	github.com/nats-io/nats.go v1.35.0
 	github.com/spf13/cast v1.6.0
 	github.com/xuri/excelize/v2 v2.8.1
 	go.etcd.io/etcd v3.3.17+incompatible
@@ -57,7 +57,7 @@ require (
 	golang.org/x/sys v0.19.0 // indirect
 	google.golang.org/genproto v0.0.0-20200513103714-09dca8ec2884 // indirect
 	google.golang.org/grpc v1.33.1 // indirect
-	gopkg.in/check.v1 v1.0.0-20201130134442-10cb98267c6c // indirect
+	gopkg.in/check.v1 v1.0.0-20180628173108-788fd7840127 // indirect
 )
 
 replace github.com/coreos/bbolt => go.etcd.io/bbolt v1.3.4

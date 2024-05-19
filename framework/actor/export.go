@@ -6,14 +6,18 @@ import (
 	"universal/framework/actor/internal/manager"
 )
 
-func SetActorHandle(h domain.ActorHandle) {
-	manager.SetActorHandle(h)
+func SetActorClearExpire(expire int64) {
+	manager.SetClearExpire(expire)
 }
 
-func Send(key string, pac *pb.Packet) {
-	manager.Send(key, pac)
+func GetIActor(key string, ff domain.ActorHandle) domain.IActor {
+	return manager.GetIActor(key, ff)
 }
 
-func GetIActor(key string) domain.IActor {
-	return manager.GetIActor(key)
+func Send(key string, ff domain.ActorHandle, pac *pb.Packet) {
+	manager.Send(key, ff, pac)
+}
+
+func StopAll() {
+	manager.StopAll()
 }

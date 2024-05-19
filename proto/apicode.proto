@@ -15,5 +15,5 @@ enum ApiCode {
     GATE_ACTOR_REQUEST = 1000000;  // actor请求
     GATE_LOGIN_REQUEST = 1000002;  // 登陆请求
     GAME_ACTOR_REQUEST = 2000000;  // actor请求
-    GAME_LOGIN_REQUEST = 2000001;  // 登陆请求
+    GAME_LOGIN_REQUEST = 2000002;  // 登陆请求
 }

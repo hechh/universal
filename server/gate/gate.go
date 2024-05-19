@@ -1,108 +1,106 @@
-package gate
+package main
 
 import (
+	"flag"
+	"fmt"
 	"log"
 	"net/http"
+	"os"
+	"time"
 	"universal/common/config"
 	"universal/common/pb"
 	"universal/framework"
+	"universal/framework/actor"
 	"universal/framework/cluster"
-	"universal/framework/fbasic"
 	"universal/framework/network"
-	"universal/framework/notify"
-	"universal/framework/packet"
 	"universal/framework/profiler"
+	"universal/server/gate/internal/broadcast"
+	"universal/server/gate/internal/player"
 
 	"golang.org/x/net/websocket"
 )
 
 var (
-	broadcast = fbasic.NewBroadcast()
+	broads = broadcast.NewBroadcast()
 )
 
-func Run(lpath, ypath string) {
-	fbasic.SafeGo(func() {
-		if err := profiler.Init(22345); err != nil {
-			panic(err)
-		}
-	})
-	// 读取配置
-	if err := config.LoadConfig(ypath); err != nil {
+func main() {
+	var srvID int
+	var yaml string
+	flag.IntVar(&srvID, "id", 0, "ip:port地址")
+	flag.StringVar(&yaml, "yaml", "", "日志输出目录")
+	flag.Parse()
+	// 加载配置
+	if err := config.LoadConfig(yaml); err != nil {
 		panic(err)
 	}
-	// 核心框架初始化
-	serverCfg := config.GlobalCfg.Gate[framework.GetServerID()]
-	if err := framework.Init(serverCfg.Addr, config.GlobalCfg.Etcd.Endpoints, config.GlobalCfg.Nats.Endpoints); err != nil {
+	// 获取配置
+	srvCfg := config.GetServerConfig(srvID)
+	if srvCfg == nil {
+		panic(fmt.Sprintf("Server id(%d) not found", srvID))
+	}
+	// 设置过期清理
+	actor.SetActorClearExpire(int64(10 * 60 * time.Second))
+	cluster.SetRouterClearExpire(int64(10 * 60 * time.Second))
+	// 设置性能分析工具
+	if err := profiler.InitGops(srvCfg.Gops); err != nil {
+		panic(err)
+	}
+	profiler.InitPprof(srvCfg.PProf)
+	// 初始化框架
+	etcdCfg := config.GetEtcdConfig()
+	natsCfg := config.GetNatsConfig()
+	if err := framework.Init(pb.ServerType_GATE, srvCfg.Addr, etcdCfg.Endpoints, natsCfg.Endpoints); err != nil {
 		panic(err)
 	}
 	// 注册节点广播
-	self := cluster.GetLocalClusterNode()
-	if err := notify.Subscribe(fbasic.GetNodeChannel(self.ClusterType, self.ClusterID), broadcast.Handle); err != nil {
+	self := cluster.GetSelfServerNode()
+	if err := network.Subscribe(cluster.GetNodeChannel(self.ServerType, self.ServerID), broads.Send); err != nil {
 		panic(err)
 	}
 	// 注册全局广播
-	if err := notify.Subscribe(fbasic.GetClusterChannel(self.ClusterType), broadcast.Handle); err != nil {
+	if err := network.Subscribe(cluster.GetClusterChannel(self.ServerType), broads.Send); err != nil {
 		panic(err)
 	}
-	// 注册websocket路由
+	// 设置信号处理
+	framework.SignalHandle(func(sig os.Signal) {
+		actor.StopAll()
+		cluster.Close()
+	})
+	// 开启websocket服务
+	log.Println("websocket start: ", srvCfg.Addr)
 	http.Handle("/ws", websocket.Handler(wsHandle))
-	if err := http.ListenAndServe(":8089", nil); err != nil {
-		log.Fatal("ListenAndServer: ", err)
+	if err := http.ListenAndServe(srvCfg.Addr, nil); err != nil {
+		panic(err)
 	}
 }
 
 func wsHandle(conn *websocket.Conn) {
 	var err error
-	var pac *pb.Packet
+	var uid uint64
 	defer func() {
 		if err != nil {
 			log.Fatalln("websocket connect is failed: ", err)
-			conn.Close()
 		} else {
-			// 去除广播
-			broadcast.Del(pac.Head.UID)
-			conn.Close()
+			broads.Delete(uid)
 			log.Println("websocket closed: ", conn.RemoteAddr().String())
 		}
+		conn.Close()
 	}()
-	client := network.NewSocketClient(conn)
-	// 读取认证请求
-	if pac, err = client.Read(); err != nil {
-		return
-	}
-	// 认证
-	if err := auth(client, pac); err != nil {
+	// 创建玩家
+	pl := player.NewPlayer(conn)
+	if err = pl.Auth(); err != nil {
 		return
 	}
 	// 订阅消息
-	user := NewUser(client)
-	self := cluster.GetLocalClusterNode()
-	if err = notify.Subscribe(fbasic.GetPlayerChannel(self.ClusterType, self.ClusterID, pac.Head.UID), user.NatsHandle); err != nil {
+	uid = pl.GetUID()
+	self := cluster.GetSelfServerNode()
+	key := cluster.GetPlayerChannel(self.ServerType, self.ServerID, uid)
+	if err = network.Subscribe(key, pl.NatsHandle); err != nil {
 		return
 	}
+	broads.Add(uid, pl.NatsHandle)
 	// 循环接受消息
 	log.Println("websocket connected...", conn.RemoteAddr().String())
-	user.LoopRead()
-}
-
-func auth(client *network.SocketClient, pac *pb.Packet) error {
-	head := pac.Head
-	// 判断第一个请求是否为登陆认证包
-	if head.ApiCode != int32(pb.ApiCode_GATE_LOGIN_REQUEST) {
-		return fbasic.NewUError(1, pb.ErrorCode_Parameter, pb.ApiCode_GATE_LOGIN_REQUEST, head.ApiCode)
-	}
-	// 登陆认证
-	rsp, err := packet.Call(fbasic.NewDefaultContext(head), pac.Buff)
-	if err != nil {
-		return err
-	}
-	// 返回认证结果
-	if err := client.SendRsp(head, rsp); err != nil {
-		return err
-	}
-	// 判断是否成功
-	if head := rsp.(fbasic.IProto).GetHead(); head.Code > 0 {
-		return fbasic.NewUError(1, pb.ErrorCode(head.Code), "gate login auth is failed")
-	}
-	return nil
+	pl.LoopRead()
 }

@@ -6,7 +6,9 @@ import (
 	"universal/framework/cluster/domain"
 	"universal/framework/cluster/internal/discovery/etcd"
 	"universal/framework/cluster/internal/nodes"
-	"universal/framework/fbasic"
+	"universal/framework/cluster/internal/router"
+	"universal/framework/common/fbasic"
+	"universal/framework/common/uerror"
 
 	"github.com/spf13/cast"
 	"google.golang.org/protobuf/proto"
@@ -14,74 +16,90 @@ import (
 
 var (
 	dis      domain.IDiscovery // 服务发现
-	selfNode *pb.ClusterNode   // 服务自身节点
+	selfNode *pb.ServerNode
 )
 
-func GetLocalClusterNode() *pb.ClusterNode {
-	return selfNode
+func Close() {
+	dis.Close()
 }
 
 func GetDiscovery() domain.IDiscovery {
 	return dis
 }
 
-func Stop() {
-	dis.Close()
+func GetSelfServerNode() *pb.ServerNode {
+	return selfNode
 }
 
 // 初始化
-func Init(ends []string, types ...pb.ClusterType) (err error) {
+func Init(ends []string) (err error) {
 	// 初始化etcd
 	etcd, err := etcd.NewEtcdClient(ends...)
 	if err != nil {
 		return err
 	}
-	// 初始化节点类型
-	nodes.Init(types...)
 	// 设置服务发现
 	dis = etcd
 	return
 }
 
-func watchClusterNode(action int, key string, value string) {
-	vv := &pb.ClusterNode{}
-	if err := proto.Unmarshal(fbasic.StringToBytes(value), vv); err != nil {
-		panic(err)
+// 服务发现
+func Discovery(typ pb.ServerType, addr string) error {
+	ip, port, err := net.SplitHostPort(addr)
+	if err != nil {
+		return uerror.NewUError(1, -1, err)
 	}
+	// 构建自身节点
+	selfNode = &pb.ServerNode{
+		ServerType: typ,
+		ServerID:   fbasic.GetCrc32(addr),
+		Ip:         ip,
+		Port:       cast.ToInt32(port),
+	}
+	buf, err := proto.Marshal(selfNode)
+	if err != nil {
+		return uerror.NewUError(1, -1, err)
+	}
+	// 注册自身服务（保活，服务下线会自动删除）
+	dis.KeepAlive(GetNodeChannel(selfNode.ServerType, selfNode.ServerID), string(buf), 10)
+	// 设置监听 + 发现其他服务
+	if err := dis.Watch(GetRootDir(), watchServerNode); err != nil {
+		return err
+	}
+	return nil
+}
+
+func watchServerNode(action int, key string, value string) {
+	vv := &pb.ServerNode{}
+	proto.Unmarshal(fbasic.StrToBytes(value), vv)
 	switch action {
-	case domain.ActionTypeDel:
-		clusterType, clusterID, _ := fbasic.ParseChannel(key)
-		nodes.Delete(clusterType, clusterID)
+	case domain.DELETE:
+		serverType, serverID, _ := ParseChannel(key)
+		nodes.Delete(serverType, serverID)
 	default:
 		// 添加服务节点
 		nodes.Add(vv)
 	}
 }
 
-// 服务发现
-func Discovery(typ pb.ClusterType, addr string) error {
-	ip, port, err := net.SplitHostPort(addr)
-	if err != nil {
-		return fbasic.NewUError(1, pb.ErrorCode_SocketAddr, err)
+// 对玩家路由
+func Dispatcher(head *pb.PacketHead) error {
+	// 从路由表中更新
+	table := router.GetTable(head.UID)
+	if item := table.GetItem(int32(head.DstServerType)); item != nil {
+		head.DstServerID = item.ServerID
 	}
-	// 构建自身节点
-	selfNode = &pb.ClusterNode{
-		ClusterType: typ,
-		ClusterID:   fbasic.GetCrc32(addr),
-		Ip:          ip,
-		Port:        cast.ToInt32(port),
+	// 判断服务节点是否存在
+	if node := nodes.Get(head.DstServerType, head.DstServerID); node != nil {
+		return nil
 	}
-
-	// 注册自身服务（保活，服务下线会自动删除）
-	buf, err := proto.Marshal(selfNode)
-	if err != nil {
-		return fbasic.NewUError(1, pb.ErrorCode_ProtoMarshal, err)
+	// 重新路由服务节点
+	node := nodes.Random(head)
+	if node == nil {
+		return uerror.NewUErrorf(1, -1, "%s not found", head.DstServerType.String())
 	}
-	dis.KeepAlive(fbasic.GetNodeChannel(selfNode.ClusterType, selfNode.ClusterID), string(buf), 10)
-
-	// 设置监听 + 发现其他服务
-	if err := dis.Watch(fbasic.GetRootDir(), watchClusterNode); err != nil {
-		return err
-	}
+	// 更新路由表
+	head.DstServerID = node.ServerID
+	table.UpdateItem(head, node)
 	return nil
 }

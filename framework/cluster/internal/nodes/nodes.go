@@ -4,102 +4,62 @@ import (
 	"encoding/json"
 	"fmt"
 	"log"
-	"sort"
 	"sync"
 	"universal/common/pb"
 )
 
-type NodeTable struct {
-	sync.RWMutex
-	list []*pb.ClusterNode
-}
-
 var (
-	_nodes = make(map[pb.ClusterType]*NodeTable)
+	nodeList = new(sync.Map)
 )
 
-func Print() {
-	for _, tt := range _nodes {
-		tt.RLock()
-		defer tt.RUnlock()
-		for i, node := range tt.list {
-			buf, _ := json.Marshal(node)
-			fmt.Println(i, "--->", string(buf))
-		}
-	}
-}
-
-func Init(typs ...pb.ClusterType) {
-	for _, typ := range typs {
-		_nodes[typ] = new(NodeTable)
-	}
+func getKey(srvType pb.ServerType, id uint32) string {
+	return fmt.Sprintf("%d_%d", srvType, id)
 }
 
 // 获取节点信息
-func Get(clusterType pb.ClusterType, clusterID uint32) *pb.ClusterNode {
-	if tt, ok := _nodes[clusterType]; ok {
-		tt.RLock()
-		defer tt.RUnlock()
-		for _, node := range tt.list {
-			if node.ClusterID == clusterID {
-				return node
-			}
-		}
+func Get(srvType pb.ServerType, id uint32) *pb.ServerNode {
+	tt, ok := nodeList.Load(getKey(srvType, id))
+	if !ok {
+		return nil
 	}
-	return nil
+	return tt.(*pb.ServerNode)
+}
+
+func Print() {
+	nodeList.Range(func(_, val interface{}) bool {
+		list, ok := val.(**pb.ServerNode)
+		if !ok || list == nil {
+			return true
+		}
+		buf, _ := json.Marshal(list)
+		log.Println(string(buf))
+		return true
+	})
 }
 
 // 删除节点
-func Delete(clusterType pb.ClusterType, clusterID uint32) {
-	// 已经不存在
-	if nn := Get(clusterType, clusterID); nn == nil {
-		return
-	}
-	// 删除节点
-	var del *pb.ClusterNode
-	if tt, ok := _nodes[clusterType]; ok {
-		tt.Lock()
-		defer tt.Unlock()
-		pos := -1
-		for _, item := range tt.list {
-			if item.ClusterID != clusterID {
-				pos++
-				tt.list[pos] = item
-			} else {
-				del = item
-			}
-		}
-		tt.list = tt.list[:pos+1]
-	}
-	log.Println("删除服务节点: ", del.String())
+func Delete(serverType pb.ServerType, srvID uint32) {
+	nodeList.Delete(getKey(serverType, srvID))
+	log.Printf("删除服务节点: %s-%d", serverType.String(), srvID)
 }
 
 // 添加节点
-func Add(node *pb.ClusterNode) {
-	// 已经存在
-	if nn := Get(node.ClusterType, node.ClusterID); nn != nil {
-		return
-	}
-	// 新建节点
-	if tt, ok := _nodes[node.ClusterType]; ok {
-		// 插入
-		tt.Lock()
-		defer tt.Unlock()
-		tt.list = append(tt.list, node)
-		sort.Slice(tt.list, func(i, j int) bool {
-			return tt.list[i].ClusterID < tt.list[j].ClusterID
-		})
-	}
-	log.Println("新增服务节点: ", node.String())
+func Add(node *pb.ServerNode) {
+	nodeList.Store(getKey(node.ServerType, node.ServerID), node)
+	buf, _ := json.Marshal(node)
+	log.Println("新增服务节点: ", string(buf))
 }
 
 // 随机路由一个节点
-func Random(head *pb.PacketHead) (ret *pb.ClusterNode) {
-	if tt, ok := _nodes[head.DstClusterType]; ok && len(tt.list) > 0 {
-		tt.RLock()
-		defer tt.RUnlock()
-		ret = tt.list[int(head.UID)%len(tt.list)]
-	}
+func Random(head *pb.PacketHead) (ret *pb.ServerNode) {
+	list := []*pb.ServerNode{}
+	nodeList.Range(func(_, val interface{}) bool {
+		if tt := val.(*pb.ServerNode); tt.ServerType == head.DstServerType {
+			list = append(list, tt)
+		}
+		return true
+	})
+	ret = list[int(head.UID)%len(list)]
 	log.Println("随机路由节点：", ret, head)
 	return
 }

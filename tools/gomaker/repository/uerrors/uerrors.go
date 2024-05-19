@@ -8,7 +8,7 @@ import (
 	"os"
 	"path/filepath"
 	"strings"
-	"universal/framework/fbasic"
+	"universal/framework/common/uerror"
 	"universal/tools/gomaker/domain"
 	"universal/tools/gomaker/internal/base"
 	"universal/tools/gomaker/internal/maker"
@@ -18,7 +18,7 @@ import (
 func Gen(cmdLine *domain.CmdLine, tpls *base.Templates) error {
 	en := manager.GetEnum("ErrorCode")
 	if en == nil {
-		return fbasic.NewUError(1, -1, fmt.Sprintf("The enum of ErrorCode is not found in typespec"))
+		return uerror.NewUError(1, -1, fmt.Sprintf("The enum of ErrorCode is not found in typespec"))
 	}
 	// 生成文档
 	dstFile := cmdLine.Dst
@@ -37,13 +37,13 @@ func Gen(cmdLine *domain.CmdLine, tpls *base.Templates) error {
 	// 格式化
 	result, err := format.Source(buf.Bytes())
 	if err != nil {
-		return fbasic.NewUError(1, -1, err)
+		return uerror.NewUError(1, -1, err)
 	}
 	if err := os.MkdirAll(filepath.Dir(dstFile), os.FileMode(0777)); err != nil {
-		return fbasic.NewUError(1, -1, err)
+		return uerror.NewUError(1, -1, err)
 	}
 	if err := ioutil.WriteFile(dstFile, result, os.FileMode(0666)); err != nil {
-		return fbasic.NewUError(1, -1, err)
+		return uerror.NewUError(1, -1, err)
 	}
 	return nil
 }

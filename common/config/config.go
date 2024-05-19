@@ -2,19 +2,19 @@ package config
 
 import (
 	"io/ioutil"
-	"universal/common/pb"
-	"universal/framework/fbasic"
+	"universal/framework/common/uerror"
 
 	"gopkg.in/yaml.v2"
 )
 
 var (
-	GlobalCfg = &GlobalConfig{}
+	globalCfg = &GlobalConfig{}
 )
 
 type ServerConfig struct {
 	Addr  string `yaml:"addr"`
 	PProf string `yaml:"pprof"`
+	Gops  string `yaml:"gops"`
 }
 
 type EtcdConfig struct {
@@ -33,19 +33,35 @@ type RedisConfig struct {
 }
 
 type GlobalConfig struct {
-	Gate  map[int]*ServerConfig   `yaml:"gate"`
-	Etcd  *EtcdConfig             `yaml:"etcd"`
-	Nats  *NatsConfig             `yaml:"nats"`
-	Redis map[string]*RedisConfig `yaml:"redis"`
+	Etcd   *EtcdConfig             `yaml:"etcd"`
+	Nats   *NatsConfig             `yaml:"nats"`
+	Redis  map[string]*RedisConfig `yaml:"redis"`
+	Server map[int]*ServerConfig   `yaml:"server"`
+}
+
+func GetServerConfig(id int) *ServerConfig {
+	return globalCfg.Server[id]
+}
+
+func GetRedisConfig() map[string]*RedisConfig {
+	return globalCfg.Redis
+}
+
+func GetEtcdConfig() *EtcdConfig {
+	return globalCfg.Etcd
+}
+
+func GetNatsConfig() *NatsConfig {
+	return globalCfg.Nats
 }
 
 func LoadConfig(path string) error {
 	content, err := ioutil.ReadFile(path)
 	if err != nil {
-		return fbasic.NewUError(1, pb.ErrorCode_ReadYaml, err)
+		return uerror.NewUError(1, -1, err)
 	}
-	if err = yaml.Unmarshal(content, GlobalCfg); err != nil {
-		return fbasic.NewUError(1, pb.ErrorCode_YamlUnmarshal, err)
+	if err = yaml.Unmarshal(content, globalCfg); err != nil {
+		return uerror.NewUError(1, -1, err)
 	}
 	return nil
 }

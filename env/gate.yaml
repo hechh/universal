@@ -1,4 +1,4 @@
-gate:
+server:
   1:
     addr: 127.0.0.1:10100
     pprof: localhost:20100

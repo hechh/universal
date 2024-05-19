@@ -4,9 +4,9 @@ import (
 	"context"
 	"log"
 	"time"
-	"universal/common/pb"
 	"universal/framework/cluster/domain"
-	"universal/framework/fbasic"
+	"universal/framework/common/fbasic"
+	"universal/framework/common/uerror"
 
 	"go.etcd.io/etcd/clientv3"
 )
@@ -21,7 +21,7 @@ type EtcdClient struct {
 func NewEtcdClient(ends ...string) (*EtcdClient, error) {
 	client, err := clientv3.New(clientv3.Config{Endpoints: ends})
 	if err != nil {
-		return nil, fbasic.NewUError(1, pb.ErrorCode_EtcdBuildClient, err)
+		return nil, uerror.NewUError(1, -1, err)
 	}
 	return &EtcdClient{
 		client:   client,
@@ -33,14 +33,14 @@ func NewEtcdClient(ends ...string) (*EtcdClient, error) {
 
 func (d *EtcdClient) Put(key string, value string) error {
 	if _, err := d.client.Put(context.Background(), key, value); err != nil {
-		return fbasic.NewUError(1, pb.ErrorCode_EtcdClientPut, err)
+		return uerror.NewUError(1, -1, err)
 	}
 	return nil
 }
 
 func (d *EtcdClient) Delete(key string) error {
 	if _, err := d.client.Delete(context.Background(), key, clientv3.WithPrefix()); err != nil {
-		return fbasic.NewUError(1, pb.ErrorCode_EtcdClientDelete, err)
+		return uerror.NewUError(1, -1, err)
 	}
 	return nil
 }
@@ -48,10 +48,10 @@ func (d *EtcdClient) Delete(key string) error {
 func (d *EtcdClient) Walk(path string, f domain.WatchFunc) error {
 	resp, err := d.client.Get(context.Background(), path, clientv3.WithPrefix())
 	if err != nil {
-		return fbasic.NewUError(1, pb.ErrorCode_EtcdClientGet, err)
+		return uerror.NewUError(1, -1, err)
 	}
 	for _, kv := range resp.Kvs {
-		f(domain.ActionTypeNone, string(kv.Key), fbasic.BytesToString(kv.Value))
+		f(domain.NONE, string(kv.Key), fbasic.BytesToStr(kv.Value))
 	}
 	return nil
 }
@@ -68,22 +68,22 @@ func (d *EtcdClient) KeepAlive(key string, value string, ttl int64) {
 	}
 }
 
-func (d *EtcdClient) Watch(path string, watchFunc domain.WatchFunc) error {
+func (d *EtcdClient) Watch(path string, f domain.WatchFunc) error {
 	resp, err := d.client.Get(context.Background(), path, clientv3.WithPrefix())
 	if err != nil {
-		return fbasic.NewUError(1, pb.ErrorCode_EtcdClientGet, err)
+		return uerror.NewUError(1, -1, err)
 	}
 	for _, kv := range resp.Kvs {
-		watchFunc(domain.ActionTypeNone, string(kv.Key), fbasic.BytesToString(kv.Value))
+		f(domain.NONE, string(kv.Key), fbasic.BytesToStr(kv.Value))
 	}
 	// 设置监听
 	watchCh := d.client.Watch(context.Background(), path, clientv3.WithPrefix())
-	go d.run(watchCh, watchFunc)
+	go d.run(watchCh, f)
 	<-d.startCh
 	return nil
 }
 
-func (d *EtcdClient) run(watchCh clientv3.WatchChan, watchFunc domain.WatchFunc) {
+func (d *EtcdClient) run(watchCh clientv3.WatchChan, f domain.WatchFunc) {
 	times := 0
 	var key *keyMonitor
 	timer := time.NewTicker(3 * time.Second)
@@ -114,11 +114,11 @@ func (d *EtcdClient) run(watchCh clientv3.WatchChan, watchFunc domain.WatchFunc)
 			}
 		case item := <-watchCh:
 			for _, event := range item.Events {
-				action := domain.ActionTypeAdd
+				action := domain.ADD
 				if event.Type.String() != "PUT" {
-					action = domain.ActionTypeDel
+					action = domain.DELETE
 				}
-				watchFunc(action, string(event.Kv.Key), fbasic.BytesToString(event.Kv.Value))
+				f(action, string(event.Kv.Key), fbasic.BytesToStr(event.Kv.Value))
 			}
 		}
 	}
@@ -134,13 +134,13 @@ type keyMonitor struct {
 func (d *keyMonitor) Put(client *clientv3.Client) error {
 	resp, err := client.Lease.Grant(context.Background(), d.ttl)
 	if err != nil {
-		return fbasic.NewUError(1, pb.ErrorCode_EtcdLeaseCreate, err)
+		return uerror.NewUError(1, -1, err)
 	}
 	d.leaseID = clientv3.LeaseID(resp.ID)
 
 	// 设置key的ttl
 	if _, err = client.Put(context.Background(), d.key, d.value, clientv3.WithLease(d.leaseID)); err != nil {
-		return fbasic.NewUError(1, pb.ErrorCode_EtcdClientPut, err)
+		return uerror.NewUError(1, -1, err)
 	}
 	return nil
 }
@@ -148,7 +148,7 @@ func (d *keyMonitor) Put(client *clientv3.Client) error {
 func (d *keyMonitor) KeepAliveOnce(client *clientv3.Client) error {
 	_, err := client.Lease.KeepAliveOnce(context.Background(), d.leaseID)
 	if err != nil {
-		return fbasic.NewUError(1, pb.ErrorCode_EtcdLeaseKeepAliveOnce, err)
+		return uerror.NewUError(1, -1, err)
 	}
 	return nil
 }

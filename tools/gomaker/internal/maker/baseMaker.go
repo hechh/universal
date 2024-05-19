@@ -7,8 +7,7 @@ import (
 	"go/token"
 	"path/filepath"
 	"strings"
-	"universal/common/pb"
-	"universal/framework/fbasic"
+	"universal/framework/common/uerror"
 	"universal/tools/gomaker/domain"
 	"universal/tools/gomaker/internal/base"
 )
@@ -44,10 +43,10 @@ func (d *BaseMaker) OpenTpl(cmd *domain.CmdLine) error {
 func (d *BaseMaker) ParseFile(cmd *domain.CmdLine, extend interface{}) error {
 	vistor, ok := extend.(ast.Visitor)
 	if !ok || vistor == nil {
-		return fbasic.NewUError(1, pb.ErrorCode_Parameter, "ast.Visitor")
+		return uerror.NewUError(1, -1, "ast.Visitor")
 	}
 	if len(cmd.Src) <= 0 {
-		return fbasic.NewUError(1, pb.ErrorCode_Parameter, "-src")
+		return uerror.NewUError(1, -1, "-src")
 	}
 	//解析文件
 	fset := token.NewFileSet()
@@ -59,13 +58,13 @@ func (d *BaseMaker) ParseFile(cmd *domain.CmdLine, extend interface{}) error {
 		// 读取所有文件
 		files, err := filepath.Glob(pp)
 		if err != nil {
-			return fbasic.NewUError(1, -1, err)
+			return uerror.NewUError(1, -1, err)
 		}
 		// 解析文件
 		for _, file := range files {
 			f, err := parser.ParseFile(fset, file, nil, parser.ParseComments)
 			if err != nil {
-				return fbasic.NewUError(2, -1, err)
+				return uerror.NewUError(2, -1, err)
 			}
 			ast.Walk(vistor, f)
 		}

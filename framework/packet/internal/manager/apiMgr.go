@@ -3,19 +3,20 @@ package manager
 import (
 	"fmt"
 	"universal/common/pb"
-	"universal/framework/fbasic"
+	"universal/framework/common/fbasic"
+	"universal/framework/common/uerror"
 	"universal/framework/packet/domain"
-	"universal/framework/packet/internal/base"
+	"universal/framework/packet/internal/handler"
 
 	"google.golang.org/protobuf/proto"
 )
 
 var (
-	apiPool = make(map[int32]domain.IPacket)
+	apiPool = make(map[int32]domain.IHandler)
 )
 
 func RegisterApi(apiCode int32, h domain.ApiFunc, req, rsp proto.Message) {
-	attr := base.NewApiPacket(h, req, rsp)
+	attr := handler.NewApiHandler(h, req, rsp)
 	if _, ok := apiPool[apiCode]; ok {
 		panic(fmt.Sprintf("ApiCode(%d) has already registered", apiCode))
 	}
@@ -24,22 +25,22 @@ func RegisterApi(apiCode int32, h domain.ApiFunc, req, rsp proto.Message) {
 
 func RegisterStruct(apiCode int32, h interface{}) {
 	if _, ok := apiPool[apiCode]; !ok {
-		apiPool[apiCode] = base.NewActorPacket(&pb.ActorRequest{}, &pb.ActorResponse{})
+		apiPool[apiCode] = handler.NewActorHandler(&pb.ActorRequest{}, &pb.ActorResponse{})
 	}
-	mgr, ok := apiPool[apiCode].(*base.ActorPacket)
+	mgr, ok := apiPool[apiCode].(*handler.ActorHandler)
 	if !ok {
-		panic(fmt.Sprintf("%d is not ActorPacket", apiCode))
+		panic(fmt.Sprintf("%d is not ActorHandler", apiCode))
 	}
 	mgr.RegisterStruct(h)
 }
 
 func RegisterFunc(apiCode int32, h interface{}) {
 	if _, ok := apiPool[apiCode]; !ok {
-		apiPool[apiCode] = base.NewActorPacket(&pb.ActorRequest{}, &pb.ActorResponse{})
+		apiPool[apiCode] = handler.NewActorHandler(&pb.ActorRequest{}, &pb.ActorResponse{})
 	}
-	mgr, ok := apiPool[apiCode].(*base.ActorPacket)
+	mgr, ok := apiPool[apiCode].(*handler.ActorHandler)
 	if !ok {
-		panic(fmt.Sprintf("%d is not ActorPacket", apiCode))
+		panic(fmt.Sprintf("%d is not ActorHandler", apiCode))
 	}
 	mgr.RegisterFunc(h)
 }
@@ -47,15 +48,15 @@ func RegisterFunc(apiCode int32, h interface{}) {
 func Call(ctx *fbasic.Context, buf []byte) (proto.Message, error) {
 	val, ok := apiPool[ctx.ApiCode]
 	if !ok {
-		return nil, fbasic.NewUError(1, pb.ErrorCode_ApiCodeNotFound, ctx.String())
+		return nil, uerror.NewUErrorf(1, -1, "ApiCode(%d) not supported", ctx.ApiCode)
 	}
 	return val.Call(ctx, buf), nil
 }
 
 func ParseReturns(apiCode int32, actorName, funcName string, buf []byte) ([]interface{}, error) {
-	mgr, ok := apiPool[apiCode].(*base.ActorPacket)
+	mgr, ok := apiPool[apiCode].(*handler.ActorHandler)
 	if !ok || mgr == nil {
-		return nil, fbasic.NewUError(1, pb.ErrorCode_ApiCodeNotFound, apiCode)
+		return nil, uerror.NewUErrorf(1, -1, "ApiCode: %d, ActorName: %s, FuncName: %s", apiCode, actorName, funcName)
 	}
 	// 获取返回值类型
 	typs, err := mgr.GetReturns(actorName, funcName)

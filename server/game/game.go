@@ -1,5 +1,5 @@
-package game
+package main
 
-func Run(lpath, ypath string) {
+func main() {
 
 }

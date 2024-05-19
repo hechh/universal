@@ -3,7 +3,7 @@ package test
 import (
 	"fmt"
 	"testing"
-	"universal/framework/fbasic"
+	"universal/framework/common/fbasic"
 	"universal/framework/packet"
 	"universal/framework/packet/internal/manager"
 
@@ -57,12 +57,13 @@ func TestMain(m *testing.M) {
 }
 
 func TestApi(t *testing.T) {
-	data := map[string]fbasic.IData{
+	data := map[string]interface{}{
 		"Person": &Person{"hch", 120},
 	}
 	t.Run("LoginRequest调用测试", func(t *testing.T) {
 		head := &pb.PacketHead{UID: 1234000, ApiCode: 1}
-		ctx := fbasic.NewContext(head, data)
+		ctx := fbasic.NewContext(head)
+		ctx.SetReadOnly(data)
 		req := &pb.GateLoginRequest{}
 		buf, _ := proto.Marshal(req)
 		ret, err := packet.Call(ctx, buf)
@@ -70,7 +71,8 @@ func TestApi(t *testing.T) {
 	})
 	t.Run("Print调用测试", func(t *testing.T) {
 		head := &pb.PacketHead{UID: 1234000, ApiCode: 2}
-		ctx := fbasic.NewContext(head, data)
+		ctx := fbasic.NewContext(head)
+		ctx.SetReadOnly(data)
 		// 设置参数
 		req := &pb.ActorRequest{FuncName: "Print", Buff: fbasic.EncodeAny("print", 423)}
 		buf, _ := proto.Marshal(req)
@@ -79,7 +81,9 @@ func TestApi(t *testing.T) {
 	})
 	t.Run("Person.GetAge调用测试", func(t *testing.T) {
 		head := &pb.PacketHead{UID: 1234000, ApiCode: 2}
-		ctx := fbasic.NewContext(head, map[string]fbasic.IData{"Person": &Person{"hch10", 10}})
+		ctx := fbasic.NewContext(head)
+		data["Person"] = &Person{"hch10", 10}
+		ctx.SetReadOnly(data)
 		req := &pb.ActorRequest{ActorName: "Person", FuncName: "GetAge"}
 		buf, _ := proto.Marshal(req)
 		// 返回值
@@ -90,14 +94,15 @@ func TestApi(t *testing.T) {
 	})
 	t.Run("Person.SetAge调用测试", func(t *testing.T) {
 		head := &pb.PacketHead{UID: 1234000, ApiCode: 2}
-		pp := &Person{"hch10", 10}
-		ctx := fbasic.NewContext(head, map[string]fbasic.IData{"Person": pp})
+		ctx := fbasic.NewContext(head)
+		data["Person"] = &Person{"hch10", 10}
+		ctx.SetReadOnly(data)
 		req := &pb.ActorRequest{ActorName: "Person", FuncName: "SetAge", Buff: fbasic.EncodeAny(120)}
 		buf, _ := proto.Marshal(req)
 		// 返回值
 		ret, err := packet.Call(ctx, buf)
 		rsp := ret.(*pb.ActorResponse)
 		rets, err01 := manager.ParseReturns(2, "Person", "SetAge", rsp.Buff)
-		t.Log(rsp.Head, pp, "-----SetAge Result------", err, err01, rets, rsp)
+		t.Log(rsp.Head, "-----SetAge Result------", err, err01, rets, rsp)
 	})
 }

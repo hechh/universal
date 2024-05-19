@@ -6,28 +6,19 @@ import (
 	"universal/common/pb"
 	"universal/framework/actor/domain"
 	"universal/framework/actor/internal/base"
-	"universal/framework/fbasic"
+	"universal/framework/common/fbasic"
 )
 
 var (
 	srvPool = sync.Map{}
-	srvFunc domain.ActorHandle
 )
 
-const (
-	ActorExpireTime = 30 * 60 //单位：秒
-)
-
-func SetActorHandle(h domain.ActorHandle) {
-	srvFunc = h
-}
-
-func GetIActor(key string) domain.IActor {
+func GetIActor(key string, ff domain.ActorHandle) domain.IActor {
 	var act domain.IActor
 	if val, ok := srvPool.Load(key); ok && val != nil {
 		act = val.(domain.IActor)
 	} else {
-		act = base.NewActor(key, srvFunc)
+		act = base.NewActor(key, ff)
 		// 启动协程
 		act.Start()
 		// 存储
@@ -36,36 +27,45 @@ func GetIActor(key string) domain.IActor {
 	return act
 }
 
-func Send(key string, pa *pb.Packet) {
+func Send(key string, ff domain.ActorHandle, pa *pb.Packet) {
 	// 获取actor
-	act := GetIActor(key)
+	act := GetIActor(key, ff)
 	// 刷新时间
 	act.SetUpdateTime(time.Now().Unix())
 	// 发送
 	act.Send(pa.Head, pa.Buff)
 }
 
-// 清理过期玩家
-func init() {
-	go cleanExpire()
+func StopAll() {
+	srvPool.Range(func(key, val interface{}) bool {
+		vv, ok := val.(domain.IActor)
+		if !ok || vv == nil {
+			return true
+		}
+		vv.Stop()
+		return true
+	})
 }
 
-func cleanExpire() {
-	timer := time.NewTicker(5 * time.Second)
-	for {
-		<-timer.C
-		srvPool.Range(func(key, val interface{}) bool {
-			vv, ok := val.(domain.IActor)
-			if !ok || vv == nil {
+// 清理过期玩家
+func SetClearExpire(expire int64) {
+	go func() {
+		timer := time.NewTicker(5 * time.Second)
+		for {
+			<-timer.C
+			srvPool.Range(func(key, val interface{}) bool {
+				vv, ok := val.(domain.IActor)
+				if !ok || vv == nil {
+					return true
+				}
+				if upTime := vv.GetUpdateTime(); upTime+expire <= fbasic.GetNow() {
+					// 停止协程
+					vv.Stop()
+					// 删除缓存
+					srvPool.Delete(key)
+				}
 				return true
-			}
-			if upTime := vv.GetUpdateTime(); upTime+ActorExpireTime <= fbasic.GetNow() {
-				// 停止协程
-				vv.Stop()
-				// 删除缓存
-				srvPool.Delete(key)
-			}
-			return true
-		})
-	}
+			})
+		}
+	}()
 }

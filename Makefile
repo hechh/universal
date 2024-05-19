@@ -6,7 +6,6 @@ PROTO_PATH=./proto
 GEN_GO_PATH=./common/pb
 
 TARGET=gate 
-BUILD=$(TARGET:%=%_build)
 
 .PHONY: race build clean all gen gen_go yaml copy
 
@@ -16,26 +15,25 @@ race:RACE=-race
 #---------程序编译选项-----------
 all: clean copy $(TARGET)
 
+copy:
+	-mkdir -p ${OUTPUT}/ && cp -rf ./env/*.sh ${OUTPUT}/
+
 clean:
 	-rm -rf ${OUTPUT}
 
 $(TARGET): gen
-	-mkdir -p ${OUTPUT}/bin
-	-mkdir -p ${OUTPUT}/yaml && cp -rf ./env/${@}.yaml ${OUTPUT}/yaml/
+	-mkdir -p ${OUTPUT}/bin/yaml && cp -rf ./env/${@}.yaml ${OUTPUT}/bin/yaml/
 ifeq (${SYSTEM}, windows)
-	go build ${GCFLAGS} ${RACE} -o ${OUTPUT}/bin/$@.exe ./cmd/$@/...
+	go build ${GCFLAGS} ${RACE} -o ${OUTPUT}/bin/$@.exe ./server/$@/...
 else
 ifeq (${SYSTEM}, linux)
-	CGO_ENABLED=0 GOOS=linux go build ${GCFLAGS} ${RACE} -o ${OUTPUT}/bin/ ./cmd/$@/...
+	CGO_ENABLED=0 GOOS=linux go build ${GCFLAGS} ${RACE} -o ${OUTPUT}/bin/ ./server/$@/...
 else
-	CGO_ENABLED=0 GOOS=darwin go build ${GCFLAGS} ${RACE} -o ${OUTPUT}/bin/ ./cmd/$@/...
+	CGO_ENABLED=0 GOOS=darwin go build ${GCFLAGS} ${RACE} -o ${OUTPUT}/bin/ ./server/$@/...
 endif
 endif
 
 ############################生成代码选项##############################
-copy:
-	-mkdir -p ${OUTPUT}/ && cp -rf ./env/*.sh ${OUTPUT}/
-
 gen:
 	-mkdir -p ${GEN_GO_PATH} && rm -rf ${GEN_GO_PATH}/*
 ifeq (${SYSTEM}, windows)
@@ -48,5 +46,6 @@ endif
 
 stop:
 	./output/run.sh stop gate
+
 start:
 	./output/run.sh start gate

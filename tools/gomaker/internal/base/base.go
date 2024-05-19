@@ -4,8 +4,7 @@ import (
 	"flag"
 	"os"
 	"path/filepath"
-	"universal/common/pb"
-	"universal/framework/fbasic"
+	"universal/framework/common/uerror"
 	"universal/tools/gomaker/domain"
 
 	"github.com/xuri/excelize/v2"
@@ -51,7 +50,7 @@ func GetPkgName(dst string) string {
 func ParseXlsx(file string, f func(sheet string, row int, cols []string) bool) error {
 	fb, err := excelize.OpenFile(file)
 	if err != nil {
-		return fbasic.NewUError(1, pb.ErrorCode_OpenFile, err)
+		return uerror.NewUError(1, -1, err)
 	}
 	defer fb.Close()
 	for _, sheet := range fb.GetSheetList() {
@@ -77,7 +76,7 @@ func InitCmdLine(cmdLine *domain.CmdLine) error {
 	flag.Parse()
 	// action模式
 	if len(cmdLine.Action) <= 0 {
-		return fbasic.NewUError(1, -1, "-action")
+		return uerror.NewUError(1, -1, "-action")
 	}
 	// 模版文件
 	cmdLine.Tpl = GetAbsPath(GetPath(cmdLine.Tpl, os.Getenv("TPL_GO")), cwdPath)
