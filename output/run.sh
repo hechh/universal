@@ -4,13 +4,14 @@ stop(){
    pids=$(ps -ef | grep -v grep | grep $1 | awk '{print $2}') 
     for pid in $pids
     do
+        echo "kill -9 ${pid}"
         kill -9 ${pid}
-        echo "kill -f ${pid}"
     done
 }
 
 start(){
-   ./output/bin/$1 -id 1 -yaml output/yaml/${1}.yaml
+#    nohup ./output/bin/$1 -id 1 -yaml output/bin/yaml/${1}.yaml -log output/log/${1}.log &
+    ./output/bin/$1 -id 1 -yaml output/bin/yaml/${1}.yaml
 }
 
 

@@ -2,12 +2,15 @@ server:
   1:
     addr: 127.0.0.1:10100
     pprof: localhost:20100
+    gops: localhost:30100
   2:
     addr: 127.0.0.1:10101
     pprof: localhost:20101
+    gops: localhost:30101
   3:
     addr: 127.0.0.1:10102
     pprof: localhost:20102
+    gops: localhost:30102
 
 # 服务发现
 etcd:
