@@ -1,8 +1,0 @@
-panic: /Users/hecheng/projects/src/universal/framework/profiler/profiler.go:36	universal/framework/profiler.InitPprof	ErrorCode(-1): listen tcp 127.0.0.1:20100: bind: address already in use
-
-
-goroutine 1 [running]:
-main.main()
-	/Users/hecheng/projects/src/universal/server/gate/gate.go:55 +0x544
-2024-05-19 18:41:58.820882 I | 新增服务节点:  {"ServerType":1,"ServerID":3282548957,"Ip":"127.0.0.1","Port":10100}
-2024-05-19 18:42:02.825223 I | websocket start:  127.0.0.1:10100
