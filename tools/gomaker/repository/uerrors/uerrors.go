@@ -10,7 +10,7 @@ import (
 	"strings"
 	"universal/framework/common/uerror"
 	"universal/tools/gomaker/domain"
-	"universal/tools/gomaker/internal/base"
+	"universal/tools/gomaker/internal/common/base"
 	"universal/tools/gomaker/internal/maker"
 	"universal/tools/gomaker/internal/manager"
 )

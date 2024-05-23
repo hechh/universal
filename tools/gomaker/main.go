@@ -4,7 +4,8 @@ import (
 	"flag"
 	"fmt"
 	"universal/tools/gomaker/domain"
-	"universal/tools/gomaker/internal/base"
+	"universal/tools/gomaker/internal/common/base"
+	"universal/tools/gomaker/internal/common/types"
 	"universal/tools/gomaker/internal/manager"
 	"universal/tools/gomaker/repository/uerrors"
 )
@@ -24,11 +25,11 @@ func main() {
 		panic(err)
 	}
 	// 解析go文件
-	if err := par.ParseFile(cmdLine, &manager.TypeParser{}); err != nil {
+	if err := par.ParseFile(cmdLine, types.NewTypeParser(manager.AddType)); err != nil {
 		fmt.Printf("parseFiles is faield, error: %v", err)
 		return
 	}
-	manager.Finished()
+	manager.Finish()
 	// 生成文件
 	if err := par.Gen(cmdLine); err != nil {
 		fmt.Printf("error: %v", err.Error())

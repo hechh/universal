@@ -1,9 +1,8 @@
 package manager
 
 import (
-	"fmt"
-	"go/ast"
-	"universal/tools/gomaker/internal/types"
+	"universal/tools/gomaker/domain"
+	"universal/tools/gomaker/internal/common/types"
 )
 
 var (
@@ -11,33 +10,6 @@ var (
 	enums   = make(map[string]*types.Enum)   // 枚举类型
 	alias   = make(map[string]*types.Alias)  // 类型别名
 )
-
-func initPkgName(typ *types.Type) {
-	if typ.Key != nil {
-		initPkgName(typ.Key)
-		initPkgName(typ.Value)
-	} else {
-		if val, ok := alias[typ.Name]; ok {
-			typ.PkgName = val.PkgName
-			return
-		}
-		if val, ok := structs[typ.Name]; ok {
-			typ.PkgName = val.PkgName
-			return
-		}
-	}
-}
-
-func Finished() {
-	for _, aa := range alias {
-		initPkgName(aa.Type)
-	}
-	for _, st := range structs {
-		for _, ff := range st.List {
-			initPkgName(ff.Type)
-		}
-	}
-}
 
 func GetMapStruct() map[string]*types.Struct {
 	return structs
@@ -59,30 +31,43 @@ func GetStruct(name string) *types.Struct {
 	return structs[name]
 }
 
-func AddType(pkgName string, doc string, specs []ast.Spec) {
-	for _, spec := range specs {
-		// 判断是否有效
-		node, ok := spec.(*ast.TypeSpec)
-		if !ok || node == nil {
-			continue
-		}
-		// 解析结构
-		switch vv := node.Type.(type) {
-		case *ast.StructType:
-			structs[node.Name.Name] = types.NewStruct(pkgName, node.Name.Name, doc, vv.Fields.List)
-		default:
-			alias[node.Name.Name] = types.NewAlias(pkgName, node.Name.Name, doc, node)
-		}
+func AddType(data interface{}) {
+	switch vv := data.(type) {
+	case *types.Struct:
+		structs[vv.Type.Name] = vv
+	case *types.Alias:
+		alias[vv.Type.Name] = vv
+	case *types.Enum:
+		enums[vv.Type.Name] = vv
 	}
 }
 
-func AddConst(pkgName, doc string, specs []ast.Spec) {
-	ee := types.NewEnum(pkgName, doc, specs)
-	if _, ok := alias[ee.Name]; ok {
-		enums[ee.Name] = ee
+func Finish() {
+	typeF := func(t *types.Type) {
+		if vv, ok := structs[t.Name]; ok {
+			t.Token |= domain.STRUCT
+			t.PkgName = vv.Type.PkgName
+		}
+		if vv, ok := enums[t.Name]; ok {
+			t.Token |= domain.ENUM
+			t.PkgName = vv.Type.Name
+		}
+		if vv, ok := alias[t.Name]; ok {
+			t.Token |= domain.ALIAS
+			t.PkgName = vv.Type.Name
+		}
+	}
+	for _, st := range structs {
+		for _, field := range st.Fields {
+			typeF(field.Type)
+		}
+	}
+	for _, al := range alias {
+		typeF(al.Reference)
 	}
 }
 
+/*
 func Print() {
 	for _, st := range structs {
 		fmt.Println(st.String())
@@ -94,3 +79,4 @@ func Print() {
 		fmt.Println(al.String())
 	}
 }
+*/

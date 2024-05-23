@@ -9,7 +9,7 @@ import (
 	"strings"
 	"universal/framework/common/uerror"
 	"universal/tools/gomaker/domain"
-	"universal/tools/gomaker/internal/base"
+	"universal/tools/gomaker/internal/common/base"
 )
 
 type GenFunc func(*domain.CmdLine, *base.Templates) error
