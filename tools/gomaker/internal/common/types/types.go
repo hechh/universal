@@ -1,5 +1,10 @@
 package types
 
+import (
+	"fmt"
+	"universal/tools/gomaker/domain"
+)
+
 type Type struct {
 	Token   int32  // 类型
 	PkgName string // 引用类型所在的包
@@ -40,4 +45,37 @@ type Alias struct {
 	Doc       string // 规则注释
 	Comment   string // 字段注释
 	Reference *Type  // 引用类型
+}
+
+func (d *Type) GetType(pkg string) string {
+	if len(d.PkgName) > 0 && pkg != d.PkgName {
+		return fmt.Sprintf("%s.%s", d.PkgName, d.Name)
+	}
+	return d.Name
+}
+
+func (d *Type) String(pkg string) (ret string) {
+	if domain.MAP&d.Token > 0 {
+		return fmt.Sprintf("map[%s]%s", d.Key.String(pkg), d.Value.String(pkg))
+	}
+	if domain.ARRAY&d.Token > 0 {
+		ret += "[]"
+	}
+	if domain.POINTER&d.Token > 0 {
+		ret += "*"
+	}
+	ret += d.GetType(pkg)
+	return
+}
+
+func (d *Field) String(pkg string) string {
+	return fmt.Sprintf("%s %s %s %s", d.Name, d.Type.String(pkg), d.Tag, d.Comment)
+}
+
+func (d *Struct) String(pkg string) string {
+	str := "\n"
+	for _, item := range d.List {
+		str += (item.String(pkg) + "\n")
+	}
+	return fmt.Sprintf("type %s struct {%s}", d.Type.Name, str)
 }

@@ -7,6 +7,7 @@ import (
 	"universal/tools/gomaker/internal/common/base"
 	"universal/tools/gomaker/internal/common/types"
 	"universal/tools/gomaker/internal/manager"
+	"universal/tools/gomaker/repository/cfgtool"
 	"universal/tools/gomaker/repository/uerrors"
 )
 
@@ -38,6 +39,7 @@ func main() {
 
 func init() {
 	uerrors.Init()
+	cfgtool.Init()
 	// 设置默认的help函数
 	flag.Usage = func() {
 		flag.PrintDefaults()
