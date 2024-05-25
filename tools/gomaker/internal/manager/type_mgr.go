@@ -66,17 +66,3 @@ func Finish() {
 		typeF(al.Reference)
 	}
 }
-
-/*
-func Print() {
-	for _, st := range structs {
-		fmt.Println(st.String())
-	}
-	for _, en := range enums {
-		fmt.Println(en.String())
-	}
-	for _, al := range alias {
-		fmt.Println(al.String())
-	}
-}
-*/

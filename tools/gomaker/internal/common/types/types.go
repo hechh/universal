@@ -3,9 +3,11 @@ package types
 import (
 	"fmt"
 	"universal/tools/gomaker/domain"
+	"universal/tools/gomaker/internal/common/base"
 )
 
 type Type struct {
+	base.BaseFunc
 	Token   int32  // 类型
 	PkgName string // 引用类型所在的包
 	Name    string // 引用的类型名称
@@ -14,6 +16,7 @@ type Type struct {
 }
 
 type Field struct {
+	base.BaseFunc
 	Type    *Type  // 类型
 	Name    string // 字段名字
 	Comment string // 注释
@@ -21,6 +24,7 @@ type Field struct {
 }
 
 type Struct struct {
+	base.BaseFunc
 	Type   *Type             // 类型
 	Doc    string            // 注释
 	Fields map[string]*Field // 解析的字段
@@ -34,6 +38,7 @@ type Value struct {
 }
 
 type Enum struct {
+	base.BaseFunc
 	Type   *Type             // 类型
 	Doc    string            // 注释规则
 	Fields map[string]*Value // 解析的字段
@@ -41,6 +46,7 @@ type Enum struct {
 }
 
 type Alias struct {
+	base.BaseFunc
 	Type      *Type  // 别名类型
 	Doc       string // 规则注释
 	Comment   string // 字段注释

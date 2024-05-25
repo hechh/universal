@@ -1,9 +1,14 @@
 package cfgtool
 
 import (
+	"bytes"
 	"encoding/json"
 	"fmt"
+	"io/ioutil"
+	"os"
+	"path/filepath"
 	"strings"
+	"universal/framework/common/uerror"
 	"universal/tools/gomaker/domain"
 	"universal/tools/gomaker/internal/common/base"
 	"universal/tools/gomaker/internal/common/types"
@@ -18,30 +23,6 @@ type Node struct {
 	Index int
 	Type  *types.Type
 	next  *Node
-}
-
-func ToCast(t *types.Type, str string) interface{} {
-	switch t.Name {
-	case "int":
-		return cast.ToInt(str)
-	case "int32":
-		return cast.ToInt32(str)
-	case "int64":
-		return cast.ToInt64(str)
-	case "uint":
-		return cast.ToUint(str)
-	case "uint32":
-		return cast.ToUint32(str)
-	case "uint64":
-		return cast.ToUint64(str)
-	case "string":
-		return str
-	case "float32":
-		return cast.ToFloat32(str)
-	case "float64":
-		return cast.ToFloat64(str)
-	}
-	return nil
 }
 
 func ParseType(stname string, node *Node) {
@@ -76,12 +57,12 @@ func ParseNode(key string) *Node {
 func parse(data, record map[string]interface{}, node *Node, val string) {
 	if node.next == nil {
 		if node.Index <= 0 {
-			data[node.Key] = ToCast(node.Type, val)
+			data[node.Key] = base.CastTo(node.Type.Name, val)
 		} else {
 			if vv, ok := data[node.Key]; ok {
-				data[node.Key] = append(vv.([]interface{}), ToCast(node.Type, val))
+				data[node.Key] = append(vv.([]interface{}), base.CastTo(node.Type.Name, val))
 			} else {
-				data[node.Key] = []interface{}{ToCast(node.Type, val)}
+				data[node.Key] = []interface{}{base.CastTo(node.Type.Name, val)}
 			}
 		}
 		return
@@ -107,7 +88,7 @@ func parse(data, record map[string]interface{}, node *Node, val string) {
 
 func Gen(cmdLine *domain.CmdLine, tpls *base.Templates) error {
 	nodes := map[int]*Node{}
-	jsons := map[int]string{}
+	buffer := bytes.NewBuffer(nil)
 	err := base.ParseXlsx(cmdLine.Param, func(sheet string, row int, cols []string) bool {
 		switch row {
 		case 0:
@@ -127,17 +108,28 @@ func Gen(cmdLine *domain.CmdLine, tpls *base.Templates) error {
 				}
 			}
 			buf, _ := json.Marshal(data)
-			jsons[row] = string(buf)
+			buffer.Write(buf)
+			buffer.WriteRune('\n')
 		}
 		return true
 	})
 	if err != nil {
 		return err
 	}
-	fmt.Println("------>", jsons)
+	// 生成文档
+	dstFile := cmdLine.Dst
+	if !strings.HasSuffix(dstFile, ".json") {
+		dstFile += ".json"
+	}
+	if err := os.MkdirAll(filepath.Dir(dstFile), os.FileMode(0777)); err != nil {
+		return uerror.NewUError(1, -1, err)
+	}
+	if err := ioutil.WriteFile(dstFile, buffer.Bytes(), os.FileMode(0666)); err != nil {
+		return uerror.NewUError(1, -1, err)
+	}
 	return nil
 }
 
 func Init() {
-	manager.Register("xlsx", maker.NewBaseMaker(Gen, "-action=xlsx -param=test.xlsx", "xlsx表转json"))
+	manager.Register("json", maker.NewBaseMaker(Gen, "-action=json -param=test.xlsx", "xlsx表转json"))
 }

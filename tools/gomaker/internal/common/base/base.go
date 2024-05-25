@@ -7,6 +7,7 @@ import (
 	"universal/framework/common/uerror"
 	"universal/tools/gomaker/domain"
 
+	"github.com/spf13/cast"
 	"github.com/xuri/excelize/v2"
 )
 
@@ -81,5 +82,29 @@ func InitCmdLine(cmdLine *domain.CmdLine) error {
 	// 模版文件
 	cmdLine.Tpl = GetAbsPath(GetPath(cmdLine.Tpl, os.Getenv("TPL_GO")), cwdPath)
 	cmdLine.Dst = GetAbsPath(GetPath(cmdLine.Dst, cwdPath), cwdPath)
+	return nil
+}
+
+func CastTo(name, str string) interface{} {
+	switch name {
+	case "int":
+		return cast.ToInt(str)
+	case "int32":
+		return cast.ToInt32(str)
+	case "int64":
+		return cast.ToInt64(str)
+	case "uint":
+		return cast.ToUint(str)
+	case "uint32":
+		return cast.ToUint32(str)
+	case "uint64":
+		return cast.ToUint64(str)
+	case "string":
+		return str
+	case "float32":
+		return cast.ToFloat32(str)
+	case "float64":
+		return cast.ToFloat64(str)
+	}
 	return nil
 }
