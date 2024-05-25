@@ -54,7 +54,7 @@ type Alias struct {
 }
 
 func (d *Type) GetType(pkg string) string {
-	if len(d.PkgName) > 0 && pkg != d.PkgName {
+	if len(d.PkgName) > 0 && len(pkg) > 0 && pkg != d.PkgName {
 		return fmt.Sprintf("%s.%s", d.PkgName, d.Name)
 	}
 	return d.Name

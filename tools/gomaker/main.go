@@ -8,6 +8,7 @@ import (
 	"universal/tools/gomaker/internal/common/types"
 	"universal/tools/gomaker/internal/manager"
 	"universal/tools/gomaker/repository/cfgtool"
+	"universal/tools/gomaker/repository/pbclass"
 	"universal/tools/gomaker/repository/uerrors"
 )
 
@@ -40,6 +41,7 @@ func main() {
 func init() {
 	uerrors.Init()
 	cfgtool.Init()
+	pbclass.Init()
 	// 设置默认的help函数
 	flag.Usage = func() {
 		flag.PrintDefaults()
