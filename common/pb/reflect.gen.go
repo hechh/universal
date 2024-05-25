@@ -1,10 +1,20 @@
 package pb
 
-import reflect "reflect"
+import (
+	"google.golang.org/protobuf/proto"
+	"reflect"
+)
 
 var (
 	types = make(map[string]reflect.Type)
 )
+
+func NewType(name string) proto.Message {
+	if vv, ok := types[name]; ok {
+		return reflect.New(vv).Interface().(proto.Message)
+	}
+	return nil
+}
 
 func init() {
 	types["ActorRequest"] = reflect.TypeOf((*ActorRequest)(nil)).Elem()
