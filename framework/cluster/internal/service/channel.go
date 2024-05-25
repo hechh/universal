@@ -11,26 +11,22 @@ import (
 )
 
 const (
-	rootDir = "server/"
+	ROOT_DIR = "server/"
 )
-
-func GetRootDir() string {
-	return rootDir
-}
 
 // 玩家消息
 func GetPlayerChannel(typ pb.ServerType, serverID uint32, uid uint64) string {
-	return filepath.Join(rootDir, strings.ToLower(typ.String()), fmt.Sprintf("%d/%d", serverID, uid))
+	return filepath.Join(ROOT_DIR, strings.ToLower(typ.String()), fmt.Sprintf("%d/%d", serverID, uid))
 }
 
 // 服务节点消息
 func GetNodeChannel(typ pb.ServerType, serverID uint32) string {
-	return filepath.Join(rootDir, strings.ToLower(typ.String()), cast.ToString(serverID))
+	return filepath.Join(ROOT_DIR, strings.ToLower(typ.String()), cast.ToString(serverID))
 }
 
 // 所有节点消息
 func GetClusterChannel(typ pb.ServerType) string {
-	return filepath.Join(rootDir, strings.ToLower(typ.String()))
+	return filepath.Join(ROOT_DIR, strings.ToLower(typ.String()))
 }
 
 // 获取channel的key
@@ -50,7 +46,7 @@ func GetHeadChannel(head *pb.PacketHead) (str string, err error) {
 
 // 解析channel
 func ParseChannel(str string) (serverType pb.ServerType, serverID uint32, uid uint64) {
-	strs := strings.Split(strings.TrimPrefix(str, rootDir), "/")
+	strs := strings.Split(strings.TrimPrefix(str, ROOT_DIR), "/")
 	// 解析serverType
 	if len(strs) > 0 {
 		serverType = pb.ServerType(pb.ServerType_value[strings.ToUpper(strs[0])])

@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"log"
+	"sort"
 	"sync"
 	"universal/common/pb"
 )
@@ -23,18 +24,6 @@ func Get(srvType pb.ServerType, id uint32) *pb.ServerNode {
 		return nil
 	}
 	return tt.(*pb.ServerNode)
-}
-
-func Print() {
-	nodeList.Range(func(_, val interface{}) bool {
-		list, ok := val.(**pb.ServerNode)
-		if !ok || list == nil {
-			return true
-		}
-		buf, _ := json.Marshal(list)
-		log.Println(string(buf))
-		return true
-	})
 }
 
 // 删除节点
@@ -59,7 +48,22 @@ func Random(head *pb.PacketHead) (ret *pb.ServerNode) {
 		}
 		return true
 	})
+	sort.Slice(list, func(i, j int) bool {
+		return list[i].ServerID < list[j].ServerID
+	})
 	ret = list[int(head.UID)%len(list)]
 	log.Println("随机路由节点：", ret, head)
 	return
+}
+
+func Print() {
+	nodeList.Range(func(_, val interface{}) bool {
+		list, ok := val.(**pb.ServerNode)
+		if !ok || list == nil {
+			return true
+		}
+		buf, _ := json.Marshal(list)
+		log.Println(string(buf))
+		return true
+	})
 }

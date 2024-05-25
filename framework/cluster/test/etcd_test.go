@@ -24,7 +24,7 @@ func TestDisEtcd(t *testing.T) {
 	}
 	// 添加服务节点
 	client := service.GetDiscovery().(*etcd.EtcdClient)
-	client.Delete(service.GetRootDir())
+	client.Delete(service.ROOT_DIR)
 	// 注册服务节点
 	if err := service.Discovery(pb.ServerType_GATE, "127.1.0.1:10100"); err != nil {
 		t.Log(err)
@@ -92,6 +92,6 @@ func TestDisEtcd(t *testing.T) {
 
 	time.Sleep(5 * time.Second)
 
-	client.Delete(service.GetRootDir())
+	client.Delete(service.ROOT_DIR)
 	service.Close()
 }
