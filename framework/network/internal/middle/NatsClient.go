@@ -1,9 +1,9 @@
 package middle
 
 import (
-	"log"
 	"universal/common/pb"
 	"universal/framework/common/uerror"
+	"universal/framework/common/ulog"
 
 	"github.com/nats-io/nats.go"
 	"google.golang.org/protobuf/proto"
@@ -25,7 +25,7 @@ func (d *NatsClient) Subscribe(key string, f func(*pb.Packet)) error {
 	_, err := d.conn.Subscribe(key, func(msg *nats.Msg) {
 		pac := &pb.Packet{}
 		if err := proto.Unmarshal(msg.Data, pac); err != nil {
-			log.Printf("Subscribe error: %v", err)
+			ulog.Error(1, "Subscribe error: %v", err)
 		} else {
 			f(pac)
 		}

@@ -1,11 +1,11 @@
 package profiler
 
 import (
-	"log"
 	"net/http"
 	"net/http/pprof"
 
 	"universal/framework/common/uerror"
+	"universal/framework/common/ulog"
 
 	"github.com/google/gops/agent"
 )
@@ -35,7 +35,7 @@ func InitPprof(addr string) {
 	go func() {
 		server := &http.Server{Addr: addr, Handler: local}
 		if err := server.ListenAndServe(); err != nil {
-			log.Println("pprof start failed, error: ", err)
+			ulog.Error(1, "pprof start failed, error: ", err)
 		}
 	}()
 }

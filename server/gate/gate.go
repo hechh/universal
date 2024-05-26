@@ -3,7 +3,6 @@ package main
 import (
 	"flag"
 	"fmt"
-	"log"
 	"net/http"
 	"os"
 	"time"
@@ -12,6 +11,7 @@ import (
 	"universal/framework"
 	"universal/framework/actor"
 	"universal/framework/cluster"
+	"universal/framework/common/ulog"
 	"universal/framework/network"
 	"universal/framework/profiler"
 	"universal/server/gate/internal/broadcast"
@@ -68,7 +68,7 @@ func main() {
 		cluster.Close()
 	})
 	// 开启websocket服务
-	log.Println("websocket start: ", srvCfg.Addr)
+	ulog.Info(1, "websocket start: ", srvCfg.Addr)
 	http.Handle("/ws", websocket.Handler(wsHandle))
 	if err := http.ListenAndServe(srvCfg.Addr, nil); err != nil {
 		panic(err)
@@ -80,10 +80,10 @@ func wsHandle(conn *websocket.Conn) {
 	var uid uint64
 	defer func() {
 		if err != nil {
-			log.Fatalln("websocket connect is failed: ", err)
+			ulog.Error(1, "websocket connect is failed: ", err)
 		} else {
 			broads.Delete(uid)
-			log.Println("websocket closed: ", conn.RemoteAddr().String())
+			ulog.Error(1, "websocket closed: ", conn.RemoteAddr().String())
 		}
 		conn.Close()
 	}()
@@ -101,6 +101,6 @@ func wsHandle(conn *websocket.Conn) {
 	}
 	broads.Add(uid, pl.NatsHandle)
 	// 循环接受消息
-	log.Println("websocket connected...", conn.RemoteAddr().String())
+	ulog.Info(1, "websocket connected...", conn.RemoteAddr().String())
 	pl.LoopRead()
 }

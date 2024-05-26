@@ -1,11 +1,11 @@
 package router
 
 import (
-	"log"
 	"sync"
 	"sync/atomic"
 	"time"
 	"universal/framework/common/fbasic"
+	"universal/framework/common/ulog"
 )
 
 var (
@@ -62,7 +62,7 @@ func Print() {
 		if !ok || val == nil {
 			return true
 		}
-		log.Println("router: ", val.String())
+		ulog.Info(1, "router: %s", val.String())
 		return true
 	})
 }
