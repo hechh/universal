@@ -2,6 +2,7 @@
 
 import (
     "reflect"
+    
 	"google.golang.org/protobuf/proto"
 )
 
@@ -16,7 +17,12 @@ func NewType(name string) proto.Message {
     return nil
 }
 
+func registerType(val interface{}) {
+	ttt := reflect.TypeOf(val).Elem()
+	types[ttt.Name()] = ttt
+}
+
 func init() {
-{{range $v := .}} types["{{$v.Type.Name}}"] = reflect.TypeOf((*{{$v.Type.GetType ""}})(nil)).Elem()
+{{range $v := .}} registerType((*{{$v.Type.GetType ""}})(nil))
 {{end}}
 }

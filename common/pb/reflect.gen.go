@@ -1,8 +1,9 @@
 package pb
 
 import (
-	"google.golang.org/protobuf/proto"
 	"reflect"
+
+	"google.golang.org/protobuf/proto"
 )
 
 var (
@@ -16,18 +17,23 @@ func NewType(name string) proto.Message {
 	return nil
 }
 
+func registerType(val interface{}) {
+	ttt := reflect.TypeOf(val).Elem()
+	types[ttt.Name()] = ttt
+}
+
 func init() {
-	types["ActorRequest"] = reflect.TypeOf((*ActorRequest)(nil)).Elem()
-	types["ActorResponse"] = reflect.TypeOf((*ActorResponse)(nil)).Elem()
-	types["GameLoginRequest"] = reflect.TypeOf((*GameLoginRequest)(nil)).Elem()
-	types["GameLoginResponse"] = reflect.TypeOf((*GameLoginResponse)(nil)).Elem()
-	types["GateLoginRequest"] = reflect.TypeOf((*GateLoginRequest)(nil)).Elem()
-	types["GateLoginResponse"] = reflect.TypeOf((*GateLoginResponse)(nil)).Elem()
-	types["LimitUpStockConfig"] = reflect.TypeOf((*LimitUpStockConfig)(nil)).Elem()
-	types["LimitUpStockConfigAry"] = reflect.TypeOf((*LimitUpStockConfigAry)(nil)).Elem()
-	types["Packet"] = reflect.TypeOf((*Packet)(nil)).Elem()
-	types["PacketHead"] = reflect.TypeOf((*PacketHead)(nil)).Elem()
-	types["RpcHead"] = reflect.TypeOf((*RpcHead)(nil)).Elem()
-	types["ServerNode"] = reflect.TypeOf((*ServerNode)(nil)).Elem()
+	registerType((*ActorRequest)(nil))
+	registerType((*ActorResponse)(nil))
+	registerType((*GameLoginRequest)(nil))
+	registerType((*GameLoginResponse)(nil))
+	registerType((*GateLoginRequest)(nil))
+	registerType((*GateLoginResponse)(nil))
+	registerType((*LimitUpStockConfig)(nil))
+	registerType((*LimitUpStockConfigAry)(nil))
+	registerType((*Packet)(nil))
+	registerType((*PacketHead)(nil))
+	registerType((*RpcHead)(nil))
+	registerType((*ServerNode)(nil))
 
 }
