@@ -58,7 +58,7 @@ func Random(head *pb.PacketHead) (ret *pb.ServerNode) {
 
 func Print() {
 	nodeList.Range(func(_, val interface{}) bool {
-		list, ok := val.(**pb.ServerNode)
+		list, ok := val.(*pb.ServerNode)
 		if !ok || list == nil {
 			return true
 		}
