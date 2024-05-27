@@ -2,7 +2,7 @@ package service
 
 import (
 	"fmt"
-	"path/filepath"
+	"path"
 	"strings"
 	"universal/common/pb"
 	"universal/framework/common/uerror"
@@ -11,26 +11,22 @@ import (
 )
 
 const (
-	rootDir = "server/"
+	ROOT_DIR = "server"
 )
-
-func GetRootDir() string {
-	return rootDir
-}
 
 // 玩家消息
 func GetPlayerChannel(typ pb.ServerType, serverID uint32, uid uint64) string {
-	return filepath.Join(rootDir, strings.ToLower(typ.String()), fmt.Sprintf("%d/%d", serverID, uid))
+	return path.Join(ROOT_DIR, strings.ToLower(typ.String()), fmt.Sprintf("%d/%d", serverID, uid))
 }
 
 // 服务节点消息
 func GetNodeChannel(typ pb.ServerType, serverID uint32) string {
-	return filepath.Join(rootDir, strings.ToLower(typ.String()), cast.ToString(serverID))
+	return path.Join(ROOT_DIR, strings.ToLower(typ.String()), cast.ToString(serverID))
 }
 
 // 所有节点消息
 func GetClusterChannel(typ pb.ServerType) string {
-	return filepath.Join(rootDir, strings.ToLower(typ.String()))
+	return path.Join(ROOT_DIR, strings.ToLower(typ.String()))
 }
 
 // 获取channel的key
@@ -50,18 +46,18 @@ func GetHeadChannel(head *pb.PacketHead) (str string, err error) {
 
 // 解析channel
 func ParseChannel(str string) (serverType pb.ServerType, serverID uint32, uid uint64) {
-	strs := strings.Split(strings.TrimPrefix(str, rootDir), "/")
+	strs := strings.Split(str, "/")
 	// 解析serverType
-	if len(strs) > 0 {
-		serverType = pb.ServerType(pb.ServerType_value[strings.ToUpper(strs[0])])
+	if len(strs) > 2 {
+		serverType = pb.ServerType(pb.ServerType_value[strings.ToUpper(strs[1])])
 	}
 	// 解析serverID
-	if len(strs) > 1 {
-		serverID = cast.ToUint32(strs[1])
+	if len(strs) > 3 {
+		serverID = cast.ToUint32(strs[2])
 	}
 	// 解析玩家uid
-	if len(strs) > 2 {
-		uid = cast.ToUint64(strs[2])
+	if len(strs) > 4 {
+		uid = cast.ToUint64(strs[3])
 	}
 	return
 }

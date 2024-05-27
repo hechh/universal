@@ -63,7 +63,7 @@ func Discovery(typ pb.ServerType, addr string) error {
 	// 注册自身服务（保活，服务下线会自动删除）
 	dis.KeepAlive(GetNodeChannel(selfNode.ServerType, selfNode.ServerID), string(buf), 10)
 	// 设置监听 + 发现其他服务
-	if err := dis.Watch(GetRootDir(), watchServerNode); err != nil {
+	if err := dis.Watch(ROOT_DIR, watchServerNode); err != nil {
 		return err
 	}
 	return nil
