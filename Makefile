@@ -41,8 +41,8 @@ ifeq (${SYSTEM}, windows)
 else # linux darwin(mac)
 	protoc -I${PROTO_PATH} ${PROTO_PATH}/*.proto --go_opt paths=source_relative --go_out=${GEN_GO_PATH}
 endif 
-	gomaker -action=uerrors -src="common/pb/*pb.go" -dst="common/uerrors/" -tpl="tools/gomaker/templates"
-
+	gomaker -action=uerrors -src="common/pb/*.pb.go" -dst="common/uerrors/" -tpl="tools/gomaker/templates"
+	gomaker -action=pbclass -src="common/pb/*.pb.go" -dst="common/pb/reflect.gen.go" -tpl="tools/gomaker/templates"
 
 stop:
 	./output/run.sh stop gate

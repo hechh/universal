@@ -2,18 +2,18 @@ package fbasic
 
 import (
 	"hash/crc32"
-	"log"
 	"reflect"
 	"runtime"
 	"runtime/debug"
 	"strings"
+	"universal/framework/common/ulog"
 	"unsafe"
 )
 
 func SafeRecover(f func()) {
 	defer func() {
 		if err := recover(); err != nil {
-			log.Printf("panic: %v, stack: \n%s", err, string(debug.Stack()))
+			ulog.Error(1, "panic: %v, stack: %s", err, string(debug.Stack()))
 		}
 	}()
 
@@ -24,7 +24,7 @@ func SafeGo(f func()) {
 	go func() {
 		defer func() {
 			if err := recover(); err != nil {
-				log.Printf("panic: %v, stack: \n%s", err, string(debug.Stack()))
+				ulog.Error(1, "panic: %v, stack: %s", err, string(debug.Stack()))
 			}
 		}()
 		f()

@@ -2,7 +2,6 @@ package cluster
 
 import (
 	"universal/common/pb"
-	"universal/framework/cluster/internal/nodes"
 	"universal/framework/cluster/internal/router"
 	"universal/framework/cluster/internal/service"
 )
@@ -29,16 +28,6 @@ func GetSelfServerNode() *pb.ServerNode {
 // 服务发现
 func Discovery(typ pb.ServerType, addr string) error {
 	return service.Discovery(typ, addr)
-}
-
-// 随机路由一个服务节点
-func RandomNode(head *pb.PacketHead) *pb.ServerNode {
-	return nodes.Random(head)
-}
-
-// 获取服务节点信息
-func GetNode(srvType pb.ServerType, srvID uint32) *pb.ServerNode {
-	return nodes.Get(srvType, srvID)
 }
 
 // 玩家消息

@@ -22,10 +22,10 @@ type IMaker interface {
 
 // token类型
 const (
-	POINTER = 0x01
-	ARRAY   = 0x02
-	MAP     = 0x04
-	STRUCT  = 0x08
-	ALIAS   = 0x10
-	ENUM    = 0x20
+	ENUM    = 0x01
+	STRUCT  = 0x02
+	ALIAS   = 0x04
+	POINTER = 0x08
+	ARRAY   = 0x10
+	MAP     = 0x20
 )

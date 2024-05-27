@@ -1,11 +1,11 @@
 package router
 
 import (
-	"log"
 	"sync"
 	"sync/atomic"
 	"time"
 	"universal/framework/common/fbasic"
+	"universal/framework/common/ulog"
 )
 
 var (
@@ -13,19 +13,19 @@ var (
 )
 
 // 删除路由表
-func DelTable(uid uint64) {
+func DeleteRouteList(uid uint64) {
 	routings.Delete(uid)
 }
 
 // 获取玩家路由信息
-func GetTable(uid uint64) *RouterTable {
+func GetRouteList(uid uint64) *RouteList {
 	if val, ok := routings.Load(uid); ok {
-		vv := val.(*RouterTable)
+		vv := val.(*RouteList)
 		atomic.StoreInt64(&vv.updateTime, fbasic.GetNow())
 		return vv
 	}
 	// 新建路由表
-	rlist := &RouterTable{
+	rlist := &RouteList{
 		updateTime: fbasic.GetNow(),
 		uid:        uid,
 	}
@@ -34,24 +34,13 @@ func GetTable(uid uint64) *RouterTable {
 	return rlist
 }
 
-func Print() {
-	routings.Range(func(key, value interface{}) bool {
-		val, ok := value.(*RouterTable)
-		if !ok || val == nil {
-			return true
-		}
-		log.Println("router: ", val.String())
-		return true
-	})
-}
-
 func SetClearExpire(expire int64) {
 	go func() {
 		timer := time.NewTicker(5 * time.Second)
 		for {
 			<-timer.C
 			routings.Range(func(key, value interface{}) bool {
-				val, ok := value.(*RouterTable)
+				val, ok := value.(*RouteList)
 				if !ok || val == nil {
 					return true
 				}
@@ -65,4 +54,15 @@ func SetClearExpire(expire int64) {
 			})
 		}
 	}()
+}
+
+func Print() {
+	routings.Range(func(key, value interface{}) bool {
+		val, ok := value.(*RouteList)
+		if !ok || val == nil {
+			return true
+		}
+		ulog.Info(1, "router: %s", val.String())
+		return true
+	})
 }

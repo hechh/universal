@@ -1,13 +1,13 @@
 package framework
 
 import (
-	"log"
 	"os"
 	"os/signal"
 	"syscall"
 	"universal/common/pb"
 	"universal/framework/cluster"
 	"universal/framework/common/fbasic"
+	"universal/framework/common/ulog"
 	"universal/framework/network"
 	"universal/framework/packet"
 
@@ -84,7 +84,7 @@ func ActorHandle(ctx *fbasic.Context, buf []byte) func() {
 		// 调用接口
 		rsp, err := packet.Call(ctx, buf)
 		if err != nil {
-			log.Fatalln(err)
+			ulog.Error(1, "head: %v, error: %v", ctx.PacketHead, err)
 			return
 		}
 		// 设置返回信息
@@ -96,12 +96,12 @@ func ActorHandle(ctx *fbasic.Context, buf []byte) func() {
 		// 获取订阅key
 		key, err := cluster.GetHeadChannel(head)
 		if err != nil {
-			log.Fatalln(err)
+			ulog.Error(1, "head: %v, error: %v", head, err)
 			return
 		}
 		// 发送
 		if err := network.PublishRsp(key, head, rsp); err != nil {
-			log.Fatalln(err)
+			ulog.Error(1, "head: %v, key: %s, rsp: %v, error: %v", head, key, rsp, err)
 			return
 		}
 	}

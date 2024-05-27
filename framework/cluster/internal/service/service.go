@@ -23,12 +23,12 @@ func Close() {
 	dis.Close()
 }
 
-func GetDiscovery() domain.IDiscovery {
-	return dis
-}
-
 func GetSelfServerNode() *pb.ServerNode {
 	return selfNode
+}
+
+func GetDiscovery() domain.IDiscovery {
+	return dis
 }
 
 // 初始化
@@ -85,8 +85,8 @@ func watchServerNode(action int, key string, value string) {
 // 对玩家路由
 func Dispatcher(head *pb.PacketHead) error {
 	// 从路由表中更新
-	table := router.GetTable(head.UID)
-	if item := table.GetItem(int32(head.DstServerType)); item != nil {
+	table := router.GetRouteList(head.UID)
+	if item := table.GetRouteInfo(int32(head.DstServerType)); item != nil {
 		head.DstServerID = item.ServerID
 	}
 	// 判断服务节点是否存在
@@ -100,6 +100,6 @@ func Dispatcher(head *pb.PacketHead) error {
 	}
 	// 更新路由表
 	head.DstServerID = node.ServerID
-	table.UpdateItem(head, node)
+	table.UpdateRouteInfo(head, node)
 	return nil
 }

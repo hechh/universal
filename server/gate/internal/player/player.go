@@ -1,7 +1,6 @@
 package player
 
 import (
-	"log"
 	"net"
 	"universal/common/pb"
 	"universal/framework"
@@ -10,6 +9,7 @@ import (
 	"universal/framework/common/fbasic"
 	"universal/framework/common/socket"
 	"universal/framework/common/uerror"
+	"universal/framework/common/ulog"
 	"universal/framework/network"
 	"universal/framework/packet"
 
@@ -93,12 +93,11 @@ func (d *Player) NatsHandle(pac *pb.Packet) {
 	switch head.ApiCode & 0x01 {
 	case 1:
 		if err := d.Send(pac); err != nil {
-			log.Fatalln(err)
+			ulog.Error(1, "nats.Send error: %v", err)
 		}
 	case 0:
 		actor.Send(cast.ToString(d.uid), framework.ActorHandle, pac)
 	}
-	log.Println("player nats handler finished: ", head)
 }
 
 // 循环读取客户端请求
@@ -107,14 +106,13 @@ func (d *Player) LoopRead() {
 		// 接受数据包
 		pac, err := d.Read()
 		if err != nil {
-			log.Println("Read: ", err)
+			ulog.Error(1, "error: %v", err)
 			return
 		}
-		log.Println(pac, "---->", err)
 		// 更新head路由信息
 		head := pac.Head
 		if err := cluster.Dispatcher(head); err != nil {
-			log.Println("Dispatcher: ", head, string(pac.Buff))
+			ulog.Error(1, "head: %v, error: %v", head, err)
 			continue
 		}
 		// 转发
@@ -124,9 +122,9 @@ func (d *Player) LoopRead() {
 		}
 		// 转发到nats
 		if key, err := cluster.GetHeadChannel(head); err != nil {
-			log.Println("nats: ", err)
+			ulog.Error(1, "head: %v, error: %v", head, err)
 		} else if err = network.Publish(key, pac); err != nil {
-			log.Println("Puslish: ", err)
+			ulog.Error(1, "key: %s, error: %v", key, err)
 		}
 	}
 }

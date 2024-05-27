@@ -32,6 +32,17 @@ func NewContext(head *pb.PacketHead) *Context {
 	return &Context{PacketHead: head}
 }
 
+func (d *Context) SetReadOnly(data map[string]interface{}) {
+	d.readOnly = data
+}
+
+func (d *Context) GetValue(key string) interface{} {
+	if d.readOnly == nil {
+		return nil
+	}
+	return d.readOnly[key]
+}
+
 func (d *Context) GetTemp(key string) interface{} {
 	d.RLock()
 	defer d.RUnlock()
@@ -53,15 +64,4 @@ func (d *Context) SetTemp(key string, val interface{}) {
 		}
 	}
 	d.temps = append(d.temps, &KValue{key: key, value: val})
-}
-
-func (d *Context) SetReadOnly(data map[string]interface{}) {
-	d.readOnly = data
-}
-
-func (d *Context) GetValue(key string) interface{} {
-	if d.readOnly == nil {
-		return nil
-	}
-	return d.readOnly[key]
 }

@@ -2,11 +2,11 @@ package etcd
 
 import (
 	"context"
-	"log"
 	"time"
 	"universal/framework/cluster/domain"
 	"universal/framework/common/fbasic"
 	"universal/framework/common/uerror"
+	"universal/framework/common/ulog"
 
 	"go.etcd.io/etcd/clientv3"
 )
@@ -96,13 +96,13 @@ func (d *EtcdClient) run(watchCh clientv3.WatchChan, f domain.WatchFunc) {
 				continue
 			}
 			if err := key.KeepAliveOnce(d.client); err != nil {
-				log.Println(err)
+				ulog.Error(1, "etcd KeepAliveOnce error: %v", err)
 				d.notifyCh <- key
 				key = nil
 			}
 		case key = <-d.notifyCh:
 			if err := key.Put(d.client); err != nil {
-				log.Println(err)
+				ulog.Error(1, "etcd put error: %v", err)
 				if times >= 5 {
 					panic(err)
 				}

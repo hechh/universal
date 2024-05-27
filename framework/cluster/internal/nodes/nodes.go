@@ -3,9 +3,10 @@ package nodes
 import (
 	"encoding/json"
 	"fmt"
-	"log"
+	"sort"
 	"sync"
 	"universal/common/pb"
+	"universal/framework/common/ulog"
 )
 
 var (
@@ -25,29 +26,17 @@ func Get(srvType pb.ServerType, id uint32) *pb.ServerNode {
 	return tt.(*pb.ServerNode)
 }
 
-func Print() {
-	nodeList.Range(func(_, val interface{}) bool {
-		list, ok := val.(**pb.ServerNode)
-		if !ok || list == nil {
-			return true
-		}
-		buf, _ := json.Marshal(list)
-		log.Println(string(buf))
-		return true
-	})
-}
-
 // 删除节点
 func Delete(serverType pb.ServerType, srvID uint32) {
 	nodeList.Delete(getKey(serverType, srvID))
-	log.Printf("删除服务节点: %s-%d", serverType.String(), srvID)
+	ulog.Info(1, "删除服务节点: %s-%d", serverType.String(), srvID)
 }
 
 // 添加节点
 func Add(node *pb.ServerNode) {
 	nodeList.Store(getKey(node.ServerType, node.ServerID), node)
 	buf, _ := json.Marshal(node)
-	log.Println("新增服务节点: ", string(buf))
+	ulog.Info(1, "新增服务节点: ", string(buf))
 }
 
 // 随机路由一个节点
@@ -59,7 +48,22 @@ func Random(head *pb.PacketHead) (ret *pb.ServerNode) {
 		}
 		return true
 	})
+	sort.Slice(list, func(i, j int) bool {
+		return list[i].ServerID < list[j].ServerID
+	})
 	ret = list[int(head.UID)%len(list)]
-	log.Println("随机路由节点：", ret, head)
+	ulog.Info(1, "随机路由节点：", ret, head)
 	return
+}
+
+func Print() {
+	nodeList.Range(func(_, val interface{}) bool {
+		list, ok := val.(**pb.ServerNode)
+		if !ok || list == nil {
+			return true
+		}
+		buf, _ := json.Marshal(list)
+		ulog.Info(1, "服务节点： %s", string(buf))
+		return true
+	})
 }

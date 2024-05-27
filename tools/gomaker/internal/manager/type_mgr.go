@@ -15,20 +15,20 @@ func GetMapStruct() map[string]*types.Struct {
 	return structs
 }
 
-func GetMapEnum() map[string]*types.Enum {
-	return enums
+func GetStruct(name string) *types.Struct {
+	return structs[name]
 }
 
-func GetAlias(name string) *types.Alias {
-	return alias[name]
+func GetMapEnum() map[string]*types.Enum {
+	return enums
 }
 
 func GetEnum(name string) *types.Enum {
 	return enums[name]
 }
 
-func GetStruct(name string) *types.Struct {
-	return structs[name]
+func GetAlias(name string) *types.Alias {
+	return alias[name]
 }
 
 func AddType(data interface{}) {
@@ -66,17 +66,3 @@ func Finish() {
 		typeF(al.Reference)
 	}
 }
-
-/*
-func Print() {
-	for _, st := range structs {
-		fmt.Println(st.String())
-	}
-	for _, en := range enums {
-		fmt.Println(en.String())
-	}
-	for _, al := range alias {
-		fmt.Println(al.String())
-	}
-}
-*/
