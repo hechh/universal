@@ -6,14 +6,14 @@ import (
 	"runtime"
 	"runtime/debug"
 	"strings"
-	"universal/framework/common/ulog"
+	"universal/framework/common/plog"
 	"unsafe"
 )
 
 func SafeRecover(f func()) {
 	defer func() {
 		if err := recover(); err != nil {
-			ulog.Error(1, "panic: %v, stack: %s", err, string(debug.Stack()))
+			plog.ErrorSkip(1, "panic: %v, stack: %s", err, string(debug.Stack()))
 		}
 	}()
 
@@ -24,7 +24,7 @@ func SafeGo(f func()) {
 	go func() {
 		defer func() {
 			if err := recover(); err != nil {
-				ulog.Error(1, "panic: %v, stack: %s", err, string(debug.Stack()))
+				plog.ErrorSkip(1, "panic: %v, stack: %s", err, string(debug.Stack()))
 			}
 		}()
 		f()

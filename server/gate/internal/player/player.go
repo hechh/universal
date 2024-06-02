@@ -7,9 +7,9 @@ import (
 	"universal/framework/actor"
 	"universal/framework/cluster"
 	"universal/framework/common/fbasic"
+	"universal/framework/common/plog"
 	"universal/framework/common/socket"
 	"universal/framework/common/uerror"
-	"universal/framework/common/ulog"
 	"universal/framework/network"
 	"universal/framework/packet"
 
@@ -93,7 +93,7 @@ func (d *Player) NatsHandle(pac *pb.Packet) {
 	switch head.ApiCode & 0x01 {
 	case 1:
 		if err := d.Send(pac); err != nil {
-			ulog.Error(1, "nats.Send error: %v", err)
+			plog.ErrorSkip(1, "nats.Send error: %v", err)
 		}
 	case 0:
 		actor.Send(cast.ToString(d.uid), framework.ActorHandle, pac)
@@ -106,13 +106,13 @@ func (d *Player) LoopRead() {
 		// 接受数据包
 		pac, err := d.Read()
 		if err != nil {
-			ulog.Error(1, "error: %v", err)
+			plog.ErrorSkip(1, "error: %v", err)
 			return
 		}
 		// 更新head路由信息
 		head := pac.Head
 		if err := cluster.Dispatcher(head); err != nil {
-			ulog.Error(1, "head: %v, error: %v", head, err)
+			plog.ErrorSkip(1, "head: %v, error: %v", head, err)
 			continue
 		}
 		// 转发
@@ -122,9 +122,9 @@ func (d *Player) LoopRead() {
 		}
 		// 转发到nats
 		if key, err := cluster.GetHeadChannel(head); err != nil {
-			ulog.Error(1, "head: %v, error: %v", head, err)
+			plog.ErrorSkip(1, "head: %v, error: %v", head, err)
 		} else if err = network.Publish(key, pac); err != nil {
-			ulog.Error(1, "key: %s, error: %v", key, err)
+			plog.ErrorSkip(1, "key: %s, error: %v", key, err)
 		}
 	}
 }

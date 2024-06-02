@@ -5,7 +5,7 @@ import (
 	"sync/atomic"
 	"time"
 	"universal/framework/common/fbasic"
-	"universal/framework/common/ulog"
+	"universal/framework/common/plog"
 )
 
 var (
@@ -62,7 +62,7 @@ func Print() {
 		if !ok || val == nil {
 			return true
 		}
-		ulog.Info(1, "router: %s", val.String())
+		plog.InfoSkip(1, "router: %s", val.String())
 		return true
 	})
 }

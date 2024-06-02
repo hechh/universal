@@ -4,8 +4,8 @@ import (
 	"net/http"
 	"net/http/pprof"
 
+	"universal/framework/common/plog"
 	"universal/framework/common/uerror"
-	"universal/framework/common/ulog"
 
 	"github.com/google/gops/agent"
 )
@@ -35,7 +35,7 @@ func InitPprof(addr string) {
 	go func() {
 		server := &http.Server{Addr: addr, Handler: local}
 		if err := server.ListenAndServe(); err != nil {
-			ulog.Error(1, "pprof start failed, error: ", err)
+			plog.ErrorSkip(1, "pprof start failed, error: ", err)
 		}
 	}()
 }

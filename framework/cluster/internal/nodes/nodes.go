@@ -6,7 +6,7 @@ import (
 	"sort"
 	"sync"
 	"universal/common/pb"
-	"universal/framework/common/ulog"
+	"universal/framework/common/plog"
 )
 
 var (
@@ -29,14 +29,14 @@ func Get(srvType pb.ServerType, id uint32) *pb.ServerNode {
 // 删除节点
 func Delete(serverType pb.ServerType, srvID uint32) {
 	nodeList.Delete(getKey(serverType, srvID))
-	ulog.Info(1, "删除服务节点: %s-%d", serverType.String(), srvID)
+	plog.InfoSkip(1, "删除服务节点: %s-%d", serverType.String(), srvID)
 }
 
 // 添加节点
 func Add(node *pb.ServerNode) {
 	nodeList.Store(getKey(node.ServerType, node.ServerID), node)
 	buf, _ := json.Marshal(node)
-	ulog.Info(1, "新增服务节点: ", string(buf))
+	plog.InfoSkip(1, "新增服务节点: ", string(buf))
 }
 
 // 随机路由一个节点
@@ -52,7 +52,7 @@ func Random(head *pb.PacketHead) (ret *pb.ServerNode) {
 		return list[i].ServerID < list[j].ServerID
 	})
 	ret = list[int(head.UID)%len(list)]
-	ulog.Info(1, "随机路由节点：", ret, head)
+	plog.InfoSkip(1, "随机路由节点：", ret, head)
 	return
 }
 
@@ -63,7 +63,7 @@ func Print() {
 			return true
 		}
 		buf, _ := json.Marshal(list)
-		ulog.Info(1, "服务节点： %s", string(buf))
+		plog.InfoSkip(1, "服务节点： %s", string(buf))
 		return true
 	})
 }
