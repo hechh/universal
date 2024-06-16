@@ -1,12 +1,10 @@
-package async
+package actor
 
 import (
 	"sync/atomic"
-	"universal/framework_new/common/queue"
+	"universal/framework/base"
+	"universal/framework/common/queue"
 )
-
-// actor唯一id分配器
-var seedId uint64
 
 const (
 	STATUS_RUN  = 1
@@ -23,7 +21,7 @@ type Async struct {
 
 func NewAsync() *Async {
 	return &Async{
-		id:     atomic.AddUint64(&seedId, 1),
+		id:     base.AssignUUID(),
 		tasks:  queue.NewQueue(),
 		pushCh: make(chan struct{}, 1),
 		exitCh: make(chan struct{}, 0),

@@ -3,7 +3,7 @@ package test
 import (
 	"testing"
 	"time"
-	"universal/framework_new/plog"
+	"universal/framework/common/plog"
 )
 
 func TestMain(m *testing.M) {

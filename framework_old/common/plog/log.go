@@ -1,59 +1,57 @@
 package plog
 
-import (
-	"fmt"
-	"time"
-	"universal/framework_new/common/base"
-)
-
 const (
-	LOG_TRACE  = 0x01
-	LOG_DEBUG  = 0x02
-	LOG_WARN   = 0x04
-	LOG_INFO   = 0x08
-	LOG_ERROR  = 0x10
-	LOG_FATAL  = 0x20
-	LOG_DEFAUL = LOG_INFO | LOG_ERROR | LOG_FATAL
-	LOG_ALL    = 0xff
+	LOG_TRACE = 0x01
+	LOG_DEBUG = 0x02
+	LOG_WARN  = 0x04
+	LOG_INFO  = 0x08
+	LOG_ERROR = 0x10
+	LOG_FATAL = 0x20
+	LOG_ALL   = 0xff
 )
 
-func LevelToString(level uint32) string {
-	switch level {
-	case LOG_TRACE:
-		return "TRACE"
-	case LOG_DEBUG:
-		return "DEBUG"
-	case LOG_WARN:
-		return "WARN"
-	case LOG_INFO:
-		return "INFO"
-	case LOG_ERROR:
-		return "ERROR"
-	case LOG_FATAL:
-		return "FATAL"
+type Op struct {
+	serverId int
+	level    uint32
+	path     string
+}
+
+type OpOption func(*Op)
+
+func (d *Op) applyOpts(opts ...OpOption) {
+	for _, f := range opts {
+		f(d)
 	}
-	return ""
+}
+
+func WithServerId(id int) OpOption {
+	return func(op *Op) {
+		op.serverId = id
+	}
+}
+
+func WithLevel(level uint32) OpOption {
+	return func(op *Op) {
+		op.level = level
+	}
+}
+
+func WithPath(path string) OpOption {
+	return func(op *Op) {
+		op.path = path
+	}
 }
 
 var (
 	logger *Logger
-	stdout *Stdout
 )
 
 func init() {
-	logger = NewLogger(LOG_ALL, 0, "", NewWriter(0, "", "log"))
-	stdout = NewStdout()
+	logger = &Logger{level: uint32(LOG_ALL), w: NewWriter("./log", "")}
 }
 
-func Init(level uint32, id int32, name, path string) {
-	logger = NewLogger(level, id, name, NewWriter(id, name, path))
-}
-
-func Gout(format string, args ...interface{}) {
-	// 获取调用堆栈
-	msg := fmt.Sprintf(format, args...)
-	msg = fmt.Sprintf("[%s][%s] %s", time.Now().Format("2006-01-02 15:04:05.000"), logger.ToString(), msg)
-	stdout.Write(base.StringToBytes(msg))
+func Init(srvName string, opts ...OpOption) {
+	logger = NewLogger(srvName, opts...)
 }
 
 func Trace(format string, args ...interface{}) {
