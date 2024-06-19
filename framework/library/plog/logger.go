@@ -1,12 +1,13 @@
 package plog
 
 import (
+	"bytes"
 	"fmt"
 	"path"
 	"runtime"
+	"strconv"
 	"sync/atomic"
 	"time"
-	"universal/framework/base"
 )
 
 type IWriter interface {
@@ -84,7 +85,24 @@ func (d *Logger) output(skip int, level uint32, msg string) {
 	funcName := path.Base(runtime.FuncForPC(pc).Name())
 	// 格式化输出
 	tt := time.Now()
-	data := fmt.Sprintf("[%s][%s][%s%02d] [%s:%d %s] %s\n", tt.Format("2006-01-02 15:04:05.000"), LevelToString(level), d.serverName, d.serverId, file, line, funcName, msg)
+	var builder bytes.Buffer
+	builder.WriteString("[")
+	builder.WriteString(tt.Format("2006-01-02 15:04:05.999"))
+	builder.WriteString("] [")
+	builder.WriteString(d.serverName)
+	builder.WriteString(":")
+	builder.WriteString(strconv.Itoa(int(d.serverId)))
+	builder.WriteString("] [")
+	builder.WriteString(levelToString(level))
+	builder.WriteString("]\t")
+	builder.WriteString(file)
+	builder.WriteString(":")
+	builder.WriteString(strconv.Itoa(line))
+	builder.WriteString("\t")
+	builder.WriteString(funcName)
+	builder.WriteString("\t")
+	builder.WriteString(msg)
+	builder.WriteString("\n")
 	// 日志文件
-	d.w.Write(tt, base.StringToBytes(data))
+	d.w.Write(tt, builder.Bytes())
 }

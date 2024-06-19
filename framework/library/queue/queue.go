@@ -32,6 +32,7 @@ func (d *Queue) Push(val interface{}) {
 	atomic.AddInt64(&d.count, 1)
 }
 
+// 单协程安全
 func (d *Queue) Pop() interface{} {
 	// 读取一个节点
 	node := (*node)(atomic.LoadPointer((*unsafe.Pointer)(unsafe.Pointer(&d.head.next))))

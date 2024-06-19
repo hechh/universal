@@ -7,7 +7,6 @@ import (
 	"path"
 	"sync"
 	"time"
-	"universal/framework/base"
 )
 
 type metaData struct {
@@ -98,7 +97,7 @@ func (d *Writer) push(tt time.Time, msg []byte) {
 			d.fb = nil
 		}
 		// 切换文件
-		if tmpFb, err := base.NewFile(fileName); err != nil {
+		if tmpFb, err := newFile(fileName); err != nil {
 			return
 		} else {
 			d.fileName = fileName
@@ -114,10 +113,10 @@ func (d *Writer) push(tt time.Time, msg []byte) {
 
 func (d *Writer) flush() {
 	// 判断文件是否已经被删除
-	if d.fb != nil && !base.SameFile(d.fb, d.fileName) {
+	if d.fb != nil && !sameFile(d.fb, d.fileName) {
 		d.fb.Close()
 		d.fb = nil
-		if tmpFb, err := base.NewFile(d.fileName); err != nil {
+		if tmpFb, err := newFile(d.fileName); err != nil {
 			return
 		} else {
 			d.fb = tmpFb
@@ -135,4 +134,28 @@ func getFileName(tt time.Time, id int32, name, fpath string) string {
 		return path.Clean(fmt.Sprintf("%s/%04d%02d%02d/%s-%02d-%02d.log", fpath, tt.Year(), tt.Month(), tt.Day(), name, id, tt.Hour()))
 	}
 	return path.Clean(fmt.Sprintf("%s/%04d%02d%02d/%02d-%02d.log", fpath, tt.Year(), tt.Month(), tt.Day(), id, tt.Hour()))
+}
+
+func newFile(fileName string) (fb *os.File, err error) {
+	// 判断路径是否存在
+	pp := path.Dir(fileName)
+	if _, err = os.Stat(pp); os.IsNotExist(err) {
+		if err := os.MkdirAll(pp, os.FileMode(0755)); err != nil {
+			return nil, err
+		}
+	}
+	// 创建文件
+	if fb, err = os.OpenFile(fileName, os.O_CREATE|os.O_APPEND|os.O_RDWR, 0644); err != nil {
+		return nil, err
+	}
+	return
+}
+
+func sameFile(fb *os.File, name string) bool {
+	st2, err := os.Stat(name)
+	if err != nil {
+		return false
+	}
+	st1, _ := fb.Stat()
+	return os.SameFile(st1, st2)
 }

@@ -3,7 +3,6 @@ package plog
 import (
 	"fmt"
 	"time"
-	"universal/framework/base"
 )
 
 const (
@@ -17,7 +16,7 @@ const (
 	LOG_ALL    = 0xff
 )
 
-func LevelToString(level uint32) string {
+func levelToString(level uint32) string {
 	switch level {
 	case LOG_TRACE:
 		return "TRACE"
@@ -53,7 +52,7 @@ func Gout(format string, args ...interface{}) {
 	// 获取调用堆栈
 	msg := fmt.Sprintf(format, args...)
 	msg = fmt.Sprintf("[%s][%s] %s", time.Now().Format("2006-01-02 15:04:05.000"), logger.ToString(), msg)
-	stdout.Write(base.StringToBytes(msg))
+	stdout.Write([]byte(msg))
 }
 
 func Trace(format string, args ...interface{}) {
