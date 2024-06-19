@@ -69,7 +69,7 @@ func ZigzagInt64Decode(n uint64) int64 {
 }
 
 // Variant编码
-func VariantUint64Encode(value uint64, buf []byte) {
+func VariantUint64Encode(value uint64) (buf []byte) {
 	for {
 		b := byte(value & 0x7f)
 		value >>= 7
@@ -81,6 +81,7 @@ func VariantUint64Encode(value uint64, buf []byte) {
 			break
 		}
 	}
+	return
 }
 
 // Variant解码
