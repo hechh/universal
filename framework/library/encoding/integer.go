@@ -9,6 +9,12 @@ package encoding
 
 func IntegerEncode(vv interface{}) (buf []byte) {
 	switch value := vv.(type) {
+	case uint8:
+		buf = append(buf, byte((DataTypeUint8<<4)&0xf0))
+		buf = append(buf, byte(value))
+	case int8:
+		buf = append(buf, byte((DataTypeInt8<<4)&0xf0))
+		buf = append(buf, byte(value))
 	case int16:
 		val := uint16((value << 1) ^ (value >> 15))
 		if val>>14 != 0 {
@@ -67,6 +73,10 @@ func IntegerEncode(vv interface{}) (buf []byte) {
 func IntegerDecode(buf []byte) interface{} {
 	wireType := WireType((buf[0] >> 2) & 0x01)
 	switch DataType(buf[0] >> 4) {
+	case DataTypeInt8:
+		return int8(buf[1])
+	case DataTypeUint8:
+		return uint8(buf[1])
 	case DataTypeInt16:
 		if wireType == WireTypeVariant {
 			val := uint16(VariantUint64Decode(buf[1:]))
