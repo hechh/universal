@@ -5,11 +5,11 @@ import "math"
 /*
 * |0001 0000| 					bool类型(1 byte): 无编码类型，第一位bit表示bool值
 * |dddd 0000|--1byte--| 		int8、uint8类型：无编码类型。
-* |dddd 0000|--<=2byte--|		int16、uint16类型：当val>>14 等于0时, 采用variant编码，否则采用16bit编码
-* |dddd xx00|--<=4byte--|		int32、uint32类型：当val>>28 等于0时，采用variant编码，否则采用32bit编码
-* |dddd xx00|--<=8byte--|		int64、uint64类型：当val>>56 等于0时，采用variant编码，否则采用64bit编码
-* |1010 0000|--4byte--|			float32类型：固定编码类型，直接采用32bit编码
-* |1011 0000|--8byte--|			float64类型：固定编码类型，直接采用64bit编码
+* |dddd 00xx|--<=2byte--|		int16、uint16类型：当val>>14 等于0时, 采用variant编码，否则采用16bit编码
+* |dddd 00xx|--<=4byte--|		int32、uint32类型：当val>>28 等于0时，采用variant编码，否则采用32bit编码
+* |dddd 00xx|--<=8byte--|		int64、uint64类型：当val>>56 等于0时，采用variant编码，否则采用64bit编码
+* |1010 00xx|--4byte--|			float32类型：固定编码类型，直接采用32bit编码
+* |1011 00xx|--8byte--|			float64类型：固定编码类型，直接采用64bit编码
  */
 
 func BytesToUint64(buf []byte) (val uint64) {
