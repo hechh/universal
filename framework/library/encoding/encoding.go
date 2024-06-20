@@ -14,7 +14,7 @@ package encoding
 * |1110 xxxx|xxxx xxxx|--变长--| proto类型：无编码类型，12bit的长度，最大长度限制4095
  */
 
-type WireType uint8
+type WireType uint64
 
 const (
 	WireTypeVariant WireType = 0
@@ -23,7 +23,7 @@ const (
 	WireType64Bit   WireType = 3
 )
 
-type DataType uint8
+type DataType uint64
 
 const (
 	DataTypeBool    DataType = 1
