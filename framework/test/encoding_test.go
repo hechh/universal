@@ -15,6 +15,7 @@ func TestEncoding(t *testing.T) {
 			if vv, ok := results.(bool); !ok || vv != true {
 				t.Log(true, vv, num)
 			}
+			t.Log("----pass---->", true, "num: ", num)
 		}
 
 		// false测试
@@ -25,6 +26,29 @@ func TestEncoding(t *testing.T) {
 			if vv, ok := result.(bool); !ok || vv != false {
 				t.Log(false, vv, num)
 			}
+			t.Log("----pass---->", false, "num: ", num)
+		}
+	})
+	t.Run("int8", func(t *testing.T) {
+		value := int8(-127)
+		if buf, err := encoding.Encode(value); err != nil {
+			t.Log("int8", err)
+		} else {
+			result, num := encoding.Decode(buf)
+			if vv, ok := result.(int8); !ok || vv != value {
+				t.Log(value, vv, num, "---->", buf)
+			}
+			t.Log("----pass---->", value, "num: ", num)
+		}
+		value = int8(127)
+		if buf, err := encoding.Encode(value); err != nil {
+			t.Log("int8", err)
+		} else {
+			result, num := encoding.Decode(buf)
+			if vv, ok := result.(int8); !ok || vv != value {
+				t.Log(value, vv, num, "---->", buf)
+			}
+			t.Log("----pass---->", value, "num: ", num)
 		}
 	})
 	t.Run("int16", func(t *testing.T) {
@@ -36,6 +60,7 @@ func TestEncoding(t *testing.T) {
 			if vv, ok := result.(int16); !ok || vv != value {
 				t.Log(value, vv, num, "---->", buf)
 			}
+			t.Log("----pass---->", value, "num: ", num)
 		}
 		value = int16(127)
 		if buf, err := encoding.Encode(value); err != nil {
@@ -45,6 +70,51 @@ func TestEncoding(t *testing.T) {
 			if vv, ok := result.(int16); !ok || vv != value {
 				t.Log(value, vv, num, "---->", buf)
 			}
+			t.Log("----pass---->", value, "num: ", num)
+		}
+	})
+	t.Run("int32", func(t *testing.T) {
+		value := int32(2147483647)
+		if buf, err := encoding.Encode(value); err != nil {
+			t.Log("int16", err)
+		} else {
+			result, num := encoding.Decode(buf)
+			if vv, ok := result.(int32); !ok || vv != value {
+				t.Log(value, vv, num, "---->", buf)
+			}
+			t.Log("----pass---->", value, "num: ", num)
+		}
+		value = int32(127)
+		if buf, err := encoding.Encode(value); err != nil {
+			t.Log("int16", err)
+		} else {
+			result, num := encoding.Decode(buf)
+			if vv, ok := result.(int32); !ok || vv != value {
+				t.Log(value, vv, num, "---->", buf)
+			}
+			t.Log("----pass---->", value, "num: ", num)
+		}
+	})
+	t.Run("int64", func(t *testing.T) {
+		value := int64(0x7fffffffffffffff)
+		if buf, err := encoding.Encode(value); err != nil {
+			t.Log("int16", err)
+		} else {
+			result, num := encoding.Decode(buf)
+			if vv, ok := result.(int64); !ok || vv != value {
+				t.Log(value, vv, num, "---->", buf)
+			}
+			t.Log("----pass---->", value, "num: ", num)
+		}
+		value = int64(127)
+		if buf, err := encoding.Encode(value); err != nil {
+			t.Log("int16", err)
+		} else {
+			result, num := encoding.Decode(buf)
+			if vv, ok := result.(int64); !ok || vv != value {
+				t.Log(value, vv, num, "---->", buf)
+			}
+			t.Log("----pass---->", value, "num: ", num)
 		}
 	})
 }
