@@ -117,4 +117,92 @@ func TestEncoding(t *testing.T) {
 			t.Log("----pass---->", value, "num: ", num)
 		}
 	})
+	t.Run("[]byte", func(t *testing.T) {
+		value := []byte{1, 2, 3, 4, 5, 6, 7}
+		if buf, err := encoding.Encode(value); err != nil {
+			t.Log("int16", err)
+			return
+		} else {
+			result, num := encoding.Decode(buf)
+			if vv, ok := result.([]byte); !ok {
+				t.Log(value, vv, num, "---->", buf)
+				return
+			} else {
+				for i, elem := range value {
+					if elem != vv[i] {
+						t.Log(value, vv, num, "---->", buf)
+						return
+					}
+				}
+			}
+			t.Log("----pass---->", value, "num: ", num)
+		}
+
+		value = []byte{
+			1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
+			1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
+			1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
+			1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
+			1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
+			1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
+			1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
+		}
+		if buf, err := encoding.Encode(value); err != nil {
+			t.Log("int16", err)
+			return
+		} else {
+			result, num := encoding.Decode(buf)
+			if vv, ok := result.([]byte); !ok {
+				t.Log(value, vv, num, "---->", buf)
+				return
+			} else {
+				for i, elem := range value {
+					if elem != vv[i] {
+						t.Log(value, vv, num, "---->", buf)
+						return
+					}
+				}
+			}
+			t.Log("----pass---->", value, "num: ", num)
+		}
+	})
+	t.Run("string", func(t *testing.T) {
+		value := "this is a"
+		if buf, err := encoding.Encode(value); err != nil {
+			t.Log("int16", err)
+		} else {
+			result, num := encoding.Decode(buf)
+			if vv, ok := result.(string); !ok || len(value) != len(vv) {
+				t.Log(value, vv, num, "---->", buf)
+				return
+			} else {
+				for i, elem := range value {
+					if elem != rune(vv[i]) {
+						t.Log(value, vv, num, "---->", buf)
+						return
+					}
+				}
+			}
+			t.Log("----pass---->", value, "num: ", num)
+		}
+
+		value = "asdfaksdfja;ksjdf;laksjdf;akjdf;lkajsd;fkja;skdfj;alksjdfaksjdfa;lkjdf;akjdf;alksjdf;kajsd;fkja;sdfj;askdjf;aksjdf;a"
+		if buf, err := encoding.Encode(value); err != nil {
+			t.Log("int16", err)
+			return
+		} else {
+			result, num := encoding.Decode(buf)
+			if vv, ok := result.(string); !ok || len(value) != len(vv) {
+				t.Log(value, vv, num, "---->", buf)
+			} else {
+				for i, elem := range value {
+					if elem != rune(vv[i]) {
+						t.Log(value, vv, num, "---->", buf)
+						return
+					}
+				}
+			}
+			t.Log("----pass---->", value, "num: ", num)
+		}
+	})
 }

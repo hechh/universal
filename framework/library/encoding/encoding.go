@@ -54,6 +54,8 @@ const (
 	DataTypeBytes   = 1
 	DataTypeString  = 2
 	DataTypeProto   = 3
+	FLAG_BIT13      = (0x02 << 4)
+	MASK_BIT5       = 1<<5 - 1
 )
 
 func GetProtoName(packet proto.Message) string {
@@ -310,6 +312,16 @@ func Decode(buf []byte) (ret interface{}, shift int) {
 			}
 		}
 	case DataTypeBytes:
+		shift = 1
+		ll := int(buf[0] & MASK_BIT5)
+		if FLAG_BIT13&buf[0] != 0 {
+			ll = (ll << 8) | int(buf[1])
+			shift++
+		}
+		result := make([]byte, ll)
+		copy(result, buf[shift:shift+ll])
+		ret = result
+		shift += ll
 	case DataTypeString:
 	case DataTypeProto:
 	}
