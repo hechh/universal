@@ -49,15 +49,17 @@ import (
  */
 
 const (
-	WireTypeNone    = 0
-	WireTypeByte    = 1
-	WireTypeVariant = 2
-	DataTypeIdent   = 0
-	DataTypeBytes   = 1
-	DataTypeString  = 2
-	DataTypeProto   = 3
-	SIZE_FLAG_BIT6  = (1 << 5)
-	MASK_BIT5       = 1<<5 - 1
+	DATA_TYPE_MASK  = 3 << 6
+	DataTypeIdent   = 0x00
+	DataTypeBytes   = 0x40
+	DataTypeString  = 0x80
+	DataTypeProto   = 0xC0
+	WIRE_TYPE_MASK  = 3 << 4
+	WireTypeNone    = 0x00
+	WireTypeByte    = 0x10
+	WireTypeVariant = 0x20
+	SIZE_FLAG_MASK  = (1 << 5)
+	DATA_SIZE_MASK  = 1<<5 - 1
 )
 
 var (
@@ -250,9 +252,9 @@ func Encode(vv interface{}) (buf []byte, err error) {
 }
 
 func Decode(buf []byte) (ret interface{}, shift int, err error) {
-	switch buf[0] >> 6 {
+	switch buf[0] & DATA_TYPE_MASK {
 	case DataTypeIdent:
-		switch (buf[0] >> 4) & 0x03 {
+		switch buf[0] & WIRE_TYPE_MASK {
 		case WireTypeNone:
 			switch buf[0] & 0x0f {
 			case 0x00:
@@ -335,8 +337,8 @@ func Decode(buf []byte) (ret interface{}, shift int, err error) {
 		}
 	case DataTypeBytes:
 		shift = 1
-		ll := int(buf[0] & MASK_BIT5)
-		if SIZE_FLAG_BIT6&buf[0] != 0 {
+		ll := int(buf[0] & DATA_SIZE_MASK)
+		if SIZE_FLAG_MASK&buf[0] != 0 {
 			ll = (ll << 8) | int(buf[1])
 			shift++
 		}
@@ -346,8 +348,8 @@ func Decode(buf []byte) (ret interface{}, shift int, err error) {
 		shift += ll
 	case DataTypeString:
 		shift = 1
-		ll := int(buf[0] & MASK_BIT5)
-		if SIZE_FLAG_BIT6&buf[0] != 0 {
+		ll := int(buf[0] & DATA_SIZE_MASK)
+		if SIZE_FLAG_MASK&buf[0] != 0 {
 			ll = (ll << 8) | int(buf[1])
 			shift++
 		}
@@ -360,8 +362,8 @@ func Decode(buf []byte) (ret interface{}, shift int, err error) {
 
 	case DataTypeProto:
 		shift = 5
-		ll := int(buf[0] & MASK_BIT5)
-		if SIZE_FLAG_BIT6&buf[0] != 0 {
+		ll := int(buf[0] & DATA_SIZE_MASK)
+		if SIZE_FLAG_MASK&buf[0] != 0 {
 			ll = (ll << 8) | int(buf[1])
 			shift++
 		}

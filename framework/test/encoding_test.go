@@ -212,7 +212,24 @@ func TestEncoding(t *testing.T) {
 		}
 	})
 	t.Run("proto", func(t *testing.T) {
-		value := &pb.RpcHead{Code: 123234123, ErrMsg: "this is a testsfeasdfasdfasdfasdfasdfadfadfadfadfadfadfasdfasdfasdfasdfasdfasdfasdf"}
+		value := &pb.RpcHead{Code: 123234123, ErrMsg: "this"}
+		if buf, err := encoding.Encode(value); err != nil {
+			t.Log("int16", err)
+		} else {
+			result, num, _ := encoding.Decode(buf)
+			if vv, ok := result.(*pb.RpcHead); !ok || vv == nil {
+				t.Log(value, vv, num, "---->", buf)
+				return
+			} else {
+				if value.Code != vv.Code || value.ErrMsg != vv.ErrMsg {
+					t.Log(value, vv, num, "---->", buf)
+					return
+				}
+			}
+			t.Log("----pass---->", value, "num: ", num)
+		}
+
+		value = &pb.RpcHead{Code: 123234123, ErrMsg: "this is a testsfeasdfasdfasdfasdfasdfadfadfadfadfadfadfasdfasdfasdfasdfasdfasdfasdf"}
 		if buf, err := encoding.Encode(value); err != nil {
 			t.Log("int16", err)
 		} else {
