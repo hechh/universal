@@ -4,7 +4,9 @@ import (
 	"fmt"
 	"hash/crc32"
 	"math"
+	"reflect"
 	"strings"
+	"unsafe"
 
 	"github.com/golang/protobuf/proto"
 )
@@ -54,11 +56,21 @@ const (
 	DataTypeBytes   = 1
 	DataTypeString  = 2
 	DataTypeProto   = 3
-	FLAG_BIT13      = (0x02 << 4)
+	SIZE_FLAG_BIT6  = (1 << 5)
 	MASK_BIT5       = 1<<5 - 1
 )
 
-func GetProtoName(packet proto.Message) string {
+var (
+	protos = make(map[uint32]reflect.Type)
+)
+
+func RegisterProto(aa proto.Message) {
+	name := getProtoName(aa)
+	crc := crc32.ChecksumIEEE([]byte(name))
+	protos[crc] = reflect.TypeOf(aa).Elem()
+}
+
+func getProtoName(packet proto.Message) string {
 	sType := proto.MessageName(packet)
 	index := strings.Index(sType, ".")
 	if index != -1 {
@@ -81,8 +93,18 @@ func Uint64ToBytes(val uint64) (buf []byte) {
 	return
 }
 
+// Zigzag编码
+func ZigzagInt64Encode(n int64) uint64 {
+	return uint64((n << 1) ^ (n >> 63))
+}
+
+// Zigzag解码
+func ZigzagInt64Decode(n uint64) int64 {
+	return int64((n >> 1) ^ -(n & 1))
+}
+
 // Variant编码
-func VariantUint64Encode(value uint64) (buf []byte) {
+func VariantEncode(value uint64) (buf []byte) {
 	for {
 		b := byte(value & 0x7f)
 		value >>= 7
@@ -98,7 +120,7 @@ func VariantUint64Encode(value uint64) (buf []byte) {
 }
 
 // Variant解码
-func VariantUint64Decode(data []byte) (value uint64, num int) {
+func VariantDecode(data []byte) (value uint64, num int) {
 	var shift uint
 	for _, b := range data {
 		num++
@@ -129,7 +151,7 @@ func Encode(vv interface{}) (buf []byte, err error) {
 			buf = append(buf, Uint64ToBytes(uint64(value))...)
 		} else {
 			buf = append(buf, 0x20)
-			buf = append(buf, VariantUint64Encode(uint64(value))...)
+			buf = append(buf, VariantEncode(uint64(value))...)
 		}
 	case int16:
 		if value>>14 != 0 {
@@ -138,7 +160,7 @@ func Encode(vv interface{}) (buf []byte, err error) {
 		} else {
 			val := uint16((value << 1) ^ (value >> 15))
 			buf = append(buf, 0x21)
-			buf = append(buf, VariantUint64Encode(uint64(val))...)
+			buf = append(buf, VariantEncode(uint64(val))...)
 		}
 	case uint32:
 		if value>>28 != 0 {
@@ -146,7 +168,7 @@ func Encode(vv interface{}) (buf []byte, err error) {
 			buf = append(buf, Uint64ToBytes(uint64(value))...)
 		} else {
 			buf = append(buf, 0x22)
-			buf = append(buf, VariantUint64Encode(uint64(value))...)
+			buf = append(buf, VariantEncode(uint64(value))...)
 		}
 	case int32:
 		if value>>28 != 0 {
@@ -155,7 +177,7 @@ func Encode(vv interface{}) (buf []byte, err error) {
 		} else {
 			val := uint32((value << 1) ^ (value >> 31))
 			buf = append(buf, 0x23)
-			buf = append(buf, VariantUint64Encode(uint64(val))...)
+			buf = append(buf, VariantEncode(uint64(val))...)
 		}
 	case uint64:
 		if value>>56 != 0 {
@@ -163,7 +185,7 @@ func Encode(vv interface{}) (buf []byte, err error) {
 			buf = append(buf, Uint64ToBytes(value)...)
 		} else {
 			buf = append(buf, 0x24)
-			buf = append(buf, VariantUint64Encode(value)...)
+			buf = append(buf, VariantEncode(value)...)
 		}
 	case int64:
 		if value>>56 != 0 {
@@ -172,7 +194,7 @@ func Encode(vv interface{}) (buf []byte, err error) {
 		} else {
 			val := uint64((value << 1) ^ (value >> 63))
 			buf = append(buf, 0x25)
-			buf = append(buf, VariantUint64Encode(val)...)
+			buf = append(buf, VariantEncode(val)...)
 		}
 	case float32:
 		if val := math.Float32bits(value); val>>28 != 0 {
@@ -180,7 +202,7 @@ func Encode(vv interface{}) (buf []byte, err error) {
 			buf = append(buf, Uint64ToBytes(uint64(val))...)
 		} else {
 			buf = append(buf, 0x26)
-			buf = append(buf, VariantUint64Encode(uint64(val))...)
+			buf = append(buf, VariantEncode(uint64(val))...)
 		}
 	case float64:
 		if val := math.Float64bits(value); val>>56 != 0 {
@@ -188,7 +210,7 @@ func Encode(vv interface{}) (buf []byte, err error) {
 			buf = append(buf, Uint64ToBytes(val)...)
 		} else {
 			buf = append(buf, 0x27)
-			buf = append(buf, VariantUint64Encode(val)...)
+			buf = append(buf, VariantEncode(val)...)
 		}
 	case []byte:
 		if ll := uint64(len(value)); ll > 0x1fff {
@@ -220,14 +242,14 @@ func Encode(vv interface{}) (buf []byte, err error) {
 		} else {
 			buf = append(buf, 0xE0|uint8(ll>>8), uint8(ll))
 		}
-		crcVal := crc32.ChecksumIEEE([]byte(GetProtoName(value)))
+		crcVal := crc32.ChecksumIEEE([]byte(getProtoName(value)))
 		buf = append(buf, Uint64ToBytes(uint64(crcVal))...)
 		buf = append(buf, bb...)
 	}
 	return
 }
 
-func Decode(buf []byte) (ret interface{}, shift int) {
+func Decode(buf []byte) (ret interface{}, shift int, err error) {
 	switch buf[0] >> 6 {
 	case DataTypeIdent:
 		switch (buf[0] >> 4) & 0x03 {
@@ -278,35 +300,35 @@ func Decode(buf []byte) (ret interface{}, shift int) {
 		case WireTypeVariant:
 			switch buf[0] & 0x0f {
 			case 0x00:
-				val, num := VariantUint64Decode(buf[1:])
+				val, num := VariantDecode(buf[1:])
 				ret = uint16(val)
 				shift = num + 1
 			case 0x01:
-				val, num := VariantUint64Decode(buf[1:])
+				val, num := VariantDecode(buf[1:])
 				ret = int16((val >> 1) ^ -(val & 1))
 				shift = num + 1
 			case 0x02:
-				val, num := VariantUint64Decode(buf[1:])
+				val, num := VariantDecode(buf[1:])
 				ret = uint32(val)
 				shift = num + 1
 			case 0x03:
-				val, num := VariantUint64Decode(buf[1:])
+				val, num := VariantDecode(buf[1:])
 				ret = int32((uint32(val) >> 1) ^ -(uint32(val) & 1))
 				shift = num + 1
 			case 0x04:
-				val, num := VariantUint64Decode(buf[1:])
+				val, num := VariantDecode(buf[1:])
 				ret = val
 				shift = num + 1
 			case 0x05:
-				val, num := VariantUint64Decode(buf[1:])
+				val, num := VariantDecode(buf[1:])
 				ret = int64((val >> 1) ^ -(val & 1))
 				shift = num + 1
 			case 0x06:
-				val, num := VariantUint64Decode(buf[1:])
+				val, num := VariantDecode(buf[1:])
 				ret = math.Float32frombits(uint32(val))
 				shift = num + 1
 			case 0x07:
-				val, num := VariantUint64Decode(buf[1:])
+				val, num := VariantDecode(buf[1:])
 				ret = math.Float64frombits(val)
 				shift = num + 1
 			}
@@ -314,7 +336,7 @@ func Decode(buf []byte) (ret interface{}, shift int) {
 	case DataTypeBytes:
 		shift = 1
 		ll := int(buf[0] & MASK_BIT5)
-		if FLAG_BIT13&buf[0] != 0 {
+		if SIZE_FLAG_BIT6&buf[0] != 0 {
 			ll = (ll << 8) | int(buf[1])
 			shift++
 		}
@@ -323,33 +345,40 @@ func Decode(buf []byte) (ret interface{}, shift int) {
 		ret = result
 		shift += ll
 	case DataTypeString:
+		shift = 1
+		ll := int(buf[0] & MASK_BIT5)
+		if SIZE_FLAG_BIT6&buf[0] != 0 {
+			ll = (ll << 8) | int(buf[1])
+			shift++
+		}
+		result := make([]byte, ll)
+		copy(result, buf[shift:shift+ll])
+		b := *(*reflect.SliceHeader)(unsafe.Pointer(&result))
+		s := &reflect.StringHeader{Data: b.Data, Len: b.Len}
+		ret = *(*string)(unsafe.Pointer(s))
+		shift += ll
+
 	case DataTypeProto:
+		shift = 5
+		ll := int(buf[0] & MASK_BIT5)
+		if SIZE_FLAG_BIT6&buf[0] != 0 {
+			ll = (ll << 8) | int(buf[1])
+			shift++
+		}
+		// 获取crc
+		crc := uint32(BytesToUint64(buf, shift-4, 4))
+		tt, ok := protos[crc]
+		if !ok {
+			err = fmt.Errorf("crc32(%d) not supported", crc)
+			return
+		}
+		// 创建对象
+		result := reflect.New(tt).Interface().(proto.Message)
+		if err = proto.Unmarshal(buf[shift:shift+ll], result); err != nil {
+			return
+		}
+		ret = result
+		shift += ll
 	}
 	return
-}
-
-// Zigzag编码
-func ZigzagInt16Encode(n int16) uint16 {
-	return uint16((n << 1) ^ (n >> 15))
-}
-
-func ZigzagInt32Encode(n int32) uint32 {
-	return uint32((n << 1) ^ (n >> 31))
-}
-
-func ZigzagInt64Encode(n int64) uint64 {
-	return uint64((n << 1) ^ (n >> 63))
-}
-
-// Zigzag解码
-func ZigzagInt16Decode(n uint16) int16 {
-	return int16((n >> 1) ^ -(n & 1))
-}
-
-func ZigzagInt32Decode(n uint32) int32 {
-	return int32((n >> 1) ^ -(n & 1))
-}
-
-func ZigzagInt64Decode(n uint64) int64 {
-	return int64((n >> 1) ^ -(n & 1))
 }

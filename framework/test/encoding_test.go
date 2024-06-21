@@ -2,8 +2,14 @@ package test
 
 import (
 	"testing"
+	"universal/common/pb"
 	"universal/framework/library/encoding"
 )
+
+func TestMain(m *testing.M) {
+	encoding.RegisterProto(&pb.RpcHead{})
+	m.Run()
+}
 
 func TestEncoding(t *testing.T) {
 	t.Run("bool", func(t *testing.T) {
@@ -11,7 +17,7 @@ func TestEncoding(t *testing.T) {
 		if buf, err := encoding.Encode(true); err != nil {
 			t.Log("bool", err)
 		} else {
-			results, num := encoding.Decode(buf)
+			results, num, _ := encoding.Decode(buf)
 			if vv, ok := results.(bool); !ok || vv != true {
 				t.Log(true, vv, num)
 			}
@@ -22,7 +28,7 @@ func TestEncoding(t *testing.T) {
 		if buf, err := encoding.Encode(false); err != nil {
 			t.Log("bool", err)
 		} else {
-			result, num := encoding.Decode(buf)
+			result, num, _ := encoding.Decode(buf)
 			if vv, ok := result.(bool); !ok || vv != false {
 				t.Log(false, vv, num)
 			}
@@ -34,7 +40,7 @@ func TestEncoding(t *testing.T) {
 		if buf, err := encoding.Encode(value); err != nil {
 			t.Log("int8", err)
 		} else {
-			result, num := encoding.Decode(buf)
+			result, num, _ := encoding.Decode(buf)
 			if vv, ok := result.(int8); !ok || vv != value {
 				t.Log(value, vv, num, "---->", buf)
 			}
@@ -44,7 +50,7 @@ func TestEncoding(t *testing.T) {
 		if buf, err := encoding.Encode(value); err != nil {
 			t.Log("int8", err)
 		} else {
-			result, num := encoding.Decode(buf)
+			result, num, _ := encoding.Decode(buf)
 			if vv, ok := result.(int8); !ok || vv != value {
 				t.Log(value, vv, num, "---->", buf)
 			}
@@ -56,7 +62,7 @@ func TestEncoding(t *testing.T) {
 		if buf, err := encoding.Encode(value); err != nil {
 			t.Log("int16", err)
 		} else {
-			result, num := encoding.Decode(buf)
+			result, num, _ := encoding.Decode(buf)
 			if vv, ok := result.(int16); !ok || vv != value {
 				t.Log(value, vv, num, "---->", buf)
 			}
@@ -66,7 +72,7 @@ func TestEncoding(t *testing.T) {
 		if buf, err := encoding.Encode(value); err != nil {
 			t.Log("int16", err)
 		} else {
-			result, num := encoding.Decode(buf)
+			result, num, _ := encoding.Decode(buf)
 			if vv, ok := result.(int16); !ok || vv != value {
 				t.Log(value, vv, num, "---->", buf)
 			}
@@ -78,7 +84,7 @@ func TestEncoding(t *testing.T) {
 		if buf, err := encoding.Encode(value); err != nil {
 			t.Log("int16", err)
 		} else {
-			result, num := encoding.Decode(buf)
+			result, num, _ := encoding.Decode(buf)
 			if vv, ok := result.(int32); !ok || vv != value {
 				t.Log(value, vv, num, "---->", buf)
 			}
@@ -88,7 +94,7 @@ func TestEncoding(t *testing.T) {
 		if buf, err := encoding.Encode(value); err != nil {
 			t.Log("int16", err)
 		} else {
-			result, num := encoding.Decode(buf)
+			result, num, _ := encoding.Decode(buf)
 			if vv, ok := result.(int32); !ok || vv != value {
 				t.Log(value, vv, num, "---->", buf)
 			}
@@ -100,7 +106,7 @@ func TestEncoding(t *testing.T) {
 		if buf, err := encoding.Encode(value); err != nil {
 			t.Log("int16", err)
 		} else {
-			result, num := encoding.Decode(buf)
+			result, num, _ := encoding.Decode(buf)
 			if vv, ok := result.(int64); !ok || vv != value {
 				t.Log(value, vv, num, "---->", buf)
 			}
@@ -110,7 +116,7 @@ func TestEncoding(t *testing.T) {
 		if buf, err := encoding.Encode(value); err != nil {
 			t.Log("int16", err)
 		} else {
-			result, num := encoding.Decode(buf)
+			result, num, _ := encoding.Decode(buf)
 			if vv, ok := result.(int64); !ok || vv != value {
 				t.Log(value, vv, num, "---->", buf)
 			}
@@ -123,7 +129,7 @@ func TestEncoding(t *testing.T) {
 			t.Log("int16", err)
 			return
 		} else {
-			result, num := encoding.Decode(buf)
+			result, num, _ := encoding.Decode(buf)
 			if vv, ok := result.([]byte); !ok {
 				t.Log(value, vv, num, "---->", buf)
 				return
@@ -151,7 +157,7 @@ func TestEncoding(t *testing.T) {
 			t.Log("int16", err)
 			return
 		} else {
-			result, num := encoding.Decode(buf)
+			result, num, _ := encoding.Decode(buf)
 			if vv, ok := result.([]byte); !ok {
 				t.Log(value, vv, num, "---->", buf)
 				return
@@ -171,7 +177,7 @@ func TestEncoding(t *testing.T) {
 		if buf, err := encoding.Encode(value); err != nil {
 			t.Log("int16", err)
 		} else {
-			result, num := encoding.Decode(buf)
+			result, num, _ := encoding.Decode(buf)
 			if vv, ok := result.(string); !ok || len(value) != len(vv) {
 				t.Log(value, vv, num, "---->", buf)
 				return
@@ -191,7 +197,7 @@ func TestEncoding(t *testing.T) {
 			t.Log("int16", err)
 			return
 		} else {
-			result, num := encoding.Decode(buf)
+			result, num, _ := encoding.Decode(buf)
 			if vv, ok := result.(string); !ok || len(value) != len(vv) {
 				t.Log(value, vv, num, "---->", buf)
 			} else {
@@ -200,6 +206,24 @@ func TestEncoding(t *testing.T) {
 						t.Log(value, vv, num, "---->", buf)
 						return
 					}
+				}
+			}
+			t.Log("----pass---->", value, "num: ", num)
+		}
+	})
+	t.Run("proto", func(t *testing.T) {
+		value := &pb.RpcHead{Code: 123234123, ErrMsg: "this is a testsfeasdfasdfasdfasdfasdfadfadfadfadfadfadfasdfasdfasdfasdfasdfasdfasdf"}
+		if buf, err := encoding.Encode(value); err != nil {
+			t.Log("int16", err)
+		} else {
+			result, num, _ := encoding.Decode(buf)
+			if vv, ok := result.(*pb.RpcHead); !ok || vv == nil {
+				t.Log(value, vv, num, "---->", buf)
+				return
+			} else {
+				if value.Code != vv.Code || value.ErrMsg != vv.ErrMsg {
+					t.Log(value, vv, num, "---->", buf)
+					return
 				}
 			}
 			t.Log("----pass---->", value, "num: ", num)

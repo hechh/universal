@@ -8,10 +8,6 @@ import (
 	"universal/framework/library/plog"
 )
 
-func TestMain(m *testing.M) {
-	m.Run()
-}
-
 func TestError(t *testing.T) {
 	plog.Trace("[aaadfjaskdjf;alksdjf;alskjdg;alkdj;alksjdf;alksdjf;lkasdjf;alksdjf;alkjsdf;lkajsdf;klajsdf]")
 	plog.Debug("[aaadfjaskdjf;alksdjf;alskjdg;alkdj;alksjdf;alksdjf;lkasdjf;alksdjf;alkjsdf;lkajsdf;klajsdf]")
