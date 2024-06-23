@@ -5,6 +5,7 @@ import (
 	"io"
 	"net"
 	"time"
+	"universal/framework/base"
 )
 
 type IFrame interface {
@@ -32,18 +33,11 @@ func NewSocket(fr IFrame, conn net.Conn) *Socket {
 	}
 }
 
-func (d *Socket) getBytes(size int, isread bool) (ret []byte) {
-	if isread {
-		if cap(d.readBytes) < size {
-			d.readBytes = make([]byte, size)
-		}
-		ret = d.readBytes[:size]
-	} else {
-		if cap(d.sendBytes) < size {
-			d.sendBytes = make([]byte, size)
-		}
-		ret = d.sendBytes[:size]
+func (d *Socket) getSendBytes(size int) (ret []byte) {
+	if cap(d.sendBytes) < size {
+		d.sendBytes = make([]byte, size)
 	}
+	ret = d.sendBytes[:size]
 	return
 }
 
@@ -54,9 +48,17 @@ func (d *Socket) Send(buf []byte) (int, error) {
 	}
 	// 组包
 	size := len(buf) + d.GetHeadSize()
-	pack := d.Build(d.getBytes(size, false), buf)
+	pack := d.Build(d.getSendBytes(size), buf)
 	// 发送数据包
 	return d.conn.Write(pack)
+}
+
+func (d *Socket) getReadBytes(size int) (ret []byte) {
+	if cap(d.readBytes) < size {
+		d.readBytes = make([]byte, size)
+	}
+	ret = d.readBytes[:size]
+	return
 }
 
 func (d *Socket) Read(recv []byte) (int, error) {
@@ -66,33 +68,26 @@ func (d *Socket) Read(recv []byte) (int, error) {
 	}
 	// 读取包头
 	headSize := d.GetHeadSize()
-	head := d.getBytes(headSize, true)
-	n, err := io.ReadFull(d.conn, head)
-	if err != nil {
+	head := d.getReadBytes(headSize)
+	if n, err := io.ReadFull(d.conn, head); err != nil {
 		return 0, err
-	}
-	if n != headSize {
+	} else if n != headSize {
 		return 0, fmt.Errorf("packet header is incomplete, size: %d, receive: %d", headSize, n)
 	}
-	// 获取包体长度
+	headStr := string(head)
+	// 读取包体
 	bodySize := d.GetBodySize(head)
-	if bodySize <= 0 {
-		return 0, fmt.Errorf("packet body is empty")
-	}
-	if bodySize > len(recv) {
-		return 0, fmt.Errorf("packet body exceed receive buffer(%d)", len(recv))
-	}
-	// 接受包体
-	n, err = io.ReadFull(d.conn, recv)
-	if err != nil {
+	body := d.getReadBytes(bodySize)
+	if n, err := io.ReadFull(d.conn, body); err != nil {
 		return 0, err
-	}
-	if n != int(bodySize) {
+	} else if n != int(bodySize) {
 		return 0, fmt.Errorf("packet body is incomplete, size: %d, receive: %d", bodySize, n)
 	}
 	// 校验数据包
-	if !d.Check(head, recv[:bodySize]) {
+	if !d.Check(base.StringToBytes(headStr), body) {
 		return 0, fmt.Errorf("packet check failed")
 	}
+	copy(recv, body)
+	// 接受包体
 	return bodySize, nil
 }
