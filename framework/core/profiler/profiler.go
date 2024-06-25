@@ -3,8 +3,8 @@ package profiler
 import (
 	"net/http"
 	"net/http/pprof"
-	"universal/framework/library/plog"
-	"universal/framework/util"
+	"universal/framework/base"
+	"universal/framework/common/plog"
 
 	"github.com/google/gops/agent"
 )
@@ -28,7 +28,7 @@ func InitGops(addr string) error {
 
 // 本地服务端口
 func InitPprof(addr string) {
-	util.SafeGo(plog.Fatal, func() {
+	base.SafeGo(plog.Fatal, func() {
 		server := &http.Server{Addr: addr, Handler: local}
 		if err := server.ListenAndServe(); err != nil {
 			panic(err)

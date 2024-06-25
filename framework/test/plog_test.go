@@ -5,7 +5,7 @@ import (
 	"hash/crc32"
 	"testing"
 	"time"
-	"universal/framework/library/plog"
+	"universal/framework/common/plog"
 )
 
 func TestError(t *testing.T) {

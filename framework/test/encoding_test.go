@@ -3,7 +3,7 @@ package test
 import (
 	"testing"
 	"universal/common/pb"
-	"universal/framework/library/encoding"
+	"universal/framework/common/encoding"
 )
 
 func TestMain(m *testing.M) {
