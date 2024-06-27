@@ -25,7 +25,6 @@ func NewQueue() *Queue {
 func (d *Queue) Push(val interface{}) {
 	addNode := new(node)
 	addNode.value = val
-
 	// 将新增节点插入链表
 	prevNode := (*node)(atomic.SwapPointer((*unsafe.Pointer)(unsafe.Pointer(&d.tail)), unsafe.Pointer(addNode)))
 	atomic.StorePointer((*unsafe.Pointer)(unsafe.Pointer(&prevNode.next)), unsafe.Pointer(addNode))
@@ -33,15 +32,16 @@ func (d *Queue) Push(val interface{}) {
 }
 
 // 单协程安全
-func (d *Queue) Pop() interface{} {
-	// 读取一个节点
-	node := (*node)(atomic.LoadPointer((*unsafe.Pointer)(unsafe.Pointer(&d.head.next))))
-	if node == nil {
-		return nil
+func (d *Queue) Pop() (ret interface{}) {
+	if node := (*node)(atomic.LoadPointer((*unsafe.Pointer)(unsafe.Pointer(&d.head.next)))); node != nil {
+		atomic.AddInt64(&d.count, -1)
+		ret = node.value
+		d.head.next = nil
+		d.head = node
 	}
+	return
+}
 
-	atomic.AddInt64(&d.count, -1)
-	d.head.next = nil
-	d.head = node
-	return node.value
+func (d *Queue) GetCount() int64 {
+	return atomic.LoadInt64(&d.count)
 }
