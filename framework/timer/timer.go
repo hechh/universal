@@ -81,7 +81,8 @@ func (d *Wheel) Insert(task *Task) (flag bool) {
 }
 
 func (d *Wheel) Pop(now int64) (list []*Task) {
-	if index := timeToIndex(now, d.tick, d.wheelSize); index != d.cursor {
+	index := timeToIndex(now, d.tick, d.wheelSize)
+	if index != d.cursor {
 		d.cursor = index
 		bucket := d.buckets[d.cursor]
 		for item := bucket.Pop(); item != nil; item = bucket.Pop() {
@@ -120,24 +121,43 @@ func NewTimer() *Timer {
 	return ret
 }
 
-func (d *Timer) Insert(f func(), ttl time.Duration, isOnce bool) {
-	task := &Task{
-		task:   f,
-		isOnce: isOnce,
-		ttl:    int64(ttl),
-		expire: util.GetNowTime().Add(ttl).UnixNano() / MILLISECOND,
-	}
+func (d *Timer) addTask(task *Task) {
 	for _, wheel := range d.wheels {
 		if wheel.Insert(task) {
 			return
 		}
 	}
+}
+
+func (d *Timer) Insert(f func(), ttl time.Duration, isOnce bool) {
+	d.addTask(&Task{
+		task:   f,
+		isOnce: isOnce,
+		ttl:    int64(ttl),
+		expire: util.GetNowUnixNano() / MILLISECOND,
+	})
 	// 定时的ttl超过20天，需要特殊处理。
 	// todo
 }
 
 func (d *Timer) run() {
-
+	tt := time.NewTicker(time.Duration(MILLISECOND))
+	<-tt.C
+	for {
+		<-tt.C
+		now := util.GetNowUnixNano() / MILLISECOND
+		// 执行触发的
+		for _, task := range d.wheels[0].Pop(now) {
+			d.overTimeTasks.Insert(task)
+		}
+		// 转移任务队列
+		for i := 1; i <= 3; i++ {
+			wheel := d.wheels[i]
+			for _, task := range wheel.Pop(now) {
+				d.addTask(task)
+			}
+		}
+	}
 }
 
 // 处理超时任务
