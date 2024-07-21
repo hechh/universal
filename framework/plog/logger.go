@@ -4,20 +4,21 @@ import (
 	"fmt"
 	"path"
 	"runtime"
+	"strconv"
+	"strings"
 	"sync"
 	"sync/atomic"
 	"time"
 	"universal/framework/util"
 )
 
-type IFormat interface {
-	GetTime() time.Time
-	ToString() string
-}
+var (
+	builders = sync.Pool{New: func() interface{} { return new(strings.Builder) }}
+)
 
 type IWriter interface {
 	Close()
-	Write(IFormat)
+	Write(time.Time, string)
 }
 
 type Logger struct {
@@ -83,17 +84,30 @@ func (d *Logger) output(skip int, level uint32, msg string) {
 	// 获取调用堆栈
 	pc, file, line, _ := runtime.Caller(skip + 1)
 	funcName := path.Base(runtime.FuncForPC(pc).Name())
-
+	tt := util.GetNowTime()
+	builder := builders.Get().(*strings.Builder)
+	builder.Reset()
+	// 格式化输出
+	builder.WriteString("[")
+	builder.WriteString(tt.Format("2006-01-02 15:04:05.999"))
+	builder.WriteString("]	")
+	builder.WriteString("[")
+	builder.WriteString(d.prefix)
+	builder.WriteString("]	")
+	builder.WriteString("[")
+	builder.WriteString(levelToString(level))
+	builder.WriteString("]	")
+	builder.WriteString(file)
+	builder.WriteString(":")
+	builder.WriteString(strconv.Itoa(line))
+	builder.WriteString("	")
+	builder.WriteString(funcName)
+	builder.WriteString("	")
+	builder.WriteString(msg)
+	builder.WriteString("\n")
 	// 写入数据
-	d.w.Write(&MetaData{
-		tt:     util.GetNowTime(),
-		prefix: d.prefix,
-		file:   file,
-		line:   line,
-		fname:  funcName,
-		level:  levelToString(level),
-		msg:    msg,
-	})
+	d.w.Write(tt, builder.String())
+	builders.Put(builder)
 }
 
 func levelToString(level uint32) string {

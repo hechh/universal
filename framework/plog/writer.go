@@ -10,12 +10,17 @@ import (
 	"universal/framework/util"
 )
 
+type MetaData struct {
+	tt  time.Time
+	msg string
+}
+
 type Writer struct {
 	sync.WaitGroup
 	path     string
 	name     string
 	exitCh   chan struct{}
-	dataCh   chan IFormat
+	dataCh   chan *MetaData
 	ww       *bufio.Writer
 	fb       *os.File
 	fileName string
@@ -26,15 +31,15 @@ func NewWriter(path, name string) *Writer {
 		path:   path,
 		name:   name,
 		exitCh: make(chan struct{}, 1),
-		dataCh: make(chan IFormat, 200),
+		dataCh: make(chan *MetaData, 200),
 		ww:     bufio.NewWriter(nil),
 	}
 	go ret.run()
 	return ret
 }
 
-func (d *Writer) Write(data IFormat) {
-	d.dataCh <- data
+func (d *Writer) Write(tt time.Time, msg string) {
+	d.dataCh <- &MetaData{tt: tt, msg: msg}
 }
 
 func (d *Writer) Close() {
@@ -42,8 +47,8 @@ func (d *Writer) Close() {
 	d.Wait()
 }
 
-func (d *Writer) Push(data IFormat) {
-	tt := data.GetTime()
+func (d *Writer) Push(data *MetaData) {
+	tt := data.tt
 	str := fmt.Sprintf("%s/%04d%02d%02d/%s%02d.log", d.path, tt.Year(), tt.Month(), tt.Day(), d.name, tt.Hour())
 	fileName := path.Clean(str)
 	// 判断是否切换文件
@@ -61,7 +66,7 @@ func (d *Writer) Push(data IFormat) {
 	}
 	// 写入缓存
 	if d.fb != nil {
-		d.ww.WriteString(data.ToString())
+		d.ww.WriteString(data.msg)
 	}
 }
 
