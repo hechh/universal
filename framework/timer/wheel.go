@@ -6,23 +6,13 @@ import (
 
 // 任务轮(用户对定时任务分类、并插入相应任务队列)
 type Wheel struct {
-	cursor    int64 // 游标
-	tickShift int64 // bit数
-	tick      int64 // 时间刻度
-	size      int64 // 时间轮盘大小
-	interval  int64
-	buckets   []*TaskBucket // 任务集合
-}
-
-func NewWheel(now int64, tick, size int64) *Wheel {
-	return &Wheel{
-		cursor:    now,
-		tickShift: tick,
-		tick:      1<<tick - 1,
-		size:      1<<size - 1,
-		interval:  1<<(tick+size) - 1,
-		buckets:   NewTaskBucketList(size),
-	}
+	cursor   int64       // 游标
+	bitTick  int64       // tick的bit数
+	bitSize  int64       // size的bit数
+	tick     int64       // 时间刻度
+	size     int64       // 时间轮盘大小
+	interval int64       // 间隔时间
+	buckets  []*TaskList // 任务集合
 }
 
 func (d *Wheel) Insert(task *Task) int {
@@ -36,7 +26,7 @@ func (d *Wheel) Insert(task *Task) int {
 		return 1
 	}
 	// 插入成功
-	d.buckets[(task.expire>>d.tickShift)&d.size].Insert(task)
+	d.buckets[(task.expire>>d.bitTick)&d.size].Insert(task)
 	return 0
 }
 
@@ -48,13 +38,21 @@ func (d *Wheel) Pop(now int64) (list []*Task) {
 	// 更新时间
 	atomic.StoreInt64(&d.cursor, now)
 	// 读取过期任务
-	end := (now >> d.tickShift) & d.size
-	begin := (cursor>>d.tickShift + 1) & d.size
-	for i := begin; i <= end; i++ {
-		bucket := d.buckets[i&d.size]
-		for item := bucket.Pop(); item != nil; item = bucket.Pop() {
-			list = append(list, item)
-		}
+	bucket := d.buckets[(now>>d.bitTick)&d.size]
+	for item := bucket.Pop(); item != nil; item = bucket.Pop() {
+		list = append(list, item)
 	}
 	return
+}
+
+func NewWheel(now, tick, size int64) *Wheel {
+	return &Wheel{
+		cursor:   now,
+		bitTick:  tick,
+		bitSize:  size,
+		tick:     1<<tick - 1,
+		size:     1<<size - 1,
+		interval: 1<<(tick+size) - 1,
+		buckets:  newTaskBucket(1<<size - 1),
+	}
 }
