@@ -15,6 +15,18 @@ type Wheel struct {
 	buckets  []*TaskList // 任务集合
 }
 
+func NewWheel(now, tick, size int64) *Wheel {
+	return &Wheel{
+		cursor:   now,
+		bitTick:  tick,
+		bitSize:  size,
+		tick:     1<<tick - 1,
+		size:     1<<size - 1,
+		interval: 1<<(tick+size) - 1,
+		buckets:  NewTaskBucket(1 << size),
+	}
+}
+
 func (d *Wheel) Insert(task *Task) int {
 	cursor := atomic.LoadInt64(&d.cursor)
 	// 判断是否过期
@@ -43,16 +55,4 @@ func (d *Wheel) Pop(now int64) (list []*Task) {
 		list = append(list, item)
 	}
 	return
-}
-
-func NewWheel(now, tick, size int64) *Wheel {
-	return &Wheel{
-		cursor:   now,
-		bitTick:  tick,
-		bitSize:  size,
-		tick:     1<<tick - 1,
-		size:     1<<size - 1,
-		interval: 1<<(tick+size) - 1,
-		buckets:  newTaskBucket(1<<size - 1),
-	}
 }

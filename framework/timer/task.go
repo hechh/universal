@@ -53,15 +53,15 @@ func NewTask(f func(), ttl int64, isOnce bool) *Task {
 	}
 }
 
-func newTaskList() *TaskList {
+func NewTaskList() *TaskList {
 	node := new(Task)
 	return &TaskList{head: node, tail: node}
 }
 
-func newTaskBucket(size int64) []*TaskList {
-	rets := make([]*TaskList, size+1)
+func NewTaskBucket(size int64) []*TaskList {
+	rets := make([]*TaskList, size)
 	for i := int64(0); i < size; i++ {
-		rets[i] = newTaskList()
+		rets[i] = NewTaskList()
 	}
 	return rets
 }

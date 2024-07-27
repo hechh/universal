@@ -9,13 +9,14 @@ import (
 )
 
 func TestTimer(t *testing.T) {
-	now := util.GetNowUnixMilli()
-	tt := timer.NewTimer(now)
-	ff := func() {
-		fmt.Println("--------ff----------")
+	tt := timer.NewTimer()
+	for i := 0; i < 10000; i++ {
+		tt.Insert(func() {
+			fmt.Println("-------> ", i)
+		}, 1*time.Second, false)
 	}
-	tt.Insert(ff, 1*time.Second, false)
 	time.Sleep(5 * time.Second)
+	tt.Stop()
 }
 
 func TestWheel(t *testing.T) {
