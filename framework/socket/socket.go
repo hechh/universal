@@ -5,7 +5,7 @@ import (
 	"io"
 	"net"
 	"time"
-	"universal/framework/base"
+	"universal/framework/util"
 )
 
 type IFrame interface {
@@ -84,7 +84,7 @@ func (d *Socket) Read(recv []byte) (int, error) {
 		return 0, fmt.Errorf("packet body is incomplete, size: %d, receive: %d", bodySize, n)
 	}
 	// 校验数据包
-	if !d.Check(base.StringToBytes(headStr), body) {
+	if !d.Check(util.StringToBytes(headStr), body) {
 		return 0, fmt.Errorf("packet check failed")
 	}
 	copy(recv, body)

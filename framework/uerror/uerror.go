@@ -54,5 +54,5 @@ func (d *UError) Error() string {
 }
 
 func (d *UError) ToString() string {
-	return fmt.Sprintf("%s:%d\t%s\tcode: %d, error: %s", d.file, d.line, d.funcName, d.code, d.errMsg)
+	return fmt.Sprintf("%s:%d\t%s\t%d: %s", d.file, d.line, d.funcName, d.code, d.errMsg)
 }
