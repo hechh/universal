@@ -61,8 +61,14 @@ func (d *Timer) run() {
 		select {
 		case <-tt.C:
 			// 执行触发的
-			for _, task := range d.wheels[0].Pop(util.GetNowUnixMilli()) {
-				d.add(task)
+			for _, wheel := range d.wheels {
+				if task := wheel.Pop(); task != nil {
+					d.overTimeTasks.Insert(task)
+					select {
+					case d.overTimeCh <- struct{}{}:
+					default:
+					}
+				}
 			}
 		case <-d.exitRunCh:
 			return
@@ -88,6 +94,7 @@ func (d *Timer) add(task *Task) {
 
 // 处理超时任务
 func (d *Timer) handle() {
+	wheel := d.wheels[0]
 	d.Add(1)
 	defer func() {
 		for task := d.overTimeTasks.Pop(); task != nil; task = d.overTimeTasks.Pop() {
@@ -100,11 +107,20 @@ func (d *Timer) handle() {
 		select {
 		case <-d.overTimeCh:
 			for task := d.overTimeTasks.Pop(); task != nil; task = d.overTimeTasks.Pop() {
-				// 执行定时任务
-				task.task()
-				// 循环定时任务，再一次插入任务队列
-				if !task.isOnce {
-					d.Insert(task.task, time.Duration(task.ttl), task.isOnce)
+				for task != nil {
+					item := task
+					task = task.next
+					item.next = nil
+					now := util.GetNowUnixMilli()
+					// 判断是否过期
+					if item.expire-now <= wheel.tick {
+						item.task()
+						if !item.isOnce {
+							d.Insert(item.task, time.Duration(item.ttl), item.isOnce)
+						}
+					} else {
+						d.add(item)
+					}
 				}
 			}
 		case <-d.exitHandleCh:

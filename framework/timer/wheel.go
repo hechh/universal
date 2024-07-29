@@ -2,6 +2,7 @@ package timer
 
 import (
 	"sync/atomic"
+	"universal/framework/util"
 )
 
 // 任务轮(用户对定时任务分类、并插入相应任务队列)
@@ -28,7 +29,7 @@ func NewWheel(now, tick, size int64) *Wheel {
 }
 
 func (d *Wheel) Insert(task *Task) int {
-	cursor := atomic.LoadInt64(&d.cursor)
+	cursor := util.GetNowUnixMilli()
 	// 判断是否过期
 	if (cursor | d.tick) == (task.expire | d.tick) {
 		return -1
@@ -42,17 +43,14 @@ func (d *Wheel) Insert(task *Task) int {
 	return 0
 }
 
-func (d *Wheel) Pop(now int64) (list []*Task) {
+func (d *Wheel) Pop() *Task {
+	now := util.GetNowUnixMilli()
 	cursor := atomic.LoadInt64(&d.cursor)
 	if (cursor | d.tick) == (now | d.tick) {
-		return
+		return nil
 	}
 	// 更新时间
 	atomic.StoreInt64(&d.cursor, now)
 	// 读取过期任务
-	bucket := d.buckets[(now>>d.bitTick)&d.size]
-	for item := bucket.Pop(); item != nil; item = bucket.Pop() {
-		list = append(list, item)
-	}
-	return
+	return d.buckets[(now>>d.bitTick)&d.size].Pop()
 }

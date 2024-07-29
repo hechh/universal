@@ -5,33 +5,30 @@ import (
 	"testing"
 	"time"
 	"universal/framework/timer"
-	"universal/framework/util"
 )
 
 func TestTimer(t *testing.T) {
 	tt := timer.NewTimer()
-	for i := 0; i < 10000; i++ {
+	times := 1000000
+	for i := 1; i <= times; i++ {
 		tt.Insert(func() {
-			fmt.Println("-------> ", i)
-		}, 1*time.Second, false)
+			if i == times {
+				fmt.Println("-------> ", i)
+			}
+		}, (1+time.Duration(i)%2)*time.Second, false)
 	}
-	time.Sleep(5 * time.Second)
+	time.Sleep(8 * time.Second)
 	tt.Stop()
 }
 
-func TestWheel(t *testing.T) {
-	wh := timer.NewWheel(util.GetNowUnixMilli(), 6, 13)
-	ff := func() {
-		fmt.Println("--------ff----------")
+func TestTimer01(t *testing.T) {
+	tt := timer.NewTimer()
+	times := 3
+	for i := 1; i <= times; i++ {
+		tt.Insert(func() {
+			fmt.Println("-------> ", i, time.Now().Unix())
+		}, (time.Duration(2*i))*time.Second, false)
 	}
-
-	tt := time.NewTicker(100 * time.Millisecond)
-	for i := 0; i < 10; i++ {
-		<-tt.C
-		t.Log(wh.Insert(timer.NewTask(ff, int64(10*time.Millisecond), true)))
-
-		for _, task := range wh.Pop(util.GetNowUnixMilli()) {
-			task.Handle()
-		}
-	}
+	time.Sleep(8 * time.Second)
+	tt.Stop()
 }

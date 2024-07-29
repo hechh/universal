@@ -38,8 +38,8 @@ func (d *TaskList) Insert(task *Task) {
 func (d *TaskList) Pop() (tt *Task) {
 	if tt = (*Task)(atomic.LoadPointer((*unsafe.Pointer)(unsafe.Pointer(&d.head.next)))); tt != nil {
 		d.head.next = nil
-		d.head = tt
-		atomic.AddInt64(&d.count, -1)
+		d.tail = d.head
+		atomic.StoreInt64(&d.count, 0)
 	}
 	return
 }
