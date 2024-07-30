@@ -3,9 +3,8 @@ package profiler
 import (
 	"net/http"
 	"net/http/pprof"
-
-	"universal/framework/common/plog"
-	"universal/framework/common/uerror"
+	"universal/framework/plog"
+	"universal/framework/uerror"
 
 	"github.com/google/gops/agent"
 )
@@ -25,7 +24,7 @@ func Handle(pattern string, handler http.Handler) {
 
 func InitGops(addr string) error {
 	if err := agent.Listen(agent.Options{Addr: addr}); err != nil {
-		return uerror.NewUErrorf(1, -1, "%v", err)
+		return uerror.NewUError(1, -1, "%v", err)
 	}
 	return nil
 }
