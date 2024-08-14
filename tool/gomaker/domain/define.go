@@ -5,8 +5,9 @@ import "text/template"
 // 基础类型
 const (
 	IDENT  = 1
-	STRUCT = 2
-	ALIAS  = 3
+	ENUM   = 2
+	STRUCT = 3
+	ALIAS  = 4
 )
 
 const (

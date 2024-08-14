@@ -2,7 +2,10 @@ package gomaker
 
 import (
 	"flag"
+	"go/token"
 	"os"
+	"strings"
+	"universal/tool/gomaker/internal/manager"
 	"universal/tool/gomaker/internal/util"
 )
 
@@ -26,4 +29,15 @@ func main() {
 	src = util.GetAbsPath(cwd, src)
 	dst = util.GetAbsPath(cwd, dst)
 
+	// 解析文件
+	fset := token.NewFileSet()
+	if strings.HasSuffix(src, ".go") {
+		if err := util.ParseFile(&manager.TypeParser{}, fset, src); err != nil {
+			panic(err)
+		}
+	} else {
+		if err := util.ParseDir(&manager.TypeParser{}, fset, src); err != nil {
+			panic(err)
+		}
+	}
 }

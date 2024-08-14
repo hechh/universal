@@ -3,6 +3,7 @@ package manager
 import (
 	"go/ast"
 	"go/token"
+	"strings"
 	"universal/tool/gomaker/domain"
 
 	"github.com/spf13/cast"
@@ -108,12 +109,14 @@ func getDoc(doc *ast.CommentGroup) string {
 	if ll <= 0 {
 		return ""
 	}
-	return doc.List[ll-1].Text
+	return strings.TrimSpace(strings.TrimPrefix(doc.List[ll-1].Text, "//"))
+	//return doc.List[ll-1].Text
 }
 
 func getType(n ast.Expr, pkgName string, doc *ast.CommentGroup) (tt *domain.Type, token uint32) {
 	tt = &domain.Type{Doc: getDoc(doc), Selector: pkgName}
 	parseType(n, tt, &token)
+	tt = GetOrAddType(tt)
 	return
 }
 

@@ -34,7 +34,7 @@ func TestPlayer(t *testing.T) {
 
 func TestParser(t *testing.T) {
 	fset := token.NewFileSet()
-	filename := "./pb/playerStruct.pb.go"
+	filename := "./pb/common.pb.go"
 	t.Log(util.ParseFile(&manager.TypeParser{}, fset, filename))
 	t.Log(manager.Print())
 }

@@ -14,17 +14,28 @@ var (
 )
 
 func Print() string {
-	buf, _ := json.Marshal(&types)
+	buf, _ := json.Marshal(&values)
 	return string(buf)
 }
 
-func AddValue(vv *domain.Value) {
-	// 存储类型
-	key := fmt.Sprintf("%s.%s", vv.Type.Selector, vv.Type.Name)
-	if _, ok := types[key]; !ok {
-		types[key] = vv.Type
+func GetOrAddType(tt *domain.Type) *domain.Type {
+	key := fmt.Sprintf("%s.%s", tt.Selector, tt.Name)
+	if val, ok := types[key]; !ok {
+		types[key] = tt
+	} else {
+		if len(tt.Doc) <= 0 {
+			val.Doc = tt.Doc
+		}
+		if tt.Kind > 0 {
+			val.Kind = tt.Kind
+		}
 	}
+	return types[key]
+}
+
+func AddValue(vv *domain.Value) {
 	// 存储数据
+	key := fmt.Sprintf("%s.%s", vv.Type.Selector, vv.Type.Name)
 	if _, ok := values[key]; !ok {
 		values[key] = make(map[int32]*domain.Value)
 	}
@@ -32,32 +43,9 @@ func AddValue(vv *domain.Value) {
 }
 
 func AddStruct(vv *domain.Struct) {
-	// 存储类型
-	key := fmt.Sprintf("%s.%s", vv.Type.Selector, vv.Type.Name)
-	if _, ok := types[key]; !ok {
-		types[key] = vv.Type
-	}
-	// field类型存储
-	for _, field := range vv.List {
-		fkey := fmt.Sprintf("%s.%s", field.Type.Selector, field.Type.Name)
-		if _, ok := types[fkey]; !ok {
-			types[fkey] = field.Type
-		}
-	}
-	// 存储struct数据
-	structs[key] = vv
+	structs[fmt.Sprintf("%s.%s", vv.Type.Selector, vv.Type.Name)] = vv
 }
 
 func AddAlias(vv *domain.Alias) {
-	// 存储类型
-	key := fmt.Sprintf("%s.%s", vv.AliasType.Selector, vv.AliasType.Name)
-	if _, ok := types[key]; !ok {
-		types[key] = vv.AliasType
-	}
-	rkey := fmt.Sprintf("%s.%s", vv.Type.Selector, vv.Type.Name)
-	if _, ok := types[rkey]; !ok {
-		types[rkey] = vv.Type
-	}
-	// 存储别名
-	alias[key] = vv
+	alias[fmt.Sprintf("%s.%s", vv.AliasType.Selector, vv.AliasType.Name)] = vv
 }
