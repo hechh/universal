@@ -29,3 +29,7 @@ func TestPlayer(t *testing.T) {
 	fp, _ := os.OpenFile("./pb/playerStruct.pb.ini", os.O_CREATE|os.O_TRUNC|os.O_RDWR, os.FileMode(0644))
 	ast.Fprint(fp, fset, f, nil)
 }
+
+func TestParser(t *testing.T) {
+
+}
