@@ -1,6 +1,7 @@
 package manager
 
 import (
+	"encoding/json"
 	"fmt"
 	"universal/tool/gomaker/domain"
 )
@@ -11,6 +12,11 @@ var (
 	structs = make(map[string]*domain.Struct)
 	alias   = make(map[string]*domain.Alias)
 )
+
+func Print() string {
+	buf, _ := json.Marshal(&types)
+	return string(buf)
+}
 
 func AddValue(vv *domain.Value) {
 	// 存储类型

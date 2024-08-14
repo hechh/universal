@@ -23,8 +23,12 @@ func (d *TypeParser) Visit(node ast.Node) ast.Visitor {
 		if n.Tok != token.CONST && n.Tok != token.TYPE {
 			return nil
 		}
+		return d
 	case *ast.ValueSpec:
-		AddValue(getValue(n, d.pkgName, d.doc))
+		switch n.Values[0].(type) {
+		case *ast.BasicLit:
+			AddValue(getValue(n, d.pkgName, d.doc))
+		}
 	case *ast.TypeSpec:
 		switch n.Type.(type) {
 		case *ast.StructType:
@@ -61,7 +65,7 @@ func getStruct(vv *ast.TypeSpec, pkgName string, doc *ast.CommentGroup) *domain.
 			Token:   token,
 			Name:    field.Names[0].Name,
 			Type:    tt,
-			Tag:     field.Tag.Value,
+			Tag:     getTag(field.Tag),
 			Comment: getDoc(vv.Comment),
 		}
 		tmps[ff.Name] = ff
@@ -89,11 +93,22 @@ func getValue(vv *ast.ValueSpec, pkgName string, doc *ast.CommentGroup) *domain.
 	}
 }
 
+func getTag(tt *ast.BasicLit) string {
+	if tt != nil {
+		return tt.Value
+	}
+	return ""
+}
+
 func getDoc(doc *ast.CommentGroup) string {
-	if doc == nil || len(doc.List) <= 0 {
+	if doc == nil {
 		return ""
 	}
-	return doc.List[0].Text
+	ll := len(doc.List)
+	if ll <= 0 {
+		return ""
+	}
+	return doc.List[ll-1].Text
 }
 
 func getType(n ast.Expr, pkgName string, doc *ast.CommentGroup) (tt *domain.Type, token uint32) {
