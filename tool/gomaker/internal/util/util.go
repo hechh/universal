@@ -10,6 +10,7 @@ import (
 	"universal/framework/uerror"
 )
 
+// 获取绝对值
 func GetAbsPath(cwd, pp string) string {
 	if len(cwd) <= 0 || filepath.IsAbs(pp) {
 		return filepath.Clean(pp)
@@ -43,8 +44,8 @@ func OpenTemplate(tpl string) (map[string]*template.Template, error) {
 	return ret, nil
 }
 
-// 解析整个目录
-func ParseDir(src string, v ast.Visitor, fset *token.FileSet) error {
+// 解析文件
+func ParseDir(v ast.Visitor, fset *token.FileSet, src string) error {
 	if len(src) <= 0 {
 		return nil
 	}
@@ -52,12 +53,12 @@ func ParseDir(src string, v ast.Visitor, fset *token.FileSet) error {
 		if !info.IsDir() {
 			return nil
 		}
-		pattern, err := filepath.Glob(filepath.Join(path, ".go"))
+		pattern, err := filepath.Glob(filepath.Join(path, "*.go"))
 		if err != nil {
 			return uerror.NewUError(1, -1, "%v", err)
 		}
 		for _, filename := range pattern {
-			if err := ParseFile(filename, v, fset); err != nil {
+			if err := ParseFile(v, fset, filename); err != nil {
 				return err
 			}
 		}
@@ -66,7 +67,7 @@ func ParseDir(src string, v ast.Visitor, fset *token.FileSet) error {
 }
 
 // 解析单个文件
-func ParseFile(filename string, v ast.Visitor, fset *token.FileSet) error {
+func ParseFile(v ast.Visitor, fset *token.FileSet, filename string) error {
 	f, err := parser.ParseFile(fset, filename, nil, parser.ParseComments)
 	if err != nil {
 		return uerror.NewUError(1, -1, "%v", err)
