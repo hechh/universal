@@ -3,7 +3,7 @@ package typespec
 import (
 	"fmt"
 	"strings"
-	"universal/tool/gomaker_old/domain"
+	"universal/tool/gomaker/domain"
 )
 
 // 字段结构

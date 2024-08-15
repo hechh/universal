@@ -17,6 +17,7 @@ const (
 
 const (
 	PACKAGE = "package"
+	CLIENT  = "client"
 )
 
 // 代码生成接口

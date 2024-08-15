@@ -1,9 +1,12 @@
 package util
 
 import (
+	"bytes"
 	"go/ast"
+	"go/format"
 	"go/parser"
 	"go/token"
+	"io/ioutil"
 	"os"
 	"path/filepath"
 	"text/template"
@@ -17,6 +20,57 @@ func GetAbsPath(cwd, pp string) string {
 		return filepath.Clean(pp)
 	}
 	return filepath.Clean(filepath.Join(cwd, pp))
+}
+
+// 保存文件
+func SaveGo(dst string, buf *bytes.Buffer) error {
+	// 格式化数据
+	result, err := format.Source(buf.Bytes())
+	if err != nil {
+		ioutil.WriteFile("./error.gen.go", buf.Bytes(), os.FileMode(0666))
+		return uerror.NewUError(1, -1, "%v", err)
+	}
+	// 创建目录
+	if err := os.MkdirAll(filepath.Dir(dst), os.FileMode(0777)); err != nil {
+		return uerror.NewUError(1, -1, "%v", err)
+	}
+	// 写入文件
+	if err := ioutil.WriteFile(dst, result, os.FileMode(0666)); err != nil {
+		return uerror.NewUError(1, -1, "%v", err)
+	}
+	return nil
+}
+
+// 解析单个文件
+func ParseFile(v ast.Visitor, fset *token.FileSet, filename string) error {
+	f, err := parser.ParseFile(fset, filename, nil, parser.ParseComments)
+	if err != nil {
+		return uerror.NewUError(1, -1, "%v", err)
+	}
+	ast.Walk(v, f)
+	return nil
+}
+
+// 解析文件
+func ParseDir(v ast.Visitor, fset *token.FileSet, src string) error {
+	if len(src) <= 0 {
+		return nil
+	}
+	return filepath.Walk(src, func(path string, info os.FileInfo, err error) error {
+		if !info.IsDir() {
+			return nil
+		}
+		pattern, err := filepath.Glob(filepath.Join(path, "*.go"))
+		if err != nil {
+			return uerror.NewUError(1, -1, "%v", err)
+		}
+		for _, filename := range pattern {
+			if err := ParseFile(v, fset, filename); err != nil {
+				return err
+			}
+		}
+		return nil
+	})
 }
 
 func OpenTemplate(tpl string) (map[string]*template.Template, error) {
@@ -45,36 +99,4 @@ func OpenTemplate(tpl string) (map[string]*template.Template, error) {
 	// 添加默认包名模板
 	ret[domain.PACKAGE] = template.Must(template.New(domain.PACKAGE).Parse("package {{.}}"))
 	return ret, nil
-}
-
-// 解析文件
-func ParseDir(v ast.Visitor, fset *token.FileSet, src string) error {
-	if len(src) <= 0 {
-		return nil
-	}
-	return filepath.Walk(src, func(path string, info os.FileInfo, err error) error {
-		if !info.IsDir() {
-			return nil
-		}
-		pattern, err := filepath.Glob(filepath.Join(path, "*.go"))
-		if err != nil {
-			return uerror.NewUError(1, -1, "%v", err)
-		}
-		for _, filename := range pattern {
-			if err := ParseFile(v, fset, filename); err != nil {
-				return err
-			}
-		}
-		return nil
-	})
-}
-
-// 解析单个文件
-func ParseFile(v ast.Visitor, fset *token.FileSet, filename string) error {
-	f, err := parser.ParseFile(fset, filename, nil, parser.ParseComments)
-	if err != nil {
-		return uerror.NewUError(1, -1, "%v", err)
-	}
-	ast.Walk(v, f)
-	return nil
 }

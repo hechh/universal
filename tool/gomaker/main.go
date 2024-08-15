@@ -1,10 +1,13 @@
-package gomaker
+package main
 
 import (
 	"flag"
+	"fmt"
 	"go/token"
 	"os"
 	"strings"
+	"universal/tool/gomaker/domain"
+	"universal/tool/gomaker/internal/generator"
 	"universal/tool/gomaker/internal/manager"
 	"universal/tool/gomaker/internal/util"
 )
@@ -18,6 +21,11 @@ func main() {
 	flag.StringVar(&dst, "dst", "", "生成文件目录")
 	flag.Parse()
 
+	// 获取生成器
+	if !manager.IsAction(action) {
+		panic(fmt.Sprintf("%s不支持", action))
+	}
+
 	// 获取当前工作目录
 	cwd, err := os.Getwd()
 	if err != nil {
@@ -29,15 +37,34 @@ func main() {
 	src = util.GetAbsPath(cwd, src)
 	dst = util.GetAbsPath(cwd, dst)
 
+	// 加载模板文件
+	tpls, err := util.OpenTemplate(tpl)
+	if err != nil {
+		panic(err)
+	}
+
 	// 解析文件
 	fset := token.NewFileSet()
 	if strings.HasSuffix(src, ".go") {
-		if err := util.ParseFile(&manager.TypeParser{}, fset, src); err != nil {
-			panic(err)
-		}
+		err = util.ParseFile(&manager.TypeParser{}, fset, src)
 	} else {
-		if err := util.ParseDir(&manager.TypeParser{}, fset, src); err != nil {
-			panic(err)
-		}
+		err = util.ParseDir(&manager.TypeParser{}, fset, src)
 	}
+	if err != nil {
+		panic(err)
+	}
+
+	// 生成文件
+	if err := manager.Generator(action, dst, param, tpls); err != nil {
+		panic(err)
+	}
+}
+
+func init() {
+	flag.Usage = func() {
+		flag.PrintDefaults()
+		manager.Help()
+	}
+
+	manager.Register(domain.CLIENT, "生成client代码", generator.HttpKitGenerator)
 }
