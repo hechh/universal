@@ -8,6 +8,7 @@ import (
 	"path/filepath"
 	"text/template"
 	"universal/framework/uerror"
+	"universal/tool/gomaker/domain"
 )
 
 // 获取绝对值
@@ -41,6 +42,8 @@ func OpenTemplate(tpl string) (map[string]*template.Template, error) {
 	if err != nil {
 		return nil, err
 	}
+	// 添加默认包名模板
+	ret[domain.PACKAGE] = template.Must(template.New(domain.PACKAGE).Parse("package {{.}}"))
 	return ret, nil
 }
 

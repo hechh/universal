@@ -1,11 +1,13 @@
 package test
 
 import (
+	"bytes"
 	"go/ast"
 	"go/parser"
 	"go/token"
 	"os"
 	"testing"
+	"text/template"
 	"universal/tool/gomaker/internal/manager"
 	"universal/tool/gomaker/internal/util"
 )
@@ -34,7 +36,15 @@ func TestPlayer(t *testing.T) {
 
 func TestParser(t *testing.T) {
 	fset := token.NewFileSet()
-	filename := "./pb/common.pb.go"
+	//filename := "./pb/common.pb.go"
+	filename := "./pb/playerStruct.pb.go"
 	t.Log(util.ParseFile(&manager.TypeParser{}, fset, filename))
-	t.Log(manager.Print())
+	manager.Print()
+}
+
+func TestTpl(t *testing.T) {
+	a := template.Must(template.New("package.tpl").Parse("package {{.}}"))
+	buf := bytes.NewBuffer(nil)
+	a.ExecuteTemplate(buf, "package.tpl", "hch")
+	t.Log(buf.String())
 }

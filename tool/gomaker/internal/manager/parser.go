@@ -1,97 +1,116 @@
 package manager
 
 import (
+	"fmt"
 	"go/ast"
 	"go/token"
+	"sort"
 	"strings"
 	"universal/tool/gomaker/domain"
+	"universal/tool/gomaker/internal/typespec"
 
 	"github.com/spf13/cast"
 )
 
 type TypeParser struct {
-	pkgName string
-	doc     *ast.CommentGroup
+	pkg string
+	doc *ast.CommentGroup
 }
 
 func (d *TypeParser) Visit(node ast.Node) ast.Visitor {
 	switch n := node.(type) {
 	case *ast.File:
-		d.pkgName = n.Name.Name
+		d.pkg = n.Name.Name
 		return d
 	case *ast.GenDecl:
 		d.doc = n.Doc
-		if n.Tok != token.CONST && n.Tok != token.TYPE {
-			return nil
+		if n.Tok == token.TYPE {
+			return d
 		}
-		return d
-	case *ast.ValueSpec:
-		switch n.Values[0].(type) {
-		case *ast.BasicLit:
-			AddValue(getValue(n, d.pkgName, d.doc))
+		if n.Tok == token.CONST {
+			AddEnum(d.GetEnum(n))
 		}
+		return nil
 	case *ast.TypeSpec:
 		switch n.Type.(type) {
 		case *ast.StructType:
-			AddStruct(getStruct(n, d.pkgName, d.doc))
+			AddStruct(d.GetStruct(n))
 		default:
-			AddAlias(getAlias(n, d.pkgName, d.doc))
+			AddAlias(d.GetAlias(n))
 		}
 	}
 	return nil
 }
 
-func getAlias(vv *ast.TypeSpec, pkgName string, doc *ast.CommentGroup) *domain.Alias {
-	tt, token := getType(vv.Type, pkgName, nil)
-	return &domain.Alias{
+func (d *TypeParser) GetAlias(vv *ast.TypeSpec) *typespec.Alias {
+	tt, token := getType(0, vv.Type, nil, d.pkg)
+	return &typespec.Alias{
 		Token: token,
-		AliasType: &domain.Type{
+		Type: GetOrAddType(&typespec.Type{
 			Kind:     domain.ALIAS,
-			Selector: pkgName,
+			Selector: d.pkg,
 			Name:     vv.Name.Name,
-			Doc:      getDoc(doc),
-		},
-		Type:    tt,
-		Comment: getDoc(vv.Comment),
+			Doc:      getDoc(d.doc),
+		}),
+		RealType: tt,
+		Comment:  getDoc(vv.Comment),
 	}
 }
 
-func getStruct(vv *ast.TypeSpec, pkgName string, doc *ast.CommentGroup) *domain.Struct {
-	st := vv.Type.(*ast.StructType)
-	tmps := make(map[string]*domain.Field)
-	list := []*domain.Field{}
-	for _, field := range st.Fields.List {
-		tt, token := getType(vv.Type, pkgName, doc)
-		ff := &domain.Field{
+func (d *TypeParser) GetStruct(vv *ast.TypeSpec) *typespec.Struct {
+	ret := &typespec.Struct{
+		Fields: make(map[string]*typespec.Field),
+		Type: GetOrAddType(&typespec.Type{
+			Kind:     domain.STRUCT,
+			Selector: d.pkg,
+			Name:     vv.Name.Name,
+			Doc:      getDoc(d.doc),
+		}),
+	}
+	for _, field := range vv.Type.(*ast.StructType).Fields.List {
+		tt, token := getType(0, field.Type, nil, d.pkg)
+		ff := &typespec.Field{
 			Token:   token,
 			Name:    field.Names[0].Name,
 			Type:    tt,
 			Tag:     getTag(field.Tag),
-			Comment: getDoc(vv.Comment),
+			Comment: getDoc(field.Comment),
 		}
-		tmps[ff.Name] = ff
-		list = append(list, ff)
+		ret.Fields[ff.Name] = ff
+		ret.List = append(ret.List, ff)
 	}
-	return &domain.Struct{
-		Type: &domain.Type{
-			Kind:     domain.STRUCT,
-			Selector: pkgName,
-			Name:     vv.Name.Name,
-			Doc:      getDoc(doc),
-		},
-		Fields: make(map[string]*domain.Field),
-		List:   list,
-	}
+	sort.Slice(ret.List, func(i, j int) bool {
+		return strings.Compare(ret.List[i].Name, ret.List[j].Name) < 0
+	})
+	fmt.Println("==========>", ret.Type.Name)
+	return ret
 }
 
-func getValue(vv *ast.ValueSpec, pkgName string, doc *ast.CommentGroup) *domain.Value {
-	tt, _ := getType(vv.Type, pkgName, doc)
-	return &domain.Value{
-		Name:    vv.Names[0].Name,
-		Type:    tt,
-		Value:   cast.ToInt32(vv.Values[0].(*ast.BasicLit).Value),
-		Comment: getDoc(vv.Comment),
+func (d *TypeParser) GetEnum(vv *ast.GenDecl) *typespec.Enum {
+	ret := &typespec.Enum{Values: make(map[string]*typespec.Value)}
+	for _, spec := range vv.Specs {
+		vv, ok := spec.(*ast.ValueSpec)
+		if !ok || vv == nil || vv.Type == nil {
+			continue
+		}
+		tt, _ := getType(domain.ENUM, vv.Type, nil, d.pkg)
+		val := &typespec.Value{
+			Name:    vv.Names[0].Name,
+			Type:    tt,
+			Value:   cast.ToInt32(vv.Values[0].(*ast.BasicLit).Value),
+			Comment: getDoc(vv.Comment),
+		}
+		ret.List = append(ret.List, val)
+		ret.Values[val.Name] = val
+		ret.Type = tt
 	}
+	if len(ret.List) <= 0 {
+		return nil
+	}
+	sort.Slice(ret.List, func(i, j int) bool {
+		return ret.List[i].Value < ret.List[j].Value
+	})
+	return ret
 }
 
 func getTag(tt *ast.BasicLit) string {
@@ -110,17 +129,16 @@ func getDoc(doc *ast.CommentGroup) string {
 		return ""
 	}
 	return strings.TrimSpace(strings.TrimPrefix(doc.List[ll-1].Text, "//"))
-	//return doc.List[ll-1].Text
 }
 
-func getType(n ast.Expr, pkgName string, doc *ast.CommentGroup) (tt *domain.Type, token uint32) {
-	tt = &domain.Type{Doc: getDoc(doc), Selector: pkgName}
+func getType(kind uint32, n ast.Expr, doc *ast.CommentGroup, pkg string) (*typespec.Type, []uint32) {
+	token := []uint32{}
+	tt := &typespec.Type{Kind: kind, Doc: getDoc(doc), Selector: pkg}
 	parseType(n, tt, &token)
-	tt = GetOrAddType(tt)
-	return
+	return GetOrAddType(tt), token
 }
 
-func parseType(n ast.Expr, tt *domain.Type, token *uint32) {
+func parseType(n ast.Expr, tt *typespec.Type, token *[]uint32) {
 	switch vv := n.(type) {
 	case *ast.Ident:
 		tt.Name = vv.Name
@@ -128,10 +146,10 @@ func parseType(n ast.Expr, tt *domain.Type, token *uint32) {
 		tt.Selector = vv.X.(*ast.Ident).Name
 		tt.Name = vv.Sel.Name
 	case *ast.ArrayType:
-		*token |= domain.ARRAY
+		*token = append(*token, domain.ARRAY)
 		parseType(vv.Elt, tt, token)
 	case *ast.StarExpr:
-		*token |= domain.POINTER
+		*token = append(*token, domain.POINTER)
 		parseType(vv.X, tt, token)
 	}
 }
