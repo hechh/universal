@@ -3,6 +3,7 @@ package typespec
 import (
 	"fmt"
 	"strings"
+	"universal/tool/gomaker_old/domain"
 )
 
 // 字段结构
@@ -23,7 +24,20 @@ type Struct struct {
 func (d *Struct) Format() string {
 	vals := []string{}
 	for _, val := range d.List {
-		vals = append(vals, fmt.Sprintf("%s %s // %s %s", val.Name, val.Type.Format(d.Type.Selector), val.Tag, val.Comment))
+		strToken := ""
+		for _, val := range val.Token {
+			switch val {
+			case domain.POINTER:
+				strToken += "*"
+			case domain.ARRAY:
+				strToken += "[]"
+			}
+		}
+		if len(val.Comment) > 0 {
+			vals = append(vals, fmt.Sprintf("%s %s%s %s // %s", val.Name, strToken, val.Type.Format(d.Type.Selector), val.Tag, val.Comment))
+		} else {
+			vals = append(vals, fmt.Sprintf("%s %s%s %s", val.Name, strToken, val.Type.Format(d.Type.Selector), val.Tag))
+		}
 	}
 	return fmt.Sprintf("type %s struct {\n%s\n}", d.Type.Name, strings.Join(vals, "\n"))
 }

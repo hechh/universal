@@ -1,7 +1,6 @@
 package manager
 
 import (
-	"fmt"
 	"go/ast"
 	"go/token"
 	"sort"
@@ -82,7 +81,6 @@ func (d *TypeParser) GetStruct(vv *ast.TypeSpec) *typespec.Struct {
 	sort.Slice(ret.List, func(i, j int) bool {
 		return strings.Compare(ret.List[i].Name, ret.List[j].Name) < 0
 	})
-	fmt.Println("==========>", ret.Type.Name)
 	return ret
 }
 
