@@ -1554,7 +1554,7 @@ message WorldBossBattleBeginResponse {
 message WorldBossBattleEndRequest {
     common.IPacket          PacketHead = 1;
     playerStruct.BattleInfo Battle     = 2;
-	uint32         			IsFinish   = 3;  //是否最终上报
+    uint32                  IsFinish   = 3;  // 是否最终上报
 }
 
 // 世界boss挑战结束返回

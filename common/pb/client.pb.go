@@ -15352,7 +15352,7 @@ type WorldBossBattleEndRequest struct {
 
 	PacketHead *IPacket    `protobuf:"bytes,1,opt,name=PacketHead,proto3" json:"PacketHead,omitempty"`
 	Battle     *BattleInfo `protobuf:"bytes,2,opt,name=Battle,proto3" json:"Battle,omitempty"`
-	IsFinish   uint32      `protobuf:"varint,3,opt,name=IsFinish,proto3" json:"IsFinish,omitempty"` //是否最终上报
+	IsFinish   uint32      `protobuf:"varint,3,opt,name=IsFinish,proto3" json:"IsFinish,omitempty"` // 是否最终上报
 }
 
 func (x *WorldBossBattleEndRequest) Reset() {
