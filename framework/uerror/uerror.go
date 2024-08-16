@@ -53,6 +53,6 @@ func (d *UError) Error() string {
 	return d.errMsg
 }
 
-func (d *UError) ToString() string {
+func (d *UError) String() string {
 	return fmt.Sprintf("%s:%d\t%s\t%d: %s", d.file, d.line, d.funcName, d.code, d.errMsg)
 }

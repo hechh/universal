@@ -1,14 +1,8 @@
 package domain
 
 import (
-	"universal/common/pb"
-
 	"github.com/golang/protobuf/proto"
 )
-
-type IHead interface {
-	GetPacketHead() *pb.IPacket
-}
 
 type Result struct {
 	UID      uint64

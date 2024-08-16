@@ -1,13 +1,14 @@
 package plog
 
 const (
-	LOG_TRACE = 0x01
-	LOG_DEBUG = 0x02
-	LOG_WARN  = 0x04
-	LOG_INFO  = 0x08
-	LOG_ERROR = 0x10
-	LOG_FATAL = 0x20
-	LOG_ALL   = 0xff
+	LOG_TRACE   = 0x01
+	LOG_DEBUG   = 0x02
+	LOG_WARN    = 0x04
+	LOG_INFO    = 0x08
+	LOG_ERROR   = 0x10
+	LOG_FATAL   = 0x20
+	LOG_ALL     = 0xff
+	LOG_DEFAULT = LOG_INFO | LOG_ERROR | LOG_FATAL
 )
 
 var (
