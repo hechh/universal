@@ -1,0 +1,90 @@
+syntax = "proto3";
+import "common.proto";
+option  go_package = "../pb";  // 声明生成的 go 文件所属的包
+package rpc3;
+
+// 发送标志
+enum SEND {
+    POINT      = 0;  // 指定集群id
+    BOARD_CAST = 1;  // 广播
+};
+
+// rpc 包头
+message RpcHead {
+    uint32           SrcClusterId   = 1;   // 源集群id
+    uint32           ClusterId      = 2;   // 目标集群id 大于0优先
+    common.SERVICE   DestServerType = 3;   // 目标集群类型
+    uint32           RouteType      = 4;   // 路由类型
+    uint32           RegionID       = 5;   // 区服ID
+    uint64           Id             = 6;   // 目标ID
+    uint32           SocketId       = 7;   // 客户端连接id
+    SEND             SendType       = 8;   // 消息类型
+    uint32           SeqId          = 9;   // 序列号
+    string           ActorName      = 10;  // actor名称
+    string           FuncName       = 11;  // actor函数名称
+    string           Reply          = 12;  // call sessionid
+    common.RouteInfo Route          = 13;  // 路由表
+}
+
+// rpc 包
+message RpcPacket {
+    RpcHead RpcHead = 1;
+    uint32  ArgLen  = 2;  // 可变参数个数
+    bytes   RpcBody = 3;  // 存储可变参数 pb
+}
+
+// 原始包
+message Packet {
+    uint32    Id        = 1;  // socketid
+    string    Reply     = 2;  // call sessionid
+    bytes     Buff      = 3;  // proto压缩数据
+    RpcPacket RpcPacket = 4;  // rpc packet
+}
+
+// 集群信息
+message ClusterInfo {
+    common.SERVICE Type       = 1;
+    string         Ip         = 2;
+    int32          Port       = 3;
+    int32          Weight     = 4;
+    uint32         SocketId   = 5;
+    uint32         Version    = 6;  // 版本号
+    uint32         ClusterID  = 7;
+    uint64         CreateTime = 8;  // 加入时间
+}
+
+// 邮箱
+message MailBox {
+    uint64 Id        = 1;
+    uint64 LeaseId   = 2;
+    MAIL   MailType  = 3;
+    uint32 ClusterId = 5;  // 集群id
+}
+
+// 玩法集群信息
+message StubMailBox {
+    uint64 Id        = 1;
+    uint64 LeaseId   = 2;
+    STUB   StubType  = 3;
+    uint32 ClusterId = 5;  // 集群id
+}
+
+// STUB类型
+enum STUB {
+    Master          = 0;  // master
+    DbPlayerMgr     = 1;  // db玩家数据
+    PlayerMgr       = 2;  // game玩家数据
+    ChatChannelMgr  = 4;  // gm聊天数据
+    DbChatMgr       = 5;  // gm聊天数据
+    AccountMgr      = 6;  // 登录
+    BattleRecordMgr = 7;  // 战斗记录
+    RankMgr         = 8;  // 排行榜
+    GlobalMgr       = 9;  // 全局数据
+    END             = 10;
+};
+
+// 邮件类型
+enum MAIL {
+    M_PlayerMgr  = 0;  // 游戏player
+    M_AccountMgr = 1;  // 网关player
+};

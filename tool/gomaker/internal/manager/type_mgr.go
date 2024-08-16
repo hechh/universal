@@ -3,6 +3,8 @@ package manager
 import (
 	"flag"
 	"fmt"
+	"sort"
+	"strings"
 	"text/template"
 	"universal/tool/gomaker/domain"
 	"universal/tool/gomaker/internal/typespec"
@@ -86,14 +88,32 @@ func AddAlias(vv *typespec.Alias) {
 	}
 }
 
-func GetStruct() map[string]*typespec.Struct {
-	return structs
+func GetStruct() (rets []*typespec.Struct) {
+	for _, val := range structs {
+		rets = append(rets, val)
+	}
+	sort.Slice(rets, func(i, j int) bool {
+		return strings.Compare(rets[i].Type.Name, rets[j].Type.Name) < 0
+	})
+	return
 }
 
-func GetEnum() map[string]*typespec.Enum {
-	return enums
+func GetEnum() (rets []*typespec.Enum) {
+	for _, val := range enums {
+		rets = append(rets, val)
+	}
+	sort.Slice(rets, func(i, j int) bool {
+		return strings.Compare(rets[i].Type.Name, rets[j].Type.Name) < 0
+	})
+	return
 }
 
-func GetAlias() map[string]*typespec.Alias {
-	return alias
+func GetAlias() (rets []*typespec.Alias) {
+	for _, val := range alias {
+		rets = append(rets, val)
+	}
+	sort.Slice(rets, func(i, j int) bool {
+		return strings.Compare(rets[i].Type.Name, rets[j].Type.Name) < 0
+	})
+	return
 }
