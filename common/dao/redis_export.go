@@ -1,0 +1,279 @@
+package dao
+
+import (
+	"fmt"
+	"time"
+	"universal/common/dao/internal/manager"
+
+	"github.com/go-redis/redis/v8"
+)
+
+func IncrBy(dbid uint32, key string, val int64) (ret int64, err error) {
+	cli := manager.GetRedis(dbid)
+	if cli == nil {
+		err = fmt.Errorf("redis dbid(%d) not supported", dbid)
+		return
+	}
+	ret, err = cli.IncrBy(dbid, key, val)
+	return
+}
+
+func Get(dbid uint32, key string) (str string, err error) {
+	cli := manager.GetRedis(dbid)
+	if cli == nil {
+		err = fmt.Errorf("redis dbid(%d) not supported", dbid)
+		return
+	}
+	str, err = cli.Get(dbid, key)
+	return
+}
+
+func Set(dbid uint32, key string, val interface{}) (err error) {
+	cli := manager.GetRedis(dbid)
+	if cli == nil {
+		err = fmt.Errorf("redis dbid(%d) not supported", dbid)
+		return
+	}
+	err = cli.Set(dbid, key, val)
+	return
+}
+
+// 不存在key时，设置该key的值未val
+func SetNX(dbid uint32, key string, val interface{}) (exist bool, err error) {
+	cli := manager.GetRedis(dbid)
+	if cli == nil {
+		err = fmt.Errorf("redis dbid(%d) not supported", dbid)
+		return
+	}
+	exist, err = cli.SetNX(dbid, key, val)
+	return
+}
+
+// 设置key的过期时间
+func SetEX(dbid uint32, key string, val interface{}, ttl time.Duration) (err error) {
+	cli := manager.GetRedis(dbid)
+	if cli == nil {
+		err = fmt.Errorf("redis dbid(%d) not supported", dbid)
+		return
+	}
+	err = cli.SetEX(dbid, key, val, ttl)
+	return
+}
+
+// 批量读取操作
+func MGet(dbid uint32, keys ...string) (rets []interface{}, err error) {
+	cli := manager.GetRedis(dbid)
+	if cli == nil {
+		err = fmt.Errorf("redis dbid(%d) not supported", dbid)
+		return
+	}
+	args := []string{}
+	for i := 0; i < len(keys); i++ {
+		args = append(args, (keys[i]))
+	}
+	rets, err = cli.MGet(dbid, args...)
+	return
+}
+
+// 批量设置键值对
+func MSet(dbid uint32, args ...interface{}) (err error) {
+	cli := manager.GetRedis(dbid)
+	if cli == nil {
+		err = fmt.Errorf("redis dbid(%d) not supported", dbid)
+		return
+	}
+	err = cli.MSet(dbid, args...)
+	return
+}
+
+func HGetAll(dbid uint32, key string) (ret map[string]string, err error) {
+	cli := manager.GetRedis(dbid)
+	if cli == nil {
+		err = fmt.Errorf("redis dbid(%d) not supported", dbid)
+		return
+	}
+	ret, err = cli.HGetAll(dbid, key)
+	return
+}
+
+func HGet(dbid uint32, key string, field string) (ret string, err error) {
+	cli := manager.GetRedis(dbid)
+	if cli == nil {
+		err = fmt.Errorf("redis dbid(%d) not supported", dbid)
+		return
+	}
+	ret, err = cli.HGet(dbid, key, field)
+	return
+}
+
+func HDel(dbid uint32, key string, fields ...string) (err error) {
+	cli := manager.GetRedis(dbid)
+	if cli == nil {
+		err = fmt.Errorf("redis dbid(%d) not supported", dbid)
+		return
+	}
+	err = cli.HDel(dbid, key, fields...)
+	return
+}
+
+func HKeys(dbid uint32, key string) (rets []string, err error) {
+	cli := manager.GetRedis(dbid)
+	if cli == nil {
+		err = fmt.Errorf("redis dbid(%d) not supported", dbid)
+		return
+	}
+	rets, err = cli.HKeys(dbid, key)
+	return
+}
+
+func HIncrBy(dbid uint32, key string, field string, incr int64) (err error) {
+	cli := manager.GetRedis(dbid)
+	if cli == nil {
+		err = fmt.Errorf("redis dbid(%d) not supported", dbid)
+		return
+	}
+	err = cli.HIncrBy(dbid, key, field, incr)
+	return
+}
+
+func HSet(dbid uint32, key string, field string, val interface{}) (err error) {
+	cli := manager.GetRedis(dbid)
+	if cli == nil {
+		err = fmt.Errorf("redis dbid(%d) not supported", dbid)
+		return
+	}
+	err = cli.HSet(dbid, key, field, val)
+	return
+}
+
+func HMSet(dbid uint32, key string, vals ...interface{}) (err error) {
+	cli := manager.GetRedis(dbid)
+	if cli == nil {
+		err = fmt.Errorf("redis dbid(%d) not supported", dbid)
+		return
+	}
+	err = cli.HMSet(dbid, key, vals...)
+	return
+}
+
+func ZAdd(dbid uint32, key string, members ...*redis.Z) (err error) {
+	cli := manager.GetRedis(dbid)
+	if cli == nil {
+		err = fmt.Errorf("redis dbid(%d) not supported", dbid)
+		return
+	}
+	err = cli.ZAdd(dbid, key, members...)
+	return
+}
+
+func ZCard(dbid uint32, key string) (count int64, err error) {
+	cli := manager.GetRedis(dbid)
+	if cli == nil {
+		err = fmt.Errorf("redis dbid(%d) not supported", dbid)
+		return
+	}
+	count, err = cli.ZCard(dbid, key)
+	return
+}
+
+// 返回有序集合中指定成员的排名，有序集合成员按分数值递减排序
+func ZRevRank(dbid uint32, key string, member string) (count int64, err error) {
+	cli := manager.GetRedis(dbid)
+	if cli == nil {
+		err = fmt.Errorf("redis dbid(%d) not supported", dbid)
+		return
+	}
+	count, err = cli.ZRevRank(dbid, key, member)
+	return
+}
+
+// 返回有序集合中指定区间内的成员
+func ZRevRange(dbid uint32, key string, start, stop int64) (members []string, err error) {
+	cli := manager.GetRedis(dbid)
+	if cli == nil {
+		err = fmt.Errorf("redis dbid(%d) not supported", dbid)
+		return
+	}
+	members, err = cli.ZRevRange(dbid, key, start, stop)
+	return
+}
+
+func ZScore(dbid uint32, key string, member string) (score float64, err error) {
+	cli := manager.GetRedis(dbid)
+	if cli == nil {
+		err = fmt.Errorf("redis dbid(%d) not supported", dbid)
+		return
+	}
+	score, err = cli.ZScore(dbid, key, member)
+	return
+}
+
+func ZRevRangeWithScores(dbid uint32, key string, start, stop int64) (members []redis.Z, err error) {
+	cli := manager.GetRedis(dbid)
+	if cli == nil {
+		err = fmt.Errorf("redis dbid(%d) not supported", dbid)
+		return
+	}
+	members, err = cli.ZRevRangeWithScores(dbid, key, start, stop)
+	return
+}
+
+func RPush(dbid uint32, key string, values ...interface{}) (ret int64, err error) {
+	cli := manager.GetRedis(dbid)
+	if cli == nil {
+		err = fmt.Errorf("redis dbid(%d) not supported", dbid)
+		return
+	}
+	ret, err = cli.RPush(dbid, key, values...)
+	return
+}
+
+func RPop(dbid uint32, key string) (ret string, err error) {
+	cli := manager.GetRedis(dbid)
+	if cli == nil {
+		err = fmt.Errorf("redis dbid(%d) not supported", dbid)
+		return
+	}
+	ret, err = cli.RPop(dbid, key)
+	return
+}
+
+func LLen(dbid uint32, key string) (ret int64, err error) {
+	cli := manager.GetRedis(dbid)
+	if cli == nil {
+		err = fmt.Errorf("redis dbid(%d) not supported", dbid)
+		return
+	}
+	ret, err = cli.LLen(dbid, key)
+	return
+}
+
+func LRange(dbid uint32, key string, start, stop int64) (ret []string, err error) {
+	cli := manager.GetRedis(dbid)
+	if cli == nil {
+		err = fmt.Errorf("redis dbid(%d) not supported", dbid)
+		return
+	}
+	ret, err = cli.LRange(dbid, key, start, stop)
+	return
+}
+
+func LTrim(dbid uint32, key string, start, stop int64) (ret string, err error) {
+	cli := manager.GetRedis(dbid)
+	if cli == nil {
+		err = fmt.Errorf("redis dbid(%d) not supported", dbid)
+		return
+	}
+	ret, err = cli.LTrim(dbid, key, start, stop)
+	return
+}
+
+func LRem(dbid uint32, key string, val interface{}) (ret int64, err error) {
+	cli := manager.GetRedis(dbid)
+	if cli == nil {
+		err = fmt.Errorf("redis dbid(%d) not supported", dbid)
+		return
+	}
+	ret, err = cli.LRem(dbid, key, val)
+	return
+}

@@ -3,6 +3,8 @@ module universal
 go 1.22.1
 
 require (
+	github.com/PuerkitoBio/goquery v1.9.2
+	github.com/go-redis/redis/v8 v8.11.5
 	github.com/gomodule/redigo v1.9.2
 	github.com/google/gops v0.3.28
 	github.com/nats-io/nats.go v1.35.0
@@ -21,7 +23,7 @@ require (
 	github.com/coreos/pkg v0.0.0-20240122114842-bbd7aa9bf6fb // indirect
 	github.com/dgrijalva/jwt-go v3.2.0+incompatible // indirect
 	github.com/golang/groupcache v0.0.0-20210331224755-41bb18bfe9da // indirect
-	github.com/golang/protobuf v1.5.4 // indirect
+	github.com/golang/protobuf v1.5.4
 	github.com/google/btree v1.1.2 // indirect
 	github.com/google/uuid v1.6.0 // indirect
 	github.com/grpc-ecosystem/go-grpc-middleware v1.4.0 // indirect
@@ -40,8 +42,11 @@ require (
 )
 
 require (
+	github.com/andybalholm/cascadia v1.3.2 // indirect
+	github.com/cespare/xxhash/v2 v2.2.0 // indirect
 	github.com/coreos/bbolt v0.0.0-00010101000000-000000000000 // indirect
 	github.com/coreos/etcd v3.3.17+incompatible // indirect
+	github.com/dgryski/go-rendezvous v0.0.0-20200823014737-9f7001d12a5f // indirect
 	github.com/gogo/protobuf v1.3.2 // indirect
 	github.com/google/go-cmp v0.6.0 // indirect
 	github.com/klauspost/compress v1.17.2 // indirect
