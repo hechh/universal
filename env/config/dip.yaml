@@ -2,17 +2,17 @@ log:
   level: 60
   path: ./log
 
-dip:
+server:
   1:
-    addr: 127.0.0.1:31401
+    host: 127.0.0.1:31401
     pprof: localhost:31402
     gops: localhost:31403
   2:
-    addr: 127.0.0.1:31411
+    host: 127.0.0.1:31411
     pprof: localhost:31412
     gops: localhost:31413
   3:
-    addr: 127.0.0.1:31421
+    host: 127.0.0.1:31421
     pprof: localhost:31422
     gops: localhost:31423
 

@@ -2,16 +2,16 @@ log:
   level: 60
   path: ./log
 
-game:
+server:
   1:
-    addr: 127.0.0.1:31201
+    host: 127.0.0.1:31201
     pprof: localhost:31202
     gops: localhost:31203
   2:
-    addr: 127.0.0.1:31211
+    host: 127.0.0.1:31211
     pprof: localhost:31212
     gops: localhost:31213
   3:
-    addr: 127.0.0.1:31221
+    host: 127.0.0.1:31221
     pprof: localhost:31222
     gops: localhost:31223
