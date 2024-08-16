@@ -1,0 +1,18 @@
+log:
+  level: 60
+  path: ./log
+
+record:
+  1:
+    addr: 127.0.0.1:31501
+    pprof: localhost:31502
+    gops: localhost:31503
+  2:
+    addr: 127.0.0.1:31511
+    pprof: localhost:31512
+    gops: localhost:31513
+  3:
+    addr: 127.0.0.1:31521
+    pprof: localhost:31522
+    gops: localhost:31523
+
