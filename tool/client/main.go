@@ -7,6 +7,7 @@ import (
 	"os/signal"
 	"syscall"
 	"universal/common/config"
+	"universal/common/dao"
 	"universal/framework/plog"
 )
 
@@ -25,13 +26,19 @@ func main() {
 	flag.Parse()
 
 	// 加载配置
-	var err error
-	if cfg, err = config.LoadConfig(path, "gate"); err != nil {
+	tmpcfg, err := config.LoadConfig(path, "gate")
+	if err != nil {
 		panic(fmt.Errorf("配置文件加载错误: %v", err))
 	}
+	cfg = tmpcfg
 
 	// 初始化日志
 	plog.Init(uint32(level), "./log", "client")
+
+	// 初始化redis
+	if err := dao.InitRedis(cfg.Redis); err != nil {
+		panic(fmt.Errorf("redis连接池初始化失败: %v", err))
+	}
 
 	// 阻塞
 	signalHandleBlock(func(sig os.Signal) {

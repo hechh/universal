@@ -3,10 +3,15 @@ package dao
 import (
 	"fmt"
 	"time"
+	"universal/common/config"
 	"universal/common/dao/internal/manager"
 
 	"github.com/go-redis/redis/v8"
 )
+
+func InitRedis(cfg map[uint32]*config.DbConfig) error {
+	return manager.InitRedis(cfg)
+}
 
 func IncrBy(dbid uint32, key string, val int64) (ret int64, err error) {
 	cli := manager.GetRedis(dbid)

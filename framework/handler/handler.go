@@ -15,6 +15,14 @@ var (
 
 type Handler func(ctx *Context, req proto.Message, rsp proto.Message) error
 
+func Walk(f func(api *ApiInfo) bool) {
+	for _, api := range apis {
+		if !f(api) {
+			break
+		}
+	}
+}
+
 func BuildPacketHead(id uint64, dst pb.SERVICE, arrParam ...uint32) *pb.IPacket {
 	code := uint32(0)
 	if len(arrParam) > 0 {
@@ -53,6 +61,10 @@ func Register(f Handler, req proto.Message, rsp proto.Message) {
 	apis[item.GetRspCrc()] = item
 }
 
+func Get(crc uint32) *ApiInfo {
+	return apis[crc]
+}
+
 func GetCrc(name string) uint32 {
 	return crc32.ChecksumIEEE([]byte(name))
 }
@@ -63,6 +75,14 @@ type ApiInfo struct {
 	req     reflect.Type
 	rsp     reflect.Type
 	fun     Handler
+}
+
+func (d *ApiInfo) GetReqName() string {
+	return d.reqname
+}
+
+func (d *ApiInfo) GetRspName() string {
+	return d.rspname
 }
 
 func (d *ApiInfo) GetReqCrc() uint32 {

@@ -33,6 +33,10 @@ func NewSocket(fr IFrame, conn net.Conn) *Socket {
 	}
 }
 
+func (d *Socket) Close() error {
+	return d.conn.Close()
+}
+
 func (d *Socket) getSendBytes(size int) (ret []byte) {
 	if cap(d.sendBytes) < size {
 		d.sendBytes = make([]byte, size)
@@ -61,7 +65,7 @@ func (d *Socket) getReadBytes(size int) (ret []byte) {
 	return
 }
 
-func (d *Socket) Read(recv []byte) (int, error) {
+func (d *Socket) Read() (recv []byte, err error) {
 	// 设置接受超时时间，避免阻塞
 	if d.readExpire > 0 {
 		d.conn.SetReadDeadline(time.Now().Add(d.readExpire))
@@ -70,24 +74,23 @@ func (d *Socket) Read(recv []byte) (int, error) {
 	headSize := d.GetHeadSize()
 	head := d.getReadBytes(headSize)
 	if n, err := io.ReadFull(d.conn, head); err != nil {
-		return 0, err
+		return nil, err
 	} else if n != headSize {
-		return 0, fmt.Errorf("packet header is incomplete, size: %d, receive: %d", headSize, n)
+		return nil, fmt.Errorf("packet header is incomplete, size: %d, receive: %d", headSize, n)
 	}
 	headStr := string(head)
 	// 读取包体
 	bodySize := d.GetBodySize(head)
 	body := d.getReadBytes(bodySize)
 	if n, err := io.ReadFull(d.conn, body); err != nil {
-		return 0, err
+		return nil, err
 	} else if n != int(bodySize) {
-		return 0, fmt.Errorf("packet body is incomplete, size: %d, receive: %d", bodySize, n)
+		return nil, fmt.Errorf("packet body is incomplete, size: %d, receive: %d", bodySize, n)
 	}
 	// 校验数据包
 	if !d.Check(util.StringToBytes(headStr), body) {
-		return 0, fmt.Errorf("packet check failed")
+		return nil, fmt.Errorf("packet check failed")
 	}
-	copy(recv, body)
-	// 接受包体
-	return bodySize, nil
+	recv = append(recv, body...)
+	return
 }
