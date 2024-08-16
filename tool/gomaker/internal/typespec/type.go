@@ -10,9 +10,20 @@ type Type struct {
 	Doc      string // 注释
 }
 
-func (d *Type) Format(pkg string) string {
+func (d *Type) Clone() *Type {
+	return &Type{d.Kind, d.Selector, d.Name, d.Doc}
+}
+
+func (d *Type) GetName(pkg string) string {
 	if len(d.Selector) <= 0 || d.Selector == pkg {
 		return d.Name
 	}
 	return fmt.Sprintf("%s.%s", d.Selector, d.Name)
+}
+
+func (d *Type) GetDoc() string {
+	if len(d.Doc) <= 0 {
+		return ""
+	}
+	return fmt.Sprintf("// %s", d.Doc)
 }

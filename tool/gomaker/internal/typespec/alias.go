@@ -10,5 +10,11 @@ type Alias struct {
 }
 
 func (d *Alias) Format() string {
-	return fmt.Sprintf("// %s\ntype %s %s", d.Type.Doc, d.Type.Name, d.RealType.Format(d.Type.Selector))
+	return fmt.Sprintf("%s\ntype %s %s", d.Type.GetDoc(), d.Type.Name, d.RealType.GetName(d.Type.Selector))
+}
+
+func (d *Alias) Clone() *Alias {
+	tmps := make([]uint32, len(d.Token))
+	copy(tmps, d.Token)
+	return &Alias{tmps, d.Type.Clone(), d.RealType.Clone(), d.Comment}
 }

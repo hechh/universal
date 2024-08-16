@@ -17,8 +17,10 @@ const (
 
 const (
 	PACKAGE = "package"
-	CLIENT  = "client"
+	HTTPKIT = "httpkit.tpl"
+	PBCLASS = "pbclass.tpl"
+	PROTO   = "proto.tpl"
 )
 
 // 代码生成接口
-type GenFunc func(string, string, map[string]*template.Template) error
+type GenFunc func(string, string, *template.Template) error

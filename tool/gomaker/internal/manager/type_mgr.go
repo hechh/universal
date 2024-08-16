@@ -17,22 +17,19 @@ var (
 )
 
 type ApiInfo struct {
-	help       string
-	generators []domain.GenFunc
+	help      string
+	generator domain.GenFunc
 }
 
 func Help() {
 	fmt.Fprintf(flag.CommandLine.Output(), "action使用说明: \n")
 	for action, info := range apis {
-		fmt.Fprint(flag.CommandLine.Output(), fmt.Sprintf("\t%s #%s\n", action, info.help))
+		fmt.Fprint(flag.CommandLine.Output(), fmt.Sprintf("\t -action=%s\t#%s\n", action, info.help))
 	}
 }
 
-func Register(action, help string, infos ...domain.GenFunc) {
-	if _, ok := apis[action]; !ok {
-		apis[action] = &ApiInfo{help: help}
-	}
-	apis[action].generators = append(apis[action].generators, infos...)
+func Register(action, help string, info domain.GenFunc) {
+	apis[action] = &ApiInfo{help: help, generator: info}
 }
 
 func IsAction(action string) bool {
@@ -40,14 +37,8 @@ func IsAction(action string) bool {
 	return ok
 }
 
-func Generator(action, dst, param string, tpls map[string]*template.Template) error {
-	api := apis[action]
-	for _, ff := range api.generators {
-		if err := ff(dst, param, tpls); err != nil {
-			return err
-		}
-	}
-	return nil
+func Generator(action, dst, param string, tpls *template.Template) error {
+	return apis[action].generator(dst, param, tpls)
 }
 
 func Print() {

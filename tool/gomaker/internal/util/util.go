@@ -73,30 +73,25 @@ func ParseDir(v ast.Visitor, fset *token.FileSet, src string) error {
 	})
 }
 
-func OpenTemplate(tpl string) (map[string]*template.Template, error) {
-	ret := make(map[string]*template.Template)
-	if len(tpl) <= 0 {
-		return ret, nil
-	}
-	// 遍历所有目录
+func OpenTemplate(tpl string) (*template.Template, error) {
+	files := []string{}
 	err := filepath.Walk(tpl, func(path string, info os.FileInfo, err error) error {
 		if !info.IsDir() {
 			return nil
 		}
-		// 模式匹配
-		pattern, err := filepath.Glob(filepath.Join(path, "*.tpl"))
+		patterns, err := filepath.Glob(filepath.Join(path, "*.tpl"))
 		if err != nil {
 			return uerror.NewUError(1, -1, "%v", err)
 		}
-		if len(pattern) > 0 {
-			ret[filepath.Base(path)] = template.Must(template.ParseFiles(pattern...))
+		if len(patterns) > 0 {
+			files = append(files, patterns...)
 		}
 		return nil
 	})
 	if err != nil {
 		return nil, err
 	}
-	// 添加默认包名模板
-	ret[domain.PACKAGE] = template.Must(template.New(domain.PACKAGE).Parse("package {{.}}"))
-	return ret, nil
+	result := template.Must(template.ParseFiles(files...))
+	result.New(domain.PACKAGE).Parse("package {{.}}")
+	return result, nil
 }

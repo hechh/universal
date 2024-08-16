@@ -38,7 +38,7 @@ func main() {
 	dst = util.GetAbsPath(cwd, dst)
 
 	// 加载模板文件
-	tpls, err := util.OpenTemplate(tpl)
+	tplFile, err := util.OpenTemplate(tpl)
 	if err != nil {
 		panic(err)
 	}
@@ -55,7 +55,7 @@ func main() {
 	}
 
 	// 生成文件
-	if err := manager.Generator(action, dst, param, tpls); err != nil {
+	if err := manager.Generator(action, dst, param, tplFile); err != nil {
 		panic(err)
 	}
 }
@@ -66,5 +66,7 @@ func init() {
 		manager.Help()
 	}
 
-	manager.Register(domain.CLIENT, "生成client代码", generator.HttpKitGenerator)
+	manager.Register(domain.HTTPKIT, "生成client代码", generator.HttpKitGenerator)
+	manager.Register(domain.PBCLASS, "生成client代码", generator.OmitEmptyGenerator)
+	manager.Register(domain.PROTO, "生成client代码", generator.ProtoGenerator)
 }
