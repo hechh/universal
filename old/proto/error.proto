@@ -1,8 +1,0 @@
-syntax = "proto3";
-package pb;
-option  go_package = "../pb";  // 声明生成的 go 文件所属的包
-
-// 错误码
-enum ErrorCode {
-    Success = 0;  // 成功
-};
