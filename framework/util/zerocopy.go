@@ -1,6 +1,10 @@
 package util
 
 import (
+	"crypto/md5"
+	"encoding/binary"
+	"fmt"
+	"io"
 	"reflect"
 	"unsafe"
 )
@@ -21,4 +25,26 @@ func BytesToString(bts []byte) string {
 	b := *(*reflect.SliceHeader)(unsafe.Pointer(&bts))
 	s := &reflect.StringHeader{Data: b.Data, Len: b.Len}
 	return *(*string)(unsafe.Pointer(s))
+}
+
+// 整形转换成字节
+func IntToBytes(val int) []byte {
+	tmp := uint32(val)
+	buff := make([]byte, 4)
+	binary.BigEndian.PutUint32(buff, tmp)
+	return buff
+}
+
+// 字节转换成整形
+func BytesToInt(data []byte) int {
+	buff := make([]byte, 4)
+	copy(buff, data)
+	tmp := int32(binary.BigEndian.Uint32(buff))
+	return int(tmp)
+}
+
+func MD5(str string) string {
+	h := md5.New()
+	io.WriteString(h, str)
+	return fmt.Sprintf("%x", h.Sum(nil))
 }

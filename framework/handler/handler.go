@@ -5,6 +5,7 @@ import (
 	"reflect"
 	"strings"
 	"universal/common/pb"
+	"universal/framework/util"
 
 	"github.com/golang/protobuf/proto"
 )
@@ -14,6 +15,42 @@ var (
 )
 
 type Handler func(ctx *Context, req proto.Message, rsp proto.Message) error
+
+type IHead interface {
+	GetPacketHead() *pb.IPacket
+}
+
+type ApiInfo struct {
+	reqname string
+	rspname string
+	req     reflect.Type
+	rsp     reflect.Type
+	fun     Handler
+}
+
+func (d *ApiInfo) GetReqName() string {
+	return d.reqname
+}
+
+func (d *ApiInfo) GetRspName() string {
+	return d.rspname
+}
+
+func (d *ApiInfo) GetReqCrc() uint32 {
+	return GetCrc(d.reqname)
+}
+
+func (d *ApiInfo) GetRspCrc() uint32 {
+	return GetCrc(d.rspname)
+}
+
+func (d *ApiInfo) NewRequest() proto.Message {
+	return reflect.New(d.req).Interface().(proto.Message)
+}
+
+func (d *ApiInfo) NewResponse() proto.Message {
+	return reflect.New(d.rsp).Interface().(proto.Message)
+}
 
 func Walk(f func(api *ApiInfo) bool) {
 	for _, api := range apis {
@@ -65,38 +102,22 @@ func Get(crc uint32) *ApiInfo {
 	return apis[crc]
 }
 
+func GetByName(name string) *ApiInfo {
+	return apis[GetCrc(name)]
+}
+
 func GetCrc(name string) uint32 {
 	return crc32.ChecksumIEEE([]byte(name))
 }
 
-type ApiInfo struct {
-	reqname string
-	rspname string
-	req     reflect.Type
-	rsp     reflect.Type
-	fun     Handler
+func Encode(packet proto.Message) []byte {
+	crc := GetCrc(GetProtoName(packet))
+	buff, _ := proto.Marshal(packet)
+	data := append(util.IntToBytes(int(crc)), buff...)
+	return data
 }
 
-func (d *ApiInfo) GetReqName() string {
-	return d.reqname
-}
-
-func (d *ApiInfo) GetRspName() string {
-	return d.rspname
-}
-
-func (d *ApiInfo) GetReqCrc() uint32 {
-	return GetCrc(d.reqname)
-}
-
-func (d *ApiInfo) GetRspCrc() uint32 {
-	return GetCrc(d.rspname)
-}
-
-func (d *ApiInfo) NewRequest() proto.Message {
-	return reflect.New(d.req).Interface().(proto.Message)
-}
-
-func (d *ApiInfo) NewResponse() proto.Message {
-	return reflect.New(d.rsp).Interface().(proto.Message)
+func Decode(buff []byte) (uint32, []byte) {
+	packetId := uint32(util.BytesToInt(buff[0:4]))
+	return packetId, buff[4:]
 }

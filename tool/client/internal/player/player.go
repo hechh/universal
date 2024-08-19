@@ -3,14 +3,16 @@ package player
 import (
 	"encoding/binary"
 	"fmt"
-	"strings"
 	"sync/atomic"
 	"time"
+	"universal/common/dao/repository/token"
 	"universal/common/pb"
 	"universal/framework/async"
 	"universal/framework/handler"
 	"universal/framework/plog"
 	"universal/framework/socket"
+	"universal/framework/util"
+	"universal/tool/client/domain"
 
 	"github.com/golang/protobuf/proto"
 	"golang.org/x/net/websocket"
@@ -18,38 +20,35 @@ import (
 
 type ApiInfo struct {
 	status    int32        // 状态
-	StartTime uint64       // 开始时间戳
-	EndTime   uint64       // 结束时间戳
-	Callback  atomic.Value // 回调
+	beginTime int64        // 开始时间戳
+	endTime   int64        // 结束时间戳
+	callback  atomic.Value // 回调
 }
 
 type Player struct {
 	*async.Async
 	uid     uint64              // 玩家uid
 	conn    *socket.Socket      // websocket连接
-	mapApi  map[string]*ApiInfo // API调用统计
+	apis    map[uint32]*ApiInfo // API调用统计
 	closeCh chan<- uint64       // 关闭通知
 	exitCh  chan struct{}       // 退出通知
 }
 
 func NewPlayer(ws *websocket.Conn, uid uint64, closeCh chan<- uint64) (*Player, error) {
-	// 启动协程
-	task := async.NewAsync()
-	task.Start()
-	// 初始化api
-	calls := make(map[string]*ApiInfo)
+	apis := make(map[uint32]*ApiInfo)
 	handler.Walk(func(info *handler.ApiInfo) bool {
-		if name := info.GetRspName(); strings.HasSuffix(name, "Response") {
-			calls[name] = new(ApiInfo)
-		}
+		apis[info.GetReqCrc()] = new(ApiInfo)
+		apis[info.GetRspCrc()] = new(ApiInfo)
 		return true
 	})
+	task := async.NewAsync()
+	task.Start()
 	// 返回玩家结构
 	ret := &Player{
 		Async:   task,
 		uid:     uid,
 		conn:    socket.NewSocket(&Frame{}, ws),
-		mapApi:  calls,
+		apis:    apis,
 		closeCh: closeCh,
 		exitCh:  make(chan struct{}, 1),
 	}
@@ -92,20 +91,18 @@ func (d *Player) loopRead() {
 		switch vv := rsp.(type) {
 		case *pb.AllPlayerInfoNotify, *pb.ProtocolNameNotify:
 		case *pb.HeartbeatResponse:
-			plog.Trace("uid: %d, HeartbeatResponse: %v", d.uid, vv)
-			if api, ok := d.mapApi[pac.GetRspName()]; ok {
+			if api, ok := d.apis[id]; ok {
 				d.handle(api, rsp)
 			}
 		case *pb.LoginResponse:
 			if vv.PacketHead.Code == 0 {
-				// 开启心跳
 				go d.keepAlive()
 			}
-			if api, ok := d.mapApi[pac.GetRspName()]; ok {
+			if api, ok := d.apis[id]; ok {
 				d.handle(api, rsp)
 			}
 		default:
-			if api, ok := d.mapApi[pac.GetRspName()]; ok {
+			if api, ok := d.apis[id]; ok {
 				d.handle(api, rsp)
 			}
 		}
@@ -114,16 +111,14 @@ func (d *Player) loopRead() {
 
 func (d *Player) handle(api *ApiInfo, rsp proto.Message) {
 	atomic.StoreInt32(&api.status, 0)
-	atomic.StoreUint64(&api.EndTime, base.GetNowMil())
-
-	if cb, ok := api.Callback.Load().(domain.ApiCallback); ok && cb != nil {
+	atomic.StoreInt64(&api.endTime, util.GetNowUnixMilli())
+	if cb, ok := api.callback.Load().(domain.ResultCB); ok && cb != nil {
 		// 发送任务队列
 		d.Push(func() {
-			cb(&domain.ApiResult{
-				UID:       d.uid,
-				StartTime: atomic.LoadUint64(&api.StartTime),
-				EndTime:   atomic.LoadUint64(&api.EndTime),
-				Rsp:       rsp,
+			cb(&domain.Result{
+				UID:      d.uid,
+				Cost:     atomic.LoadInt64(&api.beginTime) - atomic.LoadInt64(&api.endTime),
+				Response: rsp,
 			})
 		})
 	}
@@ -136,49 +131,19 @@ func (d *Player) keepAlive() {
 		select {
 		case <-tt.C:
 			req := &pb.HeartbeatRequest{
-				PacketHead: protocol.BuildPacketHead(d.uid, pb.SERVICE_GATE),
-				Time:       base.GetNow(),
+				PacketHead: handler.BuildPacketHead(d.uid, pb.SERVICE_GATE),
+				Time:       uint64(util.GetNowUnixSecond()),
 			}
-			d.Send(&pb.RpcHead{Id: d.uid, FuncName: "HeartbeatRequest"}, req, domain.DefaultCB)
+			d.Send(&pb.RpcHead{Id: d.uid, FuncName: "HeartbeatRequest"}, req, domain.DefaultResult)
 		case <-d.exitCh:
 			return
 		}
 	}
 }
 
-func (d *Player) Login(cb domain.ApiCallback) {
-	newCB := func(rr *domain.ApiResult) {
-		vv, ok := rr.Rsp.(*pb.LoginResponse)
-		if rr.Error != nil || ok && vv != nil && vv.PacketHead.Code != uint32(cfgEnum.ErrorCode_Success) {
-			d.closeCh <- d.uid
-		}
-		cb(rr)
-	}
-
-	// 获取redis
-	redisCli := redis.GetRedisByAccountID(d.uid)
-	if redisCli == nil {
-		newCB(&domain.ApiResult{UID: d.uid, Error: fmt.Errorf("redis数据库无法连接")})
-		return
-	}
-
-	// 生成token
-	playerName := fmt.Sprintf("chen%d", d.uid)
-	tokenKey := redisCli.GetString(fmt.Sprintf("%s_%d", base.ERK_LoginToken, d.uid))
-	strToken := base.MD5(fmt.Sprintf("%s%d%s", playerName, d.uid, tokenKey))
-	req := &pb.LoginRequest{
-		PacketHead:  protocol.BuildPacketHead(d.uid, pb.SERVICE_GATE),
-		AccountName: playerName,
-		TokenKey:    strToken,
-	}
-
-	// 发送登录请求
-	d.Send(&pb.RpcHead{Id: d.uid, FuncName: "LoginRequest"}, req, newCB)
-}
-
 // notify之类的请求，一律不予支持
-func (d *Player) Send(head *pb.RpcHead, data proto.Message, cb domain.ApiCallback) {
-	dd := data.(domain.IHead)
+func (d *Player) Send(head *pb.RpcHead, data proto.Message, cb domain.ResultCB) {
+	dd := data.(handler.IHead)
 	head.Id = d.uid
 	packetHead := dd.GetPacketHead()
 	packetHead.Ckx = 0x72
@@ -186,23 +151,42 @@ func (d *Player) Send(head *pb.RpcHead, data proto.Message, cb domain.ApiCallbac
 	packetHead.DestServerType = pb.SERVICE_GATE
 	packetHead.Seqid = head.SeqId
 	packetHead.Id = head.Id
-
 	// 设置api信息
-	rspName := strings.Replace(head.FuncName, "Request", "Response", 1)
-	api := d.mapApi[rspName]
+	api := d.apis[handler.GetCrc(head.FuncName)]
 	if atomic.CompareAndSwapInt32(&api.status, 1, 1) {
 		// 上一个请求尚未结束
 		return
 	}
-
 	// 发送请求
-	now := base.GetNowMil()
-	if _, err := d.conn.Send(protocol.Encode(data)); err != nil {
-		cb(&domain.ApiResult{UID: d.uid, Error: err})
+	if _, err := d.conn.Send(handler.Encode(data)); err != nil {
+		cb(&domain.Result{UID: d.uid, Error: err})
+		return
 	}
-
 	// 设置api时间
-	atomic.StoreUint64(&api.StartTime, now)
+	atomic.StoreInt64(&api.beginTime, util.GetNowUnixMilli())
 	atomic.StoreInt32(&api.status, 1)
-	api.Callback.Store(cb)
+	api.callback.Store(cb)
+}
+
+func (d *Player) Login(cb domain.ResultCB) {
+	newCB := func(rr *domain.Result) {
+		vv, ok := rr.Response.(*pb.LoginResponse)
+		if rr.Error != nil || ok && vv != nil && vv.PacketHead.Code != 0 {
+			d.closeCh <- d.uid
+		}
+		cb(rr)
+	}
+	// 查询登录token
+	key, err := token.GetLoginToken(d.uid)
+	if err != nil {
+		newCB(&domain.Result{UID: d.uid, Error: fmt.Errorf("查询登录token错误: %v", err)})
+		return
+	}
+	strToken := util.MD5(fmt.Sprintf("chen%d%d%s", d.uid, d.uid, key))
+	// 发送登录请求
+	d.Send(&pb.RpcHead{Id: d.uid, FuncName: "LoginRequest"}, &pb.LoginRequest{
+		PacketHead:  handler.BuildPacketHead(d.uid, pb.SERVICE_GATE),
+		AccountName: fmt.Sprintf("chen%d", d.uid),
+		TokenKey:    strToken,
+	}, newCB)
 }

@@ -19,7 +19,7 @@ func IncrBy(dbid uint32, key string, val int64) (ret int64, err error) {
 		err = fmt.Errorf("redis dbid(%d) not supported", dbid)
 		return
 	}
-	ret, err = cli.IncrBy(dbid, key, val)
+	ret, err = cli.IncrBy(key, val)
 	return
 }
 
@@ -29,7 +29,7 @@ func Get(dbid uint32, key string) (str string, err error) {
 		err = fmt.Errorf("redis dbid(%d) not supported", dbid)
 		return
 	}
-	str, err = cli.Get(dbid, key)
+	str, err = cli.Get(key)
 	return
 }
 
@@ -39,7 +39,7 @@ func Set(dbid uint32, key string, val interface{}) (err error) {
 		err = fmt.Errorf("redis dbid(%d) not supported", dbid)
 		return
 	}
-	err = cli.Set(dbid, key, val)
+	err = cli.Set(key, val)
 	return
 }
 
@@ -50,7 +50,7 @@ func SetNX(dbid uint32, key string, val interface{}) (exist bool, err error) {
 		err = fmt.Errorf("redis dbid(%d) not supported", dbid)
 		return
 	}
-	exist, err = cli.SetNX(dbid, key, val)
+	exist, err = cli.SetNX(key, val)
 	return
 }
 
@@ -61,7 +61,7 @@ func SetEX(dbid uint32, key string, val interface{}, ttl time.Duration) (err err
 		err = fmt.Errorf("redis dbid(%d) not supported", dbid)
 		return
 	}
-	err = cli.SetEX(dbid, key, val, ttl)
+	err = cli.SetEX(key, val, ttl)
 	return
 }
 
@@ -76,7 +76,7 @@ func MGet(dbid uint32, keys ...string) (rets []interface{}, err error) {
 	for i := 0; i < len(keys); i++ {
 		args = append(args, (keys[i]))
 	}
-	rets, err = cli.MGet(dbid, args...)
+	rets, err = cli.MGet(args...)
 	return
 }
 
@@ -87,7 +87,7 @@ func MSet(dbid uint32, args ...interface{}) (err error) {
 		err = fmt.Errorf("redis dbid(%d) not supported", dbid)
 		return
 	}
-	err = cli.MSet(dbid, args...)
+	err = cli.MSet(args...)
 	return
 }
 
@@ -97,7 +97,7 @@ func HGetAll(dbid uint32, key string) (ret map[string]string, err error) {
 		err = fmt.Errorf("redis dbid(%d) not supported", dbid)
 		return
 	}
-	ret, err = cli.HGetAll(dbid, key)
+	ret, err = cli.HGetAll(key)
 	return
 }
 
@@ -107,7 +107,7 @@ func HGet(dbid uint32, key string, field string) (ret string, err error) {
 		err = fmt.Errorf("redis dbid(%d) not supported", dbid)
 		return
 	}
-	ret, err = cli.HGet(dbid, key, field)
+	ret, err = cli.HGet(key, field)
 	return
 }
 
@@ -117,7 +117,7 @@ func HDel(dbid uint32, key string, fields ...string) (err error) {
 		err = fmt.Errorf("redis dbid(%d) not supported", dbid)
 		return
 	}
-	err = cli.HDel(dbid, key, fields...)
+	err = cli.HDel(key, fields...)
 	return
 }
 
@@ -127,7 +127,7 @@ func HKeys(dbid uint32, key string) (rets []string, err error) {
 		err = fmt.Errorf("redis dbid(%d) not supported", dbid)
 		return
 	}
-	rets, err = cli.HKeys(dbid, key)
+	rets, err = cli.HKeys(key)
 	return
 }
 
@@ -137,7 +137,7 @@ func HIncrBy(dbid uint32, key string, field string, incr int64) (err error) {
 		err = fmt.Errorf("redis dbid(%d) not supported", dbid)
 		return
 	}
-	err = cli.HIncrBy(dbid, key, field, incr)
+	err = cli.HIncrBy(key, field, incr)
 	return
 }
 
@@ -147,7 +147,7 @@ func HSet(dbid uint32, key string, field string, val interface{}) (err error) {
 		err = fmt.Errorf("redis dbid(%d) not supported", dbid)
 		return
 	}
-	err = cli.HSet(dbid, key, field, val)
+	err = cli.HSet(key, field, val)
 	return
 }
 
@@ -157,7 +157,7 @@ func HMSet(dbid uint32, key string, vals ...interface{}) (err error) {
 		err = fmt.Errorf("redis dbid(%d) not supported", dbid)
 		return
 	}
-	err = cli.HMSet(dbid, key, vals...)
+	err = cli.HMSet(key, vals...)
 	return
 }
 
@@ -167,7 +167,7 @@ func ZAdd(dbid uint32, key string, members ...*redis.Z) (err error) {
 		err = fmt.Errorf("redis dbid(%d) not supported", dbid)
 		return
 	}
-	err = cli.ZAdd(dbid, key, members...)
+	err = cli.ZAdd(key, members...)
 	return
 }
 
@@ -177,7 +177,7 @@ func ZCard(dbid uint32, key string) (count int64, err error) {
 		err = fmt.Errorf("redis dbid(%d) not supported", dbid)
 		return
 	}
-	count, err = cli.ZCard(dbid, key)
+	count, err = cli.ZCard(key)
 	return
 }
 
@@ -188,7 +188,7 @@ func ZRevRank(dbid uint32, key string, member string) (count int64, err error) {
 		err = fmt.Errorf("redis dbid(%d) not supported", dbid)
 		return
 	}
-	count, err = cli.ZRevRank(dbid, key, member)
+	count, err = cli.ZRevRank(key, member)
 	return
 }
 
@@ -199,7 +199,7 @@ func ZRevRange(dbid uint32, key string, start, stop int64) (members []string, er
 		err = fmt.Errorf("redis dbid(%d) not supported", dbid)
 		return
 	}
-	members, err = cli.ZRevRange(dbid, key, start, stop)
+	members, err = cli.ZRevRange(key, start, stop)
 	return
 }
 
@@ -209,7 +209,7 @@ func ZScore(dbid uint32, key string, member string) (score float64, err error) {
 		err = fmt.Errorf("redis dbid(%d) not supported", dbid)
 		return
 	}
-	score, err = cli.ZScore(dbid, key, member)
+	score, err = cli.ZScore(key, member)
 	return
 }
 
@@ -219,7 +219,7 @@ func ZRevRangeWithScores(dbid uint32, key string, start, stop int64) (members []
 		err = fmt.Errorf("redis dbid(%d) not supported", dbid)
 		return
 	}
-	members, err = cli.ZRevRangeWithScores(dbid, key, start, stop)
+	members, err = cli.ZRevRangeWithScores(key, start, stop)
 	return
 }
 
@@ -229,7 +229,7 @@ func RPush(dbid uint32, key string, values ...interface{}) (ret int64, err error
 		err = fmt.Errorf("redis dbid(%d) not supported", dbid)
 		return
 	}
-	ret, err = cli.RPush(dbid, key, values...)
+	ret, err = cli.RPush(key, values...)
 	return
 }
 
@@ -239,7 +239,7 @@ func RPop(dbid uint32, key string) (ret string, err error) {
 		err = fmt.Errorf("redis dbid(%d) not supported", dbid)
 		return
 	}
-	ret, err = cli.RPop(dbid, key)
+	ret, err = cli.RPop(key)
 	return
 }
 
@@ -249,7 +249,7 @@ func LLen(dbid uint32, key string) (ret int64, err error) {
 		err = fmt.Errorf("redis dbid(%d) not supported", dbid)
 		return
 	}
-	ret, err = cli.LLen(dbid, key)
+	ret, err = cli.LLen(key)
 	return
 }
 
@@ -259,7 +259,7 @@ func LRange(dbid uint32, key string, start, stop int64) (ret []string, err error
 		err = fmt.Errorf("redis dbid(%d) not supported", dbid)
 		return
 	}
-	ret, err = cli.LRange(dbid, key, start, stop)
+	ret, err = cli.LRange(key, start, stop)
 	return
 }
 
@@ -269,7 +269,7 @@ func LTrim(dbid uint32, key string, start, stop int64) (ret string, err error) {
 		err = fmt.Errorf("redis dbid(%d) not supported", dbid)
 		return
 	}
-	ret, err = cli.LTrim(dbid, key, start, stop)
+	ret, err = cli.LTrim(key, start, stop)
 	return
 }
 
@@ -279,6 +279,6 @@ func LRem(dbid uint32, key string, val interface{}) (ret int64, err error) {
 		err = fmt.Errorf("redis dbid(%d) not supported", dbid)
 		return
 	}
-	ret, err = cli.LRem(dbid, key, val)
+	ret, err = cli.LRem(key, val)
 	return
 }

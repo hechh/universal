@@ -6,13 +6,13 @@ import (
 	"time"
 	"universal/common/config"
 	"universal/common/dao/domain"
-	"universal/common/dao/internal/database"
+	"universal/common/dao/internal/db"
 
 	"github.com/go-redis/redis/v8"
 )
 
 var (
-	redisPool = make(map[uint32]*database.RedisClient)
+	redisPool = make(map[uint32]*db.RedisClient)
 )
 
 func InitRedis(cfgs map[uint32]*config.DbConfig) error {
@@ -31,15 +31,15 @@ func InitRedis(cfgs map[uint32]*config.DbConfig) error {
 		if _, err := cli.Ping(context.Background()).Result(); err != nil {
 			return fmt.Errorf("Redis connecting is failed, error: %v, cfg: %v", err, cfg)
 		}
-		redisPool[dbid] = database.NewRedisClient(cli, cfg.DbName)
+		redisPool[dbid] = db.NewRedisClient(cli, cfg.DbName)
 	}
 	return nil
 }
 
-func GetRedis(dbid uint32) *database.RedisClient {
+func GetRedis(dbid uint32) *db.RedisClient {
 	return redisPool[dbid]
 }
 
-func GetRedisByUID(uid uint64) *database.RedisClient {
+func GetRedisByUID(uid uint64) *db.RedisClient {
 	return GetRedis(uint32(uid&domain.MIN_ACCOUNT_ID/domain.MAX_GROUP_ACCOUNT) + 1)
 }
