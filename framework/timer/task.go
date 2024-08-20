@@ -8,60 +8,67 @@ import (
 )
 
 type Task struct {
-	task   func() // 定时任务
-	isOnce bool   // 是否一次性定时器
-	expire int64  // 过期时间
+	once   bool   // 是否一次性
 	ttl    int64  // 定时时长
+	expire int64  // 过期时长
+	handle func() // 任务
 	next   *Task
 }
 
-func (d *Task) Handle() {
-	d.task()
-}
-
-type TaskList struct {
+type TaskQueue struct {
 	head  *Task
 	tail  *Task
 	count int64
 }
 
-func (d *TaskList) GetCount() int64 {
-	return atomic.LoadInt64(&d.count)
-}
-
-func (d *TaskList) Insert(task *Task) {
-	prevNode := (*Task)(atomic.SwapPointer((*unsafe.Pointer)(unsafe.Pointer(&d.tail)), unsafe.Pointer(task)))
-	atomic.StorePointer((*unsafe.Pointer)(unsafe.Pointer(&prevNode.next)), unsafe.Pointer(task))
-	atomic.AddInt64(&d.count, 1)
-}
-
-func (d *TaskList) Pop() (tt *Task) {
-	if tt = (*Task)(atomic.LoadPointer((*unsafe.Pointer)(unsafe.Pointer(&d.head.next)))); tt != nil {
-		d.head.next = nil
-		d.tail = d.head
-		atomic.StoreInt64(&d.count, 0)
-	}
-	return
-}
-
-func NewTask(f func(), ttl int64, isOnce bool) *Task {
+func NewTask(f func(), ttl int64, once bool) *Task {
 	return &Task{
-		task:   f,
-		isOnce: isOnce,
+		handle: f,
+		once:   once,
 		ttl:    ttl,
 		expire: util.GetNowTime().Add(time.Duration(ttl)).UnixMilli(),
 	}
 }
 
-func NewTaskList() *TaskList {
+func NewTaskQueue() *TaskQueue {
 	node := new(Task)
-	return &TaskList{head: node, tail: node}
+	return &TaskQueue{head: node, tail: node}
 }
 
-func NewTaskBucket(size int64) []*TaskList {
-	rets := make([]*TaskList, size)
-	for i := int64(0); i < size; i++ {
-		rets[i] = NewTaskList()
+func NewTaskPool(size int) (rets []atomic.Value) {
+	rets = make([]atomic.Value, size)
+	for i := 0; i < size; i++ {
+		rets[i].Store(NewTaskQueue())
 	}
-	return rets
+	return
+}
+
+func (d *Task) Handle() (rets []*Task) {
+	for d != nil {
+		item := d
+		d = d.next
+		item.next = nil
+
+		item.handle()
+		if !item.once {
+			rets = append(rets, NewTask(item.handle, item.ttl, item.once))
+		}
+	}
+	return
+}
+
+func (d *TaskQueue) Insert(task *Task) {
+	prevNode := (*Task)(atomic.SwapPointer((*unsafe.Pointer)(unsafe.Pointer(&d.tail)), unsafe.Pointer(task)))
+	atomic.StorePointer((*unsafe.Pointer)(unsafe.Pointer(&prevNode.next)), unsafe.Pointer(task))
+	atomic.AddInt64(&d.count, 1)
+}
+
+func (d *TaskQueue) GetCount() int64 {
+	return atomic.LoadInt64(&d.count)
+}
+
+func (d *TaskQueue) Remove() (tt *Task) {
+	tt = d.head.next
+	d.head.next = nil
+	return
 }

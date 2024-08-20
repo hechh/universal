@@ -5,52 +5,64 @@ import (
 	"universal/framework/basic/util"
 )
 
-// 任务轮(用户对定时任务分类、并插入相应任务队列)
 type Wheel struct {
-	cursor   int64       // 游标
-	bitTick  int64       // tick的bit数
-	bitSize  int64       // size的bit数
-	tick     int64       // 时间刻度
-	size     int64       // 时间轮盘大小
-	interval int64       // 间隔时间
-	buckets  []*TaskList // 任务集合
+	cursor   int64          // 处理游标
+	tickSize int64          // tick的bit数
+	tick     int64          // 时间刻度
+	interval int64          // 时间间隔
+	size     int64          // 转盘大小
+	buckets  []atomic.Value // 任务队列
 }
 
-func NewWheel(now, tick, size int64) *Wheel {
+func NewWheel(tick, size int64) *Wheel {
 	return &Wheel{
-		cursor:   now,
-		bitTick:  tick,
-		bitSize:  size,
+		cursor:   util.GetNowUnixMilli(),
+		tickSize: tick,
 		tick:     1<<tick - 1,
-		size:     1<<size - 1,
 		interval: 1<<(tick+size) - 1,
-		buckets:  NewTaskBucket(1 << size),
+		size:     1<<size - 1,
+		buckets:  NewTaskPool(1 << size),
 	}
+}
+
+func (d *Wheel) GetIndex(val int64) int64 {
+	return (val >> d.tickSize) & d.size
 }
 
 func (d *Wheel) Insert(task *Task) int {
 	cursor := util.GetNowUnixMilli()
-	// 判断是否过期
-	if (cursor | d.tick) == (task.expire | d.tick) {
-		return -1
-	}
 	// 判断是否匹配
 	if (cursor | d.interval) != (task.expire | d.interval) {
 		return 1
 	}
+	// 判断是否过期
+	if (cursor | d.tick) == (task.expire | d.tick) {
+		return -1
+	}
 	// 插入成功
-	d.buckets[(task.expire>>d.bitTick)&d.size].Insert(task)
+	queue := d.buckets[d.GetIndex(task.expire)].Load().(*TaskQueue)
+	queue.Insert(task)
 	return 0
 }
 
-func (d *Wheel) Pop() *Task {
-	now := util.GetNowUnixMilli()
-	cursor := atomic.LoadInt64(&d.cursor)
-	if (cursor | d.tick) == (now | d.tick) {
-		return nil
+func (d *Wheel) Pop() (rets []*Task) {
+	end := d.GetIndex(util.GetNowUnixMilli())
+	begin := d.GetIndex(atomic.LoadInt64(&d.cursor))
+	if end < begin {
+		end += d.size
 	}
-	// 更新时间
-	atomic.StoreInt64(&d.cursor, now)
-	// 读取过期任务
-	return d.buckets[(now>>d.bitTick)&d.size].Pop()
+	// 判断是否存在过期任务队列
+	if end == begin {
+		return
+	}
+	// 读取过期
+	for ; begin < end; begin++ {
+		old := d.buckets[begin&d.size].Load().(*TaskQueue)
+		if old.GetCount() <= 0 {
+			continue
+		}
+		d.buckets[begin&d.size].Swap(NewTaskQueue())
+		rets = append(rets, old.Remove())
+	}
+	return
 }

@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"testing"
 	"time"
-	"universal/framework/basic/timer"
+	"universal/framework/timer"
 )
 
 func TestTimer(t *testing.T) {
