@@ -18,3 +18,12 @@ else # linux darwin(mac)
 endif 
 
 
+##########################client工具代码自动生成#######################
+tool: protoc
+#	go install ./tool/gomaker
+	go run ./tools/gomaker/main.go -action="httpkit.tpl" -src="./common/pb" -dst="./tools/client/internal/httpkit/Init.gen.go" -tpl="./tools/gomaker/templates/"
+	go run ./tools/gomaker/main.go -action=pbclass.tpl -src="common/pb" -dst="tools/client/internal/httpkit/pbclass.gen.go" -tpl="tools/gomaker/templates/"
+	go run ./tools/gomaker/main.go -action="proto.tpl" -src="common/pb" -dst="tools/client/internal/httpkit/json.gen.go" -tpl="tools/gomaker/templates/"
+#	go install ./tools/client
+
+
