@@ -2,7 +2,7 @@ package timer
 
 import (
 	"sync/atomic"
-	"universal/framework/util"
+	"universal/framework/basic/util"
 )
 
 // 任务轮(用户对定时任务分类、并插入相应任务队列)

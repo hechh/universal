@@ -9,7 +9,7 @@ import (
 	"sync"
 	"sync/atomic"
 	"time"
-	"universal/framework/util"
+	"universal/framework/basic/util"
 )
 
 var (

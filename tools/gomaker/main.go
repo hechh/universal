@@ -7,9 +7,9 @@ import (
 	"os"
 	"strings"
 	"universal/tools/gomaker/domain"
-	"universal/tools/gomaker/internal/generator"
 	"universal/tools/gomaker/internal/manager"
 	"universal/tools/gomaker/internal/util"
+	"universal/tools/gomaker/repository/client"
 )
 
 func main() {
@@ -66,7 +66,7 @@ func init() {
 		manager.Help()
 	}
 
-	manager.Register(domain.HTTPKIT, "生成client代码", generator.HttpKitGenerator)
-	manager.Register(domain.PBCLASS, "生成client代码", generator.OmitEmptyGenerator)
-	manager.Register(domain.PROTO, "生成client代码", generator.ProtoGenerator)
+	manager.Register(domain.HTTPKIT, "生成client代码", client.HttpKitGenerator)
+	manager.Register(domain.PBCLASS, "生成client代码", client.OmitEmptyGenerator)
+	manager.Register(domain.PROTO, "生成client代码", client.ProtoGenerator)
 }

@@ -3,7 +3,7 @@ package timer
 import (
 	"sync"
 	"time"
-	"universal/framework/util"
+	"universal/framework/basic/util"
 )
 
 // 毫秒 --->>> tick：10ms, wheelSize: 100, interval: 1000ms=1s

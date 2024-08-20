@@ -5,7 +5,7 @@ import (
 	"reflect"
 	"strings"
 	"universal/common/pb"
-	"universal/framework/util"
+	"universal/framework/basic/util"
 
 	"github.com/golang/protobuf/proto"
 )

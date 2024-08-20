@@ -7,7 +7,7 @@ import (
 	"path"
 	"sync"
 	"time"
-	"universal/framework/util"
+	"universal/framework/basic/util"
 )
 
 type MetaData struct {
@@ -90,7 +90,7 @@ func (d *Writer) Flush() {
 }
 
 func (d *Writer) run() {
-	tt := time.NewTicker(3 * time.Second)
+	tt := time.NewTicker(1 * time.Second)
 	defer func() {
 		for {
 			select {

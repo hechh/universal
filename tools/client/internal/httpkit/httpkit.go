@@ -13,10 +13,10 @@ import (
 	"strings"
 	"sync"
 	"time"
-	"universal/framework/async"
+	"universal/framework/basic/async"
+	"universal/framework/basic/util"
 	"universal/framework/handler"
 	"universal/framework/plog"
-	"universal/framework/util"
 	"universal/tools/client/domain"
 	"universal/tools/client/internal/player"
 
@@ -33,7 +33,7 @@ const (
 )
 
 var (
-	fatalNotify = func(err error) {
+	fatalNotify = func(err interface{}) {
 		plog.Fatal("error: %v, stack: %s", err, string(debug.Stack()))
 	}
 	jsons = make(map[string]string)
@@ -149,7 +149,7 @@ func handle(w http.ResponseWriter, r *http.Request) {
 }
 
 func deadline(dur time.Duration, wg *sync.WaitGroup) {
-	util.SafeGo(func(error) {}, func() {
+	util.SafeGo(nil, func() {
 		<-time.NewTimer(dur).C
 		for i := 0; i < 10000; i++ {
 			wg.Done()

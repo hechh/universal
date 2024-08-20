@@ -1,4 +1,4 @@
-package generator
+package client
 
 import (
 	"bytes"
@@ -7,7 +7,7 @@ import (
 	"strings"
 	"text/template"
 	"unicode"
-	"universal/framework/uerror"
+	"universal/framework/basic/uerror"
 	"universal/tools/gomaker/domain"
 	"universal/tools/gomaker/internal/manager"
 	"universal/tools/gomaker/internal/typespec"

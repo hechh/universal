@@ -10,7 +10,7 @@ import (
 	"os"
 	"path/filepath"
 	"text/template"
-	"universal/framework/uerror"
+	"universal/framework/basic/uerror"
 	"universal/tools/gomaker/domain"
 )
 
