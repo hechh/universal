@@ -31,16 +31,16 @@ message PBPlayerBaseDisplay {
 
 // 用户标记
 message PBPlayerBase {
-    PBPlayerBaseDisplay     Display           = 1;   // 展示数据
-    uint64                  CreateTime        = 2;   // 创建时间
-    common.LoginState       LoginState        = 3;   // 登录状态
-    uint64                  LastDailyTime     = 5;   // 上一次跨天时间戳
-    uint64                  LastModifyTime    = 6;   // 上一次修改名字时间戳(扩展字段)
-    repeated uint32         NewPlayerTypeList = 7;   // 是否new过的系统
-    uint32                  PlatType          = 8;   // 平台类型 本地0,冰川1
-    uint32                  PlatSystemType    = 9;   // 平台系统类型 安卓/ios/海外安卓/海外ios
-    string                  AccountName       = 10;  // 账号名称（openid）
-    uint64                  SeverStartTime    = 11;  // 开服时间
+    PBPlayerBaseDisplay Display           = 1;   // 展示数据
+    uint64              CreateTime        = 2;   // 创建时间
+    common.LoginState   LoginState        = 3;   // 登录状态
+    uint64              LastDailyTime     = 5;   // 上一次跨天时间戳
+    uint64              LastModifyTime    = 6;   // 上一次修改名字时间戳(扩展字段)
+    repeated uint32     NewPlayerTypeList = 7;   // 是否new过的系统
+    uint32              PlatType          = 8;   // 平台类型 本地0,冰川1
+    uint32              PlatSystemType    = 9;   // 平台系统类型 安卓/ios/海外安卓/海外ios
+    string              AccountName       = 10;  // 账号名称（openid）
+    uint64              SeverStartTime    = 11;  // 开服时间
 }
 
 //*************************************************用户系统功能数据开始***************************
@@ -242,17 +242,17 @@ message PBBlackShop {
 
 // 商品配置数据
 message PBShopGoodCfg {
-    uint32                 GoodsID     = 1;  // 商品ID
-    uint32                 BuyTimes    = 2;  // 购买次数  钻石商店大于0不展示首充双倍
-    uint32                 MaxTimes    = 3;  // 最大购买次数
-    uint32                 Discount    = 4;  // 折扣率
-    PBAddItem              NeedItem    = 5;  // 需要道具
-    repeated PBAddItemData AddItem     = 6;  // 商品道具
-    uint32                 ProductId   = 7;  // 充值商品ID
-    string                 ProductName = 8;  // 商品名称
-    uint32                 Price       = 9;  // 人民币价格分
-	string                 ValueTips = 10;  // 价值Tips
-	uint32                 SortTag       = 11;  // 排序优先级(从大到小)
+    uint32                 GoodsID     = 1;   // 商品ID
+    uint32                 BuyTimes    = 2;   // 购买次数  钻石商店大于0不展示首充双倍
+    uint32                 MaxTimes    = 3;   // 最大购买次数
+    uint32                 Discount    = 4;   // 折扣率
+    PBAddItem              NeedItem    = 5;   // 需要道具
+    repeated PBAddItemData AddItem     = 6;   // 商品道具
+    uint32                 ProductId   = 7;   // 充值商品ID
+    string                 ProductName = 8;   // 商品名称
+    uint32                 Price       = 9;   // 人民币价格分
+    string                 ValueTips   = 10;  // 价值Tips
+    uint32                 SortTag     = 11;  // 排序优先级(从大到小)
 }
 
 // 商店信息
@@ -324,7 +324,7 @@ message PBBPInfo {
     uint32                 BPType    = 1;  // BP类型
     uint32                 Value     = 2;  // 当前值
     repeated PBBPStageInfo StageList = 3;  // 期数数据
-	uint32                 MaxStage  = 4;  // 历史最大期
+    uint32                 MaxStage  = 4;  // 历史最大期
 }
 
 // 充值卡数据
@@ -391,14 +391,16 @@ message PBPlayerSystemSevenDay {
 
 // 锦标赛活动
 message PBPlayerSystemChampionship {
-    uint32          LevelHasReward  = 1;  //  0表示没加入,1表示加入,2表示领完奖
-    uint32          BattleHasReward = 2;  // 是否已经领奖
-    uint32          DamageHasReward = 3;  // 是否已经领奖
-    uint32          PowerHasReward  = 4;  // 是否已经领奖
-    PBTaskStageInfo Level           = 5;  // 等级排行榜任务
-    PBTaskStageInfo Battle          = 6;  // 关卡排行榜任务
-    PBTaskStageInfo Damage          = 7;  // 试炼排行榜任务
-    PBTaskStageInfo Power           = 8;  // 战力排行榜任务
+    uint32          LevelHasReward  = 1;   //  0表示没加入,1表示加入,2表示领完奖
+    uint32          BattleHasReward = 2;   // 是否已经领奖
+    uint32          DamageHasReward = 3;   // 是否已经领奖
+    uint32          PowerHasReward  = 4;   // 是否已经领奖
+    PBTaskStageInfo Level           = 5;   // 等级排行榜任务
+    PBTaskStageInfo Battle          = 6;   // 关卡排行榜任务
+    PBTaskStageInfo Damage          = 7;   // 试炼排行榜任务
+    PBTaskStageInfo Power           = 8;   // 战力排行榜任务
+    PBTaskStageInfo Hook            = 9;   // 关机关卡排行榜任务
+    uint32          HookHasReward   = 10;  // 是否已经领奖
 }
 
 // 用户世界boss
@@ -440,11 +442,11 @@ message PBActivityChargeGift {
 
 // 冒险奖励
 message PBActivityAdventure {
-    uint32                    Id           = 1;  // 活动ID
-    uint64                    BeginTime    = 2;  // 开始时间
-    uint64                    EndTime      = 3;  // 结束时间
-    uint64                    RegisterTime = 4;  // 注册时间
-    repeated uint32 		  PrizeIdList  = 5;  // 领取的奖励配置ID
+    uint32          Id           = 1;  // 活动ID
+    uint64          BeginTime    = 2;  // 开始时间
+    uint64          EndTime      = 3;  // 结束时间
+    uint64          RegisterTime = 4;  // 注册时间
+    repeated uint32 PrizeIdList  = 5;  // 领取的奖励配置ID
 }
 // 开服特惠礼包
 message PBOpenServerGiftInfo {
