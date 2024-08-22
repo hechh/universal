@@ -98,8 +98,8 @@ func (d *Wheel) Insert(tt *Task) int {
 }
 
 // 获取过期或者需要迁移的任务
-func (d *Wheel) Pop() (rets []*Task) {
-	now := util.GetNowUnixMilli()
+func (d *Wheel) Pop(now int64) (rets []*Task) {
+	//now := util.GetNowUnixMilli()
 	cursor := atomic.SwapInt64(&d.cursor, now)
 	begin, end := d.GetIndex(cursor), d.GetIndex(now)
 	if end < begin {
@@ -108,8 +108,7 @@ func (d *Wheel) Pop() (rets []*Task) {
 	//plog.Trace("%d: now: %d, begin: %d, end: %d, count: %d", d.index, now, begin, end, d.buckets[begin].GetCount())
 	// 读取过期
 	for i := begin; i < end; i++ {
-		old := d.buckets[i&d.size]
-		for tt := old.Pop(); tt != nil; tt = old.Pop() {
+		for tt := d.buckets[i&d.size].Pop(); tt != nil; tt = d.buckets[i&d.size].Pop() {
 			rets = append(rets, tt.(*Task))
 		}
 	}

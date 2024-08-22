@@ -33,12 +33,12 @@ func BenchmarkTimer(b *testing.B) {
 
 func TestTimer01(t *testing.T) {
 	tt := timer.NewTimer()
-	for i := 0; i < 5000; i++ {
+	for i := 0; i < 50000; i++ {
 		tt.Insert(timer.NewTask(func() {
 			fmt.Println(util.GetNowUnixSecond(), "------------>", i)
-		}, 1*time.Second, false))
+		}, 3*time.Second, false))
 	}
-	time.Sleep(6 * time.Second)
+	time.Sleep(7 * time.Second)
 	tt.Stop()
 }
 

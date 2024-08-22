@@ -67,23 +67,25 @@ func (d *Timer) Insert(tt *Task) {
 // 过滤过期任务执行
 func (d *Timer) run() {
 	tt := time.NewTicker(time.Duration(d.wheels[0].tick) * time.Millisecond)
-	runF := func() {
-		for _, wheel := range d.wheels {
-			if items := wheel.Pop(); len(items) > 0 {
-				d.addOver(items...)
-			}
-		}
-	}
-	defer func() {
-		runF()
-		d.Done()
-	}()
 	for {
 		select {
-		case <-tt.C:
-			runF()
 		case <-d.exitRun:
 			return
+		case <-tt.C:
+			for _, wheel := range d.wheels {
+				now := util.GetNowUnixMilli()
+				for _, tt := range wheel.Pop(now) {
+					if wheel.IsExpired(now, tt.expire) {
+						if !tt.once {
+							tt.refresh(now)
+							d.Insert(tt)
+						}
+						d.addOver(tt)
+					} else {
+						d.Insert(tt)
+					}
+				}
+			}
 		}
 	}
 }
@@ -94,9 +96,11 @@ func (d *Timer) handle() {
 		for tt := d.over.Pop(); tt != nil; tt = d.over.Pop() {
 			switch tmp := tt.(type) {
 			case *Task:
-				do(d.Insert, d.wheels[0], tmp)
+				tmp.handle()
 			case []*Task:
-				do(d.Insert, d.wheels[0], tmp...)
+				for _, vv := range tmp {
+					vv.handle()
+				}
 			}
 		}
 	}
@@ -110,22 +114,6 @@ func (d *Timer) handle() {
 			handleF()
 		case <-d.exitHandle:
 			return
-		}
-	}
-}
-
-func do(f func(*Task), wheel *Wheel, ts ...*Task) {
-	for _, tt := range ts {
-		now := util.GetNowUnixMilli()
-		if wheel.IsExpired(now, tt.expire) {
-			if !tt.once {
-				tt.refresh(now)
-				f(tt)
-			}
-			// 执行任务
-			tt.handle()
-		} else {
-			f(tt)
 		}
 	}
 }
