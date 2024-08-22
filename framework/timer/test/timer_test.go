@@ -11,27 +11,41 @@ import (
 
 var (
 	count int64
+	tt    = timer.NewTimer()
 )
 
 func Print() {
 	fmt.Println(util.GetNowUnixSecond(), "----", atomic.AddInt64(&count, 1))
 }
 
+func TestMain(m *testing.M) {
+	m.Run()
+}
+
+func BenchmarkTimer(b *testing.B) {
+	print := func() {
+		fmt.Println(util.GetNowUnixSecond(), "----", atomic.AddInt64(&count, 1))
+	}
+	for i := 0; i < b.N; i++ {
+		tt.Insert(timer.NewTask(print, 1*time.Second, true))
+	}
+}
+
 func TestTimer01(t *testing.T) {
 	tt := timer.NewTimer()
-	tt.Insert(timer.NewTask(Print, 2*time.Second, false))
-	tt.Insert(timer.NewTask(Print, 9*time.Second, false))
-	tt.Insert(timer.NewTask(Print, 60*time.Minute, false))
-	tt.Insert(timer.NewTask(Print, 49*time.Hour, false))
+	for i := 0; i < 5000; i++ {
+		tt.Insert(timer.NewTask(func() {
+			fmt.Println(util.GetNowUnixSecond(), "------------>", i)
+		}, 1*time.Second, false))
+	}
 	time.Sleep(6 * time.Second)
 	tt.Stop()
 }
 
 func TestTimer02(t *testing.T) {
 	tt := timer.NewTimer()
-	tt.Insert(timer.NewTask(Print, 3*time.Second, false))
-	time.Sleep(10 * time.Second)
-	t.Log(util.GetNowUnixMilli() / 1000)
+	tt.Insert(timer.NewTask(Print, 2*time.Second, false))
+	time.Sleep(5 * time.Second)
 	tt.Stop()
 }
 

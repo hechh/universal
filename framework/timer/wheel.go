@@ -5,18 +5,22 @@ import (
 	"time"
 	"universal/framework/basic/async"
 	"universal/framework/basic/util"
-	"universal/framework/plog"
+)
+
+var (
+	generator uint64
 )
 
 type Task struct {
-	once   bool          // 是否一次性
-	ttl    time.Duration // 定时时长
-	expire int64         // 过期时长
+	id     uint64        // 唯一id
 	handle func()        // 任务
-	next   *Task         // 下一个任务
+	ttl    time.Duration // 定时时长
+	once   bool          // 是否一次性
+	expire int64         // 过期时长
 }
 
 type Wheel struct {
+	index    int            // 序号
 	cursor   int64          // 处理游标
 	tickSize int64          // tick的bit数
 	tick     int64          // 时间刻度
@@ -27,52 +31,73 @@ type Wheel struct {
 
 func NewTask(f func(), ttl time.Duration, once bool) *Task {
 	return &Task{
+		id:     atomic.AddUint64(&generator, 1),
 		handle: f,
-		once:   once,
 		ttl:    ttl,
+		once:   once,
 		expire: util.GetNowTime().Add(ttl).UnixMilli(),
 	}
 }
 
-func NewWheel(tick, size int64) *Wheel {
+func NewDelayTask(f func(), ttl time.Duration, once bool, interval time.Duration) *Task {
+	return &Task{
+		id:     atomic.AddUint64(&generator, 1),
+		handle: f,
+		ttl:    ttl,
+		once:   once,
+		expire: util.GetNowTime().Add(interval).UnixMilli(),
+	}
+}
+
+func (d *Task) refresh(now int64) {
+	ttl := int64(d.ttl / time.Millisecond)
+	for d.expire <= now {
+		d.expire += ttl
+	}
+}
+
+func NewWheel(index int, tick, size int64) *Wheel {
+	ll := (1 << size)
+	rets := make([]*async.Queue, ll)
+	for i := 0; i < ll; i++ {
+		rets[i] = async.NewQueue()
+	}
 	return &Wheel{
+		index:    index,
 		cursor:   util.GetNowUnixMilli(),
 		tickSize: tick,
 		tick:     1<<tick - 1,
 		interval: 1<<(tick+size) - 1,
 		size:     1<<size - 1,
-		buckets:  NewTaskPool(1 << size),
+		buckets:  rets,
 	}
-}
-
-func NewTaskPool(size int) (rets []*async.Queue) {
-	rets = make([]*async.Queue, size)
-	for i := 0; i < size; i++ {
-		rets[i] = async.NewQueue()
-	}
-	return
 }
 
 func (d *Wheel) GetIndex(val int64) int64 {
 	return (val >> d.tickSize) & d.size
 }
 
-func (d *Wheel) Insert(task *Task) int {
+// 判断是否过期
+func (d *Wheel) IsExpired(now, expire int64) bool {
+	return (now >> d.tickSize) > (expire >> d.tickSize)
+}
+
+// 插入任务
+func (d *Wheel) Insert(tt *Task) int {
 	cursor := util.GetNowUnixMilli()
-	// 判断是否匹配
-	if (cursor | d.interval) != (task.expire | d.interval) {
-		return 1
-	}
-	// 判断是否过期
-	if (cursor | d.tick) == (task.expire | d.tick) {
+	if d.IsExpired(cursor, tt.expire) {
 		return -1
 	}
+	if tt.expire-cursor >= d.interval {
+		return 1
+	}
 	// 插入成功
-	plog.Trace("Wheel.Insert tick: %fs, interval: %fs, cursor: %d, task: %d, expire: %d", float32(d.tick)/1000, float32(d.interval)/1000, d.GetIndex(cursor), d.GetIndex(task.expire), task.expire)
-	d.buckets[d.GetIndex(task.expire)].Push(task)
+	//plog.Trace("%d: index: %d, Task--->id: %d, now: %d, expire: %d, ttl: %d, once: %v", d.index, d.GetIndex(tt.expire), tt.id, cursor, tt.expire, tt.ttl, tt.once)
+	d.buckets[d.GetIndex(tt.expire)].Push(tt)
 	return 0
 }
 
+// 获取过期或者需要迁移的任务
 func (d *Wheel) Pop() (rets []*Task) {
 	now := util.GetNowUnixMilli()
 	cursor := atomic.SwapInt64(&d.cursor, now)
@@ -80,16 +105,14 @@ func (d *Wheel) Pop() (rets []*Task) {
 	if end < begin {
 		end += d.size
 	}
-	defer plog.Trace("Wheel.Pop tick: %fs, interval: %fs, begin: %d, end: %d, result: %d", float32(d.tick)/1000, float32(d.interval)/1000, begin, end, len(rets))
+	//plog.Trace("%d: now: %d, begin: %d, end: %d, count: %d", d.index, now, begin, end, d.buckets[begin].GetCount())
 	// 读取过期
 	for i := begin; i < end; i++ {
 		old := d.buckets[i&d.size]
-		if old.GetCount() <= 0 {
-			continue
-		}
 		for tt := old.Pop(); tt != nil; tt = old.Pop() {
 			rets = append(rets, tt.(*Task))
 		}
 	}
+	//plog.Trace("%d: now: %d, rets: %d", d.index, now, len(rets))
 	return
 }

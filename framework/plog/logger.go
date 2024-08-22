@@ -89,7 +89,7 @@ func (d *Logger) output(skip int, level uint32, msg string) {
 	builder.Reset()
 	// 格式化输出
 	builder.WriteString("[")
-	builder.WriteString(tt.Format("2006-01-02 15:04:05.999"))
+	builder.WriteString(tt.Format("2006-01-02 15:04:05.000"))
 	builder.WriteString("]	")
 	builder.WriteString("[")
 	builder.WriteString(d.prefix)
