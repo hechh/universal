@@ -2,7 +2,10 @@ package discovery
 
 import (
 	"context"
+	"runtime/debug"
+	"time"
 	"universal/framework/basic/util"
+	"universal/framework/plog"
 
 	"go.etcd.io/etcd/clientv3"
 )
@@ -17,7 +20,24 @@ func NewEtcdClient(ends ...string) (*EtcdClient, error) {
 	if err != nil {
 		return nil, err
 	}
-	return &EtcdClient{client: cli, exit: make(chan struct{}, 1)}, nil
+	return &EtcdClient{
+		client: cli,
+		exit:   make(chan struct{}, 1),
+	}, nil
+}
+
+func (d *EtcdClient) Close() {
+	d.exit <- struct{}{}
+}
+
+func (d *EtcdClient) Put(key string, value string) error {
+	_, err := d.client.Put(context.Background(), key, value)
+	return err
+}
+
+func (d *EtcdClient) Delete(key string) error {
+	_, err := d.client.Delete(context.Background(), key, clientv3.WithPrefix())
+	return err
 }
 
 // 遍历指定path目录下面的所有key-value
@@ -39,7 +59,8 @@ func (d *EtcdClient) Watch(path string, add, del func(string, string)) error {
 		return err
 	}
 	// 监听最新变更
-	monitorF := func(rsp <-chan clientv3.WatchResponse) {
+	rsp := d.client.Watch(context.Background(), path, clientv3.WithPrefix())
+	util.SafeGo(nil, func() {
 		select {
 		case <-d.exit:
 			select {
@@ -56,58 +77,42 @@ func (d *EtcdClient) Watch(path string, add, del func(string, string)) error {
 				}
 			}
 		}
-	}
-	util.SafeGo(nil, func() {
-		monitorF(d.client.Watch(context.Background(), path, clientv3.WithPrefix()))
 	})
 	return nil
 }
 
-/*
-func (d *EtcdClient) Put(key, val string, ttl int64) error {
-	if ttl <= 0 {
-		_, err := d.client.Put(context.Background(), key, val)
+func (d *EtcdClient) KeepAlive(key, value string, ttl int64) error {
+	// 设置租赁
+	rsp, err := d.client.Lease.Grant(context.Background(), ttl)
+	if err != nil {
 		return err
-	}
-
-	// 设置过期时间
-	if rsp, err := d.client.Lease.Grant(context.Background(), ttl); err != nil {
-		return err
-	} else {
-		d.lease = clientv3.LeaseID(rsp.ID)
 	}
 	// 设置key-value
-	_, err := d.client.Put(context.Background(), key, val, clientv3.WithLease(d.lease))
-	return err
-}
-
-type Monitor struct {
-	client *clientv3.Client
-	lease  clientv3.LeaseID
-	key    string
-	value  string
-	ttl    int64
-}
-
-func NewMonitor(cli *clientv3.Client, key, value string, ttl int64) *Monitor {
-
+	lease := clientv3.LeaseID(rsp.ID)
+	if _, err := d.client.Put(context.Background(), key, value, clientv3.WithLease(lease)); err != nil {
+		return err
+	}
+	// 定时器执行
+	tt := time.NewTicker(time.Duration(ttl/2) * time.Second)
+	util.SafeGo(func(err interface{}) {
+		plog.Fatal("%v\nstack: %v", err, string(debug.Stack()))
+	}, func() {
+		for {
+			select {
+			case <-d.exit:
+				select {
+				case <-d.exit:
+				default:
+				}
+				return
+			case <-tt.C:
+				_, err := d.client.Lease.KeepAliveOnce(context.Background(), lease)
+				if err != nil {
+					plog.Error("Etcd租赁续约保活失败: %v", err)
+					return
+				}
+			}
+		}
+	})
 	return nil
 }
-
-func (d *Monitor) Put(cli *clientv3.Client) error {
-	// 设置过期时间
-	if rsp, err := cli.Lease.Grant(context.Background(), d.ttl); err != nil {
-		return err
-	} else {
-		d.lease = clientv3.LeaseID(rsp.ID)
-	}
-	// 设置key-value
-	_, err := cli.Put(context.Background(), d.key, d.value, clientv3.WithLease(d.lease))
-	return err
-}
-
-func (d *Monitor) KeepAliveOnce(cli *clientv3.Client) error {
-	_, err := cli.Lease.KeepAliveOnce(context.Background(), d.lease)
-	return err
-}
-*/

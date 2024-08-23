@@ -50,6 +50,14 @@ type Config struct {
 	Stub    StubConfig               `yaml:stub`
 }
 
+func LoadFile(filename string, cfg *Config) error {
+	content, err := ioutil.ReadFile(filename)
+	if err != nil {
+		return err
+	}
+	return yaml.Unmarshal(content, cfg)
+}
+
 // 加载配置
 func LoadConfig(dir, appname string) (*Config, error) {
 	// 加载配置文件
