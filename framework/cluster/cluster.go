@@ -1,4 +1,4 @@
-package service
+package cluster
 
 import (
 	"net"
@@ -82,7 +82,7 @@ func Init(cfg *config.Config, typ pb.SERVICE, serverId uint32, expire int64) (er
 		return err
 	}
 	// 设置租赁保活
-	return etcd.KeepAlive(nodes.GetSelfChannel(), string(buf), 30)
+	return etcd.KeepAlive(nodes.GetSelfChannel(), string(buf), 15)
 }
 
 func Dispatcher(head *pb.RpcHead) (err error) {
