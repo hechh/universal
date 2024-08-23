@@ -12,7 +12,7 @@ var (
 )
 
 func TestMain(m *testing.M) {
-	cfg, _ = config.LoadConfig("../../../../env/config", "gate")
+	cfg, _ = config.LoadConfig("../../../env/config", "gate")
 	m.Run()
 }
 

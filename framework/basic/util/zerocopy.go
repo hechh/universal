@@ -4,6 +4,7 @@ import (
 	"crypto/md5"
 	"encoding/binary"
 	"fmt"
+	"hash/crc32"
 	"io"
 	"reflect"
 	"unsafe"
@@ -47,4 +48,8 @@ func MD5(str string) string {
 	h := md5.New()
 	io.WriteString(h, str)
 	return fmt.Sprintf("%x", h.Sum(nil))
+}
+
+func GetCrc(name string) uint32 {
+	return crc32.ChecksumIEEE([]byte(name))
 }

@@ -90,7 +90,7 @@ func (d *RouteInfo) Get() *pb.RouteInfo {
 	}
 }
 
-func (d *RouteInfo) Update(rr *pb.RouteInfo) {
+func (d *RouteInfo) Refresh(rr *pb.RouteInfo) {
 	if rr != nil {
 		atomic.CompareAndSwapUint32(&d.Gate, 0, rr.Gate)
 		atomic.CompareAndSwapUint32(&d.Game, 0, rr.Game)
@@ -101,22 +101,20 @@ func (d *RouteInfo) Update(rr *pb.RouteInfo) {
 	}
 }
 
-func (d *RouteInfo) UpdateByClusterInfo(item *pb.ClusterInfo) {
-	if item != nil {
-		switch item.Type {
-		case pb.SERVICE_GATE:
-			atomic.SwapUint32(&d.Gate, item.ClusterID)
-		case pb.SERVICE_GAME:
-			atomic.SwapUint32(&d.Game, item.ClusterID)
-		case pb.SERVICE_GM:
-			atomic.SwapUint32(&d.Gm, item.ClusterID)
-		case pb.SERVICE_DB:
-			atomic.SwapUint32(&d.Db, item.ClusterID)
-		case pb.SERVICE_Dip:
-			atomic.SwapUint32(&d.Dip, item.ClusterID)
-		case pb.SERVICE_Record:
-			atomic.SwapUint32(&d.Record, item.ClusterID)
-		}
+func (d *RouteInfo) Update(typ pb.SERVICE, clusterId uint32) {
+	switch typ {
+	case pb.SERVICE_GATE:
+		atomic.SwapUint32(&d.Gate, clusterId)
+	case pb.SERVICE_GAME:
+		atomic.SwapUint32(&d.Game, clusterId)
+	case pb.SERVICE_GM:
+		atomic.SwapUint32(&d.Gm, clusterId)
+	case pb.SERVICE_DB:
+		atomic.SwapUint32(&d.Db, clusterId)
+	case pb.SERVICE_Dip:
+		atomic.SwapUint32(&d.Dip, clusterId)
+	case pb.SERVICE_Record:
+		atomic.SwapUint32(&d.Record, clusterId)
 	}
 }
 

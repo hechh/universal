@@ -1,7 +1,6 @@
 package handler
 
 import (
-	"hash/crc32"
 	"reflect"
 	"strings"
 	"universal/common/pb"
@@ -37,11 +36,11 @@ func (d *ApiInfo) GetRspName() string {
 }
 
 func (d *ApiInfo) GetReqCrc() uint32 {
-	return GetCrc(d.reqname)
+	return util.GetCrc(d.reqname)
 }
 
 func (d *ApiInfo) GetRspCrc() uint32 {
-	return GetCrc(d.rspname)
+	return util.GetCrc(d.rspname)
 }
 
 func (d *ApiInfo) NewRequest() proto.Message {
@@ -103,15 +102,11 @@ func Get(crc uint32) *ApiInfo {
 }
 
 func GetByName(name string) *ApiInfo {
-	return apis[GetCrc(name)]
-}
-
-func GetCrc(name string) uint32 {
-	return crc32.ChecksumIEEE([]byte(name))
+	return apis[util.GetCrc(name)]
 }
 
 func Encode(packet proto.Message) []byte {
-	crc := GetCrc(GetProtoName(packet))
+	crc := util.GetCrc(GetProtoName(packet))
 	buff, _ := proto.Marshal(packet)
 	data := append(util.IntToBytes(int(crc)), buff...)
 	return data
