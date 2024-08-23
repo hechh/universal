@@ -22,7 +22,7 @@ var (
 	stubs   = make(map[string]uint64)          // stub配置数据
 )
 
-func SetStub(selfNode *pb.ClusterInfo, path string, st map[string]uint64) {
+func Init(selfNode *pb.ClusterInfo, path string, st map[string]uint64) {
 	root = path
 	self = selfNode
 	stubs = st
