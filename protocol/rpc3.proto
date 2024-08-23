@@ -6,7 +6,7 @@ package rpc3;
 // 发送标志
 enum SEND {
     POINT      = 0;  // 指定集群id
-    BOARD_CAST = 1;  // 广播
+    BROAD_CAST = 1;  // 广播
 };
 
 // rpc 包头

@@ -1,3 +1,6 @@
 package domain
 
-type WatchFunc func(key string, val string)
+import "universal/common/pb"
+
+type WatchFunc func(key string, val string)    // 监控服务节点变更
+type HandleFunc func(*pb.RpcHead, []byte) bool // 内网统一使用RpcPacket

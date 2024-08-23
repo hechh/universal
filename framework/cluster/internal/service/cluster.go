@@ -2,13 +2,16 @@ package service
 
 import (
 	"net"
+	"runtime/debug"
 	"universal/common/config"
 	"universal/common/pb"
 	"universal/framework/basic/uerror"
 	"universal/framework/basic/util"
 	"universal/framework/cluster/internal/discovery"
+	"universal/framework/cluster/internal/handler"
 	"universal/framework/cluster/internal/nodes"
 	"universal/framework/cluster/internal/router"
+	"universal/framework/plog"
 
 	"github.com/nats-io/nats.go"
 	"github.com/spf13/cast"
@@ -38,6 +41,25 @@ func Init(cfg *config.Config, typ pb.SERVICE, serverId uint32, expire int64) (er
 	if natsCli, err = nats.Connect(cfg.Nats.Endpoints); err != nil {
 		return
 	}
+	// 订阅
+	natsCli.Subscribe(nodes.GetSelfChannel(), func(msg *nats.Msg) {
+		inner := &pb.RpcPacket{}
+		proto.Unmarshal(msg.Data, inner)
+		util.SafeRecover(func(err interface{}) {
+			plog.Fatal("%v\nstack: %s", err, string(debug.Stack()))
+		}, func() {
+			handler.HandlePoint(inner.RpcHead, inner.RpcBody)
+		})
+	})
+	natsCli.Subscribe(nodes.GetSelfTopicChannel(), func(msg *nats.Msg) {
+		inner := &pb.RpcPacket{}
+		proto.Unmarshal(msg.Data, inner)
+		util.SafeRecover(func(err interface{}) {
+			plog.Fatal("%v\nstack: %s", err, string(debug.Stack()))
+		}, func() {
+			handler.HandleTopic(inner.RpcHead, inner.RpcBody)
+		})
+	})
 	// 初始化
 	var host, port string
 	if host, port, err = net.SplitHostPort(cfg.Server[serverId].Host); err != nil {
@@ -72,22 +94,25 @@ func Dispatcher(head *pb.RpcHead) (err error) {
 	// 加载路由表
 	table := router.GetOrNew(head.Id)
 	head.Route = table.Get()
+
 	// 目的节点是否已经确定
 	if head.ClusterId > 0 {
 		dst := nodes.Get(head.ClusterId)
 		if dst == nil || dst.Type != head.DestServerType {
-			return uerror.NewUError(1, -1, "服务节点不存在: %d", head.ClusterId)
+			return uerror.NewUError(1, -1, "服务节点不存在: %s(%d)", head.DestServerType.String(), head.ClusterId)
 		}
 		// 更新路由
 		table.Update(head.DestServerType, head.ClusterId)
 		return
 	}
+
 	// 从路由表中加载
 	clusterId := table.GetClusterID(head.DestServerType)
 	if dst := nodes.Get(clusterId); dst != nil {
 		head.ClusterId = clusterId
 		return
 	}
+
 	// 重新路由
 	switch head.RouteType {
 	case 0: // 路由类型-玩家id
@@ -108,4 +133,56 @@ func Dispatcher(head *pb.RpcHead) (err error) {
 		}
 	}
 	return
+}
+
+// 发送内部广播
+func Broadcast(head *pb.RpcHead, data proto.Message) error {
+	head.SendType = pb.SEND_BROAD_CAST
+	head.SrcClusterId = nodes.GetSelf().GetClusterID()
+
+	// 判断服务节点是否存在
+	if rets := nodes.Gets(head.DestServerType); len(rets) <= 0 {
+		return uerror.NewUError(1, -1, "服务节点不存在: %s", head.DestServerType.String())
+	}
+
+	// 内部服务转发
+	buf, _ := proto.Marshal(data)
+	inner := &pb.RpcPacket{RpcHead: head, RpcBody: buf}
+	ret, _ := proto.Marshal(inner)
+	return natsCli.Publish(nodes.GetTopicChannel(head.DestServerType), ret)
+}
+
+// 发送广播查询路由，路由存在就发送回报，不存在路由就丢弃
+func Query(head *pb.RpcHead, data proto.Message) error {
+	head.SendType = pb.SEND_BROAD_CAST
+	head.SrcClusterId = nodes.GetSelf().GetClusterID()
+
+	if head.Id <= 0 {
+		return uerror.NewUError(1, -1, "玩家ID为空")
+	}
+
+	// 携带路由
+	if rr := router.Get(head.Id); rr != nil {
+		head.Route = rr.Get()
+	}
+
+	// 内部服务转发
+	buf, _ := proto.Marshal(data)
+	inner := &pb.RpcPacket{RpcHead: head, RpcBody: buf}
+	ret, _ := proto.Marshal(inner)
+	return natsCli.Publish(nodes.GetTopicChannel(head.DestServerType), ret)
+}
+
+// 发送内部单播
+func Send(head *pb.RpcHead, data proto.Message) error {
+	// 路由
+	if err := Dispatcher(head); err != nil {
+		return err
+	}
+
+	// 内部服务转发
+	buf, _ := proto.Marshal(data)
+	inner := &pb.RpcPacket{RpcHead: head, RpcBody: buf}
+	ret, _ := proto.Marshal(inner)
+	return natsCli.Publish(nodes.GetChannel(head.DestServerType, head.ClusterId), ret)
 }
