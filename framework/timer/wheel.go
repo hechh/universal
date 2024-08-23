@@ -49,7 +49,7 @@ func NewDelayTask(f func(), ttl time.Duration, once bool, interval time.Duration
 	}
 }
 
-func (d *Task) refresh(now int64) {
+func (d *Task) Update(now int64) {
 	ttl := int64(d.ttl / time.Millisecond)
 	for d.expire <= now {
 		d.expire += ttl
@@ -99,14 +99,13 @@ func (d *Wheel) Insert(tt *Task) int {
 
 // 获取过期或者需要迁移的任务
 func (d *Wheel) Pop(now int64) (rets []*Task) {
-	//now := util.GetNowUnixMilli()
 	cursor := atomic.SwapInt64(&d.cursor, now)
 	begin, end := d.GetIndex(cursor), d.GetIndex(now)
 	if end < begin {
 		end += d.size
 	}
-	//plog.Trace("%d: now: %d, begin: %d, end: %d, count: %d", d.index, now, begin, end, d.buckets[begin].GetCount())
 	// 读取过期
+	//plog.Trace("%d: now: %d, begin: %d, end: %d, count: %d", d.index, now, begin, end, d.buckets[begin].GetCount())
 	for i := begin; i < end; i++ {
 		for tt := d.buckets[i&d.size].Pop(); tt != nil; tt = d.buckets[i&d.size].Pop() {
 			rets = append(rets, tt.(*Task))

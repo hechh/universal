@@ -66,26 +66,29 @@ func (d *Timer) Insert(tt *Task) {
 
 // 过滤过期任务执行
 func (d *Timer) run() {
+	wheel := d.wheels[0]
 	tt := time.NewTicker(time.Duration(d.wheels[0].tick) * time.Millisecond)
 	for {
 		select {
 		case <-d.exitRun:
 			return
 		case <-tt.C:
-			for _, wheel := range d.wheels {
-				now := util.GetNowUnixMilli()
-				for _, tt := range wheel.Pop(now) {
-					if wheel.IsExpired(now, tt.expire) {
-						if !tt.once {
-							tt.refresh(now)
-							d.Insert(tt)
+			overs := []*Task{}
+			now := util.GetNowUnixMilli()
+			for _, wl := range d.wheels {
+				for _, item := range wl.Pop(now) {
+					if wheel.IsExpired(now, item.expire) {
+						if !item.once {
+							item.Update(now)
+							d.Insert(item)
 						}
-						d.addOver(tt)
+						overs = append(overs, item)
 					} else {
-						d.Insert(tt)
+						d.Insert(item)
 					}
 				}
 			}
+			d.addOver(overs...)
 		}
 	}
 }
