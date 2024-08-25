@@ -10,6 +10,11 @@ import (
 	"universal/framework/plog"
 )
 
+var (
+	generator uint64
+	object    *Timer = NewTimer()
+)
+
 type Task struct {
 	id     uint64        // 唯一id
 	handle func()        // 任务
@@ -35,11 +40,6 @@ type Timer struct {
 	exitRun    chan struct{} // 退出通知
 	exitHandle chan struct{} // 退出通知
 }
-
-var (
-	generator uint64
-	object    *Timer = NewTimer()
-)
 
 func Insert(tt *Task) {
 	object.Insert(tt)

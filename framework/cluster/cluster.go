@@ -93,7 +93,6 @@ func Dispatcher(head *pb.RpcHead) (err error) {
 	}
 	// 加载路由表
 	table := router.GetOrNew(head.Id)
-	head.Route = table.Get()
 
 	// 目的节点是否已经确定
 	if head.ClusterId > 0 {
@@ -103,6 +102,7 @@ func Dispatcher(head *pb.RpcHead) (err error) {
 		}
 		// 更新路由
 		table.Update(head.DestServerType, head.ClusterId)
+		head.Route = table.Get()
 		return
 	}
 
@@ -110,6 +110,7 @@ func Dispatcher(head *pb.RpcHead) (err error) {
 	clusterId := table.GetClusterID(head.DestServerType)
 	if dst := nodes.Get(clusterId); dst != nil {
 		head.ClusterId = clusterId
+		head.Route = table.Get()
 		return
 	}
 
@@ -122,6 +123,7 @@ func Dispatcher(head *pb.RpcHead) (err error) {
 			head.ClusterId = node.ClusterID
 			// 更新路由
 			table.Update(head.DestServerType, node.ClusterID)
+			head.Route = table.Get()
 		}
 	case 1: // 路由类型-区服id
 		if node := nodes.Random(head.DestServerType, uint64(head.RegionID), head.ActorName); node == nil {
@@ -130,6 +132,7 @@ func Dispatcher(head *pb.RpcHead) (err error) {
 			head.ClusterId = node.ClusterID
 			// 更新路由
 			table.Update(head.DestServerType, node.ClusterID)
+			head.Route = table.Get()
 		}
 	}
 	return

@@ -174,7 +174,7 @@ func (d *Player) Send(head *pb.RpcHead, data proto.Message, cb domain.ResultCB) 
 	packetHead.Seqid = head.SeqId
 	packetHead.Id = head.Id
 	// 设置api信息
-	api := d.apis[handler.GetCrc(head.FuncName)]
+	api := d.apis[util.GetCrc(head.FuncName)]
 	if atomic.CompareAndSwapInt32(&api.status, 1, 1) {
 		// 上一个请求尚未结束
 		return

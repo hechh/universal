@@ -15,11 +15,10 @@ import (
 )
 
 var (
-	root    string                             // etcd的跟路径
-	self    *pb.ClusterInfo                    // 当前服务节点的clusterID
-	rwMutex = sync.RWMutex{}                   // 读写锁
-	infos   = make(map[uint32]*pb.ClusterInfo) // 所有节点集群
-	stubs   = make(map[string]uint64)          // stub配置数据
+	root  string                    // etcd的跟路径
+	self  *pb.ClusterInfo           // 当前服务节点的clusterID
+	infos sync.Map                  // 所有节点
+	stubs = make(map[string]uint64) // stub配置数据
 )
 
 func Init(selfNode *pb.ClusterInfo, path string, st map[string]uint64) {
@@ -49,14 +48,10 @@ func GetSelfChannel() string {
 // 删除节点通知
 func DeleteNotify(key, value string) {
 	strs := strings.Split(key, "/")
-	ll := len(strs)
-	if ll < 2 {
-		return
-	}
-	if val, ok := pb.SERVICE_value[strs[ll-2]]; ok && val != 0 {
-		rwMutex.Lock()
-		delete(infos, cast.ToUint32(strs[ll-1]))
-		rwMutex.Unlock()
+	if ll := len(strs); ll >= 2 {
+		if val, ok := pb.SERVICE_value[strs[ll-2]]; ok && val != 0 {
+			infos.Delete(cast.ToUint32(strs[ll-1]))
+		}
 	}
 }
 
@@ -69,17 +64,16 @@ func AddNotify(key, value string) {
 
 // 添加节点
 func Insert(item *pb.ClusterInfo) {
-	rwMutex.Lock()
-	infos[item.ClusterID] = item
-	rwMutex.Unlock()
+	infos.Store(item.ClusterID, item)
 	plog.Info("新增服务节点: %v", item)
 }
 
 // 查询节点
 func Get(clusterID uint32) *pb.ClusterInfo {
-	rwMutex.RLock()
-	defer rwMutex.RUnlock()
-	return infos[clusterID]
+	if val, ok := infos.Load(clusterID); ok && val != nil {
+		return val.(*pb.ClusterInfo)
+	}
+	return nil
 }
 
 func GetSelf() *pb.ClusterInfo {
@@ -88,13 +82,16 @@ func GetSelf() *pb.ClusterInfo {
 
 // 查询指定类型的所有节点
 func Gets(typ pb.SERVICE) (rets []*pb.ClusterInfo) {
-	rwMutex.RLock()
-	for _, item := range infos {
+	infos.Range(func(key, val interface{}) bool {
+		item, ok := val.(*pb.ClusterInfo)
+		if !ok || item == nil {
+			return true
+		}
 		if item.Type == typ {
 			rets = append(rets, item)
 		}
-	}
-	rwMutex.RUnlock()
+		return true
+	})
 	sort.Slice(rets, func(i, j int) bool {
 		return rets[i].CreateTime < rets[j].CreateTime
 	})
