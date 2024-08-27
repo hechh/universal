@@ -1,0 +1,813 @@
+syntax = "proto3";
+import "common.proto";
+option  go_package = "../pb";  // 声明生成的 go 文件所属的包
+package playerStruct;
+// 属性
+message PBU32U32 {
+    uint32 Key   = 1;  // 主键
+    uint32 Value = 2;  // 值
+}
+// 属性
+message PBU32U64 {
+    uint32 Key   = 1;  // 主键
+    uint64 Value = 2;  // 值
+}
+// 用户消耗数据
+message PBStringInt64 {
+    string Key   = 1;  // 名称
+    int64  value = 2;  // 值
+}
+
+// 用户显示
+message PBPlayerBaseDisplay {
+    uint64 AccountId     = 1;  // 账号ID
+    string PlayerName    = 2;  // 角色名称
+    uint32 PlayerLevel   = 3;  // 角色等级
+    uint32 vipLevel      = 4;  // vip等级
+    uint32 AvatarID      = 5;  // 头像ID
+    uint32 AvatarFrameID = 6;  // 头像框ID
+    uint32 SeverId       = 7;  // 内部区服ID
+}
+
+// 用户标记
+message PBPlayerBase {
+    PBPlayerBaseDisplay Display           = 1;   // 展示数据
+    uint64              CreateTime        = 2;   // 创建时间
+    common.LoginState   LoginState        = 3;   // 登录状态
+    uint64              LastDailyTime     = 5;   // 上一次跨天时间戳
+    uint64              LastModifyTime    = 6;   // 上一次修改名字时间戳(扩展字段)
+    repeated uint32     NewPlayerTypeList = 7;   // 是否new过的系统
+    uint32              PlatType          = 8;   // 平台类型 本地0,冰川1
+    uint32              PlatSystemType    = 9;   // 平台系统类型 安卓/ios/海外安卓/海外ios
+    string              AccountName       = 10;  // 账号名称（openid）
+    uint64              SeverStartTime    = 11;  // 开服时间
+}
+
+//*************************************************用户系统功能数据开始***************************
+
+// 用户任务
+message PBPlayerGiftCode {
+    string Acode = 1;  // 兑换码
+    uint32 Count = 2;  // 次数
+    uint64 Time  = 3;  // 兑换时间
+}
+
+// 用户头像
+message PBAvatar {
+    uint32 AvatarID = 1;  // 头像ID
+    uint32 Type     = 2;  // 获取方式(EmDointType)
+}
+
+// 用户头像框
+message PBAvatarFrame {
+    uint32 FrameID = 1;  // 头像框ID
+    uint32 Type    = 2;  // 获取方式(EmDointType)
+}
+// 用户广告数据
+message PBAdvertInfo {
+    uint32 Type       = 1;  // 广告类型
+    uint32 DailyCount = 2;  // 每日观看次数
+}
+
+// 用户通用数据
+message PBPlayerSystemCommon {
+    uint64                    LastChatTime        = 1;  // 上次聊天时间
+    repeated PBPlayerGiftCode GiftCode            = 2;  // 兑换码
+    repeated uint32           SystemOpenIds       = 3;  // 系统开关列表
+    repeated PBAvatar         Avatars             = 4;  // 头像
+    repeated PBAvatarFrame    AvatarFrames        = 5;  // 头像框
+    uint32                    MaxNoticeId         = 6;  // 最大的公告ID
+    repeated PBAdvertInfo     AdvertList          = 7;  // 广告信息
+    repeated uint32           SystemOpenPrizeList = 8;  // 系统开关领取列表
+}
+
+//*************************************************用户任务数据开始***************************
+// 成就
+message PBAchieveInfo {
+    uint32          AchieveType = 1;  // 成就类型
+    repeated uint32 Params      = 2;  // 参数
+    uint32          Value       = 3;  // 当前值
+}
+// 每日任务
+message PBDailyTask {
+    repeated PBTaskStageInfo TaskList   = 1;  // 任务列表
+    uint32                   Score      = 2;  // 活跃值
+    uint32                   PrizeScore = 3;  // 领取的活跃值
+}
+// 用户任务信息
+message PBPlayerSystemTask {
+    PBTaskStageInfo        MainTask    = 1;  // 主线任务
+    PBDailyTask            DailyTask   = 2;  // 每日任务
+    repeated PBAchieveInfo AchieveList = 3;  // 成就
+}
+//*************************************************用户任务数据开始***************************
+// 用户职业装备信息
+message PBPlayerSystemProfPartInfo {
+    uint32 Part       = 1;  // 部位ID EmEquipPartType
+    uint32 Level      = 2;  // 强化等级
+    uint32 EquipSn    = 3;  // 装备Sn 0表示无
+    uint32 Refine     = 4;  // 精炼等级
+    uint32 RefineTupo = 5;  // 精炼突破等级
+}
+
+// 用户职业信息
+message PBPlayerSystemProfInfo {
+    uint32                              ProfType     = 1;  // 职业类型  EmProfessionType
+    uint32                              Level        = 2;  // 职业等级
+    uint32                              Grade        = 3;  // 突破等级
+    uint32                              PeakLevel    = 4;  // 巅峰等级
+    repeated PBPlayerSystemProfPartInfo PartList     = 5;  // 职业装备信息
+    uint32                              LastLinkStar = 6;  // 上一次套装品阶
+}
+
+// 用户职业
+message PBPlayerSystemProfession {
+    repeated PBPlayerSystemProfInfo ProfList = 1;  // 职业信息
+}
+
+//*************************************************用户关卡数据开始***************************
+// 怪物数据
+message BattleKillMonsterInfo {
+    uint32 MonsterType = 1;  // 怪物类型 小怪 精英怪 boss
+    uint32 KillCount   = 2;  // 击杀数量
+    uint32 MaxCount    = 3;  // 最大数量
+}
+
+// 战场数据
+message BattleInfo {
+    common.EmBattleType            BattleType  = 1;  // 战斗类型 1地图，2爬塔，3挂机
+    uint32                         MapId       = 2;  // 地图ID
+    uint32                         StageId     = 3;  // 关卡ID
+    uint32                         IsSucc      = 4;  // 结果 1胜利
+    uint32                         UseTime     = 5;  // 使用时间秒
+    uint32                         StageRate   = 6;  // 通关进度百分比
+    repeated BattleKillMonsterInfo MonsterInfo = 7;  // 击杀数据
+    PBBattleClientData             ClientData  = 8;  // 战场内部客户端数据
+    uint64                         TotalDamage = 9;  // 总伤害
+}
+
+// 用户战场信息
+message PBBattleMapInfo {
+    uint32 MapId        = 1;  // 地图ID
+    uint32 StageId      = 2;  // 关卡ID
+    uint64 Time         = 3;  // 时间戳
+    uint32 StageRate    = 4;  // 通关进度万分比
+    uint32 UseTime      = 5;  // 使用时间秒
+    uint32 FightCount   = 6;  // 挑战次数 begin就算一次
+    uint32 IsSuceess    = 7;  // 是否通关 1通关
+    uint32 RebirthCount = 8;  // 总复活次数
+}
+// 用户战场进度
+message PBBattleSchedule {
+    uint32                         BattleType   = 1;  // 战斗类型
+    uint32                         StageRate    = 2;  // 通关进度万分比
+    uint32                         UseTime      = 3;  // 使用时间秒
+    uint32                         RebirthCount = 4;  // 复活次数
+    PBBattleClientData             ClientData   = 5;  // 战场客户端数据
+    repeated BattleKillMonsterInfo MonsterInfo  = 6;  // 击杀数据
+}
+
+// 战场客户端数据
+message PBBattleClientData {
+    repeated PBU32U32 HeroBattleLevel = 1;  // 战场内部英雄等级数据
+    repeated uint32   SelectCard      = 2;  // 战场内部选卡数据
+    uint32            LeaderId        = 3;  // 队长ID
+    repeated uint32   CryscalRobotId  = 4;  // 使徒ID
+    uint32            DropBoxCount    = 5;  // 空投次数
+}
+
+// 用户战场挂机信息
+message PBBattleHookInfo {
+    PBBattleMapInfo MapInfo        = 1;  // 战场信息
+    uint32          CurMapId       = 2;  // 当前地图ID
+    uint32          CurStageId     = 3;  // 当前关卡ID
+    bool            AutoMap        = 4;  // 是否自动推关
+    uint64          BeginLootTime  = 5;  // 开始掉落时间
+    uint32          TotalLootCount = 6;  // 累计掉落件数
+}
+// 用户战场精英信息
+message PBBattleNormalInfo {
+    PBBattleMapInfo MapInfo      = 1;  // 战场信息
+    uint32          PrizeMapId   = 2;  // 领取的地图ID
+    uint32          PrizeStageId = 3;  // 领取的关卡ID
+    repeated uint32 PrizeStage   = 4;  // 领取的奖励进度
+}
+// 用户战场复活
+message PBBattleRelive {
+    uint32 AdvestReliveCount = 1;  // 广告复活次数
+    uint32 ShareReliveCount  = 2;  // 分享复活次数
+}
+// 用户战斗数据
+message PBPlayerSystemBattle {
+    PBBattleNormalInfo BattleNormal  = 1;  // 精英关卡数据
+    PBBattleHookInfo   BattleHook    = 2;  // 挂机关卡数据
+    PBBattleSchedule   Battlechedule = 3;  // 战场进度
+    PBBattleRelive     Relive        = 4;  // 复活次数
+}
+
+//*************************************************用户关卡数据结束***************************
+// 用户宝箱
+message PBBoxInfo {
+    uint32 ItemID    = 1;
+    uint32 OpenTimes = 2;  // 开宝箱次数
+}
+
+message PBPlayerSystemBox {
+    uint32             BoxScore     = 1;  // 宝箱积分
+    uint32             CurrentLevel = 2;  // 当前等级
+    uint32             RecycleTimes = 3;  //  宝箱积分循环次数
+    repeated PBBoxInfo Boxs         = 4;  //  当前未开宝箱类型
+}
+//*************************************************商店数据开始***************************
+// 商品信息
+message PBShopGoodInfo {
+    uint32      GoodsID   = 1;  // 商品ID
+    uint32      Discount  = 2;  // 折扣率
+    uint32      BuyTimes  = 3;  // 购买次数
+    uint32      FreeTimes = 4;  // 可获得的免费次数
+    PBEquipment Equipment = 5;  // 装备信息
+}
+message PBShopRefreshInfo {
+    uint32 DailyBuyCount       = 1;  // 每日购买次数
+    uint32 DailyFreeUseCount   = 2;  // 每日免费刷新使用次数
+    uint64 NextFreeRefreshTime = 3;  // 免费刷新时间 0表示下次刷新
+    uint32 DailyFreeMaxCount   = 4;  // 每日免费最大次数
+}
+
+message PBBlackShop {
+    uint64                  NextRefreshTime = 1;  // 下一次刷新时间点
+    repeated PBShopGoodInfo Items           = 2;  // 橱窗列表(刷新生成)
+    PBShopRefreshInfo       RefreshInfo     = 3;  // 刷新数据
+}
+
+// 商品配置数据
+message PBShopGoodCfg {
+    uint32                 GoodsID     = 1;   // 商品ID
+    uint32                 BuyTimes    = 2;   // 购买次数  钻石商店大于0不展示首充双倍
+    uint32                 MaxTimes    = 3;   // 最大购买次数
+    uint32                 Discount    = 4;   // 折扣率
+    PBAddItem              NeedItem    = 5;   // 需要道具
+    repeated PBAddItemData AddItem     = 6;   // 商品道具
+    uint32                 ProductId   = 7;   // 充值商品ID
+    string                 ProductName = 8;   // 商品名称
+    uint32                 Price       = 9;   // 人民币价格分
+    string                 ValueTips   = 10;  // 价值Tips
+    uint32                 SortTag     = 11;  // 排序优先级(从大到小)
+}
+
+// 商店信息
+message PBShopInfo {
+    uint32            ShopType        = 1;  // 商店类型
+    uint64            NextRefreshTime = 2;  // 下一次刷新时间点
+    repeated PBU32U32 Items           = 3;  // 商品购买数据
+}
+
+// 商店
+message PBPlayerSystemShop {
+    PBBlackShop         BlackShop = 1;  // 黑市商店
+    repeated PBShopInfo ShopList  = 2;  // 商店列表
+}
+
+//*************************************************商店数据结束***************************
+// 抽奖信息
+message PBDrawPrizeInfo {
+    string             Name     = 1;  // 名称
+    uint32             Rate     = 2;  // 概率万分比
+    repeated PBAddItem ItemList = 3;  // 道具列表
+}
+
+// 抽奖信息
+message PBDrawInfo {
+    uint32          DrawId         = 1;  // 抽奖次数
+    uint32          DrawCount      = 2;  // 抽奖次数
+    uint32          GuarCount      = 3;  // 保底次数
+    uint32          Guar2Count     = 4;  // 保底2次数
+    uint64          AdvertNextTime = 5;  // 下次广告购买时间
+    uint64          BeginTime      = 6;  // 开启时间戳
+    uint64          EndTime        = 7;  // 结束时间戳
+    uint32          Guar3Count     = 8;  // 保底3次数
+    repeated uint32 ScorePrize     = 9;  // 积分奖励进度
+}
+
+// 抽奖数据
+message PBPlayerSystemDraw {
+    repeated PBDrawInfo DrawList = 1;  // 抽奖信息
+}
+
+// 首冲活动
+message PBFirstCharge {
+    uint32 FirstChargeId = 1;  // 首冲类型
+    uint64 ActiveTime    = 2;  // 激活时间
+    uint32 PrizeDay      = 3;  // 领取的最新奖励天数
+}
+
+// 充值数据活动
+message PBCharge {
+    uint32 OrderId     = 1;  // 流水ID
+    uint32 TotalCharge = 2;  // 累计充值
+    uint32 DailyCharge = 3;  // 每日充值数据
+    uint32 WeekCharge  = 4;  // 每周充值数据
+    uint32 MonthCharge = 5;  // 每月充值数据
+}
+// BP期数数据
+message PBBPStageInfo {
+    uint32 StageId       = 1;  // 期数
+    uint64 BeginTime     = 2;  // 结束时间
+    uint64 EndTime       = 3;  // 结束时间
+    uint32 NoramlPrizeId = 4;  // 普通领奖ID
+    uint32 ExtralPrizeId = 5;  // 额外领奖ID
+    uint64 ChargeTime    = 6;  // 充值时间
+}
+
+// BP
+message PBBPInfo {
+    uint32                 BPType    = 1;  // BP类型
+    uint32                 Value     = 2;  // 当前值
+    repeated PBBPStageInfo StageList = 3;  // 期数数据
+    uint32                 MaxStage  = 4;  // 历史最大期
+}
+
+// 充值卡数据
+message PBChargeCard {
+    uint32 CardType  = 1;  // 月卡类型
+    uint64 BeginTime = 2;  // 开始时间
+    uint64 EndTime   = 3;  // 结束时间
+    uint64 PrizeTime = 4;  // 上次领奖时间
+}
+
+// 充值数据
+message PBPlayerSystemCharge {
+    PBCharge               Charge          = 1;  // 充值数据
+    repeated PBFirstCharge FirstChargeList = 2;  // 首冲数据
+    repeated PBBPInfo      BPList          = 3;  // bp
+    repeated PBChargeCard  CardList        = 4;  // 充值卡
+}
+
+// 冰川充值订单
+message PBChargeBingchuanOrder {
+    string OrderItem        = 1;  // 订单明细
+    string OrderNo          = 2;  // 游戏订单号
+    string payNum           = 3;  // 订单明细
+    string userId           = 4;  // 冰川用户ID
+    string orderSign        = 5;  // 签名
+    string actorId          = 6;  // 角色ID
+    string currencyType     = 7;  // 货币类型
+    string developerPayload = 8;  // 透传参数
+}
+//*************************************************挂机科技系统开始***************************
+// 挂机科技数据
+message PBHookTech {
+    uint32 Id        = 1;  // Id
+    uint32 Level     = 2;  // 等级
+    uint64 LevelTime = 3;  // 结束升级时间
+}
+message PBPlayerSystemHookTech {
+    repeated PBHookTech HookTechList = 1;  // 挂机科技列表
+}
+//*************************************************挂机科技系统结束***************************
+
+//*************************************************七天活动开始***************************
+// 任务进度信息
+message PBTaskStageInfo {
+    uint32             Id       = 1;  // 任务ID
+    uint32             Value    = 2;  // 进度值
+    uint32             MaxValue = 3;  // 最大值
+    common.EmTaskState State    = 4;  // 领取状态 0未达到 1完成 2已经领取
+}
+// 七天活动信息
+message PBSevenDayInfo {
+    uint32                   Id         = 1;  // 活动ID
+    uint64                   BeginTime  = 2;  // 活动开始时间
+    uint64                   EndTime    = 3;  // 活动结束时间
+    uint32                   Value      = 4;  // 活跃值
+    uint32                   PrizeValue = 5;  // 领取的活跃值
+    repeated PBTaskStageInfo TaskList   = 6;  // 任务进度列表
+    repeated PBU32U32        GiftList   = 7;  // 礼包列表 礼包ID|数量
+}
+
+message PBPlayerSystemSevenDay {
+    repeated PBSevenDayInfo SevenDayList = 1;  // 活动列表
+}
+
+// 锦标赛活动
+message PBPlayerSystemChampionship {
+    uint32          LevelHasReward  = 1;   //  0表示没加入,1表示加入,2表示领完奖
+    uint32          BattleHasReward = 2;   // 是否已经领奖
+    uint32          DamageHasReward = 3;   // 是否已经领奖
+    uint32          PowerHasReward  = 4;   // 是否已经领奖
+    PBTaskStageInfo Level           = 5;   // 等级排行榜任务
+    PBTaskStageInfo Battle          = 6;   // 关卡排行榜任务
+    PBTaskStageInfo Damage          = 7;   // 试炼排行榜任务
+    PBTaskStageInfo Power           = 8;   // 战力排行榜任务
+    PBTaskStageInfo Hook            = 9;   // 关机关卡排行榜任务
+    uint32          HookHasReward   = 10;  // 是否已经领奖
+}
+
+// 用户世界boss
+message PBPlayerSystemWorldBoss {
+    uint32 BossId            = 1;  // bossid
+    uint32 DailyPrizeStageId = 2;  // 领取的进度ID
+    uint64 DailyMaxDamage    = 3;  // 最大伤害值
+    uint64 DailyTotalDamage  = 4;  // 每日累计伤害值
+    uint32 DailyBuyCount     = 5;  // 购买次数
+    uint32 DailyEnterCount   = 6;  // 进入次数
+    uint32 DailyPrizeCount   = 7;  // 结算次数
+    uint64 MaxDamage         = 8;  // 历史最大伤害值
+}
+
+//*************************************************七天活动结束***************************
+
+//*************************************************活动开始***************************
+// 活动信息
+message PBPlayerActivityInfo {
+    uint32 ActivityId = 1;  // 活动ID
+    uint64 BeginTime  = 2;  // 开始时间
+    uint64 EndTime    = 3;  // 结束时间
+}
+// 活动成长任务
+message PBActivityGrowRoadInfo {
+    uint32                   Id        = 1;  // 活动ID
+    uint64                   BeginTime = 2;  // 开始时间
+    uint64                   EndTime   = 3;  // 结束时间
+    repeated PBTaskStageInfo TaskList  = 4;  // 任务列表
+}
+
+// 直购礼包
+message PBActivityChargeGift {
+    uint32            Id        = 1;  // 活动ID
+    uint64            BeginTime = 2;  // 开始时间
+    uint64            EndTime   = 3;  // 结束时间
+    repeated PBU32U32 BuyList   = 4;  // 已列表 礼包ID|数量
+}
+
+// 冒险奖励
+message PBActivityAdventure {
+    uint32          Id           = 1;  // 活动ID
+    uint64          BeginTime    = 2;  // 开始时间
+    uint64          EndTime      = 3;  // 结束时间
+    uint64          RegisterTime = 4;  // 注册时间
+    repeated uint32 PrizeIdList  = 5;  // 领取的奖励配置ID
+}
+// 开服特惠礼包
+message PBOpenServerGiftInfo {
+    uint32            GiftId    = 1;  // 礼包ID
+    uint64            BeginTime = 2;  // 开始时间
+    uint64            EndTime   = 3;  // 结束时间
+    repeated PBU32U32 StageList = 4;  // 档次列表 ID|数量
+}
+
+// 开服特惠礼包
+message PBActivityOpenServerGift {
+    uint32                        Id                 = 1;  // 活动SID
+    uint64                        BeginTime          = 2;  // 开始时间
+    uint64                        EndTime            = 3;  // 结束时间
+    repeated PBOpenServerGiftInfo GiftList           = 4;  // 礼包列表
+    uint64                        NextDailyPrizeTime = 5;  // 下次领取时间
+}
+// 用户活动
+message PBPlayerSystemActivity {
+    repeated PBPlayerActivityInfo     ActivityList       = 1;  // 活动列表
+    repeated PBActivityGrowRoadInfo   GrowRoadList       = 2;  // 成长之路列表
+    repeated PBActivityChargeGift     GiftList           = 3;  // 直购礼包
+    repeated PBActivityAdventure      AdventureList      = 4;  // 冒险奖励列表
+    repeated PBActivityOpenServerGift OpenServerGiftList = 5;  // 开服特惠礼包
+}
+
+//*************************************************活动结束***************************
+
+message PBPlayerSystem {
+    PBPlayerSystemCommon       Common       = 1;   // 用户通用数据
+    PBPlayerSystemTask         Task         = 2;   // 任务信息
+    PBPlayerSystemProfession   Prof         = 3;   // 职业
+    PBPlayerSystemBattle       Battle       = 4;   // 战斗
+    PBPlayerSystemBox          Box          = 5;   // 宝箱系统
+    PBPlayerSystemShop         Shop         = 6;   // 商店
+    PBPlayerSystemDraw         Draw         = 7;   // 抽奖
+    PBPlayerSystemCharge       Charge       = 8;   // 充值
+    PBPlayerSystemGene         Gene         = 9;   // 基因系统
+    PBPlayerSystemOffline      Offline      = 10;  // 离线系统
+    PBPlayerSystemHookTech     HookTech     = 11;  // 挂机科技系统
+    PBPlayerSystemSevenDay     SevenDay     = 12;  // 七天活动
+    PBPlayerSystemWorldBoss    WorldBoss    = 13;  // 世界boss
+    PBPlayerSystemChampionship Championship = 14;  // 锦标赛
+    PBPlayerSystemActivity     Activity     = 15;  // 活动
+}
+
+// 基因卡牌
+message PBGeneTag {
+    uint32          TagID = 1;  // 标签ID
+    repeated uint32 Cards = 2;  // 激活的卡牌
+}
+
+// 基因使徒
+message PBGeneRobot {
+    uint32             RobotID  = 1;  // 机器人id
+    uint32             Position = 2;  // 位置
+    repeated PBGeneTag Tags     = 3;  // 机器人激活的强化卡
+}
+
+message PBGeneScheme {
+    uint32               SchemeID = 1;  // 方案id
+    string               Name     = 2;  // 方案名字(为空，表示使用默认值)
+    repeated PBGeneTag   Tags     = 3;  // 基因触发器
+    repeated PBGeneRobot Robots   = 4;  // 共鸣使徒
+}
+
+message PBPlayerSystemGene {
+    uint32                SchemeID = 1;  // 当前基因方案
+    repeated PBGeneScheme Schemes  = 2;  // 基因方案
+}
+
+// 离线收益系统
+message PBPlayerSystemOffline {
+    uint64                 LoginTime           = 1;  // 上次登录时间
+    uint64                 LogoutTime          = 2;  // 登出时间
+    uint32                 IncomTime           = 3;  // 离线收益时长秒
+    repeated PBAddItemData Rewards             = 4;  // 离线收益
+    uint32                 TotalEquipment      = 5;  // 装备数量
+    uint32                 AddEquipmentBag     = 6;  // 加入背包数量
+    uint64                 SplitEquipmentScore = 7;  // 分解装备积分
+    uint32                 MaxIncomTime        = 8;  // 最大离线收益时长秒
+}
+
+//*************************************************用户系统功能数据结束***************************
+// 前端数据存储
+message PBClientData {
+    string Type = 1;  // 类型
+    string Data = 2;  // 数据
+}
+
+// 前端数据存储
+message PBPlayerClientData {
+    repeated PBClientData ClientDataList = 1;  // 前端数据
+}
+
+//*************************************************邮件数据开始***************************
+message PBMail {
+    string                 Sender     = 1;   // 发送者玩家ID
+    uint64                 Receiver   = 2;   // 接收者玩家ID
+    uint32                 Id         = 3;   // 编号
+    uint64                 SendTime   = 4;   // 发送时间
+    uint64                 ExpireTime = 5;   // 过期时间
+    uint64                 AwardTime  = 6;   // 过期时间
+    string                 Title      = 7;   // 标题
+    string                 Content    = 8;   // 正文
+    common.EmMailState     State      = 9;   // 已读标记 (0代表未读,其他已读) EmMailType
+    repeated PBAddItemData Item       = 10;  // 道具
+}
+
+// 邮件数据
+message PBPlayerMail {
+    repeated PBMail MailList   = 1;  // 邮件数据
+    uint32          OrderId    = 2;  // 邮件序号
+    uint32          AllOrderId = 3;  // 全服邮件领取序号
+}
+//*************************************************邮件数据结束***************************
+
+//*************************************************背包数据开始***************************
+// 物品（装备）
+message PBItem {
+    uint32 Id    = 1;  // 物品ID
+    int64  Count = 2;  // 物品数量
+}
+// 用户背包
+message PBPlayerBag {
+    repeated PBItem   ItemList     = 1;  // 道具背包
+    repeated PBU32U32 DailyBuyItem = 2;  // 日购买道具
+}
+//*************************************************背包数据结束***************************
+
+//*************************************************装备数据开始***************************
+// 装备属性
+message PBEquipmentProp {
+    uint32 PropId = 1;  // 属性ID
+    uint32 Value  = 2;  // 属性值
+    uint32 Score  = 3;  // 评分 对应装备评分表的区间
+}
+
+// 装备
+message PBEquipment {
+    uint32                   Sn              = 1;   // 装备唯一
+    uint32                   Id              = 2;   // 装备ID
+    uint32                   Quality         = 3;   // 品质
+    uint32                   Star            = 4;   // 星级
+    PBEquipmentProp          MainProp        = 5;   // 主词条
+    repeated PBEquipmentProp MinorPropList   = 6;   // 次词条
+    repeated PBEquipmentProp VicePropList    = 7;   // 副词条
+    repeated PBEquipmentProp LinkPropList    = 8;   // 共鸣词条
+    uint32                   EquipProfession = 9;   // 穿戴职业
+    bool                     IsLock          = 10;  // 是否锁定
+}
+
+// 用户装备
+message PBPlayerEquipment {
+    uint32               OrderId           = 1;  // 序列id
+    repeated PBEquipment equipmentList     = 2;  // 装备列表
+    repeated uint32      AutoSplitQuality  = 3;  // 自动分解品质
+    uint32               PosBuyCount       = 4;  // 购买格子次数
+    uint32               SplitScore        = 5;  // 分解积分
+    uint32               SplitAddBoxCount  = 6;  // 分解增加宝箱个数
+    repeated PBEquipment HookEquipmentList = 7;  // 挂机装备列表
+    uint32               SplitEquipCount   = 8;  // 分解增加宝箱个数
+    uint64               TotalSplitScore   = 9;  // 累计积分
+}
+//*************************************************背装备数据结束***************************
+
+//*************************************************英雄数据结束***************************
+// 英雄基础信息
+message PBHero {
+    uint32 Sn          = 1;  // 英雄唯一
+    uint32 Id          = 2;  // 英雄id
+    uint32 Star        = 3;  // 英雄星级
+    uint32 AwakenLevel = 4;  // 英雄技能觉醒等级
+    uint32 BattleStar  = 5;  // 上阵星星数量
+}
+
+// 英雄图鉴信息
+message PBHeroBook {
+    uint32 Id      = 1;  // 英雄id
+    uint32 Star    = 2;  // 星级 0表示需要激活
+    uint32 MaxStar = 3;  // 最大星级
+}
+
+// 上阵列表
+message PBHeroTeamList {
+    uint32          TeamType = 1;  // 编队类型
+    repeated uint32 HeroSn   = 2;  // 英雄ID
+}
+
+// 英雄系统
+message PBPlayerHero {
+    uint32                  OrderId              = 1;  // 自增ID
+    repeated PBHero         HeroList             = 2;  // 英雄列表
+    repeated PBHeroTeamList TeamList             = 3;  // 编队列表
+    uint32                  FightPower           = 4;  // 战斗力
+    repeated PBU32U32       UpStarCount          = 5;  // 升星次数
+    repeated PBHeroBook     HeroBookList         = 6;  // 英雄图鉴列表
+    uint32                  MaxHistoryFightPower = 7;  // 历史最大战斗力
+}
+//*************************************************伙伴数据结束***************************
+
+//*************************************************离线数据开始***************************
+// 离线数据
+message PBAddItemData {
+    uint32             Kind      = 1;  // 类型
+    uint32             Id        = 2;  // 物品ID
+    int64              Count     = 3;  // 物品数量
+    common.EmDoingType DoingType = 4;  // 操作类型
+    repeated uint32    Params    = 5;  // 物品参数
+    PBEquipment        Equipment = 6;  // 装备数据
+}
+
+// 离线数据
+message PBOfflineData {
+    common.EmPlayerOfflineType OfflineType = 1;  // 离线数据类型
+    PBMail                     Mail        = 2;  // 邮件
+    repeated PBAddItemData     Item        = 3;  // 道具
+    common.EmDoingType         DoingType   = 4;  // 发放原因
+    bool                       Notify      = 5;  // 是否发送恭喜获得
+}
+
+//*************************************************离线数据结束***************************
+
+// 用户信息
+message PBPlayerData {
+    PBPlayerBase       Base      = 1;  // 角色基础数据
+    PBPlayerSystem     System    = 2;  // 角色功能数据
+    PBPlayerBag        Bag       = 3;  // 玩家背包
+    PBPlayerEquipment  Equipment = 4;  // 玩家装备
+    PBPlayerClientData Client    = 5;  // 角色前端数据
+    PBPlayerHero       Hero      = 6;  // 伙伴数据
+    PBPlayerMail       Mail      = 7;  // 邮件数据
+    PBPlayerCrystal    Crystal   = 8;  // 晶核系统
+}
+
+// 单条聊天信息
+message PBChatMsgInfo {
+    uint64              Index   = 1;  // 消息序号
+    PBPlayerBaseDisplay Display = 2;  // 发送者数据
+    string              Msg     = 3;  // 发送的消息
+    uint64              Time    = 4;  // 发送的时间
+}
+
+// 所有聊天数据
+message PBAllChatMsgInfo {
+    repeated PBChatMsgInfo Msg = 1;  // 单条聊天信息
+}
+
+// 排行榜数据
+message RankInfo {
+    uint32              Rank    = 1;  // 名次 1开始
+    PBPlayerBaseDisplay Display = 2;  // 基本数据
+    uint64              Value   = 3;  // 数据 通关进度：useTime:4位 rate：5位 stageid:3位 mapid:3位
+}
+
+// 增加道具信息
+message PBAddItem {
+    uint32          Kind   = 1;  // 道具类型 EItemKindType
+    uint32          Id     = 2;  // 道具ID
+    int64           Count  = 3;  // 数量
+    repeated uint32 Params = 4;  // 参数 英雄:星级  装备：品质，星级，sn
+}
+//*************************************************reids数据开始***************************
+// 通关数据
+message PBPlayerBattleData {
+    PBPlayerBaseDisplay Display    = 1;  // 基本数据
+    repeated PBHero     HeroList   = 2;  // 英雄列表
+    uint64              Time       = 3;  // 通关时间戳
+    uint32              UseTime    = 4;  // 使用时间
+    uint32              FightPower = 5;  // 战斗力
+    PBBattleClientData  ClientData = 6;  // 战场内部数据
+}
+
+// 公告数据
+message PBNotice {
+    uint32 Id        = 1;  // 公告ID 越大越优先
+    string Title     = 2;  // 标题
+    string Content   = 3;  // 正文
+    uint64 BeginTime = 4;  // 开始时间戳
+    uint64 EndTime   = 5;  // 结束时间戳
+    string Sender    = 6;  // 发件人
+}
+//*************************************************reids数据结束***************************
+
+// 通用属性结构
+message PBPropInfo {
+    uint32 PropId = 1;  // 属性ID
+    uint32 Value  = 2;  // 属性值
+}
+
+// json数据
+message PBJsonInfo {
+    string JsonName = 1;  // json名称
+    string JsonData = 2;  // json数据
+}
+//*************************************************圣遗物数据开始***************************
+message PBCrystalProp {
+    uint32 Key   = 1;  // 主键
+    uint32 Value = 2;  // 值
+}
+
+// 机器人协议
+message PBCrystalRobot {
+    uint32          RobotID          = 1;  // 机器人ID
+    uint32          Stage            = 2;  // 当前等级
+    uint32          FinishStage      = 3;  // 完成等级
+    uint32          RoleSkillID      = 4;  // 机器人的共鸣技能ID
+    uint32          RoleSkillPercent = 5;  // 技能参数提升百分比
+    repeated uint32 UnlockLinkages   = 6;  // 已经解锁的共鸣技能
+    repeated uint32 Crystals         = 7;  // 装备的晶核
+}
+
+// 晶核协议
+message PBCrystal {
+    uint32          CrystalID       = 1;  // 晶核ID
+    uint32          Element         = 2;  // 元素属性
+    uint32          Quality         = 3;  // 品质属性
+    uint32          Star            = 4;  // 星星数量
+    uint32          RewardCoinTimes = 5;  // 升星对应的领奖次数(每一次升星，对应一次领取奖励，例如收藏币)
+    repeated uint32 PassiveSkillIds = 6;  // 解锁被动技能ID
+    uint32          Level           = 7;  // 晶核等级
+}
+
+// 图鉴系统
+message PBCrystalBook {
+    uint32 Coin          = 1;  // 总收藏币数量
+    uint32 Stage         = 2;  // 当前图鉴系统等级
+    uint32 FinishedStage = 3;  // 已经领取的等级
+}
+
+// 词条条件
+message EntryCondition {
+    uint32 CfgID      = 1;  // 配置id
+    uint32 Process    = 2;  // 条件完成进度
+    uint32 Times      = 3;  // 触发次数
+    uint64 UpdateTime = 4;  // 刷新时间
+}
+
+// 单个效果参数
+message EntryEffectValue {
+    repeated uint32 List = 1;  // 参数
+}
+
+// 系列参数
+message EntryEffectData {
+    uint32                    Object = 1;  // 生效对象
+    repeated EntryEffectValue Values = 2;  // 效果参数
+}
+
+// 词条效果
+message EntryEffect {
+    uint32                   ParamsType = 1;  // 参数类型
+    uint32                   Type       = 2;  // 效果类型
+    repeated EntryEffectData List       = 3;  // 效果参数
+}
+
+message PBPlayerCrystal {
+    PBCrystalBook           Book       = 1;  // 图鉴系统
+    repeated PBCrystalRobot Robots     = 2;  // 已经解锁的机器人
+    repeated PBCrystal      Crystals   = 3;  // 获取的晶核
+    repeated EntryCondition Conditions = 4;  // 词条条件
+    repeated EntryEffect    Effects    = 5;  // 效果数据
+}
+//*************************************************圣遗物数据结束***************************

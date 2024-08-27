@@ -3,10 +3,11 @@ package cluster
 import (
 	"net"
 	"runtime/debug"
-	"universal/common/config"
 	"universal/common/pb"
+	"universal/common/yaml"
 	"universal/framework/basic/uerror"
 	"universal/framework/basic/util"
+	"universal/framework/cluster/domain"
 	"universal/framework/cluster/internal/discovery"
 	"universal/framework/cluster/internal/handler"
 	"universal/framework/cluster/internal/nodes"
@@ -16,10 +17,6 @@ import (
 	"github.com/nats-io/nats.go"
 	"github.com/spf13/cast"
 	"google.golang.org/protobuf/proto"
-)
-
-const (
-	ROOT_DIR = "server"
 )
 
 var (
@@ -32,7 +29,7 @@ func Close() {
 	natsCli.Close()
 }
 
-func Init(cfg *config.Config, typ pb.SERVICE, serverId uint32, expire int64) (err error) {
+func Init(cfg *yaml.Config, typ pb.SERVICE, serverId uint32, expire int64) (err error) {
 	// 建立etcd连接
 	if etcd, err = discovery.NewEtcdClient(cfg.Etcd.Endpoints...); err != nil {
 		return
@@ -42,31 +39,22 @@ func Init(cfg *config.Config, typ pb.SERVICE, serverId uint32, expire int64) (er
 		return
 	}
 	// 订阅
+	fatal := func(err interface{}) {
+		plog.Fatal("%v\nstack: %s", err, string(debug.Stack()))
+	}
 	natsCli.Subscribe(nodes.GetSelfChannel(), func(msg *nats.Msg) {
 		inner := &pb.RpcPacket{}
 		proto.Unmarshal(msg.Data, inner)
-		util.SafeRecover(func(err interface{}) {
-			plog.Fatal("%v\nstack: %s", err, string(debug.Stack()))
-		}, func() {
-			handler.HandlePoint(inner.RpcHead, inner.RpcBody)
-		})
+		util.SafeRecover(fatal, func() { handler.HandlePoint(inner.RpcHead, inner.RpcBody) })
 	})
 	natsCli.Subscribe(nodes.GetSelfTopicChannel(), func(msg *nats.Msg) {
 		inner := &pb.RpcPacket{}
 		proto.Unmarshal(msg.Data, inner)
-		util.SafeRecover(func(err interface{}) {
-			plog.Fatal("%v\nstack: %s", err, string(debug.Stack()))
-		}, func() {
-			handler.HandleTopic(inner.RpcHead, inner.RpcBody)
-		})
+		util.SafeRecover(fatal, func() { handler.HandleTopic(inner.RpcHead, inner.RpcBody) })
 	})
 	// 初始化
 	var host, port string
 	if host, port, err = net.SplitHostPort(cfg.Server[serverId].Host); err != nil {
-		return err
-	}
-	// 服务发现
-	if err = etcd.Watch(ROOT_DIR, nodes.AddNotify, nodes.DeleteNotify); err != nil {
 		return err
 	}
 	router.Init(expire)
@@ -76,7 +64,11 @@ func Init(cfg *config.Config, typ pb.SERVICE, serverId uint32, expire int64) (er
 		Port:       cast.ToInt32(port),
 		CreateTime: uint64(util.GetNowUnixMilli()),
 		ClusterID:  util.GetCrc(cfg.Server[serverId].Host),
-	}, ROOT_DIR, cfg.Stub)
+	}, domain.ROOT_DIR, cfg.Stub)
+	// 服务发现
+	if err = etcd.Watch(domain.ROOT_DIR, nodes.AddNotify, nodes.DeleteNotify); err != nil {
+		return err
+	}
 	buf, err := proto.Marshal(nodes.GetSelf())
 	if err != nil {
 		return err
@@ -93,7 +85,6 @@ func Dispatcher(head *pb.RpcHead) (err error) {
 	}
 	// 加载路由表
 	table := router.GetOrNew(head.Id)
-
 	// 目的节点是否已经确定
 	if head.ClusterId > 0 {
 		dst := nodes.Get(head.ClusterId)

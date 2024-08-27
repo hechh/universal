@@ -3,13 +3,13 @@ package dao
 import (
 	"fmt"
 	"time"
-	"universal/common/config"
 	"universal/common/dao/internal/manager"
+	"universal/common/yaml"
 
 	"github.com/go-redis/redis/v8"
 )
 
-func InitRedis(cfg map[uint32]*config.DbConfig) error {
+func InitRedis(cfg map[uint32]*yaml.DbConfig) error {
 	return manager.InitRedis(cfg)
 }
 

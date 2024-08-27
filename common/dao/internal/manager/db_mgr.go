@@ -4,9 +4,9 @@ import (
 	"context"
 	"fmt"
 	"time"
-	"universal/common/config"
 	"universal/common/dao/domain"
 	"universal/common/dao/internal/db"
+	"universal/common/yaml"
 
 	"github.com/go-redis/redis/v8"
 )
@@ -15,7 +15,7 @@ var (
 	redisPool = make(map[uint32]*db.RedisClient)
 )
 
-func InitRedis(cfgs map[uint32]*config.DbConfig) error {
+func InitRedis(cfgs map[uint32]*yaml.DbConfig) error {
 	for dbid, cfg := range cfgs {
 		// 建立redis连接
 		cli := redis.NewClient(&redis.Options{

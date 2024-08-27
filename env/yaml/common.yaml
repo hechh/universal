@@ -1,0 +1,54 @@
+mysql:
+  1:
+    dbname: corps_common
+    user: root
+    password: link123!
+    host: 172.16.126.208:3306
+redis:
+  1:
+    dbname:
+    user: root
+    password: link123!
+    host: 172.16.126.208:6379
+  2:
+    dbname:
+    user: root
+    password: link123!
+    host: 172.16.126.208:6379
+  3:
+    dbname:
+    user: root
+    password: link123!
+    host: 172.16.126.208:6379
+  4:
+    dbname:
+    user: root
+    password: link123!
+    host: 172.16.126.208:6379
+  9999:
+    dbname:
+    user: root
+    password: link123!
+    host: 172.16.126.208:6379
+mongodb:
+  1:
+    dbname: corps
+    user:
+    password:
+    host: 172.16.126.208:27017
+    slave: #从设备
+      1: 172.16.126.208:27017
+      2: 172.16.126.208:27017
+etcd:
+  endpoints:
+    - http://172.16.126.208:33601
+    - http://172.16.126.208:33611
+    - http://172.16.126.208:33621
+nats:
+  endpoints: 172.16.126.208:33701,172.16.126.208:33702,172.16.126.208:33703
+stub:
+  DbPlayerMgr: 1000
+  PlayerMgr: 1000
+  AccountMgr: 1000
+  BattleRecordMgr: 0
+  RankMgr: 0

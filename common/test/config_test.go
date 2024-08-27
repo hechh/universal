@@ -2,18 +2,18 @@ package test
 
 import (
 	"testing"
-	"universal/common/config"
+	"universal/common/yaml"
 )
 
 func TestConfig(t *testing.T) {
-	cfg := &config.Config{}
-	t.Log("error: ", config.LoadFile("../../env/config/common.yaml", cfg))
+	cfg := &yaml.Config{}
+	t.Log("error: ", yaml.LoadFile("../../env/config/common.yaml", cfg))
 	t.Log(cfg.Server[1], cfg.Etcd)
-	t.Log("error: ", config.LoadFile("../../env/config/game.yaml", cfg))
+	t.Log("error: ", yaml.LoadFile("../../env/config/game.yaml", cfg))
 	t.Log(cfg.Server[1], cfg.Etcd)
 }
 
 func TestLoad(t *testing.T) {
-	cfg, err := config.LoadConfig("../../env/config", "gate")
+	cfg, err := yaml.Load("../../env/config", "gate")
 	t.Log(err, cfg.Server[1], cfg.Etcd)
 }

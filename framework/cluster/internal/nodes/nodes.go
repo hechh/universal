@@ -27,22 +27,22 @@ func Init(selfNode *pb.ClusterInfo, path string, st map[string]uint64) {
 	stubs = st
 }
 
+func GetSelfTopicChannel() string {
+	return filepath.Clean(filepath.Join(root, self.Type.String()))
+}
+
+func GetSelfChannel() string {
+	return filepath.Clean(filepath.Join(root, self.Type.String(), cast.ToString(self.ClusterID)))
+}
+
 // 服务广播消息
 func GetTopicChannel(typ pb.SERVICE) string {
 	return filepath.Clean(filepath.Join(root, typ.String()))
 }
 
-func GetSelfTopicChannel() string {
-	return filepath.Clean(filepath.Join(root, self.Type.String()))
-}
-
 // 服务间单播消息
 func GetChannel(typ pb.SERVICE, clusterID uint32) string {
 	return filepath.Clean(filepath.Join(root, typ.String(), cast.ToString(clusterID)))
-}
-
-func GetSelfChannel() string {
-	return filepath.Clean(filepath.Join(root, self.Type.String(), cast.ToString(self.ClusterID)))
 }
 
 // 删除节点通知
