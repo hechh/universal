@@ -1,5 +1,27 @@
 package domain
 
-const (
-	ProxyTable = "代对表"
-)
+type Enum struct {
+	Type  string // 枚举类型
+	Name  string // 枚举名字
+	Value int32  // 枚举值
+	Doc   string // 枚举注释
+}
+
+type Field struct {
+	Index int    // 下标
+	Name  string // 字段名字
+	Doc   string // 注释
+}
+
+type Table struct {
+	IsServer bool     // 是否生成后台配置
+	Name     string   // 英文名
+	Fields   []*Field // 字段数据
+}
+
+type FileType struct {
+	Name   string             // 文件名
+	Enums  map[string][]*Enum // 枚举类型
+	Alls   map[string]*Enum   // 所有枚举类型
+	Tables map[string]*Table  // 配置表 中文名-表
+}

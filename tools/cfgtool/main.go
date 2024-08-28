@@ -14,20 +14,29 @@ func main() {
 	flag.Parse()
 
 	// 读取所有xlsx文件
-	files, err := util.Search(src, "*.xlsx")
+	files, err := util.Glob(src, "*.xlsx", true)
 	if err != nil {
 		panic(err)
 	}
-	for i := 1; i < len(files); i++ {
-		if filepath.Base(files[i]) == "define.xlsx" {
-			tmp := files[0]
-			files[0] = files[i]
-			files[i] = tmp
+
+	// 优先解析define.xlsx文件
+	for _, filename := range files {
+		if filepath.Base(filename) == "define.xlsx" {
+			manager.ParseDefine(filename)
 			break
 		}
 	}
-	// 解析所有xlsx文件
-	if err := manager.ParseXlsx(dst, files...); err != nil {
-		panic(err)
+	for _, filename := range files {
+		if filepath.Base(filename) == "define.xlsx" {
+			continue
+		}
+		// 解析代对表
+		if fb, err := manager.ParseProxy(filename); err != nil {
+			//panic(err)
+			continue
+			// 解析配置表
+		} else if err := fb.ParseTable(dst); err != nil {
+			panic(err)
+		}
 	}
 }
