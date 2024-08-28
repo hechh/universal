@@ -127,7 +127,6 @@ func (d *FPointer) ParseTable(dst string) error {
 }
 
 func parseField(val01, val02 []string) (rets []*domain.Field) {
-	pos := 0
 	for i, name := range val01 {
 		name = strings.TrimSpace(name)
 		if len(name) <= 0 || !strings.Contains(name, "_") {
@@ -137,8 +136,7 @@ func parseField(val01, val02 []string) (rets []*domain.Field) {
 		if len(val02) > i {
 			doc = val02[i]
 		}
-		rets = append(rets, &domain.Field{Index: pos, Name: strings.TrimPrefix(name, "$"), Doc: doc})
-		pos++
+		rets = append(rets, &domain.Field{Index: i, Name: strings.TrimPrefix(name, "$"), Doc: doc})
 	}
 	return
 }
@@ -148,7 +146,10 @@ func parseJson(alls map[string]*domain.Enum, fields []*domain.Field, values [][]
 		js := map[string]interface{}{}
 		for _, field := range fields {
 			if field.Index < len(vals) {
-				js[field.Name] = parseValue(alls, field, vals[field.Index])
+				value := strings.TrimSpace(vals[field.Index])
+				if len(value) > 0 {
+					js[field.Name] = parseValue(alls, field, value)
+				}
 			}
 		}
 		rets = append(rets, js)
@@ -158,7 +159,6 @@ func parseJson(alls map[string]*domain.Enum, fields []*domain.Field, values [][]
 
 // 类型转换
 func parseValue(alls map[string]*domain.Enum, ff *domain.Field, value string) interface{} {
-	substr := strings.ToLower(ff.Name[:strings.Index(ff.Name, "_")])
 	value = strings.ReplaceAll(value, "|", ",")
 	proxyF := func(str string) interface{} {
 		if vv, ok := alls[str]; ok {
@@ -167,7 +167,7 @@ func parseValue(alls map[string]*domain.Enum, ff *domain.Field, value string) in
 		return str
 	}
 
-	switch substr {
+	switch strings.ToLower(ff.Name[:strings.Index(ff.Name, "_")]) {
 	case "i":
 		return cast.ToUint64(proxyF(value))
 	case "il":
@@ -192,6 +192,16 @@ func parseValue(alls map[string]*domain.Enum, ff *domain.Field, value string) in
 		rets := []interface{}{}
 		for _, str := range strings.Split(value, ",") {
 			rets = append(rets, cast.ToFloat64(proxyF(str)))
+		}
+		return rets
+	case "fll":
+		rets := []interface{}{}
+		for _, ss := range strings.Split(value, "#") {
+			subs := []interface{}{}
+			for _, str := range strings.Split(ss, ",") {
+				subs = append(subs, cast.ToFloat64(proxyF(str)))
+			}
+			rets = append(rets, subs)
 		}
 		return rets
 	case "b":

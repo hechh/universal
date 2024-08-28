@@ -26,4 +26,5 @@ tool: protoc
 	go run ./tools/gomaker/main.go -action="proto.tpl" -src="common/pb" -dst="tools/client/internal/httpkit/json.gen.go" -tpl="tools/gomaker/templates/"
 #	go install ./tools/client
 
-
+cfgtool:
+	go run ./tools/cfgtool/main.go -src="./share/table/" -dst="./output/json/"
