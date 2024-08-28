@@ -49,7 +49,7 @@ func parseProxy(info *domain.FileType, values [][]string) {
 			switch ss[0] {
 			case "C", "c":
 				info.Tables[ss[1]] = &domain.Table{IsServer: false, Name: ss[2]}
-			case "CS", "cs", "Cs", "cS", "SC", "Sc", "sC", "sc":
+			case "CS", "cs", "Cs", "cS", "SC", "Sc", "sC", "sc", "s", "S":
 				info.Tables[ss[1]] = &domain.Table{IsServer: true, Name: ss[2]}
 			case "E", "e":
 				item := &domain.Enum{
@@ -127,16 +127,26 @@ func (d *FPointer) ParseTable(dst string) error {
 }
 
 func parseField(val01, val02 []string) (rets []*domain.Field) {
+	docF := func(i int) string {
+		if len(val02) > i {
+			return val02[i]
+		}
+		return ""
+	}
 	for i, name := range val01 {
-		name = strings.TrimSpace(name)
-		if len(name) <= 0 || !strings.Contains(name, "_") {
+		if !strings.Contains(name, "_") {
 			continue
 		}
-		doc := ""
-		if len(val02) > i {
-			doc = val02[i]
-		}
-		rets = append(rets, &domain.Field{Index: i, Name: strings.TrimPrefix(name, "$"), Doc: doc})
+
+		index := strings.Index(name, "_")
+		rets = append(rets, &domain.Field{
+			IsEnum:   strings.HasPrefix(name, "$"),
+			Original: strings.TrimPrefix(name, "$"),
+			Index:    i,
+			Type:     strings.ToLower(strings.TrimPrefix(name[:index], "$")),
+			Name:     name[index+1:],
+			Doc:      docF(i),
+		})
 	}
 	return
 }
@@ -167,7 +177,7 @@ func parseValue(alls map[string]*domain.Enum, ff *domain.Field, value string) in
 		return str
 	}
 
-	switch strings.ToLower(ff.Name[:strings.Index(ff.Name, "_")]) {
+	switch ff.Type {
 	case "i":
 		return cast.ToUint64(proxyF(value))
 	case "il":
