@@ -7,14 +7,14 @@ import (
 	"os/signal"
 	"syscall"
 	"universal/common/dao"
-	"universal/common/yaml"
+	"universal/common/global"
 	"universal/framework/plog"
 	"universal/tools/client/internal/httpkit"
 	"universal/tools/client/internal/player"
 )
 
 var (
-	cfg *yaml.Config
+	cfg *global.Config
 )
 
 func main() {
@@ -28,7 +28,7 @@ func main() {
 	flag.Parse()
 
 	// 加载配置
-	tmpcfg, err := yaml.Load(path, "gate")
+	tmpcfg, err := global.Load(path, "gate")
 	if err != nil {
 		panic(fmt.Errorf("配置文件加载错误: %v", err))
 	}

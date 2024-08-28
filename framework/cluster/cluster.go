@@ -3,8 +3,8 @@ package cluster
 import (
 	"net"
 	"runtime/debug"
+	"universal/common/global"
 	"universal/common/pb"
-	"universal/common/yaml"
 	"universal/framework/basic/uerror"
 	"universal/framework/basic/util"
 	"universal/framework/cluster/domain"
@@ -29,7 +29,7 @@ func Close() {
 	natsCli.Close()
 }
 
-func Init(cfg *yaml.Config, typ pb.SERVICE, serverId uint32, expire int64) (err error) {
+func Init(cfg *global.Config, typ pb.SERVICE, serverId uint32, expire int64) (err error) {
 	// 建立etcd连接
 	if etcd, err = discovery.NewEtcdClient(cfg.Etcd.Endpoints...); err != nil {
 		return

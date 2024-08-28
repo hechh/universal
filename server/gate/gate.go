@@ -3,8 +3,8 @@ package main
 import (
 	"flag"
 	"universal/common/dao"
+	"universal/common/global"
 	"universal/common/pb"
-	"universal/common/yaml"
 	"universal/framework/cluster"
 	"universal/framework/plog"
 )
@@ -17,7 +17,7 @@ func main() {
 	flag.Parse()
 
 	// 加载配置
-	cfg, err := yaml.Load(path, "gate")
+	cfg, err := global.Load(path, "gate")
 	if err != nil {
 		panic(err)
 	}

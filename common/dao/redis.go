@@ -4,12 +4,12 @@ import (
 	"fmt"
 	"time"
 	"universal/common/dao/internal/manager"
-	"universal/common/yaml"
+	"universal/common/global"
 
 	"github.com/go-redis/redis/v8"
 )
 
-func InitRedis(cfg map[uint32]*yaml.DbConfig) error {
+func InitRedis(cfg map[uint32]*global.DbConfig) error {
 	return manager.InitRedis(cfg)
 }
 

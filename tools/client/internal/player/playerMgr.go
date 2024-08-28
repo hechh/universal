@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"strings"
 	"sync"
+	"universal/common/global"
 	"universal/common/pb"
-	"universal/common/yaml"
 	"universal/framework/handler"
 	"universal/framework/plog"
 	"universal/tools/client/domain"
@@ -18,7 +18,7 @@ var (
 	platform uint64
 	url      string = "ws://172.16.126.208:801/ws" // 内网域名
 	gates    []uint64
-	gatecfg  []*yaml.ServerConfig
+	gatecfg  []*global.ServerConfig
 	rwMutex  = new(sync.RWMutex)
 	uids     = make(map[uint64]*Player)
 	closes   = make(chan uint64, 100)
@@ -34,7 +34,7 @@ func RandomGate(uid uint64) string {
 	return fmt.Sprintf("ws://%s/ws", gateCfg.Host)
 }
 
-func Init(cfg map[uint32]*yaml.ServerConfig, plat uint64, srvs string) {
+func Init(cfg map[uint32]*global.ServerConfig, plat uint64, srvs string) {
 	platform = plat
 	for _, val := range cfg {
 		gatecfg = append(gatecfg, val)

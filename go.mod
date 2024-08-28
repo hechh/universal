@@ -4,8 +4,13 @@ go 1.22.1
 
 require (
 	github.com/go-redis/redis/v8 v8.11.5
+	github.com/go-sql-driver/mysql v1.5.0
 	github.com/google/gops v0.3.28
+	github.com/hashicorp/golang-lru v0.5.4
+	github.com/lib/pq v1.0.0
+	github.com/mattn/go-sqlite3 v2.0.3+incompatible
 	github.com/nats-io/nats.go v1.37.0
+	github.com/pkg/errors v0.9.1
 	github.com/spf13/cast v1.6.0
 	github.com/xuri/excelize/v2 v2.8.1
 	go.etcd.io/etcd v3.3.17+incompatible
@@ -58,7 +63,7 @@ require (
 	golang.org/x/sys v0.19.0 // indirect
 	google.golang.org/genproto v0.0.0-20200513103714-09dca8ec2884 // indirect
 	google.golang.org/grpc v1.33.1 // indirect
-	gopkg.in/check.v1 v1.0.0-20180628173108-788fd7840127 // indirect
+	gopkg.in/check.v1 v1.0.0-20201130134442-10cb98267c6c // indirect
 )
 
 replace github.com/coreos/bbolt => go.etcd.io/bbolt v1.3.4

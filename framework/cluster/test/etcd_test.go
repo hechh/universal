@@ -3,16 +3,16 @@ package test
 import (
 	"testing"
 	"time"
-	"universal/common/yaml"
+	"universal/common/global"
 	"universal/framework/cluster/internal/discovery"
 )
 
 var (
-	cfg *yaml.Config
+	cfg *global.Config
 )
 
 func TestMain(m *testing.M) {
-	cfg, _ = yaml.Load("../../../env/config", "gate")
+	cfg, _ = global.Load("../../../env/config", "gate")
 	m.Run()
 }
 
