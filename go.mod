@@ -3,8 +3,9 @@ module universal
 go 1.22.1
 
 require (
+	github.com/astaxie/beego v1.12.3
 	github.com/go-redis/redis/v8 v8.11.5
-	github.com/go-sql-driver/mysql v1.5.0
+	github.com/go-sql-driver/mysql v1.8.1
 	github.com/google/gops v0.3.28
 	github.com/hashicorp/golang-lru v0.5.4
 	github.com/lib/pq v1.0.0
@@ -44,6 +45,7 @@ require (
 )
 
 require (
+	filippo.io/edwards25519 v1.1.0 // indirect
 	github.com/cespare/xxhash/v2 v2.2.0 // indirect
 	github.com/coreos/bbolt v0.0.0-00010101000000-000000000000 // indirect
 	github.com/coreos/etcd v3.3.17+incompatible // indirect

@@ -120,7 +120,7 @@ func (d *DB) BeginTx(ctx context.Context, opts *sql.TxOptions) (*sql.Tx, error) 
 	return d.DB.BeginTx(ctx, opts)
 }
 
-//su must call release to release *sql.Stmt after using
+// su must call release to release *sql.Stmt after using
 func (d *DB) getStmtDecorator(query string) (*stmtDecorator, error) {
 	d.RLock()
 	c, ok := d.stmtDecorators.Get(query)
@@ -445,7 +445,7 @@ func (s *stmtDecorator) release() {
 	s.wg.Done()
 }
 
-//garbage recycle for stmt
+// garbage recycle for stmt
 func (s *stmtDecorator) destroy() {
 	go func() {
 		s.wg.Wait()
