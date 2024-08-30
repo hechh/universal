@@ -53,3 +53,10 @@ func MD5(str string) string {
 func GetCrc(name string) uint32 {
 	return crc32.ChecksumIEEE([]byte(name))
 }
+
+func GetString(str, def string) string {
+	if len(str) > 0 {
+		return str
+	}
+	return def
+}

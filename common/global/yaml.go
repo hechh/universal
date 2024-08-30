@@ -22,6 +22,7 @@ type LogConfig struct {
 
 // 数据库配置
 type DbConfig struct {
+	Alias    string            `yaml:alias`
 	DbName   string            `yaml:dbname`
 	User     string            `yaml:user`
 	Password string            `yaml:password`

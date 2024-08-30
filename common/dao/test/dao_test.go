@@ -1,12 +1,12 @@
 package test
 
 import (
+	"sync"
 	"testing"
 	"time"
 	"universal/common/dao/internal/manager"
 	"universal/common/global"
 
-	"github.com/astaxie/beego/orm"
 	_ "github.com/go-sql-driver/mysql"
 )
 
@@ -19,32 +19,73 @@ func TestMain(m *testing.M) {
 	if err := manager.InitRedis(cfg.Redis); err != nil {
 		panic(err)
 	}
-
 	// 初始化mysql
-	if err := orm.RegisterDriver("mysql", orm.DRMySQL); err != nil {
+	if err := manager.InitMysql(cfg.Mysql); err != nil {
 		panic(err)
 	}
-
-	orm.RegisterDataBase("corps_game_1", "mysql", "root:link123!@tcp(172.16.126.208:3306)/corps_game_1?charset=utf8")
-	if err := orm.RegisterDataBase("default", "mysql", "root:link123!@tcp(172.16.126.208:3306)/corps_common?charset=utf8"); err != nil {
-		panic(err)
-	}
-
 	// 注册table
-	orm.RegisterModel(new(TPlayerName), new(UserData))
-	//orm.RegisterModel(new(TPlayerName))
-
+	if err := manager.CreateTable("corps_game_1", new(UserData)); err != nil {
+		panic(err)
+	}
+	if err := manager.CreateTable("corps_common", new(TPlayerName)); err != nil {
+		panic(err)
+	}
 	m.Run()
 }
 
+func TestRedis(t *testing.T) {
+	cli := manager.GetRedis(1)
+	if cli == nil {
+		return
+	}
+
+	result, err := cli.Get("test-hch")
+	t.Log(result, err)
+
+	if err = cli.Set("test-hch", 123); err != nil {
+		t.Log(err)
+		return
+	}
+
+	result, err = cli.Get("test-hch")
+	t.Log(result, err)
+}
+
 type TPlayerName struct {
-	AccountID  uint64    `orm:"column(AccountID);pk"` // 使用空格分隔标签
-	Name       string    `orm:"column(PlayerName)"`   // 可以指定大小
-	UpdateTime time.Time `orm:"column(UpdateTime)"`   // 指定类型
+	PlayerName string    `orm:"column(PlayerName);pk"` // 可以指定大小
+	AccountID  uint64    `orm:"column(AccountID)"`     // 使用空格分隔标签
+	UpdateTime time.Time `orm:"column(UpdateTime)"`    // 指定类型
 }
 
 func (d *TPlayerName) TableName() string {
 	return "t_player_name"
+}
+
+// go test -race -run=TestPlayerName ./* -count=1 -v
+func TestPlayerName(t *testing.T) {
+	cli, err := manager.GetMysql("corps_common")
+	if err != nil {
+		t.Log("----error----->", err)
+		return
+	}
+	wg := sync.WaitGroup{}
+	wg.Add(2)
+	go func() {
+		defer wg.Done()
+		player := &TPlayerName{PlayerName: "asdwewqr"}
+		if err := cli.Read(player); err != nil {
+			t.Log(err)
+		} else {
+			t.Log("------->", player)
+		}
+	}()
+	go func() {
+		defer wg.Done()
+		newer := &TPlayerName{}
+		cli.QueryTable(newer.TableName()).Filter("AccountID", 100100120).All(newer)
+		t.Log("----update---->", newer)
+	}()
+	wg.Wait()
 }
 
 type UserData struct {
@@ -67,51 +108,15 @@ func (d *UserData) TableName() string {
 	return "t_player"
 }
 
-func TestPlayerName(t *testing.T) {
-	player := &TPlayerName{AccountID: 100100596}
-	o := orm.NewOrm()
-	if err := o.Read(player); err != nil {
-		t.Log(err)
-	} else {
-		t.Log("------->", player)
-	}
-}
-
 func TestUserData(t *testing.T) {
-	db, err := orm.GetDB("corps_game_1")
+	o, err := manager.GetMysql("corps_game_1")
 	if err != nil {
-		t.Log(err)
+		t.Log("----error----->", err)
 		return
 	}
-	o, err := orm.NewOrmWithDB("mysql", "corps_game_1", db)
-	if err != nil {
-		t.Log(err)
-		return
-	}
-
-	data := &UserData{AccountID: 100000002}
-	o.Using("corps_game_1")
+	data := &UserData{AccountID: 100000023}
 	if err := o.Read(data); err != nil {
 		t.Log(err)
-	} else {
-		t.Log("------->", data)
 	}
-}
-
-func TestRedis(t *testing.T) {
-	cli := manager.GetRedis(1)
-	if cli == nil {
-		return
-	}
-
-	result, err := cli.Get("test-hch")
-	t.Log(result, err)
-
-	if err = cli.Set("test-hch", 123); err != nil {
-		t.Log(err)
-		return
-	}
-
-	result, err = cli.Get("test-hch")
-	t.Log(result, err)
+	t.Log("------->", data.AccountID, data.PlayerLevel, data.PlayerName, data.CreateTime, data.LastDailyTime, []byte(data.BaseData))
 }
