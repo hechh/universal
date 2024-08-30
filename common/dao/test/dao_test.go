@@ -4,9 +4,9 @@ import (
 	"testing"
 	"time"
 	"universal/common/dao/internal/manager"
-	"universal/common/dao/internal/orm"
 	"universal/common/global"
 
+	"github.com/astaxie/beego/orm"
 	_ "github.com/go-sql-driver/mysql"
 )
 
@@ -18,19 +18,16 @@ func TestMain(m *testing.M) {
 	// 初始化redis
 	if err := manager.InitRedis(cfg.Redis); err != nil {
 		panic(err)
-		return
 	}
 
 	// 初始化mysql
 	if err := orm.RegisterDriver("mysql", orm.DRMySQL); err != nil {
 		panic(err)
-		return
 	}
 
 	orm.RegisterDataBase("corps_game_1", "mysql", "root:link123!@tcp(172.16.126.208:3306)/corps_game_1?charset=utf8")
 	if err := orm.RegisterDataBase("default", "mysql", "root:link123!@tcp(172.16.126.208:3306)/corps_common?charset=utf8"); err != nil {
 		panic(err)
-		return
 	}
 
 	// 注册table
@@ -70,27 +67,35 @@ func (d *UserData) TableName() string {
 	return "t_player"
 }
 
-func TestMysql(t *testing.T) {
-	t.Run("t_player_name", func(t *testing.T) {
-		player := &TPlayerName{AccountID: 100100596}
-		o := orm.NewOrm()
-		if err := o.Read(player); err != nil {
-			t.Log(err)
-		} else {
-			t.Log("------->", player)
-		}
-	})
+func TestPlayerName(t *testing.T) {
+	player := &TPlayerName{AccountID: 100100596}
+	o := orm.NewOrm()
+	if err := o.Read(player); err != nil {
+		t.Log(err)
+	} else {
+		t.Log("------->", player)
+	}
+}
 
-	t.Run("t_player", func(t *testing.T) {
-		data := &UserData{AccountID: 100000002}
-		o := orm.NewOrm()
-		o.Using("corps_game_1")
-		if err := o.Read(data); err != nil {
-			t.Log(err)
-		} else {
-			t.Log("------->", data)
-		}
-	})
+func TestUserData(t *testing.T) {
+	db, err := orm.GetDB("corps_game_1")
+	if err != nil {
+		t.Log(err)
+		return
+	}
+	o, err := orm.NewOrmWithDB("mysql", "corps_game_1", db)
+	if err != nil {
+		t.Log(err)
+		return
+	}
+
+	data := &UserData{AccountID: 100000002}
+	o.Using("corps_game_1")
+	if err := o.Read(data); err != nil {
+		t.Log(err)
+	} else {
+		t.Log("------->", data)
+	}
 }
 
 func TestRedis(t *testing.T) {
