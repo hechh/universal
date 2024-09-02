@@ -92,16 +92,13 @@ func (d *GoParser) GetEnum(vv *ast.GenDecl) *typespec.Enum {
 		if !ok || vv == nil || vv.Type == nil {
 			continue
 		}
-		tt, _ := getType(domain.ENUM, vv.Type, nil, d.pkg)
-		val := &typespec.Value{
+		ret.Type, _ = getType(domain.ENUM, vv.Type, nil, d.pkg)
+		ret.AddValue(&typespec.Value{
 			Name:    vv.Names[0].Name,
-			Type:    tt,
+			Type:    ret.Type,
 			Value:   cast.ToInt32(vv.Values[0].(*ast.BasicLit).Value),
 			Comment: getDoc(vv.Comment),
-		}
-		ret.List = append(ret.List, val)
-		ret.Values[val.Name] = val
-		ret.Type = tt
+		})
 	}
 	if len(ret.List) <= 0 {
 		return nil

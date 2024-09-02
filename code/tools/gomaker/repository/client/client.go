@@ -27,7 +27,7 @@ func HttpKitGenerator(dst string, param string, tpls *template.Template) error {
 	}
 	// 获取数据
 	arrs := []*typespec.Struct{}
-	for _, st := range manager.GetStruct() {
+	for _, st := range manager.GetStructList() {
 		name := st.Type.Name
 		if strings.HasSuffix(name, "Request") || strings.HasSuffix(name, "Response") || strings.HasSuffix(name, "Notify") {
 			arrs = append(arrs, st)
@@ -53,7 +53,7 @@ func OmitEmptyGenerator(dst string, param string, tpls *template.Template) error
 	}
 	// 获取struct数据
 	arrs := []*typespec.Struct{}
-	for _, st := range manager.GetStruct() {
+	for _, st := range manager.GetStructList() {
 		tmp := st.Clone()
 		j := -1
 		for _, ff := range tmp.List {
@@ -73,7 +73,7 @@ func OmitEmptyGenerator(dst string, param string, tpls *template.Template) error
 	}
 	// 获取枚举数据
 	tmps := []*typespec.Enum{}
-	for _, st := range manager.GetEnum() {
+	for _, st := range manager.GetEnumList() {
 		tmps = append(tmps, st)
 	}
 	// 模板生成
@@ -96,7 +96,7 @@ func ProtoGenerator(dst string, param string, tpls *template.Template) error {
 	}
 	// 获取数据
 	arrs := []*typespec.Struct{}
-	for _, st := range manager.GetStruct() {
+	for _, st := range manager.GetStructList() {
 		name := st.Type.Name
 		if strings.HasSuffix(name, "Request") {
 			arrs = append(arrs, st)
