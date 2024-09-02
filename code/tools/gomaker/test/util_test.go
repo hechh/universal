@@ -8,6 +8,7 @@ import (
 	"os"
 	"testing"
 	"text/template"
+	"universal/tools/gomaker/internal/local"
 	"universal/tools/gomaker/internal/manager"
 	"universal/tools/gomaker/internal/util"
 )
@@ -38,7 +39,7 @@ func TestParser(t *testing.T) {
 	fset := token.NewFileSet()
 	//filename := "./pb/common.pb.go"
 	filename := "../../../common/pb/playerStruct.pb.go"
-	t.Log(util.ParseFile(&manager.TypeParser{}, fset, filename))
+	t.Log(util.ParseFile(&local.GoParser{}, fset, filename))
 	manager.Print()
 }
 

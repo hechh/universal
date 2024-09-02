@@ -131,7 +131,7 @@ func Dispatcher(head *pb.RpcHead) (err error) {
 
 // 发送内部广播
 func Broadcast(head *pb.RpcHead, data proto.Message) error {
-	head.SendType = pb.SEND_BROAD_CAST
+	head.SendType = pb.SEND_BOARD_CAST
 	head.SrcClusterId = nodes.GetSelf().GetClusterID()
 
 	// 判断服务节点是否存在
@@ -148,7 +148,7 @@ func Broadcast(head *pb.RpcHead, data proto.Message) error {
 
 // 发送广播查询路由，路由存在就发送回报，不存在路由就丢弃
 func Query(head *pb.RpcHead, data proto.Message) error {
-	head.SendType = pb.SEND_BROAD_CAST
+	head.SendType = pb.SEND_BOARD_CAST
 	head.SrcClusterId = nodes.GetSelf().GetClusterID()
 
 	if head.Id <= 0 {

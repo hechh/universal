@@ -16,6 +16,7 @@ const (
 )
 
 const (
+	XLSX    = "xlsx"
 	PACKAGE = "package"
 	HTTPKIT = "httpkit.tpl"
 	PBCLASS = "pbclass.tpl"

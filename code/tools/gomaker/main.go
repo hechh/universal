@@ -7,6 +7,7 @@ import (
 	"os"
 	"strings"
 	"universal/tools/gomaker/domain"
+	"universal/tools/gomaker/internal/local"
 	"universal/tools/gomaker/internal/manager"
 	"universal/tools/gomaker/internal/util"
 	"universal/tools/gomaker/repository/client"
@@ -44,14 +45,19 @@ func main() {
 	}
 
 	// 解析文件
-	fset := token.NewFileSet()
-	if strings.HasSuffix(src, ".go") {
-		err = util.ParseFile(&manager.TypeParser{}, fset, src)
-	} else {
-		err = util.ParseDir(&manager.TypeParser{}, fset, src)
-	}
-	if err != nil {
-		panic(err)
+	switch action {
+	case domain.XLSX:
+	default:
+		fset := token.NewFileSet()
+		if strings.HasSuffix(src, ".go") {
+			if err := util.ParseFile(&local.GoParser{}, fset, src); err != nil {
+				panic(err)
+			}
+		} else {
+			if err := util.ParseDir(&local.GoParser{}, fset, src); err != nil {
+				panic(err)
+			}
+		}
 	}
 
 	// 生成文件

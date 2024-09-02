@@ -12,5 +12,3 @@ func Init(dir string) error {
 func Register(name string, cfgs ...domain.IConfig) {
 	manager.Register(name, cfgs...)
 }
-
-

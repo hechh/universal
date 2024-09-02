@@ -166,6 +166,15 @@ type BattleMapNotify struct {
 	MapInfo    *PBBattleMapInfo `protobuf:"bytes,3,opt,name=MapInfo,proto3" json:"MapInfo"`                                 // 战场信息
 	PacketHead *IPacket         `protobuf:"bytes,1,opt,name=PacketHead,proto3" json:"PacketHead"`
 }
+type BattleNormalCardRequest struct {
+	BattleBeginTime uint64   `protobuf:"varint,4,opt,name=BattleBeginTime,proto3" json:"BattleBeginTime"` // 战斗开始时间戳
+	CardID          uint32   `protobuf:"varint,3,opt,name=CardID,proto3" json:"CardID"`                   // 地图ID
+	PacketHead      *IPacket `protobuf:"bytes,1,opt,name=PacketHead,proto3" json:"PacketHead"`
+	Stage           uint32   `protobuf:"varint,2,opt,name=Stage,proto3" json:"Stage"` // 阶段
+}
+type BattleNormalCardResponse struct {
+	PacketHead *IPacket `protobuf:"bytes,1,opt,name=PacketHead,proto3" json:"PacketHead"`
+}
 type BattleRecordRequest struct {
 	BattleType EmBattleType `protobuf:"varint,2,opt,name=BattleType,proto3,enum=common.EmBattleType" json:"BattleType"` // 战斗类型 1地图，2爬塔，3挂机
 	MapId      uint32       `protobuf:"varint,3,opt,name=MapId,proto3" json:"MapId"`                                    // 地图ID
@@ -220,6 +229,7 @@ type BookStageRewardResponse struct {
 	PacketHead *IPacket       `protobuf:"bytes,1,opt,name=PacketHead,proto3" json:"PacketHead"`
 }
 type BoxOpenRequest struct {
+	AdvestType uint32   `protobuf:"varint,4,opt,name=AdvestType,proto3" json:"AdvestType"` // 广告类型
 	ItemID     uint32   `protobuf:"varint,2,opt,name=ItemID,proto3" json:"ItemID"`
 	ItemNum    uint32   `protobuf:"varint,3,opt,name=ItemNum,proto3" json:"ItemNum"`
 	PacketHead *IPacket `protobuf:"bytes,1,opt,name=PacketHead,proto3" json:"PacketHead"`
@@ -500,6 +510,18 @@ type DrawScorePrizeResponse struct {
 	Id         uint32   `protobuf:"varint,3,opt,name=Id,proto3" json:"Id"`         // 抽奖积分配置配置的ID
 	PacketHead *IPacket `protobuf:"bytes,1,opt,name=PacketHead,proto3" json:"PacketHead"`
 }
+type EjectAdvertNotify struct {
+	EjectAdvertInfo *PBEjectAdvertInfo `protobuf:"bytes,2,opt,name=EjectAdvertInfo,proto3" json:"EjectAdvertInfo"` // 广告弹出信息
+	PacketHead      *IPacket           `protobuf:"bytes,1,opt,name=PacketHead,proto3" json:"PacketHead"`           // 包头
+}
+type EjectAdvertRequest struct {
+	Id         uint32   `protobuf:"varint,2,opt,name=Id,proto3" json:"Id"`                // 弹出id
+	PacketHead *IPacket `protobuf:"bytes,1,opt,name=PacketHead,proto3" json:"PacketHead"` // 包头
+}
+type EjectAdvertResponse struct {
+	EjectAdvertInfo *PBEjectAdvertInfo `protobuf:"bytes,2,opt,name=EjectAdvertInfo,proto3" json:"EjectAdvertInfo"` // 广告弹出信息
+	PacketHead      *IPacket           `protobuf:"bytes,1,opt,name=PacketHead,proto3" json:"PacketHead"`           // 包头
+}
 type EntryCondition struct {
 	CfgID      uint32 `protobuf:"varint,1,opt,name=CfgID,proto3" json:"CfgID"`           // 配置id
 	Process    uint32 `protobuf:"varint,2,opt,name=Process,proto3" json:"Process"`       // 条件完成进度
@@ -586,8 +608,8 @@ type EquipmentSplitScoreNotify struct {
 	SplitScore uint32   `protobuf:"varint,2,opt,name=SplitScore,proto3" json:"SplitScore"` // 当前进度积分
 }
 type FirstChargeNotify struct {
-	FirstChargeList []*PBFirstCharge `protobuf:"bytes,2,rep,name=FirstChargeList,proto3" json:"FirstChargeList"` // 新增的首冲数据
-	PacketHead      *IPacket         `protobuf:"bytes,1,opt,name=PacketHead,proto3" json:"PacketHead"`
+	FirstChargeInfo *PBFirstCharge `protobuf:"bytes,2,opt,name=FirstChargeInfo,proto3" json:"FirstChargeInfo"` // 新增的首冲数据
+	PacketHead      *IPacket       `protobuf:"bytes,1,opt,name=PacketHead,proto3" json:"PacketHead"`
 }
 type FirstChargePrizeRequest struct {
 	FirstChargeId uint32   `protobuf:"varint,2,opt,name=FirstChargeId,proto3" json:"FirstChargeId"` // 首冲类型
@@ -917,6 +939,10 @@ type MainTaskFinishResponse struct {
 	MainTask   *PBTaskStageInfo `protobuf:"bytes,2,opt,name=MainTask,proto3" json:"MainTask"` // 主线任务
 	PacketHead *IPacket         `protobuf:"bytes,1,opt,name=PacketHead,proto3" json:"PacketHead"`
 }
+type MainTaskNotify struct {
+	MainTask   *PBTaskStageInfo `protobuf:"bytes,2,opt,name=MainTask,proto3" json:"MainTask"` // 主线任务
+	PacketHead *IPacket         `protobuf:"bytes,1,opt,name=PacketHead,proto3" json:"PacketHead"`
+}
 type NewMailNotify struct {
 	Mail       *PBMail  `protobuf:"bytes,2,opt,name=Mail,proto3" json:"Mail"` // 邮件数据
 	PacketHead *IPacket `protobuf:"bytes,1,opt,name=PacketHead,proto3" json:"PacketHead"`
@@ -946,6 +972,7 @@ type NoticeResponse struct {
 	PacketHead *IPacket    `protobuf:"bytes,1,opt,name=PacketHead,proto3" json:"PacketHead"`
 }
 type OfflineIncomeRewardRequest struct {
+	AdvertType uint32   `protobuf:"varint,2,opt,name=AdvertType,proto3" json:"AdvertType"` // 广告类型 0无广告
 	PacketHead *IPacket `protobuf:"bytes,1,opt,name=PacketHead,proto3" json:"PacketHead"`
 }
 type OfflineIncomeRewardResponse struct {
@@ -1190,6 +1217,10 @@ type PBDrawPrizeInfo struct {
 	Name     string       `protobuf:"bytes,1,opt,name=Name,proto3" json:"Name"`         // 名称
 	Rate     uint32       `protobuf:"varint,2,opt,name=Rate,proto3" json:"Rate"`        // 概率万分比
 }
+type PBEjectAdvertInfo struct {
+	Id              uint32 `protobuf:"varint,1,opt,name=Id,proto3" json:"Id"`                           // 广告ID
+	NextRefreshTime uint64 `protobuf:"varint,2,opt,name=NextRefreshTime,proto3" json:"NextRefreshTime"` // 下次刷新时间 0无领取
+}
 type PBEquipment struct {
 	EquipProfession uint32             `protobuf:"varint,9,opt,name=EquipProfession,proto3" json:"EquipProfession"` // 穿戴职业
 	Id              uint32             `protobuf:"varint,2,opt,name=Id,proto3" json:"Id"`                           // 装备ID
@@ -1208,8 +1239,9 @@ type PBEquipmentProp struct {
 	Value  uint32 `protobuf:"varint,2,opt,name=Value,proto3" json:"Value"`   // 属性值
 }
 type PBFirstCharge struct {
-	ActiveTime    uint64 `protobuf:"varint,2,opt,name=ActiveTime,proto3" json:"ActiveTime"`       // 激活时间
+	ActiveTime    uint64 `protobuf:"varint,2,opt,name=ActiveTime,proto3" json:"ActiveTime"`       // 激活时间 充值时间充值时间
 	FirstChargeId uint32 `protobuf:"varint,1,opt,name=FirstChargeId,proto3" json:"FirstChargeId"` // 首冲类型
+	OpenTime      uint64 `protobuf:"varint,4,opt,name=OpenTime,proto3" json:"OpenTime"`           // 开启时间
 	PrizeDay      uint32 `protobuf:"varint,3,opt,name=PrizeDay,proto3" json:"PrizeDay"`           // 领取的最新奖励天数
 }
 type PBGeneRobot struct {
@@ -1364,13 +1396,14 @@ type PBPlayerGiftCode struct {
 	Time  uint64 `protobuf:"varint,3,opt,name=Time,proto3" json:"Time"`   // 兑换时间
 }
 type PBPlayerHero struct {
-	FightPower           uint32            `protobuf:"varint,4,opt,name=FightPower,proto3" json:"FightPower"`                     // 战斗力
-	HeroBookList         []*PBHeroBook     `protobuf:"bytes,6,rep,name=HeroBookList,proto3" json:"HeroBookList"`                  // 英雄图鉴列表
-	HeroList             []*PBHero         `protobuf:"bytes,2,rep,name=HeroList,proto3" json:"HeroList"`                          // 英雄列表
-	MaxHistoryFightPower uint32            `protobuf:"varint,7,opt,name=MaxHistoryFightPower,proto3" json:"MaxHistoryFightPower"` // 历史最大战斗力
-	OrderId              uint32            `protobuf:"varint,1,opt,name=OrderId,proto3" json:"OrderId"`                           // 自增ID
-	TeamList             []*PBHeroTeamList `protobuf:"bytes,3,rep,name=TeamList,proto3" json:"TeamList"`                          // 编队列表
-	UpStarCount          []*PBU32U32       `protobuf:"bytes,5,rep,name=UpStarCount,proto3" json:"UpStarCount"`                    // 升星次数
+	FightPower           uint32            `protobuf:"varint,4,opt,name=FightPower,proto3" json:"FightPower"`                        // 战斗力
+	GlobalRandHeroProf   []uint32          `protobuf:"varint,8,rep,packed,name=GlobalRandHeroProf,proto3" json:"GlobalRandHeroProf"` // 5蓝职业+5蓝职业 5紫色职业 5紫色职业 当前蓝色索引  当前紫色索引 全局前10个蓝色和全局前10个紫色 5个职业乱序排序为一轮，保护两系统前两轮（第二轮重新乱序）
+	HeroBookList         []*PBHeroBook     `protobuf:"bytes,6,rep,name=HeroBookList,proto3" json:"HeroBookList"`                     // 英雄图鉴列表
+	HeroList             []*PBHero         `protobuf:"bytes,2,rep,name=HeroList,proto3" json:"HeroList"`                             // 英雄列表
+	MaxHistoryFightPower uint32            `protobuf:"varint,7,opt,name=MaxHistoryFightPower,proto3" json:"MaxHistoryFightPower"`    // 历史最大战斗力
+	OrderId              uint32            `protobuf:"varint,1,opt,name=OrderId,proto3" json:"OrderId"`                              // 自增ID
+	TeamList             []*PBHeroTeamList `protobuf:"bytes,3,rep,name=TeamList,proto3" json:"TeamList"`                             // 编队列表
+	UpStarCount          []*PBU32U32       `protobuf:"bytes,5,rep,name=UpStarCount,proto3" json:"UpStarCount"`                       // 升星次数
 }
 type PBPlayerMail struct {
 	AllOrderId uint32    `protobuf:"varint,3,opt,name=AllOrderId,proto3" json:"AllOrderId"` // 全服邮件领取序号
@@ -1389,6 +1422,7 @@ type PBPlayerSystem struct {
 	HookTech     *PBPlayerSystemHookTech     `protobuf:"bytes,11,opt,name=HookTech,proto3" json:"HookTech"`         // 挂机科技系统
 	Offline      *PBPlayerSystemOffline      `protobuf:"bytes,10,opt,name=Offline,proto3" json:"Offline"`           // 离线系统
 	Prof         *PBPlayerSystemProfession   `protobuf:"bytes,3,opt,name=Prof,proto3" json:"Prof"`                  // 职业
+	RepairData   *PBPlayerSystemRepairData   `protobuf:"bytes,16,opt,name=RepairData,proto3" json:"RepairData"`     // 数据修复
 	SevenDay     *PBPlayerSystemSevenDay     `protobuf:"bytes,12,opt,name=SevenDay,proto3" json:"SevenDay"`         // 七天活动
 	Shop         *PBPlayerSystemShop         `protobuf:"bytes,6,opt,name=Shop,proto3" json:"Shop"`                  // 商店
 	Task         *PBPlayerSystemTask         `protobuf:"bytes,2,opt,name=Task,proto3" json:"Task"`                  // 任务信息
@@ -1418,8 +1452,8 @@ type PBPlayerSystemChampionship struct {
 	BattleHasReward uint32           `protobuf:"varint,2,opt,name=BattleHasReward,proto3" json:"BattleHasReward"` // 是否已经领奖
 	Damage          *PBTaskStageInfo `protobuf:"bytes,7,opt,name=Damage,proto3" json:"Damage"`                    // 试炼排行榜任务
 	DamageHasReward uint32           `protobuf:"varint,3,opt,name=DamageHasReward,proto3" json:"DamageHasReward"` // 是否已经领奖
-	Level           *PBTaskStageInfo `protobuf:"bytes,5,opt,name=Level,proto3" json:"Level"`                      // 等级排行榜任务
-	LevelHasReward  uint32           `protobuf:"varint,1,opt,name=LevelHasReward,proto3" json:"LevelHasReward"`   // 0表示没加入,1表示加入,2表示领完奖
+	Hook            *PBTaskStageInfo `protobuf:"bytes,5,opt,name=Hook,proto3" json:"Hook"`                        // 挂机关卡排行榜任务
+	HookHasReward   uint32           `protobuf:"varint,1,opt,name=HookHasReward,proto3" json:"HookHasReward"`     // 0表示没加入,1表示加入,2表示领完奖
 	Power           *PBTaskStageInfo `protobuf:"bytes,8,opt,name=Power,proto3" json:"Power"`                      // 战力排行榜任务
 	PowerHasReward  uint32           `protobuf:"varint,4,opt,name=PowerHasReward,proto3" json:"PowerHasReward"`   // 是否已经领奖
 }
@@ -1433,6 +1467,7 @@ type PBPlayerSystemCommon struct {
 	AdvertList          []*PBAdvertInfo     `protobuf:"bytes,7,rep,name=AdvertList,proto3" json:"AdvertList"`                           // 广告信息
 	AvatarFrames        []*PBAvatarFrame    `protobuf:"bytes,5,rep,name=AvatarFrames,proto3" json:"AvatarFrames"`                       // 头像框
 	Avatars             []*PBAvatar         `protobuf:"bytes,4,rep,name=Avatars,proto3" json:"Avatars"`                                 // 头像
+	EjectAdvertInfo     *PBEjectAdvertInfo  `protobuf:"bytes,9,opt,name=EjectAdvertInfo,proto3" json:"EjectAdvertInfo"`                 // 弹出广告数据
 	GiftCode            []*PBPlayerGiftCode `protobuf:"bytes,2,rep,name=GiftCode,proto3" json:"GiftCode"`                               // 兑换码
 	LastChatTime        uint64              `protobuf:"varint,1,opt,name=LastChatTime,proto3" json:"LastChatTime"`                      // 上次聊天时间
 	MaxNoticeId         uint32              `protobuf:"varint,6,opt,name=MaxNoticeId,proto3" json:"MaxNoticeId"`                        // 最大的公告ID
@@ -1476,6 +1511,10 @@ type PBPlayerSystemProfPartInfo struct {
 }
 type PBPlayerSystemProfession struct {
 	ProfList []*PBPlayerSystemProfInfo `protobuf:"bytes,1,rep,name=ProfList,proto3" json:"ProfList"` // 职业信息
+}
+type PBPlayerSystemRepairData struct {
+	Version     uint32 `protobuf:"varint,1,opt,name=Version,proto3" json:"Version"`         // 当前版本
+	VersionTime uint64 `protobuf:"varint,2,opt,name=VersionTime,proto3" json:"VersionTime"` // 修复时间
 }
 type PBPlayerSystemSevenDay struct {
 	SevenDayList []*PBSevenDayInfo `protobuf:"bytes,1,rep,name=SevenDayList,proto3" json:"SevenDayList"` // 活动列表
@@ -1533,6 +1572,7 @@ type PBShopGoodInfo struct {
 	GoodsID   uint32       `protobuf:"varint,1,opt,name=GoodsID,proto3" json:"GoodsID"`     // 商品ID
 }
 type PBShopInfo struct {
+	HaveRed         uint32      `protobuf:"varint,4,opt,name=HaveRed,proto3" json:"HaveRed"`                 // 是否有红点
 	Items           []*PBU32U32 `protobuf:"bytes,3,rep,name=Items,proto3" json:"Items"`                      // 商品购买数据
 	NextRefreshTime uint64      `protobuf:"varint,2,opt,name=NextRefreshTime,proto3" json:"NextRefreshTime"` // 下一次刷新时间点
 	ShopType        uint32      `protobuf:"varint,1,opt,name=ShopType,proto3" json:"ShopType"`               // 商店类型
@@ -1893,6 +1933,10 @@ type ShopOpenResponse struct {
 	PacketHead *IPacket         `protobuf:"bytes,1,opt,name=PacketHead,proto3" json:"PacketHead"`
 	ShopType   uint32           `protobuf:"varint,2,opt,name=ShopType,proto3" json:"ShopType"` // 商店类型
 }
+type ShopRedNotify struct {
+	PacketHead  *IPacket    `protobuf:"bytes,1,opt,name=PacketHead,proto3" json:"PacketHead"`
+	ShopRedList []*PBU32U32 `protobuf:"bytes,2,rep,name=ShopRedList,proto3" json:"ShopRedList"` // 商店类型 key：商店类型 value：是否有红点 1有
+}
 type ShopRefreshRequest struct {
 	IsFree     bool     `protobuf:"varint,3,opt,name=IsFree,proto3" json:"IsFree"` // 是否免费
 	PacketHead *IPacket `protobuf:"bytes,1,opt,name=PacketHead,proto3" json:"PacketHead"`
@@ -2141,6 +2185,7 @@ const (
 	EmDoingType_EDT_Adventure                EmDoingType = 50 // 冒险奖励
 	EmDoingType_EDT_ItemBuy                  EmDoingType = 51 // 道具购买
 	EmDoingType_EDT_Activity                 EmDoingType = 52 // 活动
+	EmDoingType_EDT_AdvertEject              EmDoingType = 53 // 广告弹出
 )
 
 type EmGiftCodeType int32
@@ -2173,10 +2218,11 @@ const (
 type EmItemExpendType int32
 
 const (
-	EmItemExpendType_EIET_None EmItemExpendType = 0   // 无
-	EmItemExpendType_EIET_Cash EmItemExpendType = 1   // 元宝
-	EmItemExpendType_EIET_Gold EmItemExpendType = 2   // 金币
-	EmItemExpendType_EIET_Max  EmItemExpendType = 100 // 最大值
+	EmItemExpendType_EIET_None       EmItemExpendType = 0   // 无
+	EmItemExpendType_EIET_Cash       EmItemExpendType = 1   // 元宝
+	EmItemExpendType_EIET_Gold       EmItemExpendType = 2   // 金币
+	EmItemExpendType_EIET_SplitScore EmItemExpendType = 25  // 分解积分
+	EmItemExpendType_EIET_Max        EmItemExpendType = 100 // 最大值
 )
 
 type EmMailState int32
@@ -2263,7 +2309,8 @@ const (
 	PlayerDataType_SystemWorldBoss    PlayerDataType = 23 // 世界buss
 	PlayerDataType_SystemChampionship PlayerDataType = 24 // 锦标赛
 	PlayerDataType_SystemActivity     PlayerDataType = 25 // 活动
-	PlayerDataType_SystemMax          PlayerDataType = 26 // 功能最大
+	PlayerDataType_SystemRepair       PlayerDataType = 26 // 数据修复
+	PlayerDataType_SystemMax          PlayerDataType = 27 // 功能最大
 )
 
 type Protocol_Player int32
