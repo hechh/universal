@@ -41,6 +41,51 @@ func SaveGo(dst string, buf *bytes.Buffer) error {
 	return nil
 }
 
+func Glob(dir, suffix string, recursive bool) (files []string, err error) {
+	if !recursive {
+		files, err = filepath.Glob(filepath.Join(dir, suffix))
+	} else {
+		err = filepath.Walk(dir, func(path string, info os.FileInfo, err error) error {
+			if !info.IsDir() {
+				return nil
+			}
+			patterns, err := filepath.Glob(filepath.Join(path, suffix))
+			if err != nil {
+				return uerror.NewUError(1, -1, "%v", err)
+			}
+			if len(patterns) > 0 {
+				files = append(files, patterns...)
+			}
+			return nil
+		})
+	}
+	return
+}
+
+func OpenTemplate(tpl string) (*template.Template, error) {
+	files, err := Glob(tpl, "*.tpl", true)
+	if err != nil {
+		return nil, err
+	}
+	result := template.Must(template.ParseFiles(files...))
+	result.New(domain.PACKAGE).Parse("package {{.}}")
+	return result, nil
+}
+
+// 解析整个目录
+func ParseDir(v ast.Visitor, fset *token.FileSet, src string) error {
+	files, err := Glob(src, "*.go", true)
+	if err != nil {
+		return err
+	}
+	for _, filename := range files {
+		if err := ParseFile(v, fset, filename); err != nil {
+			return err
+		}
+	}
+	return nil
+}
+
 // 解析单个文件
 func ParseFile(v ast.Visitor, fset *token.FileSet, filename string) error {
 	f, err := parser.ParseFile(fset, filename, nil, parser.ParseComments)
@@ -49,49 +94,4 @@ func ParseFile(v ast.Visitor, fset *token.FileSet, filename string) error {
 	}
 	ast.Walk(v, f)
 	return nil
-}
-
-// 解析文件
-func ParseDir(v ast.Visitor, fset *token.FileSet, src string) error {
-	if len(src) <= 0 {
-		return nil
-	}
-	return filepath.Walk(src, func(path string, info os.FileInfo, err error) error {
-		if !info.IsDir() {
-			return nil
-		}
-		pattern, err := filepath.Glob(filepath.Join(path, "*.go"))
-		if err != nil {
-			return uerror.NewUError(1, -1, "%v", err)
-		}
-		for _, filename := range pattern {
-			if err := ParseFile(v, fset, filename); err != nil {
-				return err
-			}
-		}
-		return nil
-	})
-}
-
-func OpenTemplate(tpl string) (*template.Template, error) {
-	files := []string{}
-	err := filepath.Walk(tpl, func(path string, info os.FileInfo, err error) error {
-		if !info.IsDir() {
-			return nil
-		}
-		patterns, err := filepath.Glob(filepath.Join(path, "*.tpl"))
-		if err != nil {
-			return uerror.NewUError(1, -1, "%v", err)
-		}
-		if len(patterns) > 0 {
-			files = append(files, patterns...)
-		}
-		return nil
-	})
-	if err != nil {
-		return nil, err
-	}
-	result := template.Must(template.ParseFiles(files...))
-	result.New(domain.PACKAGE).Parse("package {{.}}")
-	return result, nil
 }
