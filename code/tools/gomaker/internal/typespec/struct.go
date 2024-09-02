@@ -23,18 +23,6 @@ type Struct struct {
 	List   []*Field          // 排序队列
 }
 
-func NewStruct(tt *Type) *Struct {
-	return &Struct{Type: tt, Fields: make(map[string]*Field)}
-}
-
-func (d *Struct) AddField(ff *Field) *Struct {
-	if _, ok := d.Fields[ff.Name]; !ok {
-		d.Fields[ff.Name] = ff
-		d.List = append(d.List, ff)
-	}
-	return d
-}
-
 func (d *Field) GetToken() string {
 	strToken := ""
 	for _, val := range d.Token {
@@ -59,6 +47,18 @@ func (d *Field) Clone() *Field {
 	tmps := make([]uint32, len(d.Token))
 	copy(tmps, d.Token)
 	return &Field{d.Index, tmps, d.Name, d.Type, d.Tag, d.Comment}
+}
+
+func NewStruct(tt *Type) *Struct {
+	return &Struct{Type: tt, Fields: make(map[string]*Field)}
+}
+
+func (d *Struct) AddField(ff *Field) *Struct {
+	if _, ok := d.Fields[ff.Name]; !ok {
+		d.Fields[ff.Name] = ff
+		d.List = append(d.List, ff)
+	}
+	return d
 }
 
 func (d *Struct) Format() string {
