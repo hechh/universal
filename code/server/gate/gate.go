@@ -17,7 +17,7 @@ func main() {
 	flag.Parse()
 
 	// 加载配置
-	if err := global.Init(pb.SERVICE_GATE, uint32(id), global.GATE_NAME, path); err != nil {
+	if err := global.Init(pb.SERVICE_GATE, uint32(id), global.GATE, path); err != nil {
 		panic(err)
 	}
 	// 初始化plog
@@ -33,7 +33,7 @@ func main() {
 		panic(err)
 	}
 	// 初始化集群
-	if err := cluster.Init(global.GetConfig(), pb.SERVICE_GATE, uint32(id), 600); err != nil {
+	if err := cluster.Init(global.GetConfig(), global.GetPlatform(), uint32(id), 600); err != nil {
 		panic(err)
 	}
 

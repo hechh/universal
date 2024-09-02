@@ -6,10 +6,10 @@ import (
 )
 
 const (
-	GAME_NAME = "game"
-	GATE_NAME = "gate"
-	DB_NAME   = "db"
-	GM_NAME   = "gm"
+	GAME = "game"
+	GATE = "gate"
+	DB   = "db"
+	GM   = "gm"
 )
 
 var (
@@ -34,6 +34,10 @@ func Init(typ pb.SERVICE, appid uint32, appname string, dir string) error {
 	appId = appid
 	appName = appname
 	return nil
+}
+
+func GetPlatform() pb.SERVICE {
+	return platform
 }
 
 func GetAppName() string {
