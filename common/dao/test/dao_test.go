@@ -3,6 +3,8 @@ package test
 import (
 	"testing"
 	"universal/common/dao/internal/manager"
+	"universal/common/dao/repository/account"
+	"universal/common/dao/repository/account_name"
 	"universal/common/dao/repository/player_data"
 	"universal/common/dao/repository/player_name"
 	"universal/common/global"
@@ -52,4 +54,10 @@ func TestPlayer(t *testing.T) {
 
 	data, err := player_data.Get("corps_game_2", 100101202)
 	t.Log(err, data)
+
+	acco, err := account_name.Get("corps_common", 100000001)
+	t.Log(err, acco)
+
+	acc, err := account.Get("corps_game_1", 100000001)
+	t.Log(err, acc)
 }

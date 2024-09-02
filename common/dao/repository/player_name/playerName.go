@@ -7,6 +7,7 @@ import (
 	"github.com/astaxie/beego/orm"
 )
 
+// 用于检测名字是否重复
 type PlayerName struct {
 	Name       string    `orm:"column(PlayerName);pk"` // 可以指定大小
 	AccountID  uint64    `orm:"column(AccountID)"`     // 使用空格分隔标签
