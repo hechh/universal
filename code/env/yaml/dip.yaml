@@ -1,0 +1,18 @@
+log:
+  level: 60
+  path: ./log
+
+server:
+  1:
+    host: 127.0.0.1:31401
+    pprof: localhost:31402
+    gops: localhost:31403
+  2:
+    host: 127.0.0.1:31411
+    pprof: localhost:31412
+    gops: localhost:31413
+  3:
+    host: 127.0.0.1:31421
+    pprof: localhost:31422
+    gops: localhost:31423
+
