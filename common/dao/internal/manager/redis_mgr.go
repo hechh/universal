@@ -16,6 +16,9 @@ var (
 )
 
 func InitRedis(cfgs map[uint32]*global.DbConfig) error {
+	if len(cfgs) <= 0 {
+		return fmt.Errorf("redis配置为空")
+	}
 	for dbid, cfg := range cfgs {
 		// 建立redis连接
 		cli := goredis.NewClient(&goredis.Options{

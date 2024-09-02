@@ -25,6 +25,9 @@ type MysqlConn struct {
 }
 
 func InitMysql(cfgs map[uint32]*global.DbConfig) (err error) {
+	if len(cfgs) <= 0 {
+		return fmt.Errorf("mysql配置为空")
+	}
 	if err = orm.RegisterDriver(DriverName, orm.DRMySQL); err != nil {
 		return
 	}
