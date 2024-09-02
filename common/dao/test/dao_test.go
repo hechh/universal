@@ -2,6 +2,7 @@ package test
 
 import (
 	"testing"
+	"universal/common/dao/domain"
 	"universal/common/dao/internal/manager"
 	"universal/common/dao/repository/account"
 	"universal/common/dao/repository/account_name"
@@ -46,18 +47,18 @@ func TestRedis(t *testing.T) {
 }
 
 func TestPlayer(t *testing.T) {
-	info, err := player_name.Get("corps_common", "asdwewqr")
+	info, err := player_name.Get(domain.MYSQL_CORPS_COMMON, "asdwewqr")
 	t.Log(err, info)
 
-	info, err = player_name.Query("corps_common", 100100120)
+	info, err = player_name.Query(domain.MYSQL_CORPS_COMMON, 100100120)
 	t.Log(err, info)
 
-	data, err := player_data.Get("corps_game_2", 100101202)
+	data, err := player_data.Get(domain.MYSQL_CORPS_GAME_2, 100101202)
 	t.Log(err, data)
 
-	acco, err := account_name.Get("corps_common", 100000001)
+	acco, err := account_name.Get(domain.MYSQL_CORPS_COMMON, 100000001)
 	t.Log(err, acco)
 
-	acc, err := account.Get("corps_game_1", 100000001)
+	acc, err := account.Get(domain.MYSQL_CORPS_GAME_1, 100000001)
 	t.Log(err, acc)
 }
