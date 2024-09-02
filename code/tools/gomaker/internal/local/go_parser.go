@@ -58,26 +58,22 @@ func (d *GoParser) GetAlias(vv *ast.TypeSpec) *typespec.Alias {
 }
 
 func (d *GoParser) GetStruct(vv *ast.TypeSpec) *typespec.Struct {
-	ret := &typespec.Struct{
-		Fields: make(map[string]*typespec.Field),
-		Type: manager.GetOrAddType(&typespec.Type{
-			Kind:     domain.STRUCT,
-			Selector: d.pkg,
-			Name:     vv.Name.Name,
-			Doc:      getDoc(d.doc),
-		}),
-	}
-	for _, field := range vv.Type.(*ast.StructType).Fields.List {
+	ret := typespec.NewStruct(manager.GetOrAddType(&typespec.Type{
+		Kind:     domain.STRUCT,
+		Selector: d.pkg,
+		Name:     vv.Name.Name,
+		Doc:      getDoc(d.doc),
+	}))
+	for i, field := range vv.Type.(*ast.StructType).Fields.List {
 		tt, token := getType(0, field.Type, nil, d.pkg)
-		ff := &typespec.Field{
+		ret.AddField(&typespec.Field{
+			Index:   i,
 			Token:   token,
 			Name:    field.Names[0].Name,
 			Type:    tt,
 			Tag:     getTag(field.Tag),
 			Comment: getDoc(field.Comment),
-		}
-		ret.Fields[ff.Name] = ff
-		ret.List = append(ret.List, ff)
+		})
 	}
 	sort.Slice(ret.List, func(i, j int) bool {
 		return strings.Compare(ret.List[i].Name, ret.List[j].Name) < 0

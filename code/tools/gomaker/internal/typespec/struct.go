@@ -9,6 +9,7 @@ import (
 
 // 字段结构
 type Field struct {
+	Index   int      // 字段下标
 	Token   []uint32 // 数据类型
 	Name    string   // 字段名字
 	Type    *Type    // 类型
@@ -20,6 +21,18 @@ type Struct struct {
 	Type   *Type             // 类型
 	Fields map[string]*Field // 字段
 	List   []*Field          // 排序队列
+}
+
+func NewStruct(tt *Type) *Struct {
+	return &Struct{Type: tt, Fields: make(map[string]*Field)}
+}
+
+func (d *Struct) AddField(ff *Field) *Struct {
+	if _, ok := d.Fields[ff.Name]; !ok {
+		d.Fields[ff.Name] = ff
+		d.List = append(d.List, ff)
+	}
+	return d
 }
 
 func (d *Field) GetToken() string {
@@ -45,7 +58,7 @@ func (d *Field) GetComment() string {
 func (d *Field) Clone() *Field {
 	tmps := make([]uint32, len(d.Token))
 	copy(tmps, d.Token)
-	return &Field{tmps, d.Name, d.Type, d.Tag, d.Comment}
+	return &Field{d.Index, tmps, d.Name, d.Type, d.Tag, d.Comment}
 }
 
 func (d *Struct) Format() string {
