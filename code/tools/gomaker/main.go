@@ -7,8 +7,8 @@ import (
 	"os"
 	"strings"
 	"universal/tools/gomaker/domain"
-	"universal/tools/gomaker/internal/local"
 	"universal/tools/gomaker/internal/manager"
+	"universal/tools/gomaker/internal/parse"
 	"universal/tools/gomaker/internal/util"
 	"universal/tools/gomaker/repository/client"
 )
@@ -27,16 +27,14 @@ func main() {
 		panic(fmt.Sprintf("%s不支持", action))
 	}
 
-	// 获取当前工作目录
-	cwd, err := os.Getwd()
-	if err != nil {
+	// 获取当前工作目录 + 获取绝对地址
+	if cwd, err := os.Getwd(); err != nil {
 		panic(err)
+	} else {
+		tpl = util.GetAbsPath(cwd, tpl)
+		src = util.GetAbsPath(cwd, src)
+		dst = util.GetAbsPath(cwd, dst)
 	}
-
-	// 获取绝对地址
-	tpl = util.GetAbsPath(cwd, tpl)
-	src = util.GetAbsPath(cwd, src)
-	dst = util.GetAbsPath(cwd, dst)
 
 	// 加载模板文件
 	tplFile, err := util.OpenTemplate(tpl)
@@ -47,19 +45,28 @@ func main() {
 	// 解析文件
 	switch action {
 	case domain.XLSX:
-	default:
-		fset := token.NewFileSet()
-		if strings.HasSuffix(src, ".go") {
-			if err := util.ParseFile(&local.GoParser{}, fset, src); err != nil {
+		if strings.HasSuffix(src, ".xlsx") {
+			if err := util.ParseXlsx(parse.NewXlsxParser(), src); err != nil {
 				panic(err)
 			}
 		} else {
-			if err := util.ParseDir(&local.GoParser{}, fset, src); err != nil {
+			if err := util.ParseDirXlsx(parse.NewXlsxParser(), src); err != nil {
+				panic(err)
+			}
+		}
+		// 生成json文件
+	default:
+		fset := token.NewFileSet()
+		if strings.HasSuffix(src, ".go") {
+			if err := util.ParseFile(&parse.GoParser{}, fset, src); err != nil {
+				panic(err)
+			}
+		} else {
+			if err := util.ParseDir(&parse.GoParser{}, fset, src); err != nil {
 				panic(err)
 			}
 		}
 	}
-
 	// 生成文件
 	if err := manager.Generator(action, dst, param, tplFile); err != nil {
 		panic(err)
@@ -72,7 +79,7 @@ func init() {
 		manager.Help()
 	}
 
-	manager.Register(domain.HTTPKIT, "生成client代码", client.HttpKitGenerator)
-	manager.Register(domain.PBCLASS, "生成client代码", client.OmitEmptyGenerator)
-	manager.Register(domain.PROTO, "生成client代码", client.ProtoGenerator)
+	manager.Register(domain.HTTPKIT, client.HttpKitGenerator, "生成client代码")
+	manager.Register(domain.PBCLASS, client.OmitEmptyGenerator, "生成client代码")
+	manager.Register(domain.PROTO, client.ProtoGenerator, "生成client代码")
 }

@@ -1,23 +1,23 @@
 package domain
 
-import "text/template"
-
-const (
-	IDENT  = 0
-	ENUM   = 1
-	ALIAS  = 2
-	STRUCT = 3
+import (
+	"go/ast"
+	"text/template"
 )
 
 const (
-	POINTER = 1
-	ARRAY   = 1 << 1
-	MAP     = 1 << 2
+	KIND_IDENT    = 0
+	KIND_ENUM     = 1
+	KIND_ALIAS    = 2
+	KIND_STRUCT   = 3
+	TOKEN_POINTER = 1
+	TOKEN_ARRAY   = 1 << 1
+	TOKEN_MAP     = 1 << 2
 )
 
 const (
-	XLSX    = "xlsx"
 	PACKAGE = "package"
+	XLSX    = "xlsx"
 	HTTPKIT = "httpkit.tpl"
 	PBCLASS = "pbclass.tpl"
 	PROTO   = "proto.tpl"
@@ -27,5 +27,6 @@ const (
 type GenFunc func(string, string, *template.Template) error
 
 type Visitor interface {
-	Visit(int, []string) Visitor
+	SetFile(string)
+	Visit(ast.Node) ast.Visitor
 }

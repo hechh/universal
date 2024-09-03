@@ -6,42 +6,47 @@ import (
 )
 
 type Value struct {
-	Name    string // 字段名字
-	Type    *Type  // 字段类型
-	Value   int32  // 字段值
-	Comment string // 注释
+	Type  *Type  // 字段类型
+	Name  string // 字段名字
+	Value int32  // 字段值
+	Doc   string // 注释
+}
+
+func (d *Value) GetDoc() string {
+	if len(d.Doc) <= 0 {
+		return ""
+	}
+	return fmt.Sprintf("// %s", d.Doc)
+}
+
+func (d *Value) GetType() string {
+	return d.Type.GetName(d.Type.PkgName)
 }
 
 type Enum struct {
-	Type   *Type             // 类型
-	Values map[string]*Value // 字段
-	List   []*Value          // 排序队列
+	Type     *Type             // 类型
+	FileName string            // 文件名
+	Values   map[string]*Value // 字段
+	List     []*Value          // 排序队列
+	Doc      string
 }
 
-func NewEnum(tt *Type) *Enum {
-	return &Enum{Type: tt, Values: make(map[string]*Value)}
+func NewEnum(tt *Type, filename string) *Enum {
+	return &Enum{Type: tt, FileName: filename, Values: make(map[string]*Value)}
 }
 
-func (d *Value) GetComment() string {
-	if len(d.Comment) > 0 {
-		return fmt.Sprintf("// %s", d.Comment)
+func (d *Enum) GetDoc() string {
+	if len(d.Doc) <= 0 {
+		return ""
 	}
-	return ""
+	return fmt.Sprintf("// %s", d.Doc)
 }
 
-func (d *Value) Clone() *Value {
-	return &Value{d.Name, d.Type.Clone(), d.Value, d.Comment}
+func (d *Enum) GetType() string {
+	return d.Type.GetName(d.Type.PkgName)
 }
 
-func (d *Enum) Clone() *Enum {
-	ret := NewEnum(d.Type.Clone())
-	for _, vv := range d.List {
-		ret.AddValue(vv.Clone())
-	}
-	return ret
-}
-
-func (d *Enum) AddValue(val *Value) *Enum {
+func (d *Enum) Add(val *Value) *Enum {
 	if _, ok := d.Values[val.Name]; !ok {
 		d.Values[val.Name] = val
 		d.List = append(d.List, val)
@@ -50,9 +55,9 @@ func (d *Enum) AddValue(val *Value) *Enum {
 }
 
 func (d *Enum) Format() string {
-	vals := []string{}
+	strs := []string{}
 	for _, val := range d.List {
-		vals = append(vals, fmt.Sprintf("%s %s = %d %s", val.Name, val.Type.GetName(d.Type.Selector), val.Value, val.GetComment()))
+		strs = append(strs, fmt.Sprintf("%s %s = %d %s", val.Name, val.GetType(), val.Value, val.GetDoc()))
 	}
-	return fmt.Sprintf("type %s int32\nconst(\n%s\n)", d.Type.Name, strings.Join(vals, "\n"))
+	return fmt.Sprintf("type %s int32\nconst(\n%s\n)", d.GetType(), strings.Join(strs, "\n"))
 }

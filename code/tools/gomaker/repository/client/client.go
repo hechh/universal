@@ -53,8 +53,7 @@ func OmitEmptyGenerator(dst string, param string, tpls *template.Template) error
 	}
 	// 获取struct数据
 	arrs := []*typespec.Struct{}
-	for _, st := range manager.GetStructList() {
-		tmp := st.Clone()
+	for _, tmp := range manager.GetStructList() {
 		j := -1
 		for _, ff := range tmp.List {
 			if unicode.IsLower(rune(ff.Name[0])) {
@@ -71,13 +70,8 @@ func OmitEmptyGenerator(dst string, param string, tpls *template.Template) error
 	if err := tpls.ExecuteTemplate(buf, domain.PBCLASS, arrs); err != nil {
 		return uerror.NewUError(1, -1, "%v", err)
 	}
-	// 获取枚举数据
-	tmps := []*typespec.Enum{}
-	for _, st := range manager.GetEnumList() {
-		tmps = append(tmps, st)
-	}
-	// 模板生成
-	if err := tpls.ExecuteTemplate(buf, domain.PBCLASS, tmps); err != nil {
+	// 获取枚举数据 + 模板生成
+	if err := tpls.ExecuteTemplate(buf, domain.PBCLASS, manager.GetEnumList()); err != nil {
 		return uerror.NewUError(1, -1, "%v", err)
 	}
 	// 生成文件

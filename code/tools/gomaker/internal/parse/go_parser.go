@@ -1,8 +1,9 @@
-package local
+package parse
 
 import (
 	"go/ast"
 	"go/token"
+	"path/filepath"
 	"sort"
 	"strings"
 	"universal/tools/gomaker/domain"
@@ -13,8 +14,13 @@ import (
 )
 
 type GoParser struct {
-	pkg string
-	doc *ast.CommentGroup
+	filename string
+	pkg      string
+	doc      *ast.CommentGroup
+}
+
+func (d *GoParser) SetFile(filename string) {
+	d.filename = filepath.Base(filename)
 }
 
 func (d *GoParser) Visit(node ast.Node) ast.Visitor {
@@ -45,34 +51,35 @@ func (d *GoParser) Visit(node ast.Node) ast.Visitor {
 func (d *GoParser) GetAlias(vv *ast.TypeSpec) *typespec.Alias {
 	tt, token := getType(0, vv.Type, nil, d.pkg)
 	return &typespec.Alias{
-		Token: token,
 		Type: manager.GetOrAddType(&typespec.Type{
-			Kind:     domain.ALIAS,
-			Selector: d.pkg,
-			Name:     vv.Name.Name,
-			Doc:      getDoc(d.doc),
+			Kind:    domain.KIND_ALIAS,
+			PkgName: d.pkg,
+			Name:    vv.Name.Name,
+			Doc:     getDoc(d.doc),
 		}),
+		FileName: d.filename,
+		Token:    token,
 		RealType: tt,
-		Comment:  getDoc(vv.Comment),
+		Doc:      getDoc(vv.Doc),
 	}
 }
 
 func (d *GoParser) GetStruct(vv *ast.TypeSpec) *typespec.Struct {
 	ret := typespec.NewStruct(manager.GetOrAddType(&typespec.Type{
-		Kind:     domain.STRUCT,
-		Selector: d.pkg,
-		Name:     vv.Name.Name,
-		Doc:      getDoc(d.doc),
-	}))
+		Kind:    domain.KIND_STRUCT,
+		PkgName: d.pkg,
+		Name:    vv.Name.Name,
+		Doc:     getDoc(d.doc),
+	}), d.filename)
 	for i, field := range vv.Type.(*ast.StructType).Fields.List {
 		tt, token := getType(0, field.Type, nil, d.pkg)
-		ret.AddField(&typespec.Field{
-			Index:   i,
-			Token:   token,
-			Name:    field.Names[0].Name,
-			Type:    tt,
-			Tag:     getTag(field.Tag),
-			Comment: getDoc(field.Comment),
+		ret.Add(&typespec.Field{
+			Index: i,
+			Token: token,
+			Name:  field.Names[0].Name,
+			Type:  tt,
+			Tag:   getTag(field.Tag),
+			Doc:   getDoc(field.Doc),
 		})
 	}
 	sort.Slice(ret.List, func(i, j int) bool {
@@ -82,18 +89,18 @@ func (d *GoParser) GetStruct(vv *ast.TypeSpec) *typespec.Struct {
 }
 
 func (d *GoParser) GetEnum(vv *ast.GenDecl) *typespec.Enum {
-	ret := &typespec.Enum{Values: make(map[string]*typespec.Value)}
+	ret := typespec.NewEnum(nil, d.filename)
 	for _, spec := range vv.Specs {
 		vv, ok := spec.(*ast.ValueSpec)
 		if !ok || vv == nil || vv.Type == nil {
 			continue
 		}
-		ret.Type, _ = getType(domain.ENUM, vv.Type, nil, d.pkg)
-		ret.AddValue(&typespec.Value{
-			Name:    vv.Names[0].Name,
-			Type:    ret.Type,
-			Value:   cast.ToInt32(vv.Values[0].(*ast.BasicLit).Value),
-			Comment: getDoc(vv.Comment),
+		ret.Type, _ = getType(domain.KIND_ENUM, vv.Type, nil, d.pkg)
+		ret.Add(&typespec.Value{
+			Name:  vv.Names[0].Name,
+			Type:  ret.Type,
+			Value: cast.ToInt32(vv.Values[0].(*ast.BasicLit).Value),
+			Doc:   getDoc(vv.Doc),
 		})
 	}
 	if len(ret.List) <= 0 {
@@ -125,7 +132,7 @@ func getDoc(doc *ast.CommentGroup) string {
 
 func getType(kind uint32, n ast.Expr, doc *ast.CommentGroup, pkg string) (*typespec.Type, []uint32) {
 	token := []uint32{}
-	tt := &typespec.Type{Kind: kind, Doc: getDoc(doc), Selector: pkg}
+	tt := &typespec.Type{Kind: kind, Doc: getDoc(doc), PkgName: pkg}
 	parseType(n, tt, &token)
 	return manager.GetOrAddType(tt), token
 }
@@ -135,13 +142,13 @@ func parseType(n ast.Expr, tt *typespec.Type, token *[]uint32) {
 	case *ast.Ident:
 		tt.Name = vv.Name
 	case *ast.SelectorExpr:
-		tt.Selector = vv.X.(*ast.Ident).Name
+		tt.PkgName = vv.X.(*ast.Ident).Name
 		tt.Name = vv.Sel.Name
 	case *ast.ArrayType:
-		*token = append(*token, domain.ARRAY)
+		*token = append(*token, domain.TOKEN_ARRAY)
 		parseType(vv.Elt, tt, token)
 	case *ast.StarExpr:
-		*token = append(*token, domain.POINTER)
+		*token = append(*token, domain.TOKEN_POINTER)
 		parseType(vv.X, tt, token)
 	}
 }

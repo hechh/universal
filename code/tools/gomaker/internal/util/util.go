@@ -22,25 +22,6 @@ func GetAbsPath(cwd, pp string) string {
 	return filepath.Clean(filepath.Join(cwd, pp))
 }
 
-// 保存文件
-func SaveGo(dst string, buf *bytes.Buffer) error {
-	// 格式化数据
-	result, err := format.Source(buf.Bytes())
-	if err != nil {
-		ioutil.WriteFile("./error.gen.go", buf.Bytes(), os.FileMode(0666))
-		return uerror.NewUError(1, -1, "%v", err)
-	}
-	// 创建目录
-	if err := os.MkdirAll(filepath.Dir(dst), os.FileMode(0777)); err != nil {
-		return uerror.NewUError(1, -1, "%v", err)
-	}
-	// 写入文件
-	if err := ioutil.WriteFile(dst, result, os.FileMode(0666)); err != nil {
-		return uerror.NewUError(1, -1, "%v", err)
-	}
-	return nil
-}
-
 func Glob(dir, suffix string, recursive bool) (files []string, err error) {
 	if !recursive {
 		files, err = filepath.Glob(filepath.Join(dir, suffix))
@@ -62,8 +43,8 @@ func Glob(dir, suffix string, recursive bool) (files []string, err error) {
 	return
 }
 
-func OpenTemplate(tpl string) (*template.Template, error) {
-	files, err := Glob(tpl, "*.tpl", true)
+func OpenTemplate(dir string) (*template.Template, error) {
+	files, err := Glob(dir, "*.tpl", true)
 	if err != nil {
 		return nil, err
 	}
@@ -73,7 +54,7 @@ func OpenTemplate(tpl string) (*template.Template, error) {
 }
 
 // 解析整个目录
-func ParseDir(v ast.Visitor, fset *token.FileSet, src string) error {
+func ParseDir(v domain.Visitor, fset *token.FileSet, src string) error {
 	files, err := Glob(src, "*.go", true)
 	if err != nil {
 		return err
@@ -87,11 +68,31 @@ func ParseDir(v ast.Visitor, fset *token.FileSet, src string) error {
 }
 
 // 解析单个文件
-func ParseFile(v ast.Visitor, fset *token.FileSet, filename string) error {
+func ParseFile(v domain.Visitor, fset *token.FileSet, filename string) error {
+	v.SetFile(filename)
 	f, err := parser.ParseFile(fset, filename, nil, parser.ParseComments)
 	if err != nil {
 		return uerror.NewUError(1, -1, "%v", err)
 	}
 	ast.Walk(v, f)
+	return nil
+}
+
+// 保存文件
+func SaveGo(dst string, buf *bytes.Buffer) error {
+	// 格式化数据
+	result, err := format.Source(buf.Bytes())
+	if err != nil {
+		ioutil.WriteFile("./error.gen.go", buf.Bytes(), os.FileMode(0666))
+		return uerror.NewUError(1, -1, "%v", err)
+	}
+	// 创建目录
+	if err := os.MkdirAll(filepath.Dir(dst), os.FileMode(0777)); err != nil {
+		return uerror.NewUError(1, -1, "%v", err)
+	}
+	// 写入文件
+	if err := ioutil.WriteFile(dst, result, os.FileMode(0666)); err != nil {
+		return uerror.NewUError(1, -1, "%v", err)
+	}
 	return nil
 }
