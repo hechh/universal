@@ -14,10 +14,11 @@ import (
 )
 
 func main() {
-	var action, tpl, src, dst, param string
+	var action, tpl, src, dst, param, jspath string
 	flag.StringVar(&action, "action", "", "操作模式")
 	flag.StringVar(&param, "param", "", "参数")
 	flag.StringVar(&tpl, "tpl", "", "模板文件目录")
+	flag.StringVar(&jspath, "json", "./", "json文件生成目录")
 	flag.StringVar(&src, "src", "", "原文件目录")
 	flag.StringVar(&dst, "dst", "", "生成文件目录")
 	flag.Parse()
@@ -55,6 +56,9 @@ func main() {
 			}
 		}
 		// 生成json文件
+		if err := util.SaveJson(jspath, manager.GetJsons()); err != nil {
+			panic(err)
+		}
 	default:
 		fset := token.NewFileSet()
 		if strings.HasSuffix(src, ".go") {

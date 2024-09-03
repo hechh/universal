@@ -28,6 +28,10 @@ func AddJson(name string, data map[string]interface{}) {
 	jsons[name] = append(jsons[name], data)
 }
 
+func GetJsons() map[string][]map[string]interface{} {
+	return jsons
+}
+
 func ParseRule(field *typespec.FieldNode) *typespec.Field {
 	return rules[field.Type].parseFunc(field)
 }

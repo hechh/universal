@@ -1,6 +1,9 @@
 package util
 
 import (
+	"encoding/json"
+	"io/ioutil"
+	"os"
 	"path/filepath"
 	"strings"
 	"universal/framework/basic/uerror"
@@ -55,6 +58,24 @@ func ParseDirXlsx(v domain.Visitor, dir string) error {
 	}
 	for _, filename := range files {
 		if err := ParseXlsx(v, filename); err != nil {
+			return uerror.NewUError(1, -1, "%v", err)
+		}
+	}
+	return nil
+}
+
+// 保存文件
+func SaveJson(dst string, data map[string][]map[string]interface{}) error {
+	// 创建目录
+	if err := os.MkdirAll(dst, os.FileMode(0777)); err != nil {
+		return uerror.NewUError(1, -1, "%v", err)
+	}
+
+	for filename, arrs := range data {
+		buf, _ := json.Marshal(&arrs)
+		// 写入文件
+		absname := filepath.Join(dst, filename)
+		if err := ioutil.WriteFile(absname, buf, os.FileMode(0666)); err != nil {
 			return uerror.NewUError(1, -1, "%v", err)
 		}
 	}
