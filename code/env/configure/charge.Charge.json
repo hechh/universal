@@ -9,7 +9,7 @@
 		"i_productID": 1,
 		"i_vipExp": 0,
 		"il_param": [
-			3,
+			0,
 			100
 		],
 		"s_currencyType": "CNY",
@@ -22,12 +22,12 @@
 		"i_addCash": 0,
 		"i_chargeType": 0,
 		"i_id": 2,
-		"i_platSystemType": 1,
+		"i_platSystemType": 0,
 		"i_price": 600,
 		"i_productID": 1,
 		"i_vipExp": 0,
 		"il_param": [
-			3,
+			0,
 			100
 		],
 		"s_currencyType": "CNY",
@@ -45,7 +45,7 @@
 		"i_productID": 2,
 		"i_vipExp": 0,
 		"il_param": [
-			3,
+			0,
 			101
 		],
 		"s_currencyType": "CNY",
@@ -58,12 +58,12 @@
 		"i_addCash": 0,
 		"i_chargeType": 0,
 		"i_id": 4,
-		"i_platSystemType": 1,
+		"i_platSystemType": 0,
 		"i_price": 3000,
 		"i_productID": 2,
 		"i_vipExp": 0,
 		"il_param": [
-			3,
+			0,
 			101
 		],
 		"s_currencyType": "CNY",
@@ -81,7 +81,7 @@
 		"i_productID": 3,
 		"i_vipExp": 0,
 		"il_param": [
-			3,
+			0,
 			102
 		],
 		"s_currencyType": "CNY",
@@ -94,12 +94,12 @@
 		"i_addCash": 0,
 		"i_chargeType": 0,
 		"i_id": 6,
-		"i_platSystemType": 1,
+		"i_platSystemType": 0,
 		"i_price": 6800,
 		"i_productID": 3,
 		"i_vipExp": 0,
 		"il_param": [
-			3,
+			0,
 			102
 		],
 		"s_currencyType": "CNY",
@@ -117,7 +117,7 @@
 		"i_productID": 4,
 		"i_vipExp": 0,
 		"il_param": [
-			3,
+			0,
 			103
 		],
 		"s_currencyType": "CNY",
@@ -130,12 +130,12 @@
 		"i_addCash": 0,
 		"i_chargeType": 0,
 		"i_id": 8,
-		"i_platSystemType": 1,
+		"i_platSystemType": 0,
 		"i_price": 9800,
 		"i_productID": 4,
 		"i_vipExp": 0,
 		"il_param": [
-			3,
+			0,
 			103
 		],
 		"s_currencyType": "CNY",
@@ -153,7 +153,7 @@
 		"i_productID": 5,
 		"i_vipExp": 0,
 		"il_param": [
-			3,
+			0,
 			104
 		],
 		"s_currencyType": "CNY",
@@ -166,12 +166,12 @@
 		"i_addCash": 0,
 		"i_chargeType": 0,
 		"i_id": 10,
-		"i_platSystemType": 1,
+		"i_platSystemType": 0,
 		"i_price": 12800,
 		"i_productID": 5,
 		"i_vipExp": 0,
 		"il_param": [
-			3,
+			0,
 			104
 		],
 		"s_currencyType": "CNY",
@@ -189,7 +189,7 @@
 		"i_productID": 6,
 		"i_vipExp": 0,
 		"il_param": [
-			3,
+			0,
 			105
 		],
 		"s_currencyType": "CNY",
@@ -202,12 +202,12 @@
 		"i_addCash": 0,
 		"i_chargeType": 0,
 		"i_id": 12,
-		"i_platSystemType": 1,
+		"i_platSystemType": 0,
 		"i_price": 19800,
 		"i_productID": 6,
 		"i_vipExp": 0,
 		"il_param": [
-			3,
+			0,
 			105
 		],
 		"s_currencyType": "CNY",
@@ -225,7 +225,7 @@
 		"i_productID": 7,
 		"i_vipExp": 0,
 		"il_param": [
-			3,
+			0,
 			106
 		],
 		"s_currencyType": "CNY",
@@ -238,12 +238,12 @@
 		"i_addCash": 0,
 		"i_chargeType": 0,
 		"i_id": 14,
-		"i_platSystemType": 1,
+		"i_platSystemType": 0,
 		"i_price": 32800,
 		"i_productID": 7,
 		"i_vipExp": 0,
 		"il_param": [
-			3,
+			0,
 			106
 		],
 		"s_currencyType": "CNY",
@@ -261,7 +261,7 @@
 		"i_productID": 301,
 		"i_vipExp": 0,
 		"il_param": [
-			5,
+			0,
 			301
 		],
 		"s_currencyType": "CNY",
@@ -274,12 +274,12 @@
 		"i_addCash": 0,
 		"i_chargeType": 0,
 		"i_id": 16,
-		"i_platSystemType": 1,
+		"i_platSystemType": 0,
 		"i_price": 1800,
 		"i_productID": 301,
 		"i_vipExp": 0,
 		"il_param": [
-			5,
+			0,
 			301
 		],
 		"s_currencyType": "CNY",
@@ -297,7 +297,7 @@
 		"i_productID": 302,
 		"i_vipExp": 0,
 		"il_param": [
-			5,
+			0,
 			302
 		],
 		"s_currencyType": "CNY",
@@ -310,12 +310,12 @@
 		"i_addCash": 0,
 		"i_chargeType": 0,
 		"i_id": 18,
-		"i_platSystemType": 1,
+		"i_platSystemType": 0,
 		"i_price": 2500,
 		"i_productID": 302,
 		"i_vipExp": 0,
 		"il_param": [
-			5,
+			0,
 			302
 		],
 		"s_currencyType": "CNY",
@@ -333,7 +333,7 @@
 		"i_productID": 303,
 		"i_vipExp": 0,
 		"il_param": [
-			5,
+			0,
 			303
 		],
 		"s_currencyType": "CNY",
@@ -346,12 +346,12 @@
 		"i_addCash": 0,
 		"i_chargeType": 0,
 		"i_id": 20,
-		"i_platSystemType": 1,
+		"i_platSystemType": 0,
 		"i_price": 6800,
 		"i_productID": 303,
 		"i_vipExp": 0,
 		"il_param": [
-			5,
+			0,
 			303
 		],
 		"s_currencyType": "CNY",
@@ -369,7 +369,7 @@
 		"i_productID": 304,
 		"i_vipExp": 0,
 		"il_param": [
-			5,
+			0,
 			304
 		],
 		"s_currencyType": "CNY",
@@ -382,12 +382,12 @@
 		"i_addCash": 0,
 		"i_chargeType": 0,
 		"i_id": 22,
-		"i_platSystemType": 1,
+		"i_platSystemType": 0,
 		"i_price": 9800,
 		"i_productID": 304,
 		"i_vipExp": 0,
 		"il_param": [
-			5,
+			0,
 			304
 		],
 		"s_currencyType": "CNY",
@@ -405,7 +405,7 @@
 		"i_productID": 305,
 		"i_vipExp": 0,
 		"il_param": [
-			5,
+			0,
 			305
 		],
 		"s_currencyType": "CNY",
@@ -418,12 +418,12 @@
 		"i_addCash": 0,
 		"i_chargeType": 0,
 		"i_id": 24,
-		"i_platSystemType": 1,
+		"i_platSystemType": 0,
 		"i_price": 9800,
 		"i_productID": 305,
 		"i_vipExp": 0,
 		"il_param": [
-			5,
+			0,
 			305
 		],
 		"s_currencyType": "CNY",
@@ -441,7 +441,7 @@
 		"i_productID": 306,
 		"i_vipExp": 0,
 		"il_param": [
-			5,
+			0,
 			306
 		],
 		"s_currencyType": "CNY",
@@ -454,12 +454,12 @@
 		"i_addCash": 0,
 		"i_chargeType": 0,
 		"i_id": 26,
-		"i_platSystemType": 1,
+		"i_platSystemType": 0,
 		"i_price": 12800,
 		"i_productID": 306,
 		"i_vipExp": 0,
 		"il_param": [
-			5,
+			0,
 			306
 		],
 		"s_currencyType": "CNY",
@@ -477,7 +477,7 @@
 		"i_productID": 307,
 		"i_vipExp": 0,
 		"il_param": [
-			5,
+			0,
 			307
 		],
 		"s_currencyType": "CNY",
@@ -490,12 +490,12 @@
 		"i_addCash": 0,
 		"i_chargeType": 0,
 		"i_id": 28,
-		"i_platSystemType": 1,
+		"i_platSystemType": 0,
 		"i_price": 16800,
 		"i_productID": 307,
 		"i_vipExp": 0,
 		"il_param": [
-			5,
+			0,
 			307
 		],
 		"s_currencyType": "CNY",
@@ -513,7 +513,7 @@
 		"i_productID": 308,
 		"i_vipExp": 0,
 		"il_param": [
-			5,
+			0,
 			308
 		],
 		"s_currencyType": "CNY",
@@ -526,12 +526,12 @@
 		"i_addCash": 0,
 		"i_chargeType": 0,
 		"i_id": 30,
-		"i_platSystemType": 1,
+		"i_platSystemType": 0,
 		"i_price": 32800,
 		"i_productID": 308,
 		"i_vipExp": 0,
 		"il_param": [
-			5,
+			0,
 			308
 		],
 		"s_currencyType": "CNY",
@@ -542,7 +542,7 @@
 	{
 		"f_payNum": 1,
 		"i_addCash": 0,
-		"i_chargeType": 2,
+		"i_chargeType": 0,
 		"i_id": 31,
 		"i_platSystemType": 0,
 		"i_price": 100,
@@ -559,9 +559,9 @@
 	{
 		"f_payNum": 1,
 		"i_addCash": 0,
-		"i_chargeType": 2,
+		"i_chargeType": 0,
 		"i_id": 32,
-		"i_platSystemType": 1,
+		"i_platSystemType": 0,
 		"i_price": 100,
 		"i_productID": 10001,
 		"i_vipExp": 0,
@@ -576,7 +576,7 @@
 	{
 		"f_payNum": 1,
 		"i_addCash": 0,
-		"i_chargeType": 2,
+		"i_chargeType": 0,
 		"i_id": 33,
 		"i_platSystemType": 0,
 		"i_price": 100,
@@ -593,9 +593,9 @@
 	{
 		"f_payNum": 1,
 		"i_addCash": 0,
-		"i_chargeType": 2,
+		"i_chargeType": 0,
 		"i_id": 34,
-		"i_platSystemType": 1,
+		"i_platSystemType": 0,
 		"i_price": 100,
 		"i_productID": 10002,
 		"i_vipExp": 0,
@@ -610,7 +610,7 @@
 	{
 		"f_payNum": 1,
 		"i_addCash": 0,
-		"i_chargeType": 2,
+		"i_chargeType": 0,
 		"i_id": 35,
 		"i_platSystemType": 0,
 		"i_price": 100,
@@ -627,9 +627,9 @@
 	{
 		"f_payNum": 1,
 		"i_addCash": 0,
-		"i_chargeType": 2,
+		"i_chargeType": 0,
 		"i_id": 36,
-		"i_platSystemType": 1,
+		"i_platSystemType": 0,
 		"i_price": 100,
 		"i_productID": 10003,
 		"i_vipExp": 0,
@@ -644,7 +644,7 @@
 	{
 		"f_payNum": 1,
 		"i_addCash": 0,
-		"i_chargeType": 2,
+		"i_chargeType": 0,
 		"i_id": 37,
 		"i_platSystemType": 0,
 		"i_price": 100,
@@ -661,9 +661,9 @@
 	{
 		"f_payNum": 1,
 		"i_addCash": 0,
-		"i_chargeType": 2,
+		"i_chargeType": 0,
 		"i_id": 38,
-		"i_platSystemType": 1,
+		"i_platSystemType": 0,
 		"i_price": 100,
 		"i_productID": 10004,
 		"i_vipExp": 0,
@@ -678,7 +678,7 @@
 	{
 		"f_payNum": 1,
 		"i_addCash": 0,
-		"i_chargeType": 2,
+		"i_chargeType": 0,
 		"i_id": 39,
 		"i_platSystemType": 0,
 		"i_price": 100,
@@ -695,9 +695,9 @@
 	{
 		"f_payNum": 1,
 		"i_addCash": 0,
-		"i_chargeType": 2,
+		"i_chargeType": 0,
 		"i_id": 40,
-		"i_platSystemType": 1,
+		"i_platSystemType": 0,
 		"i_price": 100,
 		"i_productID": 10005,
 		"i_vipExp": 0,
@@ -712,7 +712,7 @@
 	{
 		"f_payNum": 1,
 		"i_addCash": 0,
-		"i_chargeType": 2,
+		"i_chargeType": 0,
 		"i_id": 41,
 		"i_platSystemType": 0,
 		"i_price": 100,
@@ -729,9 +729,9 @@
 	{
 		"f_payNum": 1,
 		"i_addCash": 0,
-		"i_chargeType": 2,
+		"i_chargeType": 0,
 		"i_id": 42,
-		"i_platSystemType": 1,
+		"i_platSystemType": 0,
 		"i_price": 100,
 		"i_productID": 10006,
 		"i_vipExp": 0,
@@ -746,7 +746,7 @@
 	{
 		"f_payNum": 1,
 		"i_addCash": 0,
-		"i_chargeType": 2,
+		"i_chargeType": 0,
 		"i_id": 43,
 		"i_platSystemType": 0,
 		"i_price": 100,
@@ -763,9 +763,9 @@
 	{
 		"f_payNum": 1,
 		"i_addCash": 0,
-		"i_chargeType": 2,
+		"i_chargeType": 0,
 		"i_id": 44,
-		"i_platSystemType": 1,
+		"i_platSystemType": 0,
 		"i_price": 100,
 		"i_productID": 10007,
 		"i_vipExp": 0,
@@ -780,7 +780,7 @@
 	{
 		"f_payNum": 68,
 		"i_addCash": 0,
-		"i_chargeType": 3,
+		"i_chargeType": 0,
 		"i_id": 45,
 		"i_platSystemType": 0,
 		"i_price": 6800,
@@ -798,9 +798,9 @@
 	{
 		"f_payNum": 68,
 		"i_addCash": 0,
-		"i_chargeType": 3,
+		"i_chargeType": 0,
 		"i_id": 46,
-		"i_platSystemType": 1,
+		"i_platSystemType": 0,
 		"i_price": 6800,
 		"i_productID": 20000,
 		"i_vipExp": 0,
@@ -816,7 +816,7 @@
 	{
 		"f_payNum": 68,
 		"i_addCash": 0,
-		"i_chargeType": 3,
+		"i_chargeType": 0,
 		"i_id": 47,
 		"i_platSystemType": 0,
 		"i_price": 6800,
@@ -834,9 +834,9 @@
 	{
 		"f_payNum": 68,
 		"i_addCash": 0,
-		"i_chargeType": 3,
+		"i_chargeType": 0,
 		"i_id": 48,
-		"i_platSystemType": 1,
+		"i_platSystemType": 0,
 		"i_price": 6800,
 		"i_productID": 20001,
 		"i_vipExp": 0,
@@ -852,7 +852,7 @@
 	{
 		"f_payNum": 68,
 		"i_addCash": 0,
-		"i_chargeType": 3,
+		"i_chargeType": 0,
 		"i_id": 49,
 		"i_platSystemType": 0,
 		"i_price": 6800,
@@ -870,9 +870,9 @@
 	{
 		"f_payNum": 68,
 		"i_addCash": 0,
-		"i_chargeType": 3,
+		"i_chargeType": 0,
 		"i_id": 50,
-		"i_platSystemType": 1,
+		"i_platSystemType": 0,
 		"i_price": 6800,
 		"i_productID": 20002,
 		"i_vipExp": 0,
@@ -888,14 +888,14 @@
 	{
 		"f_payNum": 68,
 		"i_addCash": 0,
-		"i_chargeType": 3,
+		"i_chargeType": 0,
 		"i_id": 51,
 		"i_platSystemType": 0,
 		"i_price": 6800,
 		"i_productID": 20003,
 		"i_vipExp": 0,
 		"il_param": [
-			1,
+			0,
 			1
 		],
 		"s_currencyType": "CNY",
@@ -906,14 +906,14 @@
 	{
 		"f_payNum": 68,
 		"i_addCash": 0,
-		"i_chargeType": 3,
+		"i_chargeType": 0,
 		"i_id": 52,
-		"i_platSystemType": 1,
+		"i_platSystemType": 0,
 		"i_price": 6800,
 		"i_productID": 20003,
 		"i_vipExp": 0,
 		"il_param": [
-			1,
+			0,
 			1
 		],
 		"s_currencyType": "CNY",
@@ -924,14 +924,14 @@
 	{
 		"f_payNum": 68,
 		"i_addCash": 0,
-		"i_chargeType": 3,
+		"i_chargeType": 0,
 		"i_id": 53,
 		"i_platSystemType": 0,
 		"i_price": 6800,
 		"i_productID": 20004,
 		"i_vipExp": 0,
 		"il_param": [
-			1,
+			0,
 			2
 		],
 		"s_currencyType": "CNY",
@@ -942,14 +942,14 @@
 	{
 		"f_payNum": 68,
 		"i_addCash": 0,
-		"i_chargeType": 3,
+		"i_chargeType": 0,
 		"i_id": 54,
-		"i_platSystemType": 1,
+		"i_platSystemType": 0,
 		"i_price": 6800,
 		"i_productID": 20004,
 		"i_vipExp": 0,
 		"il_param": [
-			1,
+			0,
 			2
 		],
 		"s_currencyType": "CNY",
@@ -960,14 +960,14 @@
 	{
 		"f_payNum": 68,
 		"i_addCash": 0,
-		"i_chargeType": 3,
+		"i_chargeType": 0,
 		"i_id": 55,
 		"i_platSystemType": 0,
 		"i_price": 6800,
 		"i_productID": 20005,
 		"i_vipExp": 0,
 		"il_param": [
-			5,
+			0,
 			1
 		],
 		"s_currencyType": "CNY",
@@ -978,14 +978,14 @@
 	{
 		"f_payNum": 68,
 		"i_addCash": 0,
-		"i_chargeType": 3,
+		"i_chargeType": 0,
 		"i_id": 56,
-		"i_platSystemType": 1,
+		"i_platSystemType": 0,
 		"i_price": 6800,
 		"i_productID": 20005,
 		"i_vipExp": 0,
 		"il_param": [
-			5,
+			0,
 			1
 		],
 		"s_currencyType": "CNY",
@@ -996,14 +996,14 @@
 	{
 		"f_payNum": 68,
 		"i_addCash": 0,
-		"i_chargeType": 3,
+		"i_chargeType": 0,
 		"i_id": 57,
 		"i_platSystemType": 0,
 		"i_price": 6800,
 		"i_productID": 20006,
 		"i_vipExp": 0,
 		"il_param": [
-			7,
+			0,
 			1
 		],
 		"s_currencyType": "CNY",
@@ -1014,14 +1014,14 @@
 	{
 		"f_payNum": 68,
 		"i_addCash": 0,
-		"i_chargeType": 3,
+		"i_chargeType": 0,
 		"i_id": 58,
-		"i_platSystemType": 1,
+		"i_platSystemType": 0,
 		"i_price": 6800,
 		"i_productID": 20006,
 		"i_vipExp": 0,
 		"il_param": [
-			7,
+			0,
 			1
 		],
 		"s_currencyType": "CNY",
@@ -1032,14 +1032,14 @@
 	{
 		"f_payNum": 68,
 		"i_addCash": 0,
-		"i_chargeType": 3,
+		"i_chargeType": 0,
 		"i_id": 59,
 		"i_platSystemType": 0,
 		"i_price": 6800,
 		"i_productID": 20007,
 		"i_vipExp": 0,
 		"il_param": [
-			7,
+			0,
 			2
 		],
 		"s_currencyType": "CNY",
@@ -1050,14 +1050,14 @@
 	{
 		"f_payNum": 68,
 		"i_addCash": 0,
-		"i_chargeType": 3,
+		"i_chargeType": 0,
 		"i_id": 60,
-		"i_platSystemType": 1,
+		"i_platSystemType": 0,
 		"i_price": 6800,
 		"i_productID": 20007,
 		"i_vipExp": 0,
 		"il_param": [
-			7,
+			0,
 			2
 		],
 		"s_currencyType": "CNY",
@@ -1068,14 +1068,14 @@
 	{
 		"f_payNum": 128,
 		"i_addCash": 0,
-		"i_chargeType": 3,
+		"i_chargeType": 0,
 		"i_id": 61,
 		"i_platSystemType": 0,
 		"i_price": 12800,
 		"i_productID": 20008,
 		"i_vipExp": 0,
 		"il_param": [
-			8,
+			0,
 			1
 		],
 		"s_currencyType": "CNY",
@@ -1086,14 +1086,14 @@
 	{
 		"f_payNum": 128,
 		"i_addCash": 0,
-		"i_chargeType": 3,
+		"i_chargeType": 0,
 		"i_id": 62,
-		"i_platSystemType": 1,
+		"i_platSystemType": 0,
 		"i_price": 12800,
 		"i_productID": 20008,
 		"i_vipExp": 0,
 		"il_param": [
-			8,
+			0,
 			1
 		],
 		"s_currencyType": "CNY",
@@ -1104,14 +1104,14 @@
 	{
 		"f_payNum": 128,
 		"i_addCash": 0,
-		"i_chargeType": 3,
+		"i_chargeType": 0,
 		"i_id": 63,
 		"i_platSystemType": 0,
 		"i_price": 12800,
 		"i_productID": 20009,
 		"i_vipExp": 0,
 		"il_param": [
-			8,
+			0,
 			2
 		],
 		"s_currencyType": "CNY",
@@ -1122,14 +1122,14 @@
 	{
 		"f_payNum": 128,
 		"i_addCash": 0,
-		"i_chargeType": 3,
+		"i_chargeType": 0,
 		"i_id": 64,
-		"i_platSystemType": 1,
+		"i_platSystemType": 0,
 		"i_price": 12800,
 		"i_productID": 20009,
 		"i_vipExp": 0,
 		"il_param": [
-			8,
+			0,
 			2
 		],
 		"s_currencyType": "CNY",
@@ -1140,7 +1140,7 @@
 	{
 		"f_payNum": 30,
 		"i_addCash": 0,
-		"i_chargeType": 1,
+		"i_chargeType": 0,
 		"i_id": 65,
 		"i_platSystemType": 0,
 		"i_price": 3000,
@@ -1157,9 +1157,9 @@
 	{
 		"f_payNum": 30,
 		"i_addCash": 0,
-		"i_chargeType": 1,
+		"i_chargeType": 0,
 		"i_id": 66,
-		"i_platSystemType": 1,
+		"i_platSystemType": 0,
 		"i_price": 3000,
 		"i_productID": 30001,
 		"i_vipExp": 0,
@@ -1174,14 +1174,14 @@
 	{
 		"f_payNum": 68,
 		"i_addCash": 0,
-		"i_chargeType": 1,
+		"i_chargeType": 0,
 		"i_id": 67,
 		"i_platSystemType": 0,
 		"i_price": 6800,
 		"i_productID": 30002,
 		"i_vipExp": 0,
 		"il_param": [
-			1
+			0
 		],
 		"s_currencyType": "CNY",
 		"s_icon": "",
@@ -1191,14 +1191,14 @@
 	{
 		"f_payNum": 68,
 		"i_addCash": 0,
-		"i_chargeType": 1,
+		"i_chargeType": 0,
 		"i_id": 68,
-		"i_platSystemType": 1,
+		"i_platSystemType": 0,
 		"i_price": 6800,
 		"i_productID": 30002,
 		"i_vipExp": 0,
 		"il_param": [
-			1
+			0
 		],
 		"s_currencyType": "CNY",
 		"s_icon": "",
@@ -1208,7 +1208,7 @@
 	{
 		"f_payNum": 30,
 		"i_addCash": 0,
-		"i_chargeType": 4,
+		"i_chargeType": 0,
 		"i_id": 69,
 		"i_platSystemType": 0,
 		"i_price": 3000,
@@ -1225,9 +1225,9 @@
 	{
 		"f_payNum": 30,
 		"i_addCash": 0,
-		"i_chargeType": 4,
+		"i_chargeType": 0,
 		"i_id": 70,
-		"i_platSystemType": 1,
+		"i_platSystemType": 0,
 		"i_price": 3000,
 		"i_productID": 40001,
 		"i_vipExp": 0,
@@ -1242,7 +1242,7 @@
 	{
 		"f_payNum": 68,
 		"i_addCash": 0,
-		"i_chargeType": 4,
+		"i_chargeType": 0,
 		"i_id": 71,
 		"i_platSystemType": 0,
 		"i_price": 6800,
@@ -1259,9 +1259,9 @@
 	{
 		"f_payNum": 68,
 		"i_addCash": 0,
-		"i_chargeType": 4,
+		"i_chargeType": 0,
 		"i_id": 72,
-		"i_platSystemType": 1,
+		"i_platSystemType": 0,
 		"i_price": 6800,
 		"i_productID": 40002,
 		"i_vipExp": 0,
@@ -1276,7 +1276,7 @@
 	{
 		"f_payNum": 68,
 		"i_addCash": 0,
-		"i_chargeType": 4,
+		"i_chargeType": 0,
 		"i_id": 73,
 		"i_platSystemType": 0,
 		"i_price": 6800,
@@ -1293,9 +1293,9 @@
 	{
 		"f_payNum": 68,
 		"i_addCash": 0,
-		"i_chargeType": 4,
+		"i_chargeType": 0,
 		"i_id": 74,
-		"i_platSystemType": 1,
+		"i_platSystemType": 0,
 		"i_price": 6800,
 		"i_productID": 40003,
 		"i_vipExp": 0,
@@ -1310,7 +1310,7 @@
 	{
 		"f_payNum": 68,
 		"i_addCash": 0,
-		"i_chargeType": 4,
+		"i_chargeType": 0,
 		"i_id": 75,
 		"i_platSystemType": 0,
 		"i_price": 6800,
@@ -1327,9 +1327,9 @@
 	{
 		"f_payNum": 68,
 		"i_addCash": 0,
-		"i_chargeType": 4,
+		"i_chargeType": 0,
 		"i_id": 76,
-		"i_platSystemType": 1,
+		"i_platSystemType": 0,
 		"i_price": 6800,
 		"i_productID": 40004,
 		"i_vipExp": 0,
@@ -1344,7 +1344,7 @@
 	{
 		"f_payNum": 98,
 		"i_addCash": 0,
-		"i_chargeType": 4,
+		"i_chargeType": 0,
 		"i_id": 77,
 		"i_platSystemType": 0,
 		"i_price": 9800,
@@ -1361,9 +1361,9 @@
 	{
 		"f_payNum": 98,
 		"i_addCash": 0,
-		"i_chargeType": 4,
+		"i_chargeType": 0,
 		"i_id": 78,
-		"i_platSystemType": 1,
+		"i_platSystemType": 0,
 		"i_price": 9800,
 		"i_productID": 40005,
 		"i_vipExp": 0,
@@ -1378,7 +1378,7 @@
 	{
 		"f_payNum": 128,
 		"i_addCash": 0,
-		"i_chargeType": 4,
+		"i_chargeType": 0,
 		"i_id": 79,
 		"i_platSystemType": 0,
 		"i_price": 12800,
@@ -1395,9 +1395,9 @@
 	{
 		"f_payNum": 128,
 		"i_addCash": 0,
-		"i_chargeType": 4,
+		"i_chargeType": 0,
 		"i_id": 80,
-		"i_platSystemType": 1,
+		"i_platSystemType": 0,
 		"i_price": 12800,
 		"i_productID": 40006,
 		"i_vipExp": 0,
@@ -1412,7 +1412,7 @@
 	{
 		"f_payNum": 168,
 		"i_addCash": 0,
-		"i_chargeType": 4,
+		"i_chargeType": 0,
 		"i_id": 81,
 		"i_platSystemType": 0,
 		"i_price": 16800,
@@ -1429,9 +1429,9 @@
 	{
 		"f_payNum": 168,
 		"i_addCash": 0,
-		"i_chargeType": 4,
+		"i_chargeType": 0,
 		"i_id": 82,
-		"i_platSystemType": 1,
+		"i_platSystemType": 0,
 		"i_price": 16800,
 		"i_productID": 40007,
 		"i_vipExp": 0,
@@ -1446,7 +1446,7 @@
 	{
 		"f_payNum": 6,
 		"i_addCash": 0,
-		"i_chargeType": 5,
+		"i_chargeType": 0,
 		"i_id": 83,
 		"i_platSystemType": 0,
 		"i_price": 600,
@@ -1464,9 +1464,9 @@
 	{
 		"f_payNum": 6,
 		"i_addCash": 0,
-		"i_chargeType": 5,
+		"i_chargeType": 0,
 		"i_id": 84,
-		"i_platSystemType": 1,
+		"i_platSystemType": 0,
 		"i_price": 600,
 		"i_productID": 50000,
 		"i_vipExp": 0,
@@ -1482,7 +1482,7 @@
 	{
 		"f_payNum": 25,
 		"i_addCash": 0,
-		"i_chargeType": 5,
+		"i_chargeType": 0,
 		"i_id": 85,
 		"i_platSystemType": 0,
 		"i_price": 2500,
@@ -1500,9 +1500,9 @@
 	{
 		"f_payNum": 25,
 		"i_addCash": 0,
-		"i_chargeType": 5,
+		"i_chargeType": 0,
 		"i_id": 86,
-		"i_platSystemType": 1,
+		"i_platSystemType": 0,
 		"i_price": 2500,
 		"i_productID": 50001,
 		"i_vipExp": 0,
@@ -1518,7 +1518,7 @@
 	{
 		"f_payNum": 68,
 		"i_addCash": 0,
-		"i_chargeType": 5,
+		"i_chargeType": 0,
 		"i_id": 87,
 		"i_platSystemType": 0,
 		"i_price": 6800,
@@ -1536,9 +1536,9 @@
 	{
 		"f_payNum": 68,
 		"i_addCash": 0,
-		"i_chargeType": 5,
+		"i_chargeType": 0,
 		"i_id": 88,
-		"i_platSystemType": 1,
+		"i_platSystemType": 0,
 		"i_price": 6800,
 		"i_productID": 50002,
 		"i_vipExp": 0,
@@ -1554,7 +1554,7 @@
 	{
 		"f_payNum": 128,
 		"i_addCash": 0,
-		"i_chargeType": 5,
+		"i_chargeType": 0,
 		"i_id": 89,
 		"i_platSystemType": 0,
 		"i_price": 12800,
@@ -1572,9 +1572,9 @@
 	{
 		"f_payNum": 128,
 		"i_addCash": 0,
-		"i_chargeType": 5,
+		"i_chargeType": 0,
 		"i_id": 90,
-		"i_platSystemType": 1,
+		"i_platSystemType": 0,
 		"i_price": 12800,
 		"i_productID": 50003,
 		"i_vipExp": 0,
@@ -1590,7 +1590,7 @@
 	{
 		"f_payNum": 25,
 		"i_addCash": 0,
-		"i_chargeType": 5,
+		"i_chargeType": 0,
 		"i_id": 91,
 		"i_platSystemType": 0,
 		"i_price": 2500,
@@ -1608,9 +1608,9 @@
 	{
 		"f_payNum": 25,
 		"i_addCash": 0,
-		"i_chargeType": 5,
+		"i_chargeType": 0,
 		"i_id": 92,
-		"i_platSystemType": 1,
+		"i_platSystemType": 0,
 		"i_price": 2500,
 		"i_productID": 50004,
 		"i_vipExp": 0,
@@ -1626,7 +1626,7 @@
 	{
 		"f_payNum": 68,
 		"i_addCash": 0,
-		"i_chargeType": 5,
+		"i_chargeType": 0,
 		"i_id": 93,
 		"i_platSystemType": 0,
 		"i_price": 6800,
@@ -1644,9 +1644,9 @@
 	{
 		"f_payNum": 68,
 		"i_addCash": 0,
-		"i_chargeType": 5,
+		"i_chargeType": 0,
 		"i_id": 94,
-		"i_platSystemType": 1,
+		"i_platSystemType": 0,
 		"i_price": 6800,
 		"i_productID": 50005,
 		"i_vipExp": 0,
@@ -1662,7 +1662,7 @@
 	{
 		"f_payNum": 128,
 		"i_addCash": 0,
-		"i_chargeType": 5,
+		"i_chargeType": 0,
 		"i_id": 95,
 		"i_platSystemType": 0,
 		"i_price": 12800,
@@ -1680,9 +1680,9 @@
 	{
 		"f_payNum": 128,
 		"i_addCash": 0,
-		"i_chargeType": 5,
+		"i_chargeType": 0,
 		"i_id": 96,
-		"i_platSystemType": 1,
+		"i_platSystemType": 0,
 		"i_price": 12800,
 		"i_productID": 50006,
 		"i_vipExp": 0,
@@ -1698,7 +1698,7 @@
 	{
 		"f_payNum": 68,
 		"i_addCash": 0,
-		"i_chargeType": 5,
+		"i_chargeType": 0,
 		"i_id": 97,
 		"i_platSystemType": 0,
 		"i_price": 6800,
@@ -1716,9 +1716,9 @@
 	{
 		"f_payNum": 68,
 		"i_addCash": 0,
-		"i_chargeType": 5,
+		"i_chargeType": 0,
 		"i_id": 98,
-		"i_platSystemType": 1,
+		"i_platSystemType": 0,
 		"i_price": 6800,
 		"i_productID": 50007,
 		"i_vipExp": 0,
@@ -1734,7 +1734,7 @@
 	{
 		"f_payNum": 128,
 		"i_addCash": 0,
-		"i_chargeType": 5,
+		"i_chargeType": 0,
 		"i_id": 99,
 		"i_platSystemType": 0,
 		"i_price": 12800,
@@ -1752,9 +1752,9 @@
 	{
 		"f_payNum": 128,
 		"i_addCash": 0,
-		"i_chargeType": 5,
+		"i_chargeType": 0,
 		"i_id": 100,
-		"i_platSystemType": 1,
+		"i_platSystemType": 0,
 		"i_price": 12800,
 		"i_productID": 50008,
 		"i_vipExp": 0,
@@ -1770,7 +1770,7 @@
 	{
 		"f_payNum": 198,
 		"i_addCash": 0,
-		"i_chargeType": 5,
+		"i_chargeType": 0,
 		"i_id": 101,
 		"i_platSystemType": 0,
 		"i_price": 19800,
@@ -1788,9 +1788,9 @@
 	{
 		"f_payNum": 198,
 		"i_addCash": 0,
-		"i_chargeType": 5,
+		"i_chargeType": 0,
 		"i_id": 102,
-		"i_platSystemType": 1,
+		"i_platSystemType": 0,
 		"i_price": 19800,
 		"i_productID": 50009,
 		"i_vipExp": 0,
@@ -1806,7 +1806,7 @@
 	{
 		"f_payNum": 198,
 		"i_addCash": 0,
-		"i_chargeType": 5,
+		"i_chargeType": 0,
 		"i_id": 103,
 		"i_platSystemType": 0,
 		"i_price": 19800,
@@ -1824,9 +1824,9 @@
 	{
 		"f_payNum": 198,
 		"i_addCash": 0,
-		"i_chargeType": 5,
+		"i_chargeType": 0,
 		"i_id": 104,
-		"i_platSystemType": 1,
+		"i_platSystemType": 0,
 		"i_price": 19800,
 		"i_productID": 50010,
 		"i_vipExp": 0,
@@ -1842,7 +1842,7 @@
 	{
 		"f_payNum": 328,
 		"i_addCash": 0,
-		"i_chargeType": 5,
+		"i_chargeType": 0,
 		"i_id": 105,
 		"i_platSystemType": 0,
 		"i_price": 32800,
@@ -1860,9 +1860,9 @@
 	{
 		"f_payNum": 328,
 		"i_addCash": 0,
-		"i_chargeType": 5,
+		"i_chargeType": 0,
 		"i_id": 106,
-		"i_platSystemType": 1,
+		"i_platSystemType": 0,
 		"i_price": 32800,
 		"i_productID": 50011,
 		"i_vipExp": 0,
@@ -1878,7 +1878,7 @@
 	{
 		"f_payNum": 6,
 		"i_addCash": 0,
-		"i_chargeType": 6,
+		"i_chargeType": 0,
 		"i_id": 107,
 		"i_platSystemType": 0,
 		"i_price": 600,
@@ -1895,9 +1895,9 @@
 	{
 		"f_payNum": 6,
 		"i_addCash": 0,
-		"i_chargeType": 6,
+		"i_chargeType": 0,
 		"i_id": 108,
-		"i_platSystemType": 1,
+		"i_platSystemType": 0,
 		"i_price": 600,
 		"i_productID": 60001,
 		"i_vipExp": 0,
@@ -1912,7 +1912,7 @@
 	{
 		"f_payNum": 98,
 		"i_addCash": 0,
-		"i_chargeType": 6,
+		"i_chargeType": 0,
 		"i_id": 109,
 		"i_platSystemType": 0,
 		"i_price": 9800,
@@ -1929,9 +1929,9 @@
 	{
 		"f_payNum": 98,
 		"i_addCash": 0,
-		"i_chargeType": 6,
+		"i_chargeType": 0,
 		"i_id": 110,
-		"i_platSystemType": 1,
+		"i_platSystemType": 0,
 		"i_price": 9800,
 		"i_productID": 60002,
 		"i_vipExp": 0,
@@ -1946,7 +1946,7 @@
 	{
 		"f_payNum": 198,
 		"i_addCash": 0,
-		"i_chargeType": 6,
+		"i_chargeType": 0,
 		"i_id": 111,
 		"i_platSystemType": 0,
 		"i_price": 19800,
@@ -1963,9 +1963,9 @@
 	{
 		"f_payNum": 198,
 		"i_addCash": 0,
-		"i_chargeType": 6,
+		"i_chargeType": 0,
 		"i_id": 112,
-		"i_platSystemType": 1,
+		"i_platSystemType": 0,
 		"i_price": 19800,
 		"i_productID": 60003,
 		"i_vipExp": 0,

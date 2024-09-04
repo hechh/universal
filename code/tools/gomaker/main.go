@@ -3,15 +3,12 @@ package main
 import (
 	"flag"
 	"fmt"
-	"go/token"
 	"os"
-	"strings"
 	"universal/tools/gomaker/domain"
 	"universal/tools/gomaker/internal/manager"
 	"universal/tools/gomaker/internal/parse"
 	"universal/tools/gomaker/internal/util"
 	"universal/tools/gomaker/repository/client"
-	"universal/tools/gomaker/repository/xlsx"
 )
 
 func init() {
@@ -23,7 +20,6 @@ func init() {
 	manager.Register(domain.HTTPKIT, client.HttpKitGenerator, "生成client代码")
 	manager.Register(domain.PBCLASS, client.OmitEmptyGenerator, "生成client代码")
 	manager.Register(domain.PROTO, client.ProtoGenerator, "生成client代码")
-	manager.Register(domain.JSON, xlsx.JsonGenerator, "xlsx配置文件生成json文件")
 }
 
 func main() {
@@ -31,7 +27,7 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	ParseArgs(cwd).Check().Handle()
+	ParseArgs(cwd).Handle()
 }
 
 type Args struct {
@@ -59,13 +55,6 @@ func ParseArgs(cwd string) *Args {
 	}
 }
 
-func (d *Args) Check() *Args {
-	if !manager.IsAction(d.action) {
-		panic(fmt.Errorf("%s不支持", d.action))
-	}
-	return d
-}
-
 func (d *Args) Handle() {
 	switch d.action {
 	case domain.JSON:
@@ -76,42 +65,36 @@ func (d *Args) Handle() {
 }
 
 func (d *Args) handleJson() {
-	// 解析表格
-	if strings.HasSuffix(d.srcpath, ".xlsx") {
-		if err := util.ParseXlsx(parse.NewXlsxParser(), d.srcpath); err != nil {
-			panic(err)
-		}
-	} else {
-		if err := util.ParseDirXlsx(parse.NewXlsxParser(), d.srcpath); err != nil {
-			panic(err)
-		}
+	// 搜索所有配置
+	files, err := util.Glob(d.srcpath, "*.xlsx", true)
+	if err != nil {
+		panic(err)
 	}
-
-	// 生成json文件
-	if err := manager.Generator(d.action, d.dstpath, d.param, nil); err != nil {
+	// 解析所有配置
+	pp := parse.NewXlsxParser(d.dstpath)
+	if err := util.ParseXlsxs(pp, files...); err != nil {
 		panic(err)
 	}
 }
 
 func (d *Args) handleGo() {
+	if !manager.IsAction(d.action) {
+		panic(fmt.Errorf("%s不支持", d.action))
+	}
 	// 加载模板文件
-	tplFile, err := util.OpenTemplate(d.tplpath)
+	tplFile, err := util.OpenTemplate(d.tplpath, "*.tpl", true)
 	if err != nil {
 		panic(err)
 	}
-
-	// 解析文件
-	fset := token.NewFileSet()
-	if strings.HasSuffix(d.srcpath, ".go") {
-		if err := util.ParseFile(&parse.GoParser{}, fset, d.srcpath); err != nil {
-			panic(err)
-		}
-	} else {
-		if err := util.ParseDir(&parse.GoParser{}, fset, d.srcpath); err != nil {
-			panic(err)
-		}
+	// 加载所有go文件
+	files, err := util.Glob(d.srcpath, "*.go", true)
+	if err != nil {
+		panic(err)
 	}
-
+	// 解析文件
+	if err := util.ParseFiles(&parse.GoParser{}, files...); err != nil {
+		panic(err)
+	}
 	// 生成文件
 	if err := manager.Generator(d.action, d.dstpath, d.param, tplFile); err != nil {
 		panic(err)

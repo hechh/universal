@@ -7,73 +7,73 @@
 			0
 		],
 		"fl_hunterRelVal": [
-			6,
+			0,
 			2
 		],
 		"fl_machinistRelVal": [
 			0
 		],
 		"fl_tankRelVal": [
-			6,
+			0,
 			4
 		],
-		"i_id": 1
+		"i_id": 0
 	},
 	{
 		"fl_fighterRelVal": [
-			6,
+			0,
 			4
 		],
 		"fl_tankRelVal": [
-			6,
+			0,
 			2
 		],
-		"i_id": 2
+		"i_id": 0
 	},
 	{
 		"fl_fighterRelVal": [
 			0
 		],
 		"fl_healerRelVal": [
-			6,
+			0,
 			2
 		],
 		"fl_machinistRelVal": [
-			6,
+			0,
 			4
 		],
 		"fl_tankRelVal": [
 			0
 		],
-		"i_id": 3
+		"i_id": 0
 	},
 	{
 		"fl_fighterRelVal": [
 			0
 		],
 		"fl_healerRelVal": [
-			6,
+			0,
 			4
 		],
 		"fl_machinistRelVal": [
-			6,
+			0,
 			2
 		],
 		"fl_tankRelVal": [
 			0
 		],
-		"i_id": 4
+		"i_id": 0
 	},
 	{
 		"fl_fighterRelVal": [
-			6,
+			0,
 			2
 		],
 		"fl_healerRelVal": [
 			0
 		],
 		"fl_hunterRelVal": [
-			6,
+			0,
 			4
 		],
 		"fl_machinistRelVal": [
@@ -82,52 +82,52 @@
 		"fl_tankRelVal": [
 			0
 		],
-		"i_id": 5
+		"i_id": 0
 	},
 	{
 		"fl_tankRelVal": [
-			101,
-			20,
-			6,
+			0,
+			0,
+			0,
 			1.3889e-7
 		],
-		"i_id": 101
+		"i_id": 0
 	},
 	{
 		"fl_fighterRelVal": [
-			102,
-			21,
-			6,
+			0,
+			0,
+			0,
 			1.389e-8
 		],
 		"fl_tankRelVal": [
 			0
 		],
-		"i_id": 102
+		"i_id": 0
 	},
 	{
 		"fl_fighterRelVal": [
 			0
 		],
 		"fl_machinistRelVal": [
-			103,
-			23,
-			6,
+			0,
+			0,
+			0,
 			2.089e-8
 		],
 		"fl_tankRelVal": [
 			0
 		],
-		"i_id": 103
+		"i_id": 0
 	},
 	{
 		"fl_fighterRelVal": [
 			0
 		],
 		"fl_healerRelVal": [
-			104,
-			24,
-			6,
+			0,
+			0,
+			0,
 			2.778e-8
 		],
 		"fl_machinistRelVal": [
@@ -136,7 +136,7 @@
 		"fl_tankRelVal": [
 			0
 		],
-		"i_id": 104
+		"i_id": 0
 	},
 	{
 		"fl_fighterRelVal": [
@@ -146,9 +146,9 @@
 			0
 		],
 		"fl_hunterRelVal": [
-			105,
-			22,
-			6,
+			0,
+			0,
+			0,
 			4.274e-8
 		],
 		"fl_machinistRelVal": [
@@ -157,761 +157,761 @@
 		"fl_tankRelVal": [
 			0
 		],
-		"i_id": 105
+		"i_id": 0
 	},
 	{
 		"fl_fighterRelVal": [
-			25,
-			26,
-			6,
+			0,
+			0,
+			0,
 			3.335e-8
 		],
 		"fl_healerRelVal": [
-			25,
-			26,
-			6,
+			0,
+			0,
+			0,
 			3.335e-8
 		],
 		"fl_hunterRelVal": [
-			25,
-			26,
-			6,
+			0,
+			0,
+			0,
 			3.335e-8
 		],
 		"fl_machinistRelVal": [
-			25,
-			26,
-			6,
+			0,
+			0,
+			0,
 			3.335e-8
 		],
 		"fl_tankRelVal": [
-			25,
-			26,
-			6,
+			0,
+			0,
+			0,
 			3.335e-8
 		],
-		"i_id": 25
+		"i_id": 0
 	},
 	{
 		"fl_fighterRelVal": [
-			6,
+			0,
 			2
 		],
 		"fl_healerRelVal": [
-			6,
+			0,
 			2
 		],
 		"fl_hunterRelVal": [
-			6,
+			0,
 			2
 		],
 		"fl_machinistRelVal": [
-			6,
+			0,
 			2
 		],
 		"fl_tankRelVal": [
-			6,
+			0,
 			2
 		],
-		"i_id": 6
+		"i_id": 0
 	},
 	{
 		"fl_fighterRelVal": [
-			7,
+			0,
 			10
 		],
 		"fl_healerRelVal": [
-			7,
+			0,
 			8.33
 		],
 		"fl_hunterRelVal": [
-			7,
+			0,
 			12.5
 		],
 		"fl_machinistRelVal": [
-			7,
+			0,
 			16.67
 		],
 		"fl_tankRelVal": [
-			7,
+			0,
 			7.14
 		],
-		"i_id": 7
+		"i_id": 0
 	},
 	{
 		"fl_fighterRelVal": [
-			8,
+			0,
 			0.2
 		],
 		"fl_healerRelVal": [
-			8,
+			0,
 			0.2
 		],
 		"fl_hunterRelVal": [
-			8,
+			0,
 			0.2
 		],
 		"fl_machinistRelVal": [
-			8,
+			0,
 			0.2
 		],
 		"fl_tankRelVal": [
-			8,
+			0,
 			0.2
 		],
-		"i_id": 8
+		"i_id": 0
 	},
 	{
 		"fl_fighterRelVal": [
-			9,
+			0,
 			3.134
 		],
 		"fl_healerRelVal": [
-			9,
+			0,
 			3.134
 		],
 		"fl_hunterRelVal": [
-			9,
+			0,
 			3.134
 		],
 		"fl_machinistRelVal": [
-			9,
+			0,
 			3.134
 		],
 		"fl_tankRelVal": [
-			9,
+			0,
 			3.134
 		],
-		"i_id": 9
+		"i_id": 0
 	},
 	{
 		"fl_fighterRelVal": [
-			10,
+			0,
 			0.188
 		],
 		"fl_healerRelVal": [
-			10,
+			0,
 			0.188
 		],
 		"fl_hunterRelVal": [
-			10,
+			0,
 			0.188
 		],
 		"fl_machinistRelVal": [
-			10,
+			0,
 			0.188
 		],
 		"fl_tankRelVal": [
-			10,
+			0,
 			0.188
 		],
-		"i_id": 10
+		"i_id": 0
 	},
 	{
 		"fl_fighterRelVal": [
-			11,
+			0,
 			0.089
 		],
 		"fl_healerRelVal": [
-			11,
+			0,
 			0.119
 		],
 		"fl_hunterRelVal": [
-			11,
+			0,
 			0.129
 		],
 		"fl_machinistRelVal": [
-			11,
+			0,
 			0.102
 		],
 		"fl_tankRelVal": [
-			11,
+			0,
 			0.11
 		],
-		"i_id": 11
+		"i_id": 0
 	},
 	{
 		"fl_fighterRelVal": [
-			205,
-			12,
+			0,
+			0,
 			0.000012
 		],
 		"fl_healerRelVal": [
-			205,
-			12,
+			0,
+			0,
 			0.000012
 		],
 		"fl_hunterRelVal": [
-			205,
-			12,
+			0,
+			0,
 			0.000012
 		],
 		"fl_machinistRelVal": [
-			205,
-			12,
+			0,
+			0,
 			0.000012
 		],
 		"fl_tankRelVal": [
-			205,
-			12,
+			0,
+			0,
 			0.000012
 		],
-		"i_id": 12
+		"i_id": 0
 	},
 	{
 		"fl_fighterRelVal": [
-			27,
-			13,
+			0,
+			0,
 			0.000094
 		],
 		"fl_healerRelVal": [
-			27,
-			13,
+			0,
+			0,
 			0.000094
 		],
 		"fl_hunterRelVal": [
-			27,
-			13,
+			0,
+			0,
 			0.000094
 		],
 		"fl_machinistRelVal": [
-			27,
-			13,
+			0,
+			0,
 			0.000094
 		],
 		"fl_tankRelVal": [
-			27,
-			13,
+			0,
+			0,
 			0.000094
 		],
-		"i_id": 13
+		"i_id": 0
 	},
 	{
 		"fl_fighterRelVal": [
-			206,
-			14,
+			0,
+			0,
 			0.0000087
 		],
 		"fl_healerRelVal": [
-			206,
-			14,
+			0,
+			0,
 			0.0000087
 		],
 		"fl_hunterRelVal": [
-			206,
-			14,
+			0,
+			0,
 			0.0000087
 		],
 		"fl_machinistRelVal": [
-			206,
-			14,
+			0,
+			0,
 			0.0000087
 		],
 		"fl_tankRelVal": [
-			206,
-			14,
+			0,
+			0,
 			0.0000087
 		],
-		"i_id": 14
+		"i_id": 0
 	},
 	{
 		"fl_fighterRelVal": [
-			202,
-			15,
+			0,
+			0,
 			0.0000118
 		],
 		"fl_healerRelVal": [
-			202,
-			15,
+			0,
+			0,
 			0.0000118
 		],
 		"fl_hunterRelVal": [
-			202,
-			15,
+			0,
+			0,
 			0.0000118
 		],
 		"fl_machinistRelVal": [
-			202,
-			15,
+			0,
+			0,
 			0.0000118
 		],
 		"fl_tankRelVal": [
-			202,
-			15,
+			0,
+			0,
 			0.0000118
 		],
-		"i_id": 15
+		"i_id": 0
 	},
 	{
 		"fl_fighterRelVal": [
-			6,
-			16,
+			0,
+			0,
 			0.0002
 		],
 		"fl_healerRelVal": [
-			6,
-			16,
+			0,
+			0,
 			0.0002
 		],
 		"fl_hunterRelVal": [
-			6,
-			16,
+			0,
+			0,
 			0.0002
 		],
 		"fl_machinistRelVal": [
-			6,
-			16,
+			0,
+			0,
 			0.0002
 		],
 		"fl_tankRelVal": [
-			6,
-			16,
+			0,
+			0,
 			0.0002
 		],
-		"i_id": 16
+		"i_id": 0
 	},
 	{
 		"fl_fighterRelVal": [
-			6,
-			17,
+			0,
+			0,
 			0.0006
 		],
 		"fl_healerRelVal": [
-			6,
-			17,
+			0,
+			0,
 			0.00042
 		],
 		"fl_hunterRelVal": [
-			6,
-			17,
+			0,
+			0,
 			0.000606
 		],
 		"fl_machinistRelVal": [
-			6,
-			17,
+			0,
+			0,
 			0.00039
 		],
 		"fl_tankRelVal": [
-			6,
-			17,
+			0,
+			0,
 			0.0006
 		],
-		"i_id": 17
+		"i_id": 0
 	},
 	{
-		"i_id": 20
+		"i_id": 0
 	},
 	{
-		"i_id": 21
+		"i_id": 0
 	},
 	{
-		"i_id": 22
+		"i_id": 0
 	},
 	{
-		"i_id": 23
+		"i_id": 0
 	},
 	{
-		"i_id": 24
+		"i_id": 0
 	},
 	{
-		"i_id": 26
+		"i_id": 0
 	},
 	{
 		"fl_fighterRelVal": [
-			8,
-			27,
+			0,
+			0,
 			0.00001
 		],
 		"fl_healerRelVal": [
-			8,
-			27,
+			0,
+			0,
 			0.00001
 		],
 		"fl_hunterRelVal": [
-			8,
-			27,
+			0,
+			0,
 			0.00001
 		],
 		"fl_machinistRelVal": [
-			8,
-			27,
+			0,
+			0,
 			0.00001
 		],
 		"fl_tankRelVal": [
-			8,
-			27,
+			0,
+			0,
 			0.00001
 		],
-		"i_id": 27
+		"i_id": 0
 	},
 	{
 		"fl_fighterRelVal": [
-			7,
-			8,
-			28,
+			0,
+			0,
+			0,
 			5e-7
 		],
 		"fl_healerRelVal": [
-			7,
-			8,
-			28,
+			0,
+			0,
+			0,
 			5e-7
 		],
 		"fl_hunterRelVal": [
-			7,
-			8,
-			28,
+			0,
+			0,
+			0,
 			5e-7
 		],
 		"fl_machinistRelVal": [
-			7,
-			8,
-			28,
+			0,
+			0,
+			0,
 			5e-7
 		],
 		"fl_tankRelVal": [
-			7,
-			8,
-			28,
+			0,
+			0,
+			0,
 			5e-7
 		],
-		"i_id": 28
+		"i_id": 0
 	},
 	{
 		"fl_fighterRelVal": [
-			7,
-			8,
-			29,
+			0,
+			0,
+			0,
 			1e-7
 		],
 		"fl_healerRelVal": [
-			7,
-			8,
-			29,
+			0,
+			0,
+			0,
 			1e-7
 		],
 		"fl_hunterRelVal": [
-			7,
-			8,
-			29,
+			0,
+			0,
+			0,
 			1e-7
 		],
 		"fl_machinistRelVal": [
-			7,
-			8,
-			29,
+			0,
+			0,
+			0,
 			1e-7
 		],
 		"fl_tankRelVal": [
-			7,
-			8,
-			29,
+			0,
+			0,
+			0,
 			1e-7
 		],
-		"i_id": 29
+		"i_id": 0
 	},
 	{
 		"fl_fighterRelVal": [
-			7,
-			8,
-			30,
+			0,
+			0,
+			0,
 			1e-7
 		],
 		"fl_healerRelVal": [
-			7,
-			8,
-			30,
+			0,
+			0,
+			0,
 			1e-7
 		],
 		"fl_hunterRelVal": [
-			7,
-			8,
-			30,
+			0,
+			0,
+			0,
 			1e-7
 		],
 		"fl_machinistRelVal": [
-			7,
-			8,
-			30,
+			0,
+			0,
+			0,
 			1e-7
 		],
 		"fl_tankRelVal": [
-			7,
-			8,
-			30,
+			0,
+			0,
+			0,
 			1e-7
 		],
-		"i_id": 30
+		"i_id": 0
 	},
 	{
 		"fl_fighterRelVal": [
-			7,
-			8,
-			31,
+			0,
+			0,
+			0,
 			1e-7
 		],
 		"fl_healerRelVal": [
-			7,
-			8,
-			31,
+			0,
+			0,
+			0,
 			1e-7
 		],
 		"fl_hunterRelVal": [
-			7,
-			8,
-			31,
+			0,
+			0,
+			0,
 			1e-7
 		],
 		"fl_machinistRelVal": [
-			7,
-			8,
-			31,
+			0,
+			0,
+			0,
 			1e-7
 		],
 		"fl_tankRelVal": [
-			7,
-			8,
-			31,
+			0,
+			0,
+			0,
 			1e-7
 		],
-		"i_id": 31
+		"i_id": 0
 	},
 	{
 		"fl_fighterRelVal": [
-			7,
-			8,
-			32,
+			0,
+			0,
+			0,
 			1e-7
 		],
 		"fl_healerRelVal": [
-			7,
-			8,
-			32,
+			0,
+			0,
+			0,
 			1e-7
 		],
 		"fl_hunterRelVal": [
-			7,
-			8,
-			32,
+			0,
+			0,
+			0,
 			1e-7
 		],
 		"fl_machinistRelVal": [
-			7,
-			8,
-			32,
+			0,
+			0,
+			0,
 			1e-7
 		],
 		"fl_tankRelVal": [
-			7,
-			8,
-			32,
+			0,
+			0,
+			0,
 			1e-7
 		],
-		"i_id": 32
+		"i_id": 0
 	},
 	{
 		"fl_fighterRelVal": [
-			7,
-			8,
-			33,
+			0,
+			0,
+			0,
 			1e-7
 		],
 		"fl_healerRelVal": [
-			7,
-			8,
-			33,
+			0,
+			0,
+			0,
 			1e-7
 		],
 		"fl_hunterRelVal": [
-			7,
-			8,
-			33,
+			0,
+			0,
+			0,
 			1e-7
 		],
 		"fl_machinistRelVal": [
-			7,
-			8,
-			33,
+			0,
+			0,
+			0,
 			1e-7
 		],
 		"fl_tankRelVal": [
-			7,
-			8,
-			33,
+			0,
+			0,
+			0,
 			1e-7
 		],
-		"i_id": 33
+		"i_id": 0
 	},
 	{
 		"fl_fighterRelVal": [
-			6,
-			34,
+			0,
+			0,
 			0.0008
 		],
 		"fl_healerRelVal": [
-			6,
-			34,
+			0,
+			0,
 			0.0008
 		],
 		"fl_hunterRelVal": [
-			6,
-			34,
+			0,
+			0,
 			0.0008
 		],
 		"fl_machinistRelVal": [
-			6,
-			34,
+			0,
+			0,
 			0.0008
 		],
 		"fl_tankRelVal": [
-			6,
-			34,
+			0,
+			0,
 			0.0008
 		],
-		"i_id": 34
+		"i_id": 0
 	},
 	{
 		"fl_fighterRelVal": [
-			6,
-			35,
+			0,
+			0,
 			0.0008
 		],
 		"fl_healerRelVal": [
-			6,
-			35,
+			0,
+			0,
 			0.0008
 		],
 		"fl_hunterRelVal": [
-			6,
-			35,
+			0,
+			0,
 			0.0008
 		],
 		"fl_machinistRelVal": [
-			6,
-			35,
+			0,
+			0,
 			0.0008
 		],
 		"fl_tankRelVal": [
-			6,
-			35,
+			0,
+			0,
 			0.0008
 		],
-		"i_id": 35
+		"i_id": 0
 	},
 	{
 		"fl_fighterRelVal": [
-			6,
-			36,
+			0,
+			0,
 			0.0008
 		],
 		"fl_healerRelVal": [
-			6,
-			36,
+			0,
+			0,
 			0.0008
 		],
 		"fl_hunterRelVal": [
-			6,
-			36,
+			0,
+			0,
 			0.0008
 		],
 		"fl_machinistRelVal": [
-			6,
-			36,
+			0,
+			0,
 			0.0008
 		],
 		"fl_tankRelVal": [
-			6,
-			36,
+			0,
+			0,
 			0.0008
 		],
-		"i_id": 36
+		"i_id": 0
 	},
 	{
 		"fl_fighterRelVal": [
-			6,
-			37,
+			0,
+			0,
 			0.0008
 		],
 		"fl_healerRelVal": [
-			6,
-			37,
+			0,
+			0,
 			0.0008
 		],
 		"fl_hunterRelVal": [
-			6,
-			37,
+			0,
+			0,
 			0.0008
 		],
 		"fl_machinistRelVal": [
-			6,
-			37,
+			0,
+			0,
 			0.0008
 		],
 		"fl_tankRelVal": [
-			6,
-			37,
+			0,
+			0,
 			0.0008
 		],
-		"i_id": 37
+		"i_id": 0
 	},
 	{
 		"fl_fighterRelVal": [
-			6,
-			38,
+			0,
+			0,
 			0.0008
 		],
 		"fl_healerRelVal": [
-			6,
-			38,
+			0,
+			0,
 			0.0008
 		],
 		"fl_hunterRelVal": [
-			6,
-			38,
+			0,
+			0,
 			0.0008
 		],
 		"fl_machinistRelVal": [
-			6,
-			38,
+			0,
+			0,
 			0.0008
 		],
 		"fl_tankRelVal": [
-			6,
-			38,
+			0,
+			0,
 			0.0008
 		],
-		"i_id": 38
+		"i_id": 0
 	},
 	{
 		"fl_fighterRelVal": [
-			6,
-			41,
+			0,
+			0,
 			0.000018
 		],
 		"fl_tankRelVal": [
-			6,
-			41,
+			0,
+			0,
 			0.00032
 		],
-		"i_id": 41
+		"i_id": 0
 	},
 	{
 		"fl_fighterRelVal": [
 			0
 		],
 		"fl_healerRelVal": [
-			6,
-			42,
+			0,
+			0,
 			0.00005
 		],
 		"fl_machinistRelVal": [
-			6,
-			42,
+			0,
+			0,
 			0.00005
 		],
 		"fl_tankRelVal": [
 			0
 		],
-		"i_id": 42
+		"i_id": 0
 	}
 ]

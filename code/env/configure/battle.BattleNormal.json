@@ -13,7 +13,7 @@
 			1,
 			1
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 1,
 		"i_equipStar": 1,
 		"i_id": 1,
@@ -91,7 +91,7 @@
 			2,
 			2
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 1,
 		"i_equipStar": 1,
 		"i_id": 2,
@@ -163,7 +163,7 @@
 			2,
 			2
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 2,
 		"i_equipStar": 1,
 		"i_id": 3,
@@ -245,7 +245,7 @@
 			5,
 			5
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 2,
 		"i_equipStar": 2,
 		"i_id": 4,
@@ -322,7 +322,7 @@
 			10,
 			10
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 2,
 		"i_equipStar": 2,
 		"i_id": 5,
@@ -799,7 +799,7 @@
 			79.34,
 			79.34
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 4,
 		"i_equipStar": 4,
 		"i_id": 11,
@@ -871,7 +871,7 @@
 			96.3,
 			96.3
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 4,
 		"i_equipStar": 4,
 		"i_id": 12,
@@ -948,7 +948,7 @@
 			114.72,
 			114.72
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 4,
 		"i_equipStar": 4,
 		"i_id": 13,
@@ -1020,7 +1020,7 @@
 			139.48,
 			139.48
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 4,
 		"i_equipStar": 4,
 		"i_id": 14,
@@ -1092,7 +1092,7 @@
 			166.23,
 			166.23
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 4,
 		"i_equipStar": 4,
 		"i_id": 15,
@@ -1164,7 +1164,7 @@
 			194.98,
 			194.98
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 4,
 		"i_equipStar": 4,
 		"i_id": 16,
@@ -1236,7 +1236,7 @@
 			225.73,
 			225.73
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 4,
 		"i_equipStar": 4,
 		"i_id": 17,
@@ -1308,7 +1308,7 @@
 			263.2,
 			263.2
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 4,
 		"i_equipStar": 4,
 		"i_id": 18,
@@ -1385,7 +1385,7 @@
 			303.1,
 			303.1
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 4,
 		"i_equipStar": 4,
 		"i_id": 19,
@@ -1457,7 +1457,7 @@
 			345.43,
 			345.43
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 4,
 		"i_equipStar": 4,
 		"i_id": 20,
@@ -1894,7 +1894,7 @@
 			1271.23,
 			1271.23
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 10,
 		"i_equipStar": 10,
 		"i_id": 26,
@@ -1966,7 +1966,7 @@
 			1516.27,
 			1516.27
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 11,
 		"i_equipStar": 11,
 		"i_id": 27,
@@ -2038,7 +2038,7 @@
 			1703.27,
 			1703.27
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 12,
 		"i_equipStar": 12,
 		"i_id": 28,
@@ -2110,7 +2110,7 @@
 			1844.98,
 			1844.98
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 13,
 		"i_equipStar": 13,
 		"i_id": 29,
@@ -2182,7 +2182,7 @@
 			2054.65,
 			2054.65
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 14,
 		"i_equipStar": 14,
 		"i_id": 30,
@@ -2259,7 +2259,7 @@
 			2254.46,
 			2254.46
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 15,
 		"i_equipStar": 15,
 		"i_id": 31,
@@ -2331,7 +2331,7 @@
 			2650.98,
 			2650.98
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 16,
 		"i_equipStar": 16,
 		"i_id": 32,
@@ -2403,7 +2403,7 @@
 			3083.22,
 			3083.22
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 17,
 		"i_equipStar": 17,
 		"i_id": 33,
@@ -2475,7 +2475,7 @@
 			3232.94,
 			3232.94
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 18,
 		"i_equipStar": 18,
 		"i_id": 34,
@@ -2547,7 +2547,7 @@
 			3459.32,
 			3459.32
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 19,
 		"i_equipStar": 19,
 		"i_id": 35,
@@ -2984,7 +2984,7 @@
 			4931.75,
 			4931.75
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 41,
@@ -3056,7 +3056,7 @@
 			4982.6,
 			4982.6
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 42,
@@ -3133,7 +3133,7 @@
 			5033.44,
 			5033.44
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 43,
@@ -3205,7 +3205,7 @@
 			5084.28,
 			5084.28
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 44,
@@ -3277,7 +3277,7 @@
 			5507.97,
 			5507.97
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 45,
@@ -3349,7 +3349,7 @@
 			5564.75,
 			5564.75
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 46,
@@ -3421,7 +3421,7 @@
 			5621.53,
 			5621.53
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 47,
@@ -3493,7 +3493,7 @@
 			5678.31,
 			5678.31
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 48,
@@ -3565,7 +3565,7 @@
 			6080.97,
 			6080.97
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 49,
@@ -3642,7 +3642,7 @@
 			6143.02,
 			6143.02
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 50,
@@ -4074,7 +4074,7 @@
 			7222.15,
 			7222.15
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 56,
@@ -4151,7 +4151,7 @@
 			7295.1,
 			7295.1
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 57,
@@ -4223,7 +4223,7 @@
 			8193.03,
 			8193.03
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 58,
@@ -4295,7 +4295,7 @@
 			8276.63,
 			8276.63
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 59,
@@ -4367,7 +4367,7 @@
 			8360.23,
 			8360.23
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 60,
@@ -4439,7 +4439,7 @@
 			8555.7,
 			8555.7
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 61,
@@ -4511,7 +4511,7 @@
 			8643,
 			8643
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 62,
@@ -4583,7 +4583,7 @@
 			8730.31,
 			8730.31
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 63,
@@ -4660,7 +4660,7 @@
 			9022.19,
 			9022.19
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 64,
@@ -4732,7 +4732,7 @@
 			9233.49,
 			9233.49
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 65,
@@ -5169,7 +5169,7 @@
 			10643.1,
 			10643.1
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 71,
@@ -5241,7 +5241,7 @@
 			10873.91,
 			10873.91
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 72,
@@ -5313,7 +5313,7 @@
 			10970.71,
 			10970.71
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 73,
@@ -5385,7 +5385,7 @@
 			11195.41,
 			11195.41
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 74,
@@ -5457,7 +5457,7 @@
 			11439.74,
 			11439.74
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 75,
@@ -5529,7 +5529,7 @@
 			11745.65,
 			11745.65
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 76,
@@ -5601,7 +5601,7 @@
 			12069.88,
 			12069.88
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 77,
@@ -5678,7 +5678,7 @@
 			12750.05,
 			12750.05
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 78,
@@ -5750,7 +5750,7 @@
 			13050,
 			13050
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 79,
@@ -5822,7 +5822,7 @@
 			13370.94,
 			13370.94
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 80,
@@ -6259,7 +6259,7 @@
 			15081.99,
 			15081.99
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 86,
@@ -6331,7 +6331,7 @@
 			15397.81,
 			15397.81
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 87,
@@ -6403,7 +6403,7 @@
 			15562.13,
 			15562.13
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 88,
@@ -6475,7 +6475,7 @@
 			15871.8,
 			15871.8
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 89,
@@ -6547,7 +6547,7 @@
 			16185.43,
 			16185.43
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 90,
@@ -6619,7 +6619,7 @@
 			16511.35,
 			16511.35
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 91,
@@ -6696,7 +6696,7 @@
 			16801.25,
 			16801.25
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 92,
@@ -6768,7 +6768,7 @@
 			17142.66,
 			17142.66
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 93,
@@ -6840,7 +6840,7 @@
 			17459.7,
 			17459.7
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 94,
@@ -6912,7 +6912,7 @@
 			17765.99,
 			17765.99
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 95,
@@ -7349,7 +7349,7 @@
 			19611.91,
 			19611.91
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 101,
@@ -7421,7 +7421,7 @@
 			20026.36,
 			20026.36
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 102,
@@ -7493,7 +7493,7 @@
 			20282,
 			20282
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 103,
@@ -7565,7 +7565,7 @@
 			21178.25,
 			21178.25
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 104,
@@ -7637,7 +7637,7 @@
 			21582.53,
 			21582.53
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 105,
@@ -7709,7 +7709,7 @@
 			21955.85,
 			21955.85
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 106,
@@ -7781,7 +7781,7 @@
 			22350.35,
 			22350.35
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 107,
@@ -7853,7 +7853,7 @@
 			22759.54,
 			22759.54
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 108,
@@ -7925,7 +7925,7 @@
 			22994.72,
 			22994.72
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 109,
@@ -7997,7 +7997,7 @@
 			23370.08,
 			23370.08
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 110,
@@ -8429,7 +8429,7 @@
 			25634.61,
 			25634.61
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 116,
@@ -8501,7 +8501,7 @@
 			26048.15,
 			26048.15
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 117,
@@ -8573,7 +8573,7 @@
 			26451.05,
 			26451.05
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 118,
@@ -8645,7 +8645,7 @@
 			26869.6,
 			26869.6
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 119,
@@ -8717,7 +8717,7 @@
 			27265.1,
 			27265.1
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 120,
@@ -8789,7 +8789,7 @@
 			27508.85,
 			27508.85
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 121,
@@ -8861,7 +8861,7 @@
 			27928.17,
 			27928.17
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 122,
@@ -8933,7 +8933,7 @@
 			28347.66,
 			28347.66
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 123,
@@ -9005,7 +9005,7 @@
 			28771.34,
 			28771.34
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 124,
@@ -9077,7 +9077,7 @@
 			29657.51,
 			29657.51
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 125,
@@ -9509,7 +9509,7 @@
 			32010.72,
 			32010.72
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 131,
@@ -9581,7 +9581,7 @@
 			32446.42,
 			32446.42
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 132,
@@ -9653,7 +9653,7 @@
 			32703.45,
 			32703.45
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 133,
@@ -9725,7 +9725,7 @@
 			33092.83,
 			33092.83
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 134,
@@ -9797,7 +9797,7 @@
 			33530.08,
 			33530.08
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 135,
@@ -9869,7 +9869,7 @@
 			33968.15,
 			33968.15
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 136,
@@ -9941,7 +9941,7 @@
 			34420.74,
 			34420.74
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 137,
@@ -10013,7 +10013,7 @@
 			34861.93,
 			34861.93
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 138,
@@ -10085,7 +10085,7 @@
 			35076.16,
 			35076.16
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 139,
@@ -10157,7 +10157,7 @@
 			35500.43,
 			35500.43
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 140,
@@ -10589,7 +10589,7 @@
 			37942.61,
 			37942.61
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 146,
@@ -10661,7 +10661,7 @@
 			38391.05,
 			38391.05
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 147,
@@ -10733,7 +10733,7 @@
 			38840.29,
 			38840.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 148,
@@ -10805,7 +10805,7 @@
 			39239.37,
 			39239.37
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 149,
@@ -10877,7 +10877,7 @@
 			39691.56,
 			39691.56
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 150,
@@ -10949,7 +10949,7 @@
 			39945.2,
 			39945.2
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 151,
@@ -11021,7 +11021,7 @@
 			41457.44,
 			41457.44
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 152,
@@ -11093,7 +11093,7 @@
 			41850.55,
 			41850.55
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 153,
@@ -11165,7 +11165,7 @@
 			42311.17,
 			42311.17
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 154,
@@ -11237,7 +11237,7 @@
 			42760.03,
 			42760.03
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 155,
@@ -11669,7 +11669,7 @@
 			45233.32,
 			45233.32
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 161,
@@ -11741,7 +11741,7 @@
 			45674.23,
 			45674.23
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 162,
@@ -11813,7 +11813,7 @@
 			45889.45,
 			45889.45
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 163,
@@ -11885,7 +11885,7 @@
 			46345.97,
 			46345.97
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 164,
@@ -11957,7 +11957,7 @@
 			46803.41,
 			46803.41
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 165,
@@ -12029,7 +12029,7 @@
 			47262.05,
 			47262.05
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 166,
@@ -12101,7 +12101,7 @@
 			47722.35,
 			47722.35
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 167,
@@ -12173,7 +12173,7 @@
 			48124.1,
 			48124.1
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 168,
@@ -12245,7 +12245,7 @@
 			48402.44,
 			48402.44
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 169,
@@ -12317,7 +12317,7 @@
 			48864.04,
 			48864.04
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 170,
@@ -12749,7 +12749,7 @@
 			51407.81,
 			51407.81
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 176,
@@ -12821,7 +12821,7 @@
 			51810.88,
 			51810.88
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 177,
@@ -12893,7 +12893,7 @@
 			52280.04,
 			52280.04
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 178,
@@ -12965,7 +12965,7 @@
 			52750.84,
 			52750.84
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 179,
@@ -13037,7 +13037,7 @@
 			53223.29,
 			53223.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 180,
@@ -13109,7 +13109,7 @@
 			53512.31,
 			53512.31
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 181,
@@ -13181,7 +13181,7 @@
 			53917.87,
 			53917.87
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 182,
@@ -13253,7 +13253,7 @@
 			54391.38,
 			54391.38
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 183,
@@ -13325,7 +13325,7 @@
 			54849.19,
 			54849.19
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 184,
@@ -13397,7 +13397,7 @@
 			55326.16,
 			55326.16
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 185,
@@ -13829,7 +13829,7 @@
 			57961.63,
 			57961.63
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 191,
@@ -13901,7 +13901,7 @@
 			58372.8,
 			58372.8
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 192,
@@ -13973,7 +13973,7 @@
 			58671.51,
 			58671.51
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 193,
@@ -14045,7 +14045,7 @@
 			59154.57,
 			59154.57
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 194,
@@ -14117,7 +14117,7 @@
 			59621.27,
 			59621.27
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 195,
@@ -14189,7 +14189,7 @@
 			60033.06,
 			60033.06
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 196,
@@ -14261,7 +14261,7 @@
 			60520.58,
 			60520.58
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 197,
@@ -14333,7 +14333,7 @@
 			61008.46,
 			61008.46
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 198,
@@ -14405,7 +14405,7 @@
 			61312.43,
 			61312.43
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 199,
@@ -14477,7 +14477,7 @@
 			61800.76,
 			61800.76
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 200,
@@ -14909,7 +14909,7 @@
 			64416.31,
 			64416.31
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 206,
@@ -14981,7 +14981,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 207,
@@ -15053,7 +15053,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 208,
@@ -15125,7 +15125,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 209,
@@ -15197,7 +15197,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 210,
@@ -15269,7 +15269,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 211,
@@ -15341,7 +15341,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 212,
@@ -15413,7 +15413,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 213,
@@ -15485,7 +15485,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 214,
@@ -15557,7 +15557,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 215,
@@ -15989,7 +15989,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 221,
@@ -16061,7 +16061,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 222,
@@ -16133,7 +16133,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 223,
@@ -16205,7 +16205,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 224,
@@ -16277,7 +16277,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 225,
@@ -16349,7 +16349,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 226,
@@ -16421,7 +16421,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 227,
@@ -16493,7 +16493,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 228,
@@ -16565,7 +16565,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 229,
@@ -16637,7 +16637,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 230,
@@ -17069,7 +17069,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 236,
@@ -17141,7 +17141,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 237,
@@ -17213,7 +17213,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 238,
@@ -17285,7 +17285,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 239,
@@ -17357,7 +17357,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 240,
@@ -17429,7 +17429,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 241,
@@ -17501,7 +17501,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 242,
@@ -17573,7 +17573,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 243,
@@ -17645,7 +17645,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 244,
@@ -17717,7 +17717,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 245,
@@ -18149,7 +18149,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 251,
@@ -18221,7 +18221,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 252,
@@ -18293,7 +18293,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 253,
@@ -18365,7 +18365,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 254,
@@ -18437,7 +18437,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 255,
@@ -18509,7 +18509,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 256,
@@ -18581,7 +18581,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 257,
@@ -18653,7 +18653,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 258,
@@ -18725,7 +18725,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 259,
@@ -18797,7 +18797,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 260,
@@ -19229,7 +19229,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 266,
@@ -19301,7 +19301,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 267,
@@ -19373,7 +19373,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 268,
@@ -19445,7 +19445,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 269,
@@ -19517,7 +19517,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 270,
@@ -19589,7 +19589,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 271,
@@ -19661,7 +19661,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 272,
@@ -19733,7 +19733,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 273,
@@ -19805,7 +19805,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 274,
@@ -19877,7 +19877,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 275,
@@ -20309,7 +20309,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 281,
@@ -20381,7 +20381,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 282,
@@ -20453,7 +20453,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 283,
@@ -20525,7 +20525,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 284,
@@ -20597,7 +20597,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 285,
@@ -20669,7 +20669,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 286,
@@ -20741,7 +20741,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 287,
@@ -20813,7 +20813,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 288,
@@ -20885,7 +20885,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 289,
@@ -20957,7 +20957,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 290,
@@ -21389,7 +21389,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 296,
@@ -21461,7 +21461,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 297,
@@ -21533,7 +21533,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 298,
@@ -21605,7 +21605,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 299,
@@ -21677,7 +21677,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 300,
@@ -21749,7 +21749,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 301,
@@ -21821,7 +21821,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 302,
@@ -21893,7 +21893,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 303,
@@ -21965,7 +21965,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 304,
@@ -22037,7 +22037,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 305,
@@ -22469,7 +22469,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 311,
@@ -22541,7 +22541,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 312,
@@ -22613,7 +22613,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 313,
@@ -22685,7 +22685,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 314,
@@ -22757,7 +22757,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 315,
@@ -22829,7 +22829,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 316,
@@ -22901,7 +22901,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 317,
@@ -22973,7 +22973,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 318,
@@ -23045,7 +23045,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 319,
@@ -23117,7 +23117,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 320,
@@ -23549,7 +23549,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 326,
@@ -23621,7 +23621,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 327,
@@ -23693,7 +23693,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 328,
@@ -23765,7 +23765,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 329,
@@ -23837,7 +23837,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 330,
@@ -23909,7 +23909,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 331,
@@ -23981,7 +23981,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 332,
@@ -24053,7 +24053,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 333,
@@ -24125,7 +24125,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 334,
@@ -24197,7 +24197,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 335,
@@ -24629,7 +24629,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 341,
@@ -24701,7 +24701,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 342,
@@ -24773,7 +24773,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 343,
@@ -24845,7 +24845,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 344,
@@ -24917,7 +24917,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 345,
@@ -24989,7 +24989,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 346,
@@ -25061,7 +25061,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 347,
@@ -25133,7 +25133,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 348,
@@ -25205,7 +25205,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 349,
@@ -25277,7 +25277,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 350,
@@ -25709,7 +25709,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 356,
@@ -25781,7 +25781,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 357,
@@ -25853,7 +25853,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 358,
@@ -25925,7 +25925,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 359,
@@ -25997,7 +25997,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 360,
@@ -26069,7 +26069,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 361,
@@ -26141,7 +26141,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 362,
@@ -26213,7 +26213,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 363,
@@ -26285,7 +26285,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 364,
@@ -26357,7 +26357,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 365,
@@ -26789,7 +26789,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 371,
@@ -26861,7 +26861,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 372,
@@ -26933,7 +26933,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 373,
@@ -27005,7 +27005,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 374,
@@ -27077,7 +27077,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 375,
@@ -27149,7 +27149,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 376,
@@ -27221,7 +27221,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 377,
@@ -27293,7 +27293,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 378,
@@ -27365,7 +27365,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 379,
@@ -27437,7 +27437,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 380,
@@ -27869,7 +27869,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 386,
@@ -27941,7 +27941,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 387,
@@ -28013,7 +28013,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 388,
@@ -28085,7 +28085,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 389,
@@ -28157,7 +28157,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 390,
@@ -28229,7 +28229,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 391,
@@ -28301,7 +28301,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 392,
@@ -28373,7 +28373,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 393,
@@ -28445,7 +28445,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 394,
@@ -28517,7 +28517,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 395,
@@ -28949,7 +28949,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 401,
@@ -29021,7 +29021,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 402,
@@ -29093,7 +29093,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 403,
@@ -29165,7 +29165,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 404,
@@ -29237,7 +29237,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 405,
@@ -29309,7 +29309,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 406,
@@ -29381,7 +29381,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 407,
@@ -29453,7 +29453,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 408,
@@ -29525,7 +29525,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 409,
@@ -29597,7 +29597,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 410,
@@ -30029,7 +30029,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 416,
@@ -30101,7 +30101,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 417,
@@ -30173,7 +30173,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 418,
@@ -30245,7 +30245,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 419,
@@ -30317,7 +30317,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 420,
@@ -30389,7 +30389,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 421,
@@ -30461,7 +30461,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 422,
@@ -30533,7 +30533,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 423,
@@ -30605,7 +30605,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 424,
@@ -30677,7 +30677,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 425,
@@ -31109,7 +31109,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 431,
@@ -31181,7 +31181,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 432,
@@ -31253,7 +31253,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 433,
@@ -31325,7 +31325,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 434,
@@ -31397,7 +31397,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 435,
@@ -31469,7 +31469,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 436,
@@ -31541,7 +31541,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 437,
@@ -31613,7 +31613,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 438,
@@ -31685,7 +31685,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 439,
@@ -31757,7 +31757,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 440,
@@ -32189,7 +32189,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 446,
@@ -32261,7 +32261,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 447,
@@ -32333,7 +32333,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 448,
@@ -32405,7 +32405,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 449,
@@ -32477,7 +32477,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 450,
@@ -32549,7 +32549,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 451,
@@ -32621,7 +32621,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 452,
@@ -32693,7 +32693,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 453,
@@ -32765,7 +32765,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 454,
@@ -32837,7 +32837,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 455,
@@ -33269,7 +33269,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 461,
@@ -33341,7 +33341,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 462,
@@ -33413,7 +33413,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 463,
@@ -33485,7 +33485,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 464,
@@ -33557,7 +33557,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 465,
@@ -33629,7 +33629,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 466,
@@ -33701,7 +33701,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 467,
@@ -33773,7 +33773,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 468,
@@ -33845,7 +33845,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 469,
@@ -33917,7 +33917,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 470,
@@ -34349,7 +34349,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 476,
@@ -34421,7 +34421,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 477,
@@ -34493,7 +34493,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 478,
@@ -34565,7 +34565,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 479,
@@ -34637,7 +34637,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 480,
@@ -34709,7 +34709,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 481,
@@ -34781,7 +34781,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 482,
@@ -34853,7 +34853,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 483,
@@ -34925,7 +34925,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 484,
@@ -34997,7 +34997,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 485,
@@ -35429,7 +35429,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 491,
@@ -35501,7 +35501,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 492,
@@ -35573,7 +35573,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 493,
@@ -35645,7 +35645,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 494,
@@ -35717,7 +35717,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 495,
@@ -35789,7 +35789,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 496,
@@ -35861,7 +35861,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 497,
@@ -35933,7 +35933,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 498,
@@ -36005,7 +36005,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 499,
@@ -36077,7 +36077,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 500,
@@ -36509,7 +36509,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 506,
@@ -36581,7 +36581,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 507,
@@ -36653,7 +36653,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 508,
@@ -36725,7 +36725,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 509,
@@ -36797,7 +36797,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 510,
@@ -36869,7 +36869,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 511,
@@ -36941,7 +36941,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 512,
@@ -37013,7 +37013,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 513,
@@ -37085,7 +37085,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 514,
@@ -37157,7 +37157,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 515,
@@ -37589,7 +37589,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 521,
@@ -37661,7 +37661,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 522,
@@ -37733,7 +37733,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 523,
@@ -37805,7 +37805,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 524,
@@ -37877,7 +37877,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 525,
@@ -37949,7 +37949,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 526,
@@ -38021,7 +38021,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 527,
@@ -38093,7 +38093,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 528,
@@ -38165,7 +38165,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 529,
@@ -38237,7 +38237,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 530,
@@ -38669,7 +38669,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 536,
@@ -38741,7 +38741,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 537,
@@ -38813,7 +38813,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 538,
@@ -38885,7 +38885,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 539,
@@ -38957,7 +38957,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 540,
@@ -39029,7 +39029,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 541,
@@ -39101,7 +39101,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 542,
@@ -39173,7 +39173,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 543,
@@ -39245,7 +39245,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 544,
@@ -39317,7 +39317,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 545,
@@ -39749,7 +39749,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 551,
@@ -39821,7 +39821,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 552,
@@ -39893,7 +39893,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 553,
@@ -39965,7 +39965,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 554,
@@ -40037,7 +40037,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 555,
@@ -40109,7 +40109,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 556,
@@ -40181,7 +40181,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 557,
@@ -40253,7 +40253,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 558,
@@ -40325,7 +40325,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 559,
@@ -40397,7 +40397,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 560,
@@ -40829,7 +40829,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 566,
@@ -40901,7 +40901,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 567,
@@ -40973,7 +40973,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 568,
@@ -41045,7 +41045,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 569,
@@ -41117,7 +41117,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 570,
@@ -41189,7 +41189,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 571,
@@ -41261,7 +41261,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 572,
@@ -41333,7 +41333,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 573,
@@ -41405,7 +41405,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 574,
@@ -41477,7 +41477,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 575,
@@ -41909,7 +41909,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 581,
@@ -41981,7 +41981,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 582,
@@ -42053,7 +42053,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 583,
@@ -42125,7 +42125,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 584,
@@ -42197,7 +42197,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 585,
@@ -42269,7 +42269,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 586,
@@ -42341,7 +42341,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 587,
@@ -42413,7 +42413,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 588,
@@ -42485,7 +42485,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 589,
@@ -42557,7 +42557,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 590,
@@ -42989,7 +42989,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 596,
@@ -43061,7 +43061,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 597,
@@ -43133,7 +43133,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 598,
@@ -43205,7 +43205,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 599,
@@ -43277,7 +43277,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 600,
@@ -43349,7 +43349,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 601,
@@ -43421,7 +43421,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 602,
@@ -43493,7 +43493,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 603,
@@ -43565,7 +43565,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 604,
@@ -43637,7 +43637,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 605,
@@ -44069,7 +44069,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 611,
@@ -44141,7 +44141,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 612,
@@ -44213,7 +44213,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 613,
@@ -44285,7 +44285,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 614,
@@ -44357,7 +44357,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 615,
@@ -44429,7 +44429,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 616,
@@ -44501,7 +44501,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 617,
@@ -44573,7 +44573,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 618,
@@ -44645,7 +44645,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 619,
@@ -44717,7 +44717,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 620,
@@ -45149,7 +45149,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 626,
@@ -45221,7 +45221,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 627,
@@ -45293,7 +45293,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 628,
@@ -45365,7 +45365,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 629,
@@ -45437,7 +45437,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 630,
@@ -45509,7 +45509,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 631,
@@ -45581,7 +45581,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 632,
@@ -45653,7 +45653,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 633,
@@ -45725,7 +45725,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 634,
@@ -45797,7 +45797,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 635,
@@ -46229,7 +46229,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 641,
@@ -46301,7 +46301,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 642,
@@ -46373,7 +46373,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 643,
@@ -46445,7 +46445,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 644,
@@ -46517,7 +46517,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 645,
@@ -46589,7 +46589,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 646,
@@ -46661,7 +46661,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 647,
@@ -46733,7 +46733,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 648,
@@ -46805,7 +46805,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 649,
@@ -46877,7 +46877,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 650,
@@ -47309,7 +47309,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 656,
@@ -47381,7 +47381,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 657,
@@ -47453,7 +47453,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 658,
@@ -47525,7 +47525,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 659,
@@ -47597,7 +47597,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 660,
@@ -47669,7 +47669,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 661,
@@ -47741,7 +47741,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 662,
@@ -47813,7 +47813,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 663,
@@ -47885,7 +47885,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 664,
@@ -47957,7 +47957,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 665,
@@ -48389,7 +48389,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 671,
@@ -48461,7 +48461,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 672,
@@ -48533,7 +48533,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 673,
@@ -48605,7 +48605,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 674,
@@ -48677,7 +48677,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 675,
@@ -48749,7 +48749,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 676,
@@ -48821,7 +48821,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 677,
@@ -48893,7 +48893,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 678,
@@ -48965,7 +48965,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 679,
@@ -49037,7 +49037,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 680,
@@ -49469,7 +49469,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 686,
@@ -49541,7 +49541,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 687,
@@ -49613,7 +49613,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 688,
@@ -49685,7 +49685,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 689,
@@ -49757,7 +49757,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 690,
@@ -49829,7 +49829,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 691,
@@ -49901,7 +49901,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 692,
@@ -49973,7 +49973,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 693,
@@ -50045,7 +50045,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 694,
@@ -50117,7 +50117,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 695,
@@ -50549,7 +50549,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 701,
@@ -50621,7 +50621,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 702,
@@ -50693,7 +50693,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 703,
@@ -50765,7 +50765,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 704,
@@ -50837,7 +50837,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 705,
@@ -50909,7 +50909,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 706,
@@ -50981,7 +50981,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 707,
@@ -51053,7 +51053,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 708,
@@ -51125,7 +51125,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 709,
@@ -51197,7 +51197,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 710,
@@ -51629,7 +51629,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 716,
@@ -51701,7 +51701,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 717,
@@ -51773,7 +51773,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 718,
@@ -51845,7 +51845,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 719,
@@ -51917,7 +51917,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 720,
@@ -51989,7 +51989,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 721,
@@ -52061,7 +52061,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 722,
@@ -52133,7 +52133,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 723,
@@ -52205,7 +52205,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 724,
@@ -52277,7 +52277,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 725,
@@ -52709,7 +52709,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 731,
@@ -52781,7 +52781,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 732,
@@ -52853,7 +52853,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 733,
@@ -52925,7 +52925,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 734,
@@ -52997,7 +52997,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 735,
@@ -53069,7 +53069,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 736,
@@ -53141,7 +53141,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 737,
@@ -53213,7 +53213,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 738,
@@ -53285,7 +53285,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 739,
@@ -53357,7 +53357,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 740,
@@ -53789,7 +53789,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 746,
@@ -53861,7 +53861,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 747,
@@ -53933,7 +53933,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 748,
@@ -54005,7 +54005,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 749,
@@ -54077,7 +54077,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 1,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 750,
@@ -54149,7 +54149,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 751,
@@ -54221,7 +54221,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 752,
@@ -54293,7 +54293,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 753,
@@ -54365,7 +54365,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 754,
@@ -54437,7 +54437,7 @@
 			64483.29,
 			64483.29
 		],
-		"i_element": 2,
+		"i_element": 0,
 		"i_equipQuality": 22,
 		"i_equipStar": 22,
 		"i_id": 755,

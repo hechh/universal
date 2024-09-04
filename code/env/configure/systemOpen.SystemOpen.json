@@ -3,7 +3,7 @@
 		"i_id": 1,
 		"i_type": 0,
 		"il_systemTypes": [
-			16
+			0
 		],
 		"ill_condition": [
 			[
@@ -20,7 +20,7 @@
 		"i_id": 2,
 		"i_type": 0,
 		"il_systemTypes": [
-			15
+			0
 		],
 		"ill_condition": [
 			[
@@ -35,17 +35,17 @@
 	},
 	{
 		"i_id": 3,
-		"i_type": 2,
+		"i_type": 0,
 		"il_param": [
 			1,
 			1
 		],
 		"il_systemTypes": [
-			4
+			0
 		],
 		"ill_condition": [
 			[
-				2,
+				0,
 				1,
 				1
 			]
@@ -58,18 +58,18 @@
 	},
 	{
 		"i_id": 4,
-		"i_type": 2,
+		"i_type": 0,
 		"il_param": [
 			1,
 			1
 		],
 		"il_systemTypes": [
-			1,
+			0,
 			0
 		],
 		"ill_condition": [
 			[
-				2,
+				0,
 				1,
 				1
 			]
@@ -83,13 +83,13 @@
 	{
 		"i_id": 5,
 		"i_lineID": 1,
-		"i_type": 2,
+		"i_type": 0,
 		"il_param": [
 			1,
 			2
 		],
 		"il_systemTypes": [
-			9
+			0
 		],
 		"ill_addItem": [
 			[
@@ -100,7 +100,7 @@
 		],
 		"ill_condition": [
 			[
-				2,
+				0,
 				1,
 				2
 			]
@@ -116,13 +116,13 @@
 	{
 		"i_id": 6,
 		"i_lineID": 7,
-		"i_type": 2,
+		"i_type": 0,
 		"il_param": [
 			2,
 			1
 		],
 		"il_systemTypes": [
-			5
+			0
 		],
 		"ill_addItem": [
 			[
@@ -133,7 +133,7 @@
 		],
 		"ill_condition": [
 			[
-				2,
+				0,
 				2,
 				1
 			]
@@ -148,17 +148,17 @@
 	},
 	{
 		"i_id": 7,
-		"i_type": 2,
+		"i_type": 0,
 		"il_param": [
 			1,
 			3
 		],
 		"il_systemTypes": [
-			8
+			0
 		],
 		"ill_condition": [
 			[
-				2,
+				0,
 				1,
 				3
 			]
@@ -171,17 +171,17 @@
 	},
 	{
 		"i_id": 8,
-		"i_type": 1,
+		"i_type": 0,
 		"il_param": [
 			1,
 			5
 		],
 		"il_systemTypes": [
-			2
+			0
 		],
 		"ill_condition": [
 			[
-				1,
+				0,
 				1,
 				5
 			]
@@ -194,18 +194,18 @@
 	},
 	{
 		"i_id": 9,
-		"i_type": 2,
+		"i_type": 0,
 		"il_param": [
 			3,
 			2
 		],
 		"il_systemTypes": [
-			10,
-			13
+			0,
+			0
 		],
 		"ill_condition": [
 			[
-				2,
+				0,
 				3,
 				2
 			]
@@ -218,18 +218,18 @@
 	},
 	{
 		"i_id": 10,
-		"i_type": 2,
+		"i_type": 0,
 		"il_param": [
 			99,
 			5
 		],
 		"il_systemTypes": [
-			6,
-			7
+			0,
+			0
 		],
 		"ill_condition": [
 			[
-				2,
+				0,
 				99,
 				5
 			]
@@ -243,13 +243,13 @@
 	{
 		"i_id": 11,
 		"i_lineID": 5,
-		"i_type": 2,
+		"i_type": 0,
 		"il_param": [
 			1,
 			5
 		],
 		"il_systemTypes": [
-			3
+			0
 		],
 		"ill_addItem": [
 			[
@@ -260,7 +260,7 @@
 		],
 		"ill_condition": [
 			[
-				2,
+				0,
 				1,
 				5
 			]
@@ -275,17 +275,17 @@
 	},
 	{
 		"i_id": 12,
-		"i_type": 2,
+		"i_type": 0,
 		"il_param": [
 			1,
 			2
 		],
 		"il_systemTypes": [
-			17
+			0
 		],
 		"ill_condition": [
 			[
-				2,
+				0,
 				1,
 				2
 			]
@@ -298,17 +298,17 @@
 	},
 	{
 		"i_id": 13,
-		"i_type": 2,
+		"i_type": 0,
 		"il_param": [
 			99,
 			5
 		],
 		"il_systemTypes": [
-			12
+			0
 		],
 		"ill_condition": [
 			[
-				2,
+				0,
 				99,
 				5
 			]
@@ -322,13 +322,13 @@
 	{
 		"i_id": 14,
 		"i_lineID": 6,
-		"i_type": 2,
+		"i_type": 0,
 		"il_param": [
 			1,
 			5
 		],
 		"il_systemTypes": [
-			20
+			0
 		],
 		"ill_addItem": [
 			[
@@ -339,7 +339,7 @@
 		],
 		"ill_condition": [
 			[
-				2,
+				0,
 				1,
 				5
 			]
@@ -354,17 +354,17 @@
 	},
 	{
 		"i_id": 15,
-		"i_type": 2,
+		"i_type": 0,
 		"il_param": [
 			1,
 			5
 		],
 		"il_systemTypes": [
-			21
+			0
 		],
 		"ill_condition": [
 			[
-				2,
+				0,
 				1,
 				5
 			]
@@ -377,17 +377,17 @@
 	},
 	{
 		"i_id": 16,
-		"i_type": 2,
+		"i_type": 0,
 		"il_param": [
 			1,
 			5
 		],
 		"il_systemTypes": [
-			22
+			0
 		],
 		"ill_condition": [
 			[
-				2,
+				0,
 				1,
 				5
 			]
@@ -400,17 +400,17 @@
 	},
 	{
 		"i_id": 17,
-		"i_type": 2,
+		"i_type": 0,
 		"il_param": [
 			1,
 			5
 		],
 		"il_systemTypes": [
-			23
+			0
 		],
 		"ill_condition": [
 			[
-				2,
+				0,
 				1,
 				5
 			]
@@ -424,13 +424,13 @@
 	{
 		"i_id": 18,
 		"i_lineID": 9,
-		"i_type": 2,
+		"i_type": 0,
 		"il_param": [
 			2,
 			1
 		],
 		"il_systemTypes": [
-			24
+			0
 		],
 		"ill_addItem": [
 			[
@@ -441,7 +441,7 @@
 		],
 		"ill_condition": [
 			[
-				2,
+				0,
 				2,
 				1
 			]
@@ -456,17 +456,17 @@
 	},
 	{
 		"i_id": 19,
-		"i_type": 2,
+		"i_type": 0,
 		"il_param": [
 			2,
 			1
 		],
 		"il_systemTypes": [
-			25
+			0
 		],
 		"ill_condition": [
 			[
-				2,
+				0,
 				2,
 				1
 			]
@@ -480,13 +480,13 @@
 	{
 		"i_id": 20,
 		"i_lineID": 4,
-		"i_type": 2,
+		"i_type": 0,
 		"il_param": [
 			1,
 			5
 		],
 		"il_systemTypes": [
-			26
+			0
 		],
 		"ill_addItem": [
 			[
@@ -497,7 +497,7 @@
 		],
 		"ill_condition": [
 			[
-				2,
+				0,
 				1,
 				5
 			]
@@ -513,13 +513,13 @@
 	{
 		"i_id": 21,
 		"i_lineID": 10,
-		"i_type": 2,
+		"i_type": 0,
 		"il_param": [
 			3,
 			2
 		],
 		"il_systemTypes": [
-			27
+			0
 		],
 		"ill_addItem": [
 			[
@@ -530,7 +530,7 @@
 		],
 		"ill_condition": [
 			[
-				2,
+				0,
 				3,
 				2
 			]
@@ -545,17 +545,17 @@
 	},
 	{
 		"i_id": 22,
-		"i_type": 2,
+		"i_type": 0,
 		"il_param": [
 			1,
 			4
 		],
 		"il_systemTypes": [
-			28
+			0
 		],
 		"ill_condition": [
 			[
-				2,
+				0,
 				1,
 				4
 			]
@@ -568,17 +568,17 @@
 	},
 	{
 		"i_id": 23,
-		"i_type": 2,
+		"i_type": 0,
 		"il_param": [
 			3,
 			2
 		],
 		"il_systemTypes": [
-			29
+			0
 		],
 		"ill_condition": [
 			[
-				2,
+				0,
 				3,
 				2
 			]
@@ -591,17 +591,17 @@
 	},
 	{
 		"i_id": 24,
-		"i_type": 4,
+		"i_type": 0,
 		"il_param": [
 			1,
 			10
 		],
 		"il_systemTypes": [
-			30
+			0
 		],
 		"ill_condition": [
 			[
-				4,
+				0,
 				1,
 				10
 			]
@@ -614,17 +614,17 @@
 	},
 	{
 		"i_id": 25,
-		"i_type": 2,
+		"i_type": 0,
 		"il_param": [
 			1,
 			4
 		],
 		"il_systemTypes": [
-			31
+			0
 		],
 		"ill_condition": [
 			[
-				2,
+				0,
 				1,
 				4
 			]
@@ -637,22 +637,22 @@
 	},
 	{
 		"i_id": 26,
-		"i_type": 2,
+		"i_type": 0,
 		"il_param": [
 			3,
 			4
 		],
 		"il_systemTypes": [
-			32
+			0
 		],
 		"ill_condition": [
 			[
-				2,
+				0,
 				3,
 				4
 			],
 			[
-				3,
+				0,
 				3
 			]
 		],
@@ -665,13 +665,13 @@
 	{
 		"i_id": 27,
 		"i_lineID": 3,
-		"i_type": 2,
+		"i_type": 0,
 		"il_param": [
 			1,
 			4
 		],
 		"il_systemTypes": [
-			33
+			0
 		],
 		"ill_addItem": [
 			[
@@ -682,7 +682,7 @@
 		],
 		"ill_condition": [
 			[
-				2,
+				0,
 				1,
 				4
 			]
@@ -697,17 +697,17 @@
 	},
 	{
 		"i_id": 28,
-		"i_type": 1,
+		"i_type": 0,
 		"il_param": [
 			1,
 			3
 		],
 		"il_systemTypes": [
-			34
+			0
 		],
 		"ill_condition": [
 			[
-				1,
+				0,
 				1,
 				3
 			]
@@ -720,17 +720,17 @@
 	},
 	{
 		"i_id": 29,
-		"i_type": 2,
+		"i_type": 0,
 		"il_param": [
 			1,
 			3
 		],
 		"il_systemTypes": [
-			11
+			0
 		],
 		"ill_condition": [
 			[
-				2,
+				0,
 				1,
 				3
 			]
@@ -744,13 +744,13 @@
 	{
 		"i_id": 30,
 		"i_lineID": 8,
-		"i_type": 2,
+		"i_type": 0,
 		"il_param": [
 			3,
 			4
 		],
 		"il_systemTypes": [
-			35
+			0
 		],
 		"ill_addItem": [
 			[
@@ -761,12 +761,12 @@
 		],
 		"ill_condition": [
 			[
-				2,
+				0,
 				3,
 				4
 			],
 			[
-				3,
+				0,
 				3
 			]
 		],
@@ -780,17 +780,17 @@
 	},
 	{
 		"i_id": 31,
-		"i_type": 2,
+		"i_type": 0,
 		"il_param": [
 			2,
 			1
 		],
 		"il_systemTypes": [
-			36
+			0
 		],
 		"ill_condition": [
 			[
-				2,
+				0,
 				2,
 				1
 			]
@@ -803,17 +803,17 @@
 	},
 	{
 		"i_id": 32,
-		"i_type": 2,
+		"i_type": 0,
 		"il_param": [
 			2,
 			1
 		],
 		"il_systemTypes": [
-			53
+			0
 		],
 		"ill_condition": [
 			[
-				2,
+				0,
 				2,
 				1
 			]
@@ -826,17 +826,17 @@
 	},
 	{
 		"i_id": 33,
-		"i_type": 2,
+		"i_type": 0,
 		"il_param": [
 			2,
 			1
 		],
 		"il_systemTypes": [
-			38
+			0
 		],
 		"ill_condition": [
 			[
-				2,
+				0,
 				2,
 				1
 			]
@@ -849,17 +849,17 @@
 	},
 	{
 		"i_id": 34,
-		"i_type": 2,
+		"i_type": 0,
 		"il_param": [
 			3,
 			4
 		],
 		"il_systemTypes": [
-			39
+			0
 		],
 		"ill_condition": [
 			[
-				2,
+				0,
 				3,
 				4
 			]
@@ -872,17 +872,17 @@
 	},
 	{
 		"i_id": 36,
-		"i_type": 2,
+		"i_type": 0,
 		"il_param": [
 			1,
 			5
 		],
 		"il_systemTypes": [
-			41
+			0
 		],
 		"ill_condition": [
 			[
-				2,
+				0,
 				1,
 				5
 			]
@@ -895,17 +895,17 @@
 	},
 	{
 		"i_id": 37,
-		"i_type": 1,
+		"i_type": 0,
 		"il_param": [
 			1,
 			4
 		],
 		"il_systemTypes": [
-			42
+			0
 		],
 		"ill_condition": [
 			[
-				1,
+				0,
 				1,
 				4
 			]
@@ -919,13 +919,13 @@
 	{
 		"i_id": 43,
 		"i_lineID": 2,
-		"i_type": 2,
+		"i_type": 0,
 		"il_param": [
 			2,
 			2
 		],
 		"il_systemTypes": [
-			48
+			0
 		],
 		"ill_addItem": [
 			[
@@ -936,7 +936,7 @@
 		],
 		"ill_condition": [
 			[
-				2,
+				0,
 				2,
 				2
 			]
@@ -951,17 +951,17 @@
 	},
 	{
 		"i_id": 44,
-		"i_type": 1,
+		"i_type": 0,
 		"il_param": [
 			1,
 			4
 		],
 		"il_systemTypes": [
-			49
+			0
 		],
 		"ill_condition": [
 			[
-				1,
+				0,
 				1,
 				4
 			]
@@ -974,17 +974,17 @@
 	},
 	{
 		"i_id": 45,
-		"i_type": 2,
+		"i_type": 0,
 		"il_param": [
 			1,
 			3
 		],
 		"il_systemTypes": [
-			50
+			0
 		],
 		"ill_condition": [
 			[
-				2,
+				0,
 				1,
 				3
 			]
@@ -997,17 +997,17 @@
 	},
 	{
 		"i_id": 46,
-		"i_type": 1,
+		"i_type": 0,
 		"il_param": [
 			1,
 			3
 		],
 		"il_systemTypes": [
-			51
+			0
 		],
 		"ill_condition": [
 			[
-				1,
+				0,
 				1,
 				3
 			]
@@ -1020,17 +1020,17 @@
 	},
 	{
 		"i_id": 47,
-		"i_type": 2,
+		"i_type": 0,
 		"il_param": [
 			1,
 			5
 		],
 		"il_systemTypes": [
-			52
+			0
 		],
 		"ill_condition": [
 			[
-				2,
+				0,
 				1,
 				5
 			]

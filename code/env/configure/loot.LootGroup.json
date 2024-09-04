@@ -12,7 +12,7 @@
 	},
 	{
 		"i_id": 2,
-		"i_randType": 1,
+		"i_randType": 0,
 		"il_lootPool": [
 			8,
 			9,
@@ -25,7 +25,7 @@
 	},
 	{
 		"i_id": 3,
-		"i_randType": 1,
+		"i_randType": 0,
 		"il_lootPool": [
 			101,
 			102,
@@ -37,7 +37,7 @@
 	},
 	{
 		"i_id": 4,
-		"i_randType": 1,
+		"i_randType": 0,
 		"il_lootPool": [
 			5,
 			6,
@@ -47,7 +47,7 @@
 	},
 	{
 		"i_id": 5,
-		"i_randType": 1,
+		"i_randType": 0,
 		"il_lootPool": [
 			20,
 			21,
@@ -60,7 +60,7 @@
 	},
 	{
 		"i_id": 6,
-		"i_randType": 1,
+		"i_randType": 0,
 		"il_lootPool": [
 			30,
 			31,
@@ -73,7 +73,7 @@
 	},
 	{
 		"i_id": 7,
-		"i_randType": 1,
+		"i_randType": 0,
 		"il_lootPool": [
 			40,
 			41,
@@ -85,7 +85,7 @@
 	},
 	{
 		"i_id": 8,
-		"i_randType": 1,
+		"i_randType": 0,
 		"il_lootPool": [
 			50,
 			51,
@@ -95,7 +95,7 @@
 	},
 	{
 		"i_id": 9,
-		"i_randType": 1,
+		"i_randType": 0,
 		"il_lootPool": [
 			53,
 			54,
@@ -106,7 +106,7 @@
 	},
 	{
 		"i_id": 10,
-		"i_randType": 1,
+		"i_randType": 0,
 		"il_lootPool": [
 			60,
 			61,
@@ -116,7 +116,7 @@
 	},
 	{
 		"i_id": 11,
-		"i_randType": 1,
+		"i_randType": 0,
 		"il_lootPool": [
 			65,
 			66,
@@ -127,7 +127,7 @@
 	},
 	{
 		"i_id": 12,
-		"i_randType": 1,
+		"i_randType": 0,
 		"il_lootPool": [
 			60,
 			61,
@@ -137,7 +137,7 @@
 	},
 	{
 		"i_id": 13,
-		"i_randType": 1,
+		"i_randType": 0,
 		"il_lootPool": [
 			1001,
 			1002,
@@ -164,7 +164,7 @@
 	},
 	{
 		"i_id": 14,
-		"i_randType": 1,
+		"i_randType": 0,
 		"il_lootPool": [
 			1101,
 			1102,
@@ -191,7 +191,7 @@
 	},
 	{
 		"i_id": 15,
-		"i_randType": 1,
+		"i_randType": 0,
 		"il_lootPool": [
 			1201,
 			1202,
@@ -218,7 +218,7 @@
 	},
 	{
 		"i_id": 16,
-		"i_randType": 1,
+		"i_randType": 0,
 		"il_lootPool": [
 			1301,
 			1302,
@@ -245,7 +245,7 @@
 	},
 	{
 		"i_id": 17,
-		"i_randType": 2,
+		"i_randType": 0,
 		"il_lootPool": [
 			6,
 			6
@@ -254,7 +254,7 @@
 	},
 	{
 		"i_id": 18,
-		"i_randType": 2,
+		"i_randType": 0,
 		"il_lootPool": [
 			7,
 			7,
@@ -264,7 +264,7 @@
 	},
 	{
 		"i_id": 19,
-		"i_randType": 2,
+		"i_randType": 0,
 		"il_lootPool": [
 			12,
 			12,
@@ -275,7 +275,7 @@
 	},
 	{
 		"i_id": 20,
-		"i_randType": 2,
+		"i_randType": 0,
 		"il_lootPool": [
 			11,
 			11,
@@ -295,7 +295,7 @@
 	},
 	{
 		"i_id": 22,
-		"i_randType": 2,
+		"i_randType": 0,
 		"il_lootPool": [
 			10,
 			10,
@@ -306,7 +306,7 @@
 	},
 	{
 		"i_id": 23,
-		"i_randType": 2,
+		"i_randType": 0,
 		"il_lootPool": [
 			15,
 			7,
@@ -316,7 +316,7 @@
 	},
 	{
 		"i_id": 24,
-		"i_randType": 1,
+		"i_randType": 0,
 		"il_lootPool": [
 			70,
 			71,
@@ -330,7 +330,7 @@
 	},
 	{
 		"i_id": 25,
-		"i_randType": 1,
+		"i_randType": 0,
 		"il_lootPool": [
 			90,
 			91,
@@ -344,7 +344,7 @@
 	},
 	{
 		"i_id": 26,
-		"i_randType": 1,
+		"i_randType": 0,
 		"il_lootPool": [
 			110,
 			111,
@@ -354,7 +354,7 @@
 	},
 	{
 		"i_id": 27,
-		"i_randType": 2,
+		"i_randType": 0,
 		"il_lootPool": [
 			25,
 			25
@@ -363,7 +363,7 @@
 	},
 	{
 		"i_id": 28,
-		"i_randType": 2,
+		"i_randType": 0,
 		"il_lootPool": [
 			26,
 			7,
@@ -423,7 +423,7 @@
 	},
 	{
 		"i_id": 35,
-		"i_randType": 1,
+		"i_randType": 0,
 		"il_lootPool": [
 			15,
 			16
@@ -440,7 +440,7 @@
 	},
 	{
 		"i_id": 37,
-		"i_randType": 1,
+		"i_randType": 0,
 		"il_lootPool": [
 			10501,
 			10502,
@@ -450,7 +450,7 @@
 	},
 	{
 		"i_id": 38,
-		"i_randType": 1,
+		"i_randType": 0,
 		"il_lootPool": [
 			10601,
 			10602,
@@ -461,7 +461,7 @@
 	},
 	{
 		"i_id": 39,
-		"i_randType": 1,
+		"i_randType": 0,
 		"il_lootPool": [
 			10701,
 			10702,
@@ -473,7 +473,7 @@
 	},
 	{
 		"i_id": 40,
-		"i_randType": 1,
+		"i_randType": 0,
 		"il_lootPool": [
 			10801,
 			10802,
@@ -486,7 +486,7 @@
 	},
 	{
 		"i_id": 41,
-		"i_randType": 1,
+		"i_randType": 0,
 		"il_lootPool": [
 			10901,
 			10902,
@@ -499,7 +499,7 @@
 	},
 	{
 		"i_id": 42,
-		"i_randType": 1,
+		"i_randType": 0,
 		"il_lootPool": [
 			11001,
 			11002,
@@ -520,7 +520,7 @@
 	},
 	{
 		"i_id": 51,
-		"i_randType": 1,
+		"i_randType": 0,
 		"il_lootPool": [
 			3001,
 			3002,
@@ -537,7 +537,7 @@
 	},
 	{
 		"i_id": 52,
-		"i_randType": 1,
+		"i_randType": 0,
 		"il_lootPool": [
 			3101,
 			3102,
@@ -554,7 +554,7 @@
 	},
 	{
 		"i_id": 53,
-		"i_randType": 1,
+		"i_randType": 0,
 		"il_lootPool": [
 			3201,
 			3202,
@@ -571,7 +571,7 @@
 	},
 	{
 		"i_id": 54,
-		"i_randType": 1,
+		"i_randType": 0,
 		"il_lootPool": [
 			3304,
 			3305,
@@ -588,7 +588,7 @@
 	},
 	{
 		"i_id": 55,
-		"i_randType": 1,
+		"i_randType": 0,
 		"il_lootPool": [
 			106,
 			107,
@@ -598,7 +598,7 @@
 	},
 	{
 		"i_id": 56,
-		"i_randType": 1,
+		"i_randType": 0,
 		"il_lootPool": [
 			3301,
 			3302,
@@ -610,7 +610,7 @@
 	},
 	{
 		"i_id": 61,
-		"i_randType": 1,
+		"i_randType": 0,
 		"il_lootPool": [
 			1001,
 			1002,
@@ -642,7 +642,7 @@
 	},
 	{
 		"i_id": 62,
-		"i_randType": 1,
+		"i_randType": 0,
 		"il_lootPool": [
 			1101,
 			1102,
@@ -674,7 +674,7 @@
 	},
 	{
 		"i_id": 63,
-		"i_randType": 1,
+		"i_randType": 0,
 		"il_lootPool": [
 			1201,
 			1202,
@@ -706,7 +706,7 @@
 	},
 	{
 		"i_id": 64,
-		"i_randType": 1,
+		"i_randType": 0,
 		"il_lootPool": [
 			1301,
 			1302,
@@ -738,7 +738,7 @@
 	},
 	{
 		"i_id": 65,
-		"i_randType": 1,
+		"i_randType": 0,
 		"il_lootPool": [
 			2901,
 			2902,
@@ -858,7 +858,7 @@
 	},
 	{
 		"i_id": 80,
-		"i_randType": 1,
+		"i_randType": 0,
 		"il_lootPool": [
 			63,
 			64
@@ -875,7 +875,7 @@
 	},
 	{
 		"i_id": 101,
-		"i_randType": 1,
+		"i_randType": 0,
 		"il_lootPool": [
 			4001,
 			4002,
@@ -888,7 +888,7 @@
 	},
 	{
 		"i_id": 102,
-		"i_randType": 1,
+		"i_randType": 0,
 		"il_lootPool": [
 			4007,
 			4008,
@@ -901,7 +901,7 @@
 	},
 	{
 		"i_id": 103,
-		"i_randType": 1,
+		"i_randType": 0,
 		"il_lootPool": [
 			4013,
 			4014,
@@ -912,7 +912,7 @@
 	},
 	{
 		"i_id": 104,
-		"i_randType": 1,
+		"i_randType": 0,
 		"il_lootPool": [
 			4101
 		],
@@ -920,7 +920,7 @@
 	},
 	{
 		"i_id": 105,
-		"i_randType": 1,
+		"i_randType": 0,
 		"il_lootPool": [
 			4201
 		],
@@ -928,7 +928,7 @@
 	},
 	{
 		"i_id": 106,
-		"i_randType": 1,
+		"i_randType": 0,
 		"il_lootPool": [
 			4001,
 			4002,
@@ -1237,7 +1237,7 @@
 	},
 	{
 		"i_id": 1200,
-		"i_randType": 1,
+		"i_randType": 0,
 		"il_lootPool": [
 			20,
 			21,
@@ -1410,7 +1410,7 @@
 	},
 	{
 		"i_id": 1501,
-		"i_randType": 1,
+		"i_randType": 0,
 		"il_lootPool": [
 			130001,
 			130002,
@@ -1463,7 +1463,7 @@
 	},
 	{
 		"i_id": 1502,
-		"i_randType": 1,
+		"i_randType": 0,
 		"il_lootPool": [
 			14026,
 			14027,
@@ -1545,7 +1545,7 @@
 	},
 	{
 		"i_id": 1503,
-		"i_randType": 1,
+		"i_randType": 0,
 		"il_lootPool": [
 			14001,
 			14002,
@@ -1602,7 +1602,7 @@
 	},
 	{
 		"i_id": 1504,
-		"i_randType": 1,
+		"i_randType": 0,
 		"il_lootPool": [
 			14026,
 			14027,
@@ -1684,7 +1684,7 @@
 	},
 	{
 		"i_id": 1505,
-		"i_randType": 1,
+		"i_randType": 0,
 		"il_lootPool": [
 			4001,
 			4002,

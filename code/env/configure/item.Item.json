@@ -1,223 +1,223 @@
 [
 	{
 		"i_id": 1,
-		"i_quality": 3,
+		"i_quality": 0,
 		"s_desc": "珍稀的宝石资源，可以用于购买各种商品",
 		"s_itemIcon": "1",
 		"s_name": "钻石"
 	},
 	{
 		"i_id": 2,
-		"i_quality": 1,
+		"i_quality": 0,
 		"s_desc": "特攻联盟中最常见的交易货币，用途广泛",
 		"s_itemIcon": "2",
 		"s_name": "金币"
 	},
 	{
 		"i_id": 3,
-		"i_quality": 1,
+		"i_quality": 0,
 		"s_desc": "蕴含外星异能的特殊晶石，产量稀少，用于英雄突破",
 		"s_itemIcon": "3",
 		"s_name": "突破石"
 	},
 	{
 		"i_id": 5,
-		"i_quality": 1,
+		"i_quality": 0,
 		"s_desc": "尘星地下开采的普通矿石，用于装备升级",
 		"s_itemIcon": "5",
 		"s_name": "矿石"
 	},
 	{
 		"i_id": 7,
-		"i_quality": 1,
+		"i_quality": 0,
 		"s_desc": "特攻研究所的特殊道具，用于更改名字",
 		"s_itemIcon": "7",
 		"s_name": "改名卡"
 	},
 	{
 		"i_id": 8,
-		"i_quality": 2,
+		"i_quality": 0,
 		"s_desc": "可在晶核抽奖-注入晶核中获得晶核",
 		"s_itemIcon": "8",
 		"s_name": "铜钳钳（废弃）"
 	},
 	{
 		"i_id": 9,
-		"i_quality": 2,
+		"i_quality": 0,
 		"s_desc": "特攻联盟授予星球勇士的普通奖励，用于普通唤醒",
 		"s_itemIcon": "9",
 		"s_name": "普通唤醒卡"
 	},
 	{
 		"i_id": 10,
-		"i_quality": 3,
+		"i_quality": 0,
 		"s_desc": "可在晶核抽奖-注入晶核中获得晶核",
 		"s_itemIcon": "10",
 		"s_name": "银钳钳（废弃）"
 	},
 	{
 		"i_id": 11,
-		"i_quality": 3,
+		"i_quality": 0,
 		"s_desc": "特攻联盟授予星球将领的高级奖励，用于高级唤醒",
 		"s_itemIcon": "11",
 		"s_name": "高级唤醒卡"
 	},
 	{
 		"i_id": 12,
-		"i_quality": 4,
+		"i_quality": 0,
 		"s_desc": "异星科研所的最新科技，用于晶核制造",
 		"s_itemIcon": "12",
 		"s_name": "金钳钳"
 	},
 	{
 		"i_id": 13,
-		"i_quality": 4,
+		"i_quality": 0,
 		"s_desc": "特攻联盟赠与星球领主的顶级奖励，用于克隆英雄",
 		"s_itemIcon": "13",
 		"s_name": "黄金克隆卡"
 	},
 	{
 		"i_id": 14,
-		"i_quality": 3,
+		"i_quality": 0,
 		"s_desc": "印刻了各类使徒因子的特殊芯片，用于激活基因",
 		"s_itemIcon": "14",
 		"s_name": "基因芯片"
 	},
 	{
 		"i_id": 15,
-		"i_quality": 3,
+		"i_quality": 0,
 		"s_desc": "经过奥根星高炉冶炼的铁矿石，坚不可摧，用于装备精炼",
 		"s_itemIcon": "15",
 		"s_name": "生铁"
 	},
 	{
 		"i_id": 16,
-		"i_quality": 4,
+		"i_quality": 0,
 		"s_desc": "撒玛星的珍贵资源，只需一点就可以大幅强化装备，用于装备突破",
 		"s_itemIcon": "16",
 		"s_name": "鲜红结晶"
 	},
 	{
 		"i_id": 17,
-		"i_quality": 2,
+		"i_quality": 0,
 		"s_desc": "外星怪物携带的特殊能源，内含少量能量，用于异性科技树的升级",
 		"s_itemIcon": "17",
 		"s_name": "异星核能"
 	},
 	{
 		"i_id": 18,
-		"i_quality": 3,
+		"i_quality": 0,
 		"s_desc": "击杀外星怪物获得的悬赏奖励，用于解锁异星科技树的神秘力量",
 		"s_itemIcon": "18",
 		"s_name": "科技秘匙"
 	},
 	{
 		"i_id": 19,
-		"i_quality": 3,
+		"i_quality": 0,
 		"s_desc": "宇宙中漂浮着的小晶体，用于晶核升级",
 		"s_itemIcon": "19",
 		"s_name": "瀚宇星辰"
 	},
 	{
 		"i_id": 20,
-		"i_quality": 3,
+		"i_quality": 0,
 		"s_desc": "宇宙联盟授予的特殊徽章，用于试炼商店换取物品",
 		"s_itemIcon": "20",
 		"s_name": "宇宙徽章"
 	},
 	{
 		"i_id": 21,
-		"i_quality": 4,
+		"i_quality": 0,
 		"s_desc": "宇宙微粒的具象化载体，可在使徒制造中召唤使徒",
 		"s_itemIcon": "21",
 		"s_name": "能源核心"
 	},
 	{
 		"i_id": 22,
-		"i_quality": 2,
+		"i_quality": 0,
 		"s_desc": "主星生产使徒必备的材料，用于所有使徒的升级。",
 		"s_itemIcon": "22",
 		"s_name": "使徒芯片"
 	},
 	{
 		"i_id": 23,
-		"i_quality": 3,
+		"i_quality": 0,
 		"s_desc": "用于在兑换商店中兑换英雄",
 		"s_itemIcon": "8",
 		"s_name": "英雄兑换卡"
 	},
 	{
 		"i_id": 24,
-		"i_quality": 3,
+		"i_quality": 0,
 		"s_desc": "宇宙能源破碎掉落的源石，用于晶核突破",
 		"s_itemIcon": "24",
 		"s_name": "源石"
 	},
 	{
 		"i_id": 25,
-		"i_quality": 1,
+		"i_quality": 0,
 		"s_desc": "可以为装备回收站充能，获得补给箱",
 		"s_itemIcon": "25",
 		"s_name": "补给箱能量"
 	},
 	{
-		"i_bagType": 2,
+		"i_bagType": 0,
 		"i_id": 1005,
-		"i_quality": 3,
+		"i_quality": 0,
 		"s_desc": "内含巨大能量的神秘蛋，难以接近，用于在战斗中复活英雄",
 		"s_itemIcon": "1005",
 		"s_name": "复活蛋"
 	},
 	{
 		"i_id": 1007,
-		"i_quality": 4,
+		"i_quality": 0,
 		"s_desc": "基地保卫战中，可以用星星提升英雄的战斗星级",
 		"s_itemIcon": "1007",
 		"s_name": "英雄星星"
 	},
 	{
 		"i_id": 1201,
-		"i_quality": 2,
+		"i_quality": 0,
 		"s_desc": "开启获得大量金币",
 		"s_itemIcon": "1201",
 		"s_name": "普通补给箱"
 	},
 	{
 		"i_id": 1202,
-		"i_quality": 1,
+		"i_quality": 0,
 		"s_desc": "开启获得大量矿石，小概率获得英雄",
 		"s_itemIcon": "1202",
 		"s_name": "精良补给箱"
 	},
 	{
 		"i_id": 1203,
-		"i_quality": 3,
+		"i_quality": 0,
 		"s_desc": "开启获得大量生铁，中等概率获得英雄",
 		"s_itemIcon": "1203",
 		"s_name": "稀有补给箱"
 	},
 	{
 		"i_id": 1204,
-		"i_quality": 4,
+		"i_quality": 0,
 		"s_desc": "开启获得大量突破石，大概率获得英雄",
 		"s_itemIcon": "1204",
 		"s_name": "史诗补给箱"
 	},
 	{
 		"i_id": 1205,
-		"i_quality": 5,
+		"i_quality": 0,
 		"s_desc": "开启获得大量钻石，必定获得英雄",
 		"s_itemIcon": "1205",
 		"s_name": "传说补给箱"
 	},
 	{
 		"i_autoUse": 0,
-		"i_bagType": 1,
+		"i_bagType": 0,
 		"i_id": 1400,
 		"i_maxStack": 0,
 		"i_maxUse": 0,
-		"i_quality": 3,
-		"i_useType": 2,
+		"i_quality": 0,
+		"i_useType": 0,
 		"il_useParam": [
 			2
 		],
@@ -227,12 +227,12 @@
 	},
 	{
 		"i_autoUse": 0,
-		"i_bagType": 1,
+		"i_bagType": 0,
 		"i_id": 1401,
 		"i_maxStack": 0,
 		"i_maxUse": 0,
-		"i_quality": 4,
-		"i_useType": 2,
+		"i_quality": 0,
+		"i_useType": 0,
 		"il_useParam": [
 			1
 		],
@@ -242,12 +242,12 @@
 	},
 	{
 		"i_autoUse": 0,
-		"i_bagType": 1,
+		"i_bagType": 0,
 		"i_id": 1403,
 		"i_maxStack": 0,
 		"i_maxUse": 0,
-		"i_quality": 3,
-		"i_useType": 6,
+		"i_quality": 0,
+		"i_useType": 0,
 		"il_useParam": [
 			4
 		],
@@ -257,12 +257,12 @@
 	},
 	{
 		"i_autoUse": 0,
-		"i_bagType": 1,
+		"i_bagType": 0,
 		"i_id": 1405,
 		"i_maxStack": 0,
 		"i_maxUse": 0,
-		"i_quality": 3,
-		"i_useType": 2,
+		"i_quality": 0,
+		"i_useType": 0,
 		"il_useParam": [
 			10
 		],
@@ -272,12 +272,12 @@
 	},
 	{
 		"i_autoUse": 0,
-		"i_bagType": 1,
+		"i_bagType": 0,
 		"i_id": 1406,
 		"i_maxStack": 0,
 		"i_maxUse": 0,
-		"i_quality": 3,
-		"i_useType": 2,
+		"i_quality": 0,
+		"i_useType": 0,
 		"il_useParam": [
 			7
 		],
@@ -287,12 +287,12 @@
 	},
 	{
 		"i_autoUse": 0,
-		"i_bagType": 1,
+		"i_bagType": 0,
 		"i_id": 1407,
 		"i_maxStack": 0,
 		"i_maxUse": 0,
-		"i_quality": 3,
-		"i_useType": 2,
+		"i_quality": 0,
+		"i_useType": 0,
 		"il_useParam": [
 			6
 		],
@@ -302,12 +302,12 @@
 	},
 	{
 		"i_autoUse": 0,
-		"i_bagType": 1,
+		"i_bagType": 0,
 		"i_id": 1408,
 		"i_maxStack": 0,
 		"i_maxUse": 0,
-		"i_quality": 3,
-		"i_useType": 2,
+		"i_quality": 0,
+		"i_useType": 0,
 		"il_useParam": [
 			9
 		],
@@ -317,12 +317,12 @@
 	},
 	{
 		"i_autoUse": 0,
-		"i_bagType": 1,
+		"i_bagType": 0,
 		"i_id": 1409,
 		"i_maxStack": 0,
 		"i_maxUse": 0,
-		"i_quality": 3,
-		"i_useType": 2,
+		"i_quality": 0,
+		"i_useType": 0,
 		"il_useParam": [
 			8
 		],
@@ -332,12 +332,12 @@
 	},
 	{
 		"i_autoUse": 0,
-		"i_bagType": 1,
+		"i_bagType": 0,
 		"i_id": 1410,
 		"i_maxStack": 0,
 		"i_maxUse": 0,
-		"i_quality": 3,
-		"i_useType": 2,
+		"i_quality": 0,
+		"i_useType": 0,
 		"il_useParam": [
 			11
 		],
@@ -347,12 +347,12 @@
 	},
 	{
 		"i_autoUse": 0,
-		"i_bagType": 1,
+		"i_bagType": 0,
 		"i_id": 1411,
 		"i_maxStack": 0,
 		"i_maxUse": 0,
-		"i_quality": 3,
-		"i_useType": 2,
+		"i_quality": 0,
+		"i_useType": 0,
 		"il_useParam": [
 			12
 		],
@@ -362,12 +362,12 @@
 	},
 	{
 		"i_autoUse": 0,
-		"i_bagType": 1,
+		"i_bagType": 0,
 		"i_id": 1412,
 		"i_maxStack": 0,
 		"i_maxUse": 0,
-		"i_quality": 5,
-		"i_useType": 2,
+		"i_quality": 0,
+		"i_useType": 0,
 		"il_useParam": [
 			13
 		],
@@ -377,12 +377,12 @@
 	},
 	{
 		"i_autoUse": 0,
-		"i_bagType": 1,
+		"i_bagType": 0,
 		"i_id": 1413,
 		"i_maxStack": 0,
 		"i_maxUse": 0,
-		"i_quality": 3,
-		"i_useType": 4,
+		"i_quality": 0,
+		"i_useType": 0,
 		"il_useParam": [
 			64
 		],
@@ -392,12 +392,12 @@
 	},
 	{
 		"i_autoUse": 0,
-		"i_bagType": 1,
+		"i_bagType": 0,
 		"i_id": 1414,
 		"i_maxStack": 0,
 		"i_maxUse": 0,
-		"i_quality": 4,
-		"i_useType": 6,
+		"i_quality": 0,
+		"i_useType": 0,
 		"il_useParam": [
 			14
 		],
@@ -407,12 +407,12 @@
 	},
 	{
 		"i_autoUse": 0,
-		"i_bagType": 1,
+		"i_bagType": 0,
 		"i_id": 1500,
 		"i_maxStack": 0,
 		"i_maxUse": 0,
-		"i_quality": 2,
-		"i_useType": 7,
+		"i_quality": 0,
+		"i_useType": 0,
 		"il_useParam": [
 			1200,
 			1
@@ -423,12 +423,12 @@
 	},
 	{
 		"i_autoUse": 0,
-		"i_bagType": 1,
+		"i_bagType": 0,
 		"i_id": 1501,
 		"i_maxStack": 0,
 		"i_maxUse": 0,
-		"i_quality": 3,
-		"i_useType": 7,
+		"i_quality": 0,
+		"i_useType": 0,
 		"il_useParam": [
 			1200,
 			10
@@ -439,12 +439,12 @@
 	},
 	{
 		"i_autoUse": 0,
-		"i_bagType": 1,
+		"i_bagType": 0,
 		"i_id": 1502,
 		"i_maxStack": 0,
 		"i_maxUse": 0,
-		"i_quality": 4,
-		"i_useType": 7,
+		"i_quality": 0,
+		"i_useType": 0,
 		"il_useParam": [
 			1200,
 			100
@@ -455,12 +455,12 @@
 	},
 	{
 		"i_autoUse": 0,
-		"i_bagType": 1,
+		"i_bagType": 0,
 		"i_id": 1601,
 		"i_maxStack": 0,
 		"i_maxUse": 0,
-		"i_quality": 4,
-		"i_useType": 2,
+		"i_quality": 0,
+		"i_useType": 0,
 		"il_useParam": [
 			15
 		],
@@ -470,12 +470,12 @@
 	},
 	{
 		"i_autoUse": 0,
-		"i_bagType": 1,
+		"i_bagType": 0,
 		"i_id": 1602,
 		"i_maxStack": 0,
 		"i_maxUse": 0,
-		"i_quality": 4,
-		"i_useType": 2,
+		"i_quality": 0,
+		"i_useType": 0,
 		"il_useParam": [
 			16
 		],
@@ -485,12 +485,12 @@
 	},
 	{
 		"i_autoUse": 0,
-		"i_bagType": 1,
+		"i_bagType": 0,
 		"i_id": 1603,
 		"i_maxStack": 0,
 		"i_maxUse": 0,
-		"i_quality": 4,
-		"i_useType": 2,
+		"i_quality": 0,
+		"i_useType": 0,
 		"il_useParam": [
 			17
 		],
@@ -500,12 +500,12 @@
 	},
 	{
 		"i_autoUse": 0,
-		"i_bagType": 1,
+		"i_bagType": 0,
 		"i_id": 1604,
 		"i_maxStack": 0,
 		"i_maxUse": 0,
-		"i_quality": 4,
-		"i_useType": 2,
+		"i_quality": 0,
+		"i_useType": 0,
 		"il_useParam": [
 			18
 		],
@@ -515,12 +515,12 @@
 	},
 	{
 		"i_autoUse": 1,
-		"i_bagType": 1,
+		"i_bagType": 0,
 		"i_id": 2001,
 		"i_maxStack": 0,
 		"i_maxUse": 0,
 		"i_quality": 0,
-		"i_useType": 4,
+		"i_useType": 0,
 		"il_useParam": [
 			1201
 		],
@@ -530,12 +530,12 @@
 	},
 	{
 		"i_autoUse": 1,
-		"i_bagType": 1,
+		"i_bagType": 0,
 		"i_id": 2002,
 		"i_maxStack": 0,
 		"i_maxUse": 0,
 		"i_quality": 0,
-		"i_useType": 4,
+		"i_useType": 0,
 		"il_useParam": [
 			1202
 		],
@@ -545,12 +545,12 @@
 	},
 	{
 		"i_autoUse": 1,
-		"i_bagType": 1,
+		"i_bagType": 0,
 		"i_id": 2003,
 		"i_maxStack": 0,
 		"i_maxUse": 0,
 		"i_quality": 0,
-		"i_useType": 4,
+		"i_useType": 0,
 		"il_useParam": [
 			1203
 		],
@@ -560,12 +560,12 @@
 	},
 	{
 		"i_autoUse": 1,
-		"i_bagType": 1,
+		"i_bagType": 0,
 		"i_id": 2004,
 		"i_maxStack": 0,
 		"i_maxUse": 0,
 		"i_quality": 0,
-		"i_useType": 4,
+		"i_useType": 0,
 		"il_useParam": [
 			1204
 		],
@@ -575,12 +575,12 @@
 	},
 	{
 		"i_autoUse": 1,
-		"i_bagType": 1,
+		"i_bagType": 0,
 		"i_id": 2005,
 		"i_maxStack": 0,
 		"i_maxUse": 0,
 		"i_quality": 0,
-		"i_useType": 4,
+		"i_useType": 0,
 		"il_useParam": [
 			1205
 		],
@@ -590,12 +590,12 @@
 	},
 	{
 		"i_autoUse": 1,
-		"i_bagType": 1,
+		"i_bagType": 0,
 		"i_id": 2006,
 		"i_maxStack": 0,
 		"i_maxUse": 0,
-		"i_quality": 1,
-		"i_useType": 4,
+		"i_quality": 0,
+		"i_useType": 0,
 		"il_useParam": [
 			1206
 		],
@@ -605,12 +605,12 @@
 	},
 	{
 		"i_autoUse": 1,
-		"i_bagType": 1,
+		"i_bagType": 0,
 		"i_id": 2007,
 		"i_maxStack": 0,
 		"i_maxUse": 0,
-		"i_quality": 1,
-		"i_useType": 4,
+		"i_quality": 0,
+		"i_useType": 0,
 		"il_useParam": [
 			1207
 		],
@@ -620,12 +620,12 @@
 	},
 	{
 		"i_autoUse": 1,
-		"i_bagType": 1,
+		"i_bagType": 0,
 		"i_id": 2008,
 		"i_maxStack": 0,
 		"i_maxUse": 0,
-		"i_quality": 1,
-		"i_useType": 4,
+		"i_quality": 0,
+		"i_useType": 0,
 		"il_useParam": [
 			1208
 		],
@@ -635,12 +635,12 @@
 	},
 	{
 		"i_autoUse": 1,
-		"i_bagType": 1,
+		"i_bagType": 0,
 		"i_id": 2009,
 		"i_maxStack": 0,
 		"i_maxUse": 0,
-		"i_quality": 1,
-		"i_useType": 4,
+		"i_quality": 0,
+		"i_useType": 0,
 		"il_useParam": [
 			1209
 		],
@@ -650,12 +650,12 @@
 	},
 	{
 		"i_autoUse": 1,
-		"i_bagType": 1,
+		"i_bagType": 0,
 		"i_id": 2010,
 		"i_maxStack": 0,
 		"i_maxUse": 0,
-		"i_quality": 1,
-		"i_useType": 4,
+		"i_quality": 0,
+		"i_useType": 0,
 		"il_useParam": [
 			1210
 		],
@@ -665,12 +665,12 @@
 	},
 	{
 		"i_autoUse": 1,
-		"i_bagType": 1,
+		"i_bagType": 0,
 		"i_id": 2011,
 		"i_maxStack": 0,
 		"i_maxUse": 0,
-		"i_quality": 2,
-		"i_useType": 4,
+		"i_quality": 0,
+		"i_useType": 0,
 		"il_useParam": [
 			1211
 		],
@@ -680,12 +680,12 @@
 	},
 	{
 		"i_autoUse": 1,
-		"i_bagType": 1,
+		"i_bagType": 0,
 		"i_id": 2012,
 		"i_maxStack": 0,
 		"i_maxUse": 0,
-		"i_quality": 2,
-		"i_useType": 4,
+		"i_quality": 0,
+		"i_useType": 0,
 		"il_useParam": [
 			1212
 		],
@@ -695,12 +695,12 @@
 	},
 	{
 		"i_autoUse": 1,
-		"i_bagType": 1,
+		"i_bagType": 0,
 		"i_id": 2013,
 		"i_maxStack": 0,
 		"i_maxUse": 0,
-		"i_quality": 2,
-		"i_useType": 4,
+		"i_quality": 0,
+		"i_useType": 0,
 		"il_useParam": [
 			1213
 		],
@@ -710,12 +710,12 @@
 	},
 	{
 		"i_autoUse": 1,
-		"i_bagType": 1,
+		"i_bagType": 0,
 		"i_id": 2014,
 		"i_maxStack": 0,
 		"i_maxUse": 0,
-		"i_quality": 2,
-		"i_useType": 4,
+		"i_quality": 0,
+		"i_useType": 0,
 		"il_useParam": [
 			1214
 		],
@@ -725,12 +725,12 @@
 	},
 	{
 		"i_autoUse": 1,
-		"i_bagType": 1,
+		"i_bagType": 0,
 		"i_id": 2015,
 		"i_maxStack": 0,
 		"i_maxUse": 0,
-		"i_quality": 2,
-		"i_useType": 4,
+		"i_quality": 0,
+		"i_useType": 0,
 		"il_useParam": [
 			1215
 		],
@@ -740,12 +740,12 @@
 	},
 	{
 		"i_autoUse": 1,
-		"i_bagType": 1,
+		"i_bagType": 0,
 		"i_id": 2016,
 		"i_maxStack": 0,
 		"i_maxUse": 0,
-		"i_quality": 3,
-		"i_useType": 4,
+		"i_quality": 0,
+		"i_useType": 0,
 		"il_useParam": [
 			1216
 		],
@@ -755,12 +755,12 @@
 	},
 	{
 		"i_autoUse": 1,
-		"i_bagType": 1,
+		"i_bagType": 0,
 		"i_id": 2017,
 		"i_maxStack": 0,
 		"i_maxUse": 0,
-		"i_quality": 3,
-		"i_useType": 4,
+		"i_quality": 0,
+		"i_useType": 0,
 		"il_useParam": [
 			1217
 		],
@@ -770,12 +770,12 @@
 	},
 	{
 		"i_autoUse": 1,
-		"i_bagType": 1,
+		"i_bagType": 0,
 		"i_id": 2018,
 		"i_maxStack": 0,
 		"i_maxUse": 0,
-		"i_quality": 3,
-		"i_useType": 4,
+		"i_quality": 0,
+		"i_useType": 0,
 		"il_useParam": [
 			1218
 		],
@@ -785,12 +785,12 @@
 	},
 	{
 		"i_autoUse": 1,
-		"i_bagType": 1,
+		"i_bagType": 0,
 		"i_id": 2019,
 		"i_maxStack": 0,
 		"i_maxUse": 0,
-		"i_quality": 3,
-		"i_useType": 4,
+		"i_quality": 0,
+		"i_useType": 0,
 		"il_useParam": [
 			1219
 		],
@@ -800,12 +800,12 @@
 	},
 	{
 		"i_autoUse": 1,
-		"i_bagType": 1,
+		"i_bagType": 0,
 		"i_id": 2020,
 		"i_maxStack": 0,
 		"i_maxUse": 0,
-		"i_quality": 3,
-		"i_useType": 4,
+		"i_quality": 0,
+		"i_useType": 0,
 		"il_useParam": [
 			1220
 		],
@@ -815,12 +815,12 @@
 	},
 	{
 		"i_autoUse": 1,
-		"i_bagType": 1,
+		"i_bagType": 0,
 		"i_id": 3001,
 		"i_maxStack": 0,
 		"i_maxUse": 0,
-		"i_quality": 4,
-		"i_useType": 4,
+		"i_quality": 0,
+		"i_useType": 0,
 		"il_useParam": [
 			106
 		],
@@ -829,517 +829,517 @@
 		"s_name": "随机使徒"
 	},
 	{
-		"i_bagType": 2,
+		"i_bagType": 0,
 		"i_id": 10101,
-		"i_quality": 2,
+		"i_quality": 0,
 		"s_desc": "神秘沙塑碎片，用于晶核突破",
 		"s_itemIcon": "",
 		"s_name": "神秘沙塑碎片"
 	},
 	{
-		"i_bagType": 2,
+		"i_bagType": 0,
 		"i_id": 10102,
-		"i_quality": 2,
+		"i_quality": 0,
 		"s_desc": "勇士雕像碎片，用于晶核突破",
 		"s_itemIcon": "",
 		"s_name": "勇士雕像碎片"
 	},
 	{
-		"i_bagType": 2,
+		"i_bagType": 0,
 		"i_id": 10103,
-		"i_quality": 3,
+		"i_quality": 0,
 		"s_desc": "炎能水晶瓶碎片，用于晶核突破",
 		"s_itemIcon": "",
 		"s_name": "炎能水晶瓶碎片"
 	},
 	{
-		"i_bagType": 2,
+		"i_bagType": 0,
 		"i_id": 10104,
-		"i_quality": 3,
+		"i_quality": 0,
 		"s_desc": "蓄能刻印仪碎片，用于晶核突破",
 		"s_itemIcon": "",
 		"s_name": "蓄能刻印仪碎片"
 	},
 	{
-		"i_bagType": 2,
+		"i_bagType": 0,
 		"i_id": 10105,
-		"i_quality": 4,
+		"i_quality": 0,
 		"s_desc": "迷离火炬碎片，用于晶核突破",
 		"s_itemIcon": "",
 		"s_name": "迷离火炬碎片"
 	},
 	{
-		"i_bagType": 2,
+		"i_bagType": 0,
 		"i_id": 10106,
-		"i_quality": 5,
+		"i_quality": 0,
 		"s_desc": "炽神法杖碎片，用于晶核突破",
 		"s_itemIcon": "",
 		"s_name": "炽神法杖碎片"
 	},
 	{
-		"i_bagType": 2,
+		"i_bagType": 0,
 		"i_id": 10201,
-		"i_quality": 2,
+		"i_quality": 0,
 		"s_desc": "星际卷轴碎片，用于晶核突破",
 		"s_itemIcon": "",
 		"s_name": "星际卷轴碎片"
 	},
 	{
-		"i_bagType": 2,
+		"i_bagType": 0,
 		"i_id": 10202,
-		"i_quality": 2,
+		"i_quality": 0,
 		"s_desc": "精密天文镜碎片，用于晶核突破",
 		"s_itemIcon": "",
 		"s_name": "精密天文镜碎片"
 	},
 	{
-		"i_bagType": 2,
+		"i_bagType": 0,
 		"i_id": 10203,
-		"i_quality": 3,
+		"i_quality": 0,
 		"s_desc": "微型能源碎片，用于晶核突破",
 		"s_itemIcon": "",
 		"s_name": "微型能源碎片"
 	},
 	{
-		"i_bagType": 2,
+		"i_bagType": 0,
 		"i_id": 10204,
-		"i_quality": 3,
+		"i_quality": 0,
 		"s_desc": "神秘的画作碎片，用于晶核突破",
 		"s_itemIcon": "",
 		"s_name": "神秘的画作碎片"
 	},
 	{
-		"i_bagType": 2,
+		"i_bagType": 0,
 		"i_id": 10205,
-		"i_quality": 4,
+		"i_quality": 0,
 		"s_desc": "元素祭祀鼎碎片，用于晶核突破",
 		"s_itemIcon": "",
 		"s_name": "元素祭祀鼎碎片"
 	},
 	{
-		"i_bagType": 2,
+		"i_bagType": 0,
 		"i_id": 10206,
-		"i_quality": 5,
+		"i_quality": 0,
 		"s_desc": "法纳斯之眼碎片，用于晶核突破",
 		"s_itemIcon": "",
 		"s_name": "法纳斯之眼碎片"
 	},
 	{
-		"i_bagType": 2,
+		"i_bagType": 0,
 		"i_id": 10301,
-		"i_quality": 2,
+		"i_quality": 0,
 		"s_desc": "翠绿结晶碎片，用于晶核突破",
 		"s_itemIcon": "",
 		"s_name": "翠绿结晶碎片"
 	},
 	{
-		"i_bagType": 2,
+		"i_bagType": 0,
 		"i_id": 10302,
-		"i_quality": 2,
+		"i_quality": 0,
 		"s_desc": "秘文琥珀碎片，用于晶核突破",
 		"s_itemIcon": "",
 		"s_name": "秘文琥珀碎片"
 	},
 	{
-		"i_bagType": 2,
+		"i_bagType": 0,
 		"i_id": 10303,
-		"i_quality": 3,
+		"i_quality": 0,
 		"s_desc": "八面星骰碎片，用于晶核突破",
 		"s_itemIcon": "",
 		"s_name": "八面星骰碎片"
 	},
 	{
-		"i_bagType": 2,
+		"i_bagType": 0,
 		"i_id": 10304,
-		"i_quality": 3,
+		"i_quality": 0,
 		"s_desc": "虚能头盔碎片，用于晶核突破",
 		"s_itemIcon": "",
 		"s_name": "虚能头盔碎片"
 	},
 	{
-		"i_bagType": 2,
+		"i_bagType": 0,
 		"i_id": 10305,
-		"i_quality": 4,
+		"i_quality": 0,
 		"s_desc": "次古培养舱碎片，用于晶核突破",
 		"s_itemIcon": "",
 		"s_name": "次古培养舱碎片"
 	},
 	{
-		"i_bagType": 2,
+		"i_bagType": 0,
 		"i_id": 10306,
-		"i_quality": 5,
+		"i_quality": 0,
 		"s_desc": "毁灭氢能碎片，用于晶核突破",
 		"s_itemIcon": "",
 		"s_name": "毁灭氢能碎片"
 	},
 	{
-		"i_bagType": 2,
+		"i_bagType": 0,
 		"i_id": 10401,
-		"i_quality": 2,
+		"i_quality": 0,
 		"s_desc": "灵狮雕像碎片，用于晶核突破",
 		"s_itemIcon": "",
 		"s_name": "灵狮雕像碎片"
 	},
 	{
-		"i_bagType": 2,
+		"i_bagType": 0,
 		"i_id": 10402,
-		"i_quality": 2,
+		"i_quality": 0,
 		"s_desc": "风之头盔碎片，用于晶核突破",
 		"s_itemIcon": "",
 		"s_name": "风之头盔碎片"
 	},
 	{
-		"i_bagType": 2,
+		"i_bagType": 0,
 		"i_id": 10403,
-		"i_quality": 3,
+		"i_quality": 0,
 		"s_desc": "科技怀表碎片，用于晶核突破",
 		"s_itemIcon": "",
 		"s_name": "科技怀表碎片"
 	},
 	{
-		"i_bagType": 2,
+		"i_bagType": 0,
 		"i_id": 10404,
-		"i_quality": 3,
+		"i_quality": 0,
 		"s_desc": "恒星指令碎片，用于晶核突破",
 		"s_itemIcon": "",
 		"s_name": "恒星指令碎片"
 	},
 	{
-		"i_bagType": 2,
+		"i_bagType": 0,
 		"i_id": 10405,
-		"i_quality": 4,
+		"i_quality": 0,
 		"s_desc": "失落的密匙碎片，用于晶核突破",
 		"s_itemIcon": "",
 		"s_name": "失落的密匙碎片"
 	},
 	{
-		"i_bagType": 2,
+		"i_bagType": 0,
 		"i_id": 10406,
-		"i_quality": 5,
+		"i_quality": 0,
 		"s_desc": "永恒界锁碎片，用于晶核突破",
 		"s_itemIcon": "",
 		"s_name": "永恒界锁碎片"
 	},
 	{
-		"i_bagType": 2,
+		"i_bagType": 0,
 		"i_id": 10407,
-		"i_quality": 5,
+		"i_quality": 0,
 		"s_desc": "次域定锚碎片，用于晶核突破",
 		"s_itemIcon": "",
 		"s_name": "次域定锚碎片"
 	},
 	{
-		"i_bagType": 2,
+		"i_bagType": 0,
 		"i_id": 10501,
-		"i_quality": 2,
+		"i_quality": 0,
 		"s_desc": "古董弹头碎片，用于晶核突破",
 		"s_itemIcon": "",
 		"s_name": "古董弹头碎片"
 	},
 	{
-		"i_bagType": 2,
+		"i_bagType": 0,
 		"i_id": 10502,
-		"i_quality": 2,
+		"i_quality": 0,
 		"s_desc": "烈焰花饰碎片，用于晶核突破",
 		"s_itemIcon": "",
 		"s_name": "烈焰花饰碎片"
 	},
 	{
-		"i_bagType": 2,
+		"i_bagType": 0,
 		"i_id": 10503,
-		"i_quality": 3,
+		"i_quality": 0,
 		"s_desc": "狂炎面罩碎片，用于晶核突破",
 		"s_itemIcon": "",
 		"s_name": "狂炎面罩碎片"
 	},
 	{
-		"i_bagType": 2,
+		"i_bagType": 0,
 		"i_id": 10504,
-		"i_quality": 3,
+		"i_quality": 0,
 		"s_desc": "薪武板甲碎片，用于晶核突破",
 		"s_itemIcon": "",
 		"s_name": "薪武板甲碎片"
 	},
 	{
-		"i_bagType": 2,
+		"i_bagType": 0,
 		"i_id": 10505,
-		"i_quality": 4,
+		"i_quality": 0,
 		"s_desc": "远烽卫星碎片，用于晶核突破",
 		"s_itemIcon": "",
 		"s_name": "远烽卫星碎片"
 	},
 	{
-		"i_bagType": 2,
+		"i_bagType": 0,
 		"i_id": 10506,
-		"i_quality": 5,
+		"i_quality": 0,
 		"s_desc": "圣晶投影碎片，用于晶核突破",
 		"s_itemIcon": "",
 		"s_name": "圣晶投影碎片"
 	},
 	{
-		"i_bagType": 2,
+		"i_bagType": 0,
 		"i_id": 10507,
-		"i_quality": 5,
+		"i_quality": 0,
 		"s_desc": "上古焱灵碎片，用于晶核突破",
 		"s_itemIcon": "",
 		"s_name": "上古焱灵碎片"
 	},
 	{
-		"i_bagType": 2,
+		"i_bagType": 0,
 		"i_id": 10601,
-		"i_quality": 2,
+		"i_quality": 0,
 		"s_desc": "渔者雕像碎片，用于晶核突破",
 		"s_itemIcon": "",
 		"s_name": "渔者雕像碎片"
 	},
 	{
-		"i_bagType": 2,
+		"i_bagType": 0,
 		"i_id": 10602,
-		"i_quality": 2,
+		"i_quality": 0,
 		"s_desc": "水晶头骨碎片，用于晶核突破",
 		"s_itemIcon": "",
 		"s_name": "水晶头骨碎片"
 	},
 	{
-		"i_bagType": 2,
+		"i_bagType": 0,
 		"i_id": 10603,
-		"i_quality": 3,
+		"i_quality": 0,
 		"s_desc": "异能手套碎片，用于晶核突破",
 		"s_itemIcon": "",
 		"s_name": "异能手套碎片"
 	},
 	{
-		"i_bagType": 2,
+		"i_bagType": 0,
 		"i_id": 10604,
-		"i_quality": 3,
+		"i_quality": 0,
 		"s_desc": "梵星圣杯碎片，用于晶核突破",
 		"s_itemIcon": "",
 		"s_name": "梵星圣杯碎片"
 	},
 	{
-		"i_bagType": 2,
+		"i_bagType": 0,
 		"i_id": 10605,
-		"i_quality": 4,
+		"i_quality": 0,
 		"s_desc": "水灵纹章碎片，用于晶核突破",
 		"s_itemIcon": "",
 		"s_name": "水灵纹章碎片"
 	},
 	{
-		"i_bagType": 2,
+		"i_bagType": 0,
 		"i_id": 10606,
-		"i_quality": 5,
+		"i_quality": 0,
 		"s_desc": "万灵核能碎片，用于晶核突破",
 		"s_itemIcon": "",
 		"s_name": "万灵核能碎片"
 	},
 	{
-		"i_bagType": 2,
+		"i_bagType": 0,
 		"i_id": 10607,
-		"i_quality": 5,
+		"i_quality": 0,
 		"s_desc": "碧蓝之心碎片，用于晶核突破",
 		"s_itemIcon": "",
 		"s_name": "碧蓝之心碎片"
 	},
 	{
-		"i_bagType": 2,
+		"i_bagType": 0,
 		"i_id": 11001,
-		"i_quality": 2,
+		"i_quality": 0,
 		"s_desc": "圣灵金币碎片，用于晶核突破",
 		"s_itemIcon": "",
 		"s_name": "圣灵金币碎片"
 	},
 	{
-		"i_bagType": 2,
+		"i_bagType": 0,
 		"i_id": 11002,
-		"i_quality": 2,
+		"i_quality": 0,
 		"s_desc": "十字盾碎片，用于晶核突破",
 		"s_itemIcon": "",
 		"s_name": "十字盾碎片"
 	},
 	{
-		"i_bagType": 2,
+		"i_bagType": 0,
 		"i_id": 11003,
-		"i_quality": 3,
+		"i_quality": 0,
 		"s_desc": "天使枪碎片，用于晶核突破",
 		"s_itemIcon": "",
 		"s_name": "天使枪碎片"
 	},
 	{
-		"i_bagType": 2,
+		"i_bagType": 0,
 		"i_id": 11004,
-		"i_quality": 3,
+		"i_quality": 0,
 		"s_desc": "光明芯源碎片，用于晶核突破",
 		"s_itemIcon": "",
 		"s_name": "光明芯源碎片"
 	},
 	{
-		"i_bagType": 2,
+		"i_bagType": 0,
 		"i_id": 11005,
-		"i_quality": 4,
+		"i_quality": 0,
 		"s_desc": "失落耳环碎片，用于晶核突破",
 		"s_itemIcon": "",
 		"s_name": "失落耳环碎片"
 	},
 	{
-		"i_bagType": 2,
+		"i_bagType": 0,
 		"i_id": 11006,
-		"i_quality": 4,
+		"i_quality": 0,
 		"s_desc": "圣者之弓碎片，用于晶核突破",
 		"s_itemIcon": "",
 		"s_name": "圣者之弓碎片"
 	},
 	{
-		"i_bagType": 2,
+		"i_bagType": 0,
 		"i_id": 11007,
-		"i_quality": 5,
+		"i_quality": 0,
 		"s_desc": "泰斯权杖碎片，用于晶核突破",
 		"s_itemIcon": "",
 		"s_name": "泰斯权杖碎片"
 	},
 	{
-		"i_bagType": 2,
+		"i_bagType": 0,
 		"i_id": 11008,
-		"i_quality": 5,
+		"i_quality": 0,
 		"s_desc": "献祭法器碎片，用于晶核突破",
 		"s_itemIcon": "",
 		"s_name": "献祭法器碎片"
 	},
 	{
-		"i_bagType": 2,
+		"i_bagType": 0,
 		"i_id": 11009,
-		"i_quality": 5,
+		"i_quality": 0,
 		"s_desc": "创世能源碎片，用于晶核突破",
 		"s_itemIcon": "",
 		"s_name": "创世能源碎片"
 	},
 	{
-		"i_bagType": 2,
+		"i_bagType": 0,
 		"i_id": 11201,
-		"i_quality": 2,
+		"i_quality": 0,
 		"s_desc": "暗汀魔方碎片，用于晶核突破",
 		"s_itemIcon": "",
 		"s_name": "暗汀魔方碎片"
 	},
 	{
-		"i_bagType": 2,
+		"i_bagType": 0,
 		"i_id": 11202,
-		"i_quality": 2,
+		"i_quality": 0,
 		"s_desc": "古代誓约碎片，用于晶核突破",
 		"s_itemIcon": "",
 		"s_name": "古代誓约碎片"
 	},
 	{
-		"i_bagType": 2,
+		"i_bagType": 0,
 		"i_id": 11203,
-		"i_quality": 3,
+		"i_quality": 0,
 		"s_desc": "暗星护目碎片，用于晶核突破",
 		"s_itemIcon": "",
 		"s_name": "暗星护目碎片"
 	},
 	{
-		"i_bagType": 2,
+		"i_bagType": 0,
 		"i_id": 11204,
-		"i_quality": 3,
+		"i_quality": 0,
 		"s_desc": "术士斗篷碎片，用于晶核突破",
 		"s_itemIcon": "",
 		"s_name": "术士斗篷碎片"
 	},
 	{
-		"i_bagType": 2,
+		"i_bagType": 0,
 		"i_id": 11205,
-		"i_quality": 4,
+		"i_quality": 0,
 		"s_desc": "暗灵之源碎片，用于晶核突破",
 		"s_itemIcon": "",
 		"s_name": "暗灵之源碎片"
 	},
 	{
-		"i_bagType": 2,
+		"i_bagType": 0,
 		"i_id": 11206,
-		"i_quality": 4,
+		"i_quality": 0,
 		"s_desc": "禁忌魔法书碎片，用于晶核突破",
 		"s_itemIcon": "",
 		"s_name": "禁忌魔法书碎片"
 	},
 	{
-		"i_bagType": 2,
+		"i_bagType": 0,
 		"i_id": 11207,
-		"i_quality": 5,
+		"i_quality": 0,
 		"s_desc": "死灵之刃碎片，用于晶核突破",
 		"s_itemIcon": "",
 		"s_name": "死灵之刃碎片"
 	},
 	{
-		"i_bagType": 2,
+		"i_bagType": 0,
 		"i_id": 11208,
-		"i_quality": 5,
+		"i_quality": 0,
 		"s_desc": "宇宙之心碎片，用于晶核突破",
 		"s_itemIcon": "",
 		"s_name": "宇宙之心碎片"
 	},
 	{
-		"i_bagType": 2,
+		"i_bagType": 0,
 		"i_id": 11209,
-		"i_quality": 5,
+		"i_quality": 0,
 		"s_desc": "恶魔面具碎片，用于晶核突破",
 		"s_itemIcon": "",
 		"s_name": "恶魔面具碎片"
 	},
 	{
-		"i_bagType": 2,
+		"i_bagType": 0,
 		"i_id": 50001,
-		"i_quality": 3,
+		"i_quality": 0,
 		"s_desc": "使徒：火焰法环的碎片，可以对火焰法环进行升级",
 		"s_itemIcon": "50001",
 		"s_name": "火焰法环碎片"
 	},
 	{
-		"i_bagType": 2,
+		"i_bagType": 0,
 		"i_id": 50002,
-		"i_quality": 3,
+		"i_quality": 0,
 		"s_desc": "使徒：冰霜新星的碎片，可以对冰霜新星进行升级",
 		"s_itemIcon": "50002",
 		"s_name": "冰霜新星碎片"
 	},
 	{
-		"i_bagType": 2,
+		"i_bagType": 0,
 		"i_id": 50003,
-		"i_quality": 3,
+		"i_quality": 0,
 		"s_desc": "使徒：火焰轰鸣的碎片，可以对火焰轰鸣进行升级",
 		"s_itemIcon": "50003",
 		"s_name": "火焰轰鸣碎片"
 	},
 	{
-		"i_bagType": 2,
+		"i_bagType": 0,
 		"i_id": 50004,
-		"i_quality": 3,
+		"i_quality": 0,
 		"s_desc": "使徒：反击风暴的碎片，可以对反击风暴进行升级",
 		"s_itemIcon": "50004",
 		"s_name": "反击风暴碎片"
 	},
 	{
-		"i_bagType": 2,
+		"i_bagType": 0,
 		"i_id": 50005,
-		"i_quality": 3,
+		"i_quality": 0,
 		"s_desc": "使徒：治愈附魔的碎片，可以对治愈附魔进行升级",
 		"s_itemIcon": "50005",
 		"s_name": "治愈附魔碎片"
 	},
 	{
-		"i_bagType": 2,
+		"i_bagType": 0,
 		"i_id": 50006,
-		"i_quality": 3,
+		"i_quality": 0,
 		"s_desc": "使徒：寒冰法球的碎片，可以对寒冰法球进行升级",
 		"s_itemIcon": "50006",
 		"s_name": "寒冰法球碎片"
 	},
 	{
 		"i_autoUse": 0,
-		"i_bagType": 1,
+		"i_bagType": 0,
 		"i_id": 51001,
 		"i_maxStack": 0,
 		"i_maxUse": 0,
-		"i_quality": 3,
-		"i_useType": 2,
+		"i_quality": 0,
+		"i_useType": 0,
 		"il_useParam": [
 			14
 		],
@@ -1348,244 +1348,244 @@
 		"s_name": "随机使徒碎片"
 	},
 	{
-		"i_bagType": 2,
+		"i_bagType": 0,
 		"i_id": 100000,
 		"i_maxStack": 9999,
-		"i_quality": 4,
+		"i_quality": 0,
 		"s_desc": "万能英雄碎片",
 		"s_itemIcon": "100000",
 		"s_name": "万能英雄碎片"
 	},
 	{
-		"i_bagType": 2,
+		"i_bagType": 0,
 		"i_id": 100001,
 		"i_maxStack": 9999,
-		"i_quality": 4,
+		"i_quality": 0,
 		"s_desc": "秦始皇碎片",
 		"s_itemIcon": "100001",
 		"s_name": "秦始皇碎片"
 	},
 	{
-		"i_bagType": 2,
+		"i_bagType": 0,
 		"i_id": 100002,
 		"i_maxStack": 9999,
-		"i_quality": 4,
+		"i_quality": 0,
 		"s_desc": "右柱碎片",
 		"s_itemIcon": "100002",
 		"s_name": "右柱碎片"
 	},
 	{
-		"i_bagType": 2,
+		"i_bagType": 0,
 		"i_id": 100003,
 		"i_maxStack": 9999,
-		"i_quality": 4,
+		"i_quality": 0,
 		"s_desc": "爱因斯坦碎片",
 		"s_itemIcon": "100003",
 		"s_name": "爱因斯坦碎片"
 	},
 	{
-		"i_bagType": 2,
+		"i_bagType": 0,
 		"i_id": 100004,
 		"i_maxStack": 9999,
-		"i_quality": 4,
+		"i_quality": 0,
 		"s_desc": "南丁格尔碎片",
 		"s_itemIcon": "100004",
 		"s_name": "南丁格尔碎片"
 	},
 	{
-		"i_bagType": 2,
+		"i_bagType": 0,
 		"i_id": 100005,
 		"i_maxStack": 9999,
-		"i_quality": 4,
+		"i_quality": 0,
 		"s_desc": "死侍碎片",
 		"s_itemIcon": "100005",
 		"s_name": "死侍碎片"
 	},
 	{
-		"i_bagType": 2,
+		"i_bagType": 0,
 		"i_id": 100006,
 		"i_maxStack": 9999,
-		"i_quality": 4,
+		"i_quality": 0,
 		"s_desc": "火箭碎片",
 		"s_itemIcon": "100006",
 		"s_name": "火箭碎片"
 	},
 	{
-		"i_bagType": 2,
+		"i_bagType": 0,
 		"i_id": 100007,
 		"i_maxStack": 9999,
-		"i_quality": 4,
+		"i_quality": 0,
 		"s_desc": "海王碎片",
 		"s_itemIcon": "100007",
 		"s_name": "海王碎片"
 	},
 	{
-		"i_bagType": 2,
+		"i_bagType": 0,
 		"i_id": 100008,
 		"i_maxStack": 9999,
-		"i_quality": 4,
+		"i_quality": 0,
 		"s_desc": "金刚狼碎片",
 		"s_itemIcon": "100008",
 		"s_name": "金刚狼碎片"
 	},
 	{
-		"i_bagType": 2,
+		"i_bagType": 0,
 		"i_id": 100009,
 		"i_maxStack": 9999,
-		"i_quality": 4,
+		"i_quality": 0,
 		"s_desc": "奇异博士碎片",
 		"s_itemIcon": "100009",
 		"s_name": "奇异博士碎片"
 	},
 	{
-		"i_bagType": 2,
+		"i_bagType": 0,
 		"i_id": 100010,
 		"i_maxStack": 9999,
-		"i_quality": 4,
+		"i_quality": 0,
 		"s_desc": "绿巨人碎片",
 		"s_itemIcon": "100010",
 		"s_name": "绿巨人碎片"
 	},
 	{
-		"i_bagType": 2,
+		"i_bagType": 0,
 		"i_id": 100011,
 		"i_maxStack": 9999,
-		"i_quality": 4,
+		"i_quality": 0,
 		"s_desc": "小丑碎片",
 		"s_itemIcon": "100011",
 		"s_name": "小丑碎片"
 	},
 	{
-		"i_bagType": 2,
+		"i_bagType": 0,
 		"i_id": 100012,
 		"i_maxStack": 9999,
-		"i_quality": 4,
+		"i_quality": 0,
 		"s_desc": "水兵月碎片",
 		"s_itemIcon": "100012",
 		"s_name": "水兵月碎片"
 	},
 	{
-		"i_bagType": 2,
+		"i_bagType": 0,
 		"i_id": 100013,
 		"i_maxStack": 9999,
-		"i_quality": 4,
+		"i_quality": 0,
 		"s_desc": "终结者碎片",
 		"s_itemIcon": "100013",
 		"s_name": "终结者碎片"
 	},
 	{
-		"i_bagType": 2,
+		"i_bagType": 0,
 		"i_id": 100014,
 		"i_maxStack": 9999,
-		"i_quality": 4,
+		"i_quality": 0,
 		"s_desc": "闪电侠碎片",
 		"s_itemIcon": "100014",
 		"s_name": "闪电侠碎片"
 	},
 	{
-		"i_bagType": 2,
+		"i_bagType": 0,
 		"i_id": 100015,
 		"i_maxStack": 9999,
-		"i_quality": 4,
+		"i_quality": 0,
 		"s_desc": "绿箭侠碎片",
 		"s_itemIcon": "100015",
 		"s_name": "绿箭侠碎片"
 	},
 	{
-		"i_bagType": 2,
+		"i_bagType": 0,
 		"i_id": 100016,
 		"i_maxStack": 9999,
-		"i_quality": 4,
+		"i_quality": 0,
 		"s_desc": "船长碎片",
 		"s_itemIcon": "100016",
 		"s_name": "船长碎片"
 	},
 	{
-		"i_bagType": 2,
+		"i_bagType": 0,
 		"i_id": 100017,
 		"i_maxStack": 9999,
-		"i_quality": 4,
+		"i_quality": 0,
 		"s_desc": "冰人碎片",
 		"s_itemIcon": "100017",
 		"s_name": "冰人碎片"
 	},
 	{
-		"i_bagType": 2,
+		"i_bagType": 0,
 		"i_id": 100018,
 		"i_maxStack": 9999,
-		"i_quality": 4,
+		"i_quality": 0,
 		"s_desc": "金克斯碎片",
 		"s_itemIcon": "100018",
 		"s_name": "金克斯碎片"
 	},
 	{
-		"i_bagType": 2,
+		"i_bagType": 0,
 		"i_id": 100019,
 		"i_maxStack": 9999,
-		"i_quality": 4,
+		"i_quality": 0,
 		"s_desc": "明日香碎片",
 		"s_itemIcon": "100019",
 		"s_name": "明日香碎片"
 	},
 	{
-		"i_bagType": 2,
+		"i_bagType": 0,
 		"i_id": 100020,
 		"i_maxStack": 9999,
-		"i_quality": 4,
+		"i_quality": 0,
 		"s_desc": "龙姨碎片",
 		"s_itemIcon": "100020",
 		"s_name": "龙姨碎片"
 	},
 	{
-		"i_bagType": 2,
+		"i_bagType": 0,
 		"i_id": 100021,
 		"i_maxStack": 9999,
-		"i_quality": 4,
+		"i_quality": 0,
 		"s_desc": "暴风女碎片",
 		"s_itemIcon": "100021",
 		"s_name": "暴风女碎片"
 	},
 	{
-		"i_bagType": 2,
+		"i_bagType": 0,
 		"i_id": 100022,
 		"i_maxStack": 9999,
-		"i_quality": 4,
+		"i_quality": 0,
 		"s_desc": "雷神碎片",
 		"s_itemIcon": "100022",
 		"s_name": "雷神碎片"
 	},
 	{
-		"i_bagType": 2,
+		"i_bagType": 0,
 		"i_id": 100023,
 		"i_maxStack": 9999,
-		"i_quality": 4,
+		"i_quality": 0,
 		"s_desc": "赛亚人碎片",
 		"s_itemIcon": "100023",
 		"s_name": "赛亚人碎片"
 	},
 	{
-		"i_bagType": 2,
+		"i_bagType": 0,
 		"i_id": 100024,
 		"i_maxStack": 9999,
-		"i_quality": 4,
+		"i_quality": 0,
 		"s_desc": "吸血鬼碎片",
 		"s_itemIcon": "100024",
 		"s_name": "吸血鬼碎片"
 	},
 	{
-		"i_bagType": 2,
+		"i_bagType": 0,
 		"i_id": 100025,
 		"i_maxStack": 9999,
-		"i_quality": 4,
+		"i_quality": 0,
 		"s_desc": "灭霸碎片",
 		"s_itemIcon": "100025",
 		"s_name": "灭霸碎片"
 	},
 	{
-		"i_bagType": 2,
+		"i_bagType": 0,
 		"i_id": 100026,
 		"i_maxStack": 9999,
-		"i_quality": 4,
+		"i_quality": 0,
 		"s_desc": "魔人布欧碎片",
 		"s_itemIcon": "100026",
 		"s_name": "魔人布欧碎片"

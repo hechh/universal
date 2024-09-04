@@ -1,11 +1,11 @@
 [
 	{
 		"i_effectParamRate": 400,
-		"i_element": 1,
+		"i_element": 0,
 		"i_id": 103,
 		"i_pieceCount": 10,
 		"i_pieceID": 10103,
-		"i_quality": 3,
+		"i_quality": 0,
 		"il_passiveSkillId": [
 			110301,
 			110302,
@@ -15,29 +15,29 @@
 		],
 		"ill_addTalent": [
 			[
-				8,
+				0,
 				512
 			],
 			[
-				7,
+				0,
 				12
 			],
 			[
-				6,
+				0,
 				27
 			]
 		],
 		"ill_talent": [
 			[
-				8,
+				0,
 				512
 			],
 			[
-				7,
+				0,
 				12
 			],
 			[
-				6,
+				0,
 				27
 			]
 		],
@@ -47,11 +47,11 @@
 	},
 	{
 		"i_effectParamRate": 1200,
-		"i_element": 1,
+		"i_element": 0,
 		"i_id": 104,
 		"i_pieceCount": 10,
 		"i_pieceID": 10104,
-		"i_quality": 3,
+		"i_quality": 0,
 		"il_passiveSkillId": [
 			110401,
 			110402,
@@ -61,29 +61,29 @@
 		],
 		"ill_addTalent": [
 			[
-				8,
+				0,
 				419
 			],
 			[
-				7,
+				0,
 				6
 			],
 			[
-				6,
+				0,
 				66
 			]
 		],
 		"ill_talent": [
 			[
-				8,
+				0,
 				419
 			],
 			[
-				7,
+				0,
 				6
 			],
 			[
-				6,
+				0,
 				66
 			]
 		],
@@ -93,11 +93,11 @@
 	},
 	{
 		"i_effectParamRate": 200,
-		"i_element": 1,
+		"i_element": 0,
 		"i_id": 105,
 		"i_pieceCount": 10,
 		"i_pieceID": 10105,
-		"i_quality": 4,
+		"i_quality": 0,
 		"il_passiveSkillId": [
 			110501,
 			110502,
@@ -108,29 +108,29 @@
 		],
 		"ill_addTalent": [
 			[
-				8,
+				0,
 				763
 			],
 			[
-				7,
+				0,
 				18
 			],
 			[
-				6,
+				0,
 				40
 			]
 		],
 		"ill_talent": [
 			[
-				8,
+				0,
 				763
 			],
 			[
-				7,
+				0,
 				18
 			],
 			[
-				6,
+				0,
 				40
 			]
 		],
@@ -140,11 +140,11 @@
 	},
 	{
 		"i_effectParamRate": 5,
-		"i_element": 1,
+		"i_element": 0,
 		"i_id": 106,
 		"i_pieceCount": 10,
 		"i_pieceID": 10106,
-		"i_quality": 5,
+		"i_quality": 0,
 		"il_passiveSkillId": [
 			110601,
 			110602,
@@ -157,29 +157,29 @@
 		],
 		"ill_addTalent": [
 			[
-				8,
+				0,
 				830
 			],
 			[
-				7,
+				0,
 				13
 			],
 			[
-				6,
+				0,
 				126
 			]
 		],
 		"ill_talent": [
 			[
-				8,
+				0,
 				830
 			],
 			[
-				7,
+				0,
 				13
 			],
 			[
-				6,
+				0,
 				126
 			]
 		],
@@ -193,7 +193,7 @@
 		"i_id": 201,
 		"i_pieceCount": 10,
 		"i_pieceID": 10201,
-		"i_quality": 2,
+		"i_quality": 0,
 		"il_passiveSkillId": [
 			120101,
 			120102,
@@ -202,29 +202,29 @@
 		],
 		"ill_addTalent": [
 			[
-				8,
+				0,
 				254
 			],
 			[
-				7,
+				0,
 				6
 			],
 			[
-				6,
+				0,
 				13
 			]
 		],
 		"ill_talent": [
 			[
-				8,
+				0,
 				254
 			],
 			[
-				7,
+				0,
 				6
 			],
 			[
-				6,
+				0,
 				13
 			]
 		],
@@ -238,7 +238,7 @@
 		"i_id": 202,
 		"i_pieceCount": 10,
 		"i_pieceID": 10201,
-		"i_quality": 2,
+		"i_quality": 0,
 		"il_passiveSkillId": [
 			120201,
 			120202,
@@ -247,29 +247,29 @@
 		],
 		"ill_addTalent": [
 			[
-				8,
+				0,
 				207
 			],
 			[
-				7,
+				0,
 				3
 			],
 			[
-				6,
+				0,
 				33
 			]
 		],
 		"ill_talent": [
 			[
-				8,
+				0,
 				207
 			],
 			[
-				7,
+				0,
 				3
 			],
 			[
-				6,
+				0,
 				33
 			]
 		],
@@ -283,7 +283,7 @@
 		"i_id": 203,
 		"i_pieceCount": 10,
 		"i_pieceID": 10203,
-		"i_quality": 3,
+		"i_quality": 0,
 		"il_passiveSkillId": [
 			120301,
 			120302,
@@ -293,29 +293,29 @@
 		],
 		"ill_addTalent": [
 			[
-				8,
+				0,
 				536
 			],
 			[
-				7,
+				0,
 				10
 			],
 			[
-				6,
+				0,
 				33
 			]
 		],
 		"ill_talent": [
 			[
-				8,
+				0,
 				536
 			],
 			[
-				7,
+				0,
 				10
 			],
 			[
-				6,
+				0,
 				33
 			]
 		],
@@ -329,7 +329,7 @@
 		"i_id": 205,
 		"i_pieceCount": 10,
 		"i_pieceID": 10205,
-		"i_quality": 4,
+		"i_quality": 0,
 		"il_passiveSkillId": [
 			120501,
 			120502,
@@ -340,29 +340,29 @@
 		],
 		"ill_addTalent": [
 			[
-				8,
+				0,
 				625
 			],
 			[
-				7,
+				0,
 				9
 			],
 			[
-				6,
+				0,
 				98
 			]
 		],
 		"ill_talent": [
 			[
-				8,
+				0,
 				625
 			],
 			[
-				7,
+				0,
 				9
 			],
 			[
-				6,
+				0,
 				98
 			]
 		],
@@ -376,7 +376,7 @@
 		"i_id": 206,
 		"i_pieceCount": 10,
 		"i_pieceID": 10206,
-		"i_quality": 5,
+		"i_quality": 0,
 		"il_passiveSkillId": [
 			120601,
 			120602,
@@ -389,29 +389,29 @@
 		],
 		"ill_addTalent": [
 			[
-				8,
+				0,
 				830
 			],
 			[
-				7,
+				0,
 				13
 			],
 			[
-				6,
+				0,
 				126
 			]
 		],
 		"ill_talent": [
 			[
-				8,
+				0,
 				830
 			],
 			[
-				7,
+				0,
 				13
 			],
 			[
-				6,
+				0,
 				126
 			]
 		],
@@ -421,11 +421,11 @@
 	},
 	{
 		"i_effectParamRate": 200,
-		"i_element": 2,
+		"i_element": 0,
 		"i_id": 301,
 		"i_pieceCount": 10,
 		"i_pieceID": 10301,
-		"i_quality": 2,
+		"i_quality": 0,
 		"il_passiveSkillId": [
 			130101,
 			130102,
@@ -434,29 +434,29 @@
 		],
 		"ill_addTalent": [
 			[
-				8,
+				0,
 				265
 			],
 			[
-				7,
+				0,
 				5
 			],
 			[
-				6,
+				0,
 				16
 			]
 		],
 		"ill_talent": [
 			[
-				8,
+				0,
 				265
 			],
 			[
-				7,
+				0,
 				5
 			],
 			[
-				6,
+				0,
 				16
 			]
 		],
@@ -466,11 +466,11 @@
 	},
 	{
 		"i_effectParamRate": 400,
-		"i_element": 2,
+		"i_element": 0,
 		"i_id": 303,
 		"i_pieceCount": 10,
 		"i_pieceID": 10303,
-		"i_quality": 3,
+		"i_quality": 0,
 		"il_passiveSkillId": [
 			130301,
 			130302,
@@ -480,29 +480,29 @@
 		],
 		"ill_addTalent": [
 			[
-				8,
+				0,
 				419
 			],
 			[
-				7,
+				0,
 				6
 			],
 			[
-				6,
+				0,
 				66
 			]
 		],
 		"ill_talent": [
 			[
-				8,
+				0,
 				419
 			],
 			[
-				7,
+				0,
 				6
 			],
 			[
-				6,
+				0,
 				66
 			]
 		],
@@ -512,11 +512,11 @@
 	},
 	{
 		"i_effectParamRate": 1200,
-		"i_element": 2,
+		"i_element": 0,
 		"i_id": 304,
 		"i_pieceCount": 10,
 		"i_pieceID": 10304,
-		"i_quality": 3,
+		"i_quality": 0,
 		"il_passiveSkillId": [
 			130401,
 			130402,
@@ -526,29 +526,29 @@
 		],
 		"ill_addTalent": [
 			[
-				8,
+				0,
 				512
 			],
 			[
-				7,
+				0,
 				12
 			],
 			[
-				6,
+				0,
 				27
 			]
 		],
 		"ill_talent": [
 			[
-				8,
+				0,
 				512
 			],
 			[
-				7,
+				0,
 				12
 			],
 			[
-				6,
+				0,
 				27
 			]
 		],
@@ -558,11 +558,11 @@
 	},
 	{
 		"i_effectParamRate": 200,
-		"i_element": 2,
+		"i_element": 0,
 		"i_id": 305,
 		"i_pieceCount": 10,
 		"i_pieceID": 10305,
-		"i_quality": 4,
+		"i_quality": 0,
 		"il_passiveSkillId": [
 			130501,
 			130502,
@@ -573,29 +573,29 @@
 		],
 		"ill_addTalent": [
 			[
-				8,
+				0,
 				798
 			],
 			[
-				7,
+				0,
 				16
 			],
 			[
-				6,
+				0,
 				48
 			]
 		],
 		"ill_talent": [
 			[
-				8,
+				0,
 				798
 			],
 			[
-				7,
+				0,
 				16
 			],
 			[
-				6,
+				0,
 				48
 			]
 		],
@@ -605,11 +605,11 @@
 	},
 	{
 		"i_effectParamRate": 1,
-		"i_element": 2,
+		"i_element": 0,
 		"i_id": 306,
 		"i_pieceCount": 10,
 		"i_pieceID": 10306,
-		"i_quality": 5,
+		"i_quality": 0,
 		"il_passiveSkillId": [
 			130601,
 			130602,
@@ -622,29 +622,29 @@
 		],
 		"ill_addTalent": [
 			[
-				8,
+				0,
 				830
 			],
 			[
-				7,
+				0,
 				13
 			],
 			[
-				6,
+				0,
 				126
 			]
 		],
 		"ill_talent": [
 			[
-				8,
+				0,
 				830
 			],
 			[
-				7,
+				0,
 				13
 			],
 			[
-				6,
+				0,
 				126
 			]
 		],
@@ -654,11 +654,11 @@
 	},
 	{
 		"i_effectParamRate": 500,
-		"i_element": 2,
+		"i_element": 0,
 		"i_id": 402,
 		"i_pieceCount": 10,
 		"i_pieceID": 10402,
-		"i_quality": 2,
+		"i_quality": 0,
 		"il_passiveSkillId": [
 			140201,
 			140202,
@@ -667,29 +667,29 @@
 		],
 		"ill_addTalent": [
 			[
-				8,
+				0,
 				196
 			],
 			[
-				7,
+				0,
 				4
 			],
 			[
-				6,
+				0,
 				30
 			]
 		],
 		"ill_talent": [
 			[
-				8,
+				0,
 				196
 			],
 			[
-				7,
+				0,
 				4
 			],
 			[
-				6,
+				0,
 				30
 			]
 		],
@@ -699,11 +699,11 @@
 	},
 	{
 		"i_effectParamRate": 5,
-		"i_element": 2,
+		"i_element": 0,
 		"i_id": 405,
 		"i_pieceCount": 10,
 		"i_pieceID": 10405,
-		"i_quality": 4,
+		"i_quality": 0,
 		"il_passiveSkillId": [
 			140501,
 			140502,
@@ -714,29 +714,29 @@
 		],
 		"ill_addTalent": [
 			[
-				8,
+				0,
 				590
 			],
 			[
-				7,
+				0,
 				11
 			],
 			[
-				6,
+				0,
 				90
 			]
 		],
 		"ill_talent": [
 			[
-				8,
+				0,
 				590
 			],
 			[
-				7,
+				0,
 				11
 			],
 			[
-				6,
+				0,
 				90
 			]
 		],
@@ -746,11 +746,11 @@
 	},
 	{
 		"i_effectParamRate": 1,
-		"i_element": 2,
+		"i_element": 0,
 		"i_id": 406,
 		"i_pieceCount": 10,
 		"i_pieceID": 10406,
-		"i_quality": 5,
+		"i_quality": 0,
 		"il_passiveSkillId": [
 			140601,
 			140603,
@@ -762,29 +762,29 @@
 		],
 		"ill_addTalent": [
 			[
-				8,
+				0,
 				806
 			],
 			[
-				7,
+				0,
 				25
 			],
 			[
-				6,
+				0,
 				70
 			]
 		],
 		"ill_talent": [
 			[
-				8,
+				0,
 				806
 			],
 			[
-				7,
+				0,
 				25
 			],
 			[
-				6,
+				0,
 				70
 			]
 		],
@@ -794,11 +794,11 @@
 	},
 	{
 		"i_effectParamRate": 1,
-		"i_element": 2,
+		"i_element": 0,
 		"i_id": 407,
 		"i_pieceCount": 10,
 		"i_pieceID": 10407,
-		"i_quality": 5,
+		"i_quality": 0,
 		"il_passiveSkillId": [
 			140701,
 			140703,
@@ -810,29 +810,29 @@
 		],
 		"ill_addTalent": [
 			[
-				8,
+				0,
 				1130
 			],
 			[
-				7,
+				0,
 				17
 			],
 			[
-				6,
+				0,
 				80
 			]
 		],
 		"ill_talent": [
 			[
-				8,
+				0,
 				1130
 			],
 			[
-				7,
+				0,
 				17
 			],
 			[
-				6,
+				0,
 				80
 			]
 		],
@@ -842,11 +842,11 @@
 	},
 	{
 		"i_effectParamRate": 500,
-		"i_element": 1,
+		"i_element": 0,
 		"i_id": 501,
 		"i_pieceCount": 10,
 		"i_pieceID": 10501,
-		"i_quality": 2,
+		"i_quality": 0,
 		"il_passiveSkillId": [
 			150101,
 			150102,
@@ -855,29 +855,29 @@
 		],
 		"ill_addTalent": [
 			[
-				8,
+				0,
 				254
 			],
 			[
-				7,
+				0,
 				6
 			],
 			[
-				6,
+				0,
 				13
 			]
 		],
 		"ill_talent": [
 			[
-				8,
+				0,
 				254
 			],
 			[
-				7,
+				0,
 				6
 			],
 			[
-				6,
+				0,
 				13
 			]
 		],
@@ -887,11 +887,11 @@
 	},
 	{
 		"i_effectParamRate": 200,
-		"i_element": 1,
+		"i_element": 0,
 		"i_id": 502,
 		"i_pieceCount": 10,
 		"i_pieceID": 10502,
-		"i_quality": 2,
+		"i_quality": 0,
 		"il_passiveSkillId": [
 			150201,
 			150202,
@@ -900,29 +900,29 @@
 		],
 		"ill_addTalent": [
 			[
-				8,
+				0,
 				207
 			],
 			[
-				7,
+				0,
 				3
 			],
 			[
-				6,
+				0,
 				33
 			]
 		],
 		"ill_talent": [
 			[
-				8,
+				0,
 				207
 			],
 			[
-				7,
+				0,
 				3
 			],
 			[
-				6,
+				0,
 				33
 			]
 		],
@@ -932,11 +932,11 @@
 	},
 	{
 		"i_effectParamRate": 1,
-		"i_element": 1,
+		"i_element": 0,
 		"i_id": 505,
 		"i_pieceCount": 10,
 		"i_pieceID": 10505,
-		"i_quality": 4,
+		"i_quality": 0,
 		"il_passiveSkillId": [
 			150501,
 			150502,
@@ -947,29 +947,29 @@
 		],
 		"ill_addTalent": [
 			[
-				8,
+				0,
 				625
 			],
 			[
-				7,
+				0,
 				9
 			],
 			[
-				6,
+				0,
 				98
 			]
 		],
 		"ill_talent": [
 			[
-				8,
+				0,
 				625
 			],
 			[
-				7,
+				0,
 				9
 			],
 			[
-				6,
+				0,
 				98
 			]
 		],
@@ -979,11 +979,11 @@
 	},
 	{
 		"i_effectParamRate": 1,
-		"i_element": 1,
+		"i_element": 0,
 		"i_id": 506,
 		"i_pieceCount": 10,
 		"i_pieceID": 10506,
-		"i_quality": 5,
+		"i_quality": 0,
 		"il_passiveSkillId": [
 			150601,
 			150603,
@@ -995,29 +995,29 @@
 		],
 		"ill_addTalent": [
 			[
-				8,
+				0,
 				806
 			],
 			[
-				7,
+				0,
 				25
 			],
 			[
-				6,
+				0,
 				70
 			]
 		],
 		"ill_talent": [
 			[
-				8,
+				0,
 				806
 			],
 			[
-				7,
+				0,
 				25
 			],
 			[
-				6,
+				0,
 				70
 			]
 		],
@@ -1027,11 +1027,11 @@
 	},
 	{
 		"i_effectParamRate": 1,
-		"i_element": 1,
+		"i_element": 0,
 		"i_id": 507,
 		"i_pieceCount": 10,
 		"i_pieceID": 10507,
-		"i_quality": 5,
+		"i_quality": 0,
 		"il_passiveSkillId": [
 			150701,
 			150703,
@@ -1043,29 +1043,29 @@
 		],
 		"ill_addTalent": [
 			[
-				8,
+				0,
 				1130
 			],
 			[
-				7,
+				0,
 				17
 			],
 			[
-				6,
+				0,
 				80
 			]
 		],
 		"ill_talent": [
 			[
-				8,
+				0,
 				1130
 			],
 			[
-				7,
+				0,
 				17
 			],
 			[
-				6,
+				0,
 				80
 			]
 		],
@@ -1079,7 +1079,7 @@
 		"i_id": 604,
 		"i_pieceCount": 10,
 		"i_pieceID": 10604,
-		"i_quality": 3,
+		"i_quality": 0,
 		"il_passiveSkillId": [
 			160401,
 			160402,
@@ -1089,29 +1089,29 @@
 		],
 		"ill_addTalent": [
 			[
-				8,
+				0,
 				396
 			],
 			[
-				7,
+				0,
 				8
 			],
 			[
-				6,
+				0,
 				60
 			]
 		],
 		"ill_talent": [
 			[
-				8,
+				0,
 				396
 			],
 			[
-				7,
+				0,
 				8
 			],
 			[
-				6,
+				0,
 				60
 			]
 		],
@@ -1125,7 +1125,7 @@
 		"i_id": 605,
 		"i_pieceCount": 10,
 		"i_pieceID": 10605,
-		"i_quality": 4,
+		"i_quality": 0,
 		"il_passiveSkillId": [
 			160501,
 			160502,
@@ -1136,29 +1136,29 @@
 		],
 		"ill_addTalent": [
 			[
-				8,
+				0,
 				763
 			],
 			[
-				7,
+				0,
 				18
 			],
 			[
-				6,
+				0,
 				40
 			]
 		],
 		"ill_talent": [
 			[
-				8,
+				0,
 				763
 			],
 			[
-				7,
+				0,
 				18
 			],
 			[
-				6,
+				0,
 				40
 			]
 		],
@@ -1172,7 +1172,7 @@
 		"i_id": 606,
 		"i_pieceCount": 10,
 		"i_pieceID": 10606,
-		"i_quality": 5,
+		"i_quality": 0,
 		"il_passiveSkillId": [
 			160601,
 			160603,
@@ -1184,29 +1184,29 @@
 		],
 		"ill_addTalent": [
 			[
-				8,
+				0,
 				806
 			],
 			[
-				7,
+				0,
 				25
 			],
 			[
-				6,
+				0,
 				70
 			]
 		],
 		"ill_talent": [
 			[
-				8,
+				0,
 				806
 			],
 			[
-				7,
+				0,
 				25
 			],
 			[
-				6,
+				0,
 				70
 			]
 		],
@@ -1220,7 +1220,7 @@
 		"i_id": 607,
 		"i_pieceCount": 10,
 		"i_pieceID": 10607,
-		"i_quality": 5,
+		"i_quality": 0,
 		"il_passiveSkillId": [
 			160701,
 			160703,
@@ -1232,29 +1232,29 @@
 		],
 		"ill_addTalent": [
 			[
-				8,
+				0,
 				1130
 			],
 			[
-				7,
+				0,
 				17
 			],
 			[
-				6,
+				0,
 				80
 			]
 		],
 		"ill_talent": [
 			[
-				8,
+				0,
 				1130
 			],
 			[
-				7,
+				0,
 				17
 			],
 			[
-				6,
+				0,
 				80
 			]
 		],
@@ -1264,11 +1264,11 @@
 	},
 	{
 		"i_effectParamRate": 500,
-		"i_element": 3,
+		"i_element": 0,
 		"i_id": 701,
 		"i_pieceCount": 10,
 		"i_pieceID": 11001,
-		"i_quality": 2,
+		"i_quality": 0,
 		"il_passiveSkillId": [
 			170101,
 			170102,
@@ -1277,29 +1277,29 @@
 		],
 		"ill_addTalent": [
 			[
-				8,
+				0,
 				265
 			],
 			[
-				7,
+				0,
 				5
 			],
 			[
-				6,
+				0,
 				16
 			]
 		],
 		"ill_talent": [
 			[
-				8,
+				0,
 				265
 			],
 			[
-				7,
+				0,
 				5
 			],
 			[
-				6,
+				0,
 				16
 			]
 		],
@@ -1309,11 +1309,11 @@
 	},
 	{
 		"i_effectParamRate": 200,
-		"i_element": 3,
+		"i_element": 0,
 		"i_id": 703,
 		"i_pieceCount": 10,
 		"i_pieceID": 11002,
-		"i_quality": 2,
+		"i_quality": 0,
 		"il_passiveSkillId": [
 			170301,
 			170302,
@@ -1322,29 +1322,29 @@
 		],
 		"ill_addTalent": [
 			[
-				8,
+				0,
 				196
 			],
 			[
-				7,
+				0,
 				4
 			],
 			[
-				6,
+				0,
 				30
 			]
 		],
 		"ill_talent": [
 			[
-				8,
+				0,
 				196
 			],
 			[
-				7,
+				0,
 				4
 			],
 			[
-				6,
+				0,
 				30
 			]
 		],
@@ -1354,11 +1354,11 @@
 	},
 	{
 		"i_effectParamRate": 1200,
-		"i_element": 3,
+		"i_element": 0,
 		"i_id": 706,
 		"i_pieceCount": 10,
 		"i_pieceID": 11003,
-		"i_quality": 3,
+		"i_quality": 0,
 		"il_passiveSkillId": [
 			170601,
 			170602,
@@ -1368,29 +1368,29 @@
 		],
 		"ill_addTalent": [
 			[
-				8,
+				0,
 				536
 			],
 			[
-				7,
+				0,
 				10
 			],
 			[
-				6,
+				0,
 				33
 			]
 		],
 		"ill_talent": [
 			[
-				8,
+				0,
 				536
 			],
 			[
-				7,
+				0,
 				10
 			],
 			[
-				6,
+				0,
 				33
 			]
 		],
@@ -1400,11 +1400,11 @@
 	},
 	{
 		"i_effectParamRate": 400,
-		"i_element": 3,
+		"i_element": 0,
 		"i_id": 707,
 		"i_pieceCount": 10,
 		"i_pieceID": 11004,
-		"i_quality": 3,
+		"i_quality": 0,
 		"il_passiveSkillId": [
 			170701,
 			170702,
@@ -1414,29 +1414,29 @@
 		],
 		"ill_addTalent": [
 			[
-				8,
+				0,
 				396
 			],
 			[
-				7,
+				0,
 				8
 			],
 			[
-				6,
+				0,
 				60
 			]
 		],
 		"ill_talent": [
 			[
-				8,
+				0,
 				396
 			],
 			[
-				7,
+				0,
 				8
 			],
 			[
-				6,
+				0,
 				60
 			]
 		],
@@ -1446,11 +1446,11 @@
 	},
 	{
 		"i_effectParamRate": 200,
-		"i_element": 3,
+		"i_element": 0,
 		"i_id": 709,
 		"i_pieceCount": 10,
 		"i_pieceID": 11005,
-		"i_quality": 4,
+		"i_quality": 0,
 		"il_passiveSkillId": [
 			170901,
 			170902,
@@ -1461,29 +1461,29 @@
 		],
 		"ill_addTalent": [
 			[
-				8,
+				0,
 				798
 			],
 			[
-				7,
+				0,
 				16
 			],
 			[
-				6,
+				0,
 				48
 			]
 		],
 		"ill_talent": [
 			[
-				8,
+				0,
 				798
 			],
 			[
-				7,
+				0,
 				16
 			],
 			[
-				6,
+				0,
 				48
 			]
 		],
@@ -1493,11 +1493,11 @@
 	},
 	{
 		"i_effectParamRate": 1,
-		"i_element": 3,
+		"i_element": 0,
 		"i_id": 710,
 		"i_pieceCount": 10,
 		"i_pieceID": 11006,
-		"i_quality": 4,
+		"i_quality": 0,
 		"il_passiveSkillId": [
 			171001,
 			171002,
@@ -1508,29 +1508,29 @@
 		],
 		"ill_addTalent": [
 			[
-				8,
+				0,
 				590
 			],
 			[
-				7,
+				0,
 				11
 			],
 			[
-				6,
+				0,
 				90
 			]
 		],
 		"ill_talent": [
 			[
-				8,
+				0,
 				590
 			],
 			[
-				7,
+				0,
 				11
 			],
 			[
-				6,
+				0,
 				90
 			]
 		],
@@ -1540,11 +1540,11 @@
 	},
 	{
 		"i_effectParamRate": 5,
-		"i_element": 3,
+		"i_element": 0,
 		"i_id": 711,
 		"i_pieceCount": 10,
 		"i_pieceID": 11007,
-		"i_quality": 5,
+		"i_quality": 0,
 		"il_passiveSkillId": [
 			171101,
 			171102,
@@ -1557,29 +1557,29 @@
 		],
 		"ill_addTalent": [
 			[
-				8,
+				0,
 				830
 			],
 			[
-				7,
+				0,
 				13
 			],
 			[
-				6,
+				0,
 				126
 			]
 		],
 		"ill_talent": [
 			[
-				8,
+				0,
 				830
 			],
 			[
-				7,
+				0,
 				13
 			],
 			[
-				6,
+				0,
 				126
 			]
 		],
@@ -1589,11 +1589,11 @@
 	},
 	{
 		"i_effectParamRate": 1,
-		"i_element": 3,
+		"i_element": 0,
 		"i_id": 712,
 		"i_pieceCount": 10,
 		"i_pieceID": 11008,
-		"i_quality": 5,
+		"i_quality": 0,
 		"il_passiveSkillId": [
 			171201,
 			171203,
@@ -1605,29 +1605,29 @@
 		],
 		"ill_addTalent": [
 			[
-				8,
+				0,
 				806
 			],
 			[
-				7,
+				0,
 				25
 			],
 			[
-				6,
+				0,
 				70
 			]
 		],
 		"ill_talent": [
 			[
-				8,
+				0,
 				806
 			],
 			[
-				7,
+				0,
 				25
 			],
 			[
-				6,
+				0,
 				70
 			]
 		],
@@ -1637,11 +1637,11 @@
 	},
 	{
 		"i_effectParamRate": 1,
-		"i_element": 3,
+		"i_element": 0,
 		"i_id": 713,
 		"i_pieceCount": 10,
 		"i_pieceID": 11009,
-		"i_quality": 5,
+		"i_quality": 0,
 		"il_passiveSkillId": [
 			171301,
 			171303,
@@ -1653,29 +1653,29 @@
 		],
 		"ill_addTalent": [
 			[
-				8,
+				0,
 				1130
 			],
 			[
-				7,
+				0,
 				17
 			],
 			[
-				6,
+				0,
 				80
 			]
 		],
 		"ill_talent": [
 			[
-				8,
+				0,
 				1130
 			],
 			[
-				7,
+				0,
 				17
 			],
 			[
-				6,
+				0,
 				80
 			]
 		],
@@ -1685,11 +1685,11 @@
 	},
 	{
 		"i_effectParamRate": 200,
-		"i_element": 4,
+		"i_element": 0,
 		"i_id": 803,
 		"i_pieceCount": 10,
 		"i_pieceID": 11201,
-		"i_quality": 2,
+		"i_quality": 0,
 		"il_passiveSkillId": [
 			180301,
 			180302,
@@ -1698,29 +1698,29 @@
 		],
 		"ill_addTalent": [
 			[
-				8,
+				0,
 				254
 			],
 			[
-				7,
+				0,
 				6
 			],
 			[
-				6,
+				0,
 				13
 			]
 		],
 		"ill_talent": [
 			[
-				8,
+				0,
 				254
 			],
 			[
-				7,
+				0,
 				6
 			],
 			[
-				6,
+				0,
 				13
 			]
 		],
@@ -1730,11 +1730,11 @@
 	},
 	{
 		"i_effectParamRate": 500,
-		"i_element": 4,
+		"i_element": 0,
 		"i_id": 804,
 		"i_pieceCount": 10,
 		"i_pieceID": 11202,
-		"i_quality": 2,
+		"i_quality": 0,
 		"il_passiveSkillId": [
 			180401,
 			180402,
@@ -1743,29 +1743,29 @@
 		],
 		"ill_addTalent": [
 			[
-				8,
+				0,
 				207
 			],
 			[
-				7,
+				0,
 				3
 			],
 			[
-				6,
+				0,
 				33
 			]
 		],
 		"ill_talent": [
 			[
-				8,
+				0,
 				207
 			],
 			[
-				7,
+				0,
 				3
 			],
 			[
-				6,
+				0,
 				33
 			]
 		],
@@ -1775,11 +1775,11 @@
 	},
 	{
 		"i_effectParamRate": 400,
-		"i_element": 4,
+		"i_element": 0,
 		"i_id": 806,
 		"i_pieceCount": 10,
 		"i_pieceID": 11203,
-		"i_quality": 3,
+		"i_quality": 0,
 		"il_passiveSkillId": [
 			180601,
 			180602,
@@ -1789,29 +1789,29 @@
 		],
 		"ill_addTalent": [
 			[
-				8,
+				0,
 				512
 			],
 			[
-				7,
+				0,
 				12
 			],
 			[
-				6,
+				0,
 				27
 			]
 		],
 		"ill_talent": [
 			[
-				8,
+				0,
 				512
 			],
 			[
-				7,
+				0,
 				12
 			],
 			[
-				6,
+				0,
 				27
 			]
 		],
@@ -1821,11 +1821,11 @@
 	},
 	{
 		"i_effectParamRate": 1200,
-		"i_element": 4,
+		"i_element": 0,
 		"i_id": 807,
 		"i_pieceCount": 10,
 		"i_pieceID": 11204,
-		"i_quality": 3,
+		"i_quality": 0,
 		"il_passiveSkillId": [
 			180701,
 			180702,
@@ -1835,29 +1835,29 @@
 		],
 		"ill_addTalent": [
 			[
-				8,
+				0,
 				419
 			],
 			[
-				7,
+				0,
 				6
 			],
 			[
-				6,
+				0,
 				66
 			]
 		],
 		"ill_talent": [
 			[
-				8,
+				0,
 				419
 			],
 			[
-				7,
+				0,
 				6
 			],
 			[
-				6,
+				0,
 				66
 			]
 		],
@@ -1867,11 +1867,11 @@
 	},
 	{
 		"i_effectParamRate": 200,
-		"i_element": 4,
+		"i_element": 0,
 		"i_id": 809,
 		"i_pieceCount": 10,
 		"i_pieceID": 11205,
-		"i_quality": 4,
+		"i_quality": 0,
 		"il_passiveSkillId": [
 			180901,
 			180902,
@@ -1882,29 +1882,29 @@
 		],
 		"ill_addTalent": [
 			[
-				8,
+				0,
 				763
 			],
 			[
-				7,
+				0,
 				18
 			],
 			[
-				6,
+				0,
 				40
 			]
 		],
 		"ill_talent": [
 			[
-				8,
+				0,
 				763
 			],
 			[
-				7,
+				0,
 				18
 			],
 			[
-				6,
+				0,
 				40
 			]
 		],
@@ -1914,11 +1914,11 @@
 	},
 	{
 		"i_effectParamRate": 5,
-		"i_element": 4,
+		"i_element": 0,
 		"i_id": 810,
 		"i_pieceCount": 10,
 		"i_pieceID": 11206,
-		"i_quality": 4,
+		"i_quality": 0,
 		"il_passiveSkillId": [
 			181001,
 			181002,
@@ -1929,29 +1929,29 @@
 		],
 		"ill_addTalent": [
 			[
-				8,
+				0,
 				625
 			],
 			[
-				7,
+				0,
 				9
 			],
 			[
-				6,
+				0,
 				98
 			]
 		],
 		"ill_talent": [
 			[
-				8,
+				0,
 				625
 			],
 			[
-				7,
+				0,
 				9
 			],
 			[
-				6,
+				0,
 				98
 			]
 		],
@@ -1961,11 +1961,11 @@
 	},
 	{
 		"i_effectParamRate": 5,
-		"i_element": 4,
+		"i_element": 0,
 		"i_id": 811,
 		"i_pieceCount": 10,
 		"i_pieceID": 11207,
-		"i_quality": 5,
+		"i_quality": 0,
 		"il_passiveSkillId": [
 			181101,
 			181102,
@@ -1978,29 +1978,29 @@
 		],
 		"ill_addTalent": [
 			[
-				8,
+				0,
 				830
 			],
 			[
-				7,
+				0,
 				13
 			],
 			[
-				6,
+				0,
 				126
 			]
 		],
 		"ill_talent": [
 			[
-				8,
+				0,
 				830
 			],
 			[
-				7,
+				0,
 				13
 			],
 			[
-				6,
+				0,
 				126
 			]
 		],
@@ -2010,11 +2010,11 @@
 	},
 	{
 		"i_effectParamRate": 1,
-		"i_element": 4,
+		"i_element": 0,
 		"i_id": 812,
 		"i_pieceCount": 10,
 		"i_pieceID": 11208,
-		"i_quality": 5,
+		"i_quality": 0,
 		"il_passiveSkillId": [
 			181201,
 			181203,
@@ -2026,29 +2026,29 @@
 		],
 		"ill_addTalent": [
 			[
-				8,
+				0,
 				806
 			],
 			[
-				7,
+				0,
 				25
 			],
 			[
-				6,
+				0,
 				70
 			]
 		],
 		"ill_talent": [
 			[
-				8,
+				0,
 				806
 			],
 			[
-				7,
+				0,
 				25
 			],
 			[
-				6,
+				0,
 				70
 			]
 		],
@@ -2058,11 +2058,11 @@
 	},
 	{
 		"i_effectParamRate": 1,
-		"i_element": 4,
+		"i_element": 0,
 		"i_id": 813,
 		"i_pieceCount": 10,
 		"i_pieceID": 11209,
-		"i_quality": 5,
+		"i_quality": 0,
 		"il_passiveSkillId": [
 			181301,
 			181303,
@@ -2074,29 +2074,29 @@
 		],
 		"ill_addTalent": [
 			[
-				8,
+				0,
 				1130
 			],
 			[
-				7,
+				0,
 				17
 			],
 			[
-				6,
+				0,
 				80
 			]
 		],
 		"ill_talent": [
 			[
-				8,
+				0,
 				1130
 			],
 			[
-				7,
+				0,
 				17
 			],
 			[
-				6,
+				0,
 				80
 			]
 		],

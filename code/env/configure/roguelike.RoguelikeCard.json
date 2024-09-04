@@ -1,11 +1,11 @@
 [
 	{
-		"i_applyProf": 999,
+		"i_applyProf": 0,
 		"i_cardTag": 0,
-		"i_cardType": 1,
+		"i_cardType": 0,
 		"i_id": 1,
-		"i_prof": 999,
-		"i_quality": 2,
+		"i_prof": 0,
+		"i_quality": 0,
 		"il_skill": [
 			0
 		],
@@ -17,12 +17,12 @@
 		"s_name": "英雄登场"
 	},
 	{
-		"i_applyProf": 999,
+		"i_applyProf": 0,
 		"i_cardTag": 0,
-		"i_cardType": 2,
+		"i_cardType": 0,
 		"i_id": 2,
-		"i_prof": 999,
-		"i_quality": 2,
+		"i_prof": 0,
+		"i_quality": 0,
 		"il_skill": [
 			0
 		],
@@ -34,12 +34,12 @@
 		"s_name": "英雄修炼"
 	},
 	{
-		"i_applyProf": 999,
-		"i_cardTag": 1,
-		"i_cardType": 3,
+		"i_applyProf": 0,
+		"i_cardTag": 0,
+		"i_cardType": 0,
 		"i_id": 3,
-		"i_prof": 999,
-		"i_quality": 3,
+		"i_prof": 0,
+		"i_quality": 0,
 		"il_skill": [
 			0
 		],
@@ -54,15 +54,15 @@
 		"fl_params": [
 			1
 		],
-		"i_applyProf": 4,
+		"i_applyProf": 0,
 		"i_cardTag": 0,
-		"i_cardType": 4,
+		"i_cardType": 0,
 		"i_id": 10,
-		"i_prof": 4,
-		"i_quality": 3,
+		"i_prof": 0,
+		"i_quality": 0,
 		"il_skill": [
-			999,
-			15
+			0,
+			0
 		],
 		"s_briefDesc": "",
 		"s_cardTypeDesc": "强化",
@@ -75,15 +75,15 @@
 		"fl_params": [
 			2
 		],
-		"i_applyProf": 4,
+		"i_applyProf": 0,
 		"i_cardTag": 0,
-		"i_cardType": 4,
+		"i_cardType": 0,
 		"i_id": 11,
-		"i_prof": 4,
-		"i_quality": 3,
+		"i_prof": 0,
+		"i_quality": 0,
 		"il_skill": [
-			999,
-			16
+			0,
+			0
 		],
 		"s_briefDesc": "",
 		"s_cardTypeDesc": "强化",
@@ -96,15 +96,15 @@
 		"fl_params": [
 			3
 		],
-		"i_applyProf": 4,
+		"i_applyProf": 0,
 		"i_cardTag": 0,
-		"i_cardType": 4,
+		"i_cardType": 0,
 		"i_id": 12,
-		"i_prof": 4,
-		"i_quality": 3,
+		"i_prof": 0,
+		"i_quality": 0,
 		"il_skill": [
-			999,
-			17
+			0,
+			0
 		],
 		"s_briefDesc": "",
 		"s_cardTypeDesc": "强化",
@@ -117,15 +117,15 @@
 		"fl_params": [
 			4
 		],
-		"i_applyProf": 4,
+		"i_applyProf": 0,
 		"i_cardTag": 0,
-		"i_cardType": 4,
+		"i_cardType": 0,
 		"i_id": 13,
-		"i_prof": 4,
-		"i_quality": 3,
+		"i_prof": 0,
+		"i_quality": 0,
 		"il_skill": [
-			999,
-			18
+			0,
+			0
 		],
 		"s_briefDesc": "",
 		"s_cardTypeDesc": "强化",
@@ -138,15 +138,15 @@
 		"fl_params": [
 			5
 		],
-		"i_applyProf": 4,
+		"i_applyProf": 0,
 		"i_cardTag": 0,
-		"i_cardType": 4,
+		"i_cardType": 0,
 		"i_id": 14,
-		"i_prof": 4,
-		"i_quality": 3,
+		"i_prof": 0,
+		"i_quality": 0,
 		"il_skill": [
-			999,
-			19
+			0,
+			0
 		],
 		"s_briefDesc": "",
 		"s_cardTypeDesc": "强化",
@@ -159,15 +159,15 @@
 		"fl_params": [
 			1
 		],
-		"i_applyProf": 3,
+		"i_applyProf": 0,
 		"i_cardTag": 0,
-		"i_cardType": 4,
+		"i_cardType": 0,
 		"i_id": 15,
-		"i_prof": 3,
-		"i_quality": 3,
+		"i_prof": 0,
+		"i_quality": 0,
 		"il_skill": [
-			999,
-			10
+			0,
+			0
 		],
 		"s_briefDesc": "",
 		"s_cardTypeDesc": "强化",
@@ -180,15 +180,15 @@
 		"fl_params": [
 			2
 		],
-		"i_applyProf": 3,
+		"i_applyProf": 0,
 		"i_cardTag": 0,
-		"i_cardType": 4,
+		"i_cardType": 0,
 		"i_id": 16,
-		"i_prof": 3,
-		"i_quality": 3,
+		"i_prof": 0,
+		"i_quality": 0,
 		"il_skill": [
-			999,
-			11
+			0,
+			0
 		],
 		"s_briefDesc": "",
 		"s_cardTypeDesc": "强化",
@@ -201,15 +201,15 @@
 		"fl_params": [
 			3
 		],
-		"i_applyProf": 3,
+		"i_applyProf": 0,
 		"i_cardTag": 0,
-		"i_cardType": 4,
+		"i_cardType": 0,
 		"i_id": 17,
-		"i_prof": 3,
-		"i_quality": 3,
+		"i_prof": 0,
+		"i_quality": 0,
 		"il_skill": [
-			999,
-			12
+			0,
+			0
 		],
 		"s_briefDesc": "",
 		"s_cardTypeDesc": "强化",
@@ -222,15 +222,15 @@
 		"fl_params": [
 			4
 		],
-		"i_applyProf": 3,
+		"i_applyProf": 0,
 		"i_cardTag": 0,
-		"i_cardType": 4,
+		"i_cardType": 0,
 		"i_id": 18,
-		"i_prof": 3,
-		"i_quality": 3,
+		"i_prof": 0,
+		"i_quality": 0,
 		"il_skill": [
-			999,
-			13
+			0,
+			0
 		],
 		"s_briefDesc": "",
 		"s_cardTypeDesc": "强化",
@@ -243,15 +243,15 @@
 		"fl_params": [
 			5
 		],
-		"i_applyProf": 3,
+		"i_applyProf": 0,
 		"i_cardTag": 0,
-		"i_cardType": 4,
+		"i_cardType": 0,
 		"i_id": 19,
-		"i_prof": 3,
-		"i_quality": 3,
+		"i_prof": 0,
+		"i_quality": 0,
 		"il_skill": [
-			999,
-			14
+			0,
+			0
 		],
 		"s_briefDesc": "",
 		"s_cardTypeDesc": "强化",
@@ -264,15 +264,15 @@
 		"fl_params": [
 			1
 		],
-		"i_applyProf": 1,
+		"i_applyProf": 0,
 		"i_cardTag": 0,
-		"i_cardType": 4,
+		"i_cardType": 0,
 		"i_id": 20,
-		"i_prof": 1,
-		"i_quality": 3,
+		"i_prof": 0,
+		"i_quality": 0,
 		"il_skill": [
-			999,
-			20
+			0,
+			0
 		],
 		"s_briefDesc": "",
 		"s_cardTypeDesc": "强化",
@@ -285,15 +285,15 @@
 		"fl_params": [
 			2
 		],
-		"i_applyProf": 1,
+		"i_applyProf": 0,
 		"i_cardTag": 0,
-		"i_cardType": 4,
+		"i_cardType": 0,
 		"i_id": 21,
-		"i_prof": 1,
-		"i_quality": 3,
+		"i_prof": 0,
+		"i_quality": 0,
 		"il_skill": [
-			999,
-			21
+			0,
+			0
 		],
 		"s_briefDesc": "",
 		"s_cardTypeDesc": "强化",
@@ -306,15 +306,15 @@
 		"fl_params": [
 			3
 		],
-		"i_applyProf": 1,
+		"i_applyProf": 0,
 		"i_cardTag": 0,
-		"i_cardType": 4,
+		"i_cardType": 0,
 		"i_id": 22,
-		"i_prof": 1,
-		"i_quality": 3,
+		"i_prof": 0,
+		"i_quality": 0,
 		"il_skill": [
-			999,
-			22
+			0,
+			0
 		],
 		"s_briefDesc": "",
 		"s_cardTypeDesc": "强化",
@@ -327,15 +327,15 @@
 		"fl_params": [
 			4
 		],
-		"i_applyProf": 1,
+		"i_applyProf": 0,
 		"i_cardTag": 0,
-		"i_cardType": 4,
+		"i_cardType": 0,
 		"i_id": 23,
-		"i_prof": 1,
-		"i_quality": 3,
+		"i_prof": 0,
+		"i_quality": 0,
 		"il_skill": [
-			999,
-			23
+			0,
+			0
 		],
 		"s_briefDesc": "",
 		"s_cardTypeDesc": "强化",
@@ -348,15 +348,15 @@
 		"fl_params": [
 			5
 		],
-		"i_applyProf": 1,
+		"i_applyProf": 0,
 		"i_cardTag": 0,
-		"i_cardType": 4,
+		"i_cardType": 0,
 		"i_id": 24,
-		"i_prof": 1,
-		"i_quality": 3,
+		"i_prof": 0,
+		"i_quality": 0,
 		"il_skill": [
-			999,
-			24
+			0,
+			0
 		],
 		"s_briefDesc": "",
 		"s_cardTypeDesc": "强化",
@@ -371,13 +371,13 @@
 		],
 		"i_applyProf": 0,
 		"i_cardTag": 0,
-		"i_cardType": 4,
+		"i_cardType": 0,
 		"i_id": 25,
 		"i_prof": 0,
-		"i_quality": 3,
+		"i_quality": 0,
 		"il_skill": [
-			999,
-			25
+			0,
+			0
 		],
 		"s_briefDesc": "",
 		"s_cardTypeDesc": "强化",
@@ -392,13 +392,13 @@
 		],
 		"i_applyProf": 0,
 		"i_cardTag": 0,
-		"i_cardType": 4,
+		"i_cardType": 0,
 		"i_id": 26,
 		"i_prof": 0,
-		"i_quality": 3,
+		"i_quality": 0,
 		"il_skill": [
-			999,
-			26
+			0,
+			0
 		],
 		"s_briefDesc": "",
 		"s_cardTypeDesc": "强化",
@@ -413,13 +413,13 @@
 		],
 		"i_applyProf": 0,
 		"i_cardTag": 0,
-		"i_cardType": 4,
+		"i_cardType": 0,
 		"i_id": 27,
 		"i_prof": 0,
-		"i_quality": 3,
+		"i_quality": 0,
 		"il_skill": [
-			999,
-			27
+			0,
+			0
 		],
 		"s_briefDesc": "",
 		"s_cardTypeDesc": "强化",
@@ -434,13 +434,13 @@
 		],
 		"i_applyProf": 0,
 		"i_cardTag": 0,
-		"i_cardType": 4,
+		"i_cardType": 0,
 		"i_id": 28,
 		"i_prof": 0,
-		"i_quality": 3,
+		"i_quality": 0,
 		"il_skill": [
-			999,
-			28
+			0,
+			0
 		],
 		"s_briefDesc": "",
 		"s_cardTypeDesc": "强化",
@@ -455,13 +455,13 @@
 		],
 		"i_applyProf": 0,
 		"i_cardTag": 0,
-		"i_cardType": 4,
+		"i_cardType": 0,
 		"i_id": 29,
 		"i_prof": 0,
-		"i_quality": 3,
+		"i_quality": 0,
 		"il_skill": [
-			999,
-			29
+			0,
+			0
 		],
 		"s_briefDesc": "",
 		"s_cardTypeDesc": "强化",
@@ -474,15 +474,15 @@
 		"fl_params": [
 			1
 		],
-		"i_applyProf": 2,
+		"i_applyProf": 0,
 		"i_cardTag": 0,
-		"i_cardType": 4,
+		"i_cardType": 0,
 		"i_id": 30,
-		"i_prof": 2,
-		"i_quality": 3,
+		"i_prof": 0,
+		"i_quality": 0,
 		"il_skill": [
-			999,
-			30
+			0,
+			0
 		],
 		"s_briefDesc": "",
 		"s_cardTypeDesc": "强化",
@@ -495,15 +495,15 @@
 		"fl_params": [
 			2
 		],
-		"i_applyProf": 2,
+		"i_applyProf": 0,
 		"i_cardTag": 0,
-		"i_cardType": 4,
+		"i_cardType": 0,
 		"i_id": 31,
-		"i_prof": 2,
-		"i_quality": 3,
+		"i_prof": 0,
+		"i_quality": 0,
 		"il_skill": [
-			999,
-			31
+			0,
+			0
 		],
 		"s_briefDesc": "",
 		"s_cardTypeDesc": "强化",
@@ -516,15 +516,15 @@
 		"fl_params": [
 			3
 		],
-		"i_applyProf": 2,
+		"i_applyProf": 0,
 		"i_cardTag": 0,
-		"i_cardType": 4,
+		"i_cardType": 0,
 		"i_id": 32,
-		"i_prof": 2,
-		"i_quality": 3,
+		"i_prof": 0,
+		"i_quality": 0,
 		"il_skill": [
-			999,
-			32
+			0,
+			0
 		],
 		"s_briefDesc": "",
 		"s_cardTypeDesc": "强化",
@@ -537,15 +537,15 @@
 		"fl_params": [
 			4
 		],
-		"i_applyProf": 2,
+		"i_applyProf": 0,
 		"i_cardTag": 0,
-		"i_cardType": 4,
+		"i_cardType": 0,
 		"i_id": 33,
-		"i_prof": 2,
-		"i_quality": 3,
+		"i_prof": 0,
+		"i_quality": 0,
 		"il_skill": [
-			999,
-			33
+			0,
+			0
 		],
 		"s_briefDesc": "",
 		"s_cardTypeDesc": "强化",
@@ -558,15 +558,15 @@
 		"fl_params": [
 			5
 		],
-		"i_applyProf": 2,
+		"i_applyProf": 0,
 		"i_cardTag": 0,
-		"i_cardType": 4,
+		"i_cardType": 0,
 		"i_id": 34,
-		"i_prof": 2,
-		"i_quality": 3,
+		"i_prof": 0,
+		"i_quality": 0,
 		"il_skill": [
-			999,
-			34
+			0,
+			0
 		],
 		"s_briefDesc": "",
 		"s_cardTypeDesc": "强化",
@@ -579,14 +579,14 @@
 		"fl_params": [
 			1
 		],
-		"i_applyProf": 4,
+		"i_applyProf": 0,
 		"i_cardTag": 0,
-		"i_cardType": 5,
+		"i_cardType": 0,
 		"i_id": 35,
-		"i_prof": 4,
-		"i_quality": 4,
+		"i_prof": 0,
+		"i_quality": 0,
 		"il_skill": [
-			994
+			0
 		],
 		"s_briefDesc": "",
 		"s_cardTypeDesc": "共鸣",
@@ -599,14 +599,14 @@
 		"fl_params": [
 			2
 		],
-		"i_applyProf": 3,
+		"i_applyProf": 0,
 		"i_cardTag": 0,
-		"i_cardType": 5,
+		"i_cardType": 0,
 		"i_id": 36,
-		"i_prof": 3,
-		"i_quality": 4,
+		"i_prof": 0,
+		"i_quality": 0,
 		"il_skill": [
-			994
+			0
 		],
 		"s_briefDesc": "",
 		"s_cardTypeDesc": "共鸣",
@@ -619,14 +619,14 @@
 		"fl_params": [
 			3
 		],
-		"i_applyProf": 1,
+		"i_applyProf": 0,
 		"i_cardTag": 0,
-		"i_cardType": 5,
+		"i_cardType": 0,
 		"i_id": 37,
-		"i_prof": 1,
-		"i_quality": 4,
+		"i_prof": 0,
+		"i_quality": 0,
 		"il_skill": [
-			994
+			0
 		],
 		"s_briefDesc": "",
 		"s_cardTypeDesc": "共鸣",
@@ -641,12 +641,12 @@
 		],
 		"i_applyProf": 0,
 		"i_cardTag": 0,
-		"i_cardType": 5,
+		"i_cardType": 0,
 		"i_id": 38,
 		"i_prof": 0,
-		"i_quality": 4,
+		"i_quality": 0,
 		"il_skill": [
-			994
+			0
 		],
 		"s_briefDesc": "",
 		"s_cardTypeDesc": "共鸣",
@@ -659,14 +659,14 @@
 		"fl_params": [
 			5
 		],
-		"i_applyProf": 2,
+		"i_applyProf": 0,
 		"i_cardTag": 0,
-		"i_cardType": 5,
+		"i_cardType": 0,
 		"i_id": 39,
-		"i_prof": 2,
-		"i_quality": 4,
+		"i_prof": 0,
+		"i_quality": 0,
 		"il_skill": [
-			994
+			0
 		],
 		"s_briefDesc": "",
 		"s_cardTypeDesc": "共鸣",
@@ -679,14 +679,14 @@
 		"fl_params": [
 			5000
 		],
-		"i_applyProf": 999,
+		"i_applyProf": 0,
 		"i_cardTag": 0,
-		"i_cardType": 7,
+		"i_cardType": 0,
 		"i_id": 100,
-		"i_prof": 999,
-		"i_quality": 2,
+		"i_prof": 0,
+		"i_quality": 0,
 		"il_skill": [
-			995
+			0
 		],
 		"s_briefDesc": "强伤",
 		"s_cardTypeDesc": "增强",
@@ -699,12 +699,12 @@
 		"fl_params": [
 			1000
 		],
-		"i_applyProf": 999,
+		"i_applyProf": 0,
 		"i_cardTag": 0,
-		"i_cardType": 8,
+		"i_cardType": 0,
 		"i_id": 1000,
-		"i_prof": 999,
-		"i_quality": 4,
+		"i_prof": 0,
+		"i_quality": 0,
 		"il_skill": [
 			0
 		],
@@ -721,12 +721,12 @@
 			100002,
 			100005
 		],
-		"i_applyProf": 999,
+		"i_applyProf": 0,
 		"i_cardTag": 0,
-		"i_cardType": 6,
+		"i_cardType": 0,
 		"i_id": 10000,
-		"i_prof": 999,
-		"i_quality": 4,
+		"i_prof": 0,
+		"i_quality": 0,
 		"il_skill": [
 			0
 		],
@@ -743,12 +743,12 @@
 			100004,
 			100006
 		],
-		"i_applyProf": 999,
+		"i_applyProf": 0,
 		"i_cardTag": 0,
-		"i_cardType": 6,
+		"i_cardType": 0,
 		"i_id": 10001,
-		"i_prof": 999,
-		"i_quality": 4,
+		"i_prof": 0,
+		"i_quality": 0,
 		"il_skill": [
 			0
 		],
@@ -763,12 +763,12 @@
 		"fl_params": [
 			1001
 		],
-		"i_applyProf": 999,
+		"i_applyProf": 0,
 		"i_cardTag": 0,
-		"i_cardType": 8,
+		"i_cardType": 0,
 		"i_id": 1001,
-		"i_prof": 999,
-		"i_quality": 4,
+		"i_prof": 0,
+		"i_quality": 0,
 		"il_skill": [
 			0
 		],
@@ -785,12 +785,12 @@
 			100012,
 			100015
 		],
-		"i_applyProf": 999,
+		"i_applyProf": 0,
 		"i_cardTag": 0,
-		"i_cardType": 6,
+		"i_cardType": 0,
 		"i_id": 10010,
-		"i_prof": 999,
-		"i_quality": 4,
+		"i_prof": 0,
+		"i_quality": 0,
 		"il_skill": [
 			0
 		],
@@ -807,12 +807,12 @@
 			100014,
 			100016
 		],
-		"i_applyProf": 999,
+		"i_applyProf": 0,
 		"i_cardTag": 0,
-		"i_cardType": 6,
+		"i_cardType": 0,
 		"i_id": 10011,
-		"i_prof": 999,
-		"i_quality": 4,
+		"i_prof": 0,
+		"i_quality": 0,
 		"il_skill": [
 			0
 		],
@@ -827,12 +827,12 @@
 		"fl_params": [
 			1002
 		],
-		"i_applyProf": 999,
+		"i_applyProf": 0,
 		"i_cardTag": 0,
-		"i_cardType": 8,
+		"i_cardType": 0,
 		"i_id": 1002,
-		"i_prof": 999,
-		"i_quality": 4,
+		"i_prof": 0,
+		"i_quality": 0,
 		"il_skill": [
 			0
 		],
@@ -849,12 +849,12 @@
 			100022,
 			100025
 		],
-		"i_applyProf": 999,
+		"i_applyProf": 0,
 		"i_cardTag": 0,
-		"i_cardType": 6,
+		"i_cardType": 0,
 		"i_id": 10020,
-		"i_prof": 999,
-		"i_quality": 4,
+		"i_prof": 0,
+		"i_quality": 0,
 		"il_skill": [
 			0
 		],
@@ -871,12 +871,12 @@
 			100024,
 			100026
 		],
-		"i_applyProf": 999,
+		"i_applyProf": 0,
 		"i_cardTag": 0,
-		"i_cardType": 6,
+		"i_cardType": 0,
 		"i_id": 10021,
-		"i_prof": 999,
-		"i_quality": 4,
+		"i_prof": 0,
+		"i_quality": 0,
 		"il_skill": [
 			0
 		],
@@ -891,12 +891,12 @@
 		"fl_params": [
 			1003
 		],
-		"i_applyProf": 999,
+		"i_applyProf": 0,
 		"i_cardTag": 0,
-		"i_cardType": 8,
+		"i_cardType": 0,
 		"i_id": 1003,
-		"i_prof": 999,
-		"i_quality": 4,
+		"i_prof": 0,
+		"i_quality": 0,
 		"il_skill": [
 			0
 		],
@@ -913,12 +913,12 @@
 			100032,
 			100035
 		],
-		"i_applyProf": 999,
+		"i_applyProf": 0,
 		"i_cardTag": 0,
-		"i_cardType": 6,
+		"i_cardType": 0,
 		"i_id": 10030,
-		"i_prof": 999,
-		"i_quality": 4,
+		"i_prof": 0,
+		"i_quality": 0,
 		"il_skill": [
 			0
 		],
@@ -935,12 +935,12 @@
 			100034,
 			100036
 		],
-		"i_applyProf": 999,
+		"i_applyProf": 0,
 		"i_cardTag": 0,
-		"i_cardType": 6,
+		"i_cardType": 0,
 		"i_id": 10031,
-		"i_prof": 999,
-		"i_quality": 4,
+		"i_prof": 0,
+		"i_quality": 0,
 		"il_skill": [
 			0
 		],
@@ -955,12 +955,12 @@
 		"fl_params": [
 			1004
 		],
-		"i_applyProf": 999,
+		"i_applyProf": 0,
 		"i_cardTag": 0,
-		"i_cardType": 8,
+		"i_cardType": 0,
 		"i_id": 1004,
-		"i_prof": 999,
-		"i_quality": 4,
+		"i_prof": 0,
+		"i_quality": 0,
 		"il_skill": [
 			0
 		],
@@ -977,12 +977,12 @@
 			100042,
 			100045
 		],
-		"i_applyProf": 999,
+		"i_applyProf": 0,
 		"i_cardTag": 0,
-		"i_cardType": 6,
+		"i_cardType": 0,
 		"i_id": 10040,
-		"i_prof": 999,
-		"i_quality": 4,
+		"i_prof": 0,
+		"i_quality": 0,
 		"il_skill": [
 			0
 		],
@@ -999,12 +999,12 @@
 			100044,
 			100046
 		],
-		"i_applyProf": 999,
+		"i_applyProf": 0,
 		"i_cardTag": 0,
-		"i_cardType": 6,
+		"i_cardType": 0,
 		"i_id": 10041,
-		"i_prof": 999,
-		"i_quality": 4,
+		"i_prof": 0,
+		"i_quality": 0,
 		"il_skill": [
 			0
 		],
@@ -1019,12 +1019,12 @@
 		"fl_params": [
 			1005
 		],
-		"i_applyProf": 999,
+		"i_applyProf": 0,
 		"i_cardTag": 0,
-		"i_cardType": 8,
+		"i_cardType": 0,
 		"i_id": 1005,
-		"i_prof": 999,
-		"i_quality": 4,
+		"i_prof": 0,
+		"i_quality": 0,
 		"il_skill": [
 			0
 		],
@@ -1041,12 +1041,12 @@
 			100052,
 			100055
 		],
-		"i_applyProf": 999,
+		"i_applyProf": 0,
 		"i_cardTag": 0,
-		"i_cardType": 6,
+		"i_cardType": 0,
 		"i_id": 10050,
-		"i_prof": 999,
-		"i_quality": 4,
+		"i_prof": 0,
+		"i_quality": 0,
 		"il_skill": [
 			0
 		],
@@ -1063,12 +1063,12 @@
 			100054,
 			100056
 		],
-		"i_applyProf": 999,
+		"i_applyProf": 0,
 		"i_cardTag": 0,
-		"i_cardType": 6,
+		"i_cardType": 0,
 		"i_id": 10051,
-		"i_prof": 999,
-		"i_quality": 4,
+		"i_prof": 0,
+		"i_quality": 0,
 		"il_skill": [
 			0
 		],

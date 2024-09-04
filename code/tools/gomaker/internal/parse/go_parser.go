@@ -23,6 +23,8 @@ func (d *GoParser) SetFile(filename string) {
 	d.filename = filepath.Base(filename)
 }
 
+func (d *GoParser) Close() {}
+
 func (d *GoParser) Visit(node ast.Node) ast.Visitor {
 	switch n := node.(type) {
 	case *ast.File:
@@ -65,12 +67,12 @@ func (d *GoParser) GetAlias(vv *ast.TypeSpec) *typespec.Alias {
 }
 
 func (d *GoParser) GetStruct(vv *ast.TypeSpec) *typespec.Struct {
-	ret := typespec.NewStruct(manager.GetOrAddType(&typespec.Type{
+	ret := typespec.NewStruct(d.filename, manager.GetOrAddType(&typespec.Type{
 		Kind:    domain.KIND_STRUCT,
 		PkgName: d.pkg,
 		Name:    vv.Name.Name,
 		Doc:     getDoc(d.doc),
-	}), d.filename)
+	}))
 	for i, field := range vv.Type.(*ast.StructType).Fields.List {
 		tt, token := getType(0, field.Type, nil, d.pkg)
 		ret.Add(&typespec.Field{
@@ -89,7 +91,7 @@ func (d *GoParser) GetStruct(vv *ast.TypeSpec) *typespec.Struct {
 }
 
 func (d *GoParser) GetEnum(vv *ast.GenDecl) *typespec.Enum {
-	ret := typespec.NewEnum(nil, d.filename)
+	ret := typespec.NewEnum(d.filename, nil)
 	for _, spec := range vv.Specs {
 		vv, ok := spec.(*ast.ValueSpec)
 		if !ok || vv == nil || vv.Type == nil {

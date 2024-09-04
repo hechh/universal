@@ -1,7 +1,7 @@
 [
 	{
 		"i_id": 1,
-		"i_rankType": 4,
+		"i_rankType": 0,
 		"s_activeTime": "2/9:00:00",
 		"s_closeTime": "9/23:59:59",
 		"s_rewardTime": "3/22:00:00",
@@ -9,7 +9,7 @@
 	},
 	{
 		"i_id": 2,
-		"i_rankType": 5,
+		"i_rankType": 0,
 		"s_activeTime": "00:00:00",
 		"s_closeTime": "9/23:59:59",
 		"s_rewardTime": "3/22:00:00",
@@ -17,7 +17,7 @@
 	},
 	{
 		"i_id": 3,
-		"i_rankType": 6,
+		"i_rankType": 0,
 		"s_activeTime": "2/9:00:00",
 		"s_closeTime": "9/23:59:59",
 		"s_rewardTime": "4/22:00:00",
@@ -25,7 +25,7 @@
 	},
 	{
 		"i_id": 4,
-		"i_rankType": 7,
+		"i_rankType": 0,
 		"s_activeTime": "3/9:00:00",
 		"s_closeTime": "9/23:59:59",
 		"s_rewardTime": "6/22:00:00",
@@ -33,7 +33,7 @@
 	},
 	{
 		"i_id": 5,
-		"i_rankType": 8,
+		"i_rankType": 0,
 		"s_activeTime": "9:00:00",
 		"s_rewardTime": "22:00:00"
 	}

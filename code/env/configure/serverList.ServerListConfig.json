@@ -12,7 +12,7 @@
 	{
 		"i_id": 2,
 		"i_isSh": 0,
-		"i_serverType": 1,
+		"i_serverType": 0,
 		"s_gate": "wss://loginjt.hntz68.cn:8080/ws",
 		"s_host": "https://loginjt.hntz68.cn",
 		"s_payCallBack": "https://loginjt.hntz68.cn/pay/bingchuan_callback.php",
@@ -42,7 +42,7 @@
 	{
 		"i_id": 5,
 		"i_isSh": 1,
-		"i_serverType": 2,
+		"i_serverType": 0,
 		"s_gate": "wss://loginjtsh.hntz68.cn:8080/ws",
 		"s_host": "https://loginjtsh.hntz68.cn/",
 		"s_payCallBack": "https://loginjtsh.hntz68.cn/pay/bingchuan_callback.php",
@@ -52,7 +52,7 @@
 	{
 		"i_id": 6,
 		"i_isSh": 0,
-		"i_serverType": 3,
+		"i_serverType": 0,
 		"s_gate": "wss://loginjttest.hntz68.cn:8080/ws",
 		"s_host": "https://loginjttest.hntz68.cn/",
 		"s_payCallBack": "https://loginjttest.hntz68.cn/pay/bingchuan_callback.php",

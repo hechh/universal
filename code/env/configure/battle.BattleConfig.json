@@ -1,22 +1,22 @@
 [
 	{
-		"i_battleType": 1,
+		"i_battleType": 0,
 		"i_id": 1,
-		"i_rankType": 1,
+		"i_rankType": 0,
 		"i_recordCount": 3,
 		"i_reliveCount": 2
 	},
 	{
-		"i_battleType": 3,
+		"i_battleType": 0,
 		"i_id": 2,
-		"i_rankType": 3,
+		"i_rankType": 0,
 		"i_recordCount": 0,
 		"i_reliveCount": 2
 	},
 	{
-		"i_battleType": 4,
+		"i_battleType": 0,
 		"i_id": 3,
-		"i_rankType": 3,
+		"i_rankType": 0,
 		"i_recordCount": 0,
 		"i_reliveCount": 2
 	}

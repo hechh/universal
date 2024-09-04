@@ -1,6 +1,6 @@
 [
 	{
-		"i_element": 2,
+		"i_element": 0,
 		"i_id": 1,
 		"i_lootDecline": 1,
 		"i_lootDeclineCount": 75,
@@ -230,7 +230,7 @@
 		"s_name": "冰川星"
 	},
 	{
-		"i_element": 1,
+		"i_element": 0,
 		"i_id": 3,
 		"i_lootDecline": 1,
 		"i_lootDeclineCount": 75,
@@ -465,7 +465,7 @@
 		"s_name": "炙岩星"
 	},
 	{
-		"i_element": 3,
+		"i_element": 0,
 		"i_id": 4,
 		"i_lootDecline": 1,
 		"i_lootDeclineCount": 75,
@@ -740,7 +740,7 @@
 		"s_name": "光明星"
 	},
 	{
-		"i_element": 4,
+		"i_element": 0,
 		"i_id": 5,
 		"i_lootDecline": 1,
 		"i_lootDeclineCount": 75,
@@ -1055,7 +1055,7 @@
 		"s_name": "暗紫星"
 	},
 	{
-		"i_element": 2,
+		"i_element": 0,
 		"i_id": 6,
 		"i_lootDecline": 1,
 		"i_lootDeclineCount": 75,
@@ -1205,7 +1205,7 @@
 		"s_name": "冰川星"
 	},
 	{
-		"i_element": 1,
+		"i_element": 0,
 		"i_id": 8,
 		"i_lootDecline": 1,
 		"i_lootDeclineCount": 75,
@@ -1280,7 +1280,7 @@
 		"s_name": "炙岩星"
 	},
 	{
-		"i_element": 3,
+		"i_element": 0,
 		"i_id": 9,
 		"i_lootDecline": 1,
 		"i_lootDeclineCount": 75,
@@ -1355,7 +1355,7 @@
 		"s_name": "光明星"
 	},
 	{
-		"i_element": 4,
+		"i_element": 0,
 		"i_id": 10,
 		"i_lootDecline": 1,
 		"i_lootDeclineCount": 75,
@@ -1430,7 +1430,7 @@
 		"s_name": "暗紫星"
 	},
 	{
-		"i_element": 2,
+		"i_element": 0,
 		"i_id": 11,
 		"i_lootDecline": 1,
 		"i_lootDeclineCount": 75,
@@ -1580,7 +1580,7 @@
 		"s_name": "冰川星"
 	},
 	{
-		"i_element": 1,
+		"i_element": 0,
 		"i_id": 13,
 		"i_lootDecline": 1,
 		"i_lootDeclineCount": 75,
@@ -1655,7 +1655,7 @@
 		"s_name": "炙岩星"
 	},
 	{
-		"i_element": 3,
+		"i_element": 0,
 		"i_id": 14,
 		"i_lootDecline": 1,
 		"i_lootDeclineCount": 75,
@@ -1730,7 +1730,7 @@
 		"s_name": "光明星"
 	},
 	{
-		"i_element": 4,
+		"i_element": 0,
 		"i_id": 15,
 		"i_lootDecline": 1,
 		"i_lootDeclineCount": 75,
@@ -1805,7 +1805,7 @@
 		"s_name": "暗紫星"
 	},
 	{
-		"i_element": 2,
+		"i_element": 0,
 		"i_id": 16,
 		"i_lootDecline": 1,
 		"i_lootDeclineCount": 75,
@@ -1955,7 +1955,7 @@
 		"s_name": "冰川星"
 	},
 	{
-		"i_element": 1,
+		"i_element": 0,
 		"i_id": 18,
 		"i_lootDecline": 1,
 		"i_lootDeclineCount": 75,
@@ -2030,7 +2030,7 @@
 		"s_name": "炙岩星"
 	},
 	{
-		"i_element": 3,
+		"i_element": 0,
 		"i_id": 19,
 		"i_lootDecline": 1,
 		"i_lootDeclineCount": 75,
@@ -2105,7 +2105,7 @@
 		"s_name": "光明星"
 	},
 	{
-		"i_element": 4,
+		"i_element": 0,
 		"i_id": 20,
 		"i_lootDecline": 1,
 		"i_lootDeclineCount": 75,
@@ -2180,7 +2180,7 @@
 		"s_name": "暗紫星"
 	},
 	{
-		"i_element": 2,
+		"i_element": 0,
 		"i_id": 21,
 		"i_lootDecline": 1,
 		"i_lootDeclineCount": 75,
@@ -2330,7 +2330,7 @@
 		"s_name": "冰川星"
 	},
 	{
-		"i_element": 1,
+		"i_element": 0,
 		"i_id": 23,
 		"i_lootDecline": 1,
 		"i_lootDeclineCount": 75,
@@ -2405,7 +2405,7 @@
 		"s_name": "炙岩星"
 	},
 	{
-		"i_element": 3,
+		"i_element": 0,
 		"i_id": 24,
 		"i_lootDecline": 1,
 		"i_lootDeclineCount": 75,
@@ -2480,7 +2480,7 @@
 		"s_name": "光明星"
 	},
 	{
-		"i_element": 4,
+		"i_element": 0,
 		"i_id": 25,
 		"i_lootDecline": 1,
 		"i_lootDeclineCount": 75,
@@ -2555,7 +2555,7 @@
 		"s_name": "暗紫星"
 	},
 	{
-		"i_element": 2,
+		"i_element": 0,
 		"i_id": 26,
 		"i_lootDecline": 1,
 		"i_lootDeclineCount": 75,
@@ -2705,7 +2705,7 @@
 		"s_name": "冰川星"
 	},
 	{
-		"i_element": 1,
+		"i_element": 0,
 		"i_id": 28,
 		"i_lootDecline": 1,
 		"i_lootDeclineCount": 75,
@@ -2780,7 +2780,7 @@
 		"s_name": "炙岩星"
 	},
 	{
-		"i_element": 3,
+		"i_element": 0,
 		"i_id": 29,
 		"i_lootDecline": 1,
 		"i_lootDeclineCount": 75,
@@ -2855,7 +2855,7 @@
 		"s_name": "光明星"
 	},
 	{
-		"i_element": 4,
+		"i_element": 0,
 		"i_id": 30,
 		"i_lootDecline": 1,
 		"i_lootDeclineCount": 75,
@@ -2930,7 +2930,7 @@
 		"s_name": "暗紫星"
 	},
 	{
-		"i_element": 2,
+		"i_element": 0,
 		"i_id": 31,
 		"i_lootDecline": 1,
 		"i_lootDeclineCount": 75,
@@ -3080,7 +3080,7 @@
 		"s_name": "冰川星"
 	},
 	{
-		"i_element": 1,
+		"i_element": 0,
 		"i_id": 33,
 		"i_lootDecline": 1,
 		"i_lootDeclineCount": 75,
@@ -3155,7 +3155,7 @@
 		"s_name": "炙岩星"
 	},
 	{
-		"i_element": 3,
+		"i_element": 0,
 		"i_id": 34,
 		"i_lootDecline": 1,
 		"i_lootDeclineCount": 75,
@@ -3230,7 +3230,7 @@
 		"s_name": "光明星"
 	},
 	{
-		"i_element": 4,
+		"i_element": 0,
 		"i_id": 35,
 		"i_lootDecline": 1,
 		"i_lootDeclineCount": 75,
@@ -3305,7 +3305,7 @@
 		"s_name": "暗紫星"
 	},
 	{
-		"i_element": 2,
+		"i_element": 0,
 		"i_id": 36,
 		"i_lootDecline": 1,
 		"i_lootDeclineCount": 75,
@@ -3455,7 +3455,7 @@
 		"s_name": "冰川星"
 	},
 	{
-		"i_element": 1,
+		"i_element": 0,
 		"i_id": 38,
 		"i_lootDecline": 1,
 		"i_lootDeclineCount": 75,
@@ -3530,7 +3530,7 @@
 		"s_name": "炙岩星"
 	},
 	{
-		"i_element": 3,
+		"i_element": 0,
 		"i_id": 39,
 		"i_lootDecline": 1,
 		"i_lootDeclineCount": 75,
@@ -3605,7 +3605,7 @@
 		"s_name": "光明星"
 	},
 	{
-		"i_element": 4,
+		"i_element": 0,
 		"i_id": 40,
 		"i_lootDecline": 1,
 		"i_lootDeclineCount": 75,
@@ -3680,7 +3680,7 @@
 		"s_name": "暗紫星"
 	},
 	{
-		"i_element": 2,
+		"i_element": 0,
 		"i_id": 41,
 		"i_lootDecline": 1,
 		"i_lootDeclineCount": 75,
@@ -3830,7 +3830,7 @@
 		"s_name": "冰川星"
 	},
 	{
-		"i_element": 1,
+		"i_element": 0,
 		"i_id": 43,
 		"i_lootDecline": 1,
 		"i_lootDeclineCount": 75,
@@ -3905,7 +3905,7 @@
 		"s_name": "炙岩星"
 	},
 	{
-		"i_element": 3,
+		"i_element": 0,
 		"i_id": 44,
 		"i_lootDecline": 1,
 		"i_lootDeclineCount": 75,
@@ -3980,7 +3980,7 @@
 		"s_name": "光明星"
 	},
 	{
-		"i_element": 4,
+		"i_element": 0,
 		"i_id": 45,
 		"i_lootDecline": 1,
 		"i_lootDeclineCount": 75,
@@ -4055,7 +4055,7 @@
 		"s_name": "暗紫星"
 	},
 	{
-		"i_element": 2,
+		"i_element": 0,
 		"i_id": 46,
 		"i_lootDecline": 1,
 		"i_lootDeclineCount": 75,
@@ -4205,7 +4205,7 @@
 		"s_name": "冰川星"
 	},
 	{
-		"i_element": 1,
+		"i_element": 0,
 		"i_id": 48,
 		"i_lootDecline": 1,
 		"i_lootDeclineCount": 75,
@@ -4280,7 +4280,7 @@
 		"s_name": "炙岩星"
 	},
 	{
-		"i_element": 3,
+		"i_element": 0,
 		"i_id": 49,
 		"i_lootDecline": 1,
 		"i_lootDeclineCount": 75,
@@ -4355,7 +4355,7 @@
 		"s_name": "光明星"
 	},
 	{
-		"i_element": 4,
+		"i_element": 0,
 		"i_id": 50,
 		"i_lootDecline": 1,
 		"i_lootDeclineCount": 75,

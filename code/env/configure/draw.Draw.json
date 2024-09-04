@@ -74,7 +74,7 @@
 		],
 		"ill_showGuar": [
 			[
-				1
+				0
 			]
 		],
 		"s_descDraw": "小贱贱",
@@ -175,7 +175,7 @@
 		],
 		"ill_showGuar": [
 			[
-				3
+				0
 			]
 		],
 		"s_descDraw": "海王",
@@ -188,7 +188,7 @@
 		"i_AdvertingCoolTime": 86400,
 		"i_circleDay": 0,
 		"i_continueDay": 0,
-		"i_drawType": 1,
+		"i_drawType": 0,
 		"i_guar2Count": 0,
 		"i_guar3Count": 0,
 		"i_guarCount": 10,
@@ -259,7 +259,7 @@
 		],
 		"ill_showGuar": [
 			[
-				3
+				0
 			]
 		],
 		"s_descDraw": "晶核1",
@@ -272,7 +272,7 @@
 		"i_AdvertingCoolTime": 259200,
 		"i_circleDay": 0,
 		"i_continueDay": 0,
-		"i_drawType": 1,
+		"i_drawType": 0,
 		"i_guar2Count": 0,
 		"i_guar3Count": 0,
 		"i_guarCount": 10,
@@ -359,7 +359,7 @@
 		],
 		"ill_showGuar": [
 			[
-				4
+				0
 			]
 		],
 		"s_descDraw": "晶核2",
@@ -378,7 +378,7 @@
 		"i_guarCount": 10,
 		"i_id": 11,
 		"il_condition": [
-			4,
+			0,
 			1,
 			2
 		],
@@ -453,7 +453,7 @@
 		],
 		"ill_showGuar": [
 			[
-				3
+				0
 			]
 		],
 		"s_descDraw": "闪电侠",
@@ -466,13 +466,13 @@
 		"i_AdvertingCoolTime": 0,
 		"i_circleDay": 0,
 		"i_continueDay": 0,
-		"i_drawType": 2,
+		"i_drawType": 0,
 		"i_guar2Count": 0,
 		"i_guar3Count": 0,
 		"i_guarCount": 10,
 		"i_id": 12,
 		"il_condition": [
-			2,
+			0,
 			1,
 			10000
 		],
@@ -547,7 +547,7 @@
 		],
 		"ill_showGuar": [
 			[
-				3
+				0
 			]
 		],
 		"s_descDraw": "风元素",
@@ -560,13 +560,13 @@
 		"i_AdvertingCoolTime": 0,
 		"i_circleDay": 0,
 		"i_continueDay": 0,
-		"i_drawType": 1,
+		"i_drawType": 0,
 		"i_guar2Count": 30,
 		"i_guar3Count": 0,
 		"i_guarCount": 15,
 		"i_id": 21,
 		"il_condition": [
-			4,
+			0,
 			1,
 			4
 		],
@@ -666,10 +666,10 @@
 		],
 		"ill_showGuar": [
 			[
-				4
+				0
 			],
 			[
-				5
+				0
 			]
 		],
 		"s_descDraw": "晶核3",
@@ -682,13 +682,13 @@
 		"i_AdvertingCoolTime": 0,
 		"i_circleDay": 0,
 		"i_continueDay": 0,
-		"i_drawType": 3,
+		"i_drawType": 0,
 		"i_guar2Count": 20,
 		"i_guar3Count": 0,
 		"i_guarCount": 10,
 		"i_id": 22,
 		"il_condition": [
-			1,
+			0,
 			1
 		],
 		"ill_firstLootGroup": [
@@ -771,10 +771,10 @@
 		],
 		"ill_showGuar": [
 			[
-				4
+				0
 			],
 			[
-				5
+				0
 			]
 		],
 		"s_descDraw": "晶核4",
@@ -787,13 +787,13 @@
 		"i_AdvertingCoolTime": 0,
 		"i_circleDay": 0,
 		"i_continueDay": 0,
-		"i_drawType": 3,
+		"i_drawType": 0,
 		"i_guar2Count": 20,
 		"i_guar3Count": 0,
 		"i_guarCount": 10,
 		"i_id": 23,
 		"il_condition": [
-			4,
+			0,
 			1,
 			4
 		],
@@ -877,10 +877,10 @@
 		],
 		"ill_showGuar": [
 			[
-				4
+				0
 			],
 			[
-				5
+				0
 			]
 		],
 		"s_descDraw": "晶核5",
@@ -893,13 +893,13 @@
 		"i_AdvertingCoolTime": 0,
 		"i_circleDay": 0,
 		"i_continueDay": 0,
-		"i_drawType": 3,
+		"i_drawType": 0,
 		"i_guar2Count": 20,
 		"i_guar3Count": 0,
 		"i_guarCount": 10,
 		"i_id": 24,
 		"il_condition": [
-			2,
+			0,
 			1,
 			10000
 		],
@@ -983,10 +983,10 @@
 		],
 		"ill_showGuar": [
 			[
-				4
+				0
 			],
 			[
-				5
+				0
 			]
 		],
 		"s_descDraw": "晶核6",
@@ -999,13 +999,13 @@
 		"i_AdvertingCoolTime": 0,
 		"i_circleDay": 0,
 		"i_continueDay": 0,
-		"i_drawType": 4,
+		"i_drawType": 0,
 		"i_guar2Count": 0,
 		"i_guar3Count": 0,
 		"i_guarCount": 0,
 		"i_id": 30,
 		"il_condition": [
-			4,
+			0,
 			2,
 			1
 		],

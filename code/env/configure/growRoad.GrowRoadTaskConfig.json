@@ -1,11 +1,11 @@
 [
 	{
-		"i_achieveType": 24,
+		"i_achieveType": 0,
 		"i_id": 1,
 		"i_needValue": 2,
-		"i_sid": 1001,
+		"i_sid": 0,
 		"il_achieveParams": [
-			3
+			0
 		],
 		"ill_addItem": [
 			[
@@ -17,12 +17,12 @@
 		"s_desc": "2个\u003ccolor=#B919FF\u003e史诗\u003c/color\u003e英雄"
 	},
 	{
-		"i_achieveType": 24,
+		"i_achieveType": 0,
 		"i_id": 2,
 		"i_needValue": 5,
-		"i_sid": 1001,
+		"i_sid": 0,
 		"il_achieveParams": [
-			3
+			0
 		],
 		"ill_addItem": [
 			[
@@ -34,12 +34,12 @@
 		"s_desc": "5个\u003ccolor=#B919FF\u003e史诗\u003c/color\u003e英雄"
 	},
 	{
-		"i_achieveType": 24,
+		"i_achieveType": 0,
 		"i_id": 3,
 		"i_needValue": 10,
-		"i_sid": 1001,
+		"i_sid": 0,
 		"il_achieveParams": [
-			3
+			0
 		],
 		"ill_addItem": [
 			[
@@ -51,12 +51,12 @@
 		"s_desc": "10个\u003ccolor=#B919FF\u003e史诗\u003c/color\u003e英雄"
 	},
 	{
-		"i_achieveType": 24,
+		"i_achieveType": 0,
 		"i_id": 4,
 		"i_needValue": 20,
-		"i_sid": 1001,
+		"i_sid": 0,
 		"il_achieveParams": [
-			3
+			0
 		],
 		"ill_addItem": [
 			[
@@ -68,12 +68,12 @@
 		"s_desc": "20个\u003ccolor=#B919FF\u003e史诗\u003c/color\u003e英雄"
 	},
 	{
-		"i_achieveType": 24,
+		"i_achieveType": 0,
 		"i_id": 5,
 		"i_needValue": 30,
-		"i_sid": 1001,
+		"i_sid": 0,
 		"il_achieveParams": [
-			3
+			0
 		],
 		"ill_addItem": [
 			[
@@ -85,12 +85,12 @@
 		"s_desc": "30个\u003ccolor=#B919FF\u003e史诗\u003c/color\u003e英雄"
 	},
 	{
-		"i_achieveType": 24,
+		"i_achieveType": 0,
 		"i_id": 6,
 		"i_needValue": 35,
-		"i_sid": 1001,
+		"i_sid": 0,
 		"il_achieveParams": [
-			3
+			0
 		],
 		"ill_addItem": [
 			[
@@ -102,12 +102,12 @@
 		"s_desc": "35个\u003ccolor=#B919FF\u003e史诗\u003c/color\u003e英雄"
 	},
 	{
-		"i_achieveType": 24,
+		"i_achieveType": 0,
 		"i_id": 7,
 		"i_needValue": 40,
-		"i_sid": 1001,
+		"i_sid": 0,
 		"il_achieveParams": [
-			3
+			0
 		],
 		"ill_addItem": [
 			[
@@ -119,12 +119,12 @@
 		"s_desc": "40个\u003ccolor=#B919FF\u003e史诗\u003c/color\u003e英雄"
 	},
 	{
-		"i_achieveType": 24,
+		"i_achieveType": 0,
 		"i_id": 8,
 		"i_needValue": 45,
-		"i_sid": 1001,
+		"i_sid": 0,
 		"il_achieveParams": [
-			3
+			0
 		],
 		"ill_addItem": [
 			[
@@ -136,12 +136,12 @@
 		"s_desc": "45个\u003ccolor=#B919FF\u003e史诗\u003c/color\u003e英雄"
 	},
 	{
-		"i_achieveType": 24,
+		"i_achieveType": 0,
 		"i_id": 9,
 		"i_needValue": 50,
-		"i_sid": 1001,
+		"i_sid": 0,
 		"il_achieveParams": [
-			3
+			0
 		],
 		"ill_addItem": [
 			[

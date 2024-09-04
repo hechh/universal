@@ -5,7 +5,7 @@
 		"i_id": 1,
 		"i_limitCount": 1,
 		"i_productId": 40001,
-		"i_sid": 2001,
+		"i_sid": 0,
 		"ill_addItem": [
 			[
 				1,
@@ -26,7 +26,7 @@
 		"i_id": 2,
 		"i_limitCount": 1,
 		"i_productId": 40002,
-		"i_sid": 2001,
+		"i_sid": 0,
 		"ill_addItem": [
 			[
 				1,
@@ -52,7 +52,7 @@
 		"i_id": 3,
 		"i_limitCount": 1,
 		"i_productId": 40003,
-		"i_sid": 2001,
+		"i_sid": 0,
 		"ill_addItem": [
 			[
 				1,
@@ -78,7 +78,7 @@
 		"i_id": 4,
 		"i_limitCount": 1,
 		"i_productId": 40004,
-		"i_sid": 2001,
+		"i_sid": 0,
 		"ill_addItem": [
 			[
 				1,
@@ -99,7 +99,7 @@
 		"i_id": 5,
 		"i_limitCount": 1,
 		"i_productId": 40005,
-		"i_sid": 2001,
+		"i_sid": 0,
 		"ill_addItem": [
 			[
 				1,
@@ -120,7 +120,7 @@
 		"i_id": 6,
 		"i_limitCount": 1,
 		"i_productId": 40006,
-		"i_sid": 2001,
+		"i_sid": 0,
 		"ill_addItem": [
 			[
 				1,
@@ -146,7 +146,7 @@
 		"i_id": 7,
 		"i_limitCount": 1,
 		"i_productId": 40007,
-		"i_sid": 2001,
+		"i_sid": 0,
 		"ill_addItem": [
 			[
 				1,

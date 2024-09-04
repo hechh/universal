@@ -14,28 +14,58 @@ import (
 	"universal/tools/gomaker/domain"
 )
 
-// 获取绝对值
-func GetAbsPath(cwd, pp string) string {
-	if len(cwd) <= 0 || filepath.IsAbs(pp) {
-		return filepath.Clean(pp)
+// 解析go文件
+func ParseFiles(v domain.IParser, files ...string) error {
+	fset := token.NewFileSet()
+	for _, filename := range files {
+		v.SetFile(filename)
+		// 解析语法树
+		fs, err := parser.ParseFile(fset, filename, nil, parser.ParseComments)
+		if err != nil {
+			return uerror.NewUError(1, -1, "filename: %v, error: %v", filename, err)
+		}
+
+		// 遍历语法树
+		ast.Walk(v, fs)
 	}
-	return filepath.Clean(filepath.Join(cwd, pp))
+	return nil
 }
 
-func Glob(dir, suffix string, recursive bool) (files []string, err error) {
+// 保存文件
+func SaveGo(filename string, buf *bytes.Buffer) error {
+	// 格式化数据
+	result, err := format.Source(buf.Bytes())
+	if err != nil {
+		ioutil.WriteFile("./error.gen.go", buf.Bytes(), os.FileMode(0666))
+		return uerror.NewUError(1, -1, "filename: %s, error: %v", filename, err)
+	}
+
+	// 创建目录
+	if err := os.MkdirAll(filepath.Dir(filename), os.FileMode(0777)); err != nil {
+		return uerror.NewUError(1, -1, "filename: %s, error: %v", filename, err)
+	}
+
+	// 写入文件
+	if err := ioutil.WriteFile(filename, result, os.FileMode(0666)); err != nil {
+		return uerror.NewUError(1, -1, "filename: %s, error: %v", filename, err)
+	}
+	return nil
+}
+
+// 遍历目录所有文件
+func Glob(dir, pattern string, recursive bool) (files []string, err error) {
 	if !recursive {
-		files, err = filepath.Glob(filepath.Join(dir, suffix))
+		files, err = filepath.Glob(filepath.Join(dir, pattern))
 	} else {
 		err = filepath.Walk(dir, func(path string, info os.FileInfo, err error) error {
-			if !info.IsDir() {
-				return nil
-			}
-			patterns, err := filepath.Glob(filepath.Join(path, suffix))
-			if err != nil {
-				return uerror.NewUError(1, -1, "%v", err)
-			}
-			if len(patterns) > 0 {
-				files = append(files, patterns...)
+			if info.IsDir() {
+				results, err := filepath.Glob(filepath.Join(path, pattern))
+				if err != nil {
+					return uerror.NewUError(1, -1, "dir: %s, pattern: %s, error: %v", dir, pattern, err)
+				}
+				if len(results) > 0 {
+					files = append(files, results...)
+				}
 			}
 			return nil
 		})
@@ -43,8 +73,9 @@ func Glob(dir, suffix string, recursive bool) (files []string, err error) {
 	return
 }
 
-func OpenTemplate(dir string) (*template.Template, error) {
-	files, err := Glob(dir, "*.tpl", true)
+// 打开所有tpl模板文件
+func OpenTemplate(dir string, pattern string, recursive bool) (*template.Template, error) {
+	files, err := Glob(dir, pattern, recursive)
 	if err != nil {
 		return nil, err
 	}
@@ -53,46 +84,10 @@ func OpenTemplate(dir string) (*template.Template, error) {
 	return result, nil
 }
 
-// 解析整个目录
-func ParseDir(v domain.Visitor, fset *token.FileSet, src string) error {
-	files, err := Glob(src, "*.go", true)
-	if err != nil {
-		return err
+// 获取绝对值
+func GetAbsPath(cwd, pp string) string {
+	if len(cwd) <= 0 || filepath.IsAbs(pp) {
+		return filepath.Clean(pp)
 	}
-	for _, filename := range files {
-		if err := ParseFile(v, fset, filename); err != nil {
-			return err
-		}
-	}
-	return nil
-}
-
-// 解析单个文件
-func ParseFile(v domain.Visitor, fset *token.FileSet, filename string) error {
-	v.SetFile(filename)
-	f, err := parser.ParseFile(fset, filename, nil, parser.ParseComments)
-	if err != nil {
-		return uerror.NewUError(1, -1, "%v", err)
-	}
-	ast.Walk(v, f)
-	return nil
-}
-
-// 保存文件
-func SaveGo(dst string, buf *bytes.Buffer) error {
-	// 格式化数据
-	result, err := format.Source(buf.Bytes())
-	if err != nil {
-		ioutil.WriteFile("./error.gen.go", buf.Bytes(), os.FileMode(0666))
-		return uerror.NewUError(1, -1, "%v", err)
-	}
-	// 创建目录
-	if err := os.MkdirAll(filepath.Dir(dst), os.FileMode(0777)); err != nil {
-		return uerror.NewUError(1, -1, "%v", err)
-	}
-	// 写入文件
-	if err := ioutil.WriteFile(dst, result, os.FileMode(0666)); err != nil {
-		return uerror.NewUError(1, -1, "%v", err)
-	}
-	return nil
+	return filepath.Clean(filepath.Join(cwd, pp))
 }

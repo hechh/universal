@@ -1,6 +1,7 @@
 package manager
 
 import (
+	"fmt"
 	"strings"
 	"time"
 	"universal/tools/gomaker/domain"
@@ -11,7 +12,6 @@ import (
 
 var (
 	rules = make(map[string]*RuleInfo)
-	jsons = make(map[string][]map[string]interface{})
 )
 
 type CastFunc func(map[string]*typespec.Value, string) interface{}
@@ -22,19 +22,11 @@ type RuleInfo struct {
 	parseFunc ParseFunc
 }
 
-func AddJson(name string, data map[string]interface{}) {
-	if _, ok := jsons[name]; !ok {
-		jsons[name] = make([]map[string]interface{}, 0)
-	}
-	jsons[name] = append(jsons[name], data)
-}
-
-func GetJsons() map[string][]map[string]interface{} {
-	return jsons
-}
-
 func ParseRule(field *typespec.FieldNode) *typespec.Field {
-	return rules[field.Type].parseFunc(field)
+	if rr, ok := rules[field.Type]; ok {
+		return rr.parseFunc(field)
+	}
+	panic(fmt.Errorf("[%s]不支持", field.Type))
 }
 
 func CastRule(field *typespec.FieldNode, alls map[string]*typespec.Value, val string) interface{} {
@@ -116,7 +108,6 @@ func castI(alls map[string]*typespec.Value, val string) interface{} {
 	return cast.ToUint32(val)
 }
 
-// il
 func parseIL(field *typespec.FieldNode) *typespec.Field {
 	return &typespec.Field{
 		Type:  GetOrAddType(&typespec.Type{Kind: domain.KIND_IDENT, Name: "uint32"}),
@@ -135,7 +126,6 @@ func castIL(alls map[string]*typespec.Value, val string) interface{} {
 	return rets
 }
 
-// ill
 func parseILL(field *typespec.FieldNode) *typespec.Field {
 	return &typespec.Field{
 		Type:  GetOrAddType(&typespec.Type{Kind: domain.KIND_IDENT, Name: "uint32"}),
@@ -148,12 +138,8 @@ func parseILL(field *typespec.FieldNode) *typespec.Field {
 
 func castILL(alls map[string]*typespec.Value, val string) interface{} {
 	rets := []interface{}{}
-	for _, sval := range strings.Split(strings.ReplaceAll(val, "|", ","), "#") {
-		tmps := []interface{}{}
-		for _, ss := range strings.Split(sval, ",") {
-			tmps = append(tmps, castI(alls, ss))
-		}
-		rets = append(rets, tmps)
+	for _, sval := range strings.Split(val, "#") {
+		rets = append(rets, castIL(alls, sval))
 	}
 	return rets
 }
@@ -165,7 +151,6 @@ func parseIN(field *typespec.FieldNode) *typespec.Field {
 		Name:  field.Name,
 		Index: field.Index,
 		Doc:   field.Doc,
-		Token: []uint32{domain.TOKEN_ARRAY, domain.TOKEN_ARRAY},
 	}
 }
 
@@ -182,7 +167,7 @@ func parseINL(field *typespec.FieldNode) *typespec.Field {
 		Name:  field.Name,
 		Index: field.Index,
 		Doc:   field.Doc,
-		Token: []uint32{domain.TOKEN_ARRAY, domain.TOKEN_ARRAY},
+		Token: []uint32{domain.TOKEN_ARRAY},
 	}
 }
 
@@ -261,12 +246,8 @@ func parseFLL(field *typespec.FieldNode) *typespec.Field {
 
 func castFLL(alls map[string]*typespec.Value, val string) interface{} {
 	rets := []interface{}{}
-	for _, sval := range strings.Split(strings.ReplaceAll(val, "|", ","), "#") {
-		tmps := []interface{}{}
-		for _, ss := range strings.Split(sval, ",") {
-			tmps = append(tmps, castF(alls, ss))
-		}
-		rets = append(rets, tmps)
+	for _, sval := range strings.Split(val, "#") {
+		rets = append(rets, castFL(alls, sval))
 	}
 	return rets
 }

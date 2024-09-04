@@ -1,43 +1,43 @@
 [
 	{
-		"i_advertType": 101,
+		"i_advertType": 0,
 		"i_dailyCount": 3,
 		"i_id": 1
 	},
 	{
-		"i_advertType": 3,
+		"i_advertType": 0,
 		"i_dailyCount": 3,
 		"i_id": 2
 	},
 	{
-		"i_advertType": 4,
+		"i_advertType": 0,
 		"i_dailyCount": 2,
 		"i_id": 3
 	},
 	{
-		"i_advertType": 102,
+		"i_advertType": 0,
 		"i_dailyCount": 2,
 		"i_id": 4
 	},
 	{
-		"i_advertType": 5,
+		"i_advertType": 0,
 		"i_dailyCount": 3,
 		"i_id": 5
 	},
 	{
-		"i_advertType": 6,
+		"i_advertType": 0,
 		"i_dailyCount": 2,
 		"i_id": 6,
 		"i_param": 5
 	},
 	{
-		"i_advertType": 7,
+		"i_advertType": 0,
 		"i_dailyCount": 1,
 		"i_id": 7,
 		"i_param": 120
 	},
 	{
-		"i_advertType": 8,
+		"i_advertType": 0,
 		"i_dailyCount": 1,
 		"i_id": 8
 	}

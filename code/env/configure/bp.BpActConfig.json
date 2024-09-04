@@ -1,6 +1,6 @@
 [
 	{
-		"i_achieveType": 23,
+		"i_achieveType": 0,
 		"i_aliveDay": 30,
 		"i_bpType": 0,
 		"i_id": 1,
@@ -9,9 +9,9 @@
 		"i_openNextDay": 30,
 		"i_prePrizeIdOpenNext": 0,
 		"i_stage": 1,
-		"i_systemType": 15,
+		"i_systemType": 0,
 		"il_achieveParams": [
-			1
+			0
 		],
 		"ill_AddItem": [
 			[
@@ -32,7 +32,7 @@
 		"s_uiTxt3": "高级奖励"
 	},
 	{
-		"i_achieveType": 23,
+		"i_achieveType": 0,
 		"i_aliveDay": 30,
 		"i_bpType": 0,
 		"i_id": 2,
@@ -41,9 +41,9 @@
 		"i_openNextDay": 30,
 		"i_prePrizeIdOpenNext": 0,
 		"i_stage": 2,
-		"i_systemType": 15,
+		"i_systemType": 0,
 		"il_achieveParams": [
-			1
+			0
 		],
 		"ill_AddItem": [
 			[
@@ -64,7 +64,7 @@
 		"s_uiTxt3": "高级奖励"
 	},
 	{
-		"i_achieveType": 23,
+		"i_achieveType": 0,
 		"i_aliveDay": 30,
 		"i_bpType": 0,
 		"i_id": 3,
@@ -73,9 +73,9 @@
 		"i_openNextDay": 0,
 		"i_prePrizeIdOpenNext": 0,
 		"i_stage": 3,
-		"i_systemType": 15,
+		"i_systemType": 0,
 		"il_achieveParams": [
-			1
+			0
 		],
 		"ill_AddItem": [
 			[
@@ -96,18 +96,18 @@
 		"s_uiTxt3": "高级奖励"
 	},
 	{
-		"i_achieveType": 26,
+		"i_achieveType": 0,
 		"i_aliveDay": 25,
-		"i_bpType": 7,
+		"i_bpType": 0,
 		"i_id": 9,
 		"i_isCircle": 0,
 		"i_isTotal": 1,
 		"i_openNextDay": 15,
 		"i_prePrizeIdOpenNext": 0,
 		"i_stage": 1,
-		"i_systemType": 48,
+		"i_systemType": 0,
 		"il_achieveParams": [
-			999
+			0
 		],
 		"ill_AddItem": [
 			[
@@ -128,18 +128,18 @@
 		"s_uiTxt3": "高级奖励"
 	},
 	{
-		"i_achieveType": 26,
+		"i_achieveType": 0,
 		"i_aliveDay": 25,
-		"i_bpType": 7,
+		"i_bpType": 0,
 		"i_id": 10,
 		"i_isCircle": 0,
 		"i_isTotal": 1,
 		"i_openNextDay": 0,
 		"i_prePrizeIdOpenNext": 0,
 		"i_stage": 2,
-		"i_systemType": 48,
+		"i_systemType": 0,
 		"il_achieveParams": [
-			999
+			0
 		],
 		"ill_AddItem": [
 			[
@@ -160,18 +160,18 @@
 		"s_uiTxt3": "高级奖励"
 	},
 	{
-		"i_achieveType": 23,
+		"i_achieveType": 0,
 		"i_aliveDay": 25,
-		"i_bpType": 1,
+		"i_bpType": 0,
 		"i_id": 17,
 		"i_isCircle": 0,
 		"i_isTotal": 1,
 		"i_openNextDay": 15,
 		"i_prePrizeIdOpenNext": 0,
 		"i_stage": 1,
-		"i_systemType": 27,
+		"i_systemType": 0,
 		"il_achieveParams": [
-			3
+			0
 		],
 		"ill_AddItem": [
 			[
@@ -192,18 +192,18 @@
 		"s_uiTxt3": "高级奖励"
 	},
 	{
-		"i_achieveType": 23,
+		"i_achieveType": 0,
 		"i_aliveDay": 25,
-		"i_bpType": 1,
+		"i_bpType": 0,
 		"i_id": 18,
 		"i_isCircle": 0,
 		"i_isTotal": 1,
 		"i_openNextDay": 0,
 		"i_prePrizeIdOpenNext": 0,
 		"i_stage": 2,
-		"i_systemType": 27,
+		"i_systemType": 0,
 		"il_achieveParams": [
-			3
+			0
 		],
 		"ill_AddItem": [
 			[
@@ -224,16 +224,16 @@
 		"s_uiTxt3": "高级奖励"
 	},
 	{
-		"i_achieveType": 54,
+		"i_achieveType": 0,
 		"i_aliveDay": 15,
-		"i_bpType": 5,
+		"i_bpType": 0,
 		"i_id": 25,
 		"i_isCircle": 1,
 		"i_isTotal": 0,
 		"i_openNextDay": 0,
 		"i_prePrizeIdOpenNext": 0,
 		"i_stage": 1,
-		"i_systemType": 35,
+		"i_systemType": 0,
 		"il_achieveParams": [
 			0
 		],
@@ -256,18 +256,18 @@
 		"s_uiTxt3": "高级奖励"
 	},
 	{
-		"i_achieveType": 26,
+		"i_achieveType": 0,
 		"i_aliveDay": 25,
-		"i_bpType": 8,
+		"i_bpType": 0,
 		"i_id": 10101,
 		"i_isCircle": 0,
 		"i_isTotal": 1,
 		"i_openNextDay": 15,
 		"i_prePrizeIdOpenNext": 0,
 		"i_stage": 1,
-		"i_systemType": 26,
+		"i_systemType": 0,
 		"il_achieveParams": [
-			999
+			0
 		],
 		"ill_AddItem": [
 			[
@@ -288,18 +288,18 @@
 		"s_uiTxt3": "高级奖励"
 	},
 	{
-		"i_achieveType": 26,
+		"i_achieveType": 0,
 		"i_aliveDay": 25,
-		"i_bpType": 8,
+		"i_bpType": 0,
 		"i_id": 10201,
 		"i_isCircle": 0,
 		"i_isTotal": 1,
 		"i_openNextDay": 0,
 		"i_prePrizeIdOpenNext": 0,
 		"i_stage": 2,
-		"i_systemType": 26,
+		"i_systemType": 0,
 		"il_achieveParams": [
-			999
+			0
 		],
 		"ill_AddItem": [
 			[

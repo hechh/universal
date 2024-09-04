@@ -4,10 +4,10 @@
 		"i_id": 1,
 		"i_limitBuyNum": 1,
 		"i_productId": 0,
-		"i_shopType": 2,
+		"i_shopType": 0,
 		"i_sortTag": 100,
 		"il_needItem": [
-			1,
+			0,
 			20,
 			90000
 		],
@@ -27,10 +27,10 @@
 		"i_id": 2,
 		"i_limitBuyNum": 1,
 		"i_productId": 0,
-		"i_shopType": 2,
+		"i_shopType": 0,
 		"i_sortTag": 99,
 		"il_needItem": [
-			1,
+			0,
 			20,
 			90000
 		],
@@ -50,10 +50,10 @@
 		"i_id": 3,
 		"i_limitBuyNum": 1,
 		"i_productId": 0,
-		"i_shopType": 2,
+		"i_shopType": 0,
 		"i_sortTag": 98,
 		"il_needItem": [
-			1,
+			0,
 			20,
 			90000
 		],
@@ -73,10 +73,10 @@
 		"i_id": 4,
 		"i_limitBuyNum": 1,
 		"i_productId": 0,
-		"i_shopType": 2,
+		"i_shopType": 0,
 		"i_sortTag": 97,
 		"il_needItem": [
-			1,
+			0,
 			20,
 			90000
 		],
@@ -96,10 +96,10 @@
 		"i_id": 5,
 		"i_limitBuyNum": 1,
 		"i_productId": 0,
-		"i_shopType": 2,
+		"i_shopType": 0,
 		"i_sortTag": 96,
 		"il_needItem": [
-			1,
+			0,
 			20,
 			90000
 		],
@@ -119,16 +119,16 @@
 		"i_id": 6,
 		"i_limitBuyNum": 1,
 		"i_productId": 0,
-		"i_shopType": 2,
+		"i_shopType": 0,
 		"i_sortTag": 95,
 		"il_needItem": [
-			1,
+			0,
 			20,
 			80000
 		],
 		"ill_addItem": [
 			[
-				1,
+				0,
 				1405,
 				1
 			]
@@ -141,16 +141,16 @@
 		"i_id": 7,
 		"i_limitBuyNum": 1,
 		"i_productId": 0,
-		"i_shopType": 2,
+		"i_shopType": 0,
 		"i_sortTag": 94,
 		"il_needItem": [
-			1,
+			0,
 			20,
 			80000
 		],
 		"ill_addItem": [
 			[
-				1,
+				0,
 				1406,
 				1
 			]
@@ -163,16 +163,16 @@
 		"i_id": 8,
 		"i_limitBuyNum": 1,
 		"i_productId": 0,
-		"i_shopType": 2,
+		"i_shopType": 0,
 		"i_sortTag": 93,
 		"il_needItem": [
-			1,
+			0,
 			20,
 			80000
 		],
 		"ill_addItem": [
 			[
-				1,
+				0,
 				1407,
 				1
 			]
@@ -185,16 +185,16 @@
 		"i_id": 9,
 		"i_limitBuyNum": 1,
 		"i_productId": 0,
-		"i_shopType": 2,
+		"i_shopType": 0,
 		"i_sortTag": 92,
 		"il_needItem": [
-			1,
+			0,
 			20,
 			80000
 		],
 		"ill_addItem": [
 			[
-				1,
+				0,
 				1408,
 				1
 			]
@@ -207,16 +207,16 @@
 		"i_id": 10,
 		"i_limitBuyNum": 1,
 		"i_productId": 0,
-		"i_shopType": 2,
+		"i_shopType": 0,
 		"i_sortTag": 91,
 		"il_needItem": [
-			1,
+			0,
 			20,
 			80000
 		],
 		"ill_addItem": [
 			[
-				1,
+				0,
 				1409,
 				1
 			]
@@ -229,16 +229,16 @@
 		"i_id": 11,
 		"i_limitBuyNum": 1,
 		"i_productId": 0,
-		"i_shopType": 2,
+		"i_shopType": 0,
 		"i_sortTag": 90,
 		"il_needItem": [
-			1,
+			0,
 			20,
 			80000
 		],
 		"ill_addItem": [
 			[
-				1,
+				0,
 				1410,
 				1
 			]
@@ -251,16 +251,16 @@
 		"i_id": 12,
 		"i_limitBuyNum": 10,
 		"i_productId": 0,
-		"i_shopType": 2,
+		"i_shopType": 0,
 		"i_sortTag": 89,
 		"il_needItem": [
-			1,
+			0,
 			20,
 			2000
 		],
 		"ill_addItem": [
 			[
-				1,
+				0,
 				15,
 				50
 			]
@@ -273,16 +273,16 @@
 		"i_id": 13,
 		"i_limitBuyNum": 5,
 		"i_productId": 0,
-		"i_shopType": 2,
+		"i_shopType": 0,
 		"i_sortTag": 88,
 		"il_needItem": [
-			1,
+			0,
 			20,
 			15000
 		],
 		"ill_addItem": [
 			[
-				1,
+				0,
 				16,
 				5
 			]
@@ -294,13 +294,13 @@
 		"i_id": 100,
 		"i_limitBuyNum": 0,
 		"i_productId": 1,
-		"i_shopType": 3,
+		"i_shopType": 0,
 		"il_needItem": [
 			0
 		],
 		"ill_addItem": [
 			[
-				1,
+				0,
 				1,
 				60
 			]
@@ -311,13 +311,13 @@
 		"i_id": 101,
 		"i_limitBuyNum": 0,
 		"i_productId": 2,
-		"i_shopType": 3,
+		"i_shopType": 0,
 		"il_needItem": [
 			0
 		],
 		"ill_addItem": [
 			[
-				1,
+				0,
 				1,
 				300
 			]
@@ -328,13 +328,13 @@
 		"i_id": 102,
 		"i_limitBuyNum": 0,
 		"i_productId": 3,
-		"i_shopType": 3,
+		"i_shopType": 0,
 		"il_needItem": [
 			0
 		],
 		"ill_addItem": [
 			[
-				1,
+				0,
 				1,
 				680
 			]
@@ -345,13 +345,13 @@
 		"i_id": 103,
 		"i_limitBuyNum": 0,
 		"i_productId": 4,
-		"i_shopType": 3,
+		"i_shopType": 0,
 		"il_needItem": [
 			0
 		],
 		"ill_addItem": [
 			[
-				1,
+				0,
 				1,
 				980
 			]
@@ -362,13 +362,13 @@
 		"i_id": 104,
 		"i_limitBuyNum": 0,
 		"i_productId": 5,
-		"i_shopType": 3,
+		"i_shopType": 0,
 		"il_needItem": [
 			0
 		],
 		"ill_addItem": [
 			[
-				1,
+				0,
 				1,
 				1280
 			]
@@ -379,13 +379,13 @@
 		"i_id": 105,
 		"i_limitBuyNum": 0,
 		"i_productId": 6,
-		"i_shopType": 3,
+		"i_shopType": 0,
 		"il_needItem": [
 			0
 		],
 		"ill_addItem": [
 			[
-				1,
+				0,
 				1,
 				1980
 			]
@@ -396,13 +396,13 @@
 		"i_id": 106,
 		"i_limitBuyNum": 0,
 		"i_productId": 7,
-		"i_shopType": 3,
+		"i_shopType": 0,
 		"il_needItem": [
 			0
 		],
 		"ill_addItem": [
 			[
-				1,
+				0,
 				1,
 				3280
 			]
@@ -414,14 +414,14 @@
 		"i_id": 300,
 		"i_limitBuyNum": 1,
 		"i_productId": 0,
-		"i_shopType": 5,
+		"i_shopType": 0,
 		"i_sortTag": 10,
 		"il_needItem": [
 			0
 		],
 		"ill_addItem": [
 			[
-				1,
+				0,
 				1,
 				10
 			]
@@ -434,19 +434,19 @@
 		"i_id": 301,
 		"i_limitBuyNum": 1,
 		"i_productId": 301,
-		"i_shopType": 5,
+		"i_shopType": 0,
 		"i_sortTag": 9,
 		"il_needItem": [
 			0
 		],
 		"ill_addItem": [
 			[
-				1,
+				0,
 				1,
 				240
 			],
 			[
-				1,
+				0,
 				1500,
 				30
 			]
@@ -459,19 +459,19 @@
 		"i_id": 302,
 		"i_limitBuyNum": 1,
 		"i_productId": 302,
-		"i_shopType": 5,
+		"i_shopType": 0,
 		"i_sortTag": 8,
 		"il_needItem": [
 			0
 		],
 		"ill_addItem": [
 			[
-				1,
+				0,
 				1,
 				325
 			],
 			[
-				1,
+				0,
 				3,
 				180
 			]
@@ -484,19 +484,19 @@
 		"i_id": 303,
 		"i_limitBuyNum": 1,
 		"i_productId": 303,
-		"i_shopType": 5,
+		"i_shopType": 0,
 		"i_sortTag": 7,
 		"il_needItem": [
 			0
 		],
 		"ill_addItem": [
 			[
-				1,
+				0,
 				1,
 				870
 			],
 			[
-				1,
+				0,
 				5,
 				3500
 			]
@@ -509,24 +509,24 @@
 		"i_id": 304,
 		"i_limitBuyNum": 1,
 		"i_productId": 304,
-		"i_shopType": 5,
+		"i_shopType": 0,
 		"i_sortTag": 6,
 		"il_needItem": [
 			0
 		],
 		"ill_addItem": [
 			[
-				1,
+				0,
 				1,
 				1145
 			],
 			[
-				1,
+				0,
 				15,
 				1000
 			],
 			[
-				1,
+				0,
 				16,
 				30
 			]
@@ -539,19 +539,19 @@
 		"i_id": 305,
 		"i_limitBuyNum": 1,
 		"i_productId": 305,
-		"i_shopType": 5,
+		"i_shopType": 0,
 		"i_sortTag": 5,
 		"il_needItem": [
 			0
 		],
 		"ill_addItem": [
 			[
-				1,
+				0,
 				1,
 				1200
 			],
 			[
-				1,
+				0,
 				19,
 				2000
 			]
@@ -564,19 +564,19 @@
 		"i_id": 306,
 		"i_limitBuyNum": 1,
 		"i_productId": 306,
-		"i_shopType": 5,
+		"i_shopType": 0,
 		"i_sortTag": 4,
 		"il_needItem": [
 			0
 		],
 		"ill_addItem": [
 			[
-				1,
+				0,
 				1,
 				1500
 			],
 			[
-				1,
+				0,
 				22,
 				2200
 			]
@@ -589,19 +589,19 @@
 		"i_id": 307,
 		"i_limitBuyNum": 1,
 		"i_productId": 307,
-		"i_shopType": 5,
+		"i_shopType": 0,
 		"i_sortTag": 3,
 		"il_needItem": [
 			0
 		],
 		"ill_addItem": [
 			[
-				1,
+				0,
 				1,
 				1800
 			],
 			[
-				1,
+				0,
 				1410,
 				3
 			]
@@ -614,24 +614,24 @@
 		"i_id": 308,
 		"i_limitBuyNum": 1,
 		"i_productId": 308,
-		"i_shopType": 5,
+		"i_shopType": 0,
 		"i_sortTag": 2,
 		"il_needItem": [
 			0
 		],
 		"ill_addItem": [
 			[
-				1,
+				0,
 				1,
 				3850
 			],
 			[
-				1,
+				0,
 				1601,
 				1
 			],
 			[
-				1,
+				0,
 				1602,
 				1
 			]

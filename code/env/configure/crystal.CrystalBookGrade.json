@@ -4,12 +4,12 @@
 		"i_stageValue": 20,
 		"ill_stageReward": [
 			[
-				1,
+				0,
 				1,
 				10
 			],
 			[
-				1,
+				0,
 				12,
 				2
 			]
@@ -20,12 +20,12 @@
 		"i_stageValue": 30,
 		"ill_stageReward": [
 			[
-				1,
+				0,
 				1,
 				20
 			],
 			[
-				1,
+				0,
 				12,
 				4
 			]
@@ -36,12 +36,12 @@
 		"i_stageValue": 50,
 		"ill_stageReward": [
 			[
-				1,
+				0,
 				1,
 				30
 			],
 			[
-				1,
+				0,
 				12,
 				6
 			]
@@ -52,12 +52,12 @@
 		"i_stageValue": 200,
 		"ill_stageReward": [
 			[
-				1,
+				0,
 				1,
 				40
 			],
 			[
-				1,
+				0,
 				12,
 				8
 			]
@@ -68,12 +68,12 @@
 		"i_stageValue": 260,
 		"ill_stageReward": [
 			[
-				1,
+				0,
 				1,
 				50
 			],
 			[
-				1,
+				0,
 				12,
 				10
 			]
@@ -84,12 +84,12 @@
 		"i_stageValue": 320,
 		"ill_stageReward": [
 			[
-				1,
+				0,
 				1,
 				60
 			],
 			[
-				1,
+				0,
 				12,
 				12
 			]
@@ -100,12 +100,12 @@
 		"i_stageValue": 370,
 		"ill_stageReward": [
 			[
-				1,
+				0,
 				1,
 				70
 			],
 			[
-				1,
+				0,
 				12,
 				14
 			]
@@ -116,12 +116,12 @@
 		"i_stageValue": 420,
 		"ill_stageReward": [
 			[
-				1,
+				0,
 				1,
 				80
 			],
 			[
-				1,
+				0,
 				12,
 				16
 			]
@@ -132,12 +132,12 @@
 		"i_stageValue": 450,
 		"ill_stageReward": [
 			[
-				1,
+				0,
 				1,
 				90
 			],
 			[
-				1,
+				0,
 				12,
 				18
 			]
@@ -148,12 +148,12 @@
 		"i_stageValue": 500,
 		"ill_stageReward": [
 			[
-				1,
+				0,
 				1,
 				100
 			],
 			[
-				1,
+				0,
 				12,
 				20
 			]
@@ -164,12 +164,12 @@
 		"i_stageValue": 530,
 		"ill_stageReward": [
 			[
-				1,
+				0,
 				1,
 				110
 			],
 			[
-				1,
+				0,
 				12,
 				22
 			]
@@ -180,12 +180,12 @@
 		"i_stageValue": 570,
 		"ill_stageReward": [
 			[
-				1,
+				0,
 				1,
 				120
 			],
 			[
-				1,
+				0,
 				12,
 				24
 			]
@@ -196,12 +196,12 @@
 		"i_stageValue": 600,
 		"ill_stageReward": [
 			[
-				1,
+				0,
 				1,
 				130
 			],
 			[
-				1,
+				0,
 				12,
 				26
 			]
@@ -212,12 +212,12 @@
 		"i_stageValue": 630,
 		"ill_stageReward": [
 			[
-				1,
+				0,
 				1,
 				140
 			],
 			[
-				1,
+				0,
 				12,
 				28
 			]
@@ -228,12 +228,12 @@
 		"i_stageValue": 660,
 		"ill_stageReward": [
 			[
-				1,
+				0,
 				1,
 				150
 			],
 			[
-				1,
+				0,
 				12,
 				30
 			]
@@ -244,12 +244,12 @@
 		"i_stageValue": 690,
 		"ill_stageReward": [
 			[
-				1,
+				0,
 				1,
 				160
 			],
 			[
-				1,
+				0,
 				12,
 				32
 			]
@@ -260,12 +260,12 @@
 		"i_stageValue": 720,
 		"ill_stageReward": [
 			[
-				1,
+				0,
 				1,
 				170
 			],
 			[
-				1,
+				0,
 				12,
 				34
 			]
@@ -276,12 +276,12 @@
 		"i_stageValue": 750,
 		"ill_stageReward": [
 			[
-				1,
+				0,
 				1,
 				180
 			],
 			[
-				1,
+				0,
 				12,
 				36
 			]
@@ -292,12 +292,12 @@
 		"i_stageValue": 780,
 		"ill_stageReward": [
 			[
-				1,
+				0,
 				1,
 				190
 			],
 			[
-				1,
+				0,
 				12,
 				38
 			]
@@ -308,12 +308,12 @@
 		"i_stageValue": 800,
 		"ill_stageReward": [
 			[
-				1,
+				0,
 				1,
 				200
 			],
 			[
-				1,
+				0,
 				12,
 				40
 			]
@@ -324,12 +324,12 @@
 		"i_stageValue": 830,
 		"ill_stageReward": [
 			[
-				1,
+				0,
 				1,
 				210
 			],
 			[
-				1,
+				0,
 				12,
 				42
 			]
@@ -340,12 +340,12 @@
 		"i_stageValue": 850,
 		"ill_stageReward": [
 			[
-				1,
+				0,
 				1,
 				220
 			],
 			[
-				1,
+				0,
 				12,
 				44
 			]
@@ -356,12 +356,12 @@
 		"i_stageValue": 880,
 		"ill_stageReward": [
 			[
-				1,
+				0,
 				1,
 				230
 			],
 			[
-				1,
+				0,
 				12,
 				46
 			]
@@ -372,12 +372,12 @@
 		"i_stageValue": 900,
 		"ill_stageReward": [
 			[
-				1,
+				0,
 				1,
 				240
 			],
 			[
-				1,
+				0,
 				12,
 				48
 			]
@@ -388,12 +388,12 @@
 		"i_stageValue": 930,
 		"ill_stageReward": [
 			[
-				1,
+				0,
 				1,
 				250
 			],
 			[
-				1,
+				0,
 				12,
 				50
 			]
@@ -404,12 +404,12 @@
 		"i_stageValue": 950,
 		"ill_stageReward": [
 			[
-				1,
+				0,
 				1,
 				250
 			],
 			[
-				1,
+				0,
 				12,
 				50
 			]
@@ -420,12 +420,12 @@
 		"i_stageValue": 970,
 		"ill_stageReward": [
 			[
-				1,
+				0,
 				1,
 				250
 			],
 			[
-				1,
+				0,
 				12,
 				50
 			]
@@ -436,12 +436,12 @@
 		"i_stageValue": 990,
 		"ill_stageReward": [
 			[
-				1,
+				0,
 				1,
 				250
 			],
 			[
-				1,
+				0,
 				12,
 				50
 			]
@@ -452,12 +452,12 @@
 		"i_stageValue": 1020,
 		"ill_stageReward": [
 			[
-				1,
+				0,
 				1,
 				250
 			],
 			[
-				1,
+				0,
 				12,
 				50
 			]
@@ -468,12 +468,12 @@
 		"i_stageValue": 1040,
 		"ill_stageReward": [
 			[
-				1,
+				0,
 				1,
 				250
 			],
 			[
-				1,
+				0,
 				12,
 				50
 			]
@@ -484,12 +484,12 @@
 		"i_stageValue": 1060,
 		"ill_stageReward": [
 			[
-				1,
+				0,
 				1,
 				250
 			],
 			[
-				1,
+				0,
 				12,
 				50
 			]
@@ -500,12 +500,12 @@
 		"i_stageValue": 1080,
 		"ill_stageReward": [
 			[
-				1,
+				0,
 				1,
 				250
 			],
 			[
-				1,
+				0,
 				12,
 				50
 			]
@@ -516,12 +516,12 @@
 		"i_stageValue": 1100,
 		"ill_stageReward": [
 			[
-				1,
+				0,
 				1,
 				250
 			],
 			[
-				1,
+				0,
 				12,
 				50
 			]
@@ -532,12 +532,12 @@
 		"i_stageValue": 1120,
 		"ill_stageReward": [
 			[
-				1,
+				0,
 				1,
 				250
 			],
 			[
-				1,
+				0,
 				12,
 				50
 			]
@@ -548,12 +548,12 @@
 		"i_stageValue": 1140,
 		"ill_stageReward": [
 			[
-				1,
+				0,
 				1,
 				250
 			],
 			[
-				1,
+				0,
 				12,
 				50
 			]
@@ -564,12 +564,12 @@
 		"i_stageValue": 1170,
 		"ill_stageReward": [
 			[
-				1,
+				0,
 				1,
 				250
 			],
 			[
-				1,
+				0,
 				12,
 				50
 			]
@@ -580,12 +580,12 @@
 		"i_stageValue": 1180,
 		"ill_stageReward": [
 			[
-				1,
+				0,
 				1,
 				250
 			],
 			[
-				1,
+				0,
 				12,
 				50
 			]
@@ -596,12 +596,12 @@
 		"i_stageValue": 1200,
 		"ill_stageReward": [
 			[
-				1,
+				0,
 				1,
 				250
 			],
 			[
-				1,
+				0,
 				12,
 				50
 			]
@@ -612,12 +612,12 @@
 		"i_stageValue": 1220,
 		"ill_stageReward": [
 			[
-				1,
+				0,
 				1,
 				250
 			],
 			[
-				1,
+				0,
 				12,
 				50
 			]
@@ -628,12 +628,12 @@
 		"i_stageValue": 1240,
 		"ill_stageReward": [
 			[
-				1,
+				0,
 				1,
 				250
 			],
 			[
-				1,
+				0,
 				12,
 				50
 			]
@@ -644,12 +644,12 @@
 		"i_stageValue": 1260,
 		"ill_stageReward": [
 			[
-				1,
+				0,
 				1,
 				250
 			],
 			[
-				1,
+				0,
 				12,
 				50
 			]
@@ -660,12 +660,12 @@
 		"i_stageValue": 1270,
 		"ill_stageReward": [
 			[
-				1,
+				0,
 				1,
 				250
 			],
 			[
-				1,
+				0,
 				12,
 				50
 			]
@@ -676,12 +676,12 @@
 		"i_stageValue": 1300,
 		"ill_stageReward": [
 			[
-				1,
+				0,
 				1,
 				250
 			],
 			[
-				1,
+				0,
 				12,
 				50
 			]
@@ -692,12 +692,12 @@
 		"i_stageValue": 1310,
 		"ill_stageReward": [
 			[
-				1,
+				0,
 				1,
 				250
 			],
 			[
-				1,
+				0,
 				12,
 				50
 			]
@@ -708,12 +708,12 @@
 		"i_stageValue": 1330,
 		"ill_stageReward": [
 			[
-				1,
+				0,
 				1,
 				250
 			],
 			[
-				1,
+				0,
 				12,
 				50
 			]
@@ -724,12 +724,12 @@
 		"i_stageValue": 1350,
 		"ill_stageReward": [
 			[
-				1,
+				0,
 				1,
 				250
 			],
 			[
-				1,
+				0,
 				12,
 				50
 			]
@@ -740,12 +740,12 @@
 		"i_stageValue": 1360,
 		"ill_stageReward": [
 			[
-				1,
+				0,
 				1,
 				250
 			],
 			[
-				1,
+				0,
 				12,
 				50
 			]
@@ -756,12 +756,12 @@
 		"i_stageValue": 1390,
 		"ill_stageReward": [
 			[
-				1,
+				0,
 				1,
 				250
 			],
 			[
-				1,
+				0,
 				12,
 				50
 			]
@@ -772,12 +772,12 @@
 		"i_stageValue": 1400,
 		"ill_stageReward": [
 			[
-				1,
+				0,
 				1,
 				250
 			],
 			[
-				1,
+				0,
 				12,
 				50
 			]
@@ -788,12 +788,12 @@
 		"i_stageValue": 1420,
 		"ill_stageReward": [
 			[
-				1,
+				0,
 				1,
 				250
 			],
 			[
-				1,
+				0,
 				12,
 				50
 			]
@@ -804,12 +804,12 @@
 		"i_stageValue": 1430,
 		"ill_stageReward": [
 			[
-				1,
+				0,
 				1,
 				250
 			],
 			[
-				1,
+				0,
 				12,
 				50
 			]
@@ -820,12 +820,12 @@
 		"i_stageValue": 1450,
 		"ill_stageReward": [
 			[
-				1,
+				0,
 				1,
 				250
 			],
 			[
-				1,
+				0,
 				12,
 				50
 			]
@@ -836,12 +836,12 @@
 		"i_stageValue": 1470,
 		"ill_stageReward": [
 			[
-				1,
+				0,
 				1,
 				250
 			],
 			[
-				1,
+				0,
 				12,
 				50
 			]
@@ -852,12 +852,12 @@
 		"i_stageValue": 1490,
 		"ill_stageReward": [
 			[
-				1,
+				0,
 				1,
 				250
 			],
 			[
-				1,
+				0,
 				12,
 				50
 			]
@@ -868,12 +868,12 @@
 		"i_stageValue": 1500,
 		"ill_stageReward": [
 			[
-				1,
+				0,
 				1,
 				250
 			],
 			[
-				1,
+				0,
 				12,
 				50
 			]
@@ -884,12 +884,12 @@
 		"i_stageValue": 1510,
 		"ill_stageReward": [
 			[
-				1,
+				0,
 				1,
 				250
 			],
 			[
-				1,
+				0,
 				12,
 				50
 			]
@@ -900,12 +900,12 @@
 		"i_stageValue": 1540,
 		"ill_stageReward": [
 			[
-				1,
+				0,
 				1,
 				250
 			],
 			[
-				1,
+				0,
 				12,
 				50
 			]
@@ -916,12 +916,12 @@
 		"i_stageValue": 1550,
 		"ill_stageReward": [
 			[
-				1,
+				0,
 				1,
 				250
 			],
 			[
-				1,
+				0,
 				12,
 				50
 			]
@@ -932,12 +932,12 @@
 		"i_stageValue": 1560,
 		"ill_stageReward": [
 			[
-				1,
+				0,
 				1,
 				250
 			],
 			[
-				1,
+				0,
 				12,
 				50
 			]
@@ -948,12 +948,12 @@
 		"i_stageValue": 1580,
 		"ill_stageReward": [
 			[
-				1,
+				0,
 				1,
 				250
 			],
 			[
-				1,
+				0,
 				12,
 				50
 			]
@@ -964,12 +964,12 @@
 		"i_stageValue": 1600,
 		"ill_stageReward": [
 			[
-				1,
+				0,
 				1,
 				250
 			],
 			[
-				1,
+				0,
 				12,
 				50
 			]
@@ -980,12 +980,12 @@
 		"i_stageValue": 1610,
 		"ill_stageReward": [
 			[
-				1,
+				0,
 				1,
 				250
 			],
 			[
-				1,
+				0,
 				12,
 				50
 			]

@@ -1,6 +1,6 @@
 [
 	{
-		"i_battleFunType": 1,
+		"i_battleFunType": 0,
 		"i_freeCount": 1,
 		"i_id": 1,
 		"il_needItem": [
@@ -10,7 +10,7 @@
 		]
 	},
 	{
-		"i_battleFunType": 2,
+		"i_battleFunType": 0,
 		"i_freeCount": 1,
 		"i_id": 2,
 		"il_needItem": [

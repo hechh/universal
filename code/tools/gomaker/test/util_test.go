@@ -9,7 +9,6 @@ import (
 	"os"
 	"testing"
 	"text/template"
-	"universal/tools/gomaker/internal/manager"
 	"universal/tools/gomaker/internal/parse"
 	"universal/tools/gomaker/internal/util"
 )
@@ -37,11 +36,9 @@ func TestPlayer(t *testing.T) {
 }
 
 func TestParser(t *testing.T) {
-	fset := token.NewFileSet()
 	//filename := "./pb/common.pb.go"
 	filename := "../../../common/pb/playerStruct.pb.go"
-	t.Log(util.ParseFile(&parse.GoParser{}, fset, filename))
-	manager.Print()
+	t.Log(util.ParseFiles(&parse.GoParser{}, filename))
 }
 
 func TestTpl(t *testing.T) {

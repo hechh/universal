@@ -76,11 +76,11 @@ func GetStructList() (rets []*typespec.Struct) {
 }
 
 // -------枚举类型---------
-func AddValue(vv *typespec.Value, filename string) {
+func AddValue(filename string, vv *typespec.Value) {
 	if vv != nil {
 		name := vv.Type.GetName("")
 		if eval, ok := enums[name]; !ok {
-			enums[name] = typespec.NewEnum(vv.Type, filename).Add(vv)
+			enums[name] = typespec.NewEnum(filename, vv.Type).Add(vv)
 		} else {
 			eval.Add(vv)
 		}

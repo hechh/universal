@@ -1,7 +1,7 @@
 [
 	{
 		"i_id": 100,
-		"i_techEffectType": 6,
+		"i_techEffectType": 0,
 		"il_fatherId": [
 			0
 		],
@@ -11,7 +11,7 @@
 	},
 	{
 		"i_id": 101,
-		"i_techEffectType": 2,
+		"i_techEffectType": 0,
 		"il_fatherId": [
 			100
 		],
@@ -21,7 +21,7 @@
 	},
 	{
 		"i_id": 102,
-		"i_techEffectType": 1,
+		"i_techEffectType": 0,
 		"il_fatherId": [
 			100
 		],
@@ -31,7 +31,7 @@
 	},
 	{
 		"i_id": 103,
-		"i_techEffectType": 3,
+		"i_techEffectType": 0,
 		"il_fatherId": [
 			100
 		],
@@ -41,7 +41,7 @@
 	},
 	{
 		"i_id": 104,
-		"i_techEffectType": 5,
+		"i_techEffectType": 0,
 		"il_fatherId": [
 			103
 		],
@@ -51,7 +51,7 @@
 	},
 	{
 		"i_id": 105,
-		"i_techEffectType": 2,
+		"i_techEffectType": 0,
 		"il_fatherId": [
 			103
 		],
@@ -61,7 +61,7 @@
 	},
 	{
 		"i_id": 106,
-		"i_techEffectType": 6,
+		"i_techEffectType": 0,
 		"il_fatherId": [
 			104
 		],
@@ -71,7 +71,7 @@
 	},
 	{
 		"i_id": 107,
-		"i_techEffectType": 1,
+		"i_techEffectType": 0,
 		"il_fatherId": [
 			105
 		],
@@ -81,7 +81,7 @@
 	},
 	{
 		"i_id": 108,
-		"i_techEffectType": 3,
+		"i_techEffectType": 0,
 		"il_fatherId": [
 			106
 		],
@@ -91,7 +91,7 @@
 	},
 	{
 		"i_id": 109,
-		"i_techEffectType": 2,
+		"i_techEffectType": 0,
 		"il_fatherId": [
 			106
 		],
@@ -101,7 +101,7 @@
 	},
 	{
 		"i_id": 110,
-		"i_techEffectType": 5,
+		"i_techEffectType": 0,
 		"il_fatherId": [
 			106
 		],
@@ -111,7 +111,7 @@
 	},
 	{
 		"i_id": 200,
-		"i_techEffectType": 6,
+		"i_techEffectType": 0,
 		"il_fatherId": [
 			108,
 			109,
@@ -123,7 +123,7 @@
 	},
 	{
 		"i_id": 201,
-		"i_techEffectType": 2,
+		"i_techEffectType": 0,
 		"il_fatherId": [
 			200
 		],
@@ -133,7 +133,7 @@
 	},
 	{
 		"i_id": 202,
-		"i_techEffectType": 1,
+		"i_techEffectType": 0,
 		"il_fatherId": [
 			200
 		],
@@ -143,7 +143,7 @@
 	},
 	{
 		"i_id": 203,
-		"i_techEffectType": 3,
+		"i_techEffectType": 0,
 		"il_fatherId": [
 			200
 		],
@@ -153,7 +153,7 @@
 	},
 	{
 		"i_id": 204,
-		"i_techEffectType": 5,
+		"i_techEffectType": 0,
 		"il_fatherId": [
 			203
 		],
@@ -163,7 +163,7 @@
 	},
 	{
 		"i_id": 205,
-		"i_techEffectType": 2,
+		"i_techEffectType": 0,
 		"il_fatherId": [
 			203
 		],
@@ -173,7 +173,7 @@
 	},
 	{
 		"i_id": 206,
-		"i_techEffectType": 6,
+		"i_techEffectType": 0,
 		"il_fatherId": [
 			204
 		],
@@ -183,7 +183,7 @@
 	},
 	{
 		"i_id": 207,
-		"i_techEffectType": 1,
+		"i_techEffectType": 0,
 		"il_fatherId": [
 			205
 		],
@@ -193,7 +193,7 @@
 	},
 	{
 		"i_id": 208,
-		"i_techEffectType": 3,
+		"i_techEffectType": 0,
 		"il_fatherId": [
 			206
 		],
@@ -203,7 +203,7 @@
 	},
 	{
 		"i_id": 209,
-		"i_techEffectType": 1,
+		"i_techEffectType": 0,
 		"il_fatherId": [
 			206
 		],
@@ -213,7 +213,7 @@
 	},
 	{
 		"i_id": 210,
-		"i_techEffectType": 5,
+		"i_techEffectType": 0,
 		"il_fatherId": [
 			206
 		],
@@ -223,7 +223,7 @@
 	},
 	{
 		"i_id": 300,
-		"i_techEffectType": 6,
+		"i_techEffectType": 0,
 		"il_fatherId": [
 			208,
 			209,
@@ -235,7 +235,7 @@
 	},
 	{
 		"i_id": 301,
-		"i_techEffectType": 2,
+		"i_techEffectType": 0,
 		"il_fatherId": [
 			300
 		],
@@ -245,7 +245,7 @@
 	},
 	{
 		"i_id": 302,
-		"i_techEffectType": 1,
+		"i_techEffectType": 0,
 		"il_fatherId": [
 			300
 		],
@@ -255,7 +255,7 @@
 	},
 	{
 		"i_id": 303,
-		"i_techEffectType": 3,
+		"i_techEffectType": 0,
 		"il_fatherId": [
 			300
 		],
@@ -265,7 +265,7 @@
 	},
 	{
 		"i_id": 304,
-		"i_techEffectType": 5,
+		"i_techEffectType": 0,
 		"il_fatherId": [
 			303
 		],
@@ -275,7 +275,7 @@
 	},
 	{
 		"i_id": 305,
-		"i_techEffectType": 2,
+		"i_techEffectType": 0,
 		"il_fatherId": [
 			303
 		],
@@ -285,7 +285,7 @@
 	},
 	{
 		"i_id": 306,
-		"i_techEffectType": 6,
+		"i_techEffectType": 0,
 		"il_fatherId": [
 			304
 		],
@@ -295,7 +295,7 @@
 	},
 	{
 		"i_id": 307,
-		"i_techEffectType": 1,
+		"i_techEffectType": 0,
 		"il_fatherId": [
 			305
 		],
@@ -305,7 +305,7 @@
 	},
 	{
 		"i_id": 308,
-		"i_techEffectType": 3,
+		"i_techEffectType": 0,
 		"il_fatherId": [
 			306
 		],
@@ -315,7 +315,7 @@
 	},
 	{
 		"i_id": 309,
-		"i_techEffectType": 2,
+		"i_techEffectType": 0,
 		"il_fatherId": [
 			306
 		],
@@ -325,7 +325,7 @@
 	},
 	{
 		"i_id": 310,
-		"i_techEffectType": 5,
+		"i_techEffectType": 0,
 		"il_fatherId": [
 			306
 		],
@@ -335,7 +335,7 @@
 	},
 	{
 		"i_id": 400,
-		"i_techEffectType": 6,
+		"i_techEffectType": 0,
 		"il_fatherId": [
 			308,
 			309,
@@ -347,7 +347,7 @@
 	},
 	{
 		"i_id": 401,
-		"i_techEffectType": 2,
+		"i_techEffectType": 0,
 		"il_fatherId": [
 			400
 		],
@@ -357,7 +357,7 @@
 	},
 	{
 		"i_id": 402,
-		"i_techEffectType": 1,
+		"i_techEffectType": 0,
 		"il_fatherId": [
 			400
 		],
@@ -367,7 +367,7 @@
 	},
 	{
 		"i_id": 403,
-		"i_techEffectType": 3,
+		"i_techEffectType": 0,
 		"il_fatherId": [
 			400
 		],
@@ -377,7 +377,7 @@
 	},
 	{
 		"i_id": 404,
-		"i_techEffectType": 5,
+		"i_techEffectType": 0,
 		"il_fatherId": [
 			403
 		],
@@ -387,7 +387,7 @@
 	},
 	{
 		"i_id": 405,
-		"i_techEffectType": 2,
+		"i_techEffectType": 0,
 		"il_fatherId": [
 			403
 		],
@@ -397,7 +397,7 @@
 	},
 	{
 		"i_id": 406,
-		"i_techEffectType": 6,
+		"i_techEffectType": 0,
 		"il_fatherId": [
 			404
 		],
@@ -407,7 +407,7 @@
 	},
 	{
 		"i_id": 407,
-		"i_techEffectType": 1,
+		"i_techEffectType": 0,
 		"il_fatherId": [
 			405
 		],
@@ -417,7 +417,7 @@
 	},
 	{
 		"i_id": 408,
-		"i_techEffectType": 3,
+		"i_techEffectType": 0,
 		"il_fatherId": [
 			406
 		],
@@ -427,7 +427,7 @@
 	},
 	{
 		"i_id": 409,
-		"i_techEffectType": 2,
+		"i_techEffectType": 0,
 		"il_fatherId": [
 			406
 		],
@@ -437,7 +437,7 @@
 	},
 	{
 		"i_id": 410,
-		"i_techEffectType": 5,
+		"i_techEffectType": 0,
 		"il_fatherId": [
 			406
 		],
@@ -447,7 +447,7 @@
 	},
 	{
 		"i_id": 500,
-		"i_techEffectType": 6,
+		"i_techEffectType": 0,
 		"il_fatherId": [
 			408,
 			409,
@@ -459,7 +459,7 @@
 	},
 	{
 		"i_id": 501,
-		"i_techEffectType": 2,
+		"i_techEffectType": 0,
 		"il_fatherId": [
 			500
 		],
@@ -469,7 +469,7 @@
 	},
 	{
 		"i_id": 502,
-		"i_techEffectType": 1,
+		"i_techEffectType": 0,
 		"il_fatherId": [
 			500
 		],
@@ -479,7 +479,7 @@
 	},
 	{
 		"i_id": 503,
-		"i_techEffectType": 3,
+		"i_techEffectType": 0,
 		"il_fatherId": [
 			500
 		],
@@ -489,7 +489,7 @@
 	},
 	{
 		"i_id": 504,
-		"i_techEffectType": 5,
+		"i_techEffectType": 0,
 		"il_fatherId": [
 			503
 		],
@@ -499,7 +499,7 @@
 	},
 	{
 		"i_id": 505,
-		"i_techEffectType": 2,
+		"i_techEffectType": 0,
 		"il_fatherId": [
 			503
 		],
@@ -509,7 +509,7 @@
 	},
 	{
 		"i_id": 506,
-		"i_techEffectType": 6,
+		"i_techEffectType": 0,
 		"il_fatherId": [
 			504
 		],
@@ -519,7 +519,7 @@
 	},
 	{
 		"i_id": 507,
-		"i_techEffectType": 1,
+		"i_techEffectType": 0,
 		"il_fatherId": [
 			505
 		],
@@ -529,7 +529,7 @@
 	},
 	{
 		"i_id": 508,
-		"i_techEffectType": 3,
+		"i_techEffectType": 0,
 		"il_fatherId": [
 			506
 		],
@@ -539,7 +539,7 @@
 	},
 	{
 		"i_id": 509,
-		"i_techEffectType": 2,
+		"i_techEffectType": 0,
 		"il_fatherId": [
 			506
 		],
@@ -549,7 +549,7 @@
 	},
 	{
 		"i_id": 510,
-		"i_techEffectType": 5,
+		"i_techEffectType": 0,
 		"il_fatherId": [
 			506
 		],

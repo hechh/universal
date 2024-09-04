@@ -1,11 +1,11 @@
 [
 	{
 		"i_id": 1,
-		"i_mainProp": 6,
+		"i_mainProp": 0,
 		"i_mainPropValue": 207580,
 		"i_minorPropValue": 94360,
 		"i_partType": 0,
-		"i_profType": 2,
+		"i_profType": 0,
 		"i_stage": 1,
 		"i_vicePropValue": 72580,
 		"il_minorProp": [
@@ -20,7 +20,7 @@
 	},
 	{
 		"i_id": 2,
-		"i_mainProp": 6,
+		"i_mainProp": 0,
 		"i_mainPropValue": 207580,
 		"i_minorPropValue": 94360,
 		"i_partType": 0,
@@ -39,11 +39,11 @@
 	},
 	{
 		"i_id": 3,
-		"i_mainProp": 6,
+		"i_mainProp": 0,
 		"i_mainPropValue": 207580,
 		"i_minorPropValue": 94360,
 		"i_partType": 0,
-		"i_profType": 1,
+		"i_profType": 0,
 		"i_stage": 1,
 		"i_vicePropValue": 72580,
 		"il_minorProp": [
@@ -58,11 +58,11 @@
 	},
 	{
 		"i_id": 4,
-		"i_mainProp": 6,
+		"i_mainProp": 0,
 		"i_mainPropValue": 207580,
 		"i_minorPropValue": 94360,
 		"i_partType": 0,
-		"i_profType": 3,
+		"i_profType": 0,
 		"i_stage": 1,
 		"i_vicePropValue": 72580,
 		"il_minorProp": [
@@ -77,11 +77,11 @@
 	},
 	{
 		"i_id": 5,
-		"i_mainProp": 6,
+		"i_mainProp": 0,
 		"i_mainPropValue": 207580,
 		"i_minorPropValue": 94360,
 		"i_partType": 0,
-		"i_profType": 4,
+		"i_profType": 0,
 		"i_stage": 1,
 		"i_vicePropValue": 72580,
 		"il_minorProp": [
@@ -96,11 +96,11 @@
 	},
 	{
 		"i_id": 6,
-		"i_mainProp": 7,
+		"i_mainProp": 0,
 		"i_mainPropValue": 207600,
 		"i_minorPropValue": 94360,
-		"i_partType": 1,
-		"i_profType": 2,
+		"i_partType": 0,
+		"i_profType": 0,
 		"i_stage": 1,
 		"i_vicePropValue": 72580,
 		"il_minorProp": [
@@ -115,10 +115,10 @@
 	},
 	{
 		"i_id": 7,
-		"i_mainProp": 7,
+		"i_mainProp": 0,
 		"i_mainPropValue": 207600,
 		"i_minorPropValue": 94360,
-		"i_partType": 1,
+		"i_partType": 0,
 		"i_profType": 0,
 		"i_stage": 1,
 		"i_vicePropValue": 72580,
@@ -134,11 +134,11 @@
 	},
 	{
 		"i_id": 8,
-		"i_mainProp": 7,
+		"i_mainProp": 0,
 		"i_mainPropValue": 207600,
 		"i_minorPropValue": 94360,
-		"i_partType": 1,
-		"i_profType": 1,
+		"i_partType": 0,
+		"i_profType": 0,
 		"i_stage": 1,
 		"i_vicePropValue": 72580,
 		"il_minorProp": [
@@ -153,11 +153,11 @@
 	},
 	{
 		"i_id": 9,
-		"i_mainProp": 7,
+		"i_mainProp": 0,
 		"i_mainPropValue": 207600,
 		"i_minorPropValue": 94360,
-		"i_partType": 1,
-		"i_profType": 3,
+		"i_partType": 0,
+		"i_profType": 0,
 		"i_stage": 1,
 		"i_vicePropValue": 72580,
 		"il_minorProp": [
@@ -172,11 +172,11 @@
 	},
 	{
 		"i_id": 10,
-		"i_mainProp": 7,
+		"i_mainProp": 0,
 		"i_mainPropValue": 207600,
 		"i_minorPropValue": 94360,
-		"i_partType": 1,
-		"i_profType": 4,
+		"i_partType": 0,
+		"i_profType": 0,
 		"i_stage": 1,
 		"i_vicePropValue": 72580,
 		"il_minorProp": [
@@ -191,11 +191,11 @@
 	},
 	{
 		"i_id": 11,
-		"i_mainProp": 8,
+		"i_mainProp": 0,
 		"i_mainPropValue": 207568,
 		"i_minorPropValue": 94360,
-		"i_partType": 2,
-		"i_profType": 2,
+		"i_partType": 0,
+		"i_profType": 0,
 		"i_stage": 1,
 		"i_vicePropValue": 72580,
 		"il_minorProp": [
@@ -210,10 +210,10 @@
 	},
 	{
 		"i_id": 12,
-		"i_mainProp": 8,
+		"i_mainProp": 0,
 		"i_mainPropValue": 207568,
 		"i_minorPropValue": 94360,
-		"i_partType": 2,
+		"i_partType": 0,
 		"i_profType": 0,
 		"i_stage": 1,
 		"i_vicePropValue": 72580,
@@ -229,11 +229,11 @@
 	},
 	{
 		"i_id": 13,
-		"i_mainProp": 8,
+		"i_mainProp": 0,
 		"i_mainPropValue": 207568,
 		"i_minorPropValue": 94360,
-		"i_partType": 2,
-		"i_profType": 1,
+		"i_partType": 0,
+		"i_profType": 0,
 		"i_stage": 1,
 		"i_vicePropValue": 72580,
 		"il_minorProp": [
@@ -248,11 +248,11 @@
 	},
 	{
 		"i_id": 14,
-		"i_mainProp": 8,
+		"i_mainProp": 0,
 		"i_mainPropValue": 207568,
 		"i_minorPropValue": 94360,
-		"i_partType": 2,
-		"i_profType": 3,
+		"i_partType": 0,
+		"i_profType": 0,
 		"i_stage": 1,
 		"i_vicePropValue": 72580,
 		"il_minorProp": [
@@ -267,11 +267,11 @@
 	},
 	{
 		"i_id": 15,
-		"i_mainProp": 8,
+		"i_mainProp": 0,
 		"i_mainPropValue": 207568,
 		"i_minorPropValue": 94360,
-		"i_partType": 2,
-		"i_profType": 4,
+		"i_partType": 0,
+		"i_profType": 0,
 		"i_stage": 1,
 		"i_vicePropValue": 72580,
 		"il_minorProp": [
@@ -286,11 +286,11 @@
 	},
 	{
 		"i_id": 16,
-		"i_mainProp": 6,
+		"i_mainProp": 0,
 		"i_mainPropValue": 169840,
 		"i_minorPropValue": 94360,
-		"i_partType": 3,
-		"i_profType": 2,
+		"i_partType": 0,
+		"i_profType": 0,
 		"i_stage": 1,
 		"i_vicePropValue": 72580,
 		"il_minorProp": [
@@ -305,10 +305,10 @@
 	},
 	{
 		"i_id": 17,
-		"i_mainProp": 6,
+		"i_mainProp": 0,
 		"i_mainPropValue": 169840,
 		"i_minorPropValue": 94360,
-		"i_partType": 3,
+		"i_partType": 0,
 		"i_profType": 0,
 		"i_stage": 1,
 		"i_vicePropValue": 72580,
@@ -324,11 +324,11 @@
 	},
 	{
 		"i_id": 18,
-		"i_mainProp": 6,
+		"i_mainProp": 0,
 		"i_mainPropValue": 169840,
 		"i_minorPropValue": 94360,
-		"i_partType": 3,
-		"i_profType": 1,
+		"i_partType": 0,
+		"i_profType": 0,
 		"i_stage": 1,
 		"i_vicePropValue": 72580,
 		"il_minorProp": [
@@ -343,11 +343,11 @@
 	},
 	{
 		"i_id": 19,
-		"i_mainProp": 6,
+		"i_mainProp": 0,
 		"i_mainPropValue": 169840,
 		"i_minorPropValue": 94360,
-		"i_partType": 3,
-		"i_profType": 3,
+		"i_partType": 0,
+		"i_profType": 0,
 		"i_stage": 1,
 		"i_vicePropValue": 72580,
 		"il_minorProp": [
@@ -362,11 +362,11 @@
 	},
 	{
 		"i_id": 20,
-		"i_mainProp": 6,
+		"i_mainProp": 0,
 		"i_mainPropValue": 169840,
 		"i_minorPropValue": 94360,
-		"i_partType": 3,
-		"i_profType": 4,
+		"i_partType": 0,
+		"i_profType": 0,
 		"i_stage": 1,
 		"i_vicePropValue": 72580,
 		"il_minorProp": [
@@ -384,8 +384,8 @@
 		"i_mainProp": 0,
 		"i_mainPropValue": 169840,
 		"i_minorPropValue": 94360,
-		"i_partType": 4,
-		"i_profType": 999,
+		"i_partType": 0,
+		"i_profType": 0,
 		"i_stage": 1,
 		"i_vicePropValue": 72580,
 		"il_minorProp": [
@@ -403,8 +403,8 @@
 		"i_mainProp": 0,
 		"i_mainPropValue": 169840,
 		"i_minorPropValue": 94360,
-		"i_partType": 5,
-		"i_profType": 999,
+		"i_partType": 0,
+		"i_profType": 0,
 		"i_stage": 1,
 		"i_vicePropValue": 72580,
 		"il_minorProp": [
@@ -419,11 +419,11 @@
 	},
 	{
 		"i_id": 101,
-		"i_mainProp": 6,
+		"i_mainProp": 0,
 		"i_mainPropValue": 207580,
 		"i_minorPropValue": 94360,
 		"i_partType": 0,
-		"i_profType": 2,
+		"i_profType": 0,
 		"i_stage": 2,
 		"i_vicePropValue": 72580,
 		"il_minorProp": [
@@ -438,7 +438,7 @@
 	},
 	{
 		"i_id": 102,
-		"i_mainProp": 6,
+		"i_mainProp": 0,
 		"i_mainPropValue": 207580,
 		"i_minorPropValue": 94360,
 		"i_partType": 0,
@@ -457,11 +457,11 @@
 	},
 	{
 		"i_id": 103,
-		"i_mainProp": 6,
+		"i_mainProp": 0,
 		"i_mainPropValue": 207580,
 		"i_minorPropValue": 94360,
 		"i_partType": 0,
-		"i_profType": 1,
+		"i_profType": 0,
 		"i_stage": 2,
 		"i_vicePropValue": 72580,
 		"il_minorProp": [
@@ -476,11 +476,11 @@
 	},
 	{
 		"i_id": 104,
-		"i_mainProp": 6,
+		"i_mainProp": 0,
 		"i_mainPropValue": 207580,
 		"i_minorPropValue": 94360,
 		"i_partType": 0,
-		"i_profType": 3,
+		"i_profType": 0,
 		"i_stage": 2,
 		"i_vicePropValue": 72580,
 		"il_minorProp": [
@@ -495,11 +495,11 @@
 	},
 	{
 		"i_id": 105,
-		"i_mainProp": 6,
+		"i_mainProp": 0,
 		"i_mainPropValue": 207580,
 		"i_minorPropValue": 94360,
 		"i_partType": 0,
-		"i_profType": 4,
+		"i_profType": 0,
 		"i_stage": 2,
 		"i_vicePropValue": 72580,
 		"il_minorProp": [
@@ -514,11 +514,11 @@
 	},
 	{
 		"i_id": 106,
-		"i_mainProp": 7,
+		"i_mainProp": 0,
 		"i_mainPropValue": 207600,
 		"i_minorPropValue": 94360,
-		"i_partType": 1,
-		"i_profType": 2,
+		"i_partType": 0,
+		"i_profType": 0,
 		"i_stage": 2,
 		"i_vicePropValue": 72580,
 		"il_minorProp": [
@@ -533,10 +533,10 @@
 	},
 	{
 		"i_id": 107,
-		"i_mainProp": 7,
+		"i_mainProp": 0,
 		"i_mainPropValue": 207600,
 		"i_minorPropValue": 94360,
-		"i_partType": 1,
+		"i_partType": 0,
 		"i_profType": 0,
 		"i_stage": 2,
 		"i_vicePropValue": 72580,
@@ -552,11 +552,11 @@
 	},
 	{
 		"i_id": 108,
-		"i_mainProp": 7,
+		"i_mainProp": 0,
 		"i_mainPropValue": 207600,
 		"i_minorPropValue": 94360,
-		"i_partType": 1,
-		"i_profType": 1,
+		"i_partType": 0,
+		"i_profType": 0,
 		"i_stage": 2,
 		"i_vicePropValue": 72580,
 		"il_minorProp": [
@@ -571,11 +571,11 @@
 	},
 	{
 		"i_id": 109,
-		"i_mainProp": 7,
+		"i_mainProp": 0,
 		"i_mainPropValue": 207600,
 		"i_minorPropValue": 94360,
-		"i_partType": 1,
-		"i_profType": 3,
+		"i_partType": 0,
+		"i_profType": 0,
 		"i_stage": 2,
 		"i_vicePropValue": 72580,
 		"il_minorProp": [
@@ -590,11 +590,11 @@
 	},
 	{
 		"i_id": 110,
-		"i_mainProp": 7,
+		"i_mainProp": 0,
 		"i_mainPropValue": 207600,
 		"i_minorPropValue": 94360,
-		"i_partType": 1,
-		"i_profType": 4,
+		"i_partType": 0,
+		"i_profType": 0,
 		"i_stage": 2,
 		"i_vicePropValue": 72580,
 		"il_minorProp": [
@@ -609,11 +609,11 @@
 	},
 	{
 		"i_id": 111,
-		"i_mainProp": 8,
+		"i_mainProp": 0,
 		"i_mainPropValue": 207568,
 		"i_minorPropValue": 94360,
-		"i_partType": 2,
-		"i_profType": 2,
+		"i_partType": 0,
+		"i_profType": 0,
 		"i_stage": 2,
 		"i_vicePropValue": 72580,
 		"il_minorProp": [
@@ -628,10 +628,10 @@
 	},
 	{
 		"i_id": 112,
-		"i_mainProp": 8,
+		"i_mainProp": 0,
 		"i_mainPropValue": 207568,
 		"i_minorPropValue": 94360,
-		"i_partType": 2,
+		"i_partType": 0,
 		"i_profType": 0,
 		"i_stage": 2,
 		"i_vicePropValue": 72580,
@@ -647,11 +647,11 @@
 	},
 	{
 		"i_id": 113,
-		"i_mainProp": 8,
+		"i_mainProp": 0,
 		"i_mainPropValue": 207568,
 		"i_minorPropValue": 94360,
-		"i_partType": 2,
-		"i_profType": 1,
+		"i_partType": 0,
+		"i_profType": 0,
 		"i_stage": 2,
 		"i_vicePropValue": 72580,
 		"il_minorProp": [
@@ -666,11 +666,11 @@
 	},
 	{
 		"i_id": 114,
-		"i_mainProp": 8,
+		"i_mainProp": 0,
 		"i_mainPropValue": 207568,
 		"i_minorPropValue": 94360,
-		"i_partType": 2,
-		"i_profType": 3,
+		"i_partType": 0,
+		"i_profType": 0,
 		"i_stage": 2,
 		"i_vicePropValue": 72580,
 		"il_minorProp": [
@@ -685,11 +685,11 @@
 	},
 	{
 		"i_id": 115,
-		"i_mainProp": 8,
+		"i_mainProp": 0,
 		"i_mainPropValue": 207568,
 		"i_minorPropValue": 94360,
-		"i_partType": 2,
-		"i_profType": 4,
+		"i_partType": 0,
+		"i_profType": 0,
 		"i_stage": 2,
 		"i_vicePropValue": 72580,
 		"il_minorProp": [
@@ -704,11 +704,11 @@
 	},
 	{
 		"i_id": 116,
-		"i_mainProp": 6,
+		"i_mainProp": 0,
 		"i_mainPropValue": 169840,
 		"i_minorPropValue": 94360,
-		"i_partType": 3,
-		"i_profType": 2,
+		"i_partType": 0,
+		"i_profType": 0,
 		"i_stage": 2,
 		"i_vicePropValue": 72580,
 		"il_minorProp": [
@@ -723,10 +723,10 @@
 	},
 	{
 		"i_id": 117,
-		"i_mainProp": 6,
+		"i_mainProp": 0,
 		"i_mainPropValue": 169840,
 		"i_minorPropValue": 94360,
-		"i_partType": 3,
+		"i_partType": 0,
 		"i_profType": 0,
 		"i_stage": 2,
 		"i_vicePropValue": 72580,
@@ -742,11 +742,11 @@
 	},
 	{
 		"i_id": 118,
-		"i_mainProp": 6,
+		"i_mainProp": 0,
 		"i_mainPropValue": 169840,
 		"i_minorPropValue": 94360,
-		"i_partType": 3,
-		"i_profType": 1,
+		"i_partType": 0,
+		"i_profType": 0,
 		"i_stage": 2,
 		"i_vicePropValue": 72580,
 		"il_minorProp": [
@@ -761,11 +761,11 @@
 	},
 	{
 		"i_id": 119,
-		"i_mainProp": 6,
+		"i_mainProp": 0,
 		"i_mainPropValue": 169840,
 		"i_minorPropValue": 94360,
-		"i_partType": 3,
-		"i_profType": 3,
+		"i_partType": 0,
+		"i_profType": 0,
 		"i_stage": 2,
 		"i_vicePropValue": 72580,
 		"il_minorProp": [
@@ -780,11 +780,11 @@
 	},
 	{
 		"i_id": 120,
-		"i_mainProp": 6,
+		"i_mainProp": 0,
 		"i_mainPropValue": 169840,
 		"i_minorPropValue": 94360,
-		"i_partType": 3,
-		"i_profType": 4,
+		"i_partType": 0,
+		"i_profType": 0,
 		"i_stage": 2,
 		"i_vicePropValue": 72580,
 		"il_minorProp": [
@@ -802,8 +802,8 @@
 		"i_mainProp": 0,
 		"i_mainPropValue": 169840,
 		"i_minorPropValue": 94360,
-		"i_partType": 4,
-		"i_profType": 999,
+		"i_partType": 0,
+		"i_profType": 0,
 		"i_stage": 2,
 		"i_vicePropValue": 72580,
 		"il_minorProp": [
@@ -821,8 +821,8 @@
 		"i_mainProp": 0,
 		"i_mainPropValue": 169840,
 		"i_minorPropValue": 94360,
-		"i_partType": 5,
-		"i_profType": 999,
+		"i_partType": 0,
+		"i_profType": 0,
 		"i_stage": 2,
 		"i_vicePropValue": 72580,
 		"il_minorProp": [
@@ -837,11 +837,11 @@
 	},
 	{
 		"i_id": 201,
-		"i_mainProp": 6,
+		"i_mainProp": 0,
 		"i_mainPropValue": 207580,
 		"i_minorPropValue": 94360,
 		"i_partType": 0,
-		"i_profType": 2,
+		"i_profType": 0,
 		"i_stage": 3,
 		"i_vicePropValue": 72580,
 		"il_minorProp": [
@@ -856,7 +856,7 @@
 	},
 	{
 		"i_id": 202,
-		"i_mainProp": 6,
+		"i_mainProp": 0,
 		"i_mainPropValue": 207580,
 		"i_minorPropValue": 94360,
 		"i_partType": 0,
@@ -875,11 +875,11 @@
 	},
 	{
 		"i_id": 203,
-		"i_mainProp": 6,
+		"i_mainProp": 0,
 		"i_mainPropValue": 207580,
 		"i_minorPropValue": 94360,
 		"i_partType": 0,
-		"i_profType": 1,
+		"i_profType": 0,
 		"i_stage": 3,
 		"i_vicePropValue": 72580,
 		"il_minorProp": [
@@ -894,11 +894,11 @@
 	},
 	{
 		"i_id": 204,
-		"i_mainProp": 6,
+		"i_mainProp": 0,
 		"i_mainPropValue": 207580,
 		"i_minorPropValue": 94360,
 		"i_partType": 0,
-		"i_profType": 3,
+		"i_profType": 0,
 		"i_stage": 3,
 		"i_vicePropValue": 72580,
 		"il_minorProp": [
@@ -913,11 +913,11 @@
 	},
 	{
 		"i_id": 205,
-		"i_mainProp": 6,
+		"i_mainProp": 0,
 		"i_mainPropValue": 207580,
 		"i_minorPropValue": 94360,
 		"i_partType": 0,
-		"i_profType": 4,
+		"i_profType": 0,
 		"i_stage": 3,
 		"i_vicePropValue": 72580,
 		"il_minorProp": [
@@ -932,11 +932,11 @@
 	},
 	{
 		"i_id": 206,
-		"i_mainProp": 7,
+		"i_mainProp": 0,
 		"i_mainPropValue": 207600,
 		"i_minorPropValue": 94360,
-		"i_partType": 1,
-		"i_profType": 2,
+		"i_partType": 0,
+		"i_profType": 0,
 		"i_stage": 3,
 		"i_vicePropValue": 72580,
 		"il_minorProp": [
@@ -951,10 +951,10 @@
 	},
 	{
 		"i_id": 207,
-		"i_mainProp": 7,
+		"i_mainProp": 0,
 		"i_mainPropValue": 207600,
 		"i_minorPropValue": 94360,
-		"i_partType": 1,
+		"i_partType": 0,
 		"i_profType": 0,
 		"i_stage": 3,
 		"i_vicePropValue": 72580,
@@ -970,11 +970,11 @@
 	},
 	{
 		"i_id": 208,
-		"i_mainProp": 7,
+		"i_mainProp": 0,
 		"i_mainPropValue": 207600,
 		"i_minorPropValue": 94360,
-		"i_partType": 1,
-		"i_profType": 1,
+		"i_partType": 0,
+		"i_profType": 0,
 		"i_stage": 3,
 		"i_vicePropValue": 72580,
 		"il_minorProp": [
@@ -989,11 +989,11 @@
 	},
 	{
 		"i_id": 209,
-		"i_mainProp": 7,
+		"i_mainProp": 0,
 		"i_mainPropValue": 207600,
 		"i_minorPropValue": 94360,
-		"i_partType": 1,
-		"i_profType": 3,
+		"i_partType": 0,
+		"i_profType": 0,
 		"i_stage": 3,
 		"i_vicePropValue": 72580,
 		"il_minorProp": [
@@ -1008,11 +1008,11 @@
 	},
 	{
 		"i_id": 210,
-		"i_mainProp": 7,
+		"i_mainProp": 0,
 		"i_mainPropValue": 207600,
 		"i_minorPropValue": 94360,
-		"i_partType": 1,
-		"i_profType": 4,
+		"i_partType": 0,
+		"i_profType": 0,
 		"i_stage": 3,
 		"i_vicePropValue": 72580,
 		"il_minorProp": [
@@ -1027,11 +1027,11 @@
 	},
 	{
 		"i_id": 211,
-		"i_mainProp": 8,
+		"i_mainProp": 0,
 		"i_mainPropValue": 207568,
 		"i_minorPropValue": 94360,
-		"i_partType": 2,
-		"i_profType": 2,
+		"i_partType": 0,
+		"i_profType": 0,
 		"i_stage": 3,
 		"i_vicePropValue": 72580,
 		"il_minorProp": [
@@ -1046,10 +1046,10 @@
 	},
 	{
 		"i_id": 212,
-		"i_mainProp": 8,
+		"i_mainProp": 0,
 		"i_mainPropValue": 207568,
 		"i_minorPropValue": 94360,
-		"i_partType": 2,
+		"i_partType": 0,
 		"i_profType": 0,
 		"i_stage": 3,
 		"i_vicePropValue": 72580,
@@ -1065,11 +1065,11 @@
 	},
 	{
 		"i_id": 213,
-		"i_mainProp": 8,
+		"i_mainProp": 0,
 		"i_mainPropValue": 207568,
 		"i_minorPropValue": 94360,
-		"i_partType": 2,
-		"i_profType": 1,
+		"i_partType": 0,
+		"i_profType": 0,
 		"i_stage": 3,
 		"i_vicePropValue": 72580,
 		"il_minorProp": [
@@ -1084,11 +1084,11 @@
 	},
 	{
 		"i_id": 214,
-		"i_mainProp": 8,
+		"i_mainProp": 0,
 		"i_mainPropValue": 207568,
 		"i_minorPropValue": 94360,
-		"i_partType": 2,
-		"i_profType": 3,
+		"i_partType": 0,
+		"i_profType": 0,
 		"i_stage": 3,
 		"i_vicePropValue": 72580,
 		"il_minorProp": [
@@ -1103,11 +1103,11 @@
 	},
 	{
 		"i_id": 215,
-		"i_mainProp": 8,
+		"i_mainProp": 0,
 		"i_mainPropValue": 207568,
 		"i_minorPropValue": 94360,
-		"i_partType": 2,
-		"i_profType": 4,
+		"i_partType": 0,
+		"i_profType": 0,
 		"i_stage": 3,
 		"i_vicePropValue": 72580,
 		"il_minorProp": [
@@ -1122,11 +1122,11 @@
 	},
 	{
 		"i_id": 216,
-		"i_mainProp": 6,
+		"i_mainProp": 0,
 		"i_mainPropValue": 169840,
 		"i_minorPropValue": 94360,
-		"i_partType": 3,
-		"i_profType": 2,
+		"i_partType": 0,
+		"i_profType": 0,
 		"i_stage": 3,
 		"i_vicePropValue": 72580,
 		"il_minorProp": [
@@ -1141,10 +1141,10 @@
 	},
 	{
 		"i_id": 217,
-		"i_mainProp": 6,
+		"i_mainProp": 0,
 		"i_mainPropValue": 169840,
 		"i_minorPropValue": 94360,
-		"i_partType": 3,
+		"i_partType": 0,
 		"i_profType": 0,
 		"i_stage": 3,
 		"i_vicePropValue": 72580,
@@ -1160,11 +1160,11 @@
 	},
 	{
 		"i_id": 218,
-		"i_mainProp": 6,
+		"i_mainProp": 0,
 		"i_mainPropValue": 169840,
 		"i_minorPropValue": 94360,
-		"i_partType": 3,
-		"i_profType": 1,
+		"i_partType": 0,
+		"i_profType": 0,
 		"i_stage": 3,
 		"i_vicePropValue": 72580,
 		"il_minorProp": [
@@ -1179,11 +1179,11 @@
 	},
 	{
 		"i_id": 219,
-		"i_mainProp": 6,
+		"i_mainProp": 0,
 		"i_mainPropValue": 169840,
 		"i_minorPropValue": 94360,
-		"i_partType": 3,
-		"i_profType": 3,
+		"i_partType": 0,
+		"i_profType": 0,
 		"i_stage": 3,
 		"i_vicePropValue": 72580,
 		"il_minorProp": [
@@ -1198,11 +1198,11 @@
 	},
 	{
 		"i_id": 220,
-		"i_mainProp": 6,
+		"i_mainProp": 0,
 		"i_mainPropValue": 169840,
 		"i_minorPropValue": 94360,
-		"i_partType": 3,
-		"i_profType": 4,
+		"i_partType": 0,
+		"i_profType": 0,
 		"i_stage": 3,
 		"i_vicePropValue": 72580,
 		"il_minorProp": [
@@ -1220,8 +1220,8 @@
 		"i_mainProp": 0,
 		"i_mainPropValue": 169840,
 		"i_minorPropValue": 94360,
-		"i_partType": 4,
-		"i_profType": 999,
+		"i_partType": 0,
+		"i_profType": 0,
 		"i_stage": 3,
 		"i_vicePropValue": 72580,
 		"il_minorProp": [
@@ -1239,8 +1239,8 @@
 		"i_mainProp": 0,
 		"i_mainPropValue": 169840,
 		"i_minorPropValue": 94360,
-		"i_partType": 5,
-		"i_profType": 999,
+		"i_partType": 0,
+		"i_profType": 0,
 		"i_stage": 3,
 		"i_vicePropValue": 72580,
 		"il_minorProp": [
@@ -1255,11 +1255,11 @@
 	},
 	{
 		"i_id": 301,
-		"i_mainProp": 6,
+		"i_mainProp": 0,
 		"i_mainPropValue": 207580,
 		"i_minorPropValue": 94360,
 		"i_partType": 0,
-		"i_profType": 2,
+		"i_profType": 0,
 		"i_stage": 4,
 		"i_vicePropValue": 72580,
 		"il_minorProp": [
@@ -1274,7 +1274,7 @@
 	},
 	{
 		"i_id": 302,
-		"i_mainProp": 6,
+		"i_mainProp": 0,
 		"i_mainPropValue": 207580,
 		"i_minorPropValue": 94360,
 		"i_partType": 0,
@@ -1293,11 +1293,11 @@
 	},
 	{
 		"i_id": 303,
-		"i_mainProp": 6,
+		"i_mainProp": 0,
 		"i_mainPropValue": 207580,
 		"i_minorPropValue": 94360,
 		"i_partType": 0,
-		"i_profType": 1,
+		"i_profType": 0,
 		"i_stage": 4,
 		"i_vicePropValue": 72580,
 		"il_minorProp": [
@@ -1312,11 +1312,11 @@
 	},
 	{
 		"i_id": 304,
-		"i_mainProp": 6,
+		"i_mainProp": 0,
 		"i_mainPropValue": 207580,
 		"i_minorPropValue": 94360,
 		"i_partType": 0,
-		"i_profType": 3,
+		"i_profType": 0,
 		"i_stage": 4,
 		"i_vicePropValue": 72580,
 		"il_minorProp": [
@@ -1331,11 +1331,11 @@
 	},
 	{
 		"i_id": 305,
-		"i_mainProp": 6,
+		"i_mainProp": 0,
 		"i_mainPropValue": 207580,
 		"i_minorPropValue": 94360,
 		"i_partType": 0,
-		"i_profType": 4,
+		"i_profType": 0,
 		"i_stage": 4,
 		"i_vicePropValue": 72580,
 		"il_minorProp": [
@@ -1350,11 +1350,11 @@
 	},
 	{
 		"i_id": 306,
-		"i_mainProp": 7,
+		"i_mainProp": 0,
 		"i_mainPropValue": 207600,
 		"i_minorPropValue": 94360,
-		"i_partType": 1,
-		"i_profType": 2,
+		"i_partType": 0,
+		"i_profType": 0,
 		"i_stage": 4,
 		"i_vicePropValue": 72580,
 		"il_minorProp": [
@@ -1369,10 +1369,10 @@
 	},
 	{
 		"i_id": 307,
-		"i_mainProp": 7,
+		"i_mainProp": 0,
 		"i_mainPropValue": 207600,
 		"i_minorPropValue": 94360,
-		"i_partType": 1,
+		"i_partType": 0,
 		"i_profType": 0,
 		"i_stage": 4,
 		"i_vicePropValue": 72580,
@@ -1388,11 +1388,11 @@
 	},
 	{
 		"i_id": 308,
-		"i_mainProp": 7,
+		"i_mainProp": 0,
 		"i_mainPropValue": 207600,
 		"i_minorPropValue": 94360,
-		"i_partType": 1,
-		"i_profType": 1,
+		"i_partType": 0,
+		"i_profType": 0,
 		"i_stage": 4,
 		"i_vicePropValue": 72580,
 		"il_minorProp": [
@@ -1407,11 +1407,11 @@
 	},
 	{
 		"i_id": 309,
-		"i_mainProp": 7,
+		"i_mainProp": 0,
 		"i_mainPropValue": 207600,
 		"i_minorPropValue": 94360,
-		"i_partType": 1,
-		"i_profType": 3,
+		"i_partType": 0,
+		"i_profType": 0,
 		"i_stage": 4,
 		"i_vicePropValue": 72580,
 		"il_minorProp": [
@@ -1426,11 +1426,11 @@
 	},
 	{
 		"i_id": 310,
-		"i_mainProp": 7,
+		"i_mainProp": 0,
 		"i_mainPropValue": 207600,
 		"i_minorPropValue": 94360,
-		"i_partType": 1,
-		"i_profType": 4,
+		"i_partType": 0,
+		"i_profType": 0,
 		"i_stage": 4,
 		"i_vicePropValue": 72580,
 		"il_minorProp": [
@@ -1445,11 +1445,11 @@
 	},
 	{
 		"i_id": 311,
-		"i_mainProp": 8,
+		"i_mainProp": 0,
 		"i_mainPropValue": 207568,
 		"i_minorPropValue": 94360,
-		"i_partType": 2,
-		"i_profType": 2,
+		"i_partType": 0,
+		"i_profType": 0,
 		"i_stage": 4,
 		"i_vicePropValue": 72580,
 		"il_minorProp": [
@@ -1464,10 +1464,10 @@
 	},
 	{
 		"i_id": 312,
-		"i_mainProp": 8,
+		"i_mainProp": 0,
 		"i_mainPropValue": 207568,
 		"i_minorPropValue": 94360,
-		"i_partType": 2,
+		"i_partType": 0,
 		"i_profType": 0,
 		"i_stage": 4,
 		"i_vicePropValue": 72580,
@@ -1483,11 +1483,11 @@
 	},
 	{
 		"i_id": 313,
-		"i_mainProp": 8,
+		"i_mainProp": 0,
 		"i_mainPropValue": 207568,
 		"i_minorPropValue": 94360,
-		"i_partType": 2,
-		"i_profType": 1,
+		"i_partType": 0,
+		"i_profType": 0,
 		"i_stage": 4,
 		"i_vicePropValue": 72580,
 		"il_minorProp": [
@@ -1502,11 +1502,11 @@
 	},
 	{
 		"i_id": 314,
-		"i_mainProp": 8,
+		"i_mainProp": 0,
 		"i_mainPropValue": 207568,
 		"i_minorPropValue": 94360,
-		"i_partType": 2,
-		"i_profType": 3,
+		"i_partType": 0,
+		"i_profType": 0,
 		"i_stage": 4,
 		"i_vicePropValue": 72580,
 		"il_minorProp": [
@@ -1521,11 +1521,11 @@
 	},
 	{
 		"i_id": 315,
-		"i_mainProp": 8,
+		"i_mainProp": 0,
 		"i_mainPropValue": 207568,
 		"i_minorPropValue": 94360,
-		"i_partType": 2,
-		"i_profType": 4,
+		"i_partType": 0,
+		"i_profType": 0,
 		"i_stage": 4,
 		"i_vicePropValue": 72580,
 		"il_minorProp": [
@@ -1540,11 +1540,11 @@
 	},
 	{
 		"i_id": 316,
-		"i_mainProp": 6,
+		"i_mainProp": 0,
 		"i_mainPropValue": 169840,
 		"i_minorPropValue": 94360,
-		"i_partType": 3,
-		"i_profType": 2,
+		"i_partType": 0,
+		"i_profType": 0,
 		"i_stage": 4,
 		"i_vicePropValue": 72580,
 		"il_minorProp": [
@@ -1559,10 +1559,10 @@
 	},
 	{
 		"i_id": 317,
-		"i_mainProp": 6,
+		"i_mainProp": 0,
 		"i_mainPropValue": 169840,
 		"i_minorPropValue": 94360,
-		"i_partType": 3,
+		"i_partType": 0,
 		"i_profType": 0,
 		"i_stage": 4,
 		"i_vicePropValue": 72580,
@@ -1578,11 +1578,11 @@
 	},
 	{
 		"i_id": 318,
-		"i_mainProp": 6,
+		"i_mainProp": 0,
 		"i_mainPropValue": 169840,
 		"i_minorPropValue": 94360,
-		"i_partType": 3,
-		"i_profType": 1,
+		"i_partType": 0,
+		"i_profType": 0,
 		"i_stage": 4,
 		"i_vicePropValue": 72580,
 		"il_minorProp": [
@@ -1597,11 +1597,11 @@
 	},
 	{
 		"i_id": 319,
-		"i_mainProp": 6,
+		"i_mainProp": 0,
 		"i_mainPropValue": 169840,
 		"i_minorPropValue": 94360,
-		"i_partType": 3,
-		"i_profType": 3,
+		"i_partType": 0,
+		"i_profType": 0,
 		"i_stage": 4,
 		"i_vicePropValue": 72580,
 		"il_minorProp": [
@@ -1616,11 +1616,11 @@
 	},
 	{
 		"i_id": 320,
-		"i_mainProp": 6,
+		"i_mainProp": 0,
 		"i_mainPropValue": 169840,
 		"i_minorPropValue": 94360,
-		"i_partType": 3,
-		"i_profType": 4,
+		"i_partType": 0,
+		"i_profType": 0,
 		"i_stage": 4,
 		"i_vicePropValue": 72580,
 		"il_minorProp": [
@@ -1638,8 +1638,8 @@
 		"i_mainProp": 0,
 		"i_mainPropValue": 169840,
 		"i_minorPropValue": 94360,
-		"i_partType": 4,
-		"i_profType": 999,
+		"i_partType": 0,
+		"i_profType": 0,
 		"i_stage": 4,
 		"i_vicePropValue": 72580,
 		"il_minorProp": [
@@ -1657,8 +1657,8 @@
 		"i_mainProp": 0,
 		"i_mainPropValue": 169840,
 		"i_minorPropValue": 94360,
-		"i_partType": 5,
-		"i_profType": 999,
+		"i_partType": 0,
+		"i_profType": 0,
 		"i_stage": 4,
 		"i_vicePropValue": 72580,
 		"il_minorProp": [
@@ -1673,11 +1673,11 @@
 	},
 	{
 		"i_id": 1001,
-		"i_mainProp": 6,
+		"i_mainProp": 0,
 		"i_mainPropValue": 207580,
 		"i_minorPropValue": 94360,
 		"i_partType": 0,
-		"i_profType": 4,
+		"i_profType": 0,
 		"i_stage": 1,
 		"i_vicePropValue": 72580,
 		"il_minorProp": [
@@ -1692,11 +1692,11 @@
 	},
 	{
 		"i_id": 1002,
-		"i_mainProp": 7,
+		"i_mainProp": 0,
 		"i_mainPropValue": 207600,
 		"i_minorPropValue": 94360,
-		"i_partType": 1,
-		"i_profType": 4,
+		"i_partType": 0,
+		"i_profType": 0,
 		"i_stage": 1,
 		"i_vicePropValue": 72580,
 		"il_minorProp": [
@@ -1711,11 +1711,11 @@
 	},
 	{
 		"i_id": 1003,
-		"i_mainProp": 8,
+		"i_mainProp": 0,
 		"i_mainPropValue": 207568,
 		"i_minorPropValue": 94360,
-		"i_partType": 2,
-		"i_profType": 4,
+		"i_partType": 0,
+		"i_profType": 0,
 		"i_stage": 1,
 		"i_vicePropValue": 72580,
 		"il_minorProp": [
@@ -1730,11 +1730,11 @@
 	},
 	{
 		"i_id": 1004,
-		"i_mainProp": 6,
+		"i_mainProp": 0,
 		"i_mainPropValue": 207580,
 		"i_minorPropValue": 94360,
 		"i_partType": 0,
-		"i_profType": 4,
+		"i_profType": 0,
 		"i_stage": 1,
 		"i_vicePropValue": 72580,
 		"il_minorProp": [
@@ -1749,11 +1749,11 @@
 	},
 	{
 		"i_id": 1005,
-		"i_mainProp": 7,
+		"i_mainProp": 0,
 		"i_mainPropValue": 207600,
 		"i_minorPropValue": 94360,
-		"i_partType": 1,
-		"i_profType": 4,
+		"i_partType": 0,
+		"i_profType": 0,
 		"i_stage": 1,
 		"i_vicePropValue": 72580,
 		"il_minorProp": [
@@ -1768,11 +1768,11 @@
 	},
 	{
 		"i_id": 1006,
-		"i_mainProp": 8,
+		"i_mainProp": 0,
 		"i_mainPropValue": 207568,
 		"i_minorPropValue": 94360,
-		"i_partType": 2,
-		"i_profType": 4,
+		"i_partType": 0,
+		"i_profType": 0,
 		"i_stage": 1,
 		"i_vicePropValue": 72580,
 		"il_minorProp": [
@@ -1787,7 +1787,7 @@
 	},
 	{
 		"i_id": 2001,
-		"i_mainProp": 6,
+		"i_mainProp": 0,
 		"i_mainPropValue": 207580,
 		"i_minorPropValue": 94360,
 		"i_partType": 0,
@@ -1806,10 +1806,10 @@
 	},
 	{
 		"i_id": 2002,
-		"i_mainProp": 7,
+		"i_mainProp": 0,
 		"i_mainPropValue": 207600,
 		"i_minorPropValue": 94360,
-		"i_partType": 1,
+		"i_partType": 0,
 		"i_profType": 0,
 		"i_stage": 1,
 		"i_vicePropValue": 72580,
@@ -1825,10 +1825,10 @@
 	},
 	{
 		"i_id": 2003,
-		"i_mainProp": 8,
+		"i_mainProp": 0,
 		"i_mainPropValue": 207568,
 		"i_minorPropValue": 94360,
-		"i_partType": 2,
+		"i_partType": 0,
 		"i_profType": 0,
 		"i_stage": 1,
 		"i_vicePropValue": 72580,
@@ -1844,7 +1844,7 @@
 	},
 	{
 		"i_id": 2004,
-		"i_mainProp": 6,
+		"i_mainProp": 0,
 		"i_mainPropValue": 207580,
 		"i_minorPropValue": 94360,
 		"i_partType": 0,
@@ -1863,10 +1863,10 @@
 	},
 	{
 		"i_id": 2005,
-		"i_mainProp": 7,
+		"i_mainProp": 0,
 		"i_mainPropValue": 207600,
 		"i_minorPropValue": 94360,
-		"i_partType": 1,
+		"i_partType": 0,
 		"i_profType": 0,
 		"i_stage": 1,
 		"i_vicePropValue": 72580,
@@ -1882,10 +1882,10 @@
 	},
 	{
 		"i_id": 2006,
-		"i_mainProp": 8,
+		"i_mainProp": 0,
 		"i_mainPropValue": 207568,
 		"i_minorPropValue": 94360,
-		"i_partType": 2,
+		"i_partType": 0,
 		"i_profType": 0,
 		"i_stage": 1,
 		"i_vicePropValue": 72580,
@@ -1901,11 +1901,11 @@
 	},
 	{
 		"i_id": 3001,
-		"i_mainProp": 6,
+		"i_mainProp": 0,
 		"i_mainPropValue": 207580,
 		"i_minorPropValue": 94360,
 		"i_partType": 0,
-		"i_profType": 2,
+		"i_profType": 0,
 		"i_stage": 1,
 		"i_vicePropValue": 72580,
 		"il_minorProp": [
@@ -1920,11 +1920,11 @@
 	},
 	{
 		"i_id": 3002,
-		"i_mainProp": 7,
+		"i_mainProp": 0,
 		"i_mainPropValue": 207600,
 		"i_minorPropValue": 94360,
-		"i_partType": 1,
-		"i_profType": 2,
+		"i_partType": 0,
+		"i_profType": 0,
 		"i_stage": 1,
 		"i_vicePropValue": 72580,
 		"il_minorProp": [
@@ -1939,11 +1939,11 @@
 	},
 	{
 		"i_id": 3003,
-		"i_mainProp": 8,
+		"i_mainProp": 0,
 		"i_mainPropValue": 207568,
 		"i_minorPropValue": 94360,
-		"i_partType": 2,
-		"i_profType": 2,
+		"i_partType": 0,
+		"i_profType": 0,
 		"i_stage": 1,
 		"i_vicePropValue": 72580,
 		"il_minorProp": [
@@ -1958,11 +1958,11 @@
 	},
 	{
 		"i_id": 3004,
-		"i_mainProp": 6,
+		"i_mainProp": 0,
 		"i_mainPropValue": 207580,
 		"i_minorPropValue": 94360,
 		"i_partType": 0,
-		"i_profType": 2,
+		"i_profType": 0,
 		"i_stage": 1,
 		"i_vicePropValue": 72580,
 		"il_minorProp": [
@@ -1977,11 +1977,11 @@
 	},
 	{
 		"i_id": 3005,
-		"i_mainProp": 7,
+		"i_mainProp": 0,
 		"i_mainPropValue": 207600,
 		"i_minorPropValue": 94360,
-		"i_partType": 1,
-		"i_profType": 2,
+		"i_partType": 0,
+		"i_profType": 0,
 		"i_stage": 1,
 		"i_vicePropValue": 72580,
 		"il_minorProp": [
@@ -1996,11 +1996,11 @@
 	},
 	{
 		"i_id": 3006,
-		"i_mainProp": 8,
+		"i_mainProp": 0,
 		"i_mainPropValue": 207568,
 		"i_minorPropValue": 94360,
-		"i_partType": 2,
-		"i_profType": 2,
+		"i_partType": 0,
+		"i_profType": 0,
 		"i_stage": 1,
 		"i_vicePropValue": 72580,
 		"il_minorProp": [
@@ -2015,11 +2015,11 @@
 	},
 	{
 		"i_id": 4001,
-		"i_mainProp": 6,
+		"i_mainProp": 0,
 		"i_mainPropValue": 207580,
 		"i_minorPropValue": 94360,
 		"i_partType": 0,
-		"i_profType": 1,
+		"i_profType": 0,
 		"i_stage": 1,
 		"i_vicePropValue": 72580,
 		"il_minorProp": [
@@ -2034,11 +2034,11 @@
 	},
 	{
 		"i_id": 4002,
-		"i_mainProp": 7,
+		"i_mainProp": 0,
 		"i_mainPropValue": 207600,
 		"i_minorPropValue": 94360,
-		"i_partType": 1,
-		"i_profType": 1,
+		"i_partType": 0,
+		"i_profType": 0,
 		"i_stage": 1,
 		"i_vicePropValue": 72580,
 		"il_minorProp": [
@@ -2053,11 +2053,11 @@
 	},
 	{
 		"i_id": 4003,
-		"i_mainProp": 8,
+		"i_mainProp": 0,
 		"i_mainPropValue": 207568,
 		"i_minorPropValue": 94360,
-		"i_partType": 2,
-		"i_profType": 1,
+		"i_partType": 0,
+		"i_profType": 0,
 		"i_stage": 1,
 		"i_vicePropValue": 72580,
 		"il_minorProp": [
@@ -2072,11 +2072,11 @@
 	},
 	{
 		"i_id": 4004,
-		"i_mainProp": 6,
+		"i_mainProp": 0,
 		"i_mainPropValue": 207580,
 		"i_minorPropValue": 94360,
 		"i_partType": 0,
-		"i_profType": 1,
+		"i_profType": 0,
 		"i_stage": 1,
 		"i_vicePropValue": 72580,
 		"il_minorProp": [
@@ -2091,11 +2091,11 @@
 	},
 	{
 		"i_id": 4005,
-		"i_mainProp": 7,
+		"i_mainProp": 0,
 		"i_mainPropValue": 207600,
 		"i_minorPropValue": 94360,
-		"i_partType": 1,
-		"i_profType": 1,
+		"i_partType": 0,
+		"i_profType": 0,
 		"i_stage": 1,
 		"i_vicePropValue": 72580,
 		"il_minorProp": [
@@ -2110,11 +2110,11 @@
 	},
 	{
 		"i_id": 4006,
-		"i_mainProp": 8,
+		"i_mainProp": 0,
 		"i_mainPropValue": 207568,
 		"i_minorPropValue": 94360,
-		"i_partType": 2,
-		"i_profType": 1,
+		"i_partType": 0,
+		"i_profType": 0,
 		"i_stage": 1,
 		"i_vicePropValue": 72580,
 		"il_minorProp": [
@@ -2129,11 +2129,11 @@
 	},
 	{
 		"i_id": 5001,
-		"i_mainProp": 6,
+		"i_mainProp": 0,
 		"i_mainPropValue": 207580,
 		"i_minorPropValue": 94360,
 		"i_partType": 0,
-		"i_profType": 3,
+		"i_profType": 0,
 		"i_stage": 1,
 		"i_vicePropValue": 72580,
 		"il_minorProp": [
@@ -2148,11 +2148,11 @@
 	},
 	{
 		"i_id": 5002,
-		"i_mainProp": 7,
+		"i_mainProp": 0,
 		"i_mainPropValue": 207600,
 		"i_minorPropValue": 94360,
-		"i_partType": 1,
-		"i_profType": 3,
+		"i_partType": 0,
+		"i_profType": 0,
 		"i_stage": 1,
 		"i_vicePropValue": 72580,
 		"il_minorProp": [
@@ -2167,11 +2167,11 @@
 	},
 	{
 		"i_id": 5003,
-		"i_mainProp": 8,
+		"i_mainProp": 0,
 		"i_mainPropValue": 207568,
 		"i_minorPropValue": 94360,
-		"i_partType": 2,
-		"i_profType": 3,
+		"i_partType": 0,
+		"i_profType": 0,
 		"i_stage": 1,
 		"i_vicePropValue": 72580,
 		"il_minorProp": [
@@ -2186,11 +2186,11 @@
 	},
 	{
 		"i_id": 5004,
-		"i_mainProp": 6,
+		"i_mainProp": 0,
 		"i_mainPropValue": 207580,
 		"i_minorPropValue": 94360,
 		"i_partType": 0,
-		"i_profType": 3,
+		"i_profType": 0,
 		"i_stage": 1,
 		"i_vicePropValue": 72580,
 		"il_minorProp": [
@@ -2205,11 +2205,11 @@
 	},
 	{
 		"i_id": 5005,
-		"i_mainProp": 7,
+		"i_mainProp": 0,
 		"i_mainPropValue": 207600,
 		"i_minorPropValue": 94360,
-		"i_partType": 1,
-		"i_profType": 3,
+		"i_partType": 0,
+		"i_profType": 0,
 		"i_stage": 1,
 		"i_vicePropValue": 72580,
 		"il_minorProp": [
@@ -2224,11 +2224,11 @@
 	},
 	{
 		"i_id": 5006,
-		"i_mainProp": 8,
+		"i_mainProp": 0,
 		"i_mainPropValue": 207568,
 		"i_minorPropValue": 94360,
-		"i_partType": 2,
-		"i_profType": 3,
+		"i_partType": 0,
+		"i_profType": 0,
 		"i_stage": 1,
 		"i_vicePropValue": 72580,
 		"il_minorProp": [
@@ -2246,15 +2246,15 @@
 		"i_mainProp": 0,
 		"i_mainPropValue": 169840,
 		"i_minorPropValue": 94360,
-		"i_partType": 4,
-		"i_profType": 999,
+		"i_partType": 0,
+		"i_profType": 0,
 		"i_stage": 1,
 		"i_vicePropValue": 72580,
 		"il_minorProp": [
 			0
 		],
 		"il_viceProp": [
-			27
+			0
 		],
 		"s_desc": "传闻是封印了死神力量的秘卡，平时以吊牌的形式出现",
 		"s_icon": "necklack",
@@ -2265,15 +2265,15 @@
 		"i_mainProp": 0,
 		"i_mainPropValue": 169840,
 		"i_minorPropValue": 94360,
-		"i_partType": 5,
-		"i_profType": 999,
+		"i_partType": 0,
+		"i_profType": 0,
 		"i_stage": 1,
 		"i_vicePropValue": 72580,
 		"il_minorProp": [
 			0
 		],
 		"il_viceProp": [
-			27
+			0
 		],
 		"s_desc": "银星特制的戒指，使用了最新的人工智能科技",
 		"s_icon": "ring",

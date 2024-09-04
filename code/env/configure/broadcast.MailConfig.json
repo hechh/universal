@@ -1,31 +1,31 @@
 [
 	{
 		"i_id": 1,
-		"i_mailId": 1,
+		"i_mailId": 0,
 		"s_content": "您在%s中有未领取的奖励，已为您呈上，请查收。",
 		"s_title": "奖励补发"
 	},
 	{
 		"i_id": 2,
-		"i_mailId": 2,
+		"i_mailId": 0,
 		"s_content": "您在%s中有未领取的奖励，已为您呈上，请查收。",
 		"s_title": "%s奖励补发"
 	},
 	{
 		"i_id": 3,
-		"i_mailId": 3,
+		"i_mailId": 0,
 		"s_content": "您在%s中有%d天奖励未领取，已为您呈上，请查收。",
 		"s_title": "奖励补发"
 	},
 	{
 		"i_id": 4,
-		"i_mailId": 4,
+		"i_mailId": 0,
 		"s_content": "您的怪物试炼奖励未领取，已为您呈上，请查收。",
 		"s_title": "奖励补发"
 	},
 	{
 		"i_id": 5,
-		"i_mailId": 5,
+		"i_mailId": 0,
 		"s_content": "您在%s中的奖励，已为您呈上，请查收。",
 		"s_title": "%s奖励"
 	}

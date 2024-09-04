@@ -12,8 +12,8 @@ var (
 )
 
 type ApiInfo struct {
-	help string
 	f    domain.GenFunc
+	help string
 }
 
 func Help() {
@@ -34,16 +34,4 @@ func IsAction(action string) bool {
 
 func Generator(action, dst, param string, tpls *template.Template) error {
 	return apis[action].f(dst, param, tpls)
-}
-
-func Print() {
-	for key, val := range alias {
-		fmt.Println(val.Format())
-		if vv, ok := enums[key]; ok {
-			fmt.Println(vv.Format())
-		}
-	}
-	for _, val := range structs {
-		fmt.Println(val.Format())
-	}
 }

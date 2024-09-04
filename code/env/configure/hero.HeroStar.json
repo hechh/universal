@@ -22,15 +22,15 @@
 		],
 		"ill_bookProp": [
 			[
-				6,
+				0,
 				5
 			],
 			[
-				7,
+				0,
 				1
 			],
 			[
-				8,
+				0,
 				50
 			]
 		],
@@ -43,7 +43,7 @@
 		"i_id": 2,
 		"i_level": 0,
 		"i_maxLevel": 500,
-		"i_quality": 1,
+		"i_quality": 0,
 		"il_awakenSkill": [
 			0
 		],
@@ -59,15 +59,15 @@
 		],
 		"ill_bookProp": [
 			[
-				6,
+				0,
 				15
 			],
 			[
-				7,
+				0,
 				3
 			],
 			[
-				8,
+				0,
 				150
 			]
 		],
@@ -80,7 +80,7 @@
 		"i_id": 3,
 		"i_level": 0,
 		"i_maxLevel": 800,
-		"i_quality": 2,
+		"i_quality": 0,
 		"il_awakenSkill": [
 			0
 		],
@@ -96,15 +96,15 @@
 		],
 		"ill_bookProp": [
 			[
-				6,
+				0,
 				30
 			],
 			[
-				7,
+				0,
 				6
 			],
 			[
-				8,
+				0,
 				300
 			]
 		],
@@ -117,7 +117,7 @@
 		"i_id": 4,
 		"i_level": 0,
 		"i_maxLevel": 1200,
-		"i_quality": 3,
+		"i_quality": 0,
 		"il_awakenSkill": [
 			0
 		],
@@ -133,15 +133,15 @@
 		],
 		"ill_bookProp": [
 			[
-				6,
+				0,
 				50
 			],
 			[
-				7,
+				0,
 				10
 			],
 			[
-				8,
+				0,
 				500
 			]
 		],
@@ -154,7 +154,7 @@
 		"i_id": 5,
 		"i_level": 1,
 		"i_maxLevel": 1800,
-		"i_quality": 3,
+		"i_quality": 0,
 		"il_awakenSkill": [
 			0
 		],
@@ -174,15 +174,15 @@
 		],
 		"ill_bookProp": [
 			[
-				6,
+				0,
 				75
 			],
 			[
-				7,
+				0,
 				15
 			],
 			[
-				8,
+				0,
 				750
 			]
 		],
@@ -195,7 +195,7 @@
 		"i_id": 6,
 		"i_level": 2,
 		"i_maxLevel": 2400,
-		"i_quality": 3,
+		"i_quality": 0,
 		"il_awakenSkill": [
 			0
 		],
@@ -215,15 +215,15 @@
 		],
 		"ill_bookProp": [
 			[
-				6,
+				0,
 				105
 			],
 			[
-				7,
+				0,
 				21
 			],
 			[
-				8,
+				0,
 				1050
 			]
 		],
@@ -236,9 +236,9 @@
 		"i_id": 7,
 		"i_level": 0,
 		"i_maxLevel": 3000,
-		"i_quality": 4,
+		"i_quality": 0,
 		"il_awakenSkill": [
-			3,
+			0,
 			1
 		],
 		"il_needProf": [
@@ -253,15 +253,15 @@
 		],
 		"ill_bookProp": [
 			[
-				6,
+				0,
 				140
 			],
 			[
-				7,
+				0,
 				28
 			],
 			[
-				8,
+				0,
 				1400
 			]
 		],
@@ -274,7 +274,7 @@
 		"i_id": 8,
 		"i_level": 1,
 		"i_maxLevel": 3000,
-		"i_quality": 4,
+		"i_quality": 0,
 		"il_awakenSkill": [
 			0
 		],
@@ -294,15 +294,15 @@
 		],
 		"ill_bookProp": [
 			[
-				6,
+				0,
 				180
 			],
 			[
-				7,
+				0,
 				36
 			],
 			[
-				8,
+				0,
 				1800
 			]
 		],
@@ -315,7 +315,7 @@
 		"i_id": 9,
 		"i_level": 2,
 		"i_maxLevel": 3000,
-		"i_quality": 4,
+		"i_quality": 0,
 		"il_awakenSkill": [
 			0
 		],
@@ -335,15 +335,15 @@
 		],
 		"ill_bookProp": [
 			[
-				6,
+				0,
 				225
 			],
 			[
-				7,
+				0,
 				45
 			],
 			[
-				8,
+				0,
 				2250
 			]
 		],
@@ -356,7 +356,7 @@
 		"i_id": 10,
 		"i_level": 3,
 		"i_maxLevel": 3000,
-		"i_quality": 4,
+		"i_quality": 0,
 		"il_awakenSkill": [
 			0
 		],
@@ -376,15 +376,15 @@
 		],
 		"ill_bookProp": [
 			[
-				6,
+				0,
 				275
 			],
 			[
-				7,
+				0,
 				55
 			],
 			[
-				8,
+				0,
 				2750
 			]
 		],
@@ -397,9 +397,9 @@
 		"i_id": 11,
 		"i_level": 0,
 		"i_maxLevel": 3000,
-		"i_quality": 5,
+		"i_quality": 0,
 		"il_awakenSkill": [
-			3,
+			0,
 			2
 		],
 		"il_needProf": [
@@ -414,15 +414,15 @@
 		],
 		"ill_bookProp": [
 			[
-				6,
+				0,
 				350
 			],
 			[
-				7,
+				0,
 				70
 			],
 			[
-				8,
+				0,
 				3500
 			]
 		],
@@ -435,7 +435,7 @@
 		"i_id": 12,
 		"i_level": 1,
 		"i_maxLevel": 3000,
-		"i_quality": 5,
+		"i_quality": 0,
 		"il_awakenSkill": [
 			0
 		],
@@ -455,15 +455,15 @@
 		],
 		"ill_bookProp": [
 			[
-				6,
+				0,
 				450
 			],
 			[
-				7,
+				0,
 				90
 			],
 			[
-				8,
+				0,
 				4500
 			]
 		],
@@ -476,7 +476,7 @@
 		"i_id": 13,
 		"i_level": 2,
 		"i_maxLevel": 3000,
-		"i_quality": 5,
+		"i_quality": 0,
 		"il_awakenSkill": [
 			0
 		],
@@ -496,15 +496,15 @@
 		],
 		"ill_bookProp": [
 			[
-				6,
+				0,
 				600
 			],
 			[
-				7,
+				0,
 				120
 			],
 			[
-				8,
+				0,
 				6000
 			]
 		],
@@ -517,7 +517,7 @@
 		"i_id": 14,
 		"i_level": 3,
 		"i_maxLevel": 3000,
-		"i_quality": 5,
+		"i_quality": 0,
 		"il_awakenSkill": [
 			0
 		],
@@ -537,15 +537,15 @@
 		],
 		"ill_bookProp": [
 			[
-				6,
+				0,
 				800
 			],
 			[
-				7,
+				0,
 				160
 			],
 			[
-				8,
+				0,
 				8000
 			]
 		],
@@ -558,9 +558,9 @@
 		"i_id": 15,
 		"i_level": 0,
 		"i_maxLevel": 3000,
-		"i_quality": 6,
+		"i_quality": 0,
 		"il_awakenSkill": [
-			3,
+			0,
 			3
 		],
 		"il_needProf": [
@@ -574,15 +574,15 @@
 		],
 		"ill_bookProp": [
 			[
-				6,
+				0,
 				1050
 			],
 			[
-				7,
+				0,
 				210
 			],
 			[
-				8,
+				0,
 				10500
 			]
 		],

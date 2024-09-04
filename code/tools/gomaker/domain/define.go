@@ -27,7 +27,7 @@ const (
 // 代码生成接口
 type GenFunc func(string, string, *template.Template) error
 
-type Visitor interface {
+type IParser interface {
 	SetFile(string)
 	Visit(ast.Node) ast.Visitor
 }
