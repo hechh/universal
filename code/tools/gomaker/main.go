@@ -4,6 +4,7 @@ import (
 	"flag"
 	"fmt"
 	"os"
+	basic "universal/framework/basic/util"
 	"universal/tools/gomaker/domain"
 	"universal/tools/gomaker/internal/manager"
 	"universal/tools/gomaker/internal/parse"
@@ -66,7 +67,7 @@ func (d *Args) Handle() {
 
 func (d *Args) handleJson() {
 	// 搜索所有配置
-	files, err := util.Glob(d.srcpath, "*.xlsx", true)
+	files, err := basic.Glob(d.srcpath, "*.xlsx", true)
 	if err != nil {
 		panic(err)
 	}
@@ -87,7 +88,7 @@ func (d *Args) handleGo() {
 		panic(err)
 	}
 	// 加载所有go文件
-	files, err := util.Glob(d.srcpath, "*.go", true)
+	files, err := basic.Glob(d.srcpath, "*.go", true)
 	if err != nil {
 		panic(err)
 	}

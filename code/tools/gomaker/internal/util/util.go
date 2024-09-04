@@ -11,6 +11,7 @@ import (
 	"path/filepath"
 	"text/template"
 	"universal/framework/basic/uerror"
+	"universal/framework/basic/util"
 	"universal/tools/gomaker/domain"
 )
 
@@ -52,30 +53,9 @@ func SaveGo(filename string, buf *bytes.Buffer) error {
 	return nil
 }
 
-// 遍历目录所有文件
-func Glob(dir, pattern string, recursive bool) (files []string, err error) {
-	if !recursive {
-		files, err = filepath.Glob(filepath.Join(dir, pattern))
-	} else {
-		err = filepath.Walk(dir, func(path string, info os.FileInfo, err error) error {
-			if info.IsDir() {
-				results, err := filepath.Glob(filepath.Join(path, pattern))
-				if err != nil {
-					return uerror.NewUError(1, -1, "dir: %s, pattern: %s, error: %v", dir, pattern, err)
-				}
-				if len(results) > 0 {
-					files = append(files, results...)
-				}
-			}
-			return nil
-		})
-	}
-	return
-}
-
 // 打开所有tpl模板文件
 func OpenTemplate(dir string, pattern string, recursive bool) (*template.Template, error) {
-	files, err := Glob(dir, pattern, recursive)
+	files, err := util.Glob(dir, pattern, recursive)
 	if err != nil {
 		return nil, err
 	}

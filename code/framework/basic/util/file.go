@@ -3,6 +3,8 @@ package util
 import (
 	"os"
 	"path"
+	"path/filepath"
+	"universal/framework/basic/uerror"
 )
 
 func NewFile(fileName string) (fb *os.File, err error) {
@@ -28,4 +30,25 @@ func SameFile(fb *os.File, name string) bool {
 	}
 	st1, _ := fb.Stat()
 	return os.SameFile(st1, st2)
+}
+
+// 遍历目录所有文件
+func Glob(dir, pattern string, recursive bool) (files []string, err error) {
+	if !recursive {
+		files, err = filepath.Glob(filepath.Join(dir, pattern))
+	} else {
+		err = filepath.Walk(dir, func(path string, info os.FileInfo, err error) error {
+			if info.IsDir() {
+				results, err := filepath.Glob(filepath.Join(path, pattern))
+				if err != nil {
+					return uerror.NewUError(1, -1, "dir: %s, pattern: %s, error: %v", dir, pattern, err)
+				}
+				if len(results) > 0 {
+					files = append(files, results...)
+				}
+			}
+			return nil
+		})
+	}
+	return
 }
