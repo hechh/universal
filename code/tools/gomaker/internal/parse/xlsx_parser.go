@@ -74,7 +74,9 @@ func (d *XlsxParser) Visit(node ast.Node) ast.Visitor {
 			name := fmt.Sprintf("%s.%s.json", strings.TrimSuffix(d.filename, filepath.Ext(d.filename)), sheetName)
 			tmps := map[string]interface{}{}
 			for _, ff := range d.fields {
-				tmps[ff.Name] = manager.CastRule(ff, d.enums, n.Values[ff.Index])
+				if ff.Index < len(n.Values) {
+					tmps[ff.Original] = manager.CastRule(ff, d.enums, n.Values[ff.Index])
+				}
 			}
 			manager.AddJson(name, tmps)
 		}

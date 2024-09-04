@@ -1,0 +1,5101 @@
+[
+	{
+		"i_id": 1,
+		"i_level": 1,
+		"i_levelCoolTime": 10,
+		"i_techId": 100,
+		"il_needItem": [
+			1,
+			18,
+			1
+		],
+		"inll_techEffectParam": [
+			[
+				4000
+			]
+		],
+		"s_techNum": "40%"
+	},
+	{
+		"i_id": 2,
+		"i_level": 2,
+		"i_levelCoolTime": 600,
+		"i_techId": 100,
+		"il_needItem": [
+			1,
+			18,
+			2
+		],
+		"inll_techEffectParam": [
+			[
+				8000
+			]
+		],
+		"s_techNum": "80%"
+	},
+	{
+		"i_id": 3,
+		"i_level": 3,
+		"i_levelCoolTime": 600,
+		"i_techId": 100,
+		"il_needItem": [
+			1,
+			18,
+			3
+		],
+		"inll_techEffectParam": [
+			[
+				12000
+			]
+		],
+		"s_techNum": "120%"
+	},
+	{
+		"i_id": 4,
+		"i_level": 4,
+		"i_levelCoolTime": 600,
+		"i_techId": 100,
+		"il_needItem": [
+			1,
+			18,
+			4
+		],
+		"inll_techEffectParam": [
+			[
+				16000
+			]
+		],
+		"s_techNum": "160%"
+	},
+	{
+		"i_id": 5,
+		"i_level": 5,
+		"i_levelCoolTime": 600,
+		"i_techId": 100,
+		"il_needItem": [
+			1,
+			18,
+			5
+		],
+		"inll_techEffectParam": [
+			[
+				20000
+			]
+		],
+		"s_techNum": "200%"
+	},
+	{
+		"i_id": 6,
+		"i_level": 1,
+		"i_levelCoolTime": 600,
+		"i_techId": 101,
+		"il_needItem": [
+			1,
+			17,
+			25
+		],
+		"inll_techEffectParam": [
+			[
+				8,
+				2110
+			]
+		],
+		"s_techNum": "2110"
+	},
+	{
+		"i_id": 7,
+		"i_level": 2,
+		"i_levelCoolTime": 1200,
+		"i_techId": 101,
+		"il_needItem": [
+			1,
+			17,
+			50
+		],
+		"inll_techEffectParam": [
+			[
+				8,
+				4920
+			]
+		],
+		"s_techNum": "4920"
+	},
+	{
+		"i_id": 8,
+		"i_level": 3,
+		"i_levelCoolTime": 1800,
+		"i_techId": 101,
+		"il_needItem": [
+			1,
+			17,
+			75
+		],
+		"inll_techEffectParam": [
+			[
+				8,
+				8430
+			]
+		],
+		"s_techNum": "8430"
+	},
+	{
+		"i_id": 9,
+		"i_level": 4,
+		"i_levelCoolTime": 2700,
+		"i_techId": 101,
+		"il_needItem": [
+			1,
+			17,
+			100
+		],
+		"inll_techEffectParam": [
+			[
+				8,
+				12640
+			]
+		],
+		"s_techNum": "12640"
+	},
+	{
+		"i_id": 10,
+		"i_level": 5,
+		"i_levelCoolTime": 3600,
+		"i_techId": 101,
+		"il_needItem": [
+			1,
+			17,
+			125
+		],
+		"inll_techEffectParam": [
+			[
+				8,
+				17550
+			]
+		],
+		"s_techNum": "17550"
+	},
+	{
+		"i_id": 11,
+		"i_level": 1,
+		"i_levelCoolTime": 600,
+		"i_techId": 102,
+		"il_needItem": [
+			1,
+			17,
+			25
+		],
+		"inll_techEffectParam": [
+			[
+				8,
+				420
+			]
+		],
+		"s_techNum": "420"
+	},
+	{
+		"i_id": 12,
+		"i_level": 2,
+		"i_levelCoolTime": 1200,
+		"i_techId": 102,
+		"il_needItem": [
+			1,
+			17,
+			50
+		],
+		"inll_techEffectParam": [
+			[
+				8,
+				980
+			]
+		],
+		"s_techNum": "980"
+	},
+	{
+		"i_id": 13,
+		"i_level": 3,
+		"i_levelCoolTime": 1800,
+		"i_techId": 102,
+		"il_needItem": [
+			1,
+			17,
+			75
+		],
+		"inll_techEffectParam": [
+			[
+				8,
+				1680
+			]
+		],
+		"s_techNum": "1680"
+	},
+	{
+		"i_id": 14,
+		"i_level": 4,
+		"i_levelCoolTime": 2700,
+		"i_techId": 102,
+		"il_needItem": [
+			1,
+			17,
+			100
+		],
+		"inll_techEffectParam": [
+			[
+				8,
+				2520
+			]
+		],
+		"s_techNum": "2520"
+	},
+	{
+		"i_id": 15,
+		"i_level": 5,
+		"i_levelCoolTime": 3600,
+		"i_techId": 102,
+		"il_needItem": [
+			1,
+			17,
+			125
+		],
+		"inll_techEffectParam": [
+			[
+				8,
+				3500
+			]
+		],
+		"s_techNum": "3500"
+	},
+	{
+		"i_id": 16,
+		"i_level": 1,
+		"i_levelCoolTime": 600,
+		"i_techId": 103,
+		"il_needItem": [
+			1,
+			17,
+			25
+		],
+		"inll_techEffectParam": [
+			[
+				0,
+				-300
+			],
+			[
+				1,
+				200
+			],
+			[
+				2,
+				100
+			],
+			[
+				3,
+				0
+			],
+			[
+				4,
+				0
+			],
+			[
+				5,
+				0
+			]
+		],
+		"s_techNum": "100%"
+	},
+	{
+		"i_id": 17,
+		"i_level": 2,
+		"i_levelCoolTime": 1200,
+		"i_techId": 103,
+		"il_needItem": [
+			1,
+			17,
+			50
+		],
+		"inll_techEffectParam": [
+			[
+				0,
+				-600
+			],
+			[
+				1,
+				400
+			],
+			[
+				2,
+				200
+			],
+			[
+				3,
+				0
+			],
+			[
+				4,
+				0
+			],
+			[
+				5,
+				0
+			]
+		],
+		"s_techNum": "200%"
+	},
+	{
+		"i_id": 18,
+		"i_level": 1,
+		"i_levelCoolTime": 600,
+		"i_techId": 104,
+		"il_needItem": [
+			1,
+			17,
+			25
+		],
+		"inll_techEffectParam": [
+			[
+				2
+			]
+		],
+		"s_techNum": "1"
+	},
+	{
+		"i_id": 19,
+		"i_level": 1,
+		"i_levelCoolTime": 600,
+		"i_techId": 105,
+		"il_needItem": [
+			1,
+			17,
+			25
+		],
+		"inll_techEffectParam": [
+			[
+				7,
+				42
+			]
+		],
+		"s_techNum": "42"
+	},
+	{
+		"i_id": 20,
+		"i_level": 2,
+		"i_levelCoolTime": 1200,
+		"i_techId": 105,
+		"il_needItem": [
+			1,
+			17,
+			50
+		],
+		"inll_techEffectParam": [
+			[
+				7,
+				98
+			]
+		],
+		"s_techNum": "98"
+	},
+	{
+		"i_id": 21,
+		"i_level": 3,
+		"i_levelCoolTime": 1800,
+		"i_techId": 105,
+		"il_needItem": [
+			1,
+			17,
+			75
+		],
+		"inll_techEffectParam": [
+			[
+				7,
+				168
+			]
+		],
+		"s_techNum": "168"
+	},
+	{
+		"i_id": 22,
+		"i_level": 4,
+		"i_levelCoolTime": 2700,
+		"i_techId": 105,
+		"il_needItem": [
+			1,
+			17,
+			100
+		],
+		"inll_techEffectParam": [
+			[
+				7,
+				252
+			]
+		],
+		"s_techNum": "252"
+	},
+	{
+		"i_id": 23,
+		"i_level": 5,
+		"i_levelCoolTime": 3600,
+		"i_techId": 105,
+		"il_needItem": [
+			1,
+			17,
+			125
+		],
+		"inll_techEffectParam": [
+			[
+				7,
+				350
+			]
+		],
+		"s_techNum": "350"
+	},
+	{
+		"i_id": 24,
+		"i_level": 1,
+		"i_levelCoolTime": 600,
+		"i_techId": 106,
+		"il_needItem": [
+			1,
+			18,
+			3
+		],
+		"inll_techEffectParam": [
+			[
+				4000
+			]
+		],
+		"s_techNum": "40%"
+	},
+	{
+		"i_id": 25,
+		"i_level": 2,
+		"i_levelCoolTime": 600,
+		"i_techId": 106,
+		"il_needItem": [
+			1,
+			18,
+			6
+		],
+		"inll_techEffectParam": [
+			[
+				8000
+			]
+		],
+		"s_techNum": "80%"
+	},
+	{
+		"i_id": 26,
+		"i_level": 3,
+		"i_levelCoolTime": 600,
+		"i_techId": 106,
+		"il_needItem": [
+			1,
+			18,
+			9
+		],
+		"inll_techEffectParam": [
+			[
+				12000
+			]
+		],
+		"s_techNum": "120%"
+	},
+	{
+		"i_id": 27,
+		"i_level": 4,
+		"i_levelCoolTime": 600,
+		"i_techId": 106,
+		"il_needItem": [
+			1,
+			18,
+			12
+		],
+		"inll_techEffectParam": [
+			[
+				16000
+			]
+		],
+		"s_techNum": "160%"
+	},
+	{
+		"i_id": 28,
+		"i_level": 5,
+		"i_levelCoolTime": 600,
+		"i_techId": 106,
+		"il_needItem": [
+			1,
+			18,
+			15
+		],
+		"inll_techEffectParam": [
+			[
+				20000
+			]
+		],
+		"s_techNum": "200%"
+	},
+	{
+		"i_id": 29,
+		"i_level": 1,
+		"i_levelCoolTime": 600,
+		"i_techId": 107,
+		"il_needItem": [
+			1,
+			17,
+			25
+		],
+		"inll_techEffectParam": [
+			[
+				7,
+				8
+			]
+		],
+		"s_techNum": "8"
+	},
+	{
+		"i_id": 30,
+		"i_level": 2,
+		"i_levelCoolTime": 1200,
+		"i_techId": 107,
+		"il_needItem": [
+			1,
+			17,
+			50
+		],
+		"inll_techEffectParam": [
+			[
+				7,
+				19
+			]
+		],
+		"s_techNum": "19"
+	},
+	{
+		"i_id": 31,
+		"i_level": 3,
+		"i_levelCoolTime": 1800,
+		"i_techId": 107,
+		"il_needItem": [
+			1,
+			17,
+			75
+		],
+		"inll_techEffectParam": [
+			[
+				7,
+				33
+			]
+		],
+		"s_techNum": "33"
+	},
+	{
+		"i_id": 32,
+		"i_level": 4,
+		"i_levelCoolTime": 2700,
+		"i_techId": 107,
+		"il_needItem": [
+			1,
+			17,
+			100
+		],
+		"inll_techEffectParam": [
+			[
+				7,
+				50
+			]
+		],
+		"s_techNum": "50"
+	},
+	{
+		"i_id": 33,
+		"i_level": 5,
+		"i_levelCoolTime": 3600,
+		"i_techId": 107,
+		"il_needItem": [
+			1,
+			17,
+			125
+		],
+		"inll_techEffectParam": [
+			[
+				7,
+				70
+			]
+		],
+		"s_techNum": "70"
+	},
+	{
+		"i_id": 34,
+		"i_level": 1,
+		"i_levelCoolTime": 600,
+		"i_techId": 108,
+		"il_needItem": [
+			1,
+			17,
+			25
+		],
+		"inll_techEffectParam": [
+			[
+				0,
+				-400
+			],
+			[
+				1,
+				200
+			],
+			[
+				2,
+				100
+			],
+			[
+				3,
+				100
+			],
+			[
+				4,
+				0
+			],
+			[
+				5,
+				0
+			]
+		],
+		"s_techNum": "100%"
+	},
+	{
+		"i_id": 35,
+		"i_level": 2,
+		"i_levelCoolTime": 1200,
+		"i_techId": 108,
+		"il_needItem": [
+			1,
+			17,
+			50
+		],
+		"inll_techEffectParam": [
+			[
+				0,
+				-800
+			],
+			[
+				1,
+				400
+			],
+			[
+				2,
+				200
+			],
+			[
+				3,
+				200
+			],
+			[
+				4,
+				0
+			],
+			[
+				5,
+				0
+			]
+		],
+		"s_techNum": "200%"
+	},
+	{
+		"i_id": 36,
+		"i_level": 3,
+		"i_levelCoolTime": 1800,
+		"i_techId": 108,
+		"il_needItem": [
+			1,
+			17,
+			75
+		],
+		"inll_techEffectParam": [
+			[
+				0,
+				-1200
+			],
+			[
+				1,
+				600
+			],
+			[
+				2,
+				300
+			],
+			[
+				3,
+				300
+			],
+			[
+				4,
+				0
+			],
+			[
+				5,
+				0
+			]
+		],
+		"s_techNum": "300%"
+	},
+	{
+		"i_id": 37,
+		"i_level": 1,
+		"i_levelCoolTime": 600,
+		"i_techId": 109,
+		"il_needItem": [
+			1,
+			17,
+			25
+		],
+		"inll_techEffectParam": [
+			[
+				6,
+				210
+			]
+		],
+		"s_techNum": "210"
+	},
+	{
+		"i_id": 38,
+		"i_level": 2,
+		"i_levelCoolTime": 1200,
+		"i_techId": 109,
+		"il_needItem": [
+			1,
+			17,
+			50
+		],
+		"inll_techEffectParam": [
+			[
+				6,
+				490
+			]
+		],
+		"s_techNum": "490"
+	},
+	{
+		"i_id": 39,
+		"i_level": 3,
+		"i_levelCoolTime": 1800,
+		"i_techId": 109,
+		"il_needItem": [
+			1,
+			17,
+			75
+		],
+		"inll_techEffectParam": [
+			[
+				6,
+				840
+			]
+		],
+		"s_techNum": "840"
+	},
+	{
+		"i_id": 40,
+		"i_level": 4,
+		"i_levelCoolTime": 2700,
+		"i_techId": 109,
+		"il_needItem": [
+			1,
+			17,
+			100
+		],
+		"inll_techEffectParam": [
+			[
+				6,
+				1260
+			]
+		],
+		"s_techNum": "1260"
+	},
+	{
+		"i_id": 41,
+		"i_level": 5,
+		"i_levelCoolTime": 3600,
+		"i_techId": 109,
+		"il_needItem": [
+			1,
+			17,
+			125
+		],
+		"inll_techEffectParam": [
+			[
+				6,
+				1750
+			]
+		],
+		"s_techNum": "1750"
+	},
+	{
+		"i_id": 42,
+		"i_level": 1,
+		"i_levelCoolTime": 600,
+		"i_techId": 110,
+		"il_needItem": [
+			1,
+			17,
+			25
+		],
+		"inll_techEffectParam": [
+			[
+				3
+			]
+		],
+		"s_techNum": "1"
+	},
+	{
+		"i_id": 43,
+		"i_level": 1,
+		"i_levelCoolTime": 600,
+		"i_techId": 200,
+		"il_needItem": [
+			1,
+			18,
+			10
+		],
+		"inll_techEffectParam": [
+			[
+				4000
+			]
+		],
+		"s_techNum": "40%"
+	},
+	{
+		"i_id": 44,
+		"i_level": 2,
+		"i_levelCoolTime": 600,
+		"i_techId": 200,
+		"il_needItem": [
+			1,
+			18,
+			20
+		],
+		"inll_techEffectParam": [
+			[
+				8000
+			]
+		],
+		"s_techNum": "80%"
+	},
+	{
+		"i_id": 45,
+		"i_level": 3,
+		"i_levelCoolTime": 600,
+		"i_techId": 200,
+		"il_needItem": [
+			1,
+			18,
+			30
+		],
+		"inll_techEffectParam": [
+			[
+				12000
+			]
+		],
+		"s_techNum": "120%"
+	},
+	{
+		"i_id": 46,
+		"i_level": 4,
+		"i_levelCoolTime": 600,
+		"i_techId": 200,
+		"il_needItem": [
+			1,
+			18,
+			40
+		],
+		"inll_techEffectParam": [
+			[
+				16000
+			]
+		],
+		"s_techNum": "160%"
+	},
+	{
+		"i_id": 47,
+		"i_level": 5,
+		"i_levelCoolTime": 600,
+		"i_techId": 200,
+		"il_needItem": [
+			1,
+			18,
+			50
+		],
+		"inll_techEffectParam": [
+			[
+				20000
+			]
+		],
+		"s_techNum": "200%"
+	},
+	{
+		"i_id": 48,
+		"i_level": 1,
+		"i_levelCoolTime": 900,
+		"i_techId": 201,
+		"il_needItem": [
+			1,
+			17,
+			58
+		],
+		"inll_techEffectParam": [
+			[
+				8,
+				9220
+			]
+		],
+		"s_techNum": "9220"
+	},
+	{
+		"i_id": 49,
+		"i_level": 2,
+		"i_levelCoolTime": 1800,
+		"i_techId": 201,
+		"il_needItem": [
+			1,
+			17,
+			116
+		],
+		"inll_techEffectParam": [
+			[
+				8,
+				21510
+			]
+		],
+		"s_techNum": "21510"
+	},
+	{
+		"i_id": 50,
+		"i_level": 3,
+		"i_levelCoolTime": 2400,
+		"i_techId": 201,
+		"il_needItem": [
+			1,
+			17,
+			174
+		],
+		"inll_techEffectParam": [
+			[
+				8,
+				36870
+			]
+		],
+		"s_techNum": "36870"
+	},
+	{
+		"i_id": 51,
+		"i_level": 4,
+		"i_levelCoolTime": 3600,
+		"i_techId": 201,
+		"il_needItem": [
+			1,
+			17,
+			232
+		],
+		"inll_techEffectParam": [
+			[
+				8,
+				55300
+			]
+		],
+		"s_techNum": "55300"
+	},
+	{
+		"i_id": 52,
+		"i_level": 5,
+		"i_levelCoolTime": 4800,
+		"i_techId": 201,
+		"il_needItem": [
+			1,
+			17,
+			290
+		],
+		"inll_techEffectParam": [
+			[
+				8,
+				76800
+			]
+		],
+		"s_techNum": "76800"
+	},
+	{
+		"i_id": 53,
+		"i_level": 1,
+		"i_levelCoolTime": 900,
+		"i_techId": 202,
+		"il_needItem": [
+			1,
+			17,
+			58
+		],
+		"inll_techEffectParam": [
+			[
+				8,
+				1840
+			]
+		],
+		"s_techNum": "1840"
+	},
+	{
+		"i_id": 54,
+		"i_level": 2,
+		"i_levelCoolTime": 1800,
+		"i_techId": 202,
+		"il_needItem": [
+			1,
+			17,
+			116
+		],
+		"inll_techEffectParam": [
+			[
+				8,
+				4300
+			]
+		],
+		"s_techNum": "4300"
+	},
+	{
+		"i_id": 55,
+		"i_level": 3,
+		"i_levelCoolTime": 2400,
+		"i_techId": 202,
+		"il_needItem": [
+			1,
+			17,
+			174
+		],
+		"inll_techEffectParam": [
+			[
+				8,
+				7370
+			]
+		],
+		"s_techNum": "7370"
+	},
+	{
+		"i_id": 56,
+		"i_level": 4,
+		"i_levelCoolTime": 3600,
+		"i_techId": 202,
+		"il_needItem": [
+			1,
+			17,
+			232
+		],
+		"inll_techEffectParam": [
+			[
+				8,
+				11060
+			]
+		],
+		"s_techNum": "11060"
+	},
+	{
+		"i_id": 57,
+		"i_level": 5,
+		"i_levelCoolTime": 4800,
+		"i_techId": 202,
+		"il_needItem": [
+			1,
+			17,
+			290
+		],
+		"inll_techEffectParam": [
+			[
+				8,
+				15360
+			]
+		],
+		"s_techNum": "15360"
+	},
+	{
+		"i_id": 58,
+		"i_level": 1,
+		"i_levelCoolTime": 900,
+		"i_techId": 203,
+		"il_needItem": [
+			1,
+			17,
+			58
+		],
+		"inll_techEffectParam": [
+			[
+				0,
+				-144
+			],
+			[
+				1,
+				36
+			],
+			[
+				2,
+				60
+			],
+			[
+				3,
+				30
+			],
+			[
+				4,
+				18
+			],
+			[
+				5,
+				0
+			]
+		],
+		"s_techNum": "100%"
+	},
+	{
+		"i_id": 59,
+		"i_level": 2,
+		"i_levelCoolTime": 1800,
+		"i_techId": 203,
+		"il_needItem": [
+			1,
+			17,
+			116
+		],
+		"inll_techEffectParam": [
+			[
+				0,
+				-288
+			],
+			[
+				1,
+				72
+			],
+			[
+				2,
+				120
+			],
+			[
+				3,
+				60
+			],
+			[
+				4,
+				36
+			],
+			[
+				5,
+				0
+			]
+		],
+		"s_techNum": "200%"
+	},
+	{
+		"i_id": 60,
+		"i_level": 3,
+		"i_levelCoolTime": 2400,
+		"i_techId": 203,
+		"il_needItem": [
+			1,
+			17,
+			174
+		],
+		"inll_techEffectParam": [
+			[
+				0,
+				-432
+			],
+			[
+				1,
+				108
+			],
+			[
+				2,
+				180
+			],
+			[
+				3,
+				90
+			],
+			[
+				4,
+				54
+			],
+			[
+				5,
+				0
+			]
+		],
+		"s_techNum": "300%"
+	},
+	{
+		"i_id": 61,
+		"i_level": 4,
+		"i_levelCoolTime": 3600,
+		"i_techId": 203,
+		"il_needItem": [
+			1,
+			17,
+			232
+		],
+		"inll_techEffectParam": [
+			[
+				0,
+				-576
+			],
+			[
+				1,
+				144
+			],
+			[
+				2,
+				240
+			],
+			[
+				3,
+				120
+			],
+			[
+				4,
+				72
+			],
+			[
+				5,
+				0
+			]
+		],
+		"s_techNum": "400%"
+	},
+	{
+		"i_id": 62,
+		"i_level": 5,
+		"i_levelCoolTime": 4800,
+		"i_techId": 203,
+		"il_needItem": [
+			1,
+			17,
+			290
+		],
+		"inll_techEffectParam": [
+			[
+				0,
+				-720
+			],
+			[
+				1,
+				180
+			],
+			[
+				2,
+				300
+			],
+			[
+				3,
+				150
+			],
+			[
+				4,
+				90
+			],
+			[
+				5,
+				0
+			]
+		],
+		"s_techNum": "500%"
+	},
+	{
+		"i_id": 63,
+		"i_level": 1,
+		"i_levelCoolTime": 900,
+		"i_techId": 204,
+		"il_needItem": [
+			1,
+			17,
+			58
+		],
+		"inll_techEffectParam": [
+			[
+				4
+			]
+		],
+		"s_techNum": "1"
+	},
+	{
+		"i_id": 64,
+		"i_level": 2,
+		"i_levelCoolTime": 1800,
+		"i_techId": 204,
+		"il_needItem": [
+			1,
+			17,
+			116
+		],
+		"inll_techEffectParam": [
+			[
+				5
+			]
+		],
+		"s_techNum": "2"
+	},
+	{
+		"i_id": 65,
+		"i_level": 1,
+		"i_levelCoolTime": 900,
+		"i_techId": 205,
+		"il_needItem": [
+			1,
+			17,
+			58
+		],
+		"inll_techEffectParam": [
+			[
+				6,
+				920
+			]
+		],
+		"s_techNum": "920"
+	},
+	{
+		"i_id": 66,
+		"i_level": 2,
+		"i_levelCoolTime": 1800,
+		"i_techId": 205,
+		"il_needItem": [
+			1,
+			17,
+			116
+		],
+		"inll_techEffectParam": [
+			[
+				6,
+				2150
+			]
+		],
+		"s_techNum": "2150"
+	},
+	{
+		"i_id": 67,
+		"i_level": 3,
+		"i_levelCoolTime": 2400,
+		"i_techId": 205,
+		"il_needItem": [
+			1,
+			17,
+			174
+		],
+		"inll_techEffectParam": [
+			[
+				6,
+				3690
+			]
+		],
+		"s_techNum": "3690"
+	},
+	{
+		"i_id": 68,
+		"i_level": 4,
+		"i_levelCoolTime": 3600,
+		"i_techId": 205,
+		"il_needItem": [
+			1,
+			17,
+			232
+		],
+		"inll_techEffectParam": [
+			[
+				6,
+				5530
+			]
+		],
+		"s_techNum": "5530"
+	},
+	{
+		"i_id": 69,
+		"i_level": 5,
+		"i_levelCoolTime": 4800,
+		"i_techId": 205,
+		"il_needItem": [
+			1,
+			17,
+			290
+		],
+		"inll_techEffectParam": [
+			[
+				6,
+				7680
+			]
+		],
+		"s_techNum": "7680"
+	},
+	{
+		"i_id": 70,
+		"i_level": 1,
+		"i_levelCoolTime": 600,
+		"i_techId": 206,
+		"il_needItem": [
+			1,
+			18,
+			10
+		],
+		"inll_techEffectParam": [
+			[
+				4000
+			]
+		],
+		"s_techNum": "40%"
+	},
+	{
+		"i_id": 71,
+		"i_level": 2,
+		"i_levelCoolTime": 600,
+		"i_techId": 206,
+		"il_needItem": [
+			1,
+			18,
+			20
+		],
+		"inll_techEffectParam": [
+			[
+				8000
+			]
+		],
+		"s_techNum": "80%"
+	},
+	{
+		"i_id": 72,
+		"i_level": 3,
+		"i_levelCoolTime": 600,
+		"i_techId": 206,
+		"il_needItem": [
+			1,
+			18,
+			30
+		],
+		"inll_techEffectParam": [
+			[
+				12000
+			]
+		],
+		"s_techNum": "120%"
+	},
+	{
+		"i_id": 73,
+		"i_level": 4,
+		"i_levelCoolTime": 600,
+		"i_techId": 206,
+		"il_needItem": [
+			1,
+			18,
+			40
+		],
+		"inll_techEffectParam": [
+			[
+				16000
+			]
+		],
+		"s_techNum": "160%"
+	},
+	{
+		"i_id": 74,
+		"i_level": 5,
+		"i_levelCoolTime": 600,
+		"i_techId": 206,
+		"il_needItem": [
+			1,
+			18,
+			50
+		],
+		"inll_techEffectParam": [
+			[
+				20000
+			]
+		],
+		"s_techNum": "200%"
+	},
+	{
+		"i_id": 75,
+		"i_level": 1,
+		"i_levelCoolTime": 900,
+		"i_techId": 207,
+		"il_needItem": [
+			1,
+			17,
+			58
+		],
+		"inll_techEffectParam": [
+			[
+				6,
+				184
+			]
+		],
+		"s_techNum": "184"
+	},
+	{
+		"i_id": 76,
+		"i_level": 2,
+		"i_levelCoolTime": 1800,
+		"i_techId": 207,
+		"il_needItem": [
+			1,
+			17,
+			116
+		],
+		"inll_techEffectParam": [
+			[
+				6,
+				430
+			]
+		],
+		"s_techNum": "430"
+	},
+	{
+		"i_id": 77,
+		"i_level": 3,
+		"i_levelCoolTime": 2400,
+		"i_techId": 207,
+		"il_needItem": [
+			1,
+			17,
+			174
+		],
+		"inll_techEffectParam": [
+			[
+				6,
+				737
+			]
+		],
+		"s_techNum": "737"
+	},
+	{
+		"i_id": 78,
+		"i_level": 4,
+		"i_levelCoolTime": 3600,
+		"i_techId": 207,
+		"il_needItem": [
+			1,
+			17,
+			232
+		],
+		"inll_techEffectParam": [
+			[
+				6,
+				1106
+			]
+		],
+		"s_techNum": "1106"
+	},
+	{
+		"i_id": 79,
+		"i_level": 5,
+		"i_levelCoolTime": 4800,
+		"i_techId": 207,
+		"il_needItem": [
+			1,
+			17,
+			290
+		],
+		"inll_techEffectParam": [
+			[
+				6,
+				1536
+			]
+		],
+		"s_techNum": "1536"
+	},
+	{
+		"i_id": 80,
+		"i_level": 1,
+		"i_levelCoolTime": 900,
+		"i_techId": 208,
+		"il_needItem": [
+			1,
+			17,
+			58
+		],
+		"inll_techEffectParam": [
+			[
+				0,
+				-155
+			],
+			[
+				1,
+				36
+			],
+			[
+				2,
+				60
+			],
+			[
+				3,
+				30
+			],
+			[
+				4,
+				18
+			],
+			[
+				5,
+				11
+			]
+		],
+		"s_techNum": "100%"
+	},
+	{
+		"i_id": 81,
+		"i_level": 2,
+		"i_levelCoolTime": 1800,
+		"i_techId": 208,
+		"il_needItem": [
+			1,
+			17,
+			116
+		],
+		"inll_techEffectParam": [
+			[
+				0,
+				-310
+			],
+			[
+				1,
+				72
+			],
+			[
+				2,
+				120
+			],
+			[
+				3,
+				60
+			],
+			[
+				4,
+				36
+			],
+			[
+				5,
+				22
+			]
+		],
+		"s_techNum": "200%"
+	},
+	{
+		"i_id": 82,
+		"i_level": 3,
+		"i_levelCoolTime": 2400,
+		"i_techId": 208,
+		"il_needItem": [
+			1,
+			17,
+			174
+		],
+		"inll_techEffectParam": [
+			[
+				0,
+				-465
+			],
+			[
+				1,
+				108
+			],
+			[
+				2,
+				180
+			],
+			[
+				3,
+				90
+			],
+			[
+				4,
+				54
+			],
+			[
+				5,
+				33
+			]
+		],
+		"s_techNum": "300%"
+	},
+	{
+		"i_id": 83,
+		"i_level": 4,
+		"i_levelCoolTime": 3600,
+		"i_techId": 208,
+		"il_needItem": [
+			1,
+			17,
+			232
+		],
+		"inll_techEffectParam": [
+			[
+				0,
+				-620
+			],
+			[
+				1,
+				144
+			],
+			[
+				2,
+				240
+			],
+			[
+				3,
+				120
+			],
+			[
+				4,
+				72
+			],
+			[
+				5,
+				44
+			]
+		],
+		"s_techNum": "400%"
+	},
+	{
+		"i_id": 84,
+		"i_level": 5,
+		"i_levelCoolTime": 4800,
+		"i_techId": 208,
+		"il_needItem": [
+			1,
+			17,
+			290
+		],
+		"inll_techEffectParam": [
+			[
+				0,
+				-775
+			],
+			[
+				1,
+				180
+			],
+			[
+				2,
+				300
+			],
+			[
+				3,
+				150
+			],
+			[
+				4,
+				90
+			],
+			[
+				5,
+				55
+			]
+		],
+		"s_techNum": "500%"
+	},
+	{
+		"i_id": 85,
+		"i_level": 1,
+		"i_levelCoolTime": 900,
+		"i_techId": 209,
+		"il_needItem": [
+			1,
+			17,
+			58
+		],
+		"inll_techEffectParam": [
+			[
+				7,
+				37
+			]
+		],
+		"s_techNum": "37"
+	},
+	{
+		"i_id": 86,
+		"i_level": 2,
+		"i_levelCoolTime": 1800,
+		"i_techId": 209,
+		"il_needItem": [
+			1,
+			17,
+			116
+		],
+		"inll_techEffectParam": [
+			[
+				7,
+				86
+			]
+		],
+		"s_techNum": "86"
+	},
+	{
+		"i_id": 87,
+		"i_level": 3,
+		"i_levelCoolTime": 2400,
+		"i_techId": 209,
+		"il_needItem": [
+			1,
+			17,
+			174
+		],
+		"inll_techEffectParam": [
+			[
+				7,
+				147
+			]
+		],
+		"s_techNum": "147"
+	},
+	{
+		"i_id": 88,
+		"i_level": 4,
+		"i_levelCoolTime": 3600,
+		"i_techId": 209,
+		"il_needItem": [
+			1,
+			17,
+			232
+		],
+		"inll_techEffectParam": [
+			[
+				7,
+				221
+			]
+		],
+		"s_techNum": "221"
+	},
+	{
+		"i_id": 89,
+		"i_level": 5,
+		"i_levelCoolTime": 4800,
+		"i_techId": 209,
+		"il_needItem": [
+			1,
+			17,
+			290
+		],
+		"inll_techEffectParam": [
+			[
+				7,
+				307
+			]
+		],
+		"s_techNum": "307"
+	},
+	{
+		"i_id": 90,
+		"i_level": 1,
+		"i_levelCoolTime": 900,
+		"i_techId": 210,
+		"il_needItem": [
+			1,
+			17,
+			58
+		],
+		"inll_techEffectParam": [
+			[
+				6
+			]
+		],
+		"s_techNum": "1"
+	},
+	{
+		"i_id": 91,
+		"i_level": 2,
+		"i_levelCoolTime": 1800,
+		"i_techId": 210,
+		"il_needItem": [
+			1,
+			17,
+			116
+		],
+		"inll_techEffectParam": [
+			[
+				7
+			]
+		],
+		"s_techNum": "2"
+	},
+	{
+		"i_id": 92,
+		"i_level": 1,
+		"i_levelCoolTime": 600,
+		"i_techId": 300,
+		"il_needItem": [
+			1,
+			18,
+			17
+		],
+		"inll_techEffectParam": [
+			[
+				4000
+			]
+		],
+		"s_techNum": "40%"
+	},
+	{
+		"i_id": 93,
+		"i_level": 2,
+		"i_levelCoolTime": 600,
+		"i_techId": 300,
+		"il_needItem": [
+			1,
+			18,
+			34
+		],
+		"inll_techEffectParam": [
+			[
+				8000
+			]
+		],
+		"s_techNum": "80%"
+	},
+	{
+		"i_id": 94,
+		"i_level": 3,
+		"i_levelCoolTime": 600,
+		"i_techId": 300,
+		"il_needItem": [
+			1,
+			18,
+			51
+		],
+		"inll_techEffectParam": [
+			[
+				12000
+			]
+		],
+		"s_techNum": "120%"
+	},
+	{
+		"i_id": 95,
+		"i_level": 4,
+		"i_levelCoolTime": 600,
+		"i_techId": 300,
+		"il_needItem": [
+			1,
+			18,
+			68
+		],
+		"inll_techEffectParam": [
+			[
+				16000
+			]
+		],
+		"s_techNum": "160%"
+	},
+	{
+		"i_id": 96,
+		"i_level": 5,
+		"i_levelCoolTime": 600,
+		"i_techId": 300,
+		"il_needItem": [
+			1,
+			18,
+			85
+		],
+		"inll_techEffectParam": [
+			[
+				20000
+			]
+		],
+		"s_techNum": "200%"
+	},
+	{
+		"i_id": 97,
+		"i_level": 1,
+		"i_levelCoolTime": 1200,
+		"i_techId": 301,
+		"il_needItem": [
+			1,
+			17,
+			95
+		],
+		"inll_techEffectParam": [
+			[
+				6,
+				1910
+			]
+		],
+		"s_techNum": "1910"
+	},
+	{
+		"i_id": 98,
+		"i_level": 2,
+		"i_levelCoolTime": 2100,
+		"i_techId": 301,
+		"il_needItem": [
+			1,
+			17,
+			190
+		],
+		"inll_techEffectParam": [
+			[
+				6,
+				4460
+			]
+		],
+		"s_techNum": "4460"
+	},
+	{
+		"i_id": 99,
+		"i_level": 3,
+		"i_levelCoolTime": 3000,
+		"i_techId": 301,
+		"il_needItem": [
+			1,
+			17,
+			285
+		],
+		"inll_techEffectParam": [
+			[
+				6,
+				7640
+			]
+		],
+		"s_techNum": "7640"
+	},
+	{
+		"i_id": 100,
+		"i_level": 4,
+		"i_levelCoolTime": 4500,
+		"i_techId": 301,
+		"il_needItem": [
+			1,
+			17,
+			380
+		],
+		"inll_techEffectParam": [
+			[
+				6,
+				11460
+			]
+		],
+		"s_techNum": "11460"
+	},
+	{
+		"i_id": 101,
+		"i_level": 5,
+		"i_levelCoolTime": 6000,
+		"i_techId": 301,
+		"il_needItem": [
+			1,
+			17,
+			475
+		],
+		"inll_techEffectParam": [
+			[
+				6,
+				15920
+			]
+		],
+		"s_techNum": "15920"
+	},
+	{
+		"i_id": 102,
+		"i_level": 1,
+		"i_levelCoolTime": 1200,
+		"i_techId": 302,
+		"il_needItem": [
+			1,
+			17,
+			95
+		],
+		"inll_techEffectParam": [
+			[
+				6,
+				382
+			]
+		],
+		"s_techNum": "382"
+	},
+	{
+		"i_id": 103,
+		"i_level": 2,
+		"i_levelCoolTime": 2100,
+		"i_techId": 302,
+		"il_needItem": [
+			1,
+			17,
+			190
+		],
+		"inll_techEffectParam": [
+			[
+				6,
+				891
+			]
+		],
+		"s_techNum": "891"
+	},
+	{
+		"i_id": 104,
+		"i_level": 3,
+		"i_levelCoolTime": 3000,
+		"i_techId": 302,
+		"il_needItem": [
+			1,
+			17,
+			285
+		],
+		"inll_techEffectParam": [
+			[
+				6,
+				1528
+			]
+		],
+		"s_techNum": "1528"
+	},
+	{
+		"i_id": 105,
+		"i_level": 4,
+		"i_levelCoolTime": 4500,
+		"i_techId": 302,
+		"il_needItem": [
+			1,
+			17,
+			380
+		],
+		"inll_techEffectParam": [
+			[
+				6,
+				2292
+			]
+		],
+		"s_techNum": "2292"
+	},
+	{
+		"i_id": 106,
+		"i_level": 5,
+		"i_levelCoolTime": 6000,
+		"i_techId": 302,
+		"il_needItem": [
+			1,
+			17,
+			475
+		],
+		"inll_techEffectParam": [
+			[
+				6,
+				3184
+			]
+		],
+		"s_techNum": "3184"
+	},
+	{
+		"i_id": 107,
+		"i_level": 1,
+		"i_levelCoolTime": 1200,
+		"i_techId": 303,
+		"il_needItem": [
+			1,
+			17,
+			95
+		],
+		"inll_techEffectParam": [
+			[
+				0,
+				-250
+			],
+			[
+				1,
+				56
+			],
+			[
+				2,
+				100
+			],
+			[
+				3,
+				50
+			],
+			[
+				4,
+				30
+			],
+			[
+				5,
+				14
+			]
+		],
+		"s_techNum": "100%"
+	},
+	{
+		"i_id": 108,
+		"i_level": 2,
+		"i_levelCoolTime": 2100,
+		"i_techId": 303,
+		"il_needItem": [
+			1,
+			17,
+			190
+		],
+		"inll_techEffectParam": [
+			[
+				0,
+				-500
+			],
+			[
+				1,
+				112
+			],
+			[
+				2,
+				200
+			],
+			[
+				3,
+				100
+			],
+			[
+				4,
+				60
+			],
+			[
+				5,
+				28
+			]
+		],
+		"s_techNum": "200%"
+	},
+	{
+		"i_id": 109,
+		"i_level": 3,
+		"i_levelCoolTime": 3000,
+		"i_techId": 303,
+		"il_needItem": [
+			1,
+			17,
+			285
+		],
+		"inll_techEffectParam": [
+			[
+				0,
+				-750
+			],
+			[
+				1,
+				168
+			],
+			[
+				2,
+				300
+			],
+			[
+				3,
+				150
+			],
+			[
+				4,
+				90
+			],
+			[
+				5,
+				42
+			]
+		],
+		"s_techNum": "300%"
+	},
+	{
+		"i_id": 110,
+		"i_level": 4,
+		"i_levelCoolTime": 4500,
+		"i_techId": 303,
+		"il_needItem": [
+			1,
+			17,
+			380
+		],
+		"inll_techEffectParam": [
+			[
+				0,
+				-1000
+			],
+			[
+				1,
+				224
+			],
+			[
+				2,
+				400
+			],
+			[
+				3,
+				200
+			],
+			[
+				4,
+				120
+			],
+			[
+				5,
+				56
+			]
+		],
+		"s_techNum": "400%"
+	},
+	{
+		"i_id": 111,
+		"i_level": 5,
+		"i_levelCoolTime": 6000,
+		"i_techId": 303,
+		"il_needItem": [
+			1,
+			17,
+			475
+		],
+		"inll_techEffectParam": [
+			[
+				0,
+				-1250
+			],
+			[
+				1,
+				280
+			],
+			[
+				2,
+				500
+			],
+			[
+				3,
+				250
+			],
+			[
+				4,
+				150
+			],
+			[
+				5,
+				70
+			]
+		],
+		"s_techNum": "500%"
+	},
+	{
+		"i_id": 112,
+		"i_level": 1,
+		"i_levelCoolTime": 1200,
+		"i_techId": 304,
+		"il_needItem": [
+			1,
+			17,
+			95
+		],
+		"inll_techEffectParam": [
+			[
+				8
+			]
+		],
+		"s_techNum": "1"
+	},
+	{
+		"i_id": 113,
+		"i_level": 2,
+		"i_levelCoolTime": 2100,
+		"i_techId": 304,
+		"il_needItem": [
+			1,
+			17,
+			190
+		],
+		"inll_techEffectParam": [
+			[
+				9
+			]
+		],
+		"s_techNum": "2"
+	},
+	{
+		"i_id": 114,
+		"i_level": 1,
+		"i_levelCoolTime": 1200,
+		"i_techId": 305,
+		"il_needItem": [
+			1,
+			17,
+			95
+		],
+		"inll_techEffectParam": [
+			[
+				7,
+				382
+			]
+		],
+		"s_techNum": "382"
+	},
+	{
+		"i_id": 115,
+		"i_level": 2,
+		"i_levelCoolTime": 2100,
+		"i_techId": 305,
+		"il_needItem": [
+			1,
+			17,
+			190
+		],
+		"inll_techEffectParam": [
+			[
+				7,
+				891
+			]
+		],
+		"s_techNum": "891"
+	},
+	{
+		"i_id": 116,
+		"i_level": 3,
+		"i_levelCoolTime": 3000,
+		"i_techId": 305,
+		"il_needItem": [
+			1,
+			17,
+			285
+		],
+		"inll_techEffectParam": [
+			[
+				7,
+				1528
+			]
+		],
+		"s_techNum": "1528"
+	},
+	{
+		"i_id": 117,
+		"i_level": 4,
+		"i_levelCoolTime": 4500,
+		"i_techId": 305,
+		"il_needItem": [
+			1,
+			17,
+			380
+		],
+		"inll_techEffectParam": [
+			[
+				7,
+				2292
+			]
+		],
+		"s_techNum": "2292"
+	},
+	{
+		"i_id": 118,
+		"i_level": 5,
+		"i_levelCoolTime": 6000,
+		"i_techId": 305,
+		"il_needItem": [
+			1,
+			17,
+			475
+		],
+		"inll_techEffectParam": [
+			[
+				7,
+				3184
+			]
+		],
+		"s_techNum": "3184"
+	},
+	{
+		"i_id": 119,
+		"i_level": 1,
+		"i_levelCoolTime": 600,
+		"i_techId": 306,
+		"il_needItem": [
+			1,
+			18,
+			17
+		],
+		"inll_techEffectParam": [
+			[
+				4000
+			]
+		],
+		"s_techNum": "40%"
+	},
+	{
+		"i_id": 120,
+		"i_level": 2,
+		"i_levelCoolTime": 600,
+		"i_techId": 306,
+		"il_needItem": [
+			1,
+			18,
+			34
+		],
+		"inll_techEffectParam": [
+			[
+				8000
+			]
+		],
+		"s_techNum": "80%"
+	},
+	{
+		"i_id": 121,
+		"i_level": 3,
+		"i_levelCoolTime": 600,
+		"i_techId": 306,
+		"il_needItem": [
+			1,
+			18,
+			51
+		],
+		"inll_techEffectParam": [
+			[
+				12000
+			]
+		],
+		"s_techNum": "120%"
+	},
+	{
+		"i_id": 122,
+		"i_level": 4,
+		"i_levelCoolTime": 600,
+		"i_techId": 306,
+		"il_needItem": [
+			1,
+			18,
+			68
+		],
+		"inll_techEffectParam": [
+			[
+				16000
+			]
+		],
+		"s_techNum": "160%"
+	},
+	{
+		"i_id": 123,
+		"i_level": 5,
+		"i_levelCoolTime": 600,
+		"i_techId": 306,
+		"il_needItem": [
+			1,
+			18,
+			85
+		],
+		"inll_techEffectParam": [
+			[
+				20000
+			]
+		],
+		"s_techNum": "200%"
+	},
+	{
+		"i_id": 124,
+		"i_level": 1,
+		"i_levelCoolTime": 1200,
+		"i_techId": 307,
+		"il_needItem": [
+			1,
+			17,
+			95
+		],
+		"inll_techEffectParam": [
+			[
+				7,
+				76
+			]
+		],
+		"s_techNum": "76"
+	},
+	{
+		"i_id": 125,
+		"i_level": 2,
+		"i_levelCoolTime": 2100,
+		"i_techId": 307,
+		"il_needItem": [
+			1,
+			17,
+			190
+		],
+		"inll_techEffectParam": [
+			[
+				7,
+				178
+			]
+		],
+		"s_techNum": "178"
+	},
+	{
+		"i_id": 126,
+		"i_level": 3,
+		"i_levelCoolTime": 3000,
+		"i_techId": 307,
+		"il_needItem": [
+			1,
+			17,
+			285
+		],
+		"inll_techEffectParam": [
+			[
+				7,
+				305
+			]
+		],
+		"s_techNum": "305"
+	},
+	{
+		"i_id": 127,
+		"i_level": 4,
+		"i_levelCoolTime": 4500,
+		"i_techId": 307,
+		"il_needItem": [
+			1,
+			17,
+			380
+		],
+		"inll_techEffectParam": [
+			[
+				7,
+				458
+			]
+		],
+		"s_techNum": "458"
+	},
+	{
+		"i_id": 128,
+		"i_level": 5,
+		"i_levelCoolTime": 6000,
+		"i_techId": 307,
+		"il_needItem": [
+			1,
+			17,
+			475
+		],
+		"inll_techEffectParam": [
+			[
+				7,
+				636
+			]
+		],
+		"s_techNum": "636"
+	},
+	{
+		"i_id": 129,
+		"i_level": 1,
+		"i_levelCoolTime": 1200,
+		"i_techId": 308,
+		"il_needItem": [
+			1,
+			17,
+			95
+		],
+		"inll_techEffectParam": [
+			[
+				0,
+				-250
+			],
+			[
+				1,
+				56
+			],
+			[
+				2,
+				100
+			],
+			[
+				3,
+				50
+			],
+			[
+				4,
+				30
+			],
+			[
+				5,
+				14
+			]
+		],
+		"s_techNum": "100%"
+	},
+	{
+		"i_id": 130,
+		"i_level": 2,
+		"i_levelCoolTime": 2100,
+		"i_techId": 308,
+		"il_needItem": [
+			1,
+			17,
+			190
+		],
+		"inll_techEffectParam": [
+			[
+				0,
+				-500
+			],
+			[
+				1,
+				112
+			],
+			[
+				2,
+				200
+			],
+			[
+				3,
+				100
+			],
+			[
+				4,
+				60
+			],
+			[
+				5,
+				28
+			]
+		],
+		"s_techNum": "200%"
+	},
+	{
+		"i_id": 131,
+		"i_level": 3,
+		"i_levelCoolTime": 3000,
+		"i_techId": 308,
+		"il_needItem": [
+			1,
+			17,
+			285
+		],
+		"inll_techEffectParam": [
+			[
+				0,
+				-750
+			],
+			[
+				1,
+				168
+			],
+			[
+				2,
+				300
+			],
+			[
+				3,
+				150
+			],
+			[
+				4,
+				90
+			],
+			[
+				5,
+				42
+			]
+		],
+		"s_techNum": "300%"
+	},
+	{
+		"i_id": 132,
+		"i_level": 4,
+		"i_levelCoolTime": 4500,
+		"i_techId": 308,
+		"il_needItem": [
+			1,
+			17,
+			380
+		],
+		"inll_techEffectParam": [
+			[
+				0,
+				-1000
+			],
+			[
+				1,
+				224
+			],
+			[
+				2,
+				400
+			],
+			[
+				3,
+				200
+			],
+			[
+				4,
+				120
+			],
+			[
+				5,
+				56
+			]
+		],
+		"s_techNum": "400%"
+	},
+	{
+		"i_id": 133,
+		"i_level": 5,
+		"i_levelCoolTime": 6000,
+		"i_techId": 308,
+		"il_needItem": [
+			1,
+			17,
+			475
+		],
+		"inll_techEffectParam": [
+			[
+				0,
+				-1250
+			],
+			[
+				1,
+				280
+			],
+			[
+				2,
+				500
+			],
+			[
+				3,
+				250
+			],
+			[
+				4,
+				150
+			],
+			[
+				5,
+				70
+			]
+		],
+		"s_techNum": "500%"
+	},
+	{
+		"i_id": 134,
+		"i_level": 1,
+		"i_levelCoolTime": 1200,
+		"i_techId": 309,
+		"il_needItem": [
+			1,
+			17,
+			95
+		],
+		"inll_techEffectParam": [
+			[
+				8,
+				19110
+			]
+		],
+		"s_techNum": "19110"
+	},
+	{
+		"i_id": 135,
+		"i_level": 2,
+		"i_levelCoolTime": 2100,
+		"i_techId": 309,
+		"il_needItem": [
+			1,
+			17,
+			190
+		],
+		"inll_techEffectParam": [
+			[
+				8,
+				44580
+			]
+		],
+		"s_techNum": "44580"
+	},
+	{
+		"i_id": 136,
+		"i_level": 3,
+		"i_levelCoolTime": 3000,
+		"i_techId": 309,
+		"il_needItem": [
+			1,
+			17,
+			285
+		],
+		"inll_techEffectParam": [
+			[
+				8,
+				76420
+			]
+		],
+		"s_techNum": "76420"
+	},
+	{
+		"i_id": 137,
+		"i_level": 4,
+		"i_levelCoolTime": 4500,
+		"i_techId": 309,
+		"il_needItem": [
+			1,
+			17,
+			380
+		],
+		"inll_techEffectParam": [
+			[
+				8,
+				114630
+			]
+		],
+		"s_techNum": "114630"
+	},
+	{
+		"i_id": 138,
+		"i_level": 5,
+		"i_levelCoolTime": 6000,
+		"i_techId": 309,
+		"il_needItem": [
+			1,
+			17,
+			475
+		],
+		"inll_techEffectParam": [
+			[
+				8,
+				159210
+			]
+		],
+		"s_techNum": "159210"
+	},
+	{
+		"i_id": 139,
+		"i_level": 1,
+		"i_levelCoolTime": 1200,
+		"i_techId": 310,
+		"il_needItem": [
+			1,
+			17,
+			95
+		],
+		"inll_techEffectParam": [
+			[
+				10
+			]
+		],
+		"s_techNum": "1"
+	},
+	{
+		"i_id": 140,
+		"i_level": 2,
+		"i_levelCoolTime": 2100,
+		"i_techId": 310,
+		"il_needItem": [
+			1,
+			17,
+			190
+		],
+		"inll_techEffectParam": [
+			[
+				11
+			]
+		],
+		"s_techNum": "2"
+	},
+	{
+		"i_id": 141,
+		"i_level": 3,
+		"i_levelCoolTime": 3000,
+		"i_techId": 310,
+		"il_needItem": [
+			1,
+			17,
+			285
+		],
+		"inll_techEffectParam": [
+			[
+				12
+			]
+		],
+		"s_techNum": "3"
+	},
+	{
+		"i_id": 142,
+		"i_level": 1,
+		"i_levelCoolTime": 600,
+		"i_techId": 400,
+		"il_needItem": [
+			1,
+			18,
+			20
+		],
+		"inll_techEffectParam": [
+			[
+				4000
+			]
+		],
+		"s_techNum": "40%"
+	},
+	{
+		"i_id": 143,
+		"i_level": 2,
+		"i_levelCoolTime": 600,
+		"i_techId": 400,
+		"il_needItem": [
+			1,
+			18,
+			40
+		],
+		"inll_techEffectParam": [
+			[
+				8000
+			]
+		],
+		"s_techNum": "80%"
+	},
+	{
+		"i_id": 144,
+		"i_level": 3,
+		"i_levelCoolTime": 600,
+		"i_techId": 400,
+		"il_needItem": [
+			1,
+			18,
+			60
+		],
+		"inll_techEffectParam": [
+			[
+				12000
+			]
+		],
+		"s_techNum": "120%"
+	},
+	{
+		"i_id": 145,
+		"i_level": 4,
+		"i_levelCoolTime": 600,
+		"i_techId": 400,
+		"il_needItem": [
+			1,
+			18,
+			80
+		],
+		"inll_techEffectParam": [
+			[
+				16000
+			]
+		],
+		"s_techNum": "160%"
+	},
+	{
+		"i_id": 146,
+		"i_level": 5,
+		"i_levelCoolTime": 600,
+		"i_techId": 400,
+		"il_needItem": [
+			1,
+			18,
+			100
+		],
+		"inll_techEffectParam": [
+			[
+				20000
+			]
+		],
+		"s_techNum": "200%"
+	},
+	{
+		"i_id": 147,
+		"i_level": 1,
+		"i_levelCoolTime": 1200,
+		"i_techId": 401,
+		"il_needItem": [
+			1,
+			17,
+			119
+		],
+		"inll_techEffectParam": [
+			[
+				8,
+				33690
+			]
+		],
+		"s_techNum": "33690"
+	},
+	{
+		"i_id": 148,
+		"i_level": 2,
+		"i_levelCoolTime": 2400,
+		"i_techId": 401,
+		"il_needItem": [
+			1,
+			17,
+			238
+		],
+		"inll_techEffectParam": [
+			[
+				8,
+				78620
+			]
+		],
+		"s_techNum": "78620"
+	},
+	{
+		"i_id": 149,
+		"i_level": 3,
+		"i_levelCoolTime": 3600,
+		"i_techId": 401,
+		"il_needItem": [
+			1,
+			17,
+			357
+		],
+		"inll_techEffectParam": [
+			[
+				8,
+				134780
+			]
+		],
+		"s_techNum": "134780"
+	},
+	{
+		"i_id": 150,
+		"i_level": 4,
+		"i_levelCoolTime": 5400,
+		"i_techId": 401,
+		"il_needItem": [
+			1,
+			17,
+			476
+		],
+		"inll_techEffectParam": [
+			[
+				8,
+				202170
+			]
+		],
+		"s_techNum": "202170"
+	},
+	{
+		"i_id": 151,
+		"i_level": 5,
+		"i_levelCoolTime": 6900,
+		"i_techId": 401,
+		"il_needItem": [
+			1,
+			17,
+			595
+		],
+		"inll_techEffectParam": [
+			[
+				8,
+				280790
+			]
+		],
+		"s_techNum": "280790"
+	},
+	{
+		"i_id": 152,
+		"i_level": 1,
+		"i_levelCoolTime": 1200,
+		"i_techId": 402,
+		"il_needItem": [
+			1,
+			17,
+			119
+		],
+		"inll_techEffectParam": [
+			[
+				8,
+				6740
+			]
+		],
+		"s_techNum": "6740"
+	},
+	{
+		"i_id": 153,
+		"i_level": 2,
+		"i_levelCoolTime": 2400,
+		"i_techId": 402,
+		"il_needItem": [
+			1,
+			17,
+			238
+		],
+		"inll_techEffectParam": [
+			[
+				8,
+				15730
+			]
+		],
+		"s_techNum": "15730"
+	},
+	{
+		"i_id": 154,
+		"i_level": 3,
+		"i_levelCoolTime": 3600,
+		"i_techId": 402,
+		"il_needItem": [
+			1,
+			17,
+			357
+		],
+		"inll_techEffectParam": [
+			[
+				8,
+				26960
+			]
+		],
+		"s_techNum": "26960"
+	},
+	{
+		"i_id": 155,
+		"i_level": 4,
+		"i_levelCoolTime": 5400,
+		"i_techId": 402,
+		"il_needItem": [
+			1,
+			17,
+			476
+		],
+		"inll_techEffectParam": [
+			[
+				8,
+				40440
+			]
+		],
+		"s_techNum": "40440"
+	},
+	{
+		"i_id": 156,
+		"i_level": 5,
+		"i_levelCoolTime": 6900,
+		"i_techId": 402,
+		"il_needItem": [
+			1,
+			17,
+			595
+		],
+		"inll_techEffectParam": [
+			[
+				8,
+				56160
+			]
+		],
+		"s_techNum": "56160"
+	},
+	{
+		"i_id": 157,
+		"i_level": 1,
+		"i_levelCoolTime": 1200,
+		"i_techId": 403,
+		"il_needItem": [
+			1,
+			17,
+			119
+		],
+		"inll_techEffectParam": [
+			[
+				0,
+				-300
+			],
+			[
+				1,
+				67
+			],
+			[
+				2,
+				120
+			],
+			[
+				3,
+				60
+			],
+			[
+				4,
+				36
+			],
+			[
+				5,
+				17
+			]
+		],
+		"s_techNum": "100%"
+	},
+	{
+		"i_id": 158,
+		"i_level": 2,
+		"i_levelCoolTime": 2400,
+		"i_techId": 403,
+		"il_needItem": [
+			1,
+			17,
+			238
+		],
+		"inll_techEffectParam": [
+			[
+				0,
+				-600
+			],
+			[
+				1,
+				134
+			],
+			[
+				2,
+				240
+			],
+			[
+				3,
+				120
+			],
+			[
+				4,
+				72
+			],
+			[
+				5,
+				34
+			]
+		],
+		"s_techNum": "200%"
+	},
+	{
+		"i_id": 159,
+		"i_level": 3,
+		"i_levelCoolTime": 3600,
+		"i_techId": 403,
+		"il_needItem": [
+			1,
+			17,
+			357
+		],
+		"inll_techEffectParam": [
+			[
+				0,
+				-900
+			],
+			[
+				1,
+				201
+			],
+			[
+				2,
+				360
+			],
+			[
+				3,
+				180
+			],
+			[
+				4,
+				108
+			],
+			[
+				5,
+				51
+			]
+		],
+		"s_techNum": "300%"
+	},
+	{
+		"i_id": 160,
+		"i_level": 4,
+		"i_levelCoolTime": 5400,
+		"i_techId": 403,
+		"il_needItem": [
+			1,
+			17,
+			476
+		],
+		"inll_techEffectParam": [
+			[
+				0,
+				-1200
+			],
+			[
+				1,
+				268
+			],
+			[
+				2,
+				480
+			],
+			[
+				3,
+				240
+			],
+			[
+				4,
+				144
+			],
+			[
+				5,
+				68
+			]
+		],
+		"s_techNum": "400%"
+	},
+	{
+		"i_id": 161,
+		"i_level": 5,
+		"i_levelCoolTime": 6900,
+		"i_techId": 403,
+		"il_needItem": [
+			1,
+			17,
+			595
+		],
+		"inll_techEffectParam": [
+			[
+				0,
+				-1500
+			],
+			[
+				1,
+				335
+			],
+			[
+				2,
+				600
+			],
+			[
+				3,
+				300
+			],
+			[
+				4,
+				180
+			],
+			[
+				5,
+				85
+			]
+		],
+		"s_techNum": "500%"
+	},
+	{
+		"i_id": 162,
+		"i_level": 1,
+		"i_levelCoolTime": 1200,
+		"i_techId": 404,
+		"il_needItem": [
+			1,
+			17,
+			119
+		],
+		"inll_techEffectParam": [
+			[
+				13
+			]
+		],
+		"s_techNum": "1"
+	},
+	{
+		"i_id": 163,
+		"i_level": 1,
+		"i_levelCoolTime": 1200,
+		"i_techId": 405,
+		"il_needItem": [
+			1,
+			17,
+			119
+		],
+		"inll_techEffectParam": [
+			[
+				7,
+				674
+			]
+		],
+		"s_techNum": "674"
+	},
+	{
+		"i_id": 164,
+		"i_level": 2,
+		"i_levelCoolTime": 2400,
+		"i_techId": 405,
+		"il_needItem": [
+			1,
+			17,
+			238
+		],
+		"inll_techEffectParam": [
+			[
+				7,
+				1573
+			]
+		],
+		"s_techNum": "1573"
+	},
+	{
+		"i_id": 165,
+		"i_level": 3,
+		"i_levelCoolTime": 3600,
+		"i_techId": 405,
+		"il_needItem": [
+			1,
+			17,
+			357
+		],
+		"inll_techEffectParam": [
+			[
+				7,
+				2696
+			]
+		],
+		"s_techNum": "2696"
+	},
+	{
+		"i_id": 166,
+		"i_level": 4,
+		"i_levelCoolTime": 5400,
+		"i_techId": 405,
+		"il_needItem": [
+			1,
+			17,
+			476
+		],
+		"inll_techEffectParam": [
+			[
+				7,
+				4044
+			]
+		],
+		"s_techNum": "4044"
+	},
+	{
+		"i_id": 167,
+		"i_level": 5,
+		"i_levelCoolTime": 6900,
+		"i_techId": 405,
+		"il_needItem": [
+			1,
+			17,
+			595
+		],
+		"inll_techEffectParam": [
+			[
+				7,
+				5616
+			]
+		],
+		"s_techNum": "5616"
+	},
+	{
+		"i_id": 168,
+		"i_level": 1,
+		"i_levelCoolTime": 600,
+		"i_techId": 406,
+		"il_needItem": [
+			1,
+			18,
+			20
+		],
+		"inll_techEffectParam": [
+			[
+				4000
+			]
+		],
+		"s_techNum": "40%"
+	},
+	{
+		"i_id": 169,
+		"i_level": 2,
+		"i_levelCoolTime": 600,
+		"i_techId": 406,
+		"il_needItem": [
+			1,
+			18,
+			40
+		],
+		"inll_techEffectParam": [
+			[
+				8000
+			]
+		],
+		"s_techNum": "80%"
+	},
+	{
+		"i_id": 170,
+		"i_level": 3,
+		"i_levelCoolTime": 600,
+		"i_techId": 406,
+		"il_needItem": [
+			1,
+			18,
+			60
+		],
+		"inll_techEffectParam": [
+			[
+				12000
+			]
+		],
+		"s_techNum": "120%"
+	},
+	{
+		"i_id": 171,
+		"i_level": 4,
+		"i_levelCoolTime": 600,
+		"i_techId": 406,
+		"il_needItem": [
+			1,
+			18,
+			80
+		],
+		"inll_techEffectParam": [
+			[
+				16000
+			]
+		],
+		"s_techNum": "160%"
+	},
+	{
+		"i_id": 172,
+		"i_level": 5,
+		"i_levelCoolTime": 600,
+		"i_techId": 406,
+		"il_needItem": [
+			1,
+			18,
+			100
+		],
+		"inll_techEffectParam": [
+			[
+				20000
+			]
+		],
+		"s_techNum": "200%"
+	},
+	{
+		"i_id": 173,
+		"i_level": 1,
+		"i_levelCoolTime": 1200,
+		"i_techId": 407,
+		"il_needItem": [
+			1,
+			17,
+			119
+		],
+		"inll_techEffectParam": [
+			[
+				7,
+				135
+			]
+		],
+		"s_techNum": "135"
+	},
+	{
+		"i_id": 174,
+		"i_level": 2,
+		"i_levelCoolTime": 2400,
+		"i_techId": 407,
+		"il_needItem": [
+			1,
+			17,
+			238
+		],
+		"inll_techEffectParam": [
+			[
+				7,
+				315
+			]
+		],
+		"s_techNum": "315"
+	},
+	{
+		"i_id": 175,
+		"i_level": 3,
+		"i_levelCoolTime": 3600,
+		"i_techId": 407,
+		"il_needItem": [
+			1,
+			17,
+			357
+		],
+		"inll_techEffectParam": [
+			[
+				7,
+				540
+			]
+		],
+		"s_techNum": "540"
+	},
+	{
+		"i_id": 176,
+		"i_level": 4,
+		"i_levelCoolTime": 5400,
+		"i_techId": 407,
+		"il_needItem": [
+			1,
+			17,
+			476
+		],
+		"inll_techEffectParam": [
+			[
+				7,
+				810
+			]
+		],
+		"s_techNum": "810"
+	},
+	{
+		"i_id": 177,
+		"i_level": 5,
+		"i_levelCoolTime": 6900,
+		"i_techId": 407,
+		"il_needItem": [
+			1,
+			17,
+			595
+		],
+		"inll_techEffectParam": [
+			[
+				7,
+				1124
+			]
+		],
+		"s_techNum": "1124"
+	},
+	{
+		"i_id": 178,
+		"i_level": 1,
+		"i_levelCoolTime": 1200,
+		"i_techId": 408,
+		"il_needItem": [
+			1,
+			17,
+			119
+		],
+		"inll_techEffectParam": [
+			[
+				0,
+				-300
+			],
+			[
+				1,
+				67
+			],
+			[
+				2,
+				120
+			],
+			[
+				3,
+				60
+			],
+			[
+				4,
+				36
+			],
+			[
+				5,
+				17
+			]
+		],
+		"s_techNum": "100%"
+	},
+	{
+		"i_id": 179,
+		"i_level": 2,
+		"i_levelCoolTime": 2400,
+		"i_techId": 408,
+		"il_needItem": [
+			1,
+			17,
+			238
+		],
+		"inll_techEffectParam": [
+			[
+				0,
+				-600
+			],
+			[
+				1,
+				134
+			],
+			[
+				2,
+				240
+			],
+			[
+				3,
+				120
+			],
+			[
+				4,
+				72
+			],
+			[
+				5,
+				34
+			]
+		],
+		"s_techNum": "200%"
+	},
+	{
+		"i_id": 180,
+		"i_level": 3,
+		"i_levelCoolTime": 3600,
+		"i_techId": 408,
+		"il_needItem": [
+			1,
+			17,
+			357
+		],
+		"inll_techEffectParam": [
+			[
+				0,
+				-900
+			],
+			[
+				1,
+				201
+			],
+			[
+				2,
+				360
+			],
+			[
+				3,
+				180
+			],
+			[
+				4,
+				108
+			],
+			[
+				5,
+				51
+			]
+		],
+		"s_techNum": "300%"
+	},
+	{
+		"i_id": 181,
+		"i_level": 4,
+		"i_levelCoolTime": 5400,
+		"i_techId": 408,
+		"il_needItem": [
+			1,
+			17,
+			476
+		],
+		"inll_techEffectParam": [
+			[
+				0,
+				-1200
+			],
+			[
+				1,
+				268
+			],
+			[
+				2,
+				480
+			],
+			[
+				3,
+				240
+			],
+			[
+				4,
+				144
+			],
+			[
+				5,
+				68
+			]
+		],
+		"s_techNum": "400%"
+	},
+	{
+		"i_id": 182,
+		"i_level": 5,
+		"i_levelCoolTime": 6900,
+		"i_techId": 408,
+		"il_needItem": [
+			1,
+			17,
+			595
+		],
+		"inll_techEffectParam": [
+			[
+				0,
+				-1500
+			],
+			[
+				1,
+				335
+			],
+			[
+				2,
+				600
+			],
+			[
+				3,
+				300
+			],
+			[
+				4,
+				180
+			],
+			[
+				5,
+				85
+			]
+		],
+		"s_techNum": "500%"
+	},
+	{
+		"i_id": 183,
+		"i_level": 1,
+		"i_levelCoolTime": 1200,
+		"i_techId": 409,
+		"il_needItem": [
+			1,
+			17,
+			119
+		],
+		"inll_techEffectParam": [
+			[
+				6,
+				3370
+			]
+		],
+		"s_techNum": "3370"
+	},
+	{
+		"i_id": 184,
+		"i_level": 2,
+		"i_levelCoolTime": 2400,
+		"i_techId": 409,
+		"il_needItem": [
+			1,
+			17,
+			238
+		],
+		"inll_techEffectParam": [
+			[
+				6,
+				7860
+			]
+		],
+		"s_techNum": "7860"
+	},
+	{
+		"i_id": 185,
+		"i_level": 3,
+		"i_levelCoolTime": 3600,
+		"i_techId": 409,
+		"il_needItem": [
+			1,
+			17,
+			357
+		],
+		"inll_techEffectParam": [
+			[
+				6,
+				13480
+			]
+		],
+		"s_techNum": "13480"
+	},
+	{
+		"i_id": 186,
+		"i_level": 4,
+		"i_levelCoolTime": 5400,
+		"i_techId": 409,
+		"il_needItem": [
+			1,
+			17,
+			476
+		],
+		"inll_techEffectParam": [
+			[
+				6,
+				20220
+			]
+		],
+		"s_techNum": "20220"
+	},
+	{
+		"i_id": 187,
+		"i_level": 5,
+		"i_levelCoolTime": 6900,
+		"i_techId": 409,
+		"il_needItem": [
+			1,
+			17,
+			595
+		],
+		"inll_techEffectParam": [
+			[
+				6,
+				28080
+			]
+		],
+		"s_techNum": "28080"
+	},
+	{
+		"i_id": 188,
+		"i_level": 1,
+		"i_levelCoolTime": 1200,
+		"i_techId": 410,
+		"il_needItem": [
+			1,
+			17,
+			119
+		],
+		"inll_techEffectParam": [
+			[
+				14
+			]
+		],
+		"s_techNum": "1"
+	},
+	{
+		"i_id": 189,
+		"i_level": 2,
+		"i_levelCoolTime": 2400,
+		"i_techId": 410,
+		"il_needItem": [
+			1,
+			17,
+			238
+		],
+		"inll_techEffectParam": [
+			[
+				15
+			]
+		],
+		"s_techNum": "2"
+	},
+	{
+		"i_id": 190,
+		"i_level": 1,
+		"i_levelCoolTime": 600,
+		"i_techId": 500,
+		"il_needItem": [
+			1,
+			18,
+			23
+		],
+		"inll_techEffectParam": [
+			[
+				4000
+			]
+		],
+		"s_techNum": "40%"
+	},
+	{
+		"i_id": 191,
+		"i_level": 2,
+		"i_levelCoolTime": 600,
+		"i_techId": 500,
+		"il_needItem": [
+			1,
+			18,
+			46
+		],
+		"inll_techEffectParam": [
+			[
+				8000
+			]
+		],
+		"s_techNum": "80%"
+	},
+	{
+		"i_id": 192,
+		"i_level": 3,
+		"i_levelCoolTime": 600,
+		"i_techId": 500,
+		"il_needItem": [
+			1,
+			18,
+			69
+		],
+		"inll_techEffectParam": [
+			[
+				12000
+			]
+		],
+		"s_techNum": "120%"
+	},
+	{
+		"i_id": 193,
+		"i_level": 4,
+		"i_levelCoolTime": 600,
+		"i_techId": 500,
+		"il_needItem": [
+			1,
+			18,
+			92
+		],
+		"inll_techEffectParam": [
+			[
+				16000
+			]
+		],
+		"s_techNum": "160%"
+	},
+	{
+		"i_id": 194,
+		"i_level": 5,
+		"i_levelCoolTime": 600,
+		"i_techId": 500,
+		"il_needItem": [
+			1,
+			18,
+			115
+		],
+		"inll_techEffectParam": [
+			[
+				20000
+			]
+		],
+		"s_techNum": "200%"
+	},
+	{
+		"i_id": 195,
+		"i_level": 1,
+		"i_levelCoolTime": 1500,
+		"i_techId": 501,
+		"il_needItem": [
+			1,
+			17,
+			139
+		],
+		"inll_techEffectParam": [
+			[
+				6,
+				4250
+			]
+		],
+		"s_techNum": "4250"
+	},
+	{
+		"i_id": 196,
+		"i_level": 2,
+		"i_levelCoolTime": 2700,
+		"i_techId": 501,
+		"il_needItem": [
+			1,
+			17,
+			278
+		],
+		"inll_techEffectParam": [
+			[
+				6,
+				9920
+			]
+		],
+		"s_techNum": "9920"
+	},
+	{
+		"i_id": 197,
+		"i_level": 3,
+		"i_levelCoolTime": 4200,
+		"i_techId": 501,
+		"il_needItem": [
+			1,
+			17,
+			417
+		],
+		"inll_techEffectParam": [
+			[
+				6,
+				17000
+			]
+		],
+		"s_techNum": "17000"
+	},
+	{
+		"i_id": 198,
+		"i_level": 4,
+		"i_levelCoolTime": 6000,
+		"i_techId": 501,
+		"il_needItem": [
+			1,
+			17,
+			556
+		],
+		"inll_techEffectParam": [
+			[
+				6,
+				25500
+			]
+		],
+		"s_techNum": "25500"
+	},
+	{
+		"i_id": 199,
+		"i_level": 5,
+		"i_levelCoolTime": 8100,
+		"i_techId": 501,
+		"il_needItem": [
+			1,
+			17,
+			695
+		],
+		"inll_techEffectParam": [
+			[
+				6,
+				35420
+			]
+		],
+		"s_techNum": "35420"
+	},
+	{
+		"i_id": 200,
+		"i_level": 1,
+		"i_levelCoolTime": 1500,
+		"i_techId": 502,
+		"il_needItem": [
+			1,
+			17,
+			139
+		],
+		"inll_techEffectParam": [
+			[
+				6,
+				850
+			]
+		],
+		"s_techNum": "850"
+	},
+	{
+		"i_id": 201,
+		"i_level": 2,
+		"i_levelCoolTime": 2700,
+		"i_techId": 502,
+		"il_needItem": [
+			1,
+			17,
+			278
+		],
+		"inll_techEffectParam": [
+			[
+				6,
+				1983
+			]
+		],
+		"s_techNum": "1983"
+	},
+	{
+		"i_id": 202,
+		"i_level": 3,
+		"i_levelCoolTime": 4200,
+		"i_techId": 502,
+		"il_needItem": [
+			1,
+			17,
+			417
+		],
+		"inll_techEffectParam": [
+			[
+				6,
+				3400
+			]
+		],
+		"s_techNum": "3400"
+	},
+	{
+		"i_id": 203,
+		"i_level": 4,
+		"i_levelCoolTime": 6000,
+		"i_techId": 502,
+		"il_needItem": [
+			1,
+			17,
+			556
+		],
+		"inll_techEffectParam": [
+			[
+				6,
+				5100
+			]
+		],
+		"s_techNum": "5100"
+	},
+	{
+		"i_id": 204,
+		"i_level": 5,
+		"i_levelCoolTime": 8100,
+		"i_techId": 502,
+		"il_needItem": [
+			1,
+			17,
+			695
+		],
+		"inll_techEffectParam": [
+			[
+				6,
+				7083
+			]
+		],
+		"s_techNum": "7083"
+	},
+	{
+		"i_id": 205,
+		"i_level": 1,
+		"i_levelCoolTime": 1500,
+		"i_techId": 503,
+		"il_needItem": [
+			1,
+			17,
+			139
+		],
+		"inll_techEffectParam": [
+			[
+				0,
+				-20
+			],
+			[
+				1,
+				-253
+			],
+			[
+				2,
+				140
+			],
+			[
+				3,
+				70
+			],
+			[
+				4,
+				42
+			],
+			[
+				5,
+				20
+			]
+		],
+		"s_techNum": "100%"
+	},
+	{
+		"i_id": 206,
+		"i_level": 2,
+		"i_levelCoolTime": 2700,
+		"i_techId": 503,
+		"il_needItem": [
+			1,
+			17,
+			278
+		],
+		"inll_techEffectParam": [
+			[
+				0,
+				-40
+			],
+			[
+				1,
+				-506
+			],
+			[
+				2,
+				280
+			],
+			[
+				3,
+				140
+			],
+			[
+				4,
+				84
+			],
+			[
+				5,
+				40
+			]
+		],
+		"s_techNum": "200%"
+	},
+	{
+		"i_id": 207,
+		"i_level": 3,
+		"i_levelCoolTime": 4200,
+		"i_techId": 503,
+		"il_needItem": [
+			1,
+			17,
+			417
+		],
+		"inll_techEffectParam": [
+			[
+				0,
+				-60
+			],
+			[
+				1,
+				-759
+			],
+			[
+				2,
+				420
+			],
+			[
+				3,
+				210
+			],
+			[
+				4,
+				126
+			],
+			[
+				5,
+				60
+			]
+		],
+		"s_techNum": "300%"
+	},
+	{
+		"i_id": 208,
+		"i_level": 4,
+		"i_levelCoolTime": 6000,
+		"i_techId": 503,
+		"il_needItem": [
+			1,
+			17,
+			556
+		],
+		"inll_techEffectParam": [
+			[
+				0,
+				-80
+			],
+			[
+				1,
+				-1012
+			],
+			[
+				2,
+				560
+			],
+			[
+				3,
+				280
+			],
+			[
+				4,
+				168
+			],
+			[
+				5,
+				80
+			]
+		],
+		"s_techNum": "400%"
+	},
+	{
+		"i_id": 209,
+		"i_level": 5,
+		"i_levelCoolTime": 8100,
+		"i_techId": 503,
+		"il_needItem": [
+			1,
+			17,
+			695
+		],
+		"inll_techEffectParam": [
+			[
+				0,
+				-100
+			],
+			[
+				1,
+				-1265
+			],
+			[
+				2,
+				700
+			],
+			[
+				3,
+				350
+			],
+			[
+				4,
+				210
+			],
+			[
+				5,
+				100
+			]
+		],
+		"s_techNum": "500%"
+	},
+	{
+		"i_id": 210,
+		"i_level": 1,
+		"i_levelCoolTime": 1500,
+		"i_techId": 504,
+		"il_needItem": [
+			1,
+			17,
+			139
+		],
+		"inll_techEffectParam": [
+			[
+				16
+			]
+		],
+		"s_techNum": "1"
+	},
+	{
+		"i_id": 211,
+		"i_level": 1,
+		"i_levelCoolTime": 1500,
+		"i_techId": 505,
+		"il_needItem": [
+			1,
+			17,
+			139
+		],
+		"inll_techEffectParam": [
+			[
+				8,
+				42500
+			]
+		],
+		"s_techNum": "42500"
+	},
+	{
+		"i_id": 212,
+		"i_level": 2,
+		"i_levelCoolTime": 2700,
+		"i_techId": 505,
+		"il_needItem": [
+			1,
+			17,
+			278
+		],
+		"inll_techEffectParam": [
+			[
+				8,
+				99160
+			]
+		],
+		"s_techNum": "99160"
+	},
+	{
+		"i_id": 213,
+		"i_level": 3,
+		"i_levelCoolTime": 4200,
+		"i_techId": 505,
+		"il_needItem": [
+			1,
+			17,
+			417
+		],
+		"inll_techEffectParam": [
+			[
+				8,
+				169990
+			]
+		],
+		"s_techNum": "169990"
+	},
+	{
+		"i_id": 214,
+		"i_level": 4,
+		"i_levelCoolTime": 6000,
+		"i_techId": 505,
+		"il_needItem": [
+			1,
+			17,
+			556
+		],
+		"inll_techEffectParam": [
+			[
+				8,
+				254990
+			]
+		],
+		"s_techNum": "254990"
+	},
+	{
+		"i_id": 215,
+		"i_level": 5,
+		"i_levelCoolTime": 8100,
+		"i_techId": 505,
+		"il_needItem": [
+			1,
+			17,
+			695
+		],
+		"inll_techEffectParam": [
+			[
+				8,
+				354150
+			]
+		],
+		"s_techNum": "354150"
+	},
+	{
+		"i_id": 216,
+		"i_level": 1,
+		"i_levelCoolTime": 600,
+		"i_techId": 506,
+		"il_needItem": [
+			1,
+			18,
+			23
+		],
+		"inll_techEffectParam": [
+			[
+				4000
+			]
+		],
+		"s_techNum": "40%"
+	},
+	{
+		"i_id": 217,
+		"i_level": 2,
+		"i_levelCoolTime": 600,
+		"i_techId": 506,
+		"il_needItem": [
+			1,
+			18,
+			46
+		],
+		"inll_techEffectParam": [
+			[
+				8000
+			]
+		],
+		"s_techNum": "80%"
+	},
+	{
+		"i_id": 218,
+		"i_level": 3,
+		"i_levelCoolTime": 600,
+		"i_techId": 506,
+		"il_needItem": [
+			1,
+			18,
+			69
+		],
+		"inll_techEffectParam": [
+			[
+				12000
+			]
+		],
+		"s_techNum": "120%"
+	},
+	{
+		"i_id": 219,
+		"i_level": 4,
+		"i_levelCoolTime": 600,
+		"i_techId": 506,
+		"il_needItem": [
+			1,
+			18,
+			92
+		],
+		"inll_techEffectParam": [
+			[
+				16000
+			]
+		],
+		"s_techNum": "160%"
+	},
+	{
+		"i_id": 220,
+		"i_level": 5,
+		"i_levelCoolTime": 600,
+		"i_techId": 506,
+		"il_needItem": [
+			1,
+			18,
+			115
+		],
+		"inll_techEffectParam": [
+			[
+				20000
+			]
+		],
+		"s_techNum": "200%"
+	},
+	{
+		"i_id": 221,
+		"i_level": 1,
+		"i_levelCoolTime": 1500,
+		"i_techId": 507,
+		"il_needItem": [
+			1,
+			17,
+			139
+		],
+		"inll_techEffectParam": [
+			[
+				8,
+				8500
+			]
+		],
+		"s_techNum": "8500"
+	},
+	{
+		"i_id": 222,
+		"i_level": 2,
+		"i_levelCoolTime": 2700,
+		"i_techId": 507,
+		"il_needItem": [
+			1,
+			17,
+			278
+		],
+		"inll_techEffectParam": [
+			[
+				8,
+				19830
+			]
+		],
+		"s_techNum": "19830"
+	},
+	{
+		"i_id": 223,
+		"i_level": 3,
+		"i_levelCoolTime": 4200,
+		"i_techId": 507,
+		"il_needItem": [
+			1,
+			17,
+			417
+		],
+		"inll_techEffectParam": [
+			[
+				8,
+				34000
+			]
+		],
+		"s_techNum": "34000"
+	},
+	{
+		"i_id": 224,
+		"i_level": 4,
+		"i_levelCoolTime": 6000,
+		"i_techId": 507,
+		"il_needItem": [
+			1,
+			17,
+			556
+		],
+		"inll_techEffectParam": [
+			[
+				8,
+				51000
+			]
+		],
+		"s_techNum": "51000"
+	},
+	{
+		"i_id": 225,
+		"i_level": 5,
+		"i_levelCoolTime": 8100,
+		"i_techId": 507,
+		"il_needItem": [
+			1,
+			17,
+			695
+		],
+		"inll_techEffectParam": [
+			[
+				8,
+				70830
+			]
+		],
+		"s_techNum": "70830"
+	},
+	{
+		"i_id": 226,
+		"i_level": 1,
+		"i_levelCoolTime": 1500,
+		"i_techId": 508,
+		"il_needItem": [
+			1,
+			17,
+			139
+		],
+		"inll_techEffectParam": [
+			[
+				0,
+				-20
+			],
+			[
+				1,
+				-253
+			],
+			[
+				2,
+				140
+			],
+			[
+				3,
+				70
+			],
+			[
+				4,
+				42
+			],
+			[
+				5,
+				20
+			]
+		],
+		"s_techNum": "100%"
+	},
+	{
+		"i_id": 227,
+		"i_level": 2,
+		"i_levelCoolTime": 2700,
+		"i_techId": 508,
+		"il_needItem": [
+			1,
+			17,
+			278
+		],
+		"inll_techEffectParam": [
+			[
+				0,
+				-40
+			],
+			[
+				1,
+				-506
+			],
+			[
+				2,
+				280
+			],
+			[
+				3,
+				140
+			],
+			[
+				4,
+				84
+			],
+			[
+				5,
+				40
+			]
+		],
+		"s_techNum": "200%"
+	},
+	{
+		"i_id": 228,
+		"i_level": 3,
+		"i_levelCoolTime": 4200,
+		"i_techId": 508,
+		"il_needItem": [
+			1,
+			17,
+			417
+		],
+		"inll_techEffectParam": [
+			[
+				0,
+				-60
+			],
+			[
+				1,
+				-759
+			],
+			[
+				2,
+				420
+			],
+			[
+				3,
+				210
+			],
+			[
+				4,
+				126
+			],
+			[
+				5,
+				60
+			]
+		],
+		"s_techNum": "300%"
+	},
+	{
+		"i_id": 229,
+		"i_level": 4,
+		"i_levelCoolTime": 6000,
+		"i_techId": 508,
+		"il_needItem": [
+			1,
+			17,
+			556
+		],
+		"inll_techEffectParam": [
+			[
+				0,
+				-80
+			],
+			[
+				1,
+				-1012
+			],
+			[
+				2,
+				560
+			],
+			[
+				3,
+				280
+			],
+			[
+				4,
+				168
+			],
+			[
+				5,
+				80
+			]
+		],
+		"s_techNum": "400%"
+	},
+	{
+		"i_id": 230,
+		"i_level": 5,
+		"i_levelCoolTime": 8100,
+		"i_techId": 508,
+		"il_needItem": [
+			1,
+			17,
+			695
+		],
+		"inll_techEffectParam": [
+			[
+				0,
+				-100
+			],
+			[
+				1,
+				-1265
+			],
+			[
+				2,
+				700
+			],
+			[
+				3,
+				350
+			],
+			[
+				4,
+				210
+			],
+			[
+				5,
+				100
+			]
+		],
+		"s_techNum": "500%"
+	},
+	{
+		"i_id": 231,
+		"i_level": 1,
+		"i_levelCoolTime": 1500,
+		"i_techId": 509,
+		"il_needItem": [
+			1,
+			17,
+			139
+		],
+		"inll_techEffectParam": [
+			[
+				7,
+				850
+			]
+		],
+		"s_techNum": "850"
+	},
+	{
+		"i_id": 232,
+		"i_level": 2,
+		"i_levelCoolTime": 2700,
+		"i_techId": 509,
+		"il_needItem": [
+			1,
+			17,
+			278
+		],
+		"inll_techEffectParam": [
+			[
+				7,
+				1983
+			]
+		],
+		"s_techNum": "1983"
+	},
+	{
+		"i_id": 233,
+		"i_level": 3,
+		"i_levelCoolTime": 4200,
+		"i_techId": 509,
+		"il_needItem": [
+			1,
+			17,
+			417
+		],
+		"inll_techEffectParam": [
+			[
+				7,
+				3400
+			]
+		],
+		"s_techNum": "3400"
+	},
+	{
+		"i_id": 234,
+		"i_level": 4,
+		"i_levelCoolTime": 6000,
+		"i_techId": 509,
+		"il_needItem": [
+			1,
+			17,
+			556
+		],
+		"inll_techEffectParam": [
+			[
+				7,
+				5100
+			]
+		],
+		"s_techNum": "5100"
+	},
+	{
+		"i_id": 235,
+		"i_level": 5,
+		"i_levelCoolTime": 8100,
+		"i_techId": 509,
+		"il_needItem": [
+			1,
+			17,
+			695
+		],
+		"inll_techEffectParam": [
+			[
+				7,
+				7083
+			]
+		],
+		"s_techNum": "7083"
+	},
+	{
+		"i_id": 236,
+		"i_level": 1,
+		"i_levelCoolTime": 1500,
+		"i_techId": 510,
+		"il_needItem": [
+			1,
+			17,
+			139
+		],
+		"inll_techEffectParam": [
+			[
+				17
+			]
+		],
+		"s_techNum": "1"
+	},
+	{
+		"i_id": 237,
+		"i_level": 2,
+		"i_levelCoolTime": 2700,
+		"i_techId": 510,
+		"il_needItem": [
+			1,
+			17,
+			278
+		],
+		"inll_techEffectParam": [
+			[
+				18
+			]
+		],
+		"s_techNum": "2"
+	}
+]

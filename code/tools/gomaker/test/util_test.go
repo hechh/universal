@@ -2,6 +2,7 @@ package test
 
 import (
 	"bytes"
+	"encoding/json"
 	"go/ast"
 	"go/parser"
 	"go/token"
@@ -48,4 +49,16 @@ func TestTpl(t *testing.T) {
 	buf := bytes.NewBuffer(nil)
 	a.ExecuteTemplate(buf, "package.tpl", "hch")
 	t.Log(buf.String())
+}
+
+func TestJson(t *testing.T) {
+	aa := []map[string]interface{}{
+		{
+			"tet":   123,
+			"print": 1234,
+		},
+	}
+
+	buf, _ := json.Marshal(aa)
+	t.Log(string(buf))
 }

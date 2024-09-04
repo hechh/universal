@@ -1,0 +1,2282 @@
+[
+	{
+		"i_id": 1,
+		"i_mainProp": 6,
+		"i_mainPropValue": 207580,
+		"i_minorPropValue": 94360,
+		"i_partType": 0,
+		"i_profType": 2,
+		"i_stage": 1,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "无尽能源熔铸之宝剑，有斩杀大型怪物的力量",
+		"s_icon": "weapen_duxingxia",
+		"s_name": "能量剑"
+	},
+	{
+		"i_id": 2,
+		"i_mainProp": 6,
+		"i_mainPropValue": 207580,
+		"i_minorPropValue": 94360,
+		"i_partType": 0,
+		"i_profType": 0,
+		"i_stage": 1,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "镶嵌了力量能源晶石的科技拳套，这一拳的力量无法想象",
+		"s_icon": "weapon_wuweizhe",
+		"s_name": "宝石手套"
+	},
+	{
+		"i_id": 3,
+		"i_mainProp": 6,
+		"i_mainPropValue": 207580,
+		"i_minorPropValue": 94360,
+		"i_partType": 0,
+		"i_profType": 1,
+		"i_stage": 1,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "蓄能射线枪械，经过长时间蓄力后可以发出一道毁灭激光",
+		"s_icon": "weapen_qiangxieshi",
+		"s_name": "激光枪"
+	},
+	{
+		"i_id": 4,
+		"i_mainProp": 6,
+		"i_mainPropValue": 207580,
+		"i_minorPropValue": 94360,
+		"i_partType": 0,
+		"i_profType": 3,
+		"i_stage": 1,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "骨音星战士的武器，拨动音弦可以发出声波攻击",
+		"s_icon": "weapon_yinyouzhe",
+		"s_name": "爆音吉他"
+	},
+	{
+		"i_id": 5,
+		"i_mainProp": 6,
+		"i_mainPropValue": 207580,
+		"i_minorPropValue": 94360,
+		"i_partType": 0,
+		"i_profType": 4,
+		"i_stage": 1,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "能够射出高能原子激光的枪械，外壳由外星怪物手骨所制",
+		"s_icon": "weapen_baoposhi",
+		"s_name": "原子炮"
+	},
+	{
+		"i_id": 6,
+		"i_mainProp": 7,
+		"i_mainPropValue": 207600,
+		"i_minorPropValue": 94360,
+		"i_partType": 1,
+		"i_profType": 2,
+		"i_stage": 1,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "内含闪电能源的头盔，可以抵御大部分攻击",
+		"s_icon": "hat_duxingxia",
+		"s_name": "闪电头盔"
+	},
+	{
+		"i_id": 7,
+		"i_mainProp": 7,
+		"i_mainPropValue": 207600,
+		"i_minorPropValue": 94360,
+		"i_partType": 1,
+		"i_profType": 0,
+		"i_stage": 1,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "炎能星特制的战斗头盔，自带红温扫描科技",
+		"s_icon": "hat_wuweizhe",
+		"s_name": "黑武头盔"
+	},
+	{
+		"i_id": 8,
+		"i_mainProp": 7,
+		"i_mainPropValue": 207600,
+		"i_minorPropValue": 94360,
+		"i_partType": 1,
+		"i_profType": 1,
+		"i_stage": 1,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "指挥官专属的科技护目，可以很好的视察战场状况",
+		"s_icon": "hat_qiangxieshi",
+		"s_name": "瞄准镜"
+	},
+	{
+		"i_id": 9,
+		"i_mainProp": 7,
+		"i_mainPropValue": 207600,
+		"i_minorPropValue": 94360,
+		"i_partType": 1,
+		"i_profType": 3,
+		"i_stage": 1,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "街头战队常用的一体式耳机，播放的音乐能够提升团队士气",
+		"s_icon": "hat_yinyouzhe",
+		"s_name": "电音耳机"
+	},
+	{
+		"i_id": 10,
+		"i_mainProp": 7,
+		"i_mainPropValue": 207600,
+		"i_minorPropValue": 94360,
+		"i_partType": 1,
+		"i_profType": 4,
+		"i_stage": 1,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "外星怪物的头甲制作而成，可以激活异能护罩，坚不可摧",
+		"s_icon": "hat_baoposhi",
+		"s_name": "爆破头盔"
+	},
+	{
+		"i_id": 11,
+		"i_mainProp": 8,
+		"i_mainPropValue": 207568,
+		"i_minorPropValue": 94360,
+		"i_partType": 2,
+		"i_profType": 2,
+		"i_stage": 1,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "独行侠专属的帅气夹克，穿戴时可以加强自身体质",
+		"s_icon": "clothe_duxingxia",
+		"s_name": "红色夹克"
+	},
+	{
+		"i_id": 12,
+		"i_mainProp": 8,
+		"i_mainPropValue": 207568,
+		"i_minorPropValue": 94360,
+		"i_partType": 2,
+		"i_profType": 0,
+		"i_stage": 1,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "镶嵌了防御能源晶石的科技重甲，只有最强大的勇士才能穿上",
+		"s_icon": "clothe_wuweizhe",
+		"s_name": "黑武盔甲"
+	},
+	{
+		"i_id": 13,
+		"i_mainProp": 8,
+		"i_mainPropValue": 207568,
+		"i_minorPropValue": 94360,
+		"i_partType": 2,
+		"i_profType": 1,
+		"i_stage": 1,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "外星合金制作的铠甲，背后有充气气囊能够推动前行",
+		"s_icon": "clothe_qiangxieshi",
+		"s_name": "机械银铠"
+	},
+	{
+		"i_id": 14,
+		"i_mainProp": 8,
+		"i_mainPropValue": 207568,
+		"i_minorPropValue": 94360,
+		"i_partType": 2,
+		"i_profType": 3,
+		"i_stage": 1,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "骨音研究所特制的科技披风，有发出爆音屏障的能力",
+		"s_icon": "clothe_yinyouzhe",
+		"s_name": "艺术披风"
+	},
+	{
+		"i_id": 15,
+		"i_mainProp": 8,
+		"i_mainPropValue": 207568,
+		"i_minorPropValue": 94360,
+		"i_partType": 2,
+		"i_profType": 4,
+		"i_stage": 1,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "能够吸收能量激光的特殊盔甲，吸收的能量可以强化自身",
+		"s_icon": "clothe_baoposhi",
+		"s_name": "邪能盔甲"
+	},
+	{
+		"i_id": 16,
+		"i_mainProp": 6,
+		"i_mainPropValue": 169840,
+		"i_minorPropValue": 94360,
+		"i_partType": 3,
+		"i_profType": 2,
+		"i_stage": 1,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "使用了超音速科技的鞋子，穿上可以大幅增强作战能力",
+		"s_icon": "shoe_duxingxia",
+		"s_name": "神速靴"
+	},
+	{
+		"i_id": 17,
+		"i_mainProp": 6,
+		"i_mainPropValue": 169840,
+		"i_minorPropValue": 94360,
+		"i_partType": 3,
+		"i_profType": 0,
+		"i_stage": 1,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "应对外星怪物入侵特制的鞋子，有等多重防护技术",
+		"s_icon": "shoe_wuweizhe",
+		"s_name": "黑武鞋"
+	},
+	{
+		"i_id": 18,
+		"i_mainProp": 6,
+		"i_mainPropValue": 169840,
+		"i_minorPropValue": 94360,
+		"i_partType": 3,
+		"i_profType": 1,
+		"i_stage": 1,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "与激光枪配对的特制鞋子，侧面附带了能源弹匣，随时补充武器能量",
+		"s_icon": "shoe_qiangxieshi",
+		"s_name": "弹夹靴"
+	},
+	{
+		"i_id": 19,
+		"i_mainProp": 6,
+		"i_mainPropValue": 169840,
+		"i_minorPropValue": 94360,
+		"i_partType": 3,
+		"i_profType": 3,
+		"i_stage": 1,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "骨音星战士的独特军靴，散发着一股爵士风",
+		"s_icon": "shoe_yinyouzhe",
+		"s_name": "音符鞋"
+	},
+	{
+		"i_id": 20,
+		"i_mainProp": 6,
+		"i_mainPropValue": 169840,
+		"i_minorPropValue": 94360,
+		"i_partType": 3,
+		"i_profType": 4,
+		"i_stage": 1,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "厚重的利爪靴子，前面的利爪既能攻击敌人，也能稳固自身位置",
+		"s_icon": "shoe_baoposhi",
+		"s_name": "邪能靴"
+	},
+	{
+		"i_id": 21,
+		"i_mainProp": 0,
+		"i_mainPropValue": 169840,
+		"i_minorPropValue": 94360,
+		"i_partType": 4,
+		"i_profType": 999,
+		"i_stage": 1,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "传闻是封印了死神力量的秘卡，平时以吊牌的形式出现",
+		"s_icon": "necklack",
+		"s_name": "死灵垂牌"
+	},
+	{
+		"i_id": 22,
+		"i_mainProp": 0,
+		"i_mainPropValue": 169840,
+		"i_minorPropValue": 94360,
+		"i_partType": 5,
+		"i_profType": 999,
+		"i_stage": 1,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "银星特制的戒指，使用了最新的人工智能科技",
+		"s_icon": "ring",
+		"s_name": "星能戒指"
+	},
+	{
+		"i_id": 101,
+		"i_mainProp": 6,
+		"i_mainPropValue": 207580,
+		"i_minorPropValue": 94360,
+		"i_partType": 0,
+		"i_profType": 2,
+		"i_stage": 2,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "无尽能源熔铸之宝剑，有斩杀大型怪物的力量",
+		"s_icon": "weapen_duxingxia",
+		"s_name": "能量剑"
+	},
+	{
+		"i_id": 102,
+		"i_mainProp": 6,
+		"i_mainPropValue": 207580,
+		"i_minorPropValue": 94360,
+		"i_partType": 0,
+		"i_profType": 0,
+		"i_stage": 2,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "镶嵌了力量能源晶石的科技拳套，这一拳的力量无法想象",
+		"s_icon": "weapon_wuweizhe",
+		"s_name": "宝石手套"
+	},
+	{
+		"i_id": 103,
+		"i_mainProp": 6,
+		"i_mainPropValue": 207580,
+		"i_minorPropValue": 94360,
+		"i_partType": 0,
+		"i_profType": 1,
+		"i_stage": 2,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "蓄能射线枪械，经过长时间蓄力后可以发出一道毁灭激光",
+		"s_icon": "weapen_qiangxieshi",
+		"s_name": "激光枪"
+	},
+	{
+		"i_id": 104,
+		"i_mainProp": 6,
+		"i_mainPropValue": 207580,
+		"i_minorPropValue": 94360,
+		"i_partType": 0,
+		"i_profType": 3,
+		"i_stage": 2,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "骨音星战士的武器，拨动音弦可以发出声波攻击",
+		"s_icon": "weapon_yinyouzhe",
+		"s_name": "爆音吉他"
+	},
+	{
+		"i_id": 105,
+		"i_mainProp": 6,
+		"i_mainPropValue": 207580,
+		"i_minorPropValue": 94360,
+		"i_partType": 0,
+		"i_profType": 4,
+		"i_stage": 2,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "能够射出高能原子激光的枪械，外壳由外星怪物手骨所制",
+		"s_icon": "weapen_baoposhi",
+		"s_name": "原子炮"
+	},
+	{
+		"i_id": 106,
+		"i_mainProp": 7,
+		"i_mainPropValue": 207600,
+		"i_minorPropValue": 94360,
+		"i_partType": 1,
+		"i_profType": 2,
+		"i_stage": 2,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "内含闪电能源的头盔，可以抵御大部分攻击",
+		"s_icon": "hat_duxingxia",
+		"s_name": "闪电头盔"
+	},
+	{
+		"i_id": 107,
+		"i_mainProp": 7,
+		"i_mainPropValue": 207600,
+		"i_minorPropValue": 94360,
+		"i_partType": 1,
+		"i_profType": 0,
+		"i_stage": 2,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "炎能星特制的战斗头盔，自带红温扫描科技",
+		"s_icon": "hat_wuweizhe",
+		"s_name": "黑武头盔"
+	},
+	{
+		"i_id": 108,
+		"i_mainProp": 7,
+		"i_mainPropValue": 207600,
+		"i_minorPropValue": 94360,
+		"i_partType": 1,
+		"i_profType": 1,
+		"i_stage": 2,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "指挥官专属的科技护目，可以很好的视察战场状况",
+		"s_icon": "hat_qiangxieshi",
+		"s_name": "瞄准镜"
+	},
+	{
+		"i_id": 109,
+		"i_mainProp": 7,
+		"i_mainPropValue": 207600,
+		"i_minorPropValue": 94360,
+		"i_partType": 1,
+		"i_profType": 3,
+		"i_stage": 2,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "街头战队常用的一体式耳机，播放的音乐能够提升团队士气",
+		"s_icon": "hat_yinyouzhe",
+		"s_name": "电音耳机"
+	},
+	{
+		"i_id": 110,
+		"i_mainProp": 7,
+		"i_mainPropValue": 207600,
+		"i_minorPropValue": 94360,
+		"i_partType": 1,
+		"i_profType": 4,
+		"i_stage": 2,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "外星怪物的头甲制作而成，可以激活异能护罩，坚不可摧",
+		"s_icon": "hat_baoposhi",
+		"s_name": "爆破头盔"
+	},
+	{
+		"i_id": 111,
+		"i_mainProp": 8,
+		"i_mainPropValue": 207568,
+		"i_minorPropValue": 94360,
+		"i_partType": 2,
+		"i_profType": 2,
+		"i_stage": 2,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "独行侠专属的帅气夹克，穿戴时可以加强自身体质",
+		"s_icon": "clothe_duxingxia",
+		"s_name": "红色夹克"
+	},
+	{
+		"i_id": 112,
+		"i_mainProp": 8,
+		"i_mainPropValue": 207568,
+		"i_minorPropValue": 94360,
+		"i_partType": 2,
+		"i_profType": 0,
+		"i_stage": 2,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "镶嵌了防御能源晶石的科技重甲，只有最强大的勇士才能穿上",
+		"s_icon": "clothe_wuweizhe",
+		"s_name": "黑武盔甲"
+	},
+	{
+		"i_id": 113,
+		"i_mainProp": 8,
+		"i_mainPropValue": 207568,
+		"i_minorPropValue": 94360,
+		"i_partType": 2,
+		"i_profType": 1,
+		"i_stage": 2,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "外星合金制作的铠甲，背后有充气气囊能够推动前行",
+		"s_icon": "clothe_qiangxieshi",
+		"s_name": "机械银铠"
+	},
+	{
+		"i_id": 114,
+		"i_mainProp": 8,
+		"i_mainPropValue": 207568,
+		"i_minorPropValue": 94360,
+		"i_partType": 2,
+		"i_profType": 3,
+		"i_stage": 2,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "骨音研究所特制的科技披风，有发出爆音屏障的能力",
+		"s_icon": "clothe_yinyouzhe",
+		"s_name": "艺术披风"
+	},
+	{
+		"i_id": 115,
+		"i_mainProp": 8,
+		"i_mainPropValue": 207568,
+		"i_minorPropValue": 94360,
+		"i_partType": 2,
+		"i_profType": 4,
+		"i_stage": 2,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "能够吸收能量激光的特殊盔甲，吸收的能量可以强化自身",
+		"s_icon": "clothe_baoposhi",
+		"s_name": "邪能盔甲"
+	},
+	{
+		"i_id": 116,
+		"i_mainProp": 6,
+		"i_mainPropValue": 169840,
+		"i_minorPropValue": 94360,
+		"i_partType": 3,
+		"i_profType": 2,
+		"i_stage": 2,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "使用了超音速科技的鞋子，穿上可以大幅增强作战能力",
+		"s_icon": "shoe_duxingxia",
+		"s_name": "神速靴"
+	},
+	{
+		"i_id": 117,
+		"i_mainProp": 6,
+		"i_mainPropValue": 169840,
+		"i_minorPropValue": 94360,
+		"i_partType": 3,
+		"i_profType": 0,
+		"i_stage": 2,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "应对外星怪物入侵特制的鞋子，有等多重防护技术",
+		"s_icon": "shoe_wuweizhe",
+		"s_name": "黑武鞋"
+	},
+	{
+		"i_id": 118,
+		"i_mainProp": 6,
+		"i_mainPropValue": 169840,
+		"i_minorPropValue": 94360,
+		"i_partType": 3,
+		"i_profType": 1,
+		"i_stage": 2,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "与激光枪配对的特制鞋子，侧面附带了能源弹匣，随时补充武器能量",
+		"s_icon": "shoe_qiangxieshi",
+		"s_name": "弹夹靴"
+	},
+	{
+		"i_id": 119,
+		"i_mainProp": 6,
+		"i_mainPropValue": 169840,
+		"i_minorPropValue": 94360,
+		"i_partType": 3,
+		"i_profType": 3,
+		"i_stage": 2,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "骨音星战士的独特军靴，散发着一股爵士风",
+		"s_icon": "shoe_yinyouzhe",
+		"s_name": "音符鞋"
+	},
+	{
+		"i_id": 120,
+		"i_mainProp": 6,
+		"i_mainPropValue": 169840,
+		"i_minorPropValue": 94360,
+		"i_partType": 3,
+		"i_profType": 4,
+		"i_stage": 2,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "厚重的利爪靴子，前面的利爪既能攻击敌人，也能稳固自身位置",
+		"s_icon": "shoe_baoposhi",
+		"s_name": "邪能靴"
+	},
+	{
+		"i_id": 121,
+		"i_mainProp": 0,
+		"i_mainPropValue": 169840,
+		"i_minorPropValue": 94360,
+		"i_partType": 4,
+		"i_profType": 999,
+		"i_stage": 2,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "传闻是封印了死神力量的秘卡，平时以吊牌的形式出现",
+		"s_icon": "necklack",
+		"s_name": "死灵垂牌"
+	},
+	{
+		"i_id": 122,
+		"i_mainProp": 0,
+		"i_mainPropValue": 169840,
+		"i_minorPropValue": 94360,
+		"i_partType": 5,
+		"i_profType": 999,
+		"i_stage": 2,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "银星特制的戒指，使用了最新的人工智能科技",
+		"s_icon": "ring",
+		"s_name": "星能戒指"
+	},
+	{
+		"i_id": 201,
+		"i_mainProp": 6,
+		"i_mainPropValue": 207580,
+		"i_minorPropValue": 94360,
+		"i_partType": 0,
+		"i_profType": 2,
+		"i_stage": 3,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "无尽能源熔铸之宝剑，有斩杀大型怪物的力量",
+		"s_icon": "weapen_duxingxia",
+		"s_name": "能量剑"
+	},
+	{
+		"i_id": 202,
+		"i_mainProp": 6,
+		"i_mainPropValue": 207580,
+		"i_minorPropValue": 94360,
+		"i_partType": 0,
+		"i_profType": 0,
+		"i_stage": 3,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "镶嵌了力量能源晶石的科技拳套，这一拳的力量无法想象",
+		"s_icon": "weapon_wuweizhe",
+		"s_name": "宝石手套"
+	},
+	{
+		"i_id": 203,
+		"i_mainProp": 6,
+		"i_mainPropValue": 207580,
+		"i_minorPropValue": 94360,
+		"i_partType": 0,
+		"i_profType": 1,
+		"i_stage": 3,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "蓄能射线枪械，经过长时间蓄力后可以发出一道毁灭激光",
+		"s_icon": "weapen_qiangxieshi",
+		"s_name": "激光枪"
+	},
+	{
+		"i_id": 204,
+		"i_mainProp": 6,
+		"i_mainPropValue": 207580,
+		"i_minorPropValue": 94360,
+		"i_partType": 0,
+		"i_profType": 3,
+		"i_stage": 3,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "骨音星战士的武器，拨动音弦可以发出声波攻击",
+		"s_icon": "weapon_yinyouzhe",
+		"s_name": "爆音吉他"
+	},
+	{
+		"i_id": 205,
+		"i_mainProp": 6,
+		"i_mainPropValue": 207580,
+		"i_minorPropValue": 94360,
+		"i_partType": 0,
+		"i_profType": 4,
+		"i_stage": 3,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "能够射出高能原子激光的枪械，外壳由外星怪物手骨所制",
+		"s_icon": "weapen_baoposhi",
+		"s_name": "原子炮"
+	},
+	{
+		"i_id": 206,
+		"i_mainProp": 7,
+		"i_mainPropValue": 207600,
+		"i_minorPropValue": 94360,
+		"i_partType": 1,
+		"i_profType": 2,
+		"i_stage": 3,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "内含闪电能源的头盔，可以抵御大部分攻击",
+		"s_icon": "hat_duxingxia",
+		"s_name": "闪电头盔"
+	},
+	{
+		"i_id": 207,
+		"i_mainProp": 7,
+		"i_mainPropValue": 207600,
+		"i_minorPropValue": 94360,
+		"i_partType": 1,
+		"i_profType": 0,
+		"i_stage": 3,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "炎能星特制的战斗头盔，自带红温扫描科技",
+		"s_icon": "hat_wuweizhe",
+		"s_name": "黑武头盔"
+	},
+	{
+		"i_id": 208,
+		"i_mainProp": 7,
+		"i_mainPropValue": 207600,
+		"i_minorPropValue": 94360,
+		"i_partType": 1,
+		"i_profType": 1,
+		"i_stage": 3,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "指挥官专属的科技护目，可以很好的视察战场状况",
+		"s_icon": "hat_qiangxieshi",
+		"s_name": "瞄准镜"
+	},
+	{
+		"i_id": 209,
+		"i_mainProp": 7,
+		"i_mainPropValue": 207600,
+		"i_minorPropValue": 94360,
+		"i_partType": 1,
+		"i_profType": 3,
+		"i_stage": 3,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "街头战队常用的一体式耳机，播放的音乐能够提升团队士气",
+		"s_icon": "hat_yinyouzhe",
+		"s_name": "电音耳机"
+	},
+	{
+		"i_id": 210,
+		"i_mainProp": 7,
+		"i_mainPropValue": 207600,
+		"i_minorPropValue": 94360,
+		"i_partType": 1,
+		"i_profType": 4,
+		"i_stage": 3,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "外星怪物的头甲制作而成，可以激活异能护罩，坚不可摧",
+		"s_icon": "hat_baoposhi",
+		"s_name": "爆破头盔"
+	},
+	{
+		"i_id": 211,
+		"i_mainProp": 8,
+		"i_mainPropValue": 207568,
+		"i_minorPropValue": 94360,
+		"i_partType": 2,
+		"i_profType": 2,
+		"i_stage": 3,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "独行侠专属的帅气夹克，穿戴时可以加强自身体质",
+		"s_icon": "clothe_duxingxia",
+		"s_name": "红色夹克"
+	},
+	{
+		"i_id": 212,
+		"i_mainProp": 8,
+		"i_mainPropValue": 207568,
+		"i_minorPropValue": 94360,
+		"i_partType": 2,
+		"i_profType": 0,
+		"i_stage": 3,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "镶嵌了防御能源晶石的科技重甲，只有最强大的勇士才能穿上",
+		"s_icon": "clothe_wuweizhe",
+		"s_name": "黑武盔甲"
+	},
+	{
+		"i_id": 213,
+		"i_mainProp": 8,
+		"i_mainPropValue": 207568,
+		"i_minorPropValue": 94360,
+		"i_partType": 2,
+		"i_profType": 1,
+		"i_stage": 3,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "外星合金制作的铠甲，背后有充气气囊能够推动前行",
+		"s_icon": "clothe_qiangxieshi",
+		"s_name": "机械银铠"
+	},
+	{
+		"i_id": 214,
+		"i_mainProp": 8,
+		"i_mainPropValue": 207568,
+		"i_minorPropValue": 94360,
+		"i_partType": 2,
+		"i_profType": 3,
+		"i_stage": 3,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "骨音研究所特制的科技披风，有发出爆音屏障的能力",
+		"s_icon": "clothe_yinyouzhe",
+		"s_name": "艺术披风"
+	},
+	{
+		"i_id": 215,
+		"i_mainProp": 8,
+		"i_mainPropValue": 207568,
+		"i_minorPropValue": 94360,
+		"i_partType": 2,
+		"i_profType": 4,
+		"i_stage": 3,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "能够吸收能量激光的特殊盔甲，吸收的能量可以强化自身",
+		"s_icon": "clothe_baoposhi",
+		"s_name": "邪能盔甲"
+	},
+	{
+		"i_id": 216,
+		"i_mainProp": 6,
+		"i_mainPropValue": 169840,
+		"i_minorPropValue": 94360,
+		"i_partType": 3,
+		"i_profType": 2,
+		"i_stage": 3,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "使用了超音速科技的鞋子，穿上可以大幅增强作战能力",
+		"s_icon": "shoe_duxingxia",
+		"s_name": "神速靴"
+	},
+	{
+		"i_id": 217,
+		"i_mainProp": 6,
+		"i_mainPropValue": 169840,
+		"i_minorPropValue": 94360,
+		"i_partType": 3,
+		"i_profType": 0,
+		"i_stage": 3,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "应对外星怪物入侵特制的鞋子，有等多重防护技术",
+		"s_icon": "shoe_wuweizhe",
+		"s_name": "黑武鞋"
+	},
+	{
+		"i_id": 218,
+		"i_mainProp": 6,
+		"i_mainPropValue": 169840,
+		"i_minorPropValue": 94360,
+		"i_partType": 3,
+		"i_profType": 1,
+		"i_stage": 3,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "与激光枪配对的特制鞋子，侧面附带了能源弹匣，随时补充武器能量",
+		"s_icon": "shoe_qiangxieshi",
+		"s_name": "弹夹靴"
+	},
+	{
+		"i_id": 219,
+		"i_mainProp": 6,
+		"i_mainPropValue": 169840,
+		"i_minorPropValue": 94360,
+		"i_partType": 3,
+		"i_profType": 3,
+		"i_stage": 3,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "骨音星战士的独特军靴，散发着一股爵士风",
+		"s_icon": "shoe_yinyouzhe",
+		"s_name": "音符鞋"
+	},
+	{
+		"i_id": 220,
+		"i_mainProp": 6,
+		"i_mainPropValue": 169840,
+		"i_minorPropValue": 94360,
+		"i_partType": 3,
+		"i_profType": 4,
+		"i_stage": 3,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "厚重的利爪靴子，前面的利爪既能攻击敌人，也能稳固自身位置",
+		"s_icon": "shoe_baoposhi",
+		"s_name": "邪能靴"
+	},
+	{
+		"i_id": 221,
+		"i_mainProp": 0,
+		"i_mainPropValue": 169840,
+		"i_minorPropValue": 94360,
+		"i_partType": 4,
+		"i_profType": 999,
+		"i_stage": 3,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "传闻是封印了死神力量的秘卡，平时以吊牌的形式出现",
+		"s_icon": "necklack",
+		"s_name": "死灵垂牌"
+	},
+	{
+		"i_id": 222,
+		"i_mainProp": 0,
+		"i_mainPropValue": 169840,
+		"i_minorPropValue": 94360,
+		"i_partType": 5,
+		"i_profType": 999,
+		"i_stage": 3,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "银星特制的戒指，使用了最新的人工智能科技",
+		"s_icon": "ring",
+		"s_name": "星能戒指"
+	},
+	{
+		"i_id": 301,
+		"i_mainProp": 6,
+		"i_mainPropValue": 207580,
+		"i_minorPropValue": 94360,
+		"i_partType": 0,
+		"i_profType": 2,
+		"i_stage": 4,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "无尽能源熔铸之宝剑，有斩杀大型怪物的力量",
+		"s_icon": "weapen_duxingxia",
+		"s_name": "能量剑"
+	},
+	{
+		"i_id": 302,
+		"i_mainProp": 6,
+		"i_mainPropValue": 207580,
+		"i_minorPropValue": 94360,
+		"i_partType": 0,
+		"i_profType": 0,
+		"i_stage": 4,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "镶嵌了力量能源晶石的科技拳套，这一拳的力量无法想象",
+		"s_icon": "weapon_wuweizhe",
+		"s_name": "宝石手套"
+	},
+	{
+		"i_id": 303,
+		"i_mainProp": 6,
+		"i_mainPropValue": 207580,
+		"i_minorPropValue": 94360,
+		"i_partType": 0,
+		"i_profType": 1,
+		"i_stage": 4,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "蓄能射线枪械，经过长时间蓄力后可以发出一道毁灭激光",
+		"s_icon": "weapen_qiangxieshi",
+		"s_name": "激光枪"
+	},
+	{
+		"i_id": 304,
+		"i_mainProp": 6,
+		"i_mainPropValue": 207580,
+		"i_minorPropValue": 94360,
+		"i_partType": 0,
+		"i_profType": 3,
+		"i_stage": 4,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "骨音星战士的武器，拨动音弦可以发出声波攻击",
+		"s_icon": "weapon_yinyouzhe",
+		"s_name": "爆音吉他"
+	},
+	{
+		"i_id": 305,
+		"i_mainProp": 6,
+		"i_mainPropValue": 207580,
+		"i_minorPropValue": 94360,
+		"i_partType": 0,
+		"i_profType": 4,
+		"i_stage": 4,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "能够射出高能原子激光的枪械，外壳由外星怪物手骨所制",
+		"s_icon": "weapen_baoposhi",
+		"s_name": "原子炮"
+	},
+	{
+		"i_id": 306,
+		"i_mainProp": 7,
+		"i_mainPropValue": 207600,
+		"i_minorPropValue": 94360,
+		"i_partType": 1,
+		"i_profType": 2,
+		"i_stage": 4,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "内含闪电能源的头盔，可以抵御大部分攻击",
+		"s_icon": "hat_duxingxia",
+		"s_name": "闪电头盔"
+	},
+	{
+		"i_id": 307,
+		"i_mainProp": 7,
+		"i_mainPropValue": 207600,
+		"i_minorPropValue": 94360,
+		"i_partType": 1,
+		"i_profType": 0,
+		"i_stage": 4,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "炎能星特制的战斗头盔，自带红温扫描科技",
+		"s_icon": "hat_wuweizhe",
+		"s_name": "黑武头盔"
+	},
+	{
+		"i_id": 308,
+		"i_mainProp": 7,
+		"i_mainPropValue": 207600,
+		"i_minorPropValue": 94360,
+		"i_partType": 1,
+		"i_profType": 1,
+		"i_stage": 4,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "指挥官专属的科技护目，可以很好的视察战场状况",
+		"s_icon": "hat_qiangxieshi",
+		"s_name": "瞄准镜"
+	},
+	{
+		"i_id": 309,
+		"i_mainProp": 7,
+		"i_mainPropValue": 207600,
+		"i_minorPropValue": 94360,
+		"i_partType": 1,
+		"i_profType": 3,
+		"i_stage": 4,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "街头战队常用的一体式耳机，播放的音乐能够提升团队士气",
+		"s_icon": "hat_yinyouzhe",
+		"s_name": "电音耳机"
+	},
+	{
+		"i_id": 310,
+		"i_mainProp": 7,
+		"i_mainPropValue": 207600,
+		"i_minorPropValue": 94360,
+		"i_partType": 1,
+		"i_profType": 4,
+		"i_stage": 4,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "外星怪物的头甲制作而成，可以激活异能护罩，坚不可摧",
+		"s_icon": "hat_baoposhi",
+		"s_name": "爆破头盔"
+	},
+	{
+		"i_id": 311,
+		"i_mainProp": 8,
+		"i_mainPropValue": 207568,
+		"i_minorPropValue": 94360,
+		"i_partType": 2,
+		"i_profType": 2,
+		"i_stage": 4,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "独行侠专属的帅气夹克，穿戴时可以加强自身体质",
+		"s_icon": "clothe_duxingxia",
+		"s_name": "红色夹克"
+	},
+	{
+		"i_id": 312,
+		"i_mainProp": 8,
+		"i_mainPropValue": 207568,
+		"i_minorPropValue": 94360,
+		"i_partType": 2,
+		"i_profType": 0,
+		"i_stage": 4,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "镶嵌了防御能源晶石的科技重甲，只有最强大的勇士才能穿上",
+		"s_icon": "clothe_wuweizhe",
+		"s_name": "黑武盔甲"
+	},
+	{
+		"i_id": 313,
+		"i_mainProp": 8,
+		"i_mainPropValue": 207568,
+		"i_minorPropValue": 94360,
+		"i_partType": 2,
+		"i_profType": 1,
+		"i_stage": 4,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "外星合金制作的铠甲，背后有充气气囊能够推动前行",
+		"s_icon": "clothe_qiangxieshi",
+		"s_name": "机械银铠"
+	},
+	{
+		"i_id": 314,
+		"i_mainProp": 8,
+		"i_mainPropValue": 207568,
+		"i_minorPropValue": 94360,
+		"i_partType": 2,
+		"i_profType": 3,
+		"i_stage": 4,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "骨音研究所特制的科技披风，有发出爆音屏障的能力",
+		"s_icon": "clothe_yinyouzhe",
+		"s_name": "艺术披风"
+	},
+	{
+		"i_id": 315,
+		"i_mainProp": 8,
+		"i_mainPropValue": 207568,
+		"i_minorPropValue": 94360,
+		"i_partType": 2,
+		"i_profType": 4,
+		"i_stage": 4,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "能够吸收能量激光的特殊盔甲，吸收的能量可以强化自身",
+		"s_icon": "clothe_baoposhi",
+		"s_name": "邪能盔甲"
+	},
+	{
+		"i_id": 316,
+		"i_mainProp": 6,
+		"i_mainPropValue": 169840,
+		"i_minorPropValue": 94360,
+		"i_partType": 3,
+		"i_profType": 2,
+		"i_stage": 4,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "使用了超音速科技的鞋子，穿上可以大幅增强作战能力",
+		"s_icon": "shoe_duxingxia",
+		"s_name": "神速靴"
+	},
+	{
+		"i_id": 317,
+		"i_mainProp": 6,
+		"i_mainPropValue": 169840,
+		"i_minorPropValue": 94360,
+		"i_partType": 3,
+		"i_profType": 0,
+		"i_stage": 4,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "应对外星怪物入侵特制的鞋子，有等多重防护技术",
+		"s_icon": "shoe_wuweizhe",
+		"s_name": "黑武鞋"
+	},
+	{
+		"i_id": 318,
+		"i_mainProp": 6,
+		"i_mainPropValue": 169840,
+		"i_minorPropValue": 94360,
+		"i_partType": 3,
+		"i_profType": 1,
+		"i_stage": 4,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "与激光枪配对的特制鞋子，侧面附带了能源弹匣，随时补充武器能量",
+		"s_icon": "shoe_qiangxieshi",
+		"s_name": "弹夹靴"
+	},
+	{
+		"i_id": 319,
+		"i_mainProp": 6,
+		"i_mainPropValue": 169840,
+		"i_minorPropValue": 94360,
+		"i_partType": 3,
+		"i_profType": 3,
+		"i_stage": 4,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "骨音星战士的独特军靴，散发着一股爵士风",
+		"s_icon": "shoe_yinyouzhe",
+		"s_name": "音符鞋"
+	},
+	{
+		"i_id": 320,
+		"i_mainProp": 6,
+		"i_mainPropValue": 169840,
+		"i_minorPropValue": 94360,
+		"i_partType": 3,
+		"i_profType": 4,
+		"i_stage": 4,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "厚重的利爪靴子，前面的利爪既能攻击敌人，也能稳固自身位置",
+		"s_icon": "shoe_baoposhi",
+		"s_name": "邪能靴"
+	},
+	{
+		"i_id": 321,
+		"i_mainProp": 0,
+		"i_mainPropValue": 169840,
+		"i_minorPropValue": 94360,
+		"i_partType": 4,
+		"i_profType": 999,
+		"i_stage": 4,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "传闻是封印了死神力量的秘卡，平时以吊牌的形式出现",
+		"s_icon": "necklack",
+		"s_name": "死灵垂牌"
+	},
+	{
+		"i_id": 322,
+		"i_mainProp": 0,
+		"i_mainPropValue": 169840,
+		"i_minorPropValue": 94360,
+		"i_partType": 5,
+		"i_profType": 999,
+		"i_stage": 4,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "银星特制的戒指，使用了最新的人工智能科技",
+		"s_icon": "ring",
+		"s_name": "星能戒指"
+	},
+	{
+		"i_id": 1001,
+		"i_mainProp": 6,
+		"i_mainPropValue": 207580,
+		"i_minorPropValue": 94360,
+		"i_partType": 0,
+		"i_profType": 4,
+		"i_stage": 1,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "能够射出高能原子激光的枪械，外壳由外星怪物手骨所制",
+		"s_icon": "weapen_baoposhi",
+		"s_name": "原子炮"
+	},
+	{
+		"i_id": 1002,
+		"i_mainProp": 7,
+		"i_mainPropValue": 207600,
+		"i_minorPropValue": 94360,
+		"i_partType": 1,
+		"i_profType": 4,
+		"i_stage": 1,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "外星怪物的头甲制作而成，可以激活异能护罩，坚不可摧",
+		"s_icon": "hat_baoposhi",
+		"s_name": "爆破头盔"
+	},
+	{
+		"i_id": 1003,
+		"i_mainProp": 8,
+		"i_mainPropValue": 207568,
+		"i_minorPropValue": 94360,
+		"i_partType": 2,
+		"i_profType": 4,
+		"i_stage": 1,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "能够吸收能量激光的特殊盔甲，吸收的能量可以强化自身",
+		"s_icon": "clothe_baoposhi",
+		"s_name": "邪能盔甲"
+	},
+	{
+		"i_id": 1004,
+		"i_mainProp": 6,
+		"i_mainPropValue": 207580,
+		"i_minorPropValue": 94360,
+		"i_partType": 0,
+		"i_profType": 4,
+		"i_stage": 1,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "能够射出高能原子激光的枪械，外壳由外星怪物手骨所制",
+		"s_icon": "weapen_baoposhi",
+		"s_name": "原子炮"
+	},
+	{
+		"i_id": 1005,
+		"i_mainProp": 7,
+		"i_mainPropValue": 207600,
+		"i_minorPropValue": 94360,
+		"i_partType": 1,
+		"i_profType": 4,
+		"i_stage": 1,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "外星怪物的头甲制作而成，可以激活异能护罩，坚不可摧",
+		"s_icon": "hat_baoposhi",
+		"s_name": "爆破头盔"
+	},
+	{
+		"i_id": 1006,
+		"i_mainProp": 8,
+		"i_mainPropValue": 207568,
+		"i_minorPropValue": 94360,
+		"i_partType": 2,
+		"i_profType": 4,
+		"i_stage": 1,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "能够吸收能量激光的特殊盔甲，吸收的能量可以强化自身",
+		"s_icon": "clothe_baoposhi",
+		"s_name": "邪能盔甲"
+	},
+	{
+		"i_id": 2001,
+		"i_mainProp": 6,
+		"i_mainPropValue": 207580,
+		"i_minorPropValue": 94360,
+		"i_partType": 0,
+		"i_profType": 0,
+		"i_stage": 1,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "镶嵌了力量能源晶石的科技拳套，这一拳的力量无法想象",
+		"s_icon": "weapon_wuweizhe",
+		"s_name": "宝石手套"
+	},
+	{
+		"i_id": 2002,
+		"i_mainProp": 7,
+		"i_mainPropValue": 207600,
+		"i_minorPropValue": 94360,
+		"i_partType": 1,
+		"i_profType": 0,
+		"i_stage": 1,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "炎能星特制的战斗头盔，自带红温扫描科技",
+		"s_icon": "hat_wuweizhe",
+		"s_name": "黑武头盔"
+	},
+	{
+		"i_id": 2003,
+		"i_mainProp": 8,
+		"i_mainPropValue": 207568,
+		"i_minorPropValue": 94360,
+		"i_partType": 2,
+		"i_profType": 0,
+		"i_stage": 1,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "镶嵌了防御能源晶石的科技重甲，只有最强大的勇士才能穿上",
+		"s_icon": "clothe_wuweizhe",
+		"s_name": "黑武盔甲"
+	},
+	{
+		"i_id": 2004,
+		"i_mainProp": 6,
+		"i_mainPropValue": 207580,
+		"i_minorPropValue": 94360,
+		"i_partType": 0,
+		"i_profType": 0,
+		"i_stage": 1,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "镶嵌了力量能源晶石的科技拳套，这一拳的力量无法想象",
+		"s_icon": "weapon_wuweizhe",
+		"s_name": "宝石手套"
+	},
+	{
+		"i_id": 2005,
+		"i_mainProp": 7,
+		"i_mainPropValue": 207600,
+		"i_minorPropValue": 94360,
+		"i_partType": 1,
+		"i_profType": 0,
+		"i_stage": 1,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "炎能星特制的战斗头盔，自带红温扫描科技",
+		"s_icon": "hat_wuweizhe",
+		"s_name": "黑武头盔"
+	},
+	{
+		"i_id": 2006,
+		"i_mainProp": 8,
+		"i_mainPropValue": 207568,
+		"i_minorPropValue": 94360,
+		"i_partType": 2,
+		"i_profType": 0,
+		"i_stage": 1,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "镶嵌了防御能源晶石的科技重甲，只有最强大的勇士才能穿上",
+		"s_icon": "clothe_wuweizhe",
+		"s_name": "黑武盔甲"
+	},
+	{
+		"i_id": 3001,
+		"i_mainProp": 6,
+		"i_mainPropValue": 207580,
+		"i_minorPropValue": 94360,
+		"i_partType": 0,
+		"i_profType": 2,
+		"i_stage": 1,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "无尽能源熔铸之宝剑，有斩杀大型怪物的力量",
+		"s_icon": "weapen_duxingxia",
+		"s_name": "能量剑"
+	},
+	{
+		"i_id": 3002,
+		"i_mainProp": 7,
+		"i_mainPropValue": 207600,
+		"i_minorPropValue": 94360,
+		"i_partType": 1,
+		"i_profType": 2,
+		"i_stage": 1,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "内含闪电能源的头盔，可以抵御大部分攻击",
+		"s_icon": "hat_duxingxia",
+		"s_name": "闪电头盔"
+	},
+	{
+		"i_id": 3003,
+		"i_mainProp": 8,
+		"i_mainPropValue": 207568,
+		"i_minorPropValue": 94360,
+		"i_partType": 2,
+		"i_profType": 2,
+		"i_stage": 1,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "独行侠专属的帅气夹克，穿戴时可以加强自身体质",
+		"s_icon": "clothe_duxingxia",
+		"s_name": "红色夹克"
+	},
+	{
+		"i_id": 3004,
+		"i_mainProp": 6,
+		"i_mainPropValue": 207580,
+		"i_minorPropValue": 94360,
+		"i_partType": 0,
+		"i_profType": 2,
+		"i_stage": 1,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "无尽能源熔铸之宝剑，有斩杀大型怪物的力量",
+		"s_icon": "weapen_duxingxia",
+		"s_name": "能量剑"
+	},
+	{
+		"i_id": 3005,
+		"i_mainProp": 7,
+		"i_mainPropValue": 207600,
+		"i_minorPropValue": 94360,
+		"i_partType": 1,
+		"i_profType": 2,
+		"i_stage": 1,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "内含闪电能源的头盔，可以抵御大部分攻击",
+		"s_icon": "hat_duxingxia",
+		"s_name": "闪电头盔"
+	},
+	{
+		"i_id": 3006,
+		"i_mainProp": 8,
+		"i_mainPropValue": 207568,
+		"i_minorPropValue": 94360,
+		"i_partType": 2,
+		"i_profType": 2,
+		"i_stage": 1,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "独行侠专属的帅气夹克，穿戴时可以加强自身体质",
+		"s_icon": "clothe_duxingxia",
+		"s_name": "红色夹克"
+	},
+	{
+		"i_id": 4001,
+		"i_mainProp": 6,
+		"i_mainPropValue": 207580,
+		"i_minorPropValue": 94360,
+		"i_partType": 0,
+		"i_profType": 1,
+		"i_stage": 1,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "蓄能射线枪械，经过长时间蓄力后可以发出一道毁灭激光",
+		"s_icon": "weapen_qiangxieshi",
+		"s_name": "激光枪"
+	},
+	{
+		"i_id": 4002,
+		"i_mainProp": 7,
+		"i_mainPropValue": 207600,
+		"i_minorPropValue": 94360,
+		"i_partType": 1,
+		"i_profType": 1,
+		"i_stage": 1,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "指挥官专属的科技护目，可以很好的视察战场状况",
+		"s_icon": "hat_qiangxieshi",
+		"s_name": "瞄准镜"
+	},
+	{
+		"i_id": 4003,
+		"i_mainProp": 8,
+		"i_mainPropValue": 207568,
+		"i_minorPropValue": 94360,
+		"i_partType": 2,
+		"i_profType": 1,
+		"i_stage": 1,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "外星合金制作的铠甲，背后有充气气囊能够推动前行",
+		"s_icon": "clothe_qiangxieshi",
+		"s_name": "机械银铠"
+	},
+	{
+		"i_id": 4004,
+		"i_mainProp": 6,
+		"i_mainPropValue": 207580,
+		"i_minorPropValue": 94360,
+		"i_partType": 0,
+		"i_profType": 1,
+		"i_stage": 1,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "蓄能射线枪械，经过长时间蓄力后可以发出一道毁灭激光",
+		"s_icon": "weapen_qiangxieshi",
+		"s_name": "激光枪"
+	},
+	{
+		"i_id": 4005,
+		"i_mainProp": 7,
+		"i_mainPropValue": 207600,
+		"i_minorPropValue": 94360,
+		"i_partType": 1,
+		"i_profType": 1,
+		"i_stage": 1,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "指挥官专属的科技护目，可以很好的视察战场状况",
+		"s_icon": "hat_qiangxieshi",
+		"s_name": "瞄准镜"
+	},
+	{
+		"i_id": 4006,
+		"i_mainProp": 8,
+		"i_mainPropValue": 207568,
+		"i_minorPropValue": 94360,
+		"i_partType": 2,
+		"i_profType": 1,
+		"i_stage": 1,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "外星合金制作的铠甲，背后有充气气囊能够推动前行",
+		"s_icon": "clothe_qiangxieshi",
+		"s_name": "机械银铠"
+	},
+	{
+		"i_id": 5001,
+		"i_mainProp": 6,
+		"i_mainPropValue": 207580,
+		"i_minorPropValue": 94360,
+		"i_partType": 0,
+		"i_profType": 3,
+		"i_stage": 1,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "骨音星战士的武器，拨动音弦可以发出声波攻击",
+		"s_icon": "weapon_yinyouzhe",
+		"s_name": "爆音吉他"
+	},
+	{
+		"i_id": 5002,
+		"i_mainProp": 7,
+		"i_mainPropValue": 207600,
+		"i_minorPropValue": 94360,
+		"i_partType": 1,
+		"i_profType": 3,
+		"i_stage": 1,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "街头战队常用的一体式耳机，播放的音乐能够提升团队士气",
+		"s_icon": "hat_yinyouzhe",
+		"s_name": "电音耳机"
+	},
+	{
+		"i_id": 5003,
+		"i_mainProp": 8,
+		"i_mainPropValue": 207568,
+		"i_minorPropValue": 94360,
+		"i_partType": 2,
+		"i_profType": 3,
+		"i_stage": 1,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "骨音研究所特制的科技披风，有发出爆音屏障的能力",
+		"s_icon": "clothe_yinyouzhe",
+		"s_name": "艺术披风"
+	},
+	{
+		"i_id": 5004,
+		"i_mainProp": 6,
+		"i_mainPropValue": 207580,
+		"i_minorPropValue": 94360,
+		"i_partType": 0,
+		"i_profType": 3,
+		"i_stage": 1,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "骨音星战士的武器，拨动音弦可以发出声波攻击",
+		"s_icon": "weapon_yinyouzhe",
+		"s_name": "爆音吉他"
+	},
+	{
+		"i_id": 5005,
+		"i_mainProp": 7,
+		"i_mainPropValue": 207600,
+		"i_minorPropValue": 94360,
+		"i_partType": 1,
+		"i_profType": 3,
+		"i_stage": 1,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "街头战队常用的一体式耳机，播放的音乐能够提升团队士气",
+		"s_icon": "hat_yinyouzhe",
+		"s_name": "电音耳机"
+	},
+	{
+		"i_id": 5006,
+		"i_mainProp": 8,
+		"i_mainPropValue": 207568,
+		"i_minorPropValue": 94360,
+		"i_partType": 2,
+		"i_profType": 3,
+		"i_stage": 1,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			0
+		],
+		"s_desc": "骨音研究所特制的科技披风，有发出爆音屏障的能力",
+		"s_icon": "clothe_yinyouzhe",
+		"s_name": "艺术披风"
+	},
+	{
+		"i_id": 13001,
+		"i_mainProp": 0,
+		"i_mainPropValue": 169840,
+		"i_minorPropValue": 94360,
+		"i_partType": 4,
+		"i_profType": 999,
+		"i_stage": 1,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			27
+		],
+		"s_desc": "传闻是封印了死神力量的秘卡，平时以吊牌的形式出现",
+		"s_icon": "necklack",
+		"s_name": "死灵垂牌"
+	},
+	{
+		"i_id": 13002,
+		"i_mainProp": 0,
+		"i_mainPropValue": 169840,
+		"i_minorPropValue": 94360,
+		"i_partType": 5,
+		"i_profType": 999,
+		"i_stage": 1,
+		"i_vicePropValue": 72580,
+		"il_minorProp": [
+			0
+		],
+		"il_viceProp": [
+			27
+		],
+		"s_desc": "银星特制的戒指，使用了最新的人工智能科技",
+		"s_icon": "ring",
+		"s_name": "星能戒指"
+	}
+]

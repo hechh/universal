@@ -2,6 +2,7 @@ package manager
 
 import (
 	"strings"
+	"time"
 	"universal/tools/gomaker/domain"
 	"universal/tools/gomaker/internal/typespec"
 
@@ -41,14 +42,33 @@ func CastRule(field *typespec.FieldNode, alls map[string]*typespec.Value, val st
 }
 
 func init() {
+	rules["t"] = &RuleInfo{castT, parseT}
 	rules["b"] = &RuleInfo{castB, parseB}
 	rules["s"] = &RuleInfo{castS, parseS}
 	rules["i"] = &RuleInfo{castI, parseI}
 	rules["il"] = &RuleInfo{castIL, parseIL}
 	rules["ill"] = &RuleInfo{castILL, parseILL}
+	rules["in"] = &RuleInfo{castIN, parseIN}
+	rules["inl"] = &RuleInfo{castINL, parseINL}
+	rules["inll"] = &RuleInfo{castINLL, parseINLL}
 	rules["f"] = &RuleInfo{castF, parseF}
 	rules["fl"] = &RuleInfo{castFL, parseFL}
 	rules["fll"] = &RuleInfo{castFLL, parseFLL}
+}
+
+// t
+func parseT(field *typespec.FieldNode) *typespec.Field {
+	return &typespec.Field{
+		Type:  GetOrAddType(&typespec.Type{Kind: domain.KIND_IDENT, Name: "uint64"}),
+		Name:  field.Name,
+		Index: field.Index,
+		Doc:   field.Doc,
+	}
+}
+
+func castT(alls map[string]*typespec.Value, val string) interface{} {
+	t, _ := time.Parse("2006-01-02 15:04:05", val)
+	return uint64(t.Unix())
 }
 
 // b
@@ -134,6 +154,60 @@ func castILL(alls map[string]*typespec.Value, val string) interface{} {
 			tmps = append(tmps, castI(alls, ss))
 		}
 		rets = append(rets, tmps)
+	}
+	return rets
+}
+
+// in
+func parseIN(field *typespec.FieldNode) *typespec.Field {
+	return &typespec.Field{
+		Type:  GetOrAddType(&typespec.Type{Kind: domain.KIND_IDENT, Name: "int32"}),
+		Name:  field.Name,
+		Index: field.Index,
+		Doc:   field.Doc,
+		Token: []uint32{domain.TOKEN_ARRAY, domain.TOKEN_ARRAY},
+	}
+}
+
+func castIN(alls map[string]*typespec.Value, val string) interface{} {
+	if value, ok := alls[val]; ok {
+		return int32(value.Value)
+	}
+	return cast.ToInt32(val)
+}
+
+func parseINL(field *typespec.FieldNode) *typespec.Field {
+	return &typespec.Field{
+		Type:  GetOrAddType(&typespec.Type{Kind: domain.KIND_IDENT, Name: "int32"}),
+		Name:  field.Name,
+		Index: field.Index,
+		Doc:   field.Doc,
+		Token: []uint32{domain.TOKEN_ARRAY, domain.TOKEN_ARRAY},
+	}
+}
+
+func castINL(alls map[string]*typespec.Value, val string) interface{} {
+	rets := []interface{}{}
+	for _, sval := range strings.Split(strings.ReplaceAll(val, "|", ","), ",") {
+		rets = append(rets, castIN(alls, sval))
+	}
+	return rets
+}
+
+func parseINLL(field *typespec.FieldNode) *typespec.Field {
+	return &typespec.Field{
+		Type:  GetOrAddType(&typespec.Type{Kind: domain.KIND_IDENT, Name: "int32"}),
+		Name:  field.Name,
+		Index: field.Index,
+		Doc:   field.Doc,
+		Token: []uint32{domain.TOKEN_ARRAY, domain.TOKEN_ARRAY},
+	}
+}
+
+func castINLL(alls map[string]*typespec.Value, val string) interface{} {
+	rets := []interface{}{}
+	for _, sval := range strings.Split(val, "#") {
+		rets = append(rets, castINL(alls, sval))
 	}
 	return rets
 }

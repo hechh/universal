@@ -13,6 +13,19 @@ import (
 	"github.com/xuri/excelize/v2"
 )
 
+func sortSheetList(list []string) []string {
+	j := -1
+	for i, name := range list {
+		if name == "代对表" {
+			j++
+			list[i] = list[j]
+			list[j] = name
+			break
+		}
+	}
+	return list
+}
+
 // 解析xlsx
 func ParseXlsx(v domain.Visitor, filename string) error {
 	// 加载文件
@@ -24,7 +37,7 @@ func ParseXlsx(v domain.Visitor, filename string) error {
 	v.SetFile(filename)
 
 	// 解析内容
-	for _, sheet := range fb.GetSheetList() {
+	for _, sheet := range sortSheetList(fb.GetSheetList()) {
 		values, _ := fb.GetRows(sheet)
 		if strings.HasPrefix(sheet, "@") {
 			if ret := v.Visit(typespec.NewTableNode(sheet, values[0], values[1])); ret == nil {
@@ -36,7 +49,11 @@ func ParseXlsx(v domain.Visitor, filename string) error {
 		} else if filepath.Base(filename) == "define.xlsx" || sheet == "代对表" {
 			for _, vals := range values {
 				for _, val := range vals {
-					switch val[:strings.Index(val, ":")] {
+					pos := strings.Index(val, ":")
+					if pos <= 0 {
+						continue
+					}
+					switch val[:pos] {
 					case "E", "e":
 						v.Visit(&typespec.EnumNode{SheetName: sheet, Value: val})
 					case "CS", "cs", "Cs", "cS", "SC", "Sc", "sC", "sc", "s", "S":
@@ -56,7 +73,17 @@ func ParseDirXlsx(v domain.Visitor, dir string) error {
 	if err != nil {
 		return err
 	}
+	j := -1
+	for i, filename := range files {
+		if filepath.Base(filename) == "define.xlsx" {
+			j++
+			files[i] = files[j]
+			files[j] = filename
+			break
+		}
+	}
 	for _, filename := range files {
+		//fmt.Println("----->", filename)
 		if err := ParseXlsx(v, filename); err != nil {
 			return uerror.NewUError(1, -1, "%v", err)
 		}
@@ -65,19 +92,16 @@ func ParseDirXlsx(v domain.Visitor, dir string) error {
 }
 
 // 保存文件
-func SaveJson(dst string, data map[string][]map[string]interface{}) error {
+func SaveJson(filename string, data []map[string]interface{}) error {
 	// 创建目录
-	if err := os.MkdirAll(dst, os.FileMode(0777)); err != nil {
+	if err := os.MkdirAll(filepath.Dir(filename), os.FileMode(0777)); err != nil {
 		return uerror.NewUError(1, -1, "%v", err)
 	}
 
-	for filename, arrs := range data {
-		buf, _ := json.Marshal(&arrs)
-		// 写入文件
-		absname := filepath.Join(dst, filename)
-		if err := ioutil.WriteFile(absname, buf, os.FileMode(0666)); err != nil {
-			return uerror.NewUError(1, -1, "%v", err)
-		}
+	// 写入文件
+	buf, _ := json.MarshalIndent(&data, "", "	")
+	if err := ioutil.WriteFile(filename, buf, os.FileMode(0666)); err != nil {
+		return uerror.NewUError(1, -1, "%v", err)
 	}
 	return nil
 }

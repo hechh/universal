@@ -1,0 +1,26 @@
+[
+	{
+		"i_id": 1,
+		"i_stageValue": 5
+	},
+	{
+		"i_id": 2,
+		"i_stageValue": 10
+	},
+	{
+		"i_id": 3,
+		"i_stageValue": 15
+	},
+	{
+		"i_id": 4,
+		"i_stageValue": 20
+	},
+	{
+		"i_id": 5,
+		"i_stageValue": 25
+	},
+	{
+		"i_id": 6,
+		"i_stageValue": 30
+	}
+]

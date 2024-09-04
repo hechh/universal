@@ -1,0 +1,419 @@
+[
+	{
+		"i_achieveType": 1,
+		"i_compareType": 1,
+		"i_id": 1,
+		"i_isSet": 0,
+		"i_param1Type": 1,
+		"i_param2Type": 0
+	},
+	{
+		"i_achieveType": 2,
+		"i_compareType": 1,
+		"i_id": 2,
+		"i_isSet": 0,
+		"i_param1Type": 1,
+		"i_param2Type": 0
+	},
+	{
+		"i_achieveType": 3,
+		"i_compareType": 1,
+		"i_id": 3,
+		"i_isSet": 0,
+		"i_param1Type": 1,
+		"i_param2Type": 0
+	},
+	{
+		"i_achieveType": 4,
+		"i_compareType": 1,
+		"i_id": 4,
+		"i_isSet": 0
+	},
+	{
+		"i_achieveType": 5,
+		"i_compareType": 1,
+		"i_id": 5,
+		"i_isSet": 0
+	},
+	{
+		"i_achieveType": 6,
+		"i_compareType": 1,
+		"i_id": 6,
+		"i_isSet": 0,
+		"i_param1Type": 1,
+		"i_param2Type": 0
+	},
+	{
+		"i_achieveType": 7,
+		"i_compareType": 1,
+		"i_id": 7,
+		"i_isSet": 0,
+		"i_param1Type": 1,
+		"i_param2Type": 0
+	},
+	{
+		"i_achieveType": 8,
+		"i_compareType": 1,
+		"i_id": 8,
+		"i_isSet": 0
+	},
+	{
+		"i_achieveType": 9,
+		"i_compareType": 1,
+		"i_id": 9,
+		"i_isSet": 0,
+		"i_param1Type": 1,
+		"i_param2Type": 0
+	},
+	{
+		"i_achieveType": 10,
+		"i_compareType": 1,
+		"i_id": 10,
+		"i_isSet": 0,
+		"i_param1Type": 1,
+		"i_param2Type": 0
+	},
+	{
+		"i_achieveType": 11,
+		"i_compareType": 1,
+		"i_id": 11,
+		"i_isSet": 0,
+		"i_param1Type": 1,
+		"i_param2Type": 0
+	},
+	{
+		"i_achieveType": 12,
+		"i_compareType": 1,
+		"i_id": 12,
+		"i_isSet": 0,
+		"i_param1Type": 1,
+		"i_param2Type": 0
+	},
+	{
+		"i_achieveType": 13,
+		"i_compareType": 1,
+		"i_id": 13,
+		"i_isSet": 0,
+		"i_param1Type": 1,
+		"i_param2Type": 0
+	},
+	{
+		"i_achieveType": 14,
+		"i_compareType": 1,
+		"i_id": 14,
+		"i_isSet": 0,
+		"i_param1Type": 1,
+		"i_param2Type": 0
+	},
+	{
+		"i_achieveType": 15,
+		"i_compareType": 1,
+		"i_id": 15,
+		"i_isSet": 0,
+		"i_param1Type": 1,
+		"i_param2Type": 0
+	},
+	{
+		"i_achieveType": 16,
+		"i_compareType": 1,
+		"i_id": 16,
+		"i_isSet": 0,
+		"i_param1Type": 1,
+		"i_param2Type": 0
+	},
+	{
+		"i_achieveType": 17,
+		"i_compareType": 1,
+		"i_id": 17,
+		"i_isSet": 0,
+		"i_param1Type": 1,
+		"i_param2Type": 0
+	},
+	{
+		"i_achieveType": 18,
+		"i_compareType": 1,
+		"i_id": 18,
+		"i_isSet": 0
+	},
+	{
+		"i_achieveType": 19,
+		"i_compareType": 1,
+		"i_id": 19,
+		"i_isSet": 0,
+		"i_param1Type": 1,
+		"i_param2Type": 0
+	},
+	{
+		"i_achieveType": 20,
+		"i_compareType": 1,
+		"i_id": 20,
+		"i_isSet": 0,
+		"i_param1Type": 1,
+		"i_param2Type": 0
+	},
+	{
+		"i_achieveType": 21,
+		"i_compareType": 1,
+		"i_id": 21,
+		"i_isSet": 0,
+		"i_param1Type": 1
+	},
+	{
+		"i_achieveType": 22,
+		"i_compareType": 1,
+		"i_id": 22,
+		"i_isSet": 0,
+		"i_param1Type": 1,
+		"i_param2Type": 0
+	},
+	{
+		"i_achieveType": 23,
+		"i_compareType": 2,
+		"i_id": 23,
+		"i_isSet": 0,
+		"i_param1Type": 1,
+		"i_param2Type": 2
+	},
+	{
+		"i_achieveType": 24,
+		"i_compareType": 2,
+		"i_id": 24,
+		"i_isSet": 0,
+		"i_param1Type": 2,
+		"i_param2Type": 0
+	},
+	{
+		"i_achieveType": 25,
+		"i_compareType": 2,
+		"i_id": 25,
+		"i_isSet": 1,
+		"i_param1Type": 2,
+		"i_param2Type": 0
+	},
+	{
+		"i_achieveType": 26,
+		"i_compareType": 1,
+		"i_id": 26,
+		"i_isSet": 1,
+		"i_param1Type": 1,
+		"i_param2Type": 0
+	},
+	{
+		"i_achieveType": 27,
+		"i_compareType": 2,
+		"i_id": 27,
+		"i_isSet": 1,
+		"i_param1Type": 2,
+		"i_param2Type": 0
+	},
+	{
+		"i_achieveType": 28,
+		"i_compareType": 1,
+		"i_id": 28,
+		"i_isSet": 0,
+		"i_param1Type": 0,
+		"i_param2Type": 0
+	},
+	{
+		"i_achieveType": 29,
+		"i_compareType": 1,
+		"i_id": 29,
+		"i_isSet": 0,
+		"i_param1Type": 1,
+		"i_param2Type": 1
+	},
+	{
+		"i_achieveType": 30,
+		"i_compareType": 1,
+		"i_id": 30,
+		"i_isSet": 1,
+		"i_param1Type": 0,
+		"i_param2Type": 0
+	},
+	{
+		"i_achieveType": 31,
+		"i_compareType": 1,
+		"i_id": 31,
+		"i_isSet": 0,
+		"i_param1Type": 1,
+		"i_param2Type": 0
+	},
+	{
+		"i_achieveType": 32,
+		"i_compareType": 1,
+		"i_id": 32,
+		"i_isSet": 0
+	},
+	{
+		"i_achieveType": 33,
+		"i_compareType": 1,
+		"i_id": 33,
+		"i_isSet": 0
+	},
+	{
+		"i_achieveType": 34,
+		"i_compareType": 1,
+		"i_id": 34,
+		"i_isSet": 0
+	},
+	{
+		"i_achieveType": 35,
+		"i_compareType": 1,
+		"i_id": 35,
+		"i_isSet": 0
+	},
+	{
+		"i_achieveType": 36,
+		"i_compareType": 1,
+		"i_id": 36,
+		"i_isSet": 0
+	},
+	{
+		"i_achieveType": 37,
+		"i_compareType": 1,
+		"i_id": 37,
+		"i_isSet": 1,
+		"i_param1Type": 1,
+		"i_param2Type": 0
+	},
+	{
+		"i_achieveType": 38,
+		"i_compareType": 1,
+		"i_id": 38,
+		"i_isSet": 0,
+		"i_param1Type": 1,
+		"i_param2Type": 0
+	},
+	{
+		"i_achieveType": 39,
+		"i_compareType": 1,
+		"i_id": 39,
+		"i_isSet": 1,
+		"i_param1Type": 1,
+		"i_param2Type": 0
+	},
+	{
+		"i_achieveType": 40,
+		"i_compareType": 1,
+		"i_id": 40,
+		"i_isSet": 0
+	},
+	{
+		"i_achieveType": 41,
+		"i_compareType": 1,
+		"i_id": 41,
+		"i_isSet": 0,
+		"i_param1Type": 1,
+		"i_param2Type": 0
+	},
+	{
+		"i_achieveType": 42,
+		"i_compareType": 1,
+		"i_id": 42,
+		"i_isSet": 0,
+		"i_param1Type": 2,
+		"i_param2Type": 2
+	},
+	{
+		"i_achieveType": 43,
+		"i_compareType": 1,
+		"i_id": 43,
+		"i_isSet": 0
+	},
+	{
+		"i_achieveType": 44,
+		"i_compareType": 1,
+		"i_id": 44,
+		"i_isSet": 0,
+		"i_param1Type": 1,
+		"i_param2Type": 0
+	},
+	{
+		"i_achieveType": 45,
+		"i_compareType": 1,
+		"i_id": 45,
+		"i_isSet": 0
+	},
+	{
+		"i_achieveType": 46,
+		"i_compareType": 1,
+		"i_id": 46,
+		"i_isSet": 0
+	},
+	{
+		"i_achieveType": 47,
+		"i_compareType": 1,
+		"i_id": 47,
+		"i_isSet": 0,
+		"i_param1Type": 1,
+		"i_param2Type": 0
+	},
+	{
+		"i_achieveType": 48,
+		"i_compareType": 1,
+		"i_id": 48,
+		"i_isSet": 1,
+		"i_param1Type": 1,
+		"i_param2Type": 0
+	},
+	{
+		"i_achieveType": 49,
+		"i_compareType": 1,
+		"i_id": 49,
+		"i_isSet": 1,
+		"i_param1Type": 1,
+		"i_param2Type": 0
+	},
+	{
+		"i_achieveType": 50,
+		"i_compareType": 1,
+		"i_id": 50,
+		"i_isSet": 1,
+		"i_param1Type": 1,
+		"i_param2Type": 0
+	},
+	{
+		"i_achieveType": 51,
+		"i_compareType": 1,
+		"i_id": 51,
+		"i_isSet": 0,
+		"i_param1Type": 1,
+		"i_param2Type": 0
+	},
+	{
+		"i_achieveType": 52,
+		"i_compareType": 1,
+		"i_id": 52,
+		"i_isSet": 0,
+		"i_param1Type": 1,
+		"i_param2Type": 1
+	},
+	{
+		"i_achieveType": 53,
+		"i_compareType": 1,
+		"i_id": 53,
+		"i_isSet": 1
+	},
+	{
+		"i_achieveType": 54,
+		"i_compareType": 1,
+		"i_id": 54,
+		"i_isSet": 0
+	},
+	{
+		"i_achieveType": 55,
+		"i_compareType": 1,
+		"i_id": 55,
+		"i_isSet": 0,
+		"i_param1Type": 1,
+		"i_param2Type": 0
+	},
+	{
+		"i_achieveType": 56,
+		"i_compareType": 1,
+		"i_id": 56,
+		"i_isSet": 0,
+		"i_param1Type": 0,
+		"i_param2Type": 0
+	}
+]

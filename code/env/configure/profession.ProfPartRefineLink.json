@@ -1,0 +1,1181 @@
+[
+	{
+		"i_id": 0,
+		"i_needLevel": 1,
+		"il_addProp": [
+			0,
+			0,
+			0
+		]
+	},
+	{
+		"i_id": 1,
+		"i_needLevel": 10,
+		"il_addProp": [
+			80,
+			20,
+			830
+		]
+	},
+	{
+		"i_id": 2,
+		"i_needLevel": 20,
+		"il_addProp": [
+			80,
+			20,
+			830
+		]
+	},
+	{
+		"i_id": 3,
+		"i_needLevel": 30,
+		"il_addProp": [
+			80,
+			20,
+			830
+		]
+	},
+	{
+		"i_id": 4,
+		"i_needLevel": 40,
+		"il_addProp": [
+			80,
+			20,
+			830
+		]
+	},
+	{
+		"i_id": 5,
+		"i_needLevel": 50,
+		"il_addProp": [
+			80,
+			20,
+			830
+		]
+	},
+	{
+		"i_id": 6,
+		"i_needLevel": 60,
+		"il_addProp": [
+			80,
+			20,
+			830
+		]
+	},
+	{
+		"i_id": 7,
+		"i_needLevel": 70,
+		"il_addProp": [
+			80,
+			20,
+			830
+		]
+	},
+	{
+		"i_id": 8,
+		"i_needLevel": 80,
+		"il_addProp": [
+			80,
+			20,
+			830
+		]
+	},
+	{
+		"i_id": 9,
+		"i_needLevel": 90,
+		"il_addProp": [
+			80,
+			20,
+			830
+		]
+	},
+	{
+		"i_id": 10,
+		"i_needLevel": 100,
+		"il_addProp": [
+			80,
+			20,
+			830
+		]
+	},
+	{
+		"i_id": 11,
+		"i_needLevel": 110,
+		"il_addProp": [
+			290,
+			60,
+			2900
+		]
+	},
+	{
+		"i_id": 12,
+		"i_needLevel": 120,
+		"il_addProp": [
+			290,
+			60,
+			2900
+		]
+	},
+	{
+		"i_id": 13,
+		"i_needLevel": 130,
+		"il_addProp": [
+			290,
+			60,
+			2900
+		]
+	},
+	{
+		"i_id": 14,
+		"i_needLevel": 140,
+		"il_addProp": [
+			290,
+			60,
+			2900
+		]
+	},
+	{
+		"i_id": 15,
+		"i_needLevel": 150,
+		"il_addProp": [
+			290,
+			60,
+			2900
+		]
+	},
+	{
+		"i_id": 16,
+		"i_needLevel": 160,
+		"il_addProp": [
+			290,
+			60,
+			2900
+		]
+	},
+	{
+		"i_id": 17,
+		"i_needLevel": 170,
+		"il_addProp": [
+			290,
+			60,
+			2900
+		]
+	},
+	{
+		"i_id": 18,
+		"i_needLevel": 180,
+		"il_addProp": [
+			290,
+			60,
+			2900
+		]
+	},
+	{
+		"i_id": 19,
+		"i_needLevel": 190,
+		"il_addProp": [
+			290,
+			60,
+			2900
+		]
+	},
+	{
+		"i_id": 20,
+		"i_needLevel": 200,
+		"il_addProp": [
+			290,
+			60,
+			2900
+		]
+	},
+	{
+		"i_id": 21,
+		"i_needLevel": 210,
+		"il_addProp": [
+			360,
+			70,
+			3600
+		]
+	},
+	{
+		"i_id": 22,
+		"i_needLevel": 220,
+		"il_addProp": [
+			360,
+			70,
+			3600
+		]
+	},
+	{
+		"i_id": 23,
+		"i_needLevel": 230,
+		"il_addProp": [
+			360,
+			70,
+			3600
+		]
+	},
+	{
+		"i_id": 24,
+		"i_needLevel": 240,
+		"il_addProp": [
+			360,
+			70,
+			3600
+		]
+	},
+	{
+		"i_id": 25,
+		"i_needLevel": 250,
+		"il_addProp": [
+			360,
+			70,
+			3600
+		]
+	},
+	{
+		"i_id": 26,
+		"i_needLevel": 260,
+		"il_addProp": [
+			450,
+			90,
+			4500
+		]
+	},
+	{
+		"i_id": 27,
+		"i_needLevel": 270,
+		"il_addProp": [
+			450,
+			90,
+			4500
+		]
+	},
+	{
+		"i_id": 28,
+		"i_needLevel": 280,
+		"il_addProp": [
+			450,
+			90,
+			4500
+		]
+	},
+	{
+		"i_id": 29,
+		"i_needLevel": 290,
+		"il_addProp": [
+			450,
+			90,
+			4500
+		]
+	},
+	{
+		"i_id": 30,
+		"i_needLevel": 300,
+		"il_addProp": [
+			450,
+			90,
+			4500
+		]
+	},
+	{
+		"i_id": 31,
+		"i_needLevel": 310,
+		"il_addProp": [
+			530,
+			110,
+			5300
+		]
+	},
+	{
+		"i_id": 32,
+		"i_needLevel": 320,
+		"il_addProp": [
+			530,
+			110,
+			5300
+		]
+	},
+	{
+		"i_id": 33,
+		"i_needLevel": 330,
+		"il_addProp": [
+			530,
+			110,
+			5300
+		]
+	},
+	{
+		"i_id": 34,
+		"i_needLevel": 340,
+		"il_addProp": [
+			530,
+			110,
+			5300
+		]
+	},
+	{
+		"i_id": 35,
+		"i_needLevel": 350,
+		"il_addProp": [
+			530,
+			110,
+			5300
+		]
+	},
+	{
+		"i_id": 36,
+		"i_needLevel": 360,
+		"il_addProp": [
+			620,
+			120,
+			6200
+		]
+	},
+	{
+		"i_id": 37,
+		"i_needLevel": 370,
+		"il_addProp": [
+			620,
+			120,
+			6200
+		]
+	},
+	{
+		"i_id": 38,
+		"i_needLevel": 380,
+		"il_addProp": [
+			620,
+			120,
+			6200
+		]
+	},
+	{
+		"i_id": 39,
+		"i_needLevel": 390,
+		"il_addProp": [
+			620,
+			120,
+			6200
+		]
+	},
+	{
+		"i_id": 40,
+		"i_needLevel": 400,
+		"il_addProp": [
+			620,
+			120,
+			6200
+		]
+	},
+	{
+		"i_id": 41,
+		"i_needLevel": 410,
+		"il_addProp": [
+			720,
+			140,
+			7200
+		]
+	},
+	{
+		"i_id": 42,
+		"i_needLevel": 420,
+		"il_addProp": [
+			720,
+			140,
+			7200
+		]
+	},
+	{
+		"i_id": 43,
+		"i_needLevel": 430,
+		"il_addProp": [
+			720,
+			140,
+			7200
+		]
+	},
+	{
+		"i_id": 44,
+		"i_needLevel": 440,
+		"il_addProp": [
+			720,
+			140,
+			7200
+		]
+	},
+	{
+		"i_id": 45,
+		"i_needLevel": 450,
+		"il_addProp": [
+			720,
+			140,
+			7200
+		]
+	},
+	{
+		"i_id": 46,
+		"i_needLevel": 460,
+		"il_addProp": [
+			820,
+			160,
+			8200
+		]
+	},
+	{
+		"i_id": 47,
+		"i_needLevel": 470,
+		"il_addProp": [
+			820,
+			160,
+			8200
+		]
+	},
+	{
+		"i_id": 48,
+		"i_needLevel": 480,
+		"il_addProp": [
+			820,
+			160,
+			8200
+		]
+	},
+	{
+		"i_id": 49,
+		"i_needLevel": 490,
+		"il_addProp": [
+			820,
+			160,
+			8200
+		]
+	},
+	{
+		"i_id": 50,
+		"i_needLevel": 500,
+		"il_addProp": [
+			820,
+			160,
+			8200
+		]
+	},
+	{
+		"i_id": 51,
+		"i_needLevel": 510,
+		"il_addProp": [
+			900,
+			180,
+			9000
+		]
+	},
+	{
+		"i_id": 52,
+		"i_needLevel": 520,
+		"il_addProp": [
+			900,
+			180,
+			9000
+		]
+	},
+	{
+		"i_id": 53,
+		"i_needLevel": 530,
+		"il_addProp": [
+			900,
+			180,
+			9000
+		]
+	},
+	{
+		"i_id": 54,
+		"i_needLevel": 540,
+		"il_addProp": [
+			900,
+			180,
+			9000
+		]
+	},
+	{
+		"i_id": 55,
+		"i_needLevel": 550,
+		"il_addProp": [
+			900,
+			180,
+			9000
+		]
+	},
+	{
+		"i_id": 56,
+		"i_needLevel": 560,
+		"il_addProp": [
+			1000,
+			200,
+			10000
+		]
+	},
+	{
+		"i_id": 57,
+		"i_needLevel": 570,
+		"il_addProp": [
+			1000,
+			200,
+			10000
+		]
+	},
+	{
+		"i_id": 58,
+		"i_needLevel": 580,
+		"il_addProp": [
+			1000,
+			200,
+			10000
+		]
+	},
+	{
+		"i_id": 59,
+		"i_needLevel": 590,
+		"il_addProp": [
+			1000,
+			200,
+			10000
+		]
+	},
+	{
+		"i_id": 60,
+		"i_needLevel": 600,
+		"il_addProp": [
+			1000,
+			200,
+			10000
+		]
+	},
+	{
+		"i_id": 61,
+		"i_needLevel": 610,
+		"il_addProp": [
+			1100,
+			230,
+			11000
+		]
+	},
+	{
+		"i_id": 62,
+		"i_needLevel": 620,
+		"il_addProp": [
+			1100,
+			230,
+			11000
+		]
+	},
+	{
+		"i_id": 63,
+		"i_needLevel": 630,
+		"il_addProp": [
+			1100,
+			230,
+			11000
+		]
+	},
+	{
+		"i_id": 64,
+		"i_needLevel": 640,
+		"il_addProp": [
+			1100,
+			230,
+			11000
+		]
+	},
+	{
+		"i_id": 65,
+		"i_needLevel": 650,
+		"il_addProp": [
+			1100,
+			230,
+			11000
+		]
+	},
+	{
+		"i_id": 66,
+		"i_needLevel": 660,
+		"il_addProp": [
+			1200,
+			250,
+			12000
+		]
+	},
+	{
+		"i_id": 67,
+		"i_needLevel": 670,
+		"il_addProp": [
+			1200,
+			250,
+			12000
+		]
+	},
+	{
+		"i_id": 68,
+		"i_needLevel": 680,
+		"il_addProp": [
+			1200,
+			250,
+			12000
+		]
+	},
+	{
+		"i_id": 69,
+		"i_needLevel": 690,
+		"il_addProp": [
+			1200,
+			250,
+			12000
+		]
+	},
+	{
+		"i_id": 70,
+		"i_needLevel": 700,
+		"il_addProp": [
+			1200,
+			250,
+			12000
+		]
+	},
+	{
+		"i_id": 71,
+		"i_needLevel": 710,
+		"il_addProp": [
+			1400,
+			270,
+			14000
+		]
+	},
+	{
+		"i_id": 72,
+		"i_needLevel": 720,
+		"il_addProp": [
+			1400,
+			270,
+			14000
+		]
+	},
+	{
+		"i_id": 73,
+		"i_needLevel": 730,
+		"il_addProp": [
+			1400,
+			270,
+			14000
+		]
+	},
+	{
+		"i_id": 74,
+		"i_needLevel": 740,
+		"il_addProp": [
+			1400,
+			270,
+			14000
+		]
+	},
+	{
+		"i_id": 75,
+		"i_needLevel": 750,
+		"il_addProp": [
+			1400,
+			270,
+			14000
+		]
+	},
+	{
+		"i_id": 76,
+		"i_needLevel": 760,
+		"il_addProp": [
+			1500,
+			300,
+			15000
+		]
+	},
+	{
+		"i_id": 77,
+		"i_needLevel": 770,
+		"il_addProp": [
+			1500,
+			300,
+			15000
+		]
+	},
+	{
+		"i_id": 78,
+		"i_needLevel": 780,
+		"il_addProp": [
+			1500,
+			300,
+			15000
+		]
+	},
+	{
+		"i_id": 79,
+		"i_needLevel": 790,
+		"il_addProp": [
+			1500,
+			300,
+			15000
+		]
+	},
+	{
+		"i_id": 80,
+		"i_needLevel": 800,
+		"il_addProp": [
+			1500,
+			300,
+			15000
+		]
+	},
+	{
+		"i_id": 81,
+		"i_needLevel": 810,
+		"il_addProp": [
+			1600,
+			300,
+			16000
+		]
+	},
+	{
+		"i_id": 82,
+		"i_needLevel": 820,
+		"il_addProp": [
+			1600,
+			300,
+			16000
+		]
+	},
+	{
+		"i_id": 83,
+		"i_needLevel": 830,
+		"il_addProp": [
+			1600,
+			300,
+			16000
+		]
+	},
+	{
+		"i_id": 84,
+		"i_needLevel": 840,
+		"il_addProp": [
+			1600,
+			300,
+			16000
+		]
+	},
+	{
+		"i_id": 85,
+		"i_needLevel": 850,
+		"il_addProp": [
+			1600,
+			300,
+			16000
+		]
+	},
+	{
+		"i_id": 86,
+		"i_needLevel": 860,
+		"il_addProp": [
+			1700,
+			300,
+			17000
+		]
+	},
+	{
+		"i_id": 87,
+		"i_needLevel": 870,
+		"il_addProp": [
+			1700,
+			300,
+			17000
+		]
+	},
+	{
+		"i_id": 88,
+		"i_needLevel": 880,
+		"il_addProp": [
+			1700,
+			300,
+			17000
+		]
+	},
+	{
+		"i_id": 89,
+		"i_needLevel": 890,
+		"il_addProp": [
+			1700,
+			300,
+			17000
+		]
+	},
+	{
+		"i_id": 90,
+		"i_needLevel": 900,
+		"il_addProp": [
+			1700,
+			300,
+			17000
+		]
+	},
+	{
+		"i_id": 91,
+		"i_needLevel": 910,
+		"il_addProp": [
+			1900,
+			400,
+			19000
+		]
+	},
+	{
+		"i_id": 92,
+		"i_needLevel": 920,
+		"il_addProp": [
+			1900,
+			400,
+			19000
+		]
+	},
+	{
+		"i_id": 93,
+		"i_needLevel": 930,
+		"il_addProp": [
+			1900,
+			400,
+			19000
+		]
+	},
+	{
+		"i_id": 94,
+		"i_needLevel": 940,
+		"il_addProp": [
+			1900,
+			400,
+			19000
+		]
+	},
+	{
+		"i_id": 95,
+		"i_needLevel": 950,
+		"il_addProp": [
+			1900,
+			400,
+			19000
+		]
+	},
+	{
+		"i_id": 96,
+		"i_needLevel": 960,
+		"il_addProp": [
+			2000,
+			400,
+			20000
+		]
+	},
+	{
+		"i_id": 97,
+		"i_needLevel": 970,
+		"il_addProp": [
+			2000,
+			400,
+			20000
+		]
+	},
+	{
+		"i_id": 98,
+		"i_needLevel": 980,
+		"il_addProp": [
+			2000,
+			400,
+			20000
+		]
+	},
+	{
+		"i_id": 99,
+		"i_needLevel": 990,
+		"il_addProp": [
+			2000,
+			400,
+			20000
+		]
+	},
+	{
+		"i_id": 100,
+		"i_needLevel": 1000,
+		"il_addProp": [
+			2000,
+			400,
+			20000
+		]
+	},
+	{
+		"i_id": 101,
+		"i_needLevel": 1010,
+		"il_addProp": [
+			2100,
+			400,
+			21000
+		]
+	},
+	{
+		"i_id": 102,
+		"i_needLevel": 1020,
+		"il_addProp": [
+			2100,
+			400,
+			21000
+		]
+	},
+	{
+		"i_id": 103,
+		"i_needLevel": 1030,
+		"il_addProp": [
+			2100,
+			400,
+			21000
+		]
+	},
+	{
+		"i_id": 104,
+		"i_needLevel": 1040,
+		"il_addProp": [
+			2100,
+			400,
+			21000
+		]
+	},
+	{
+		"i_id": 105,
+		"i_needLevel": 1050,
+		"il_addProp": [
+			2100,
+			400,
+			21000
+		]
+	},
+	{
+		"i_id": 106,
+		"i_needLevel": 1060,
+		"il_addProp": [
+			2300,
+			500,
+			23000
+		]
+	},
+	{
+		"i_id": 107,
+		"i_needLevel": 1070,
+		"il_addProp": [
+			2300,
+			500,
+			23000
+		]
+	},
+	{
+		"i_id": 108,
+		"i_needLevel": 1080,
+		"il_addProp": [
+			2300,
+			500,
+			23000
+		]
+	},
+	{
+		"i_id": 109,
+		"i_needLevel": 1090,
+		"il_addProp": [
+			2300,
+			500,
+			23000
+		]
+	},
+	{
+		"i_id": 110,
+		"i_needLevel": 1100,
+		"il_addProp": [
+			2300,
+			500,
+			23000
+		]
+	},
+	{
+		"i_id": 111,
+		"i_needLevel": 1110,
+		"il_addProp": [
+			2400,
+			500,
+			24000
+		]
+	},
+	{
+		"i_id": 112,
+		"i_needLevel": 1120,
+		"il_addProp": [
+			2400,
+			500,
+			24000
+		]
+	},
+	{
+		"i_id": 113,
+		"i_needLevel": 1130,
+		"il_addProp": [
+			2400,
+			500,
+			24000
+		]
+	},
+	{
+		"i_id": 114,
+		"i_needLevel": 1140,
+		"il_addProp": [
+			2400,
+			500,
+			24000
+		]
+	},
+	{
+		"i_id": 115,
+		"i_needLevel": 1150,
+		"il_addProp": [
+			2400,
+			500,
+			24000
+		]
+	},
+	{
+		"i_id": 116,
+		"i_needLevel": 1160,
+		"il_addProp": [
+			2600,
+			500,
+			26000
+		]
+	},
+	{
+		"i_id": 117,
+		"i_needLevel": 1170,
+		"il_addProp": [
+			2600,
+			500,
+			26000
+		]
+	},
+	{
+		"i_id": 118,
+		"i_needLevel": 1180,
+		"il_addProp": [
+			2600,
+			500,
+			26000
+		]
+	},
+	{
+		"i_id": 119,
+		"i_needLevel": 1190,
+		"il_addProp": [
+			2600,
+			500,
+			26000
+		]
+	},
+	{
+		"i_id": 120,
+		"i_needLevel": 1200,
+		"il_addProp": [
+			2600,
+			500,
+			26000
+		]
+	},
+	{
+		"i_id": 121,
+		"i_needLevel": 1210,
+		"il_addProp": [
+			2700,
+			500,
+			27000
+		]
+	},
+	{
+		"i_id": 122,
+		"i_needLevel": 1220,
+		"il_addProp": [
+			2700,
+			500,
+			27000
+		]
+	},
+	{
+		"i_id": 123,
+		"i_needLevel": 1230,
+		"il_addProp": [
+			2700,
+			500,
+			27000
+		]
+	},
+	{
+		"i_id": 124,
+		"i_needLevel": 1240,
+		"il_addProp": [
+			2700,
+			500,
+			27000
+		]
+	},
+	{
+		"i_id": 125,
+		"i_needLevel": 1250,
+		"il_addProp": [
+			2700,
+			500,
+			27000
+		]
+	},
+	{
+		"i_id": 126,
+		"i_needLevel": 1260,
+		"il_addProp": [
+			2900,
+			600,
+			29000
+		]
+	},
+	{
+		"i_id": 127,
+		"i_needLevel": 1270,
+		"il_addProp": [
+			2900,
+			600,
+			29000
+		]
+	},
+	{
+		"i_id": 128,
+		"i_needLevel": 1280,
+		"il_addProp": [
+			2900,
+			600,
+			29000
+		]
+	},
+	{
+		"i_id": 129,
+		"i_needLevel": 1290,
+		"il_addProp": [
+			2900,
+			600,
+			29000
+		]
+	},
+	{
+		"i_id": 130,
+		"i_needLevel": 1300,
+		"il_addProp": [
+			2900,
+			600,
+			29000
+		]
+	}
+]

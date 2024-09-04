@@ -1,0 +1,134 @@
+[
+	{
+		"i_achieveType": 3,
+		"i_achieveValue": 1,
+		"i_addScore": 20,
+		"i_id": 1,
+		"i_systemOpenId": 0,
+		"il_achieveParams": [
+			0
+		],
+		"s_desc": "登录"
+	},
+	{
+		"i_achieveType": 55,
+		"i_achieveValue": 1,
+		"i_addScore": 20,
+		"i_id": 2,
+		"i_systemOpenId": 0,
+		"il_achieveParams": [
+			1
+		],
+		"s_desc": "完成1次星球探险"
+	},
+	{
+		"i_achieveType": 55,
+		"i_achieveValue": 5,
+		"i_addScore": 10,
+		"i_id": 3,
+		"i_systemOpenId": 18,
+		"il_achieveParams": [
+			3
+		],
+		"s_desc": "完成5次基地保卫战"
+	},
+	{
+		"i_achieveType": 12,
+		"i_achieveValue": 10,
+		"i_addScore": 20,
+		"i_id": 4,
+		"i_systemOpenId": 0,
+		"il_achieveParams": [
+			0
+		],
+		"s_desc": "开启10个补给箱"
+	},
+	{
+		"i_achieveType": 7,
+		"i_achieveValue": 1,
+		"i_addScore": 40,
+		"i_id": 5,
+		"i_systemOpenId": 0,
+		"il_achieveParams": [
+			1
+		],
+		"s_desc": "黑市商店购买1次商品"
+	},
+	{
+		"i_achieveType": 51,
+		"i_achieveValue": 1,
+		"i_addScore": 40,
+		"i_id": 6,
+		"i_systemOpenId": 0,
+		"il_achieveParams": [
+			0
+		],
+		"s_desc": "克隆1次英雄"
+	},
+	{
+		"i_achieveType": 51,
+		"i_achieveValue": 1,
+		"i_addScore": 10,
+		"i_id": 7,
+		"i_systemOpenId": 21,
+		"il_achieveParams": [
+			1
+		],
+		"s_desc": "制造1次晶核"
+	},
+	{
+		"i_achieveType": 13,
+		"i_achieveValue": 10,
+		"i_addScore": 10,
+		"i_id": 8,
+		"i_systemOpenId": 6,
+		"il_achieveParams": [
+			999
+		],
+		"s_desc": "分解10件装备"
+	},
+	{
+		"i_achieveType": 9,
+		"i_achieveValue": 1,
+		"i_addScore": 40,
+		"i_id": 9,
+		"i_systemOpenId": 0,
+		"il_achieveParams": [
+			0
+		],
+		"s_desc": "观看1次广告"
+	},
+	{
+		"i_achieveType": 20,
+		"i_achieveValue": 1,
+		"i_addScore": 20,
+		"i_id": 10,
+		"i_systemOpenId": 0,
+		"il_achieveParams": [
+			999
+		],
+		"s_desc": "英雄升级1次"
+	},
+	{
+		"i_achieveType": 38,
+		"i_achieveValue": 1,
+		"i_addScore": 20,
+		"i_id": 11,
+		"i_systemOpenId": 6,
+		"il_achieveParams": [
+			999
+		],
+		"s_desc": "装备强化1次"
+	},
+	{
+		"i_achieveType": 54,
+		"i_achieveValue": 1,
+		"i_addScore": 20,
+		"i_id": 12,
+		"i_systemOpenId": 30,
+		"il_achieveParams": [
+			0
+		],
+		"s_desc": "挑战1次怪物试炼"
+	}
+]

@@ -1,0 +1,386 @@
+[
+	{
+		"i_id": 0,
+		"i_maxLevel": 20,
+		"i_needTotalLevel": 100,
+		"ill_needItem": [
+			[
+				1,
+				3,
+				10
+			]
+		]
+	},
+	{
+		"i_id": 1,
+		"i_maxLevel": 50,
+		"i_needTotalLevel": 250,
+		"ill_needItem": [
+			[
+				1,
+				3,
+				20
+			]
+		]
+	},
+	{
+		"i_id": 2,
+		"i_maxLevel": 100,
+		"i_needTotalLevel": 500,
+		"ill_needItem": [
+			[
+				1,
+				3,
+				30
+			]
+		]
+	},
+	{
+		"i_id": 3,
+		"i_maxLevel": 200,
+		"i_needTotalLevel": 1000,
+		"ill_needItem": [
+			[
+				1,
+				3,
+				40
+			]
+		]
+	},
+	{
+		"i_id": 4,
+		"i_maxLevel": 300,
+		"i_needTotalLevel": 1500,
+		"ill_needItem": [
+			[
+				1,
+				3,
+				50
+			]
+		]
+	},
+	{
+		"i_id": 5,
+		"i_maxLevel": 400,
+		"i_needTotalLevel": 2000,
+		"ill_needItem": [
+			[
+				1,
+				3,
+				60
+			]
+		]
+	},
+	{
+		"i_id": 6,
+		"i_maxLevel": 500,
+		"i_needTotalLevel": 2500,
+		"ill_needItem": [
+			[
+				1,
+				3,
+				70
+			]
+		]
+	},
+	{
+		"i_id": 7,
+		"i_maxLevel": 600,
+		"i_needTotalLevel": 3000,
+		"ill_needItem": [
+			[
+				1,
+				3,
+				80
+			]
+		]
+	},
+	{
+		"i_id": 8,
+		"i_maxLevel": 700,
+		"i_needTotalLevel": 3500,
+		"ill_needItem": [
+			[
+				1,
+				3,
+				90
+			]
+		]
+	},
+	{
+		"i_id": 9,
+		"i_maxLevel": 800,
+		"i_needTotalLevel": 4000,
+		"ill_needItem": [
+			[
+				1,
+				3,
+				100
+			]
+		]
+	},
+	{
+		"i_id": 10,
+		"i_maxLevel": 900,
+		"i_needTotalLevel": 4500,
+		"ill_needItem": [
+			[
+				1,
+				3,
+				120
+			]
+		]
+	},
+	{
+		"i_id": 11,
+		"i_maxLevel": 1000,
+		"i_needTotalLevel": 5000,
+		"ill_needItem": [
+			[
+				1,
+				3,
+				140
+			]
+		]
+	},
+	{
+		"i_id": 12,
+		"i_maxLevel": 1100,
+		"i_needTotalLevel": 5500,
+		"ill_needItem": [
+			[
+				1,
+				3,
+				160
+			]
+		]
+	},
+	{
+		"i_id": 13,
+		"i_maxLevel": 1200,
+		"i_needTotalLevel": 6000,
+		"ill_needItem": [
+			[
+				1,
+				3,
+				180
+			]
+		]
+	},
+	{
+		"i_id": 14,
+		"i_maxLevel": 1300,
+		"i_needTotalLevel": 6500,
+		"ill_needItem": [
+			[
+				1,
+				3,
+				200
+			]
+		]
+	},
+	{
+		"i_id": 15,
+		"i_maxLevel": 1400,
+		"i_needTotalLevel": 7000,
+		"ill_needItem": [
+			[
+				1,
+				3,
+				220
+			]
+		]
+	},
+	{
+		"i_id": 16,
+		"i_maxLevel": 1500,
+		"i_needTotalLevel": 7500,
+		"ill_needItem": [
+			[
+				1,
+				3,
+				240
+			]
+		]
+	},
+	{
+		"i_id": 17,
+		"i_maxLevel": 1600,
+		"i_needTotalLevel": 8000,
+		"ill_needItem": [
+			[
+				1,
+				3,
+				260
+			]
+		]
+	},
+	{
+		"i_id": 18,
+		"i_maxLevel": 1700,
+		"i_needTotalLevel": 8500,
+		"ill_needItem": [
+			[
+				1,
+				3,
+				280
+			]
+		]
+	},
+	{
+		"i_id": 19,
+		"i_maxLevel": 1800,
+		"i_needTotalLevel": 9000,
+		"ill_needItem": [
+			[
+				1,
+				3,
+				300
+			]
+		]
+	},
+	{
+		"i_id": 20,
+		"i_maxLevel": 1900,
+		"i_needTotalLevel": 9500,
+		"ill_needItem": [
+			[
+				1,
+				3,
+				320
+			]
+		]
+	},
+	{
+		"i_id": 21,
+		"i_maxLevel": 2000,
+		"i_needTotalLevel": 10000,
+		"ill_needItem": [
+			[
+				1,
+				3,
+				340
+			]
+		]
+	},
+	{
+		"i_id": 22,
+		"i_maxLevel": 2100,
+		"i_needTotalLevel": 10500,
+		"ill_needItem": [
+			[
+				1,
+				3,
+				360
+			]
+		]
+	},
+	{
+		"i_id": 23,
+		"i_maxLevel": 2200,
+		"i_needTotalLevel": 11000,
+		"ill_needItem": [
+			[
+				1,
+				3,
+				380
+			]
+		]
+	},
+	{
+		"i_id": 24,
+		"i_maxLevel": 2300,
+		"i_needTotalLevel": 11500,
+		"ill_needItem": [
+			[
+				1,
+				3,
+				400
+			]
+		]
+	},
+	{
+		"i_id": 25,
+		"i_maxLevel": 2400,
+		"i_needTotalLevel": 12000,
+		"ill_needItem": [
+			[
+				1,
+				3,
+				420
+			]
+		]
+	},
+	{
+		"i_id": 26,
+		"i_maxLevel": 2500,
+		"i_needTotalLevel": 12500,
+		"ill_needItem": [
+			[
+				1,
+				3,
+				440
+			]
+		]
+	},
+	{
+		"i_id": 27,
+		"i_maxLevel": 2600,
+		"i_needTotalLevel": 13000,
+		"ill_needItem": [
+			[
+				1,
+				3,
+				460
+			]
+		]
+	},
+	{
+		"i_id": 28,
+		"i_maxLevel": 2700,
+		"i_needTotalLevel": 13500,
+		"ill_needItem": [
+			[
+				1,
+				3,
+				480
+			]
+		]
+	},
+	{
+		"i_id": 29,
+		"i_maxLevel": 2800,
+		"i_needTotalLevel": 14000,
+		"ill_needItem": [
+			[
+				1,
+				3,
+				500
+			]
+		]
+	},
+	{
+		"i_id": 30,
+		"i_maxLevel": 2900,
+		"i_needTotalLevel": 14500,
+		"ill_needItem": [
+			[
+				1,
+				3,
+				520
+			]
+		]
+	},
+	{
+		"i_id": 31,
+		"i_maxLevel": 3000,
+		"i_needTotalLevel": 15000,
+		"ill_needItem": [
+			[
+				1,
+				3,
+				999999
+			]
+		]
+	}
+]

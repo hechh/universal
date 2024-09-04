@@ -1,0 +1,862 @@
+[
+	{
+		"i_id": 0,
+		"s_code": "Success",
+		"s_tips": "成功"
+	},
+	{
+		"i_id": 1,
+		"s_code": "Fail",
+		"s_tips": "失败"
+	},
+	{
+		"i_id": 2,
+		"s_code": "NameNeedLength",
+		"s_tips": "账号名称长度不合法"
+	},
+	{
+		"i_id": 3,
+		"s_code": "PasswdNeedLength",
+		"s_tips": "密码长度不合法"
+	},
+	{
+		"i_id": 4,
+		"s_code": "Passwd",
+		"s_tips": "密码不合法"
+	},
+	{
+		"i_id": 5,
+		"s_code": "Cfg",
+		"s_tips": "配置错误"
+	},
+	{
+		"i_id": 6,
+		"s_code": "ConnectTimeout",
+		"s_tips": "连接超时"
+	},
+	{
+		"i_id": 7,
+		"s_code": "ServerBusy",
+		"s_tips": "服务器繁忙"
+	},
+	{
+		"i_id": 8,
+		"s_code": "PARAM",
+		"s_tips": "参数错误"
+	},
+	{
+		"i_id": 9,
+		"s_code": "DATABASE",
+		"s_tips": "数据库报错"
+	},
+	{
+		"i_id": 10,
+		"s_code": "NameRepeat",
+		"s_tips": "名称重复"
+	},
+	{
+		"i_id": 11,
+		"s_code": "Relogin",
+		"s_tips": "请重新登录"
+	},
+	{
+		"i_id": 12,
+		"s_code": "Logining",
+		"s_tips": "正在登录中，请稍后"
+	},
+	{
+		"i_id": 13,
+		"s_code": "Kick",
+		"s_tips": "被踢出"
+	},
+	{
+		"i_id": 14,
+		"s_code": "NoDelMail",
+		"s_tips": "未读和为领取的邮件不能删除"
+	},
+	{
+		"i_id": 15,
+		"s_code": "NoMail",
+		"s_tips": "该邮件已经删除"
+	},
+	{
+		"i_id": 16,
+		"s_code": "ItemNotExist",
+		"s_tips": "道具不存在"
+	},
+	{
+		"i_id": 17,
+		"s_code": "ItemNotEnough",
+		"s_tips": "道具不够"
+	},
+	{
+		"i_id": 18,
+		"s_code": "SystemNoOpen",
+		"s_tips": "系统未开启"
+	},
+	{
+		"i_id": 19,
+		"s_code": "GiftCodeError",
+		"s_tips": "该兑换码不存在"
+	},
+	{
+		"i_id": 20,
+		"s_code": "GiftCodeUsed",
+		"s_tips": "该兑换码已经使用"
+	},
+	{
+		"i_id": 21,
+		"s_code": "GiftCodeExpired",
+		"s_tips": "该兑换码过期了"
+	},
+	{
+		"i_id": 22,
+		"s_code": "NeedRegTime",
+		"s_tips": "注册天数不满足"
+	},
+	{
+		"i_id": 23,
+		"s_code": "NeedPlayerLevel",
+		"s_tips": "玩家等级不满足"
+	},
+	{
+		"i_id": 24,
+		"s_code": "NeedVipLevel",
+		"s_tips": "vip等级不满足"
+	},
+	{
+		"i_id": 25,
+		"s_code": "GiftCodepNoCount",
+		"s_tips": "兑换次数不足"
+	},
+	{
+		"i_id": 26,
+		"s_code": "MaxLevel",
+		"s_tips": "达到最大等级"
+	},
+	{
+		"i_id": 27,
+		"s_code": "Equiping",
+		"s_tips": "装备穿戴中"
+	},
+	{
+		"i_id": 28,
+		"s_code": "NoEquipSplite",
+		"s_tips": "无装备可以分解"
+	},
+	{
+		"i_id": 29,
+		"s_code": "NoHeroAutoUpstar",
+		"s_tips": "暂时无可以自动觉醒的英雄"
+	},
+	{
+		"i_id": 30,
+		"s_code": "BagFull",
+		"s_tips": "背包容量已满"
+	},
+	{
+		"i_id": 31,
+		"s_code": "HeroIdRepeated",
+		"s_tips": "同一种英雄只能上一个"
+	},
+	{
+		"i_id": 32,
+		"s_code": "NeedProfLevel",
+		"s_tips": "职业等级不足"
+	},
+	{
+		"i_id": 33,
+		"s_code": "BoxScoreNumber",
+		"s_tips": "宝箱积分数量不够"
+	},
+	{
+		"i_id": 34,
+		"s_code": "BattleIng",
+		"s_tips": "战斗中"
+	},
+	{
+		"i_id": 35,
+		"s_code": "UpLimit",
+		"s_tips": "上限值限制"
+	},
+	{
+		"i_id": 36,
+		"s_code": "TaskNoFinish",
+		"s_tips": "任务未完成"
+	},
+	{
+		"i_id": 37,
+		"s_code": "HavePrize",
+		"s_tips": "已经领取过"
+	},
+	{
+		"i_id": 38,
+		"s_code": "ServerRepair",
+		"s_tips": "服务器维护中"
+	},
+	{
+		"i_id": 39,
+		"s_code": "CoolDown",
+		"s_tips": "冷却之中"
+	},
+	{
+		"i_id": 40,
+		"s_code": "InUse",
+		"s_tips": "正在使用中"
+	},
+	{
+		"i_id": 41,
+		"s_code": "NoMailAward",
+		"s_tips": "无可以领取的邮件"
+	},
+	{
+		"i_id": 42,
+		"s_code": "NotSupported",
+		"s_tips": "不支持"
+	},
+	{
+		"i_id": 43,
+		"s_code": "NotYetUnlocked",
+		"s_tips": "未解锁"
+	},
+	{
+		"i_id": 44,
+		"s_code": "DailyUpperLimit",
+		"s_tips": "每日上限限制"
+	},
+	{
+		"i_id": 45,
+		"s_code": "BuyTimesLimit",
+		"s_tips": "购买次数限制"
+	},
+	{
+		"i_id": 46,
+		"s_code": "HasAlreadyUnlocked",
+		"s_tips": "已经解锁"
+	},
+	{
+		"i_id": 47,
+		"s_code": "CrystalRobotNotExist",
+		"s_tips": "机器人不存在"
+	},
+	{
+		"i_id": 48,
+		"s_code": "AllStageFinished",
+		"s_tips": "所有等级已经完成"
+	},
+	{
+		"i_id": 49,
+		"s_code": "NotExceedStageLimit",
+		"s_tips": "未超过等级限制"
+	},
+	{
+		"i_id": 50,
+		"s_code": "CrystalNotExist",
+		"s_tips": "晶核不存在"
+	},
+	{
+		"i_id": 51,
+		"s_code": "BattleRepeated",
+		"s_tips": "重复请求战斗"
+	},
+	{
+		"i_id": 52,
+		"s_code": "BattleKillCountError",
+		"s_tips": "战斗击杀人数超过最大人数"
+	},
+	{
+		"i_id": 53,
+		"s_code": "SdkLoginError",
+		"s_tips": "SDK登录错误"
+	},
+	{
+		"i_id": 54,
+		"s_code": "PlayerForbidden",
+		"s_tips": "玩家被封禁"
+	},
+	{
+		"i_id": 55,
+		"s_code": "PlayerApiAlarm",
+		"s_tips": "api防外挂告警"
+	},
+	{
+		"i_id": 56,
+		"s_code": "ProtoMarhsal",
+		"s_tips": "序列化失败"
+	},
+	{
+		"i_id": 57,
+		"s_code": "ProtoUnmarshal",
+		"s_tips": "反序列化失败"
+	},
+	{
+		"i_id": 58,
+		"s_code": "PlatTypeNotAllow",
+		"s_tips": "该平台类型不能登录此服务器"
+	},
+	{
+		"i_id": 59,
+		"s_code": "DailyMaxCount",
+		"s_tips": "超过日限购次数"
+	},
+	{
+		"i_id": 60,
+		"s_code": "WeekMaxCount",
+		"s_tips": "超过周限购次数"
+	},
+	{
+		"i_id": 61,
+		"s_code": "MonthMaxCount",
+		"s_tips": "超过月限购次数"
+	},
+	{
+		"i_id": 62,
+		"s_code": "NotSupportAdvert",
+		"s_tips": "不支持广告"
+	},
+	{
+		"i_id": 63,
+		"s_code": "CooltimeIng",
+		"s_tips": "冷却时间未到"
+	},
+	{
+		"i_id": 64,
+		"s_code": "NeedOpenServerDays",
+		"s_tips": "开服时间不满足"
+	},
+	{
+		"i_id": 65,
+		"s_code": "NeedRegDays",
+		"s_tips": "注册时间不满足"
+	},
+	{
+		"i_id": 66,
+		"s_code": "NeedBattleMap",
+		"s_tips": "战斗关卡不满足"
+	},
+	{
+		"i_id": 67,
+		"s_code": "Unknown",
+		"s_tips": "位置错误"
+	},
+	{
+		"i_id": 68,
+		"s_code": "GeneSchemeNotExist",
+		"s_tips": "基因方案不存在"
+	},
+	{
+		"i_id": 69,
+		"s_code": "GeneRobotRepeatActive",
+		"s_tips": "基因方案机器人重复激活"
+	},
+	{
+		"i_id": 70,
+		"s_code": "GeneRobotNotActive",
+		"s_tips": "基因方案机器人没有激活"
+	},
+	{
+		"i_id": 71,
+		"s_code": "HeroNotFound",
+		"s_tips": "英雄不存在"
+	},
+	{
+		"i_id": 72,
+		"s_code": "HeroSnRepeated",
+		"s_tips": "英雄重复上阵"
+	},
+	{
+		"i_id": 73,
+		"s_code": "HeroSnNotBattle",
+		"s_tips": "英雄没有上阵"
+	},
+	{
+		"i_id": 74,
+		"s_code": "NeedPreBattleMap",
+		"s_tips": "请打完上一关卡"
+	},
+	{
+		"i_id": 75,
+		"s_code": "MaxBattleMap",
+		"s_tips": "已经最后一关，敬请期待下一关开启"
+	},
+	{
+		"i_id": 76,
+		"s_code": "NotEqualBattleMap",
+		"s_tips": "关卡ID跟当前不一致"
+	},
+	{
+		"i_id": 77,
+		"s_code": "NoPrize",
+		"s_tips": "无奖励可以领取"
+	},
+	{
+		"i_id": 78,
+		"s_code": "MaxReliveCount",
+		"s_tips": "达到复活最大次数"
+	},
+	{
+		"i_id": 79,
+		"s_code": "OfflineRewardEmpty",
+		"s_tips": "离线奖励为空"
+	},
+	{
+		"i_id": 80,
+		"s_code": "NeedItemKind",
+		"s_tips": "未实现的道具类型"
+	},
+	{
+		"i_id": 81,
+		"s_code": "MaskWord",
+		"s_tips": "屏蔽字库"
+	},
+	{
+		"i_id": 82,
+		"s_code": "EntryConditionNotSupported",
+		"s_tips": "词条技能条件不支持"
+	},
+	{
+		"i_id": 83,
+		"s_code": "EntryEffectNotSupported",
+		"s_tips": "效果不支持"
+	},
+	{
+		"i_id": 84,
+		"s_code": "NeedRefineLevel",
+		"s_tips": "未达到突破等级"
+	},
+	{
+		"i_id": 85,
+		"s_code": "NoProfPartLevel",
+		"s_tips": "无可以升级的部位"
+	},
+	{
+		"i_id": 86,
+		"s_code": "HeroNoGet",
+		"s_tips": "英雄未获得"
+	},
+	{
+		"i_id": 87,
+		"s_code": "HeroBookHaveActive",
+		"s_tips": "英雄图鉴已经升星"
+	},
+	{
+		"i_id": 88,
+		"s_code": "NeedPreLevel",
+		"s_tips": "前置等级不足"
+	},
+	{
+		"i_id": 89,
+		"s_code": "NoStarSourceTreasure",
+		"s_tips": "当前期不存在此秘宝"
+	},
+	{
+		"i_id": 90,
+		"s_code": "NoActivity",
+		"s_tips": "活动未开启或者已结束"
+	},
+	{
+		"i_id": 91,
+		"s_code": "NeedCondition",
+		"s_tips": "任务未达到条件"
+	},
+	{
+		"i_id": 92,
+		"s_code": "StarSourceTreasureMaxLevel",
+		"s_tips": "该期秘宝已经满级"
+	},
+	{
+		"i_id": 93,
+		"s_code": "ProfNoPartReset",
+		"s_tips": "请勿重复重置"
+	},
+	{
+		"i_id": 94,
+		"s_code": "NeedRefreshCount",
+		"s_tips": "刷新次数不足"
+	},
+	{
+		"i_id": 95,
+		"s_code": "HeroBagFull",
+		"s_tips": "英雄背包已满"
+	},
+	{
+		"i_id": 96,
+		"s_code": "NoData",
+		"s_tips": "无此数据"
+	},
+	{
+		"i_id": 97,
+		"s_code": "NotRewardTime",
+		"s_tips": "未到结算期"
+	},
+	{
+		"i_id": 98,
+		"s_code": "RankNotFound",
+		"s_tips": "榜单未找到"
+	},
+	{
+		"i_id": 99,
+		"s_code": "ActiveNotOnline",
+		"s_tips": "活动不在线"
+	},
+	{
+		"i_id": 100,
+		"s_code": "ChargeRepeated",
+		"s_tips": "重复充值"
+	},
+	{
+		"i_id": 101,
+		"s_code": "AdvertNotEqual",
+		"s_tips": "广告类型不匹配"
+	},
+	{
+		"i_id": 102,
+		"s_code": "AlreadySettled",
+		"s_tips": "已经结算"
+	},
+	{
+		"i_id": 103,
+		"s_code": "AlreadyMaximumLevel",
+		"s_tips": "已经最大等级"
+	},
+	{
+		"i_id": 104,
+		"s_code": "NeedCrystalStar",
+		"s_tips": "晶核星级不足"
+	},
+	{
+		"i_id": 105,
+		"s_code": "CheckMaskWorkJsonMarshal",
+		"s_tips": "检测屏蔽字库json编码错误"
+	},
+	{
+		"i_id": 106,
+		"s_code": "CheckMaskWorkJsonUnmarshal ",
+		"s_tips": "检测屏蔽字库json解码错误"
+	},
+	{
+		"i_id": 107,
+		"s_code": "CheckMaskWorkHttpPost",
+		"s_tips": "检测屏蔽字库http请求错误"
+	},
+	{
+		"i_id": 108,
+		"s_code": "ServerNotFound",
+		"s_tips": "服务不存在"
+	},
+	{
+		"i_id": 109,
+		"s_code": "SendTypeWrong",
+		"s_tips": "发送类型错误"
+	},
+	{
+		"i_id": 110,
+		"s_code": "AccountIdIsEmpty",
+		"s_tips": "玩家ID为空"
+	},
+	{
+		"i_id": 111,
+		"s_code": "ServerNodeRandom",
+		"s_tips": "服务节点路由失败"
+	},
+	{
+		"i_id": 112,
+		"s_code": "ServerTypeIsInconsistent",
+		"s_tips": "服务类型不一致"
+	},
+	{
+		"i_id": 113,
+		"s_code": "RegisterTimeExceedNow",
+		"s_tips": "注册时间超过当前时间"
+	},
+	{
+		"i_id": 114,
+		"s_code": "AdventureRewardParam",
+		"s_tips": "冒险奖励领奖参数错误"
+	},
+	{
+		"i_id": 115,
+		"s_code": "AdventureRewardLocked",
+		"s_tips": "冒险奖励未解锁"
+	},
+	{
+		"i_id": 116,
+		"s_code": "ChargeGiftPID",
+		"s_tips": "直购礼包商品ID配置错误"
+	},
+	{
+		"i_id": 117,
+		"s_code": "GrowRoadTaskIDNotFound",
+		"s_tips": "成长之路任务配置不存在"
+	},
+	{
+		"i_id": 118,
+		"s_code": "ItemCountIsNegative",
+		"s_tips": "道具数量为负数"
+	},
+	{
+		"i_id": 119,
+		"s_code": "CfgItemParam",
+		"s_tips": "道具参数配置错误"
+	},
+	{
+		"i_id": 120,
+		"s_code": "ItemMaxUse",
+		"s_tips": "道具最大使用数量限制"
+	},
+	{
+		"i_id": 121,
+		"s_code": "BagNotFoundItem",
+		"s_tips": "背包中没有该道具"
+	},
+	{
+		"i_id": 122,
+		"s_code": "CfgItemUseTypeNotSupported",
+		"s_tips": "道具使用类型不支持"
+	},
+	{
+		"i_id": 123,
+		"s_code": "AddEquipmentParam",
+		"s_tips": "添加装备参数错误"
+	},
+	{
+		"i_id": 124,
+		"s_code": "EquipmentNotFound",
+		"s_tips": "装备不存在"
+	},
+	{
+		"i_id": 125,
+		"s_code": "EquipmentPartInconsistent",
+		"s_tips": "装备部位不一致"
+	},
+	{
+		"i_id": 126,
+		"s_code": "EquipmentProfInconsistent",
+		"s_tips": "装备职业不一致"
+	},
+	{
+		"i_id": 127,
+		"s_code": "EquipProfessionDefaultValue",
+		"s_tips": "穿戴职业默认值错误"
+	},
+	{
+		"i_id": 128,
+		"s_code": "EquipmentPosBuyInconsistent",
+		"s_tips": "购买装备格子次数不一致"
+	},
+	{
+		"i_id": 129,
+		"s_code": "EquipmentSnNotFound",
+		"s_tips": "装备SN不存在"
+	},
+	{
+		"i_id": 130,
+		"s_code": "HeroSnNotFound",
+		"s_tips": "英雄SN不存在"
+	},
+	{
+		"i_id": 131,
+		"s_code": "HeroUpStarRequest",
+		"s_tips": "英雄升星请求参数错误"
+	},
+	{
+		"i_id": 132,
+		"s_code": "HeroUpStarNoumenonNotEnough",
+		"s_tips": "英雄升星本体数量不足"
+	},
+	{
+		"i_id": 133,
+		"s_code": "HeroUpStarNoumenonStarNotEnough",
+		"s_tips": "英雄升星本体星级不足"
+	},
+	{
+		"i_id": 134,
+		"s_code": "HeroUpStarDeleteHeroList",
+		"s_tips": "英雄升星不能删除上阵英雄"
+	},
+	{
+		"i_id": 135,
+		"s_code": "HeroUpStarConsumeSelf",
+		"s_tips": "英雄升星不能消耗自身"
+	},
+	{
+		"i_id": 136,
+		"s_code": "HeroUpStarProfTypeWrong",
+		"s_tips": "英雄升星需要相同职业类型"
+	},
+	{
+		"i_id": 137,
+		"s_code": "HeroAwakenLevelParam",
+		"s_tips": "英雄觉醒等级参数错误"
+	},
+	{
+		"i_id": 138,
+		"s_code": "HeroAwakenStarNotEnough",
+		"s_tips": "英雄觉醒星级不足"
+	},
+	{
+		"i_id": 139,
+		"s_code": "HeroBattleStarChangeParam",
+		"s_tips": "英雄上阵星星变更请求参数错误"
+	},
+	{
+		"i_id": 140,
+		"s_code": "HeroIdInconsistent",
+		"s_tips": "英雄类型不一致"
+	},
+	{
+		"i_id": 141,
+		"s_code": "RebirthHeroEmpty",
+		"s_tips": "英雄重生狗粮为空"
+	},
+	{
+		"i_id": 142,
+		"s_code": "ConditionCfgEmpty",
+		"s_tips": "检测条件为空"
+	},
+	{
+		"i_id": 143,
+		"s_code": "GmParam",
+		"s_tips": "gm请求参数错误"
+	},
+	{
+		"i_id": 144,
+		"s_code": "BattleTypeNotSupported",
+		"s_tips": "战斗类型不支持"
+	},
+	{
+		"i_id": 145,
+		"s_code": "HookBattleLootParam",
+		"s_tips": "怪物掉落请求参数错误"
+	},
+	{
+		"i_id": 146,
+		"s_code": "NormalBattlePrizeParam",
+		"s_tips": "领取精英关卡奖励请求参数错误"
+	},
+	{
+		"i_id": 147,
+		"s_code": "NormalBattlePrizeStageId",
+		"s_tips": "精英关卡领奖等级错误"
+	},
+	{
+		"i_id": 148,
+		"s_code": "NormalBattleMaxPrizeStageId",
+		"s_tips": "精英关卡领奖等级超过上限"
+	},
+	{
+		"i_id": 149,
+		"s_code": "ChampionshipTaskRewardParam",
+		"s_tips": "锦标赛任务奖励请求错误"
+	},
+	{
+		"i_id": 150,
+		"s_code": "UpdateTOrderWrong",
+		"s_tips": "充值订单更新失败"
+	},
+	{
+		"i_id": 151,
+		"s_code": "GiftCodeInvalid",
+		"s_tips": "兑换码非法"
+	},
+	{
+		"i_id": 152,
+		"s_code": "JsonMarshal",
+		"s_tips": "json编码错误"
+	},
+	{
+		"i_id": 153,
+		"s_code": "JsonUnmarshal",
+		"s_tips": "json解码错误"
+	},
+	{
+		"i_id": 154,
+		"s_code": "HookTechSpeedTime",
+		"s_tips": "非挂机科技加速时间期"
+	},
+	{
+		"i_id": 155,
+		"s_code": "ProfessionNotSupported",
+		"s_tips": "职业类型不支持"
+	},
+	{
+		"i_id": 156,
+		"s_code": "ProfessionLevelParam",
+		"s_tips": "职业等级参数错误"
+	},
+	{
+		"i_id": 157,
+		"s_code": "ProfessionNotMaxLevel",
+		"s_tips": "职业等级未完成"
+	},
+	{
+		"i_id": 158,
+		"s_code": "ProfessionPeakLevelHasFinished",
+		"s_tips": "职业巅峰等级突破已经完成"
+	},
+	{
+		"i_id": 159,
+		"s_code": "EquipmentPartTypeNotSupported",
+		"s_tips": "装备部位类型不支持"
+	},
+	{
+		"i_id": 160,
+		"s_code": "ProfessionPeakLevel",
+		"s_tips": "职业巅峰等级错误"
+	},
+	{
+		"i_id": 161,
+		"s_code": "ProfessionPartLevel",
+		"s_tips": "职业部位等级错误"
+	},
+	{
+		"i_id": 162,
+		"s_code": "ProfessionEquipIsUsing",
+		"s_tips": "职业装备已经穿戴"
+	},
+	{
+		"i_id": 163,
+		"s_code": "ProfessionPartRefine",
+		"s_tips": "职业部位精炼等级错误"
+	},
+	{
+		"i_id": 164,
+		"s_code": "NotFoundProfessionPartRefine",
+		"s_tips": "无精炼的职业部位"
+	},
+	{
+		"i_id": 165,
+		"s_code": "NotFoundProfessionLevel",
+		"s_tips": "无升级的职业部位"
+	},
+	{
+		"i_id": 166,
+		"s_code": "ProfessionPartRefineTupo",
+		"s_tips": "职业部位精炼突破等级错误"
+	},
+	{
+		"i_id": 167,
+		"s_code": "SeveDayActivityNotOnline",
+		"s_tips": "七天活动不在线"
+	},
+	{
+		"i_id": 168,
+		"s_code": "SeveDayGiftPID",
+		"s_tips": "七天活动礼包PID配置错误"
+	},
+	{
+		"i_id": 169,
+		"s_code": "ShopTypeNotSupported",
+		"s_tips": "商店类型不支持"
+	},
+	{
+		"i_id": 170,
+		"s_code": "AdvertTypeNotSupported",
+		"s_tips": "广告类型不支持"
+	},
+	{
+		"i_id": 171,
+		"s_code": "CrystalAlreadyExist",
+		"s_tips": "晶核已经存在"
+	}
+]

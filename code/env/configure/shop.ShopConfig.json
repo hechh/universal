@@ -1,0 +1,92 @@
+[
+	{
+		"i_freeRefreshCount": 2,
+		"i_id": 1,
+		"i_refreshParam": 0,
+		"i_refreshRecoverTime": 28801,
+		"i_refreshType": 1,
+		"i_shopType": 1,
+		"i_sortTag": 999,
+		"il_openCondition": [
+			2,
+			1
+		],
+		"il_showItemIDs": [
+			1,
+			2
+		]
+	},
+	{
+		"i_freeRefreshCount": 0,
+		"i_id": 2,
+		"i_refreshParam": 30,
+		"i_refreshRecoverTime": 0,
+		"i_refreshType": 4,
+		"i_shopType": 2,
+		"i_sortTag": 998,
+		"il_openCondition": [
+			5,
+			35
+		],
+		"il_showItemIDs": [
+			20
+		]
+	},
+	{
+		"i_freeRefreshCount": 0,
+		"i_id": 3,
+		"i_refreshParam": 0,
+		"i_refreshRecoverTime": 0,
+		"i_refreshType": 0,
+		"i_shopType": 3,
+		"i_sortTag": 1,
+		"il_openCondition": [
+			2,
+			1
+		],
+		"il_showItemIDs": [
+			1,
+			2
+		]
+	},
+	{
+		"i_freeRefreshCount": 0,
+		"i_id": 4,
+		"i_refreshParam": 0,
+		"i_refreshRecoverTime": 0,
+		"i_refreshType": 2,
+		"i_shopType": 5,
+		"i_sortTag": 997,
+		"il_openCondition": [
+			2,
+			1
+		],
+		"il_showItemIDs": [
+			1,
+			2
+		]
+	},
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	{
+		"i_freeRefreshCount": 0,
+		"i_id": 0,
+		"i_refreshRecoverTime": 0,
+		"i_shopType": 0,
+		"il_openCondition": [
+			0
+		]
+	}
+]

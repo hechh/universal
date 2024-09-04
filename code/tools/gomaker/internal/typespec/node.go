@@ -26,11 +26,12 @@ func (d *EnumNode) End() token.Pos { return 0 }
 
 // 配置节点
 type FieldNode struct {
-	IsProxy bool
-	Index   int
-	Type    string
-	Name    string
-	Doc     string
+	IsProxy  bool
+	Index    int
+	Type     string
+	Name     string
+	Original string
+	Doc      string
 }
 
 type TableNode struct {
@@ -61,13 +62,18 @@ func NewTableNode(sheet string, defines, docs []string) *TableNode {
 	for pos, name := range defines {
 		if index := strings.Index(name, "_"); index > 0 {
 			tmps = append(tmps, &FieldNode{
-				IsProxy: strings.HasPrefix(name, "$"),
-				Index:   pos,
-				Type:    strings.ToLower(strings.TrimSpace(name[:index])),
-				Name:    name[index+1:],
-				Doc:     docFunc(pos),
+				IsProxy:  strings.HasPrefix(name, "$"),
+				Original: strings.TrimPrefix(name, "$"),
+				Index:    pos,
+				Type:     strings.ToLower(strings.TrimSpace(strings.TrimPrefix(name[:index], "$"))),
+				Name:     name[index+1:],
+				Doc:      docFunc(pos),
 			})
 		}
 	}
+	/*
+		buf, _ := json.Marshal(&tmps)
+		fmt.Println(sheet, "===>", string(buf))
+	*/
 	return &TableNode{SheetName: sheet, Fields: tmps}
 }

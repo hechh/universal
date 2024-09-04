@@ -1,0 +1,1089 @@
+[
+	{
+		"i_AdvertingCoolTime": 86400,
+		"i_circleDay": 0,
+		"i_continueDay": 0,
+		"i_drawType": 0,
+		"i_guar2Count": 0,
+		"i_guar3Count": 0,
+		"i_guarCount": 10,
+		"i_id": 1,
+		"il_condition": [
+			0
+		],
+		"ill_firstLootGroup": [
+			[
+				0
+			]
+		],
+		"ill_needItem": [
+			[
+				1,
+				1,
+				9,
+				1
+			],
+			[
+				10,
+				1,
+				9,
+				10
+			],
+			[
+				100,
+				1,
+				9,
+				100
+			]
+		],
+		"ill_randGuar2LootGroup": [
+			[
+				0
+			]
+		],
+		"ill_randGuar3LootGroup": [
+			[
+				0
+			]
+		],
+		"ill_randGuarLootGroup": [
+			[
+				62,
+				2210
+			]
+		],
+		"ill_randLootGroup": [
+			[
+				62,
+				2211
+			],
+			[
+				61,
+				7789
+			]
+		],
+		"ill_randShowLootGroup": [
+			[
+				62,
+				2990
+			],
+			[
+				61,
+				7010
+			]
+		],
+		"ill_showGuar": [
+			[
+				1
+			]
+		],
+		"s_descDraw": "小贱贱",
+		"s_drawIcon": "img_cj_yx_2",
+		"s_name": "普通礼券抽奖-英雄",
+		"t_endTime": 18446744011573954816,
+		"t_openTime": 18446744011573954816
+	},
+	{
+		"i_AdvertingCoolTime": 259200,
+		"i_circleDay": 0,
+		"i_continueDay": 0,
+		"i_drawType": 0,
+		"i_guar2Count": 0,
+		"i_guar3Count": 0,
+		"i_guarCount": 30,
+		"i_id": 2,
+		"il_condition": [
+			0
+		],
+		"ill_firstLootGroup": [
+			[
+				3,
+				66
+			],
+			[
+				4,
+				67
+			],
+			[
+				6,
+				81
+			]
+		],
+		"ill_needItem": [
+			[
+				1,
+				1,
+				11,
+				1
+			],
+			[
+				10,
+				1,
+				11,
+				10
+			],
+			[
+				100,
+				1,
+				11,
+				100
+			]
+		],
+		"ill_randGuar2LootGroup": [
+			[
+				0
+			]
+		],
+		"ill_randGuar3LootGroup": [
+			[
+				0
+			]
+		],
+		"ill_randGuarLootGroup": [
+			[
+				64,
+				133
+			]
+		],
+		"ill_randLootGroup": [
+			[
+				62,
+				8015
+			],
+			[
+				63,
+				1806
+			],
+			[
+				64,
+				179
+			]
+		],
+		"ill_randShowLootGroup": [
+			[
+				62,
+				7748
+			],
+			[
+				63,
+				1746
+			],
+			[
+				64,
+				506
+			]
+		],
+		"ill_showGuar": [
+			[
+				3
+			]
+		],
+		"s_descDraw": "海王",
+		"s_drawIcon": "img_cj_yx_1",
+		"s_name": "高级礼券抽奖-英雄",
+		"t_endTime": 18446744011573954816,
+		"t_openTime": 18446744011573954816
+	},
+	{
+		"i_AdvertingCoolTime": 86400,
+		"i_circleDay": 0,
+		"i_continueDay": 0,
+		"i_drawType": 1,
+		"i_guar2Count": 0,
+		"i_guar3Count": 0,
+		"i_guarCount": 10,
+		"i_id": 3,
+		"il_condition": [
+			0
+		],
+		"ill_firstLootGroup": [
+			[
+				0
+			]
+		],
+		"ill_needItem": [
+			[
+				1,
+				1,
+				8,
+				1
+			],
+			[
+				10,
+				1,
+				8,
+				10
+			],
+			[
+				100,
+				1,
+				8,
+				100
+			]
+		],
+		"ill_randGuar2LootGroup": [
+			[
+				0
+			]
+		],
+		"ill_randGuar3LootGroup": [
+			[
+				0
+			]
+		],
+		"ill_randGuarLootGroup": [
+			[
+				51,
+				3000
+			]
+		],
+		"ill_randLootGroup": [
+			[
+				51,
+				3000
+			],
+			[
+				52,
+				7000
+			]
+		],
+		"ill_randShowLootGroup": [
+			[
+				51,
+				3000
+			],
+			[
+				52,
+				7000
+			]
+		],
+		"ill_showGuar": [
+			[
+				3
+			]
+		],
+		"s_descDraw": "晶核1",
+		"s_drawIcon": "img_cj_jh_1",
+		"s_name": "普通礼券抽奖-晶核（废弃）",
+		"t_endTime": 18446744011573954816,
+		"t_openTime": 18446744011573954816
+	},
+	{
+		"i_AdvertingCoolTime": 259200,
+		"i_circleDay": 0,
+		"i_continueDay": 0,
+		"i_drawType": 1,
+		"i_guar2Count": 0,
+		"i_guar3Count": 0,
+		"i_guarCount": 10,
+		"i_id": 4,
+		"il_condition": [
+			0
+		],
+		"ill_firstLootGroup": [
+			[
+				0
+			]
+		],
+		"ill_needItem": [
+			[
+				1,
+				1,
+				10,
+				1
+			],
+			[
+				10,
+				1,
+				10,
+				10
+			],
+			[
+				100,
+				1,
+				10,
+				100
+			]
+		],
+		"ill_randGuar2LootGroup": [
+			[
+				0
+			]
+		],
+		"ill_randGuar3LootGroup": [
+			[
+				0
+			]
+		],
+		"ill_randGuarLootGroup": [
+			[
+				53,
+				1050
+			]
+		],
+		"ill_randLootGroup": [
+			[
+				51,
+				6500
+			],
+			[
+				52,
+				2400
+			],
+			[
+				53,
+				1050
+			],
+			[
+				54,
+				50
+			]
+		],
+		"ill_randShowLootGroup": [
+			[
+				51,
+				6500
+			],
+			[
+				52,
+				2400
+			],
+			[
+				53,
+				1050
+			],
+			[
+				54,
+				50
+			]
+		],
+		"ill_showGuar": [
+			[
+				4
+			]
+		],
+		"s_descDraw": "晶核2",
+		"s_drawIcon": "img_cj_jh_2",
+		"s_name": "高级礼券抽奖-晶核（废弃）",
+		"t_endTime": 18446744011573954816,
+		"t_openTime": 18446744011573954816
+	},
+	{
+		"i_AdvertingCoolTime": 0,
+		"i_circleDay": 0,
+		"i_continueDay": 0,
+		"i_drawType": 0,
+		"i_guar2Count": 0,
+		"i_guar3Count": 0,
+		"i_guarCount": 10,
+		"i_id": 11,
+		"il_condition": [
+			4,
+			1,
+			2
+		],
+		"ill_firstLootGroup": [
+			[
+				0
+			]
+		],
+		"ill_needItem": [
+			[
+				1,
+				1,
+				13,
+				1
+			],
+			[
+				10,
+				1,
+				13,
+				10
+			],
+			[
+				100,
+				1,
+				13,
+				100
+			]
+		],
+		"ill_randGuar2LootGroup": [
+			[
+				0
+			]
+		],
+		"ill_randGuar3LootGroup": [
+			[
+				0
+			]
+		],
+		"ill_randGuarLootGroup": [
+			[
+				64,
+				355
+			]
+		],
+		"ill_randLootGroup": [
+			[
+				62,
+				6854
+			],
+			[
+				63,
+				2767
+			],
+			[
+				64,
+				379
+			]
+		],
+		"ill_randShowLootGroup": [
+			[
+				62,
+				6169
+			],
+			[
+				63,
+				2490
+			],
+			[
+				64,
+				1341
+			]
+		],
+		"ill_showGuar": [
+			[
+				3
+			]
+		],
+		"s_descDraw": "闪电侠",
+		"s_drawIcon": "img_cj_yx_3",
+		"s_name": "钻石抽奖-英雄",
+		"t_endTime": 18446744011573954816,
+		"t_openTime": 18446744011573954816
+	},
+	{
+		"i_AdvertingCoolTime": 0,
+		"i_circleDay": 0,
+		"i_continueDay": 0,
+		"i_drawType": 2,
+		"i_guar2Count": 0,
+		"i_guar3Count": 0,
+		"i_guarCount": 10,
+		"i_id": 12,
+		"il_condition": [
+			2,
+			1,
+			10000
+		],
+		"ill_firstLootGroup": [
+			[
+				0
+			]
+		],
+		"ill_needItem": [
+			[
+				1,
+				1,
+				13,
+				1
+			],
+			[
+				10,
+				1,
+				13,
+				10
+			],
+			[
+				100,
+				1,
+				13,
+				100
+			]
+		],
+		"ill_randGuar2LootGroup": [
+			[
+				0
+			]
+		],
+		"ill_randGuar3LootGroup": [
+			[
+				0
+			]
+		],
+		"ill_randGuarLootGroup": [
+			[
+				64,
+				355
+			]
+		],
+		"ill_randLootGroup": [
+			[
+				62,
+				6854
+			],
+			[
+				63,
+				2767
+			],
+			[
+				64,
+				379
+			]
+		],
+		"ill_randShowLootGroup": [
+			[
+				62,
+				6169
+			],
+			[
+				63,
+				2490
+			],
+			[
+				64,
+				1341
+			]
+		],
+		"ill_showGuar": [
+			[
+				3
+			]
+		],
+		"s_descDraw": "风元素",
+		"s_drawIcon": "img_cj_ys_f",
+		"s_name": "英雄UP池1",
+		"t_endTime": 18446744011573954816,
+		"t_openTime": 18446744011573954816
+	},
+	{
+		"i_AdvertingCoolTime": 0,
+		"i_circleDay": 0,
+		"i_continueDay": 0,
+		"i_drawType": 1,
+		"i_guar2Count": 30,
+		"i_guar3Count": 0,
+		"i_guarCount": 15,
+		"i_id": 21,
+		"il_condition": [
+			4,
+			1,
+			4
+		],
+		"ill_firstLootGroup": [
+			[
+				0
+			]
+		],
+		"ill_needItem": [
+			[
+				1,
+				1,
+				12,
+				1
+			],
+			[
+				10,
+				1,
+				12,
+				10
+			],
+			[
+				100,
+				1,
+				12,
+				100
+			]
+		],
+		"ill_randGuar2LootGroup": [
+			[
+				54,
+				157
+			]
+		],
+		"ill_randGuar3LootGroup": [
+			[
+				0
+			]
+		],
+		"ill_randGuarLootGroup": [
+			[
+				53,
+				933
+			]
+		],
+		"ill_randLootGroup": [
+			[
+				50,
+				4445
+			],
+			[
+				51,
+				3555
+			],
+			[
+				52,
+				1777
+			],
+			[
+				53,
+				148
+			],
+			[
+				54,
+				74
+			],
+			[
+				56,
+				1
+			]
+		],
+		"ill_randShowLootGroup": [
+			[
+				50,
+				4000
+			],
+			[
+				51,
+				3200
+			],
+			[
+				52,
+				1600
+			],
+			[
+				53,
+				800
+			],
+			[
+				54,
+				399
+			],
+			[
+				56,
+				1
+			]
+		],
+		"ill_showGuar": [
+			[
+				4
+			],
+			[
+				5
+			]
+		],
+		"s_descDraw": "晶核3",
+		"s_drawIcon": "img_cj_jh_3",
+		"s_name": "钻石抽奖-晶核",
+		"t_endTime": 18446744011573954816,
+		"t_openTime": 18446744011573954816
+	},
+	{
+		"i_AdvertingCoolTime": 0,
+		"i_circleDay": 0,
+		"i_continueDay": 0,
+		"i_drawType": 3,
+		"i_guar2Count": 20,
+		"i_guar3Count": 0,
+		"i_guarCount": 10,
+		"i_id": 22,
+		"il_condition": [
+			1,
+			1
+		],
+		"ill_firstLootGroup": [
+			[
+				0
+			]
+		],
+		"ill_needItem": [
+			[
+				1,
+				1,
+				12,
+				1
+			],
+			[
+				10,
+				1,
+				12,
+				10
+			],
+			[
+				100,
+				1,
+				12,
+				100
+			]
+		],
+		"ill_randGuar2LootGroup": [
+			[
+				54,
+				157
+			]
+		],
+		"ill_randGuar3LootGroup": [
+			[
+				0
+			]
+		],
+		"ill_randGuarLootGroup": [
+			[
+				53,
+				933
+			]
+		],
+		"ill_randLootGroup": [
+			[
+				51,
+				6506
+			],
+			[
+				52,
+				2960
+			],
+			[
+				53,
+				377
+			],
+			[
+				54,
+				157
+			]
+		],
+		"ill_randShowLootGroup": [
+			[
+				51,
+				5340
+			],
+			[
+				52,
+				2670
+			],
+			[
+				53,
+				1340
+			],
+			[
+				54,
+				650
+			]
+		],
+		"ill_showGuar": [
+			[
+				4
+			],
+			[
+				5
+			]
+		],
+		"s_descDraw": "晶核4",
+		"s_drawIcon": "img_cj_jh_4",
+		"s_name": "晶核UP池1",
+		"t_endTime": 18446744011573954816,
+		"t_openTime": 18446744011573954816
+	},
+	{
+		"i_AdvertingCoolTime": 0,
+		"i_circleDay": 0,
+		"i_continueDay": 0,
+		"i_drawType": 3,
+		"i_guar2Count": 20,
+		"i_guar3Count": 0,
+		"i_guarCount": 10,
+		"i_id": 23,
+		"il_condition": [
+			4,
+			1,
+			4
+		],
+		"ill_firstLootGroup": [
+			[
+				0
+			]
+		],
+		"ill_needItem": [
+			[
+				1,
+				1,
+				12,
+				1
+			],
+			[
+				10,
+				1,
+				12,
+				10
+			],
+			[
+				100,
+				1,
+				12,
+				100
+			]
+		],
+		"ill_randGuar2LootGroup": [
+			[
+				54,
+				157
+			]
+		],
+		"ill_randGuar3LootGroup": [
+			[
+				0
+			]
+		],
+		"ill_randGuarLootGroup": [
+			[
+				53,
+				933
+			]
+		],
+		"ill_randLootGroup": [
+			[
+				51,
+				6506
+			],
+			[
+				52,
+				2960
+			],
+			[
+				53,
+				377
+			],
+			[
+				54,
+				157
+			]
+		],
+		"ill_randShowLootGroup": [
+			[
+				51,
+				5340
+			],
+			[
+				52,
+				2670
+			],
+			[
+				53,
+				1340
+			],
+			[
+				54,
+				650
+			]
+		],
+		"ill_showGuar": [
+			[
+				4
+			],
+			[
+				5
+			]
+		],
+		"s_descDraw": "晶核5",
+		"s_drawIcon": "img_cj_jh_4",
+		"s_name": "晶核UP池2",
+		"t_endTime": 18446744011573954816,
+		"t_openTime": 18446744011573954816
+	},
+	{
+		"i_AdvertingCoolTime": 0,
+		"i_circleDay": 0,
+		"i_continueDay": 0,
+		"i_drawType": 3,
+		"i_guar2Count": 20,
+		"i_guar3Count": 0,
+		"i_guarCount": 10,
+		"i_id": 24,
+		"il_condition": [
+			2,
+			1,
+			10000
+		],
+		"ill_firstLootGroup": [
+			[
+				0
+			]
+		],
+		"ill_needItem": [
+			[
+				1,
+				1,
+				12,
+				1
+			],
+			[
+				10,
+				1,
+				12,
+				10
+			],
+			[
+				100,
+				1,
+				12,
+				100
+			]
+		],
+		"ill_randGuar2LootGroup": [
+			[
+				54,
+				157
+			]
+		],
+		"ill_randGuar3LootGroup": [
+			[
+				0
+			]
+		],
+		"ill_randGuarLootGroup": [
+			[
+				53,
+				933
+			]
+		],
+		"ill_randLootGroup": [
+			[
+				51,
+				6506
+			],
+			[
+				52,
+				2960
+			],
+			[
+				53,
+				377
+			],
+			[
+				54,
+				157
+			]
+		],
+		"ill_randShowLootGroup": [
+			[
+				51,
+				5340
+			],
+			[
+				52,
+				2670
+			],
+			[
+				53,
+				1340
+			],
+			[
+				54,
+				650
+			]
+		],
+		"ill_showGuar": [
+			[
+				4
+			],
+			[
+				5
+			]
+		],
+		"s_descDraw": "晶核6",
+		"s_drawIcon": "img_cj_jh_4",
+		"s_name": "晶核UP池3",
+		"t_endTime": 18446744011573954816,
+		"t_openTime": 18446744011573954816
+	},
+	{
+		"i_AdvertingCoolTime": 0,
+		"i_circleDay": 0,
+		"i_continueDay": 0,
+		"i_drawType": 4,
+		"i_guar2Count": 0,
+		"i_guar3Count": 0,
+		"i_guarCount": 0,
+		"i_id": 30,
+		"il_condition": [
+			4,
+			2,
+			1
+		],
+		"ill_firstLootGroup": [
+			[
+				2,
+				104
+			],
+			[
+				3,
+				105
+			]
+		],
+		"ill_needItem": [
+			[
+				1,
+				1,
+				21,
+				1
+			],
+			[
+				10,
+				1,
+				21,
+				10
+			],
+			[
+				100,
+				1,
+				21,
+				100
+			]
+		],
+		"ill_randGuar2LootGroup": [
+			[
+				0
+			]
+		],
+		"ill_randGuar3LootGroup": [
+			[
+				0
+			]
+		],
+		"ill_randGuarLootGroup": [
+			[
+				0
+			]
+		],
+		"ill_randLootGroup": [
+			[
+				101,
+				11010
+			],
+			[
+				102,
+				382932
+			],
+			[
+				103,
+				591305
+			]
+		],
+		"ill_randShowLootGroup": [
+			[
+				101,
+				11010
+			],
+			[
+				102,
+				382932
+			],
+			[
+				103,
+				591305
+			]
+		],
+		"s_name": "使徒抽奖",
+		"t_endTime": 18446744011573954816,
+		"t_openTime": 18446744011573954816
+	}
+]

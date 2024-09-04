@@ -1,0 +1,62 @@
+[
+	{
+		"i_colorType": 2,
+		"i_continueTime": 15,
+		"i_id": 1,
+		"i_sid": 4001,
+		"i_sort": 1,
+		"i_systemType": 9,
+		"s_packIcon": "img_yx_tx_25full",
+		"s_title": "\u003csize=38\u003e新手\u003c/size\u003e冒险大促"
+	},
+	{
+		"i_colorType": 3,
+		"i_continueTime": 15,
+		"i_id": 2,
+		"i_sid": 4001,
+		"i_sort": 4,
+		"i_systemType": 27,
+		"s_packIcon": "img_yx_tx_7full",
+		"s_title": "\u003csize=38\u003e新手\u003c/size\u003e晶核礼包"
+	},
+	{
+		"i_colorType": 4,
+		"i_continueTime": 15,
+		"i_id": 3,
+		"i_sid": 4001,
+		"i_sort": 3,
+		"i_systemType": 48,
+		"s_packIcon": "img_yx_tx_20full",
+		"s_title": "\u003csize=38\u003e新手\u003c/size\u003e使徒礼包"
+	},
+	{
+		"i_colorType": 4,
+		"i_continueTime": 15,
+		"i_id": 4,
+		"i_sid": 4001,
+		"i_sort": 2,
+		"i_systemType": 26,
+		"s_packIcon": "img_yx_tx_10full",
+		"s_title": "\u003csize=38\u003e新手\u003c/size\u003e英雄礼包"
+	},
+	{
+		"i_colorType": 3,
+		"i_continueTime": 15,
+		"i_id": 5,
+		"i_sid": 4001,
+		"i_sort": 5,
+		"i_systemType": 27,
+		"s_packIcon": "img_yx_tx_22full",
+		"s_title": "\u003csize=38\u003e冒险\u003c/size\u003e特级礼包"
+	},
+	{
+		"i_colorType": 2,
+		"i_continueTime": 15,
+		"i_id": 6,
+		"i_sid": 4001,
+		"i_sort": 6,
+		"i_systemType": 27,
+		"s_packIcon": "img_yx_tx_24full",
+		"s_title": "\u003csize=38\u003e冒险\u003c/size\u003e皇家礼包"
+	}
+]

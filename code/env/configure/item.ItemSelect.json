@@ -1,0 +1,695 @@
+[
+	{
+		"i_groupId": 1,
+		"i_id": 1,
+		"i_rate": 0,
+		"il_addItem": [
+			3,
+			23,
+			1,
+			7
+		]
+	},
+	{
+		"i_groupId": 1,
+		"i_id": 2,
+		"i_rate": 0,
+		"il_addItem": [
+			3,
+			26,
+			1,
+			7
+		]
+	},
+	{
+		"i_groupId": 1,
+		"i_id": 3,
+		"i_rate": 0,
+		"il_addItem": [
+			3,
+			19,
+			1,
+			7
+		]
+	},
+	{
+		"i_groupId": 2,
+		"i_id": 4,
+		"i_rate": 0,
+		"il_addItem": [
+			3,
+			19,
+			1,
+			4
+		]
+	},
+	{
+		"i_groupId": 2,
+		"i_id": 5,
+		"i_rate": 0,
+		"il_addItem": [
+			3,
+			23,
+			1,
+			4
+		]
+	},
+	{
+		"i_groupId": 2,
+		"i_id": 6,
+		"i_rate": 0,
+		"il_addItem": [
+			3,
+			26,
+			1,
+			4
+		]
+	},
+	{
+		"i_groupId": 3,
+		"i_id": 7,
+		"i_rate": 0,
+		"il_addItem": [
+			3,
+			19,
+			1,
+			7
+		]
+	},
+	{
+		"i_groupId": 3,
+		"i_id": 8,
+		"i_rate": 0,
+		"il_addItem": [
+			3,
+			23,
+			1,
+			7
+		]
+	},
+	{
+		"i_groupId": 3,
+		"i_id": 9,
+		"i_rate": 0,
+		"il_addItem": [
+			3,
+			26,
+			1,
+			7
+		]
+	},
+	{
+		"i_groupId": 4,
+		"i_id": 10,
+		"i_rate": 0,
+		"il_addItem": [
+			3,
+			1002,
+			1,
+			4
+		]
+	},
+	{
+		"i_groupId": 4,
+		"i_id": 11,
+		"i_rate": 0,
+		"il_addItem": [
+			3,
+			1003,
+			1,
+			4
+		]
+	},
+	{
+		"i_groupId": 4,
+		"i_id": 12,
+		"i_rate": 0,
+		"il_addItem": [
+			3,
+			1005,
+			1,
+			4
+		]
+	},
+	{
+		"i_groupId": 5,
+		"i_id": 13,
+		"i_rate": 0,
+		"il_addItem": [
+			3,
+			1002,
+			1,
+			7
+		]
+	},
+	{
+		"i_groupId": 5,
+		"i_id": 14,
+		"i_rate": 0,
+		"il_addItem": [
+			3,
+			1003,
+			1,
+			7
+		]
+	},
+	{
+		"i_groupId": 5,
+		"i_id": 15,
+		"i_rate": 0,
+		"il_addItem": [
+			3,
+			1005,
+			1,
+			7
+		]
+	},
+	{
+		"i_groupId": 6,
+		"i_id": 16,
+		"i_rate": 0,
+		"il_addItem": [
+			3,
+			3,
+			1,
+			4
+		]
+	},
+	{
+		"i_groupId": 6,
+		"i_id": 17,
+		"i_rate": 0,
+		"il_addItem": [
+			3,
+			6,
+			1,
+			4
+		]
+	},
+	{
+		"i_groupId": 6,
+		"i_id": 18,
+		"i_rate": 0,
+		"il_addItem": [
+			3,
+			16,
+			1,
+			4
+		]
+	},
+	{
+		"i_groupId": 6,
+		"i_id": 19,
+		"i_rate": 0,
+		"il_addItem": [
+			3,
+			21,
+			1,
+			4
+		]
+	},
+	{
+		"i_groupId": 7,
+		"i_id": 20,
+		"i_rate": 0,
+		"il_addItem": [
+			3,
+			2,
+			1,
+			4
+		]
+	},
+	{
+		"i_groupId": 7,
+		"i_id": 21,
+		"i_rate": 0,
+		"il_addItem": [
+			3,
+			8,
+			1,
+			4
+		]
+	},
+	{
+		"i_groupId": 7,
+		"i_id": 22,
+		"i_rate": 0,
+		"il_addItem": [
+			3,
+			14,
+			1,
+			4
+		]
+	},
+	{
+		"i_groupId": 7,
+		"i_id": 23,
+		"i_rate": 0,
+		"il_addItem": [
+			3,
+			17,
+			1,
+			4
+		]
+	},
+	{
+		"i_groupId": 8,
+		"i_id": 24,
+		"i_rate": 0,
+		"il_addItem": [
+			3,
+			5,
+			1,
+			4
+		]
+	},
+	{
+		"i_groupId": 8,
+		"i_id": 25,
+		"i_rate": 0,
+		"il_addItem": [
+			3,
+			13,
+			1,
+			4
+		]
+	},
+	{
+		"i_groupId": 8,
+		"i_id": 26,
+		"i_rate": 0,
+		"il_addItem": [
+			3,
+			15,
+			1,
+			4
+		]
+	},
+	{
+		"i_groupId": 8,
+		"i_id": 27,
+		"i_rate": 0,
+		"il_addItem": [
+			3,
+			18,
+			1,
+			4
+		]
+	},
+	{
+		"i_groupId": 9,
+		"i_id": 28,
+		"i_rate": 0,
+		"il_addItem": [
+			3,
+			4,
+			1,
+			4
+		]
+	},
+	{
+		"i_groupId": 9,
+		"i_id": 29,
+		"i_rate": 0,
+		"il_addItem": [
+			3,
+			9,
+			1,
+			4
+		]
+	},
+	{
+		"i_groupId": 9,
+		"i_id": 30,
+		"i_rate": 0,
+		"il_addItem": [
+			3,
+			12,
+			1,
+			4
+		]
+	},
+	{
+		"i_groupId": 9,
+		"i_id": 31,
+		"i_rate": 0,
+		"il_addItem": [
+			3,
+			24,
+			1,
+			4
+		]
+	},
+	{
+		"i_groupId": 10,
+		"i_id": 32,
+		"i_rate": 0,
+		"il_addItem": [
+			3,
+			1,
+			1,
+			4
+		]
+	},
+	{
+		"i_groupId": 10,
+		"i_id": 33,
+		"i_rate": 0,
+		"il_addItem": [
+			3,
+			7,
+			1,
+			4
+		]
+	},
+	{
+		"i_groupId": 10,
+		"i_id": 34,
+		"i_rate": 0,
+		"il_addItem": [
+			3,
+			10,
+			1,
+			4
+		]
+	},
+	{
+		"i_groupId": 10,
+		"i_id": 35,
+		"i_rate": 0,
+		"il_addItem": [
+			3,
+			22,
+			1,
+			4
+		]
+	},
+	{
+		"i_groupId": 11,
+		"i_id": 36,
+		"i_rate": 0,
+		"il_addItem": [
+			3,
+			1001,
+			1,
+			4
+		]
+	},
+	{
+		"i_groupId": 11,
+		"i_id": 37,
+		"i_rate": 0,
+		"il_addItem": [
+			3,
+			1002,
+			1,
+			4
+		]
+	},
+	{
+		"i_groupId": 11,
+		"i_id": 38,
+		"i_rate": 0,
+		"il_addItem": [
+			3,
+			1003,
+			1,
+			4
+		]
+	},
+	{
+		"i_groupId": 11,
+		"i_id": 39,
+		"i_rate": 0,
+		"il_addItem": [
+			3,
+			1004,
+			1,
+			4
+		]
+	},
+	{
+		"i_groupId": 11,
+		"i_id": 40,
+		"i_rate": 0,
+		"il_addItem": [
+			3,
+			1005,
+			1,
+			4
+		]
+	},
+	{
+		"i_groupId": 12,
+		"i_id": 41,
+		"i_rate": 0,
+		"il_addItem": [
+			3,
+			25,
+			1,
+			4
+		]
+	},
+	{
+		"i_groupId": 12,
+		"i_id": 42,
+		"i_rate": 0,
+		"il_addItem": [
+			3,
+			20,
+			1,
+			4
+		]
+	},
+	{
+		"i_groupId": 12,
+		"i_id": 43,
+		"i_rate": 0,
+		"il_addItem": [
+			3,
+			23,
+			1,
+			4
+		]
+	},
+	{
+		"i_groupId": 12,
+		"i_id": 44,
+		"i_rate": 0,
+		"il_addItem": [
+			3,
+			19,
+			1,
+			4
+		]
+	},
+	{
+		"i_groupId": 12,
+		"i_id": 45,
+		"i_rate": 0,
+		"il_addItem": [
+			3,
+			26,
+			1,
+			4
+		]
+	},
+	{
+		"i_groupId": 13,
+		"i_id": 46,
+		"i_rate": 0,
+		"il_addItem": [
+			9,
+			106,
+			1
+		]
+	},
+	{
+		"i_groupId": 13,
+		"i_id": 47,
+		"i_rate": 0,
+		"il_addItem": [
+			9,
+			206,
+			1
+		]
+	},
+	{
+		"i_groupId": 13,
+		"i_id": 48,
+		"i_rate": 0,
+		"il_addItem": [
+			9,
+			306,
+			1
+		]
+	},
+	{
+		"i_groupId": 13,
+		"i_id": 49,
+		"i_rate": 0,
+		"il_addItem": [
+			9,
+			711,
+			1
+		]
+	},
+	{
+		"i_groupId": 13,
+		"i_id": 50,
+		"i_rate": 0,
+		"il_addItem": [
+			9,
+			811,
+			1
+		]
+	},
+	{
+		"i_groupId": 14,
+		"i_id": 51,
+		"i_rate": 0,
+		"il_addItem": [
+			2,
+			3,
+			1,
+			4,
+			1
+		]
+	},
+	{
+		"i_groupId": 14,
+		"i_id": 52,
+		"i_rate": 0,
+		"il_addItem": [
+			2,
+			8,
+			1,
+			4,
+			1
+		]
+	},
+	{
+		"i_groupId": 14,
+		"i_id": 53,
+		"i_rate": 0,
+		"il_addItem": [
+			2,
+			13,
+			1,
+			4,
+			1
+		]
+	},
+	{
+		"i_groupId": 14,
+		"i_id": 54,
+		"i_rate": 0,
+		"il_addItem": [
+			2,
+			18,
+			1,
+			4,
+			1
+		]
+	},
+	{
+		"i_groupId": 15,
+		"i_id": 55,
+		"i_rate": 0,
+		"il_addItem": [
+			1,
+			16,
+			50
+		]
+	},
+	{
+		"i_groupId": 15,
+		"i_id": 56,
+		"i_rate": 0,
+		"il_addItem": [
+			1,
+			3,
+			450
+		]
+	},
+	{
+		"i_groupId": 16,
+		"i_id": 57,
+		"i_rate": 0,
+		"il_addItem": [
+			1,
+			19,
+			3000
+		]
+	},
+	{
+		"i_groupId": 16,
+		"i_id": 58,
+		"i_rate": 0,
+		"il_addItem": [
+			1,
+			22,
+			3000
+		]
+	},
+	{
+		"i_groupId": 17,
+		"i_id": 59,
+		"i_rate": 0,
+		"il_addItem": [
+			1,
+			12,
+			1150
+		]
+	},
+	{
+		"i_groupId": 17,
+		"i_id": 60,
+		"i_rate": 0,
+		"il_addItem": [
+			1,
+			21,
+			450
+		]
+	},
+	{
+		"i_groupId": 17,
+		"i_id": 61,
+		"i_rate": 0,
+		"il_addItem": [
+			1,
+			13,
+			35
+		]
+	},
+	{
+		"i_groupId": 18,
+		"i_id": 62,
+		"i_rate": 0,
+		"il_addItem": [
+			1,
+			12,
+			1650
+		]
+	},
+	{
+		"i_groupId": 18,
+		"i_id": 63,
+		"i_rate": 0,
+		"il_addItem": [
+			1,
+			21,
+			650
+		]
+	},
+	{
+		"i_groupId": 18,
+		"i_id": 64,
+		"i_rate": 0,
+		"il_addItem": [
+			1,
+			13,
+			50
+		]
+	}
+]

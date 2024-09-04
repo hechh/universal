@@ -1,0 +1,7910 @@
+[
+	{
+		"i_id": 1,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 2,
+		"i_lootKind": 4,
+		"i_lootSingleRate": 1000,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 2,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 1002,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 300,
+		"i_maxCount": 20,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 3,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 1003,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 600,
+		"i_maxCount": 20,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 4,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 1004,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 700,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 5,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 2,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 100,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 6,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 1,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 100,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 7,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 3,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 100,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 8,
+		"i_lootGlobalProp": 15,
+		"i_lootId": 2,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 9,
+		"i_lootGlobalProp": 45,
+		"i_lootId": 3,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 10,
+		"i_lootGlobalProp": 15,
+		"i_lootId": 4,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 11,
+		"i_lootGlobalProp": 10,
+		"i_lootId": 5,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 12,
+		"i_lootGlobalProp": 5,
+		"i_lootId": 6,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 13,
+		"i_lootGlobalProp": 5,
+		"i_lootId": 7,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 14,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 8,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 10000,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			2
+		]
+	},
+	{
+		"i_id": 15,
+		"i_lootGlobalProp": 60,
+		"i_lootId": 2,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 5,
+		"i_minCount": 5,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 16,
+		"i_lootGlobalProp": 30,
+		"i_lootId": 2,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 10,
+		"i_minCount": 10,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 17,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 2,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 10000,
+		"i_maxCount": 500,
+		"i_minCount": 500,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 18,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 6,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 10000,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			3
+		]
+	},
+	{
+		"i_id": 19,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 15,
+		"i_lootKind": 4,
+		"i_lootSingleRate": 10000,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 20,
+		"i_lootGlobalProp": 5,
+		"i_lootId": 2,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 2500,
+		"i_minCount": 2500,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 21,
+		"i_lootGlobalProp": 10,
+		"i_lootId": 2,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 2000,
+		"i_minCount": 2000,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 22,
+		"i_lootGlobalProp": 15,
+		"i_lootId": 2,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1500,
+		"i_minCount": 1500,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 23,
+		"i_lootGlobalProp": 30,
+		"i_lootId": 2,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1000,
+		"i_minCount": 1000,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 24,
+		"i_lootGlobalProp": 20,
+		"i_lootId": 2,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 500,
+		"i_minCount": 500,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 25,
+		"i_lootGlobalProp": 20,
+		"i_lootId": 2,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 250,
+		"i_minCount": 250,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 26,
+		"i_lootGlobalProp": 5,
+		"i_lootId": 13,
+		"i_lootKind": 4,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 30,
+		"i_lootGlobalProp": 10,
+		"i_lootId": 5,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 400,
+		"i_minCount": 400,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 31,
+		"i_lootGlobalProp": 20,
+		"i_lootId": 5,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 200,
+		"i_minCount": 200,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 32,
+		"i_lootGlobalProp": 19,
+		"i_lootId": 5,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 120,
+		"i_minCount": 120,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 33,
+		"i_lootGlobalProp": 17,
+		"i_lootId": 5,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 80,
+		"i_minCount": 80,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 34,
+		"i_lootGlobalProp": 34,
+		"i_lootId": 5,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 40,
+		"i_minCount": 40,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 35,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 13,
+		"i_lootKind": 4,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 36,
+		"i_lootGlobalProp": 5,
+		"i_lootId": 13,
+		"i_lootKind": 4,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 40,
+		"i_lootGlobalProp": 10,
+		"i_lootId": 19,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 500,
+		"i_minCount": 500,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 41,
+		"i_lootGlobalProp": 15,
+		"i_lootId": 19,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 300,
+		"i_minCount": 300,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 42,
+		"i_lootGlobalProp": 30,
+		"i_lootId": 19,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 200,
+		"i_minCount": 200,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 43,
+		"i_lootGlobalProp": 45,
+		"i_lootId": 19,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 100,
+		"i_minCount": 100,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 44,
+		"i_lootGlobalProp": 9,
+		"i_lootId": 13,
+		"i_lootKind": 4,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 45,
+		"i_lootGlobalProp": 10,
+		"i_lootId": 14,
+		"i_lootKind": 4,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 46,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 15,
+		"i_lootKind": 4,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 50,
+		"i_lootGlobalProp": 60,
+		"i_lootId": 13,
+		"i_lootKind": 4,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 51,
+		"i_lootGlobalProp": 30,
+		"i_lootId": 14,
+		"i_lootKind": 4,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 52,
+		"i_lootGlobalProp": 10,
+		"i_lootId": 15,
+		"i_lootKind": 4,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 53,
+		"i_lootGlobalProp": 955,
+		"i_lootId": 13,
+		"i_lootKind": 4,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 54,
+		"i_lootGlobalProp": 30,
+		"i_lootId": 14,
+		"i_lootKind": 4,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 55,
+		"i_lootGlobalProp": 10,
+		"i_lootId": 15,
+		"i_lootKind": 4,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 56,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 16,
+		"i_lootKind": 4,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 60,
+		"i_lootGlobalProp": 13,
+		"i_lootId": 3,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 100,
+		"i_minCount": 100,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 61,
+		"i_lootGlobalProp": 48,
+		"i_lootId": 3,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 40,
+		"i_minCount": 40,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 62,
+		"i_lootGlobalProp": 39,
+		"i_lootId": 3,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 20,
+		"i_minCount": 20,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 63,
+		"i_lootGlobalProp": 10,
+		"i_lootId": 14,
+		"i_lootKind": 4,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 64,
+		"i_lootGlobalProp": 5,
+		"i_lootId": 15,
+		"i_lootKind": 4,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 65,
+		"i_lootGlobalProp": 25,
+		"i_lootId": 1,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 30,
+		"i_minCount": 30,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 66,
+		"i_lootGlobalProp": 50,
+		"i_lootId": 1,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 20,
+		"i_minCount": 20,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 67,
+		"i_lootGlobalProp": 25,
+		"i_lootId": 1,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 10,
+		"i_minCount": 10,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 70,
+		"i_lootGlobalProp": 5,
+		"i_lootId": 2,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 2500,
+		"i_minCount": 2500,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 71,
+		"i_lootGlobalProp": 10,
+		"i_lootId": 2,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 2000,
+		"i_minCount": 2000,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 72,
+		"i_lootGlobalProp": 15,
+		"i_lootId": 2,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1500,
+		"i_minCount": 1500,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 73,
+		"i_lootGlobalProp": 30,
+		"i_lootId": 2,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1000,
+		"i_minCount": 1000,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 74,
+		"i_lootGlobalProp": 20,
+		"i_lootId": 2,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 500,
+		"i_minCount": 500,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 75,
+		"i_lootGlobalProp": 20,
+		"i_lootId": 2,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 250,
+		"i_minCount": 250,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 76,
+		"i_lootGlobalProp": 25,
+		"i_lootId": 13,
+		"i_lootKind": 4,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 80,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 2,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 10000,
+		"i_maxCount": 900,
+		"i_minCount": 900,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 81,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 2,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 10000,
+		"i_maxCount": 900,
+		"i_minCount": 900,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 82,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 2,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 10000,
+		"i_maxCount": 900,
+		"i_minCount": 900,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 83,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 2,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 10000,
+		"i_maxCount": 900,
+		"i_minCount": 900,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 90,
+		"i_lootGlobalProp": 10,
+		"i_lootId": 5,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 400,
+		"i_minCount": 400,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 91,
+		"i_lootGlobalProp": 20,
+		"i_lootId": 5,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 200,
+		"i_minCount": 200,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 92,
+		"i_lootGlobalProp": 20,
+		"i_lootId": 5,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 120,
+		"i_minCount": 120,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 93,
+		"i_lootGlobalProp": 16,
+		"i_lootId": 5,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 80,
+		"i_minCount": 80,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 94,
+		"i_lootGlobalProp": 33,
+		"i_lootId": 5,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 40,
+		"i_minCount": 40,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 95,
+		"i_lootGlobalProp": 35,
+		"i_lootId": 13,
+		"i_lootKind": 4,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 96,
+		"i_lootGlobalProp": 15,
+		"i_lootId": 14,
+		"i_lootKind": 4,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 101,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 1,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 102,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 2,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 103,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 3,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 104,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 4,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 105,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 5,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 106,
+		"i_lootGlobalProp": 70,
+		"i_lootId": 14,
+		"i_lootKind": 4,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 107,
+		"i_lootGlobalProp": 25,
+		"i_lootId": 15,
+		"i_lootKind": 4,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 108,
+		"i_lootGlobalProp": 5,
+		"i_lootId": 16,
+		"i_lootKind": 4,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 110,
+		"i_lootGlobalProp": 50,
+		"i_lootId": 13,
+		"i_lootKind": 4,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 111,
+		"i_lootGlobalProp": 35,
+		"i_lootId": 14,
+		"i_lootKind": 4,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 112,
+		"i_lootGlobalProp": 15,
+		"i_lootId": 15,
+		"i_lootKind": 4,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 120,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 5,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 10000,
+		"i_maxCount": 750,
+		"i_minCount": 750,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 121,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 5,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 10000,
+		"i_maxCount": 485,
+		"i_minCount": 485,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 122,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 5,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 10000,
+		"i_maxCount": 300,
+		"i_minCount": 300,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 123,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 5,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 10000,
+		"i_maxCount": 150,
+		"i_minCount": 150,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 131,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 3,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 10000,
+		"i_maxCount": 20,
+		"i_minCount": 20,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 132,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 3,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 10000,
+		"i_maxCount": 10,
+		"i_minCount": 10,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 133,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 3,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 10000,
+		"i_maxCount": 10,
+		"i_minCount": 10,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 134,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 3,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 10000,
+		"i_maxCount": 10,
+		"i_minCount": 10,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 136,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 3,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 10000,
+		"i_maxCount": 50,
+		"i_minCount": 50,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 137,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 3,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 10000,
+		"i_maxCount": 30,
+		"i_minCount": 30,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 138,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 3,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 10000,
+		"i_maxCount": 10,
+		"i_minCount": 10,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 139,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 3,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 10000,
+		"i_maxCount": 10,
+		"i_minCount": 10,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 141,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 3,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 10000,
+		"i_maxCount": 50,
+		"i_minCount": 50,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 142,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 3,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 10000,
+		"i_maxCount": 50,
+		"i_minCount": 50,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 143,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 3,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 10000,
+		"i_maxCount": 30,
+		"i_minCount": 30,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 144,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 3,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 10000,
+		"i_maxCount": 20,
+		"i_minCount": 20,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 146,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 3,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 10000,
+		"i_maxCount": 50,
+		"i_minCount": 50,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 147,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 3,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 10000,
+		"i_maxCount": 50,
+		"i_minCount": 50,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 148,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 3,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 10000,
+		"i_maxCount": 50,
+		"i_minCount": 50,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 149,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 3,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 10000,
+		"i_maxCount": 50,
+		"i_minCount": 50,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 150,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 80,
+		"i_lootKind": 4,
+		"i_lootSingleRate": 150,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 151,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 3,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 10000,
+		"i_maxCount": 100,
+		"i_minCount": 100,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 152,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 3,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 10000,
+		"i_maxCount": 50,
+		"i_minCount": 50,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 153,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 3,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 10000,
+		"i_maxCount": 50,
+		"i_minCount": 50,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 154,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 3,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 10000,
+		"i_maxCount": 50,
+		"i_minCount": 50,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 156,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 3,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 10000,
+		"i_maxCount": 100,
+		"i_minCount": 100,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 157,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 3,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 10000,
+		"i_maxCount": 100,
+		"i_minCount": 100,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 158,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 3,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 10000,
+		"i_maxCount": 50,
+		"i_minCount": 50,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 159,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 3,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 10000,
+		"i_maxCount": 50,
+		"i_minCount": 50,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 161,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 3,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 10000,
+		"i_maxCount": 150,
+		"i_minCount": 150,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 162,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 3,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 10000,
+		"i_maxCount": 100,
+		"i_minCount": 100,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 163,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 3,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 10000,
+		"i_maxCount": 100,
+		"i_minCount": 100,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 164,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 3,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 10000,
+		"i_maxCount": 50,
+		"i_minCount": 50,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 166,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 3,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 10000,
+		"i_maxCount": 200,
+		"i_minCount": 200,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 167,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 3,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 10000,
+		"i_maxCount": 150,
+		"i_minCount": 150,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 168,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 3,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 10000,
+		"i_maxCount": 100,
+		"i_minCount": 100,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 169,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 3,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 10000,
+		"i_maxCount": 50,
+		"i_minCount": 50,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 201,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 1001,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 10000,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			1
+		]
+	},
+	{
+		"i_id": 202,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 1002,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 10000,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			1
+		]
+	},
+	{
+		"i_id": 203,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 1003,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 10000,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			1
+		]
+	},
+	{
+		"i_id": 204,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 1004,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 10000,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			1
+		]
+	},
+	{
+		"i_id": 205,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 1005,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 10000,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			1
+		]
+	},
+	{
+		"i_id": 206,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 1001,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 10000,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			2
+		]
+	},
+	{
+		"i_id": 207,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 1002,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 10000,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			2
+		]
+	},
+	{
+		"i_id": 208,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 1003,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 10000,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			2
+		]
+	},
+	{
+		"i_id": 209,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 1004,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 10000,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			2
+		]
+	},
+	{
+		"i_id": 210,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 1005,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 10000,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			2
+		]
+	},
+	{
+		"i_id": 211,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 1001,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 10000,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			3
+		]
+	},
+	{
+		"i_id": 212,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 1002,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 10000,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			3
+		]
+	},
+	{
+		"i_id": 213,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 1003,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 10000,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			3
+		]
+	},
+	{
+		"i_id": 214,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 1004,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 10000,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			3
+		]
+	},
+	{
+		"i_id": 215,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 1005,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 10000,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			3
+		]
+	},
+	{
+		"i_id": 216,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 1001,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 10000,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			4
+		]
+	},
+	{
+		"i_id": 217,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 1002,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 10000,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			4
+		]
+	},
+	{
+		"i_id": 218,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 1003,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 10000,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			4
+		]
+	},
+	{
+		"i_id": 219,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 1004,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 10000,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			4
+		]
+	},
+	{
+		"i_id": 220,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 1005,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 10000,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			4
+		]
+	},
+	{
+		"i_id": 1001,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 1,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			1
+		]
+	},
+	{
+		"i_id": 1002,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 2,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			1
+		]
+	},
+	{
+		"i_id": 1003,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 3,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			1
+		]
+	},
+	{
+		"i_id": 1004,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 4,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			1
+		]
+	},
+	{
+		"i_id": 1005,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 5,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			1
+		]
+	},
+	{
+		"i_id": 1006,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 6,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			1
+		]
+	},
+	{
+		"i_id": 1007,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 7,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			1
+		]
+	},
+	{
+		"i_id": 1008,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 8,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			1
+		]
+	},
+	{
+		"i_id": 1009,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 9,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			1
+		]
+	},
+	{
+		"i_id": 1010,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 10,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			1
+		]
+	},
+	{
+		"i_id": 1012,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 12,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			1
+		]
+	},
+	{
+		"i_id": 1013,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 13,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			1
+		]
+	},
+	{
+		"i_id": 1014,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 14,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			1
+		]
+	},
+	{
+		"i_id": 1015,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 15,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			1
+		]
+	},
+	{
+		"i_id": 1016,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 16,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			1
+		]
+	},
+	{
+		"i_id": 1017,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 17,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			1
+		]
+	},
+	{
+		"i_id": 1018,
+		"i_lootGlobalProp": 20,
+		"i_lootId": 18,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			1
+		]
+	},
+	{
+		"i_id": 1019,
+		"i_lootGlobalProp": 20,
+		"i_lootId": 19,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			1
+		]
+	},
+	{
+		"i_id": 1020,
+		"i_lootGlobalProp": 20,
+		"i_lootId": 20,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			1
+		]
+	},
+	{
+		"i_id": 1021,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 21,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			1
+		]
+	},
+	{
+		"i_id": 1022,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 22,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			1
+		]
+	},
+	{
+		"i_id": 1023,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 23,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			1
+		]
+	},
+	{
+		"i_id": 1024,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 24,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			1
+		]
+	},
+	{
+		"i_id": 1025,
+		"i_lootGlobalProp": 20,
+		"i_lootId": 25,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			1
+		]
+	},
+	{
+		"i_id": 1026,
+		"i_lootGlobalProp": 20,
+		"i_lootId": 26,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			1
+		]
+	},
+	{
+		"i_id": 1101,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 1,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			2
+		]
+	},
+	{
+		"i_id": 1102,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 2,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			2
+		]
+	},
+	{
+		"i_id": 1103,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 3,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			2
+		]
+	},
+	{
+		"i_id": 1104,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 4,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			2
+		]
+	},
+	{
+		"i_id": 1105,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 5,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			2
+		]
+	},
+	{
+		"i_id": 1106,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 6,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			2
+		]
+	},
+	{
+		"i_id": 1107,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 7,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			2
+		]
+	},
+	{
+		"i_id": 1108,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 8,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			2
+		]
+	},
+	{
+		"i_id": 1109,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 9,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			2
+		]
+	},
+	{
+		"i_id": 1110,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 10,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			2
+		]
+	},
+	{
+		"i_id": 1112,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 12,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			2
+		]
+	},
+	{
+		"i_id": 1113,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 13,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			2
+		]
+	},
+	{
+		"i_id": 1114,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 14,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			2
+		]
+	},
+	{
+		"i_id": 1115,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 15,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			2
+		]
+	},
+	{
+		"i_id": 1116,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 16,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			2
+		]
+	},
+	{
+		"i_id": 1117,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 17,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			2
+		]
+	},
+	{
+		"i_id": 1118,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 18,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			2
+		]
+	},
+	{
+		"i_id": 1119,
+		"i_lootGlobalProp": 20,
+		"i_lootId": 19,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			2
+		]
+	},
+	{
+		"i_id": 1120,
+		"i_lootGlobalProp": 20,
+		"i_lootId": 20,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			2
+		]
+	},
+	{
+		"i_id": 1121,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 21,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			2
+		]
+	},
+	{
+		"i_id": 1122,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 22,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			2
+		]
+	},
+	{
+		"i_id": 1123,
+		"i_lootGlobalProp": 20,
+		"i_lootId": 23,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			2
+		]
+	},
+	{
+		"i_id": 1124,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 24,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			2
+		]
+	},
+	{
+		"i_id": 1125,
+		"i_lootGlobalProp": 20,
+		"i_lootId": 25,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			2
+		]
+	},
+	{
+		"i_id": 1126,
+		"i_lootGlobalProp": 20,
+		"i_lootId": 26,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			2
+		]
+	},
+	{
+		"i_id": 1201,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 1,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			3
+		]
+	},
+	{
+		"i_id": 1202,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 2,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			3
+		]
+	},
+	{
+		"i_id": 1203,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 3,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			3
+		]
+	},
+	{
+		"i_id": 1204,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 4,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			3
+		]
+	},
+	{
+		"i_id": 1205,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 5,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			3
+		]
+	},
+	{
+		"i_id": 1206,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 6,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			3
+		]
+	},
+	{
+		"i_id": 1207,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 7,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			3
+		]
+	},
+	{
+		"i_id": 1208,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 8,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			3
+		]
+	},
+	{
+		"i_id": 1209,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 9,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			3
+		]
+	},
+	{
+		"i_id": 1210,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 10,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			3
+		]
+	},
+	{
+		"i_id": 1212,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 12,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			3
+		]
+	},
+	{
+		"i_id": 1213,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 13,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			3
+		]
+	},
+	{
+		"i_id": 1214,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 14,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			3
+		]
+	},
+	{
+		"i_id": 1215,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 15,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			3
+		]
+	},
+	{
+		"i_id": 1216,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 16,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			3
+		]
+	},
+	{
+		"i_id": 1217,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 17,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			3
+		]
+	},
+	{
+		"i_id": 1218,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 18,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			3
+		]
+	},
+	{
+		"i_id": 1219,
+		"i_lootGlobalProp": 20,
+		"i_lootId": 19,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			3
+		]
+	},
+	{
+		"i_id": 1220,
+		"i_lootGlobalProp": 20,
+		"i_lootId": 20,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			3
+		]
+	},
+	{
+		"i_id": 1221,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 21,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			3
+		]
+	},
+	{
+		"i_id": 1222,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 22,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			3
+		]
+	},
+	{
+		"i_id": 1223,
+		"i_lootGlobalProp": 20,
+		"i_lootId": 23,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			3
+		]
+	},
+	{
+		"i_id": 1224,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 24,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			3
+		]
+	},
+	{
+		"i_id": 1225,
+		"i_lootGlobalProp": 20,
+		"i_lootId": 25,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			3
+		]
+	},
+	{
+		"i_id": 1226,
+		"i_lootGlobalProp": 20,
+		"i_lootId": 26,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			3
+		]
+	},
+	{
+		"i_id": 1301,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 1,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			4
+		]
+	},
+	{
+		"i_id": 1302,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 2,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			4
+		]
+	},
+	{
+		"i_id": 1303,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 3,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			4
+		]
+	},
+	{
+		"i_id": 1304,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 4,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			4
+		]
+	},
+	{
+		"i_id": 1305,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 5,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			4
+		]
+	},
+	{
+		"i_id": 1306,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 6,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			4
+		]
+	},
+	{
+		"i_id": 1307,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 7,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			4
+		]
+	},
+	{
+		"i_id": 1308,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 8,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			4
+		]
+	},
+	{
+		"i_id": 1309,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 9,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			4
+		]
+	},
+	{
+		"i_id": 1310,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 10,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			4
+		]
+	},
+	{
+		"i_id": 1312,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 12,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			4
+		]
+	},
+	{
+		"i_id": 1313,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 13,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			4
+		]
+	},
+	{
+		"i_id": 1314,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 14,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			4
+		]
+	},
+	{
+		"i_id": 1315,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 15,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			4
+		]
+	},
+	{
+		"i_id": 1316,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 16,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			4
+		]
+	},
+	{
+		"i_id": 1317,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 17,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			4
+		]
+	},
+	{
+		"i_id": 1318,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 18,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			4
+		]
+	},
+	{
+		"i_id": 1319,
+		"i_lootGlobalProp": 20,
+		"i_lootId": 19,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			4
+		]
+	},
+	{
+		"i_id": 1320,
+		"i_lootGlobalProp": 20,
+		"i_lootId": 20,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			4
+		]
+	},
+	{
+		"i_id": 1321,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 21,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			4
+		]
+	},
+	{
+		"i_id": 1322,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 22,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			4
+		]
+	},
+	{
+		"i_id": 1323,
+		"i_lootGlobalProp": 20,
+		"i_lootId": 23,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			4
+		]
+	},
+	{
+		"i_id": 1324,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 24,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			4
+		]
+	},
+	{
+		"i_id": 1325,
+		"i_lootGlobalProp": 20,
+		"i_lootId": 25,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			4
+		]
+	},
+	{
+		"i_id": 1326,
+		"i_lootGlobalProp": 20,
+		"i_lootId": 26,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			4
+		]
+	},
+	{
+		"i_id": 1401,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 21,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 10000,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			2
+		]
+	},
+	{
+		"i_id": 1402,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 4,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 10000,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			3
+		]
+	},
+	{
+		"i_id": 1403,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 15,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 10000,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			2
+		]
+	},
+	{
+		"i_id": 2801,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 24,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 10000,
+		"i_maxCount": 6,
+		"i_minCount": 6,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 2901,
+		"i_lootGlobalProp": 2975,
+		"i_lootId": 101,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 2902,
+		"i_lootGlobalProp": 2975,
+		"i_lootId": 102,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 2903,
+		"i_lootGlobalProp": 1480,
+		"i_lootId": 103,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 2904,
+		"i_lootGlobalProp": 1480,
+		"i_lootId": 104,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 2905,
+		"i_lootGlobalProp": 467,
+		"i_lootId": 505,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 2906,
+		"i_lootGlobalProp": 467,
+		"i_lootId": 105,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 2907,
+		"i_lootGlobalProp": 52,
+		"i_lootId": 506,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 2908,
+		"i_lootGlobalProp": 52,
+		"i_lootId": 507,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 2909,
+		"i_lootGlobalProp": 52,
+		"i_lootId": 106,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 3001,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 201,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 3002,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 202,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 3003,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 301,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 3004,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 402,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 3005,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 501,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 3006,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 502,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 3007,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 701,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 3008,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 703,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 3009,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 803,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 3010,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 804,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 3011,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 601,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 3012,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 602,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 3013,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 701,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 3014,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 702,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 3015,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 703,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 3016,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 704,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 3017,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 801,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 3018,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 802,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 3019,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 803,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 3020,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 804,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 3101,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 103,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 3102,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 104,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 3103,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 203,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 3104,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 303,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 3105,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 304,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 3106,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 604,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 3107,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 706,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 3108,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 707,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 3109,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 806,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 3110,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 807,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 3111,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 603,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 3112,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 604,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 3113,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 705,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 3114,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 706,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 3115,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 707,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 3116,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 708,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 3117,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 805,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 3118,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 806,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 3119,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 807,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 3120,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 808,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 3201,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 105,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 3202,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 205,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 3203,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 305,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 3204,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 405,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 3205,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 505,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 3206,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 605,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 3207,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 709,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 3208,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 710,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 3209,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 809,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 3210,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 810,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 3301,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 106,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 3302,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 206,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 3303,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 306,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 3304,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 406,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 3305,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 407,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 3306,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 506,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 3307,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 507,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 3308,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 606,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 3309,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 607,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 3310,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 711,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 3311,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 712,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 3312,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 713,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 3313,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 811,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 3314,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 812,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 3315,
+		"i_lootGlobalProp": 100,
+		"i_lootId": 813,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 4001,
+		"i_lootGlobalProp": 1835,
+		"i_lootId": 1,
+		"i_lootKind": 10,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 4002,
+		"i_lootGlobalProp": 1835,
+		"i_lootId": 2,
+		"i_lootKind": 10,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 4003,
+		"i_lootGlobalProp": 1835,
+		"i_lootId": 3,
+		"i_lootKind": 10,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 4004,
+		"i_lootGlobalProp": 1835,
+		"i_lootId": 4,
+		"i_lootKind": 10,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 4005,
+		"i_lootGlobalProp": 1835,
+		"i_lootId": 5,
+		"i_lootKind": 10,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 4006,
+		"i_lootGlobalProp": 1835,
+		"i_lootId": 6,
+		"i_lootKind": 10,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 4007,
+		"i_lootGlobalProp": 63822,
+		"i_lootId": 50001,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 8,
+		"i_minCount": 8,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 4008,
+		"i_lootGlobalProp": 63822,
+		"i_lootId": 50002,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 8,
+		"i_minCount": 8,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 4009,
+		"i_lootGlobalProp": 63822,
+		"i_lootId": 50003,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 8,
+		"i_minCount": 8,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 4010,
+		"i_lootGlobalProp": 63822,
+		"i_lootId": 50004,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 8,
+		"i_minCount": 8,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 4011,
+		"i_lootGlobalProp": 63822,
+		"i_lootId": 50005,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 8,
+		"i_minCount": 8,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 4012,
+		"i_lootGlobalProp": 63822,
+		"i_lootId": 50006,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 8,
+		"i_minCount": 8,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 4013,
+		"i_lootGlobalProp": 200000,
+		"i_lootId": 22,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 25,
+		"i_minCount": 25,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 4014,
+		"i_lootGlobalProp": 300000,
+		"i_lootId": 22,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 50,
+		"i_minCount": 50,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 4015,
+		"i_lootGlobalProp": 90000,
+		"i_lootId": 22,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 100,
+		"i_minCount": 100,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 4016,
+		"i_lootGlobalProp": 1305,
+		"i_lootId": 22,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 999,
+		"i_minCount": 999,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 4101,
+		"i_lootGlobalProp": 10000,
+		"i_lootId": 50002,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 8,
+		"i_minCount": 8,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 4201,
+		"i_lootGlobalProp": 10000,
+		"i_lootId": 22,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 100,
+		"i_minCount": 100,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 10501,
+		"i_lootGlobalProp": 10,
+		"i_lootId": 501,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 10502,
+		"i_lootGlobalProp": 10,
+		"i_lootId": 502,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 10503,
+		"i_lootGlobalProp": 10,
+		"i_lootId": 503,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 10601,
+		"i_lootGlobalProp": 10,
+		"i_lootId": 601,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 10602,
+		"i_lootGlobalProp": 10,
+		"i_lootId": 602,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 10603,
+		"i_lootGlobalProp": 10,
+		"i_lootId": 603,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 10604,
+		"i_lootGlobalProp": 10,
+		"i_lootId": 604,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 10701,
+		"i_lootGlobalProp": 10,
+		"i_lootId": 701,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 10702,
+		"i_lootGlobalProp": 10,
+		"i_lootId": 702,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 10703,
+		"i_lootGlobalProp": 10,
+		"i_lootId": 703,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 10704,
+		"i_lootGlobalProp": 10,
+		"i_lootId": 704,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 10705,
+		"i_lootGlobalProp": 10,
+		"i_lootId": 705,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 10801,
+		"i_lootGlobalProp": 10,
+		"i_lootId": 801,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 10802,
+		"i_lootGlobalProp": 10,
+		"i_lootId": 802,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 10803,
+		"i_lootGlobalProp": 10,
+		"i_lootId": 803,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 10804,
+		"i_lootGlobalProp": 10,
+		"i_lootId": 804,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 10805,
+		"i_lootGlobalProp": 10,
+		"i_lootId": 805,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 10806,
+		"i_lootGlobalProp": 10,
+		"i_lootId": 806,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 10901,
+		"i_lootGlobalProp": 10,
+		"i_lootId": 901,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 10902,
+		"i_lootGlobalProp": 10,
+		"i_lootId": 902,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 10903,
+		"i_lootGlobalProp": 10,
+		"i_lootId": 903,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 10904,
+		"i_lootGlobalProp": 10,
+		"i_lootId": 904,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 10905,
+		"i_lootGlobalProp": 10,
+		"i_lootId": 905,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 10906,
+		"i_lootGlobalProp": 10,
+		"i_lootId": 906,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 11001,
+		"i_lootGlobalProp": 10,
+		"i_lootId": 1001,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 11002,
+		"i_lootGlobalProp": 10,
+		"i_lootId": 1002,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 11003,
+		"i_lootGlobalProp": 10,
+		"i_lootId": 1003,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 11004,
+		"i_lootGlobalProp": 10,
+		"i_lootId": 1004,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 11005,
+		"i_lootGlobalProp": 10,
+		"i_lootId": 1005,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 11006,
+		"i_lootGlobalProp": 10,
+		"i_lootId": 1006,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 110001,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 1001,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 4166,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 110002,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 1002,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 4166,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 110003,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 1003,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 4166,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 110004,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 17,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 10000,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 110005,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 9,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 110006,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 1,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 694,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 110101,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 2001,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 3125,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 110102,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 2002,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 3125,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 110103,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 2003,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 3125,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 110104,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 2004,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 3125,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 110105,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 17,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 10000,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 110106,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 9,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 110107,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 1,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 694,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 110201,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 3001,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 2500,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 110202,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 3002,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 2500,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 110203,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 3003,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 2500,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 110204,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 3004,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 2500,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 110205,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 3005,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 2500,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 110206,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 17,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 10000,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 110207,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 9,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 110208,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 1,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 694,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 110301,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 4001,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 2083,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 110302,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 4002,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 2083,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 110303,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 4003,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 2083,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 110304,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 4004,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 2083,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 110305,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 4005,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 2083,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 110306,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 4006,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 2083,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 110307,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 17,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 10000,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 110308,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 9,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 110309,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 1,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 694,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 110401,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 5001,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 2083,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 110402,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 5002,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 2083,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 110403,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 5003,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 2083,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 110404,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 5004,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 2083,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 110405,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 5005,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 2083,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 110406,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 5006,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 2083,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 110407,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 17,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 10000,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 110408,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 9,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 110409,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 1,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 694,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 120001,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 1001,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 3157,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 120002,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 1002,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 3157,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 120003,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 1003,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 3157,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 120004,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 1001,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 3157,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 120005,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 1002,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 3157,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 120006,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 1003,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 3157,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 120007,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 1001,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 3157,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 120008,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 1002,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 3157,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 120009,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 1003,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 3157,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 120051,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 17,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 120052,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 9,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 120053,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 1,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 526,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 120101,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 2001,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 2368,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 120102,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 2002,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 2368,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 120103,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 2003,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 2368,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 120104,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 2004,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 2368,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 120105,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 2001,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 2368,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 120106,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 2002,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 2368,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 120107,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 2003,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 2368,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 120108,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 2004,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 2368,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 120109,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 2001,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 2368,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 120110,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 2002,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 2368,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 120111,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 2003,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 2368,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 120112,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 2004,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 2368,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 120151,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 17,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 120152,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 9,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 120153,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 1,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 526,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 120201,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 3001,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 1894,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 120202,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 3002,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 1894,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 120203,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 3003,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 1894,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 120204,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 3004,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 1894,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 120205,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 3005,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 1894,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 120206,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 3001,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 1894,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 120207,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 3002,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 1894,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 120208,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 3003,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 1894,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 120209,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 3004,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 1894,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 120210,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 3005,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 1894,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 120211,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 3001,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 1894,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 120212,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 3002,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 1894,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 120213,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 3003,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 1894,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 120214,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 3004,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 1894,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 120215,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 3005,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 1894,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 120251,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 17,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 120252,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 9,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 120253,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 1,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 526,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 120301,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 4001,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 1578,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 120302,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 4002,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 1578,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 120303,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 4003,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 1578,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 120304,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 4004,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 1578,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 120305,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 4005,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 1578,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 120306,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 4006,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 1578,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 120307,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 4001,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 1578,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 120308,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 4002,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 1578,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 120309,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 4003,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 1578,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 120310,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 4004,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 1578,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 120311,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 4005,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 1578,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 120312,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 4006,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 1578,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 120313,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 4001,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 1578,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 120314,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 4002,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 1578,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 120315,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 4003,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 1578,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 120316,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 4004,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 1578,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 120317,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 4005,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 1578,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 120318,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 4006,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 1578,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 120351,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 17,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 120352,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 9,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 120353,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 1,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 526,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 120401,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 5001,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 1578,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 120402,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 5002,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 1578,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 120403,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 5003,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 1578,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 120404,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 5004,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 1578,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 120405,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 5005,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 1578,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 120406,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 5006,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 1578,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 120407,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 5001,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 1578,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 120408,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 5002,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 1578,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 120409,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 5003,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 1578,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 120410,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 5004,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 1578,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 120411,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 5005,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 1578,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 120412,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 5006,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 1578,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 120413,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 5001,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 1578,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 120414,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 5002,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 1578,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 120415,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 5003,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 1578,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 120416,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 5004,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 1578,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 120417,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 5005,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 1578,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 120418,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 5006,
+		"i_lootKind": 5,
+		"i_lootSingleRate": 1578,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 120451,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 17,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 120452,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 9,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 120453,
+		"i_lootGlobalProp": 0,
+		"i_lootId": 1,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 526,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 130001,
+		"i_lootGlobalProp": 4445,
+		"i_lootId": 24,
+		"i_lootKind": 1,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 6,
+		"i_minCount": 6,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 130002,
+		"i_lootGlobalProp": 3555,
+		"i_lootId": 201,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 130003,
+		"i_lootGlobalProp": 3555,
+		"i_lootId": 202,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 130004,
+		"i_lootGlobalProp": 3555,
+		"i_lootId": 301,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 130005,
+		"i_lootGlobalProp": 3555,
+		"i_lootId": 402,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 130006,
+		"i_lootGlobalProp": 3555,
+		"i_lootId": 501,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 130007,
+		"i_lootGlobalProp": 3555,
+		"i_lootId": 502,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 130008,
+		"i_lootGlobalProp": 3555,
+		"i_lootId": 701,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 130009,
+		"i_lootGlobalProp": 3555,
+		"i_lootId": 703,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 130010,
+		"i_lootGlobalProp": 3555,
+		"i_lootId": 803,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 130011,
+		"i_lootGlobalProp": 3555,
+		"i_lootId": 804,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 130012,
+		"i_lootGlobalProp": 3555,
+		"i_lootId": 601,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 130013,
+		"i_lootGlobalProp": 3555,
+		"i_lootId": 602,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 130014,
+		"i_lootGlobalProp": 3555,
+		"i_lootId": 701,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 130015,
+		"i_lootGlobalProp": 3555,
+		"i_lootId": 702,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 130016,
+		"i_lootGlobalProp": 3555,
+		"i_lootId": 703,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 130017,
+		"i_lootGlobalProp": 3555,
+		"i_lootId": 704,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 130018,
+		"i_lootGlobalProp": 3555,
+		"i_lootId": 801,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 130019,
+		"i_lootGlobalProp": 3555,
+		"i_lootId": 802,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 130020,
+		"i_lootGlobalProp": 3555,
+		"i_lootId": 803,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 130021,
+		"i_lootGlobalProp": 3555,
+		"i_lootId": 804,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 130022,
+		"i_lootGlobalProp": 1777,
+		"i_lootId": 103,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 130023,
+		"i_lootGlobalProp": 1777,
+		"i_lootId": 104,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 130024,
+		"i_lootGlobalProp": 1777,
+		"i_lootId": 203,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 130025,
+		"i_lootGlobalProp": 1777,
+		"i_lootId": 303,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 130026,
+		"i_lootGlobalProp": 1777,
+		"i_lootId": 304,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 130027,
+		"i_lootGlobalProp": 1777,
+		"i_lootId": 604,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 130028,
+		"i_lootGlobalProp": 1777,
+		"i_lootId": 706,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 130029,
+		"i_lootGlobalProp": 1777,
+		"i_lootId": 707,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 130030,
+		"i_lootGlobalProp": 1777,
+		"i_lootId": 806,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 130031,
+		"i_lootGlobalProp": 1777,
+		"i_lootId": 807,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 130032,
+		"i_lootGlobalProp": 1777,
+		"i_lootId": 603,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 130033,
+		"i_lootGlobalProp": 1777,
+		"i_lootId": 604,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 130034,
+		"i_lootGlobalProp": 1777,
+		"i_lootId": 705,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 130035,
+		"i_lootGlobalProp": 1777,
+		"i_lootId": 706,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 130036,
+		"i_lootGlobalProp": 1777,
+		"i_lootId": 707,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 130037,
+		"i_lootGlobalProp": 1777,
+		"i_lootId": 708,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 130038,
+		"i_lootGlobalProp": 1777,
+		"i_lootId": 805,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 130039,
+		"i_lootGlobalProp": 1777,
+		"i_lootId": 806,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 130040,
+		"i_lootGlobalProp": 1777,
+		"i_lootId": 807,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 130041,
+		"i_lootGlobalProp": 1777,
+		"i_lootId": 808,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 130042,
+		"i_lootGlobalProp": 148,
+		"i_lootId": 105,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 130043,
+		"i_lootGlobalProp": 148,
+		"i_lootId": 205,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 130044,
+		"i_lootGlobalProp": 148,
+		"i_lootId": 305,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 130045,
+		"i_lootGlobalProp": 148,
+		"i_lootId": 405,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 130046,
+		"i_lootGlobalProp": 148,
+		"i_lootId": 505,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 130047,
+		"i_lootGlobalProp": 148,
+		"i_lootId": 605,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 130048,
+		"i_lootGlobalProp": 148,
+		"i_lootId": 709,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 130049,
+		"i_lootGlobalProp": 148,
+		"i_lootId": 710,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 130050,
+		"i_lootGlobalProp": 148,
+		"i_lootId": 809,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 130051,
+		"i_lootGlobalProp": 148,
+		"i_lootId": 810,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 130052,
+		"i_lootGlobalProp": 1,
+		"i_lootId": 106,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 130053,
+		"i_lootGlobalProp": 1,
+		"i_lootId": 206,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 130054,
+		"i_lootGlobalProp": 1,
+		"i_lootId": 306,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 130055,
+		"i_lootGlobalProp": 74,
+		"i_lootId": 406,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 130056,
+		"i_lootGlobalProp": 74,
+		"i_lootId": 407,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 130057,
+		"i_lootGlobalProp": 74,
+		"i_lootId": 506,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 130058,
+		"i_lootGlobalProp": 74,
+		"i_lootId": 507,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 130059,
+		"i_lootGlobalProp": 74,
+		"i_lootId": 606,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 130060,
+		"i_lootGlobalProp": 74,
+		"i_lootId": 607,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 130061,
+		"i_lootGlobalProp": 1,
+		"i_lootId": 711,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 130062,
+		"i_lootGlobalProp": 74,
+		"i_lootId": 712,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 130063,
+		"i_lootGlobalProp": 74,
+		"i_lootId": 713,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 130064,
+		"i_lootGlobalProp": 1,
+		"i_lootId": 811,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 130065,
+		"i_lootGlobalProp": 74,
+		"i_lootId": 812,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 130066,
+		"i_lootGlobalProp": 74,
+		"i_lootId": 813,
+		"i_lootKind": 9,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			0
+		]
+	},
+	{
+		"i_id": 14001,
+		"i_lootGlobalProp": 12000,
+		"i_lootId": 1,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			1
+		]
+	},
+	{
+		"i_id": 14002,
+		"i_lootGlobalProp": 12000,
+		"i_lootId": 2,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			1
+		]
+	},
+	{
+		"i_id": 14003,
+		"i_lootGlobalProp": 12000,
+		"i_lootId": 3,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			1
+		]
+	},
+	{
+		"i_id": 14004,
+		"i_lootGlobalProp": 12000,
+		"i_lootId": 4,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			1
+		]
+	},
+	{
+		"i_id": 14005,
+		"i_lootGlobalProp": 12000,
+		"i_lootId": 5,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			1
+		]
+	},
+	{
+		"i_id": 14006,
+		"i_lootGlobalProp": 12000,
+		"i_lootId": 6,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			1
+		]
+	},
+	{
+		"i_id": 14007,
+		"i_lootGlobalProp": 12000,
+		"i_lootId": 7,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			1
+		]
+	},
+	{
+		"i_id": 14008,
+		"i_lootGlobalProp": 12000,
+		"i_lootId": 8,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			1
+		]
+	},
+	{
+		"i_id": 14009,
+		"i_lootGlobalProp": 12000,
+		"i_lootId": 9,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			1
+		]
+	},
+	{
+		"i_id": 14010,
+		"i_lootGlobalProp": 12000,
+		"i_lootId": 10,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			1
+		]
+	},
+	{
+		"i_id": 14011,
+		"i_lootGlobalProp": 12000,
+		"i_lootId": 12,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			1
+		]
+	},
+	{
+		"i_id": 14012,
+		"i_lootGlobalProp": 12000,
+		"i_lootId": 13,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			1
+		]
+	},
+	{
+		"i_id": 14013,
+		"i_lootGlobalProp": 12000,
+		"i_lootId": 14,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			1
+		]
+	},
+	{
+		"i_id": 14014,
+		"i_lootGlobalProp": 12000,
+		"i_lootId": 15,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			1
+		]
+	},
+	{
+		"i_id": 14015,
+		"i_lootGlobalProp": 12000,
+		"i_lootId": 16,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			1
+		]
+	},
+	{
+		"i_id": 14016,
+		"i_lootGlobalProp": 12000,
+		"i_lootId": 17,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			1
+		]
+	},
+	{
+		"i_id": 14017,
+		"i_lootGlobalProp": 12000,
+		"i_lootId": 18,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			1
+		]
+	},
+	{
+		"i_id": 14018,
+		"i_lootGlobalProp": 12000,
+		"i_lootId": 19,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			1
+		]
+	},
+	{
+		"i_id": 14019,
+		"i_lootGlobalProp": 12000,
+		"i_lootId": 20,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			1
+		]
+	},
+	{
+		"i_id": 14020,
+		"i_lootGlobalProp": 12000,
+		"i_lootId": 21,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			1
+		]
+	},
+	{
+		"i_id": 14021,
+		"i_lootGlobalProp": 12000,
+		"i_lootId": 22,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			1
+		]
+	},
+	{
+		"i_id": 14022,
+		"i_lootGlobalProp": 12000,
+		"i_lootId": 23,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			1
+		]
+	},
+	{
+		"i_id": 14023,
+		"i_lootGlobalProp": 12000,
+		"i_lootId": 24,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			1
+		]
+	},
+	{
+		"i_id": 14024,
+		"i_lootGlobalProp": 12000,
+		"i_lootId": 25,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			1
+		]
+	},
+	{
+		"i_id": 14025,
+		"i_lootGlobalProp": 12000,
+		"i_lootId": 26,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			1
+		]
+	},
+	{
+		"i_id": 14026,
+		"i_lootGlobalProp": 8015,
+		"i_lootId": 1,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			2
+		]
+	},
+	{
+		"i_id": 14027,
+		"i_lootGlobalProp": 8015,
+		"i_lootId": 2,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			2
+		]
+	},
+	{
+		"i_id": 14028,
+		"i_lootGlobalProp": 8015,
+		"i_lootId": 3,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			2
+		]
+	},
+	{
+		"i_id": 14029,
+		"i_lootGlobalProp": 8015,
+		"i_lootId": 4,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			2
+		]
+	},
+	{
+		"i_id": 14030,
+		"i_lootGlobalProp": 8015,
+		"i_lootId": 5,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			2
+		]
+	},
+	{
+		"i_id": 14031,
+		"i_lootGlobalProp": 8015,
+		"i_lootId": 6,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			2
+		]
+	},
+	{
+		"i_id": 14032,
+		"i_lootGlobalProp": 8015,
+		"i_lootId": 7,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			2
+		]
+	},
+	{
+		"i_id": 14033,
+		"i_lootGlobalProp": 8015,
+		"i_lootId": 8,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			2
+		]
+	},
+	{
+		"i_id": 14034,
+		"i_lootGlobalProp": 8015,
+		"i_lootId": 9,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			2
+		]
+	},
+	{
+		"i_id": 14035,
+		"i_lootGlobalProp": 8015,
+		"i_lootId": 10,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			2
+		]
+	},
+	{
+		"i_id": 14036,
+		"i_lootGlobalProp": 8015,
+		"i_lootId": 12,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			2
+		]
+	},
+	{
+		"i_id": 14037,
+		"i_lootGlobalProp": 8015,
+		"i_lootId": 13,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			2
+		]
+	},
+	{
+		"i_id": 14038,
+		"i_lootGlobalProp": 8015,
+		"i_lootId": 14,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			2
+		]
+	},
+	{
+		"i_id": 14039,
+		"i_lootGlobalProp": 8015,
+		"i_lootId": 15,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			2
+		]
+	},
+	{
+		"i_id": 14040,
+		"i_lootGlobalProp": 8015,
+		"i_lootId": 16,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			2
+		]
+	},
+	{
+		"i_id": 14041,
+		"i_lootGlobalProp": 8015,
+		"i_lootId": 17,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			2
+		]
+	},
+	{
+		"i_id": 14042,
+		"i_lootGlobalProp": 8015,
+		"i_lootId": 18,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			2
+		]
+	},
+	{
+		"i_id": 14043,
+		"i_lootGlobalProp": 8015,
+		"i_lootId": 19,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			2
+		]
+	},
+	{
+		"i_id": 14044,
+		"i_lootGlobalProp": 8015,
+		"i_lootId": 20,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			2
+		]
+	},
+	{
+		"i_id": 14045,
+		"i_lootGlobalProp": 8015,
+		"i_lootId": 21,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			2
+		]
+	},
+	{
+		"i_id": 14046,
+		"i_lootGlobalProp": 8015,
+		"i_lootId": 22,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			2
+		]
+	},
+	{
+		"i_id": 14047,
+		"i_lootGlobalProp": 8015,
+		"i_lootId": 23,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			2
+		]
+	},
+	{
+		"i_id": 14048,
+		"i_lootGlobalProp": 8015,
+		"i_lootId": 24,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			2
+		]
+	},
+	{
+		"i_id": 14049,
+		"i_lootGlobalProp": 8015,
+		"i_lootId": 25,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			2
+		]
+	},
+	{
+		"i_id": 14050,
+		"i_lootGlobalProp": 8015,
+		"i_lootId": 26,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			2
+		]
+	},
+	{
+		"i_id": 14051,
+		"i_lootGlobalProp": 1806,
+		"i_lootId": 1,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			3
+		]
+	},
+	{
+		"i_id": 14052,
+		"i_lootGlobalProp": 1806,
+		"i_lootId": 2,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			3
+		]
+	},
+	{
+		"i_id": 14053,
+		"i_lootGlobalProp": 1806,
+		"i_lootId": 3,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			3
+		]
+	},
+	{
+		"i_id": 14054,
+		"i_lootGlobalProp": 1806,
+		"i_lootId": 4,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			3
+		]
+	},
+	{
+		"i_id": 14055,
+		"i_lootGlobalProp": 1806,
+		"i_lootId": 5,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			3
+		]
+	},
+	{
+		"i_id": 14056,
+		"i_lootGlobalProp": 1806,
+		"i_lootId": 6,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			3
+		]
+	},
+	{
+		"i_id": 14057,
+		"i_lootGlobalProp": 1806,
+		"i_lootId": 7,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			3
+		]
+	},
+	{
+		"i_id": 14058,
+		"i_lootGlobalProp": 1806,
+		"i_lootId": 8,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			3
+		]
+	},
+	{
+		"i_id": 14059,
+		"i_lootGlobalProp": 1806,
+		"i_lootId": 9,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			3
+		]
+	},
+	{
+		"i_id": 14060,
+		"i_lootGlobalProp": 1806,
+		"i_lootId": 10,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			3
+		]
+	},
+	{
+		"i_id": 14061,
+		"i_lootGlobalProp": 1806,
+		"i_lootId": 12,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			3
+		]
+	},
+	{
+		"i_id": 14062,
+		"i_lootGlobalProp": 1806,
+		"i_lootId": 13,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			3
+		]
+	},
+	{
+		"i_id": 14063,
+		"i_lootGlobalProp": 1806,
+		"i_lootId": 14,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			3
+		]
+	},
+	{
+		"i_id": 14064,
+		"i_lootGlobalProp": 1806,
+		"i_lootId": 15,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			3
+		]
+	},
+	{
+		"i_id": 14065,
+		"i_lootGlobalProp": 1806,
+		"i_lootId": 16,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			3
+		]
+	},
+	{
+		"i_id": 14066,
+		"i_lootGlobalProp": 1806,
+		"i_lootId": 17,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			3
+		]
+	},
+	{
+		"i_id": 14067,
+		"i_lootGlobalProp": 1806,
+		"i_lootId": 18,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			3
+		]
+	},
+	{
+		"i_id": 14068,
+		"i_lootGlobalProp": 1806,
+		"i_lootId": 19,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			3
+		]
+	},
+	{
+		"i_id": 14069,
+		"i_lootGlobalProp": 1806,
+		"i_lootId": 20,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			3
+		]
+	},
+	{
+		"i_id": 14070,
+		"i_lootGlobalProp": 1806,
+		"i_lootId": 21,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			3
+		]
+	},
+	{
+		"i_id": 14071,
+		"i_lootGlobalProp": 1806,
+		"i_lootId": 22,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			3
+		]
+	},
+	{
+		"i_id": 14072,
+		"i_lootGlobalProp": 1806,
+		"i_lootId": 23,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			3
+		]
+	},
+	{
+		"i_id": 14073,
+		"i_lootGlobalProp": 1806,
+		"i_lootId": 24,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			3
+		]
+	},
+	{
+		"i_id": 14074,
+		"i_lootGlobalProp": 1806,
+		"i_lootId": 25,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			3
+		]
+	},
+	{
+		"i_id": 14075,
+		"i_lootGlobalProp": 1806,
+		"i_lootId": 26,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			3
+		]
+	},
+	{
+		"i_id": 14076,
+		"i_lootGlobalProp": 179,
+		"i_lootId": 1,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			4
+		]
+	},
+	{
+		"i_id": 14077,
+		"i_lootGlobalProp": 179,
+		"i_lootId": 2,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			4
+		]
+	},
+	{
+		"i_id": 14078,
+		"i_lootGlobalProp": 179,
+		"i_lootId": 3,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			4
+		]
+	},
+	{
+		"i_id": 14079,
+		"i_lootGlobalProp": 179,
+		"i_lootId": 4,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			4
+		]
+	},
+	{
+		"i_id": 14080,
+		"i_lootGlobalProp": 179,
+		"i_lootId": 5,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			4
+		]
+	},
+	{
+		"i_id": 14081,
+		"i_lootGlobalProp": 179,
+		"i_lootId": 6,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			4
+		]
+	},
+	{
+		"i_id": 14082,
+		"i_lootGlobalProp": 179,
+		"i_lootId": 7,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			4
+		]
+	},
+	{
+		"i_id": 14083,
+		"i_lootGlobalProp": 179,
+		"i_lootId": 8,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			4
+		]
+	},
+	{
+		"i_id": 14084,
+		"i_lootGlobalProp": 179,
+		"i_lootId": 9,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			4
+		]
+	},
+	{
+		"i_id": 14085,
+		"i_lootGlobalProp": 179,
+		"i_lootId": 10,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			4
+		]
+	},
+	{
+		"i_id": 14086,
+		"i_lootGlobalProp": 179,
+		"i_lootId": 12,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			4
+		]
+	},
+	{
+		"i_id": 14087,
+		"i_lootGlobalProp": 179,
+		"i_lootId": 13,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			4
+		]
+	},
+	{
+		"i_id": 14088,
+		"i_lootGlobalProp": 179,
+		"i_lootId": 14,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			4
+		]
+	},
+	{
+		"i_id": 14089,
+		"i_lootGlobalProp": 179,
+		"i_lootId": 15,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			4
+		]
+	},
+	{
+		"i_id": 14090,
+		"i_lootGlobalProp": 179,
+		"i_lootId": 16,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			4
+		]
+	},
+	{
+		"i_id": 14091,
+		"i_lootGlobalProp": 179,
+		"i_lootId": 17,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			4
+		]
+	},
+	{
+		"i_id": 14092,
+		"i_lootGlobalProp": 179,
+		"i_lootId": 18,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			4
+		]
+	},
+	{
+		"i_id": 14093,
+		"i_lootGlobalProp": 179,
+		"i_lootId": 19,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			4
+		]
+	},
+	{
+		"i_id": 14094,
+		"i_lootGlobalProp": 179,
+		"i_lootId": 20,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			4
+		]
+	},
+	{
+		"i_id": 14095,
+		"i_lootGlobalProp": 179,
+		"i_lootId": 21,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			4
+		]
+	},
+	{
+		"i_id": 14096,
+		"i_lootGlobalProp": 179,
+		"i_lootId": 22,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			4
+		]
+	},
+	{
+		"i_id": 14097,
+		"i_lootGlobalProp": 179,
+		"i_lootId": 23,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			4
+		]
+	},
+	{
+		"i_id": 14098,
+		"i_lootGlobalProp": 179,
+		"i_lootId": 24,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			4
+		]
+	},
+	{
+		"i_id": 14099,
+		"i_lootGlobalProp": 179,
+		"i_lootId": 25,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			4
+		]
+	},
+	{
+		"i_id": 14100,
+		"i_lootGlobalProp": 179,
+		"i_lootId": 26,
+		"i_lootKind": 3,
+		"i_lootSingleRate": 0,
+		"i_maxCount": 1,
+		"i_minCount": 1,
+		"il_lootParam": [
+			4
+		]
+	}
+]

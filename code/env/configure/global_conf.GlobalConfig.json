@@ -1,0 +1,134 @@
+[
+	{
+		"i_value": 666,
+		"s_id": "GLOBAL_CFG_TEST"
+	},
+	{
+		"i_value": 777,
+		"s_id": "GLOBAL_CFG_TEST2"
+	},
+	{
+		"i_value": 100,
+		"s_id": "GLOBAL_CFG_START_COINNUM"
+	},
+	{
+		"i_value": 80,
+		"s_id": "GLOBAL_CFG_ROGUECARDWEIGH1"
+	},
+	{
+		"i_value": 80,
+		"s_id": "GLOBAL_CFG_ROGUECARDWEIGH3"
+	},
+	{
+		"i_value": 80,
+		"s_id": "GLOBAL_CFG_ROGUECARDWEIGH4"
+	},
+	{
+		"i_value": 80,
+		"s_id": "GLOBAL_CFG_ROGUECARDWEIGH5"
+	},
+	{
+		"i_value": 40,
+		"s_id": "GLOBAL_CFG_ROGUECARDWEIGH6"
+	},
+	{
+		"i_value": 1000,
+		"s_id": "GLOBAL_CFG_BREAKTHROUGHLEVEL_GROW"
+	},
+	{
+		"i_value": 100,
+		"s_id": "GLOBAL_CFG_MAX_SPLITSCORE"
+	},
+	{
+		"i_value": 1201,
+		"s_id": "GLOBAL_CFG_SPLITSCORE_BOXID"
+	},
+	{
+		"i_value": 1000,
+		"s_id": "GLOBAL_BOX_SCORE_REWARD_LIMIT"
+	},
+	{
+		"i_value": 100000,
+		"s_id": "GLOBAL_CHANGE_NAME_COOLDOWN_TIME"
+	},
+	{
+		"i_value": 7,
+		"s_id": "GLOBAL_CHANGE_NAME_ITEM"
+	},
+	{
+		"i_value": 2592000,
+		"s_id": "GLOBAL_MAIL_EXPIRETIME"
+	},
+	{
+		"i_value": 60,
+		"s_id": "GLOBAL_MAX_EQUIPMENT"
+	},
+	{
+		"i_value": 100,
+		"s_id": "GLOBAL_API_LIMIT_PER_MINUTE_TIMES"
+	},
+	{
+		"i_value": 3,
+		"s_id": "GLOBAL_API_LIMIT_TRIGGER_TIMES"
+	},
+	{
+		"i_value": 86400,
+		"s_id": "GLOBAL_PLAYER_FORBID_TIME"
+	},
+	{
+		"i_value": 60,
+		"s_id": "GLOBAL_HOOK_OFFLINE_TIME"
+	},
+	{
+		"i_value": 3600,
+		"s_id": "GLOBAL_HOOK_MAX_REWARD_TIME"
+	},
+	{
+		"i_value": 6,
+		"s_id": "GLOBAL_GENE_SCHEME_COUNT"
+	},
+	{
+		"i_value": 10,
+		"s_id": "GLOBAL_HOOK_PRE_STAGE"
+	},
+	{
+		"i_value": 20,
+		"s_id": "GLOBAL_MAX_HOOK_EQUIPMENT"
+	},
+	{
+		"i_value": 2,
+		"s_id": "GLOBAL_MIN_HOOK_EQUIPMENT_QUALITY"
+	},
+	{
+		"i_value": 100,
+		"s_id": "GLOBAL_HERO_BOOK_DIAMOND"
+	},
+	{
+		"i_value": 30,
+		"s_id": "GLOBAL_OFFLINE_MAX_EQUIP"
+	},
+	{
+		"i_value": 1202,
+		"s_id": "GLOBAL_CFG_SPLITSCORE_BIGBOXID"
+	},
+	{
+		"i_value": 100,
+		"s_id": "GLOBAL_IDLE_MODE_MAP_PREFABID"
+	},
+	{
+		"i_value": 5000,
+		"s_id": "GLOBAL_HERO_MAX_COUNT"
+	},
+	{
+		"i_value": 1001,
+		"s_id": "GLOBAL_WORLD_BOSS_MAP_PREFAB_ID"
+	},
+	{
+		"i_value": 10001,
+		"s_id": "GLOBAL_WORLD_BOSS_MAPTYPE_ID"
+	},
+	{
+		"i_value": 1,
+		"s_id": "GLOBAL_SELECT_CARD_FREE_REFRESH"
+	}
+]

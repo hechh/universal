@@ -1,0 +1,75 @@
+[
+	{
+		"i_dataType": 2,
+		"i_emailType": 2,
+		"i_id": 1,
+		"i_isEmail": 1,
+		"i_rankType": 4,
+		"i_routeType": 1,
+		"i_sortType": 0,
+		"s_emailContent": "挂机关卡排行榜",
+		"s_emailTitle": "锦标赛"
+	},
+	{
+		"i_dataType": 2,
+		"i_emailType": 2,
+		"i_id": 2,
+		"i_isEmail": 1,
+		"i_rankType": 5,
+		"i_routeType": 1,
+		"i_sortType": 0,
+		"s_emailContent": "关卡排行榜",
+		"s_emailTitle": "锦标赛"
+	},
+	{
+		"i_dataType": 2,
+		"i_emailType": 2,
+		"i_id": 3,
+		"i_isEmail": 1,
+		"i_rankType": 6,
+		"i_routeType": 1,
+		"i_sortType": 1,
+		"s_emailContent": "试炼排行榜",
+		"s_emailTitle": "锦标赛"
+	},
+	{
+		"i_dataType": 2,
+		"i_emailType": 2,
+		"i_id": 4,
+		"i_isEmail": 1,
+		"i_rankType": 7,
+		"i_routeType": 1,
+		"i_sortType": 1,
+		"s_emailContent": "战力排行榜",
+		"s_emailTitle": "锦标赛"
+	},
+	{
+		"i_dataType": 1,
+		"i_id": 5,
+		"i_rankType": 1,
+		"i_routeType": 2
+	},
+	{
+		"i_dataType": 1,
+		"i_id": 6,
+		"i_rankType": 2,
+		"i_routeType": 2
+	},
+	{
+		"i_dataType": 1,
+		"i_id": 7,
+		"i_rankType": 3,
+		"i_routeType": 2
+	},
+	{
+		"i_dataType": 2,
+		"i_emailType": 5,
+		"i_id": 8,
+		"i_isEmail": 1,
+		"i_rankType": 8,
+		"i_routeType": 1,
+		"i_sortType": 1,
+		"s_emailContent": "怪物试炼排行榜",
+		"s_emailTitle": "怪物试炼"
+	}
+]

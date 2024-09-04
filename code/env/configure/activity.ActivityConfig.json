@@ -1,0 +1,46 @@
+[
+	{
+		"i_activityType": 1,
+		"i_id": 1,
+		"i_sid": 1001,
+		"il_condition": [
+			1,
+			1,
+			30
+		],
+		"s_name": "成长之路"
+	},
+	{
+		"i_activityType": 2,
+		"i_id": 3,
+		"i_sid": 2001,
+		"il_condition": [
+			1,
+			1,
+			30
+		],
+		"s_name": "直购礼包"
+	},
+	{
+		"i_activityType": 3,
+		"i_id": 4,
+		"i_sid": 3001,
+		"il_condition": [
+			1,
+			1,
+			2
+		],
+		"s_name": "冒险奖励"
+	},
+	{
+		"i_activityType": 4,
+		"i_id": 5,
+		"i_sid": 4001,
+		"il_condition": [
+			1,
+			1,
+			30
+		],
+		"s_name": "开服特惠"
+	}
+]

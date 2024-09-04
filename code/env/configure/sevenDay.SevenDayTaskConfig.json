@@ -1,0 +1,1130 @@
+[
+	{
+		"i_achieveType": 3,
+		"i_achieveValue": 1,
+		"i_activityID": 1,
+		"i_day": 1,
+		"i_id": 1,
+		"i_isTotal": 1,
+		"i_value": 10,
+		"il_achieveParams": [
+			1
+		],
+		"s_desc": "登录1天"
+	},
+	{
+		"i_achieveType": 22,
+		"i_achieveValue": 1200,
+		"i_activityID": 1,
+		"i_day": 1,
+		"i_id": 2,
+		"i_isTotal": 1,
+		"i_value": 10,
+		"il_achieveParams": [
+			1
+		],
+		"s_desc": "累计获得1200钻石"
+	},
+	{
+		"i_achieveType": 22,
+		"i_achieveValue": 15000,
+		"i_activityID": 1,
+		"i_day": 1,
+		"i_id": 3,
+		"i_isTotal": 1,
+		"i_value": 10,
+		"il_achieveParams": [
+			2
+		],
+		"s_desc": "累计获得15000金币"
+	},
+	{
+		"i_achieveType": 23,
+		"i_achieveValue": 1,
+		"i_activityID": 1,
+		"i_day": 1,
+		"i_id": 4,
+		"i_isTotal": 1,
+		"i_value": 10,
+		"il_achieveParams": [
+			1,
+			1,
+			5
+		],
+		"s_desc": "通关精英关卡1-5"
+	},
+	{
+		"i_achieveType": 24,
+		"i_achieveValue": 1,
+		"i_activityID": 1,
+		"i_day": 1,
+		"i_id": 5,
+		"i_isTotal": 0,
+		"i_value": 10,
+		"il_achieveParams": [
+			3
+		],
+		"s_desc": "获得一名紫色英雄"
+	},
+	{
+		"i_achieveType": 27,
+		"i_achieveValue": 1,
+		"i_activityID": 1,
+		"i_day": 1,
+		"i_id": 6,
+		"i_isTotal": 1,
+		"i_value": 10,
+		"il_achieveParams": [
+			400
+		],
+		"s_desc": "1名上阵英雄达到400级"
+	},
+	{
+		"i_achieveType": 6,
+		"i_achieveValue": 10,
+		"i_activityID": 1,
+		"i_day": 1,
+		"i_id": 7,
+		"i_isTotal": 1,
+		"i_value": 20,
+		"il_achieveParams": [
+			11
+		],
+		"s_desc": "克隆英雄10次"
+	},
+	{
+		"i_achieveType": 6,
+		"i_achieveValue": 30,
+		"i_activityID": 1,
+		"i_day": 1,
+		"i_id": 8,
+		"i_isTotal": 1,
+		"i_value": 20,
+		"il_achieveParams": [
+			30
+		],
+		"s_desc": "累计使徒召唤30次"
+	},
+	{
+		"i_achieveType": 29,
+		"i_achieveValue": 5,
+		"i_activityID": 1,
+		"i_day": 1,
+		"i_id": 9,
+		"i_isTotal": 1,
+		"i_value": 10,
+		"il_achieveParams": [
+			1,
+			5
+		],
+		"s_desc": "选择任意使徒通关关卡5次"
+	},
+	{
+		"i_achieveType": 12,
+		"i_achieveValue": 100,
+		"i_activityID": 1,
+		"i_day": 1,
+		"i_id": 10,
+		"i_isTotal": 1,
+		"i_value": 10,
+		"il_achieveParams": [
+			0
+		],
+		"s_desc": "累计开启100次补给箱"
+	},
+	{
+		"i_achieveType": 38,
+		"i_achieveValue": 5,
+		"i_activityID": 1,
+		"i_day": 1,
+		"i_id": 11,
+		"i_isTotal": 0,
+		"i_value": 10,
+		"il_achieveParams": [
+			999
+		],
+		"s_desc": "升级5次装备"
+	},
+	{
+		"i_achieveType": 9,
+		"i_achieveValue": 5,
+		"i_activityID": 1,
+		"i_day": 1,
+		"i_id": 12,
+		"i_isTotal": 0,
+		"i_value": 10,
+		"il_achieveParams": [
+			0
+		],
+		"s_desc": "观看5次广告"
+	},
+	{
+		"i_achieveType": 3,
+		"i_achieveValue": 2,
+		"i_activityID": 1,
+		"i_day": 2,
+		"i_id": 13,
+		"i_isTotal": 1,
+		"i_value": 10,
+		"il_achieveParams": [
+			1
+		],
+		"s_desc": "登录2天"
+	},
+	{
+		"i_achieveType": 23,
+		"i_achieveValue": 1,
+		"i_activityID": 1,
+		"i_day": 2,
+		"i_id": 14,
+		"i_isTotal": 1,
+		"i_value": 10,
+		"il_achieveParams": [
+			1,
+			2,
+			5
+		],
+		"s_desc": "通关精英关卡2-5"
+	},
+	{
+		"i_achieveType": 23,
+		"i_achieveValue": 1,
+		"i_activityID": 1,
+		"i_day": 2,
+		"i_id": 15,
+		"i_isTotal": 1,
+		"i_value": 10,
+		"il_achieveParams": [
+			3,
+			2,
+			50
+		],
+		"s_desc": "通关挂机关卡2-50"
+	},
+	{
+		"i_achieveType": 17,
+		"i_achieveValue": 5,
+		"i_activityID": 1,
+		"i_day": 2,
+		"i_id": 16,
+		"i_isTotal": 1,
+		"i_value": 10,
+		"il_achieveParams": [
+			999
+		],
+		"s_desc": "英雄升星5次"
+	},
+	{
+		"i_achieveType": 27,
+		"i_achieveValue": 6,
+		"i_activityID": 1,
+		"i_day": 2,
+		"i_id": 17,
+		"i_isTotal": 1,
+		"i_value": 10,
+		"il_achieveParams": [
+			600
+		],
+		"s_desc": "6个上阵英雄达到600级"
+	},
+	{
+		"i_achieveType": 25,
+		"i_achieveValue": 5,
+		"i_activityID": 1,
+		"i_day": 2,
+		"i_id": 18,
+		"i_isTotal": 1,
+		"i_value": 10,
+		"il_achieveParams": [
+			3
+		],
+		"s_desc": "上阵5个紫色英雄"
+	},
+	{
+		"i_achieveType": 6,
+		"i_achieveValue": 80,
+		"i_activityID": 1,
+		"i_day": 2,
+		"i_id": 19,
+		"i_isTotal": 1,
+		"i_value": 20,
+		"il_achieveParams": [
+			30
+		],
+		"s_desc": "累计使徒召唤80次"
+	},
+	{
+		"i_achieveType": 6,
+		"i_achieveValue": 20,
+		"i_activityID": 1,
+		"i_day": 2,
+		"i_id": 20,
+		"i_isTotal": 1,
+		"i_value": 20,
+		"il_achieveParams": [
+			11
+		],
+		"s_desc": "累计克隆英雄20次"
+	},
+	{
+		"i_achieveType": 12,
+		"i_achieveValue": 200,
+		"i_activityID": 1,
+		"i_day": 2,
+		"i_id": 21,
+		"i_isTotal": 1,
+		"i_value": 10,
+		"il_achieveParams": [
+			0
+		],
+		"s_desc": "累计开启200次补给箱"
+	},
+	{
+		"i_achieveType": 15,
+		"i_achieveValue": 1,
+		"i_activityID": 1,
+		"i_day": 2,
+		"i_id": 22,
+		"i_isTotal": 0,
+		"i_value": 10,
+		"il_achieveParams": [
+			999
+		],
+		"s_desc": "晶核改造1次"
+	},
+	{
+		"i_achieveType": 38,
+		"i_achieveValue": 5,
+		"i_activityID": 1,
+		"i_day": 2,
+		"i_id": 23,
+		"i_isTotal": 0,
+		"i_value": 10,
+		"il_achieveParams": [
+			999
+		],
+		"s_desc": "升级5次装备"
+	},
+	{
+		"i_achieveType": 9,
+		"i_achieveValue": 5,
+		"i_activityID": 1,
+		"i_day": 2,
+		"i_id": 24,
+		"i_isTotal": 0,
+		"i_value": 10,
+		"il_achieveParams": [
+			0
+		],
+		"s_desc": "观看5次广告"
+	},
+	{
+		"i_achieveType": 3,
+		"i_achieveValue": 3,
+		"i_activityID": 1,
+		"i_day": 3,
+		"i_id": 25,
+		"i_isTotal": 1,
+		"i_value": 10,
+		"il_achieveParams": [
+			1
+		],
+		"s_desc": "登录3天"
+	},
+	{
+		"i_achieveType": 23,
+		"i_achieveValue": 1,
+		"i_activityID": 1,
+		"i_day": 3,
+		"i_id": 26,
+		"i_isTotal": 0,
+		"i_value": 10,
+		"il_achieveParams": [
+			1,
+			3,
+			5
+		],
+		"s_desc": "通关精英关卡3-5"
+	},
+	{
+		"i_achieveType": 23,
+		"i_achieveValue": 1,
+		"i_activityID": 1,
+		"i_day": 3,
+		"i_id": 27,
+		"i_isTotal": 0,
+		"i_value": 10,
+		"il_achieveParams": [
+			3,
+			2,
+			100
+		],
+		"s_desc": "通关挂机关卡2-100"
+	},
+	{
+		"i_achieveType": 27,
+		"i_achieveValue": 1,
+		"i_activityID": 1,
+		"i_day": 3,
+		"i_id": 28,
+		"i_isTotal": 1,
+		"i_value": 10,
+		"il_achieveParams": [
+			800
+		],
+		"s_desc": "1名上阵英雄达到800级"
+	},
+	{
+		"i_achieveType": 14,
+		"i_achieveValue": 1,
+		"i_activityID": 1,
+		"i_day": 3,
+		"i_id": 29,
+		"i_isTotal": 0,
+		"i_value": 10,
+		"il_achieveParams": [
+			4
+		],
+		"s_desc": "获得一个橙色的晶核"
+	},
+	{
+		"i_achieveType": 16,
+		"i_achieveValue": 10,
+		"i_activityID": 1,
+		"i_day": 3,
+		"i_id": 30,
+		"i_isTotal": 1,
+		"i_value": 10,
+		"il_achieveParams": [
+			0
+		],
+		"s_desc": "累计使徒升级10次"
+	},
+	{
+		"i_achieveType": 25,
+		"i_achieveValue": 8,
+		"i_activityID": 1,
+		"i_day": 3,
+		"i_id": 31,
+		"i_isTotal": 1,
+		"i_value": 10,
+		"il_achieveParams": [
+			3
+		],
+		"s_desc": "上阵8个紫色英雄"
+	},
+	{
+		"i_achieveType": 2,
+		"i_achieveValue": 300,
+		"i_activityID": 1,
+		"i_day": 3,
+		"i_id": 32,
+		"i_isTotal": 1,
+		"i_value": 10,
+		"il_achieveParams": [
+			0,
+			2
+		],
+		"s_desc": "累计击败300只BOSS"
+	},
+	{
+		"i_achieveType": 12,
+		"i_achieveValue": 300,
+		"i_activityID": 1,
+		"i_day": 3,
+		"i_id": 33,
+		"i_isTotal": 1,
+		"i_value": 10,
+		"il_achieveParams": [
+			0
+		],
+		"s_desc": "累计开启300次补给箱"
+	},
+	{
+		"i_achieveType": 15,
+		"i_achieveValue": 1,
+		"i_activityID": 1,
+		"i_day": 3,
+		"i_id": 34,
+		"i_isTotal": 0,
+		"i_value": 10,
+		"il_achieveParams": [
+			999
+		],
+		"s_desc": "晶核改造1次"
+	},
+	{
+		"i_achieveType": 38,
+		"i_achieveValue": 5,
+		"i_activityID": 1,
+		"i_day": 3,
+		"i_id": 35,
+		"i_isTotal": 0,
+		"i_value": 10,
+		"il_achieveParams": [
+			999
+		],
+		"s_desc": "升级5次装备"
+	},
+	{
+		"i_achieveType": 9,
+		"i_achieveValue": 5,
+		"i_activityID": 1,
+		"i_day": 3,
+		"i_id": 36,
+		"i_isTotal": 0,
+		"i_value": 10,
+		"il_achieveParams": [
+			0
+		],
+		"s_desc": "观看5次广告"
+	},
+	{
+		"i_achieveType": 3,
+		"i_achieveValue": 4,
+		"i_activityID": 1,
+		"i_day": 4,
+		"i_id": 37,
+		"i_isTotal": 1,
+		"i_value": 10,
+		"il_achieveParams": [
+			1
+		],
+		"s_desc": "登录4天"
+	},
+	{
+		"i_achieveType": 23,
+		"i_achieveValue": 1,
+		"i_activityID": 1,
+		"i_day": 4,
+		"i_id": 38,
+		"i_isTotal": 0,
+		"i_value": 10,
+		"il_achieveParams": [
+			1,
+			4,
+			5
+		],
+		"s_desc": "通关精英关卡4-5"
+	},
+	{
+		"i_achieveType": 23,
+		"i_achieveValue": 1,
+		"i_activityID": 1,
+		"i_day": 4,
+		"i_id": 39,
+		"i_isTotal": 0,
+		"i_value": 10,
+		"il_achieveParams": [
+			3,
+			2,
+			150
+		],
+		"s_desc": "通关挂机关卡2-150"
+	},
+	{
+		"i_achieveType": 27,
+		"i_achieveValue": 8,
+		"i_activityID": 1,
+		"i_day": 4,
+		"i_id": 40,
+		"i_isTotal": 1,
+		"i_value": 10,
+		"il_achieveParams": [
+			900
+		],
+		"s_desc": "8个上阵英雄达到900级"
+	},
+	{
+		"i_achieveType": 14,
+		"i_achieveValue": 1,
+		"i_activityID": 1,
+		"i_day": 4,
+		"i_id": 41,
+		"i_isTotal": 0,
+		"i_value": 20,
+		"il_achieveParams": [
+			4
+		],
+		"s_desc": "获得一个橙色晶核"
+	},
+	{
+		"i_achieveType": 16,
+		"i_achieveValue": 15,
+		"i_activityID": 1,
+		"i_day": 4,
+		"i_id": 42,
+		"i_isTotal": 1,
+		"i_value": 10,
+		"il_achieveParams": [
+			0
+		],
+		"s_desc": "累计使徒升级15次"
+	},
+	{
+		"i_achieveType": 24,
+		"i_achieveValue": 20,
+		"i_activityID": 1,
+		"i_day": 4,
+		"i_id": 43,
+		"i_isTotal": 1,
+		"i_value": 10,
+		"il_achieveParams": [
+			3
+		],
+		"s_desc": "累计获得20个紫色英雄"
+	},
+	{
+		"i_achieveType": 2,
+		"i_achieveValue": 200000,
+		"i_activityID": 1,
+		"i_day": 4,
+		"i_id": 44,
+		"i_isTotal": 1,
+		"i_value": 10,
+		"il_achieveParams": [
+			0,
+			0
+		],
+		"s_desc": "累计击败200000只怪物"
+	},
+	{
+		"i_achieveType": 12,
+		"i_achieveValue": 50,
+		"i_activityID": 1,
+		"i_day": 4,
+		"i_id": 45,
+		"i_isTotal": 1,
+		"i_value": 10,
+		"il_achieveParams": [
+			1202
+		],
+		"s_desc": "累计开启50次精良补给箱"
+	},
+	{
+		"i_achieveType": 15,
+		"i_achieveValue": 1,
+		"i_activityID": 1,
+		"i_day": 4,
+		"i_id": 46,
+		"i_isTotal": 0,
+		"i_value": 10,
+		"il_achieveParams": [
+			999
+		],
+		"s_desc": "晶核改造1次"
+	},
+	{
+		"i_achieveType": 38,
+		"i_achieveValue": 5,
+		"i_activityID": 1,
+		"i_day": 4,
+		"i_id": 47,
+		"i_isTotal": 0,
+		"i_value": 10,
+		"il_achieveParams": [
+			999
+		],
+		"s_desc": "升级5次装备"
+	},
+	{
+		"i_achieveType": 9,
+		"i_achieveValue": 5,
+		"i_activityID": 1,
+		"i_day": 4,
+		"i_id": 48,
+		"i_isTotal": 0,
+		"i_value": 10,
+		"il_achieveParams": [
+			0
+		],
+		"s_desc": "观看5次广告"
+	},
+	{
+		"i_achieveType": 3,
+		"i_achieveValue": 5,
+		"i_activityID": 1,
+		"i_day": 5,
+		"i_id": 49,
+		"i_isTotal": 1,
+		"i_value": 10,
+		"il_achieveParams": [
+			1
+		],
+		"s_desc": "登录5天"
+	},
+	{
+		"i_achieveType": 23,
+		"i_achieveValue": 1,
+		"i_activityID": 1,
+		"i_day": 5,
+		"i_id": 50,
+		"i_isTotal": 0,
+		"i_value": 10,
+		"il_achieveParams": [
+			1,
+			5,
+			5
+		],
+		"s_desc": "通关精英关卡5-5"
+	},
+	{
+		"i_achieveType": 23,
+		"i_achieveValue": 1,
+		"i_activityID": 1,
+		"i_day": 5,
+		"i_id": 51,
+		"i_isTotal": 0,
+		"i_value": 10,
+		"il_achieveParams": [
+			3,
+			3,
+			50
+		],
+		"s_desc": "通关挂机关卡3-50"
+	},
+	{
+		"i_achieveType": 13,
+		"i_achieveValue": 3000,
+		"i_activityID": 1,
+		"i_day": 5,
+		"i_id": 52,
+		"i_isTotal": 1,
+		"i_value": 10,
+		"il_achieveParams": [
+			999
+		],
+		"s_desc": "累计分解3000件装备"
+	},
+	{
+		"i_achieveType": 2,
+		"i_achieveValue": 400,
+		"i_activityID": 1,
+		"i_day": 5,
+		"i_id": 53,
+		"i_isTotal": 1,
+		"i_value": 10,
+		"il_achieveParams": [
+			0,
+			2
+		],
+		"s_desc": "累计击败400只BOSS"
+	},
+	{
+		"i_achieveType": 12,
+		"i_achieveValue": 20,
+		"i_activityID": 1,
+		"i_day": 5,
+		"i_id": 54,
+		"i_isTotal": 1,
+		"i_value": 10,
+		"il_achieveParams": [
+			1204
+		],
+		"s_desc": "累计开启20次史诗补给箱"
+	},
+	{
+		"i_achieveType": 6,
+		"i_achieveValue": 150,
+		"i_activityID": 1,
+		"i_day": 5,
+		"i_id": 55,
+		"i_isTotal": 1,
+		"i_value": 10,
+		"il_achieveParams": [
+			30
+		],
+		"s_desc": "累计使徒召唤150次"
+	},
+	{
+		"i_achieveType": 17,
+		"i_achieveValue": 20,
+		"i_activityID": 1,
+		"i_day": 5,
+		"i_id": 56,
+		"i_isTotal": 1,
+		"i_value": 10,
+		"il_achieveParams": [
+			999
+		],
+		"s_desc": "累计英雄升星20次"
+	},
+	{
+		"i_achieveType": 15,
+		"i_achieveValue": 1,
+		"i_activityID": 1,
+		"i_day": 5,
+		"i_id": 60,
+		"i_isTotal": 0,
+		"i_value": 10,
+		"il_achieveParams": [
+			999
+		],
+		"s_desc": "晶核改造1次"
+	},
+	{
+		"i_achieveType": 38,
+		"i_achieveValue": 5,
+		"i_activityID": 1,
+		"i_day": 5,
+		"i_id": 61,
+		"i_isTotal": 0,
+		"i_value": 10,
+		"il_achieveParams": [
+			999
+		],
+		"s_desc": "升级5次装备"
+	},
+	{
+		"i_achieveType": 9,
+		"i_achieveValue": 5,
+		"i_activityID": 1,
+		"i_day": 5,
+		"i_id": 62,
+		"i_isTotal": 0,
+		"i_value": 10,
+		"il_achieveParams": [
+			0
+		],
+		"s_desc": "观看5次广告"
+	},
+	{
+		"i_achieveType": 3,
+		"i_achieveValue": 6,
+		"i_activityID": 1,
+		"i_day": 6,
+		"i_id": 63,
+		"i_isTotal": 1,
+		"i_value": 10,
+		"il_achieveParams": [
+			1
+		],
+		"s_desc": "登录6天"
+	},
+	{
+		"i_achieveType": 23,
+		"i_achieveValue": 1,
+		"i_activityID": 1,
+		"i_day": 6,
+		"i_id": 64,
+		"i_isTotal": 0,
+		"i_value": 10,
+		"il_achieveParams": [
+			1,
+			6,
+			5
+		],
+		"s_desc": "通关精英关卡6-5"
+	},
+	{
+		"i_achieveType": 23,
+		"i_achieveValue": 1,
+		"i_activityID": 1,
+		"i_day": 6,
+		"i_id": 65,
+		"i_isTotal": 0,
+		"i_value": 10,
+		"il_achieveParams": [
+			3,
+			3,
+			100
+		],
+		"s_desc": "通关挂机关卡3-100"
+	},
+	{
+		"i_achieveType": 29,
+		"i_achieveValue": 5,
+		"i_activityID": 1,
+		"i_day": 6,
+		"i_id": 66,
+		"i_isTotal": 1,
+		"i_value": 10,
+		"il_achieveParams": [
+			1,
+			0
+		],
+		"s_desc": "累计使用水属性使徒通关5次"
+	},
+	{
+		"i_achieveType": 29,
+		"i_achieveValue": 5,
+		"i_activityID": 1,
+		"i_day": 6,
+		"i_id": 67,
+		"i_isTotal": 1,
+		"i_value": 10,
+		"il_achieveParams": [
+			1,
+			1
+		],
+		"s_desc": "累计使用火属性使徒通关5次"
+	},
+	{
+		"i_achieveType": 29,
+		"i_achieveValue": 5,
+		"i_activityID": 1,
+		"i_day": 6,
+		"i_id": 68,
+		"i_isTotal": 1,
+		"i_value": 10,
+		"il_achieveParams": [
+			1,
+			2
+		],
+		"s_desc": "累计使用风属性使徒通关5次"
+	},
+	{
+		"i_achieveType": 2,
+		"i_achieveValue": 500000,
+		"i_activityID": 1,
+		"i_day": 6,
+		"i_id": 69,
+		"i_isTotal": 1,
+		"i_value": 10,
+		"il_achieveParams": [
+			0,
+			0
+		],
+		"s_desc": "累计击败500000只怪物"
+	},
+	{
+		"i_achieveType": 12,
+		"i_achieveValue": 5,
+		"i_activityID": 1,
+		"i_day": 6,
+		"i_id": 70,
+		"i_isTotal": 1,
+		"i_value": 10,
+		"il_achieveParams": [
+			1205
+		],
+		"s_desc": "累计开启5次传说补给箱"
+	},
+	{
+		"i_achieveType": 15,
+		"i_achieveValue": 1,
+		"i_activityID": 1,
+		"i_day": 6,
+		"i_id": 71,
+		"i_isTotal": 0,
+		"i_value": 10,
+		"il_achieveParams": [
+			999
+		],
+		"s_desc": "晶核改造1次"
+	},
+	{
+		"i_achieveType": 38,
+		"i_achieveValue": 5,
+		"i_activityID": 1,
+		"i_day": 6,
+		"i_id": 72,
+		"i_isTotal": 0,
+		"i_value": 10,
+		"il_achieveParams": [
+			999
+		],
+		"s_desc": "升级5次装备"
+	},
+	{
+		"i_achieveType": 9,
+		"i_achieveValue": 5,
+		"i_activityID": 1,
+		"i_day": 6,
+		"i_id": 73,
+		"i_isTotal": 0,
+		"i_value": 10,
+		"il_achieveParams": [
+			0
+		],
+		"s_desc": "观看5次广告"
+	},
+	{
+		"i_achieveType": 3,
+		"i_achieveValue": 7,
+		"i_activityID": 1,
+		"i_day": 7,
+		"i_id": 74,
+		"i_isTotal": 1,
+		"i_value": 10,
+		"il_achieveParams": [
+			1
+		],
+		"s_desc": "登录7天"
+	},
+	{
+		"i_achieveType": 23,
+		"i_achieveValue": 1,
+		"i_activityID": 1,
+		"i_day": 7,
+		"i_id": 75,
+		"i_isTotal": 0,
+		"i_value": 10,
+		"il_achieveParams": [
+			1,
+			6,
+			5
+		],
+		"s_desc": "通关精英关卡7-5"
+	},
+	{
+		"i_achieveType": 23,
+		"i_achieveValue": 1,
+		"i_activityID": 1,
+		"i_day": 7,
+		"i_id": 76,
+		"i_isTotal": 0,
+		"i_value": 10,
+		"il_achieveParams": [
+			3,
+			3,
+			150
+		],
+		"s_desc": "通关挂机关卡3-150"
+	},
+	{
+		"i_achieveType": 6,
+		"i_achieveValue": 400,
+		"i_activityID": 1,
+		"i_day": 7,
+		"i_id": 77,
+		"i_isTotal": 1,
+		"i_value": 20,
+		"il_achieveParams": [
+			21
+		],
+		"s_desc": "累计光刻晶核400次"
+	},
+	{
+		"i_achieveType": 6,
+		"i_achieveValue": 70,
+		"i_activityID": 1,
+		"i_day": 7,
+		"i_id": 78,
+		"i_isTotal": 1,
+		"i_value": 20,
+		"il_achieveParams": [
+			11
+		],
+		"s_desc": "累计克隆英雄70次"
+	},
+	{
+		"i_achieveType": 12,
+		"i_achieveValue": 1000,
+		"i_activityID": 1,
+		"i_day": 7,
+		"i_id": 79,
+		"i_isTotal": 1,
+		"i_value": 10,
+		"il_achieveParams": [
+			0
+		],
+		"s_desc": "累计开启1000次补给箱"
+	},
+	{
+		"i_achieveType": 9,
+		"i_achieveValue": 50,
+		"i_activityID": 1,
+		"i_day": 7,
+		"i_id": 80,
+		"i_isTotal": 1,
+		"i_value": 10,
+		"il_achieveParams": [
+			0
+		],
+		"s_desc": "累计观看50次广告"
+	},
+	{
+		"i_achieveType": 38,
+		"i_achieveValue": 1500,
+		"i_activityID": 1,
+		"i_day": 7,
+		"i_id": 81,
+		"i_isTotal": 1,
+		"i_value": 10,
+		"il_achieveParams": [
+			999
+		],
+		"s_desc": "累计升级1500次装备"
+	},
+	{
+		"i_achieveType": 2,
+		"i_achieveValue": 800000,
+		"i_activityID": 1,
+		"i_day": 7,
+		"i_id": 82,
+		"i_isTotal": 1,
+		"i_value": 10,
+		"il_achieveParams": [
+			0,
+			0
+		],
+		"s_desc": "累计击败800000只怪物"
+	},
+	{
+		"i_achieveType": 13,
+		"i_achieveValue": 4000,
+		"i_activityID": 1,
+		"i_day": 7,
+		"i_id": 83,
+		"i_isTotal": 1,
+		"i_value": 10,
+		"il_achieveParams": [
+			999
+		],
+		"s_desc": "累计分解4000件装备"
+	},
+	{
+		"i_achieveType": 15,
+		"i_achieveValue": 100,
+		"i_activityID": 1,
+		"i_day": 7,
+		"i_id": 84,
+		"i_isTotal": 1,
+		"i_value": 10,
+		"il_achieveParams": [
+			999
+		],
+		"s_desc": "累计晶核改造100次"
+	},
+	{
+		"i_achieveType": 17,
+		"i_achieveValue": 50,
+		"i_activityID": 1,
+		"i_day": 7,
+		"i_id": 85,
+		"i_isTotal": 1,
+		"i_value": 20,
+		"il_achieveParams": [
+			999
+		],
+		"s_desc": "累计英雄升星50次"
+	},
+	{
+		"i_achieveType": 2,
+		"i_achieveValue": 500,
+		"i_activityID": 1,
+		"i_day": 7,
+		"i_id": 86,
+		"i_isTotal": 1,
+		"i_value": 10,
+		"il_achieveParams": [
+			0,
+			2
+		],
+		"s_desc": "累计击败500只BOSS"
+	},
+	{
+		"i_achieveType": 6,
+		"i_achieveValue": 250,
+		"i_activityID": 1,
+		"i_day": 7,
+		"i_id": 87,
+		"i_isTotal": 1,
+		"i_value": 20,
+		"il_achieveParams": [
+			30
+		],
+		"s_desc": "累计使徒召唤250次"
+	}
+]

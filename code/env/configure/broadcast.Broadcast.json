@@ -1,0 +1,14 @@
+[
+	{
+		"i_broadcastType": 1,
+		"i_channel": 1,
+		"i_id": 1,
+		"s_content": "恭喜%s获得%d英雄"
+	},
+	{
+		"i_broadcastType": 2,
+		"i_channel": 1,
+		"i_id": 2,
+		"s_content": "恭喜%s获得第%d名"
+	}
+]

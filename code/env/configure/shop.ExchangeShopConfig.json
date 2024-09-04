@@ -1,0 +1,642 @@
+[
+	{
+		"i_discount": 0,
+		"i_id": 1,
+		"i_limitBuyNum": 1,
+		"i_productId": 0,
+		"i_shopType": 2,
+		"i_sortTag": 100,
+		"il_needItem": [
+			1,
+			20,
+			90000
+		],
+		"ill_addItem": [
+			[
+				3,
+				23,
+				1,
+				4
+			]
+		],
+		"s_productName": "",
+		"s_valueTips": ""
+	},
+	{
+		"i_discount": 0,
+		"i_id": 2,
+		"i_limitBuyNum": 1,
+		"i_productId": 0,
+		"i_shopType": 2,
+		"i_sortTag": 99,
+		"il_needItem": [
+			1,
+			20,
+			90000
+		],
+		"ill_addItem": [
+			[
+				3,
+				19,
+				1,
+				4
+			]
+		],
+		"s_productName": "",
+		"s_valueTips": ""
+	},
+	{
+		"i_discount": 0,
+		"i_id": 3,
+		"i_limitBuyNum": 1,
+		"i_productId": 0,
+		"i_shopType": 2,
+		"i_sortTag": 98,
+		"il_needItem": [
+			1,
+			20,
+			90000
+		],
+		"ill_addItem": [
+			[
+				3,
+				20,
+				1,
+				4
+			]
+		],
+		"s_productName": "",
+		"s_valueTips": ""
+	},
+	{
+		"i_discount": 0,
+		"i_id": 4,
+		"i_limitBuyNum": 1,
+		"i_productId": 0,
+		"i_shopType": 2,
+		"i_sortTag": 97,
+		"il_needItem": [
+			1,
+			20,
+			90000
+		],
+		"ill_addItem": [
+			[
+				3,
+				25,
+				1,
+				4
+			]
+		],
+		"s_productName": "",
+		"s_valueTips": ""
+	},
+	{
+		"i_discount": 0,
+		"i_id": 5,
+		"i_limitBuyNum": 1,
+		"i_productId": 0,
+		"i_shopType": 2,
+		"i_sortTag": 96,
+		"il_needItem": [
+			1,
+			20,
+			90000
+		],
+		"ill_addItem": [
+			[
+				3,
+				26,
+				1,
+				4
+			]
+		],
+		"s_productName": "",
+		"s_valueTips": ""
+	},
+	{
+		"i_discount": 0,
+		"i_id": 6,
+		"i_limitBuyNum": 1,
+		"i_productId": 0,
+		"i_shopType": 2,
+		"i_sortTag": 95,
+		"il_needItem": [
+			1,
+			20,
+			80000
+		],
+		"ill_addItem": [
+			[
+				1,
+				1405,
+				1
+			]
+		],
+		"s_productName": "",
+		"s_valueTips": ""
+	},
+	{
+		"i_discount": 0,
+		"i_id": 7,
+		"i_limitBuyNum": 1,
+		"i_productId": 0,
+		"i_shopType": 2,
+		"i_sortTag": 94,
+		"il_needItem": [
+			1,
+			20,
+			80000
+		],
+		"ill_addItem": [
+			[
+				1,
+				1406,
+				1
+			]
+		],
+		"s_productName": "",
+		"s_valueTips": ""
+	},
+	{
+		"i_discount": 0,
+		"i_id": 8,
+		"i_limitBuyNum": 1,
+		"i_productId": 0,
+		"i_shopType": 2,
+		"i_sortTag": 93,
+		"il_needItem": [
+			1,
+			20,
+			80000
+		],
+		"ill_addItem": [
+			[
+				1,
+				1407,
+				1
+			]
+		],
+		"s_productName": "",
+		"s_valueTips": ""
+	},
+	{
+		"i_discount": 0,
+		"i_id": 9,
+		"i_limitBuyNum": 1,
+		"i_productId": 0,
+		"i_shopType": 2,
+		"i_sortTag": 92,
+		"il_needItem": [
+			1,
+			20,
+			80000
+		],
+		"ill_addItem": [
+			[
+				1,
+				1408,
+				1
+			]
+		],
+		"s_productName": "",
+		"s_valueTips": ""
+	},
+	{
+		"i_discount": 0,
+		"i_id": 10,
+		"i_limitBuyNum": 1,
+		"i_productId": 0,
+		"i_shopType": 2,
+		"i_sortTag": 91,
+		"il_needItem": [
+			1,
+			20,
+			80000
+		],
+		"ill_addItem": [
+			[
+				1,
+				1409,
+				1
+			]
+		],
+		"s_productName": "",
+		"s_valueTips": ""
+	},
+	{
+		"i_discount": 0,
+		"i_id": 11,
+		"i_limitBuyNum": 1,
+		"i_productId": 0,
+		"i_shopType": 2,
+		"i_sortTag": 90,
+		"il_needItem": [
+			1,
+			20,
+			80000
+		],
+		"ill_addItem": [
+			[
+				1,
+				1410,
+				1
+			]
+		],
+		"s_productName": "",
+		"s_valueTips": ""
+	},
+	{
+		"i_discount": 0,
+		"i_id": 12,
+		"i_limitBuyNum": 10,
+		"i_productId": 0,
+		"i_shopType": 2,
+		"i_sortTag": 89,
+		"il_needItem": [
+			1,
+			20,
+			2000
+		],
+		"ill_addItem": [
+			[
+				1,
+				15,
+				50
+			]
+		],
+		"s_productName": "",
+		"s_valueTips": ""
+	},
+	{
+		"i_discount": 0,
+		"i_id": 13,
+		"i_limitBuyNum": 5,
+		"i_productId": 0,
+		"i_shopType": 2,
+		"i_sortTag": 88,
+		"il_needItem": [
+			1,
+			20,
+			15000
+		],
+		"ill_addItem": [
+			[
+				1,
+				16,
+				5
+			]
+		],
+		"s_productName": "",
+		"s_valueTips": ""
+	},
+	{
+		"i_id": 100,
+		"i_limitBuyNum": 0,
+		"i_productId": 1,
+		"i_shopType": 3,
+		"il_needItem": [
+			0
+		],
+		"ill_addItem": [
+			[
+				1,
+				1,
+				60
+			]
+		],
+		"s_productName": ""
+	},
+	{
+		"i_id": 101,
+		"i_limitBuyNum": 0,
+		"i_productId": 2,
+		"i_shopType": 3,
+		"il_needItem": [
+			0
+		],
+		"ill_addItem": [
+			[
+				1,
+				1,
+				300
+			]
+		],
+		"s_productName": ""
+	},
+	{
+		"i_id": 102,
+		"i_limitBuyNum": 0,
+		"i_productId": 3,
+		"i_shopType": 3,
+		"il_needItem": [
+			0
+		],
+		"ill_addItem": [
+			[
+				1,
+				1,
+				680
+			]
+		],
+		"s_productName": ""
+	},
+	{
+		"i_id": 103,
+		"i_limitBuyNum": 0,
+		"i_productId": 4,
+		"i_shopType": 3,
+		"il_needItem": [
+			0
+		],
+		"ill_addItem": [
+			[
+				1,
+				1,
+				980
+			]
+		],
+		"s_productName": ""
+	},
+	{
+		"i_id": 104,
+		"i_limitBuyNum": 0,
+		"i_productId": 5,
+		"i_shopType": 3,
+		"il_needItem": [
+			0
+		],
+		"ill_addItem": [
+			[
+				1,
+				1,
+				1280
+			]
+		],
+		"s_productName": ""
+	},
+	{
+		"i_id": 105,
+		"i_limitBuyNum": 0,
+		"i_productId": 6,
+		"i_shopType": 3,
+		"il_needItem": [
+			0
+		],
+		"ill_addItem": [
+			[
+				1,
+				1,
+				1980
+			]
+		],
+		"s_productName": ""
+	},
+	{
+		"i_id": 106,
+		"i_limitBuyNum": 0,
+		"i_productId": 7,
+		"i_shopType": 3,
+		"il_needItem": [
+			0
+		],
+		"ill_addItem": [
+			[
+				1,
+				1,
+				3280
+			]
+		],
+		"s_productName": ""
+	},
+	{
+		"i_discount": 0,
+		"i_id": 300,
+		"i_limitBuyNum": 1,
+		"i_productId": 0,
+		"i_shopType": 5,
+		"i_sortTag": 10,
+		"il_needItem": [
+			0
+		],
+		"ill_addItem": [
+			[
+				1,
+				1,
+				10
+			]
+		],
+		"s_productName": "",
+		"s_valueTips": ""
+	},
+	{
+		"i_discount": 0,
+		"i_id": 301,
+		"i_limitBuyNum": 1,
+		"i_productId": 301,
+		"i_shopType": 5,
+		"i_sortTag": 9,
+		"il_needItem": [
+			0
+		],
+		"ill_addItem": [
+			[
+				1,
+				1,
+				240
+			],
+			[
+				1,
+				1500,
+				30
+			]
+		],
+		"s_productName": "",
+		"s_valueTips": "500%"
+	},
+	{
+		"i_discount": 0,
+		"i_id": 302,
+		"i_limitBuyNum": 1,
+		"i_productId": 302,
+		"i_shopType": 5,
+		"i_sortTag": 8,
+		"il_needItem": [
+			0
+		],
+		"ill_addItem": [
+			[
+				1,
+				1,
+				325
+			],
+			[
+				1,
+				3,
+				180
+			]
+		],
+		"s_productName": "",
+		"s_valueTips": "400%"
+	},
+	{
+		"i_discount": 0,
+		"i_id": 303,
+		"i_limitBuyNum": 1,
+		"i_productId": 303,
+		"i_shopType": 5,
+		"i_sortTag": 7,
+		"il_needItem": [
+			0
+		],
+		"ill_addItem": [
+			[
+				1,
+				1,
+				870
+			],
+			[
+				1,
+				5,
+				3500
+			]
+		],
+		"s_productName": "",
+		"s_valueTips": "300%"
+	},
+	{
+		"i_discount": 0,
+		"i_id": 304,
+		"i_limitBuyNum": 1,
+		"i_productId": 304,
+		"i_shopType": 5,
+		"i_sortTag": 6,
+		"il_needItem": [
+			0
+		],
+		"ill_addItem": [
+			[
+				1,
+				1,
+				1145
+			],
+			[
+				1,
+				15,
+				1000
+			],
+			[
+				1,
+				16,
+				30
+			]
+		],
+		"s_productName": "",
+		"s_valueTips": "250%"
+	},
+	{
+		"i_discount": 0,
+		"i_id": 305,
+		"i_limitBuyNum": 1,
+		"i_productId": 305,
+		"i_shopType": 5,
+		"i_sortTag": 5,
+		"il_needItem": [
+			0
+		],
+		"ill_addItem": [
+			[
+				1,
+				1,
+				1200
+			],
+			[
+				1,
+				19,
+				2000
+			]
+		],
+		"s_productName": "",
+		"s_valueTips": "250%"
+	},
+	{
+		"i_discount": 0,
+		"i_id": 306,
+		"i_limitBuyNum": 1,
+		"i_productId": 306,
+		"i_shopType": 5,
+		"i_sortTag": 4,
+		"il_needItem": [
+			0
+		],
+		"ill_addItem": [
+			[
+				1,
+				1,
+				1500
+			],
+			[
+				1,
+				22,
+				2200
+			]
+		],
+		"s_productName": "",
+		"s_valueTips": "230%"
+	},
+	{
+		"i_discount": 0,
+		"i_id": 307,
+		"i_limitBuyNum": 1,
+		"i_productId": 307,
+		"i_shopType": 5,
+		"i_sortTag": 3,
+		"il_needItem": [
+			0
+		],
+		"ill_addItem": [
+			[
+				1,
+				1,
+				1800
+			],
+			[
+				1,
+				1410,
+				3
+			]
+		],
+		"s_productName": "",
+		"s_valueTips": "230%"
+	},
+	{
+		"i_discount": 0,
+		"i_id": 308,
+		"i_limitBuyNum": 1,
+		"i_productId": 308,
+		"i_shopType": 5,
+		"i_sortTag": 2,
+		"il_needItem": [
+			0
+		],
+		"ill_addItem": [
+			[
+				1,
+				1,
+				3850
+			],
+			[
+				1,
+				1601,
+				1
+			],
+			[
+				1,
+				1602,
+				1
+			]
+		],
+		"s_productName": "",
+		"s_valueTips": "225%"
+	}
+]

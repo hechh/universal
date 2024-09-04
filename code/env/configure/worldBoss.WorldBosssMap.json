@@ -1,0 +1,27 @@
+[
+	{
+		"i_bossId": 100001,
+		"i_element": 0,
+		"i_id": 1
+	},
+	{
+		"i_bossId": 100001,
+		"i_element": 1,
+		"i_id": 2
+	},
+	{
+		"i_bossId": 100001,
+		"i_element": 2,
+		"i_id": 3
+	},
+	{
+		"i_bossId": 100001,
+		"i_element": 3,
+		"i_id": 4
+	},
+	{
+		"i_bossId": 100001,
+		"i_element": 4,
+		"i_id": 5
+	}
+]

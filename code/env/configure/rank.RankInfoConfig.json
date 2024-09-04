@@ -1,0 +1,40 @@
+[
+	{
+		"i_id": 1,
+		"i_rankType": 4,
+		"s_activeTime": "2/9:00:00",
+		"s_closeTime": "9/23:59:59",
+		"s_rewardTime": "3/22:00:00",
+		"s_showTime": "4/23:59:59"
+	},
+	{
+		"i_id": 2,
+		"i_rankType": 5,
+		"s_activeTime": "00:00:00",
+		"s_closeTime": "9/23:59:59",
+		"s_rewardTime": "3/22:00:00",
+		"s_showTime": "4/23:59:59"
+	},
+	{
+		"i_id": 3,
+		"i_rankType": 6,
+		"s_activeTime": "2/9:00:00",
+		"s_closeTime": "9/23:59:59",
+		"s_rewardTime": "4/22:00:00",
+		"s_showTime": "5/23:59:59"
+	},
+	{
+		"i_id": 4,
+		"i_rankType": 7,
+		"s_activeTime": "3/9:00:00",
+		"s_closeTime": "9/23:59:59",
+		"s_rewardTime": "6/22:00:00",
+		"s_showTime": "7/23:59:59"
+	},
+	{
+		"i_id": 5,
+		"i_rankType": 8,
+		"s_activeTime": "9:00:00",
+		"s_rewardTime": "22:00:00"
+	}
+]

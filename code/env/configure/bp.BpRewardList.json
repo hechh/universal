@@ -1,0 +1,3462 @@
+[
+	{
+		"i_bpType": 0,
+		"i_id": 1,
+		"i_needValue": 1005,
+		"i_prizeId": 1,
+		"i_stage": 1,
+		"ill_extraItem": [
+			[
+				1,
+				1,
+				200
+			],
+			[
+				1,
+				1201,
+				10
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				1,
+				30
+			]
+		]
+	},
+	{
+		"i_bpType": 0,
+		"i_id": 2,
+		"i_needValue": 2003,
+		"i_prizeId": 2,
+		"i_stage": 1,
+		"ill_extraItem": [
+			[
+				1,
+				1,
+				200
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				1,
+				30
+			]
+		]
+	},
+	{
+		"i_bpType": 0,
+		"i_id": 3,
+		"i_needValue": 3003,
+		"i_prizeId": 3,
+		"i_stage": 1,
+		"ill_extraItem": [
+			[
+				1,
+				1,
+				200
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				1,
+				30
+			]
+		]
+	},
+	{
+		"i_bpType": 0,
+		"i_id": 4,
+		"i_needValue": 4001,
+		"i_prizeId": 4,
+		"i_stage": 1,
+		"ill_extraItem": [
+			[
+				1,
+				1,
+				200
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				1,
+				30
+			]
+		]
+	},
+	{
+		"i_bpType": 0,
+		"i_id": 5,
+		"i_needValue": 4003,
+		"i_prizeId": 5,
+		"i_stage": 1,
+		"ill_extraItem": [
+			[
+				1,
+				1,
+				500
+			],
+			[
+				1,
+				1201,
+				10
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				1,
+				30
+			],
+			[
+				1,
+				1201,
+				10
+			]
+		]
+	},
+	{
+		"i_bpType": 0,
+		"i_id": 6,
+		"i_needValue": 4005,
+		"i_prizeId": 6,
+		"i_stage": 1,
+		"ill_extraItem": [
+			[
+				1,
+				1,
+				200
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				1,
+				30
+			]
+		]
+	},
+	{
+		"i_bpType": 0,
+		"i_id": 7,
+		"i_needValue": 5001,
+		"i_prizeId": 7,
+		"i_stage": 1,
+		"ill_extraItem": [
+			[
+				1,
+				1,
+				200
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				1,
+				30
+			]
+		]
+	},
+	{
+		"i_bpType": 0,
+		"i_id": 8,
+		"i_needValue": 5003,
+		"i_prizeId": 8,
+		"i_stage": 1,
+		"ill_extraItem": [
+			[
+				1,
+				1,
+				200
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				1,
+				30
+			]
+		]
+	},
+	{
+		"i_bpType": 0,
+		"i_id": 9,
+		"i_needValue": 5005,
+		"i_prizeId": 9,
+		"i_stage": 1,
+		"ill_extraItem": [
+			[
+				1,
+				1,
+				200
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				1,
+				30
+			]
+		]
+	},
+	{
+		"i_bpType": 0,
+		"i_id": 10,
+		"i_needValue": 6001,
+		"i_prizeId": 10,
+		"i_stage": 1,
+		"ill_extraItem": [
+			[
+				1,
+				1,
+				500
+			],
+			[
+				1,
+				1201,
+				20
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				1,
+				30
+			],
+			[
+				1,
+				1201,
+				10
+			]
+		]
+	},
+	{
+		"i_bpType": 0,
+		"i_id": 11,
+		"i_needValue": 6003,
+		"i_prizeId": 11,
+		"i_stage": 1,
+		"ill_extraItem": [
+			[
+				1,
+				1,
+				200
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				1,
+				30
+			]
+		]
+	},
+	{
+		"i_bpType": 0,
+		"i_id": 12,
+		"i_needValue": 6005,
+		"i_prizeId": 12,
+		"i_stage": 1,
+		"ill_extraItem": [
+			[
+				1,
+				1,
+				200
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				1,
+				30
+			]
+		]
+	},
+	{
+		"i_bpType": 0,
+		"i_id": 13,
+		"i_needValue": 7001,
+		"i_prizeId": 13,
+		"i_stage": 1,
+		"ill_extraItem": [
+			[
+				1,
+				1,
+				200
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				1,
+				30
+			]
+		]
+	},
+	{
+		"i_bpType": 0,
+		"i_id": 14,
+		"i_needValue": 7003,
+		"i_prizeId": 14,
+		"i_stage": 1,
+		"ill_extraItem": [
+			[
+				1,
+				1,
+				200
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				1,
+				30
+			]
+		]
+	},
+	{
+		"i_bpType": 0,
+		"i_id": 15,
+		"i_needValue": 7005,
+		"i_prizeId": 15,
+		"i_stage": 1,
+		"ill_extraItem": [
+			[
+				1,
+				1,
+				500
+			],
+			[
+				1,
+				1201,
+				20
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				1,
+				50
+			],
+			[
+				1,
+				1201,
+				10
+			]
+		]
+	},
+	{
+		"i_bpType": 0,
+		"i_id": 16,
+		"i_needValue": 8001,
+		"i_prizeId": 1,
+		"i_stage": 2,
+		"ill_extraItem": [
+			[
+				1,
+				1,
+				200
+			],
+			[
+				1,
+				1201,
+				10
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				1,
+				30
+			]
+		]
+	},
+	{
+		"i_bpType": 0,
+		"i_id": 17,
+		"i_needValue": 8002,
+		"i_prizeId": 2,
+		"i_stage": 2,
+		"ill_extraItem": [
+			[
+				1,
+				1,
+				200
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				1,
+				30
+			]
+		]
+	},
+	{
+		"i_bpType": 0,
+		"i_id": 18,
+		"i_needValue": 8003,
+		"i_prizeId": 3,
+		"i_stage": 2,
+		"ill_extraItem": [
+			[
+				1,
+				1,
+				200
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				1,
+				30
+			]
+		]
+	},
+	{
+		"i_bpType": 0,
+		"i_id": 19,
+		"i_needValue": 8004,
+		"i_prizeId": 4,
+		"i_stage": 2,
+		"ill_extraItem": [
+			[
+				1,
+				1,
+				200
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				1,
+				30
+			]
+		]
+	},
+	{
+		"i_bpType": 0,
+		"i_id": 20,
+		"i_needValue": 8005,
+		"i_prizeId": 5,
+		"i_stage": 2,
+		"ill_extraItem": [
+			[
+				1,
+				1,
+				500
+			],
+			[
+				1,
+				1201,
+				10
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				1,
+				30
+			],
+			[
+				1,
+				1201,
+				10
+			]
+		]
+	},
+	{
+		"i_bpType": 0,
+		"i_id": 21,
+		"i_needValue": 9001,
+		"i_prizeId": 6,
+		"i_stage": 2,
+		"ill_extraItem": [
+			[
+				1,
+				1,
+				200
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				1,
+				30
+			]
+		]
+	},
+	{
+		"i_bpType": 0,
+		"i_id": 22,
+		"i_needValue": 9002,
+		"i_prizeId": 7,
+		"i_stage": 2,
+		"ill_extraItem": [
+			[
+				1,
+				1,
+				200
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				1,
+				30
+			]
+		]
+	},
+	{
+		"i_bpType": 0,
+		"i_id": 23,
+		"i_needValue": 9003,
+		"i_prizeId": 8,
+		"i_stage": 2,
+		"ill_extraItem": [
+			[
+				1,
+				1,
+				200
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				1,
+				30
+			]
+		]
+	},
+	{
+		"i_bpType": 0,
+		"i_id": 24,
+		"i_needValue": 9004,
+		"i_prizeId": 9,
+		"i_stage": 2,
+		"ill_extraItem": [
+			[
+				1,
+				1,
+				200
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				1,
+				30
+			]
+		]
+	},
+	{
+		"i_bpType": 0,
+		"i_id": 25,
+		"i_needValue": 9005,
+		"i_prizeId": 10,
+		"i_stage": 2,
+		"ill_extraItem": [
+			[
+				1,
+				1,
+				500
+			],
+			[
+				1,
+				1201,
+				20
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				1,
+				30
+			],
+			[
+				1,
+				1201,
+				10
+			]
+		]
+	},
+	{
+		"i_bpType": 0,
+		"i_id": 26,
+		"i_needValue": 10001,
+		"i_prizeId": 11,
+		"i_stage": 2,
+		"ill_extraItem": [
+			[
+				1,
+				1,
+				200
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				1,
+				30
+			]
+		]
+	},
+	{
+		"i_bpType": 0,
+		"i_id": 27,
+		"i_needValue": 10002,
+		"i_prizeId": 12,
+		"i_stage": 2,
+		"ill_extraItem": [
+			[
+				1,
+				1,
+				200
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				1,
+				30
+			]
+		]
+	},
+	{
+		"i_bpType": 0,
+		"i_id": 28,
+		"i_needValue": 10003,
+		"i_prizeId": 13,
+		"i_stage": 2,
+		"ill_extraItem": [
+			[
+				1,
+				1,
+				200
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				1,
+				30
+			]
+		]
+	},
+	{
+		"i_bpType": 0,
+		"i_id": 29,
+		"i_needValue": 10004,
+		"i_prizeId": 14,
+		"i_stage": 2,
+		"ill_extraItem": [
+			[
+				1,
+				1,
+				200
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				1,
+				30
+			]
+		]
+	},
+	{
+		"i_bpType": 0,
+		"i_id": 30,
+		"i_needValue": 10005,
+		"i_prizeId": 15,
+		"i_stage": 2,
+		"ill_extraItem": [
+			[
+				1,
+				1,
+				500
+			],
+			[
+				1,
+				1201,
+				20
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				1,
+				50
+			],
+			[
+				1,
+				1201,
+				10
+			]
+		]
+	},
+	{
+		"i_bpType": 0,
+		"i_id": 31,
+		"i_needValue": 11001,
+		"i_prizeId": 1,
+		"i_stage": 3,
+		"ill_extraItem": [
+			[
+				1,
+				1,
+				200
+			],
+			[
+				1,
+				1201,
+				10
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				1,
+				30
+			]
+		]
+	},
+	{
+		"i_bpType": 0,
+		"i_id": 32,
+		"i_needValue": 11002,
+		"i_prizeId": 2,
+		"i_stage": 3,
+		"ill_extraItem": [
+			[
+				1,
+				1,
+				200
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				1,
+				30
+			]
+		]
+	},
+	{
+		"i_bpType": 0,
+		"i_id": 33,
+		"i_needValue": 11003,
+		"i_prizeId": 3,
+		"i_stage": 3,
+		"ill_extraItem": [
+			[
+				1,
+				1,
+				200
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				1,
+				30
+			]
+		]
+	},
+	{
+		"i_bpType": 0,
+		"i_id": 34,
+		"i_needValue": 11004,
+		"i_prizeId": 4,
+		"i_stage": 3,
+		"ill_extraItem": [
+			[
+				1,
+				1,
+				200
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				1,
+				30
+			]
+		]
+	},
+	{
+		"i_bpType": 0,
+		"i_id": 35,
+		"i_needValue": 11005,
+		"i_prizeId": 5,
+		"i_stage": 3,
+		"ill_extraItem": [
+			[
+				1,
+				1,
+				500
+			],
+			[
+				1,
+				1201,
+				10
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				1,
+				30
+			],
+			[
+				1,
+				1201,
+				10
+			]
+		]
+	},
+	{
+		"i_bpType": 0,
+		"i_id": 36,
+		"i_needValue": 12001,
+		"i_prizeId": 6,
+		"i_stage": 3,
+		"ill_extraItem": [
+			[
+				1,
+				1,
+				200
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				1,
+				30
+			]
+		]
+	},
+	{
+		"i_bpType": 0,
+		"i_id": 37,
+		"i_needValue": 12002,
+		"i_prizeId": 7,
+		"i_stage": 3,
+		"ill_extraItem": [
+			[
+				1,
+				1,
+				200
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				1,
+				30
+			]
+		]
+	},
+	{
+		"i_bpType": 0,
+		"i_id": 38,
+		"i_needValue": 12003,
+		"i_prizeId": 8,
+		"i_stage": 3,
+		"ill_extraItem": [
+			[
+				1,
+				1,
+				200
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				1,
+				30
+			]
+		]
+	},
+	{
+		"i_bpType": 0,
+		"i_id": 39,
+		"i_needValue": 12004,
+		"i_prizeId": 9,
+		"i_stage": 3,
+		"ill_extraItem": [
+			[
+				1,
+				1,
+				200
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				1,
+				30
+			]
+		]
+	},
+	{
+		"i_bpType": 0,
+		"i_id": 40,
+		"i_needValue": 12005,
+		"i_prizeId": 10,
+		"i_stage": 3,
+		"ill_extraItem": [
+			[
+				1,
+				1,
+				500
+			],
+			[
+				1,
+				1201,
+				20
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				1,
+				30
+			],
+			[
+				1,
+				1201,
+				10
+			]
+		]
+	},
+	{
+		"i_bpType": 0,
+		"i_id": 41,
+		"i_needValue": 13001,
+		"i_prizeId": 11,
+		"i_stage": 3,
+		"ill_extraItem": [
+			[
+				1,
+				1,
+				200
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				1,
+				30
+			]
+		]
+	},
+	{
+		"i_bpType": 0,
+		"i_id": 42,
+		"i_needValue": 13002,
+		"i_prizeId": 12,
+		"i_stage": 3,
+		"ill_extraItem": [
+			[
+				1,
+				1,
+				200
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				1,
+				30
+			]
+		]
+	},
+	{
+		"i_bpType": 0,
+		"i_id": 43,
+		"i_needValue": 13003,
+		"i_prizeId": 13,
+		"i_stage": 3,
+		"ill_extraItem": [
+			[
+				1,
+				1,
+				200
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				1,
+				30
+			]
+		]
+	},
+	{
+		"i_bpType": 0,
+		"i_id": 44,
+		"i_needValue": 13004,
+		"i_prizeId": 14,
+		"i_stage": 3,
+		"ill_extraItem": [
+			[
+				1,
+				1,
+				200
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				1,
+				30
+			]
+		]
+	},
+	{
+		"i_bpType": 0,
+		"i_id": 45,
+		"i_needValue": 13005,
+		"i_prizeId": 15,
+		"i_stage": 3,
+		"ill_extraItem": [
+			[
+				1,
+				1,
+				500
+			],
+			[
+				1,
+				1201,
+				20
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				1,
+				50
+			],
+			[
+				1,
+				1201,
+				10
+			]
+		]
+	},
+	{
+		"i_bpType": 7,
+		"i_id": 46,
+		"i_needValue": 1000,
+		"i_prizeId": 1,
+		"i_stage": 1,
+		"ill_extraItem": [
+			[
+				1,
+				21,
+				10
+			],
+			[
+				1,
+				22,
+				600
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				21,
+				1
+			]
+		]
+	},
+	{
+		"i_bpType": 7,
+		"i_id": 47,
+		"i_needValue": 1500,
+		"i_prizeId": 2,
+		"i_stage": 1,
+		"ill_extraItem": [
+			[
+				1,
+				21,
+				10
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				21,
+				1
+			]
+		]
+	},
+	{
+		"i_bpType": 7,
+		"i_id": 48,
+		"i_needValue": 2000,
+		"i_prizeId": 3,
+		"i_stage": 1,
+		"ill_extraItem": [
+			[
+				1,
+				21,
+				10
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				21,
+				1
+			]
+		]
+	},
+	{
+		"i_bpType": 7,
+		"i_id": 49,
+		"i_needValue": 2500,
+		"i_prizeId": 4,
+		"i_stage": 1,
+		"ill_extraItem": [
+			[
+				1,
+				21,
+				10
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				21,
+				1
+			]
+		]
+	},
+	{
+		"i_bpType": 7,
+		"i_id": 50,
+		"i_needValue": 3000,
+		"i_prizeId": 5,
+		"i_stage": 1,
+		"ill_extraItem": [
+			[
+				1,
+				21,
+				30
+			],
+			[
+				1,
+				22,
+				600
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				21,
+				10
+			]
+		]
+	},
+	{
+		"i_bpType": 7,
+		"i_id": 51,
+		"i_needValue": 3500,
+		"i_prizeId": 6,
+		"i_stage": 1,
+		"ill_extraItem": [
+			[
+				1,
+				21,
+				10
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				21,
+				1
+			]
+		]
+	},
+	{
+		"i_bpType": 7,
+		"i_id": 52,
+		"i_needValue": 4000,
+		"i_prizeId": 7,
+		"i_stage": 1,
+		"ill_extraItem": [
+			[
+				1,
+				21,
+				10
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				21,
+				1
+			]
+		]
+	},
+	{
+		"i_bpType": 7,
+		"i_id": 53,
+		"i_needValue": 4500,
+		"i_prizeId": 8,
+		"i_stage": 1,
+		"ill_extraItem": [
+			[
+				1,
+				21,
+				10
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				21,
+				1
+			]
+		]
+	},
+	{
+		"i_bpType": 7,
+		"i_id": 54,
+		"i_needValue": 5000,
+		"i_prizeId": 9,
+		"i_stage": 1,
+		"ill_extraItem": [
+			[
+				1,
+				21,
+				10
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				21,
+				1
+			]
+		]
+	},
+	{
+		"i_bpType": 7,
+		"i_id": 55,
+		"i_needValue": 5500,
+		"i_prizeId": 10,
+		"i_stage": 1,
+		"ill_extraItem": [
+			[
+				1,
+				21,
+				30
+			],
+			[
+				1,
+				22,
+				600
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				21,
+				10
+			]
+		]
+	},
+	{
+		"i_bpType": 7,
+		"i_id": 56,
+		"i_needValue": 6000,
+		"i_prizeId": 11,
+		"i_stage": 1,
+		"ill_extraItem": [
+			[
+				1,
+				21,
+				10
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				21,
+				1
+			]
+		]
+	},
+	{
+		"i_bpType": 7,
+		"i_id": 57,
+		"i_needValue": 6500,
+		"i_prizeId": 12,
+		"i_stage": 1,
+		"ill_extraItem": [
+			[
+				1,
+				21,
+				10
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				21,
+				1
+			]
+		]
+	},
+	{
+		"i_bpType": 7,
+		"i_id": 58,
+		"i_needValue": 7000,
+		"i_prizeId": 13,
+		"i_stage": 1,
+		"ill_extraItem": [
+			[
+				1,
+				21,
+				10
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				21,
+				1
+			]
+		]
+	},
+	{
+		"i_bpType": 7,
+		"i_id": 59,
+		"i_needValue": 7500,
+		"i_prizeId": 14,
+		"i_stage": 1,
+		"ill_extraItem": [
+			[
+				1,
+				21,
+				10
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				21,
+				1
+			]
+		]
+	},
+	{
+		"i_bpType": 7,
+		"i_id": 60,
+		"i_needValue": 8000,
+		"i_prizeId": 15,
+		"i_stage": 1,
+		"ill_extraItem": [
+			[
+				1,
+				21,
+				30
+			],
+			[
+				1,
+				22,
+				1000
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				21,
+				10
+			]
+		]
+	},
+	{
+		"i_bpType": 7,
+		"i_id": 61,
+		"i_needValue": 8500,
+		"i_prizeId": 1,
+		"i_stage": 2,
+		"ill_extraItem": [
+			[
+				1,
+				21,
+				10
+			],
+			[
+				1,
+				22,
+				600
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				21,
+				1
+			]
+		]
+	},
+	{
+		"i_bpType": 7,
+		"i_id": 62,
+		"i_needValue": 9000,
+		"i_prizeId": 2,
+		"i_stage": 2,
+		"ill_extraItem": [
+			[
+				1,
+				21,
+				10
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				21,
+				1
+			]
+		]
+	},
+	{
+		"i_bpType": 7,
+		"i_id": 63,
+		"i_needValue": 9500,
+		"i_prizeId": 3,
+		"i_stage": 2,
+		"ill_extraItem": [
+			[
+				1,
+				21,
+				10
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				21,
+				1
+			]
+		]
+	},
+	{
+		"i_bpType": 7,
+		"i_id": 64,
+		"i_needValue": 10000,
+		"i_prizeId": 4,
+		"i_stage": 2,
+		"ill_extraItem": [
+			[
+				1,
+				21,
+				10
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				21,
+				1
+			]
+		]
+	},
+	{
+		"i_bpType": 7,
+		"i_id": 65,
+		"i_needValue": 10500,
+		"i_prizeId": 5,
+		"i_stage": 2,
+		"ill_extraItem": [
+			[
+				1,
+				21,
+				30
+			],
+			[
+				1,
+				22,
+				600
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				21,
+				10
+			]
+		]
+	},
+	{
+		"i_bpType": 7,
+		"i_id": 66,
+		"i_needValue": 11000,
+		"i_prizeId": 6,
+		"i_stage": 2,
+		"ill_extraItem": [
+			[
+				1,
+				21,
+				10
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				21,
+				1
+			]
+		]
+	},
+	{
+		"i_bpType": 7,
+		"i_id": 67,
+		"i_needValue": 11500,
+		"i_prizeId": 7,
+		"i_stage": 2,
+		"ill_extraItem": [
+			[
+				1,
+				21,
+				10
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				21,
+				1
+			]
+		]
+	},
+	{
+		"i_bpType": 7,
+		"i_id": 68,
+		"i_needValue": 12000,
+		"i_prizeId": 8,
+		"i_stage": 2,
+		"ill_extraItem": [
+			[
+				1,
+				21,
+				10
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				21,
+				1
+			]
+		]
+	},
+	{
+		"i_bpType": 7,
+		"i_id": 69,
+		"i_needValue": 12500,
+		"i_prizeId": 9,
+		"i_stage": 2,
+		"ill_extraItem": [
+			[
+				1,
+				21,
+				10
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				21,
+				1
+			]
+		]
+	},
+	{
+		"i_bpType": 7,
+		"i_id": 70,
+		"i_needValue": 13000,
+		"i_prizeId": 10,
+		"i_stage": 2,
+		"ill_extraItem": [
+			[
+				1,
+				21,
+				30
+			],
+			[
+				1,
+				22,
+				600
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				21,
+				10
+			]
+		]
+	},
+	{
+		"i_bpType": 7,
+		"i_id": 71,
+		"i_needValue": 13400,
+		"i_prizeId": 11,
+		"i_stage": 2,
+		"ill_extraItem": [
+			[
+				1,
+				21,
+				10
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				21,
+				1
+			]
+		]
+	},
+	{
+		"i_bpType": 7,
+		"i_id": 72,
+		"i_needValue": 13800,
+		"i_prizeId": 12,
+		"i_stage": 2,
+		"ill_extraItem": [
+			[
+				1,
+				21,
+				10
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				21,
+				1
+			]
+		]
+	},
+	{
+		"i_bpType": 7,
+		"i_id": 73,
+		"i_needValue": 14200,
+		"i_prizeId": 13,
+		"i_stage": 2,
+		"ill_extraItem": [
+			[
+				1,
+				21,
+				10
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				21,
+				1
+			]
+		]
+	},
+	{
+		"i_bpType": 7,
+		"i_id": 74,
+		"i_needValue": 14600,
+		"i_prizeId": 14,
+		"i_stage": 2,
+		"ill_extraItem": [
+			[
+				1,
+				21,
+				10
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				21,
+				1
+			]
+		]
+	},
+	{
+		"i_bpType": 7,
+		"i_id": 75,
+		"i_needValue": 15000,
+		"i_prizeId": 15,
+		"i_stage": 2,
+		"ill_extraItem": [
+			[
+				1,
+				21,
+				30
+			],
+			[
+				1,
+				22,
+				1000
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				21,
+				10
+			]
+		]
+	},
+	{
+		"i_bpType": 1,
+		"i_id": 76,
+		"i_needValue": 1050,
+		"i_prizeId": 1,
+		"i_stage": 1,
+		"ill_extraItem": [
+			[
+				1,
+				12,
+				30
+			],
+			[
+				1,
+				19,
+				500
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				12,
+				5
+			],
+			[
+				1,
+				19,
+				50
+			]
+		]
+	},
+	{
+		"i_bpType": 1,
+		"i_id": 77,
+		"i_needValue": 1100,
+		"i_prizeId": 2,
+		"i_stage": 1,
+		"ill_extraItem": [
+			[
+				1,
+				12,
+				30
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				12,
+				5
+			]
+		]
+	},
+	{
+		"i_bpType": 1,
+		"i_id": 78,
+		"i_needValue": 2050,
+		"i_prizeId": 3,
+		"i_stage": 1,
+		"ill_extraItem": [
+			[
+				1,
+				12,
+				30
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				12,
+				5
+			]
+		]
+	},
+	{
+		"i_bpType": 1,
+		"i_id": 79,
+		"i_needValue": 2100,
+		"i_prizeId": 4,
+		"i_stage": 1,
+		"ill_extraItem": [
+			[
+				1,
+				12,
+				30
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				12,
+				5
+			]
+		]
+	},
+	{
+		"i_bpType": 1,
+		"i_id": 80,
+		"i_needValue": 2150,
+		"i_prizeId": 5,
+		"i_stage": 1,
+		"ill_extraItem": [
+			[
+				1,
+				12,
+				50
+			],
+			[
+				1,
+				19,
+				1000
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				12,
+				5
+			],
+			[
+				1,
+				19,
+				100
+			]
+		]
+	},
+	{
+		"i_bpType": 1,
+		"i_id": 81,
+		"i_needValue": 3050,
+		"i_prizeId": 6,
+		"i_stage": 1,
+		"ill_extraItem": [
+			[
+				1,
+				12,
+				30
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				12,
+				5
+			]
+		]
+	},
+	{
+		"i_bpType": 1,
+		"i_id": 82,
+		"i_needValue": 3100,
+		"i_prizeId": 7,
+		"i_stage": 1,
+		"ill_extraItem": [
+			[
+				1,
+				12,
+				30
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				12,
+				5
+			]
+		]
+	},
+	{
+		"i_bpType": 1,
+		"i_id": 83,
+		"i_needValue": 3150,
+		"i_prizeId": 8,
+		"i_stage": 1,
+		"ill_extraItem": [
+			[
+				1,
+				12,
+				30
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				12,
+				5
+			]
+		]
+	},
+	{
+		"i_bpType": 1,
+		"i_id": 84,
+		"i_needValue": 3200,
+		"i_prizeId": 9,
+		"i_stage": 1,
+		"ill_extraItem": [
+			[
+				1,
+				12,
+				30
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				12,
+				5
+			]
+		]
+	},
+	{
+		"i_bpType": 1,
+		"i_id": 85,
+		"i_needValue": 3250,
+		"i_prizeId": 10,
+		"i_stage": 1,
+		"ill_extraItem": [
+			[
+				1,
+				12,
+				100
+			],
+			[
+				1,
+				19,
+				1000
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				12,
+				5
+			],
+			[
+				1,
+				19,
+				100
+			]
+		]
+	},
+	{
+		"i_bpType": 1,
+		"i_id": 86,
+		"i_needValue": 4050,
+		"i_prizeId": 11,
+		"i_stage": 1,
+		"ill_extraItem": [
+			[
+				1,
+				12,
+				30
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				12,
+				5
+			]
+		]
+	},
+	{
+		"i_bpType": 1,
+		"i_id": 87,
+		"i_needValue": 4100,
+		"i_prizeId": 12,
+		"i_stage": 1,
+		"ill_extraItem": [
+			[
+				1,
+				12,
+				30
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				12,
+				5
+			]
+		]
+	},
+	{
+		"i_bpType": 1,
+		"i_id": 88,
+		"i_needValue": 4150,
+		"i_prizeId": 13,
+		"i_stage": 1,
+		"ill_extraItem": [
+			[
+				1,
+				12,
+				30
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				12,
+				5
+			]
+		]
+	},
+	{
+		"i_bpType": 1,
+		"i_id": 89,
+		"i_needValue": 4200,
+		"i_prizeId": 14,
+		"i_stage": 1,
+		"ill_extraItem": [
+			[
+				1,
+				12,
+				30
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				12,
+				5
+			]
+		]
+	},
+	{
+		"i_bpType": 1,
+		"i_id": 90,
+		"i_needValue": 4250,
+		"i_prizeId": 15,
+		"i_stage": 1,
+		"ill_extraItem": [
+			[
+				1,
+				12,
+				100
+			],
+			[
+				1,
+				19,
+				1500
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				12,
+				5
+			],
+			[
+				1,
+				19,
+				100
+			]
+		]
+	},
+	{
+		"i_bpType": 1,
+		"i_id": 91,
+		"i_needValue": 4300,
+		"i_prizeId": 1,
+		"i_stage": 2,
+		"ill_extraItem": [
+			[
+				1,
+				12,
+				30
+			],
+			[
+				1,
+				19,
+				500
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				12,
+				5
+			],
+			[
+				1,
+				19,
+				50
+			]
+		]
+	},
+	{
+		"i_bpType": 1,
+		"i_id": 92,
+		"i_needValue": 5050,
+		"i_prizeId": 2,
+		"i_stage": 2,
+		"ill_extraItem": [
+			[
+				1,
+				12,
+				30
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				12,
+				5
+			]
+		]
+	},
+	{
+		"i_bpType": 1,
+		"i_id": 93,
+		"i_needValue": 5100,
+		"i_prizeId": 3,
+		"i_stage": 2,
+		"ill_extraItem": [
+			[
+				1,
+				12,
+				30
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				12,
+				5
+			]
+		]
+	},
+	{
+		"i_bpType": 1,
+		"i_id": 94,
+		"i_needValue": 5150,
+		"i_prizeId": 4,
+		"i_stage": 2,
+		"ill_extraItem": [
+			[
+				1,
+				12,
+				30
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				12,
+				5
+			]
+		]
+	},
+	{
+		"i_bpType": 1,
+		"i_id": 95,
+		"i_needValue": 5200,
+		"i_prizeId": 5,
+		"i_stage": 2,
+		"ill_extraItem": [
+			[
+				1,
+				12,
+				50
+			],
+			[
+				1,
+				19,
+				1000
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				12,
+				5
+			],
+			[
+				1,
+				19,
+				100
+			]
+		]
+	},
+	{
+		"i_bpType": 1,
+		"i_id": 96,
+		"i_needValue": 5250,
+		"i_prizeId": 6,
+		"i_stage": 2,
+		"ill_extraItem": [
+			[
+				1,
+				12,
+				30
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				12,
+				5
+			]
+		]
+	},
+	{
+		"i_bpType": 1,
+		"i_id": 97,
+		"i_needValue": 5300,
+		"i_prizeId": 7,
+		"i_stage": 2,
+		"ill_extraItem": [
+			[
+				1,
+				12,
+				30
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				12,
+				5
+			]
+		]
+	},
+	{
+		"i_bpType": 1,
+		"i_id": 98,
+		"i_needValue": 5350,
+		"i_prizeId": 8,
+		"i_stage": 2,
+		"ill_extraItem": [
+			[
+				1,
+				12,
+				30
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				12,
+				5
+			]
+		]
+	},
+	{
+		"i_bpType": 1,
+		"i_id": 99,
+		"i_needValue": 6040,
+		"i_prizeId": 9,
+		"i_stage": 2,
+		"ill_extraItem": [
+			[
+				1,
+				12,
+				30
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				12,
+				5
+			]
+		]
+	},
+	{
+		"i_bpType": 1,
+		"i_id": 100,
+		"i_needValue": 6080,
+		"i_prizeId": 10,
+		"i_stage": 2,
+		"ill_extraItem": [
+			[
+				1,
+				12,
+				100
+			],
+			[
+				1,
+				19,
+				1000
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				12,
+				5
+			],
+			[
+				1,
+				19,
+				100
+			]
+		]
+	},
+	{
+		"i_bpType": 1,
+		"i_id": 101,
+		"i_needValue": 6120,
+		"i_prizeId": 11,
+		"i_stage": 2,
+		"ill_extraItem": [
+			[
+				1,
+				12,
+				30
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				12,
+				5
+			]
+		]
+	},
+	{
+		"i_bpType": 1,
+		"i_id": 102,
+		"i_needValue": 6160,
+		"i_prizeId": 12,
+		"i_stage": 2,
+		"ill_extraItem": [
+			[
+				1,
+				12,
+				30
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				12,
+				5
+			]
+		]
+	},
+	{
+		"i_bpType": 1,
+		"i_id": 103,
+		"i_needValue": 6200,
+		"i_prizeId": 13,
+		"i_stage": 2,
+		"ill_extraItem": [
+			[
+				1,
+				12,
+				30
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				12,
+				5
+			]
+		]
+	},
+	{
+		"i_bpType": 1,
+		"i_id": 104,
+		"i_needValue": 6240,
+		"i_prizeId": 14,
+		"i_stage": 2,
+		"ill_extraItem": [
+			[
+				1,
+				12,
+				30
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				12,
+				5
+			]
+		]
+	},
+	{
+		"i_bpType": 1,
+		"i_id": 105,
+		"i_needValue": 6280,
+		"i_prizeId": 15,
+		"i_stage": 2,
+		"ill_extraItem": [
+			[
+				1,
+				12,
+				100
+			],
+			[
+				1,
+				19,
+				1500
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				12,
+				5
+			],
+			[
+				1,
+				19,
+				100
+			]
+		]
+	},
+	{
+		"i_bpType": 5,
+		"i_id": 106,
+		"i_needValue": 1,
+		"i_prizeId": 1,
+		"i_stage": 1,
+		"ill_extraItem": [
+			[
+				1,
+				15,
+				800
+			],
+			[
+				1,
+				16,
+				15
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				15,
+				100
+			]
+		]
+	},
+	{
+		"i_bpType": 5,
+		"i_id": 107,
+		"i_needValue": 2,
+		"i_prizeId": 2,
+		"i_stage": 1,
+		"ill_extraItem": [
+			[
+				1,
+				15,
+				800
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				15,
+				100
+			]
+		]
+	},
+	{
+		"i_bpType": 5,
+		"i_id": 108,
+		"i_needValue": 3,
+		"i_prizeId": 3,
+		"i_stage": 1,
+		"ill_extraItem": [
+			[
+				1,
+				15,
+				800
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				15,
+				100
+			]
+		]
+	},
+	{
+		"i_bpType": 5,
+		"i_id": 109,
+		"i_needValue": 4,
+		"i_prizeId": 4,
+		"i_stage": 1,
+		"ill_extraItem": [
+			[
+				1,
+				15,
+				800
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				15,
+				100
+			]
+		]
+	},
+	{
+		"i_bpType": 5,
+		"i_id": 110,
+		"i_needValue": 5,
+		"i_prizeId": 5,
+		"i_stage": 1,
+		"ill_extraItem": [
+			[
+				1,
+				15,
+				800
+			],
+			[
+				1,
+				16,
+				15
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				15,
+				100
+			]
+		]
+	},
+	{
+		"i_bpType": 5,
+		"i_id": 111,
+		"i_needValue": 6,
+		"i_prizeId": 6,
+		"i_stage": 1,
+		"ill_extraItem": [
+			[
+				1,
+				15,
+				800
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				15,
+				100
+			]
+		]
+	},
+	{
+		"i_bpType": 5,
+		"i_id": 112,
+		"i_needValue": 7,
+		"i_prizeId": 7,
+		"i_stage": 1,
+		"ill_extraItem": [
+			[
+				1,
+				15,
+				800
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				15,
+				100
+			]
+		]
+	},
+	{
+		"i_bpType": 5,
+		"i_id": 113,
+		"i_needValue": 8,
+		"i_prizeId": 8,
+		"i_stage": 1,
+		"ill_extraItem": [
+			[
+				1,
+				15,
+				800
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				15,
+				100
+			]
+		]
+	},
+	{
+		"i_bpType": 5,
+		"i_id": 114,
+		"i_needValue": 9,
+		"i_prizeId": 9,
+		"i_stage": 1,
+		"ill_extraItem": [
+			[
+				1,
+				15,
+				800
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				15,
+				100
+			]
+		]
+	},
+	{
+		"i_bpType": 5,
+		"i_id": 115,
+		"i_needValue": 10,
+		"i_prizeId": 10,
+		"i_stage": 1,
+		"ill_extraItem": [
+			[
+				1,
+				15,
+				800
+			],
+			[
+				1,
+				16,
+				15
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				15,
+				100
+			]
+		]
+	},
+	{
+		"i_bpType": 5,
+		"i_id": 116,
+		"i_needValue": 11,
+		"i_prizeId": 11,
+		"i_stage": 1,
+		"ill_extraItem": [
+			[
+				1,
+				15,
+				800
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				15,
+				100
+			]
+		]
+	},
+	{
+		"i_bpType": 5,
+		"i_id": 117,
+		"i_needValue": 12,
+		"i_prizeId": 12,
+		"i_stage": 1,
+		"ill_extraItem": [
+			[
+				1,
+				15,
+				800
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				15,
+				100
+			]
+		]
+	},
+	{
+		"i_bpType": 5,
+		"i_id": 118,
+		"i_needValue": 13,
+		"i_prizeId": 13,
+		"i_stage": 1,
+		"ill_extraItem": [
+			[
+				1,
+				15,
+				800
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				15,
+				100
+			]
+		]
+	},
+	{
+		"i_bpType": 5,
+		"i_id": 119,
+		"i_needValue": 14,
+		"i_prizeId": 14,
+		"i_stage": 1,
+		"ill_extraItem": [
+			[
+				1,
+				15,
+				800
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				15,
+				100
+			]
+		]
+	},
+	{
+		"i_bpType": 5,
+		"i_id": 120,
+		"i_needValue": 15,
+		"i_prizeId": 15,
+		"i_stage": 1,
+		"ill_extraItem": [
+			[
+				1,
+				15,
+				800
+			],
+			[
+				1,
+				16,
+				15
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				15,
+				100
+			],
+			[
+				1,
+				16,
+				5
+			]
+		]
+	},
+	{
+		"i_bpType": 8,
+		"i_id": 10101,
+		"i_needValue": 750,
+		"i_prizeId": 1,
+		"i_stage": 1,
+		"ill_extraItem": [
+			[
+				1,
+				13,
+				3
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				9,
+				1
+			]
+		]
+	},
+	{
+		"i_bpType": 8,
+		"i_id": 10102,
+		"i_needValue": 1250,
+		"i_prizeId": 2,
+		"i_stage": 1,
+		"ill_extraItem": [
+			[
+				1,
+				13,
+				3
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				9,
+				1
+			]
+		]
+	},
+	{
+		"i_bpType": 8,
+		"i_id": 10103,
+		"i_needValue": 1750,
+		"i_prizeId": 3,
+		"i_stage": 1,
+		"ill_extraItem": [
+			[
+				1,
+				13,
+				3
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				9,
+				1
+			]
+		]
+	},
+	{
+		"i_bpType": 8,
+		"i_id": 10104,
+		"i_needValue": 2250,
+		"i_prizeId": 4,
+		"i_stage": 1,
+		"ill_extraItem": [
+			[
+				1,
+				13,
+				3
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				9,
+				1
+			]
+		]
+	},
+	{
+		"i_bpType": 8,
+		"i_id": 10105,
+		"i_needValue": 2750,
+		"i_prizeId": 5,
+		"i_stage": 1,
+		"ill_extraItem": [
+			[
+				1,
+				13,
+				5
+			],
+			[
+				1,
+				3,
+				100
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				11,
+				1
+			],
+			[
+				1,
+				3,
+				20
+			]
+		]
+	},
+	{
+		"i_bpType": 8,
+		"i_id": 10106,
+		"i_needValue": 3250,
+		"i_prizeId": 6,
+		"i_stage": 1,
+		"ill_extraItem": [
+			[
+				1,
+				13,
+				3
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				9,
+				1
+			]
+		]
+	},
+	{
+		"i_bpType": 8,
+		"i_id": 10107,
+		"i_needValue": 3750,
+		"i_prizeId": 7,
+		"i_stage": 1,
+		"ill_extraItem": [
+			[
+				1,
+				13,
+				3
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				9,
+				1
+			]
+		]
+	},
+	{
+		"i_bpType": 8,
+		"i_id": 10108,
+		"i_needValue": 4250,
+		"i_prizeId": 8,
+		"i_stage": 1,
+		"ill_extraItem": [
+			[
+				1,
+				13,
+				3
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				9,
+				1
+			]
+		]
+	},
+	{
+		"i_bpType": 8,
+		"i_id": 10109,
+		"i_needValue": 4750,
+		"i_prizeId": 9,
+		"i_stage": 1,
+		"ill_extraItem": [
+			[
+				1,
+				13,
+				3
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				9,
+				1
+			]
+		]
+	},
+	{
+		"i_bpType": 8,
+		"i_id": 10110,
+		"i_needValue": 5250,
+		"i_prizeId": 10,
+		"i_stage": 1,
+		"ill_extraItem": [
+			[
+				1,
+				13,
+				5
+			],
+			[
+				1,
+				3,
+				200
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				11,
+				1
+			],
+			[
+				1,
+				3,
+				40
+			]
+		]
+	},
+	{
+		"i_bpType": 8,
+		"i_id": 10111,
+		"i_needValue": 5750,
+		"i_prizeId": 11,
+		"i_stage": 1,
+		"ill_extraItem": [
+			[
+				1,
+				13,
+				3
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				9,
+				1
+			]
+		]
+	},
+	{
+		"i_bpType": 8,
+		"i_id": 10112,
+		"i_needValue": 6250,
+		"i_prizeId": 12,
+		"i_stage": 1,
+		"ill_extraItem": [
+			[
+				1,
+				13,
+				3
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				9,
+				1
+			]
+		]
+	},
+	{
+		"i_bpType": 8,
+		"i_id": 10113,
+		"i_needValue": 6750,
+		"i_prizeId": 13,
+		"i_stage": 1,
+		"ill_extraItem": [
+			[
+				1,
+				13,
+				3
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				9,
+				1
+			]
+		]
+	},
+	{
+		"i_bpType": 8,
+		"i_id": 10114,
+		"i_needValue": 7250,
+		"i_prizeId": 14,
+		"i_stage": 1,
+		"ill_extraItem": [
+			[
+				1,
+				13,
+				3
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				9,
+				1
+			]
+		]
+	},
+	{
+		"i_bpType": 8,
+		"i_id": 10115,
+		"i_needValue": 7750,
+		"i_prizeId": 15,
+		"i_stage": 1,
+		"ill_extraItem": [
+			[
+				1,
+				13,
+				5
+			],
+			[
+				1,
+				3,
+				300
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				11,
+				1
+			],
+			[
+				1,
+				3,
+				60
+			]
+		]
+	},
+	{
+		"i_bpType": 8,
+		"i_id": 10201,
+		"i_needValue": 8250,
+		"i_prizeId": 1,
+		"i_stage": 2,
+		"ill_extraItem": [
+			[
+				1,
+				13,
+				3
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				9,
+				1
+			]
+		]
+	},
+	{
+		"i_bpType": 8,
+		"i_id": 10202,
+		"i_needValue": 8750,
+		"i_prizeId": 2,
+		"i_stage": 2,
+		"ill_extraItem": [
+			[
+				1,
+				13,
+				3
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				9,
+				1
+			]
+		]
+	},
+	{
+		"i_bpType": 8,
+		"i_id": 10203,
+		"i_needValue": 9250,
+		"i_prizeId": 3,
+		"i_stage": 2,
+		"ill_extraItem": [
+			[
+				1,
+				13,
+				3
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				9,
+				1
+			]
+		]
+	},
+	{
+		"i_bpType": 8,
+		"i_id": 10204,
+		"i_needValue": 9750,
+		"i_prizeId": 4,
+		"i_stage": 2,
+		"ill_extraItem": [
+			[
+				1,
+				13,
+				3
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				9,
+				1
+			]
+		]
+	},
+	{
+		"i_bpType": 8,
+		"i_id": 10205,
+		"i_needValue": 10250,
+		"i_prizeId": 5,
+		"i_stage": 2,
+		"ill_extraItem": [
+			[
+				1,
+				13,
+				5
+			],
+			[
+				1,
+				3,
+				100
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				11,
+				1
+			],
+			[
+				1,
+				3,
+				20
+			]
+		]
+	},
+	{
+		"i_bpType": 8,
+		"i_id": 10206,
+		"i_needValue": 10750,
+		"i_prizeId": 6,
+		"i_stage": 2,
+		"ill_extraItem": [
+			[
+				1,
+				13,
+				3
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				9,
+				1
+			]
+		]
+	},
+	{
+		"i_bpType": 8,
+		"i_id": 10207,
+		"i_needValue": 11250,
+		"i_prizeId": 7,
+		"i_stage": 2,
+		"ill_extraItem": [
+			[
+				1,
+				13,
+				3
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				9,
+				1
+			]
+		]
+	},
+	{
+		"i_bpType": 8,
+		"i_id": 10208,
+		"i_needValue": 11750,
+		"i_prizeId": 8,
+		"i_stage": 2,
+		"ill_extraItem": [
+			[
+				1,
+				13,
+				3
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				9,
+				1
+			]
+		]
+	},
+	{
+		"i_bpType": 8,
+		"i_id": 10209,
+		"i_needValue": 12250,
+		"i_prizeId": 9,
+		"i_stage": 2,
+		"ill_extraItem": [
+			[
+				1,
+				13,
+				3
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				9,
+				1
+			]
+		]
+	},
+	{
+		"i_bpType": 8,
+		"i_id": 10210,
+		"i_needValue": 12750,
+		"i_prizeId": 10,
+		"i_stage": 2,
+		"ill_extraItem": [
+			[
+				1,
+				13,
+				5
+			],
+			[
+				1,
+				3,
+				200
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				11,
+				1
+			],
+			[
+				1,
+				3,
+				40
+			]
+		]
+	},
+	{
+		"i_bpType": 8,
+		"i_id": 10211,
+		"i_needValue": 13150,
+		"i_prizeId": 11,
+		"i_stage": 2,
+		"ill_extraItem": [
+			[
+				1,
+				13,
+				3
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				9,
+				1
+			]
+		]
+	},
+	{
+		"i_bpType": 8,
+		"i_id": 10212,
+		"i_needValue": 13550,
+		"i_prizeId": 12,
+		"i_stage": 2,
+		"ill_extraItem": [
+			[
+				1,
+				13,
+				3
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				9,
+				1
+			]
+		]
+	},
+	{
+		"i_bpType": 8,
+		"i_id": 10213,
+		"i_needValue": 13950,
+		"i_prizeId": 13,
+		"i_stage": 2,
+		"ill_extraItem": [
+			[
+				1,
+				13,
+				3
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				9,
+				1
+			]
+		]
+	},
+	{
+		"i_bpType": 8,
+		"i_id": 10214,
+		"i_needValue": 14350,
+		"i_prizeId": 14,
+		"i_stage": 2,
+		"ill_extraItem": [
+			[
+				1,
+				13,
+				3
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				9,
+				1
+			]
+		]
+	},
+	{
+		"i_bpType": 8,
+		"i_id": 10215,
+		"i_needValue": 14750,
+		"i_prizeId": 15,
+		"i_stage": 2,
+		"ill_extraItem": [
+			[
+				1,
+				13,
+				5
+			],
+			[
+				1,
+				3,
+				300
+			]
+		],
+		"ill_normalItem": [
+			[
+				1,
+				11,
+				1
+			],
+			[
+				1,
+				3,
+				60
+			]
+		]
+	}
+]

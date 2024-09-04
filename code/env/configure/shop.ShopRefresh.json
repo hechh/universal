@@ -1,0 +1,22 @@
+[
+	{
+		"i_id": 1,
+		"i_refreshCount": 1,
+		"i_shopType": 1,
+		"il_needItem": [
+			1,
+			1,
+			10
+		]
+	},
+	{
+		"i_id": 2,
+		"i_refreshCount": 2,
+		"i_shopType": 1,
+		"il_needItem": [
+			1,
+			1,
+			10
+		]
+	}
+]

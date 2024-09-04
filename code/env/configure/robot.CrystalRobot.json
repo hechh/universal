@@ -1,0 +1,28 @@
+[
+	{
+		"f_moveSpeed": 0,
+		"fl_propData": [
+			1,
+			1,
+			1,
+			20,
+			1,
+			8788
+		],
+		"i_id": 1,
+		"i_roleCfgID": 2001
+	},
+	{
+		"f_moveSpeed": 2,
+		"fl_propData": [
+			1,
+			0.2,
+			1,
+			0.2,
+			1,
+			0.2
+		],
+		"i_id": 2,
+		"i_roleCfgID": 2001
+	}
+]

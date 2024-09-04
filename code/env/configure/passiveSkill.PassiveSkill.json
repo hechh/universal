@@ -1,0 +1,3942 @@
+[
+	{
+		"i_effectType": 1,
+		"i_id": 11,
+		"i_skillId": 1,
+		"i_skillLevel": 1,
+		"ill_effect": [
+			[
+				0
+			]
+		],
+		"ill_effectcondition": [
+			[
+				0
+			]
+		],
+		"s_itemIcon": "awake_hero_1",
+		"s_skillDesc": "·剑气伤害增加至攻击的\u003ccolor=#FFAD54\u003e174%\u003c/color\u003e\n·剑光伤害增加至攻击的\u003ccolor=#FFAD54\u003e228%\u003c/color\u003e",
+		"s_skillInfoDesc": "战斗中，星级可突破5星\n并获得：剑气伤害增加至攻击的\u003ccolor=#FFAD54\u003e174%\u003c/color\u003e\n剑光伤害增加至攻击的\u003ccolor=#FFAD54\u003e228%\u003c/color\u003e",
+		"s_skillName": "秦王绕柱"
+	},
+	{
+		"i_effectType": 1,
+		"i_id": 12,
+		"i_skillId": 1,
+		"i_skillLevel": 2,
+		"ill_effect": [
+			[
+				0
+			]
+		],
+		"ill_effectcondition": [
+			[
+				0
+			]
+		],
+		"s_itemIcon": "awake_hero_1",
+		"s_skillDesc": "·剑气伤害增加至攻击的\u003ccolor=#FFAD54\u003e203%\u003c/color\u003e\n·剑光伤害增加至攻击的\u003ccolor=#FFAD54\u003e266%\u003c/color\u003e\n·攻击时释放\u003ccolor=#FFAD54\u003e4\u003c/color\u003e道剑气",
+		"s_skillInfoDesc": "进入战斗后，可自动升至2星\n并获得：剑气伤害增加至攻击的\u003ccolor=#FFAD54\u003e203%\u003c/color\u003e\n剑光伤害增加至攻击的\u003ccolor=#FFAD54\u003e266%\u003c/color\u003e\n攻击时释放\u003ccolor=#FFAD54\u003e4\u003c/color\u003e道剑气",
+		"s_skillName": "秦王绕柱"
+	},
+	{
+		"i_effectType": 1,
+		"i_id": 13,
+		"i_skillId": 1,
+		"i_skillLevel": 3,
+		"ill_effect": [
+			[
+				0
+			]
+		],
+		"ill_effectcondition": [
+			[
+				0
+			]
+		],
+		"s_itemIcon": "awake_hero_1",
+		"s_skillDesc": "·剑气伤害增加至攻击的\u003ccolor=#FFAD54\u003e232%\u003c/color\u003e\n·剑光伤害增加至攻击的\u003ccolor=#FFAD54\u003e304%\u003c/color\u003e\n·攻击时释放\u003ccolor=#FFAD54\u003e4\u003c/color\u003e道剑气",
+		"s_skillInfoDesc": "进入战斗后，可自动升至3星\n战斗中获得：剑气伤害增加至攻击的\u003ccolor=#FFAD54\u003e232%\u003c/color\u003e\n剑光伤害增加至攻击的\u003ccolor=#FFAD54\u003e304%\u003c/color\u003e",
+		"s_skillName": "秦王绕柱"
+	},
+	{
+		"i_effectType": 1,
+		"i_id": 21,
+		"i_skillId": 2,
+		"i_skillLevel": 1,
+		"ill_effect": [
+			[
+				0
+			]
+		],
+		"ill_effectcondition": [
+			[
+				0
+			]
+		],
+		"s_itemIcon": "awake_hero_1",
+		"s_skillDesc": "·一闪伤害增加至攻击的\u003ccolor=#FFAD54\u003e360%\u003c/color\u003e\n·通灵术伤害增加至攻击的\u003ccolor=#FFAD54\u003e216%\u003c/color\u003e",
+		"s_skillInfoDesc": "战斗中，星级可突破5星\n并获得：一闪伤害增加至攻击的\u003ccolor=#FFAD54\u003e360%\u003c/color\u003e\n通灵术伤害增加至攻击的\u003ccolor=#FFAD54\u003e216%\u003c/color\u003e",
+		"s_skillName": "装遁"
+	},
+	{
+		"i_effectType": 1,
+		"i_id": 22,
+		"i_skillId": 2,
+		"i_skillLevel": 2,
+		"ill_effect": [
+			[
+				0
+			]
+		],
+		"ill_effectcondition": [
+			[
+				0
+			]
+		],
+		"s_itemIcon": "awake_hero_1",
+		"s_skillDesc": "·一闪伤害增加至攻击的\u003ccolor=#FFAD54\u003e420%\u003c/color\u003e\n·通灵术伤害增加至攻击的\u003ccolor=#FFAD54\u003e252%\u003c/color\u003e\n·攻击时召唤\u003ccolor=#FFAD54\u003e4\u003c/color\u003e个分身",
+		"s_skillInfoDesc": "进入战斗后，可自动升至2星\n并获得：一闪伤害增加至攻击的\u003ccolor=#FFAD54\u003e420%\u003c/color\u003e\n通灵术伤害增加至攻击的\u003ccolor=#FFAD54\u003e252%\u003c/color\u003e\n攻击时召唤\u003ccolor=#FFAD54\u003e4\u003c/color\u003e个分身",
+		"s_skillName": "装遁"
+	},
+	{
+		"i_effectType": 1,
+		"i_id": 23,
+		"i_skillId": 2,
+		"i_skillLevel": 3,
+		"ill_effect": [
+			[
+				0
+			]
+		],
+		"ill_effectcondition": [
+			[
+				0
+			]
+		],
+		"s_itemIcon": "awake_hero_1",
+		"s_skillDesc": "·一闪伤害增加至攻击的\u003ccolor=#FFAD54\u003e160%\u003c/color\u003e\n·通灵术伤害增加至攻击的\u003ccolor=#FFAD54\u003e288%\u003c/color\u003e\n·攻击时召唤\u003ccolor=#FFAD54\u003e4\u003c/color\u003e个分身",
+		"s_skillInfoDesc": "进入战斗后，可自动升至3星\n战斗中获得：一闪伤害增加至攻击的\u003ccolor=#FFAD54\u003e160%\u003c/color\u003e\n通灵术伤害增加至攻击的\u003ccolor=#FFAD54\u003e288%\u003c/color\u003e\n攻击时召唤\u003ccolor=#FFAD54\u003e4\u003c/color\u003e个分身",
+		"s_skillName": "装遁"
+	},
+	{
+		"i_effectType": 1,
+		"i_id": 31,
+		"i_skillId": 3,
+		"i_skillLevel": 1,
+		"ill_effect": [
+			[
+				0
+			]
+		],
+		"ill_effectcondition": [
+			[
+				0
+			]
+		],
+		"s_itemIcon": "awake_hero_1",
+		"s_skillDesc": "·光球伤害增加至攻击的\u003ccolor=#FFAD54\u003e95%\u003c/color\u003e\n·巨型光球伤害增加至攻击的\u003ccolor=#FFAD54\u003e360%\u003c/color\u003e",
+		"s_skillInfoDesc": "战斗中，星级可突破5星\n并获得：光球伤害增加至攻击的\u003ccolor=#FFAD54\u003e95%\u003c/color\u003e\n巨型光球伤害增加至攻击的\u003ccolor=#FFAD54\u003e360%\u003c/color\u003e",
+		"s_skillName": "相对论"
+	},
+	{
+		"i_effectType": 1,
+		"i_id": 32,
+		"i_skillId": 3,
+		"i_skillLevel": 2,
+		"ill_effect": [
+			[
+				0
+			]
+		],
+		"ill_effectcondition": [
+			[
+				0
+			]
+		],
+		"s_itemIcon": "awake_hero_1",
+		"s_skillDesc": "·光球伤害增加至攻击的\u003ccolor=#FFAD54\u003e110%\u003c/color\u003e\n·巨型光球伤害增加至攻击的\u003ccolor=#FFAD54\u003e420%\u003c/color\u003e\n·巨型光球增加到\u003ccolor=#FFAD54\u003e5\u003c/color\u003e个",
+		"s_skillInfoDesc": "进入战斗后，可自动升至2星\n并获得：光球伤害增加至攻击的\u003ccolor=#FFAD54\u003e110%\u003c/color\u003e\n巨型光球伤害增加至攻击的\u003ccolor=#FFAD54\u003e420%\u003c/color\u003e\n巨型光球增加到\u003ccolor=#FFAD54\u003e5\u003c/color\u003e个",
+		"s_skillName": "相对论"
+	},
+	{
+		"i_effectType": 1,
+		"i_id": 33,
+		"i_skillId": 3,
+		"i_skillLevel": 3,
+		"ill_effect": [
+			[
+				0
+			]
+		],
+		"ill_effectcondition": [
+			[
+				0
+			]
+		],
+		"s_itemIcon": "awake_hero_1",
+		"s_skillDesc": "·光球伤害增加至攻击的\u003ccolor=#FFAD54\u003e126%\u003c/color\u003e\n·巨型光球伤害增加至攻击的\u003ccolor=#FFAD54\u003e480%\u003c/color\u003e\n·巨型光球增加到\u003ccolor=#FFAD54\u003e5\u003c/color\u003e个",
+		"s_skillInfoDesc": "进入战斗后，可自动升至3星\n战斗中获得：光球伤害增加至攻击的\u003ccolor=#FFAD54\u003e126%\u003c/color\u003e\n巨型光球伤害增加至攻击的\u003ccolor=#FFAD54\u003e480%\u003c/color\u003e",
+		"s_skillName": "相对论"
+	},
+	{
+		"i_effectType": 1,
+		"i_id": 41,
+		"i_skillId": 4,
+		"i_skillLevel": 1,
+		"ill_effect": [
+			[
+				0
+			]
+		],
+		"ill_effectcondition": [
+			[
+				0
+			]
+		],
+		"s_itemIcon": "awake_hero_1",
+		"s_skillDesc": "·激光伤害增加至攻击的\u003ccolor=#FFAD54\u003e360%\u003c/color\u003e\n·引魂灯伤害增加至攻击的\u003ccolor=#FFAD54\u003e88%\u003c/color\u003e",
+		"s_skillInfoDesc": "战斗中，星级可突破5星\n并获得：激光伤害增加至攻击的\u003ccolor=#FFAD54\u003e360%\u003c/color\u003e\n引魂灯伤害增加至攻击的\u003ccolor=#FFAD54\u003e88%\u003c/color\u003e",
+		"s_skillName": "神圣誓言"
+	},
+	{
+		"i_effectType": 1,
+		"i_id": 42,
+		"i_skillId": 4,
+		"i_skillLevel": 2,
+		"ill_effect": [
+			[
+				0
+			]
+		],
+		"ill_effectcondition": [
+			[
+				0
+			]
+		],
+		"s_itemIcon": "awake_hero_1",
+		"s_skillDesc": "·激光伤害增加至攻击的\u003ccolor=#FFAD54\u003e420%\u003c/color\u003e，并且可同时治疗\u003ccolor=#FFAD54\u003e4\u003c/color\u003e个英雄\n·引魂灯伤害增加至攻击的\u003ccolor=#FFAD54\u003e102%\u003c/color\u003e",
+		"s_skillInfoDesc": "进入战斗后，可自动升至2星\n并获得：激光伤害增加至攻击的\u003ccolor=#FFAD54\u003e420%\u003c/color\u003e，并且可同时治疗\u003ccolor=#FFAD54\u003e4\u003c/color\u003e个英雄\n引魂灯伤害增加至攻击的\u003ccolor=#FFAD54\u003e102%\u003c/color\u003e",
+		"s_skillName": "神圣誓言"
+	},
+	{
+		"i_effectType": 1,
+		"i_id": 43,
+		"i_skillId": 4,
+		"i_skillLevel": 3,
+		"ill_effect": [
+			[
+				0
+			]
+		],
+		"ill_effectcondition": [
+			[
+				0
+			]
+		],
+		"s_itemIcon": "awake_hero_1",
+		"s_skillDesc": "·激光伤害增加至攻击的\u003ccolor=#FFAD54\u003e480%\u003c/color\u003e，并且可同时治疗\u003ccolor=#FFAD54\u003e4\u003c/color\u003e个英雄\n·引魂灯伤害增加至攻击的\u003ccolor=#FFAD54\u003e117%\u003c/color\u003e",
+		"s_skillInfoDesc": "进入战斗后，可自动升至3星\n战斗中获得：激光伤害增加至攻击的\u003ccolor=#FFAD54\u003e480%\u003c/color\u003e\n引魂灯伤害增加至攻击的\u003ccolor=#FFAD54\u003e117%\u003c/color\u003e",
+		"s_skillName": "神圣誓言"
+	},
+	{
+		"i_effectType": 1,
+		"i_id": 51,
+		"i_skillId": 5,
+		"i_skillLevel": 1,
+		"ill_effect": [
+			[
+				0
+			]
+		],
+		"ill_effectcondition": [
+			[
+				0
+			]
+		],
+		"s_itemIcon": "awake_hero_1",
+		"s_skillDesc": "·子弹伤害增加至攻击的\u003ccolor=#FFAD54\u003e69%\u003c/color\u003e\n·飞刀伤害增加至攻击的\u003ccolor=#FFAD54\u003e144%\u003c/color\u003e",
+		"s_skillInfoDesc": "战斗中，星级可突破5星\n并获得：子弹伤害增加至攻击的\u003ccolor=#FFAD54\u003e69%\u003c/color\u003e\n飞刀伤害增加至攻击的\u003ccolor=#FFAD54\u003e144%\u003c/color\u003e",
+		"s_skillName": "花式犯贱"
+	},
+	{
+		"i_effectType": 1,
+		"i_id": 52,
+		"i_skillId": 5,
+		"i_skillLevel": 2,
+		"ill_effect": [
+			[
+				0
+			]
+		],
+		"ill_effectcondition": [
+			[
+				0
+			]
+		],
+		"s_itemIcon": "awake_hero_1",
+		"s_skillDesc": "·子弹伤害增加至攻击的\u003ccolor=#FFAD54\u003e81%\u003c/color\u003e\n·飞刀伤害增加至攻击的\u003ccolor=#FFAD54\u003e168%\u003c/color\u003e\n·攻击时获得\u003ccolor=#FFAD54\u003e20%\u003c/color\u003e攻速",
+		"s_skillInfoDesc": "进入战斗后，可自动升至2星\n并获得：子弹伤害增加至攻击的\u003ccolor=#FFAD54\u003e81%\u003c/color\u003e\n飞刀伤害增加至攻击的\u003ccolor=#FFAD54\u003e168%\u003c/color\u003e\n攻击时获得\u003ccolor=#FFAD54\u003e20%\u003c/color\u003e攻速",
+		"s_skillName": "花式犯贱"
+	},
+	{
+		"i_effectType": 1,
+		"i_id": 53,
+		"i_skillId": 5,
+		"i_skillLevel": 3,
+		"ill_effect": [
+			[
+				0
+			]
+		],
+		"ill_effectcondition": [
+			[
+				0
+			]
+		],
+		"s_itemIcon": "awake_hero_1",
+		"s_skillDesc": "·子弹伤害增加至攻击的\u003ccolor=#FFAD54\u003e92%\u003c/color\u003e\n·飞刀伤害增加至攻击的\u003ccolor=#FFAD54\u003e192%\u003c/color\u003e\n·攻击时获得\u003ccolor=#FFAD54\u003e20%\u003c/color\u003e攻速",
+		"s_skillInfoDesc": "进入战斗后，可自动升至3星\n战斗中获得：子弹伤害增加至攻击的\u003ccolor=#FFAD54\u003e92%\u003c/color\u003e\n飞刀伤害增加至攻击的\u003ccolor=#FFAD54\u003e192%\u003c/color\u003e\n攻击时获得\u003ccolor=#FFAD54\u003e20%\u003c/color\u003e攻速",
+		"s_skillName": "花式犯贱"
+	},
+	{
+		"i_effectType": 1,
+		"i_id": 61,
+		"i_skillId": 6,
+		"i_skillLevel": 1,
+		"ill_effect": [
+			[
+				0
+			]
+		],
+		"ill_effectcondition": [
+			[
+				0
+			]
+		],
+		"s_itemIcon": "awake_hero_1",
+		"s_skillDesc": "·火箭伤害增加至攻击的\u003ccolor=#FFAD54\u003e103%\u003c/color\u003e\n·飞舰伤害增加至攻击的\u003ccolor=#FFAD54\u003e360%\u003c/color\u003e",
+		"s_skillInfoDesc": "战斗中，星级可突破5星\n并获得：火箭伤害增加至攻击的\u003ccolor=#FFAD54\u003e103%\u003c/color\u003e\n飞舰伤害增加至攻击的\u003ccolor=#FFAD54\u003e360%\u003c/color\u003e",
+		"s_skillName": "有害动物"
+	},
+	{
+		"i_effectType": 1,
+		"i_id": 62,
+		"i_skillId": 6,
+		"i_skillLevel": 2,
+		"ill_effect": [
+			[
+				0
+			]
+		],
+		"ill_effectcondition": [
+			[
+				0
+			]
+		],
+		"s_itemIcon": "awake_hero_1",
+		"s_skillDesc": "·火箭伤害增加至攻击的\u003ccolor=#FFAD54\u003e120%\u003c/color\u003e\n·飞舰伤害增加至攻击的\u003ccolor=#FFAD54\u003e420%\u003c/color\u003e\n·每条飞舰轰炸\u003ccolor=#FFAD54\u003e14\u003c/color\u003e次",
+		"s_skillInfoDesc": "进入战斗后，可自动升至2星\n并获得：火箭伤害增加至攻击的\u003ccolor=#FFAD54\u003e120%\u003c/color\u003e\n飞舰伤害增加至攻击的\u003ccolor=#FFAD54\u003e420%\u003c/color\u003e\n每条飞舰轰炸\u003ccolor=#FFAD54\u003e14\u003c/color\u003e次",
+		"s_skillName": "有害动物"
+	},
+	{
+		"i_effectType": 1,
+		"i_id": 63,
+		"i_skillId": 6,
+		"i_skillLevel": 3,
+		"ill_effect": [
+			[
+				0
+			]
+		],
+		"ill_effectcondition": [
+			[
+				0
+			]
+		],
+		"s_itemIcon": "awake_hero_1",
+		"s_skillDesc": "·火箭伤害增加至攻击的\u003ccolor=#FFAD54\u003e138%\u003c/color\u003e\n·飞舰伤害增加至攻击的\u003ccolor=#FFAD54\u003e480%\u003c/color\u003e\n·每条飞舰轰炸\u003ccolor=#FFAD54\u003e14\u003c/color\u003e次",
+		"s_skillInfoDesc": "进入战斗后，可自动升至3星\n战斗中获得：火箭伤害增加至攻击的\u003ccolor=#FFAD54\u003e138%\u003c/color\u003e\n飞舰伤害增加至攻击的\u003ccolor=#FFAD54\u003e480%\u003c/color\u003e",
+		"s_skillName": "有害动物"
+	},
+	{
+		"i_effectType": 1,
+		"i_id": 71,
+		"i_skillId": 7,
+		"i_skillLevel": 1,
+		"ill_effect": [
+			[
+				0
+			]
+		],
+		"ill_effectcondition": [
+			[
+				0
+			]
+		],
+		"s_itemIcon": "awake_hero_1",
+		"s_skillDesc": "·水波伤害增加至攻击的\u003ccolor=#FFAD54\u003e132%\u003c/color\u003e\n·海浪伤害增加至攻击的\u003ccolor=#FFAD54\u003e300%\u003c/color\u003e",
+		"s_skillInfoDesc": "战斗中，星级可突破5星\n并获得：水波伤害增加至攻击的\u003ccolor=#FFAD54\u003e132%\u003c/color\u003e\n海浪伤害增加至攻击的\u003ccolor=#FFAD54\u003e300%\u003c/color\u003e",
+		"s_skillName": "血脉觉醒"
+	},
+	{
+		"i_effectType": 1,
+		"i_id": 72,
+		"i_skillId": 7,
+		"i_skillLevel": 2,
+		"ill_effect": [
+			[
+				0
+			]
+		],
+		"ill_effectcondition": [
+			[
+				0
+			]
+		],
+		"s_itemIcon": "awake_hero_1",
+		"s_skillDesc": "·水波伤害增加至攻击的\u003ccolor=#FFAD54\u003e154%\u003c/color\u003e\n·海浪伤害增加至攻击的\u003ccolor=#FFAD54\u003e350%\u003c/color\u003e\n·攻击时释放\u003ccolor=#FFAD54\u003e4\u003c/color\u003e道水波",
+		"s_skillInfoDesc": "进入战斗后，可自动升至2星\n并获得：水波伤害增加至攻击的\u003ccolor=#FFAD54\u003e154%\u003c/color\u003e\n海浪伤害增加至攻击的\u003ccolor=#FFAD54\u003e350%\u003c/color\u003e\n攻击时释放\u003ccolor=#FFAD54\u003e4\u003c/color\u003e道水波",
+		"s_skillName": "血脉觉醒"
+	},
+	{
+		"i_effectType": 1,
+		"i_id": 73,
+		"i_skillId": 7,
+		"i_skillLevel": 3,
+		"ill_effect": [
+			[
+				0
+			]
+		],
+		"ill_effectcondition": [
+			[
+				0
+			]
+		],
+		"s_itemIcon": "awake_hero_1",
+		"s_skillDesc": "·水波伤害增加至攻击的\u003ccolor=#FFAD54\u003e176%\u003c/color\u003e\n·海浪伤害增加至攻击的\u003ccolor=#FFAD54\u003e400%\u003c/color\u003e\n·攻击时释放\u003ccolor=#FFAD54\u003e4\u003c/color\u003e道水波",
+		"s_skillInfoDesc": "进入战斗后，可自动升至3星\n战斗中获得：水波伤害增加至攻击的\u003ccolor=#FFAD54\u003e176%\u003c/color\u003e\n海浪伤害增加至攻击的\u003ccolor=#FFAD54\u003e400%\u003c/color\u003e\n攻击时释放\u003ccolor=#FFAD54\u003e4\u003c/color\u003e道水波",
+		"s_skillName": "血脉觉醒"
+	},
+	{
+		"i_effectType": 1,
+		"i_id": 81,
+		"i_skillId": 8,
+		"i_skillLevel": 1,
+		"ill_effect": [
+			[
+				0
+			]
+		],
+		"ill_effectcondition": [
+			[
+				0
+			]
+		],
+		"s_itemIcon": "awake_hero_1",
+		"s_skillDesc": "·利爪旋刃伤害增加至攻击的\u003ccolor=#FFAD54\u003e360%\u003c/color\u003e\n·艾德曼旋风伤害增加至攻击的\u003ccolor=#FFAD54\u003e172%\u003c/color",
+		"s_skillInfoDesc": "战斗中，星级可突破5星\n并获得：利爪旋刃伤害增加至攻击的\u003ccolor=#FFAD54\u003e360%\u003c/color\u003e\n艾德曼旋风伤害增加至攻击的\u003ccolor=#FFAD54\u003e172%\u003c/color\u003e",
+		"s_skillName": "艾德曼金属"
+	},
+	{
+		"i_effectType": 1,
+		"i_id": 82,
+		"i_skillId": 8,
+		"i_skillLevel": 2,
+		"ill_effect": [
+			[
+				0
+			]
+		],
+		"ill_effectcondition": [
+			[
+				0
+			]
+		],
+		"s_itemIcon": "awake_hero_1",
+		"s_skillDesc": "·利爪旋刃伤害增加至攻击的\u003ccolor=#FFAD54\u003e420%\u003c/color\u003e\n·艾德曼旋风伤害增加至攻击的\u003ccolor=#FFAD54\u003e201%\u003c/color\u003e\n·利爪旋刃释放\u003ccolor=#FFAD54\u003e4\u003c/color\u003e次",
+		"s_skillInfoDesc": "进入战斗后，可自动升至2星\n并获得：利爪旋刃伤害增加至攻击的\u003ccolor=#FFAD54\u003e420%\u003c/color\u003e\n艾德曼旋风伤害增加至攻击的\u003ccolor=#FFAD54\u003e201%\u003c/color\u003e\n利爪旋刃释放\u003ccolor=#FFAD54\u003e4\u003c/color\u003e次",
+		"s_skillName": "艾德曼金属"
+	},
+	{
+		"i_effectType": 1,
+		"i_id": 83,
+		"i_skillId": 8,
+		"i_skillLevel": 3,
+		"ill_effect": [
+			[
+				0
+			]
+		],
+		"ill_effectcondition": [
+			[
+				0
+			]
+		],
+		"s_itemIcon": "awake_hero_1",
+		"s_skillDesc": "·利爪旋刃伤害增加至攻击的\u003ccolor=#FFAD54\u003e480%\u003c/color\u003e\n·艾德曼旋风伤害增加至攻击的\u003ccolor=#FFAD54\u003e230%\u003c/color\u003e\n·利爪旋刃释放\u003ccolor=#FFAD54\u003e4\u003c/color\u003e次",
+		"s_skillInfoDesc": "进入战斗后，可自动升至3星\n战斗中获得：利爪旋刃伤害增加至攻击的\u003ccolor=#FFAD54\u003e480%\u003c/color\u003e\n艾德曼旋风伤害增加至攻击的\u003ccolor=#FFAD54\u003e230%\u003c/color\u003e\n利爪旋刃释放\u003ccolor=#FFAD54\u003e4\u003c/color\u003e次",
+		"s_skillName": "艾德曼金属"
+	},
+	{
+		"i_effectType": 1,
+		"i_id": 91,
+		"i_skillId": 9,
+		"i_skillLevel": 1,
+		"ill_effect": [
+			[
+				0
+			]
+		],
+		"ill_effectcondition": [
+			[
+				0
+			]
+		],
+		"s_itemIcon": "awake_hero_1",
+		"s_skillDesc": "·能量体伤害增加至攻击的\u003ccolor=#FFAD54\u003e90%\u003c/color\u003e\n·阿戈摩托之眼伤害增加至攻击的\u003ccolor=#FFAD54\u003e240%\u003c/color\u003e",
+		"s_skillInfoDesc": "战斗中，星级可突破5星\n并获得：能量体伤害增加至攻击的\u003ccolor=#FFAD54\u003e90%\u003c/color\u003e\n阿戈摩托之眼伤害增加至攻击的\u003ccolor=#FFAD54\u003e240%\u003c/color\u003e",
+		"s_skillName": "至尊法师"
+	},
+	{
+		"i_effectType": 1,
+		"i_id": 92,
+		"i_skillId": 9,
+		"i_skillLevel": 2,
+		"ill_effect": [
+			[
+				0
+			]
+		],
+		"ill_effectcondition": [
+			[
+				0
+			]
+		],
+		"s_itemIcon": "awake_hero_1",
+		"s_skillDesc": "·能量体伤害增加至攻击的\u003ccolor=#FFAD54\u003e105%\u003c/color\u003e\n·阿戈摩托之眼伤害增加至攻击的\u003ccolor=#FFAD54\u003e280%\u003c/color\u003e\n·攻击时释放\u003ccolor=#FFAD54\u003e4\u003c/color\u003e个能量体",
+		"s_skillInfoDesc": "进入战斗后，可自动升至2星\n并获得：能量体伤害增加至攻击的\u003ccolor=#FFAD54\u003e105%\u003c/color\u003e\n阿戈摩托之眼伤害增加至攻击的\u003ccolor=#FFAD54\u003e280%\u003c/color\u003e\n攻击时释放\u003ccolor=#FFAD54\u003e4\u003c/color\u003e个能量体",
+		"s_skillName": "至尊法师"
+	},
+	{
+		"i_effectType": 1,
+		"i_id": 93,
+		"i_skillId": 9,
+		"i_skillLevel": 3,
+		"ill_effect": [
+			[
+				0
+			]
+		],
+		"ill_effectcondition": [
+			[
+				0
+			]
+		],
+		"s_itemIcon": "awake_hero_1",
+		"s_skillDesc": "·能量体伤害增加至攻击的\u003ccolor=#FFAD54\u003e120%\u003c/color\u003e\n·阿戈摩托之眼伤害增加至攻击的\u003ccolor=#FFAD54\u003e320%\u003c/color\u003e\n·攻击时释放\u003ccolor=#FFAD54\u003e4\u003c/color\u003e个能量体",
+		"s_skillInfoDesc": "进入战斗后，可自动升至3星\n战斗中获得：能量体伤害增加至攻击的\u003ccolor=#FFAD54\u003e120%\u003c/color\u003e\n阿戈摩托之眼伤害增加至攻击的\u003ccolor=#FFAD54\u003e320%\u003c/color\u003e\n攻击时释放\u003ccolor=#FFAD54\u003e4\u003c/color\u003e个能量体",
+		"s_skillName": "至尊法师"
+	},
+	{
+		"i_effectType": 1,
+		"i_id": 101,
+		"i_skillId": 10,
+		"i_skillLevel": 1,
+		"ill_effect": [
+			[
+				0
+			]
+		],
+		"ill_effectcondition": [
+			[
+				0
+			]
+		],
+		"s_itemIcon": "awake_hero_1",
+		"s_skillDesc": "·地面爆炸伤害增加至攻击的\u003ccolor=#FFAD54\u003e90%\u003c/color\u003e\n·汽车伤害增加至攻击的\u003ccolor=#FFAD54\u003e336%\u003c/color\u003e",
+		"s_skillInfoDesc": "战斗中，星级可突破5星\n并获得：地面爆炸伤害增加至攻击的\u003ccolor=#FFAD54\u003e90%\u003c/color\u003e\n汽车伤害增加至攻击的\u003ccolor=#FFAD54\u003e336%\u003c/color\u003e",
+		"s_skillName": "伽马能量"
+	},
+	{
+		"i_effectType": 1,
+		"i_id": 102,
+		"i_skillId": 10,
+		"i_skillLevel": 2,
+		"ill_effect": [
+			[
+				0
+			]
+		],
+		"ill_effectcondition": [
+			[
+				0
+			]
+		],
+		"s_itemIcon": "awake_hero_1",
+		"s_skillDesc": "·地面爆炸伤害增加至攻击的\u003ccolor=#FFAD54\u003e105%\u003c/color\u003e\n·汽车伤害增加至攻击的\u003ccolor=#FFAD54\u003e392%\u003c/color\u003e\n·同时丢出\u003ccolor=#FFAD54\u003e6\u003c/color\u003e辆汽车",
+		"s_skillInfoDesc": "进入战斗后，可自动升至2星\n并获得：地面爆炸伤害增加至攻击的\u003ccolor=#FFAD54\u003e105%\u003c/color\u003e\n汽车伤害增加至攻击的\u003ccolor=#FFAD54\u003e392%\u003c/color\u003e\n同时丢出\u003ccolor=#FFAD54\u003e6\u003c/color\u003e辆汽车",
+		"s_skillName": "伽马能量"
+	},
+	{
+		"i_effectType": 1,
+		"i_id": 103,
+		"i_skillId": 10,
+		"i_skillLevel": 3,
+		"ill_effect": [
+			[
+				0
+			]
+		],
+		"ill_effectcondition": [
+			[
+				0
+			]
+		],
+		"s_itemIcon": "awake_hero_1",
+		"s_skillDesc": "·地面爆炸伤害增加至攻击的\u003ccolor=#FFAD54\u003e120%\u003c/color\u003e\n·汽车伤害增加至攻击的\u003ccolor=#FFAD54\u003e448%\u003c/color\u003e\n·同时丢出\u003ccolor=#FFAD54\u003e6\u003c/color\u003e辆汽车",
+		"s_skillInfoDesc": "进入战斗后，可自动升至3星\n战斗中获得：地面爆炸伤害增加至攻击的\u003ccolor=#FFAD54\u003e120%\u003c/color\u003e\n汽车伤害增加至攻击的\u003ccolor=#FFAD54\u003e448%\u003c/color\u003e\n同时丢出\u003ccolor=#FFAD54\u003e6\u003c/color\u003e辆汽车",
+		"s_skillName": "伽马能量"
+	},
+	{
+		"i_effectType": 1,
+		"i_id": 111,
+		"i_skillId": 11,
+		"i_skillLevel": 1,
+		"ill_effect": [
+			[
+				0
+			]
+		],
+		"ill_effectcondition": [
+			[
+				0
+			]
+		],
+		"s_itemIcon": "awake_hero_1",
+		"s_skillDesc": "·卡牌伤害增加至攻击的\u003ccolor=#FFAD54\u003e96%\u003c/color\u003e\n·强化卡牌伤害增加至攻击的\u003ccolor=#FFAD54\u003e108%\u003c/color\u003e",
+		"s_skillInfoDesc": "战斗中，星级可突破5星\n并获得：卡牌伤害增加至攻击的\u003ccolor=#FFAD54\u003e96%\u003c/color\u003e\n强化卡牌伤害增加至攻击的\u003ccolor=#FFAD54\u003e108%\u003c/color\u003e",
+		"s_skillName": "狂笑症"
+	},
+	{
+		"i_effectType": 1,
+		"i_id": 112,
+		"i_skillId": 11,
+		"i_skillLevel": 2,
+		"ill_effect": [
+			[
+				0
+			]
+		],
+		"ill_effectcondition": [
+			[
+				0
+			]
+		],
+		"s_itemIcon": "awake_hero_1",
+		"s_skillDesc": "·卡牌伤害增加至攻击的\u003ccolor=#FFAD54\u003e112%\u003c/color\u003e\n·强化卡牌伤害增加至攻击的\u003ccolor=#FFAD54\u003e128%\u003c/color\u003e\n·攻击时获得\u003ccolor=#FFAD54\u003e20%\u003c/color\u003e攻速",
+		"s_skillInfoDesc": "进入战斗后，可自动升至2星\n并获得：卡牌伤害增加至攻击的\u003ccolor=#FFAD54\u003e112%\u003c/color\u003e\n强化卡牌伤害增加至攻击的\u003ccolor=#FFAD54\u003e128%\u003c/color\u003e\n攻击时获得\u003ccolor=#FFAD54\u003e20%\u003c/color\u003e攻速",
+		"s_skillName": "狂笑症"
+	},
+	{
+		"i_effectType": 1,
+		"i_id": 113,
+		"i_skillId": 11,
+		"i_skillLevel": 3,
+		"ill_effect": [
+			[
+				0
+			]
+		],
+		"ill_effectcondition": [
+			[
+				0
+			]
+		],
+		"s_itemIcon": "awake_hero_1",
+		"s_skillDesc": "·卡牌伤害增加至攻击的\u003ccolor=#FFAD54\u003e126%\u003c/color\u003e\n·强化卡牌伤害增加至攻击的\u003ccolor=#FFAD54\u003e144%\u003c/color\u003e\n·攻击时获得\u003ccolor=#FFAD54\u003e20%\u003c/color\u003e攻速",
+		"s_skillInfoDesc": "进入战斗后，可自动升至3星\n战斗中获得：卡牌伤害增加至攻击的\u003ccolor=#FFAD54\u003e126%\u003c/color\u003e\n强化卡牌伤害增加至攻击的\u003ccolor=#FFAD54\u003e144%\u003c/color\u003e\n攻击时获得\u003ccolor=#FFAD54\u003e20%\u003c/color\u003e攻速",
+		"s_skillName": "狂笑症"
+	},
+	{
+		"i_effectType": 1,
+		"i_id": 121,
+		"i_skillId": 12,
+		"i_skillLevel": 1,
+		"ill_effect": [
+			[
+				0
+			]
+		],
+		"ill_effectcondition": [
+			[
+				0
+			]
+		],
+		"s_itemIcon": "awake_hero_1",
+		"s_skillDesc": "·星月伤害增加至攻击的\u003ccolor=#FFAD54\u003e120%\u003c/color\u003e\n·月亮闪烁伤害增加至攻击的\u003ccolor=#FFAD54\u003e384%\u003c/color\u003e",
+		"s_skillInfoDesc": "战斗中，星级可突破5星\n并获得：星月伤害增加至攻击的\u003ccolor=#FFAD54\u003e120%\u003c/color\u003e\n月亮闪烁伤害增加至攻击的\u003ccolor=#FFAD54\u003e384%\u003c/color\u003e",
+		"s_skillName": "公主光辉"
+	},
+	{
+		"i_effectType": 1,
+		"i_id": 122,
+		"i_skillId": 12,
+		"i_skillLevel": 2,
+		"ill_effect": [
+			[
+				0
+			]
+		],
+		"ill_effectcondition": [
+			[
+				0
+			]
+		],
+		"s_itemIcon": "awake_hero_1",
+		"s_skillDesc": "·星月伤害增加至攻击的\u003ccolor=#FFAD54\u003e140%\u003c/color\u003e\n·月亮闪烁伤害增加至攻击的\u003ccolor=#FFAD54\u003e448%\u003c/color\u003e\n·发射\u003ccolor=#FFAD54\u003e4\u003c/color\u003e个星月",
+		"s_skillInfoDesc": "进入战斗后，可自动升至2星\n并获得：星月伤害增加至攻击的\u003ccolor=#FFAD54\u003e140%\u003c/color\u003e\n月亮闪烁伤害增加至攻击的\u003ccolor=#FFAD54\u003e448%\u003c/color\u003e\n发射\u003ccolor=#FFAD54\u003e4\u003c/color\u003e个星月",
+		"s_skillName": "公主光辉"
+	},
+	{
+		"i_effectType": 1,
+		"i_id": 123,
+		"i_skillId": 12,
+		"i_skillLevel": 3,
+		"ill_effect": [
+			[
+				0
+			]
+		],
+		"ill_effectcondition": [
+			[
+				0
+			]
+		],
+		"s_itemIcon": "awake_hero_1",
+		"s_skillDesc": "·星月伤害增加至攻击的\u003ccolor=#FFAD54\u003e160%\u003c/color\u003e\n·月亮闪烁伤害增加至攻击的\u003ccolor=#FFAD54\u003e512%\u003c/color\u003e\n·发射\u003ccolor=#FFAD54\u003e4\u003c/color\u003e个星月",
+		"s_skillInfoDesc": "进入战斗后，可自动升至3星\n战斗中获得：星月伤害增加至攻击的\u003ccolor=#FFAD54\u003e160%\u003c/color\u003e\n月亮闪烁伤害增加至攻击的\u003ccolor=#FFAD54\u003e512%\u003c/color\u003e\n发射\u003ccolor=#FFAD54\u003e4\u003c/color\u003e个星月",
+		"s_skillName": "公主光辉"
+	},
+	{
+		"i_effectType": 1,
+		"i_id": 131,
+		"i_skillId": 13,
+		"i_skillLevel": 1,
+		"ill_effect": [
+			[
+				0
+			]
+		],
+		"ill_effectcondition": [
+			[
+				0
+			]
+		],
+		"s_itemIcon": "awake_hero_1",
+		"s_skillDesc": "·子弹伤害增加至攻击的\u003ccolor=#FFAD54\u003e77%\u003c/color\u003e\n·霰弹伤害增加至攻击的\u003ccolor=#FFAD54\u003e153%\u003c/color\u003e",
+		"s_skillInfoDesc": "战斗中，星级可突破5星\n并获得：子弹伤害增加至攻击的\u003ccolor=#FFAD54\u003e77%\u003c/color\u003e\n霰弹伤害增加至攻击的\u003ccolor=#FFAD54\u003e153%\u003c/color\u003e",
+		"s_skillName": "未来机器"
+	},
+	{
+		"i_effectType": 1,
+		"i_id": 132,
+		"i_skillId": 13,
+		"i_skillLevel": 2,
+		"ill_effect": [
+			[
+				0
+			]
+		],
+		"ill_effectcondition": [
+			[
+				0
+			]
+		],
+		"s_itemIcon": "awake_hero_1",
+		"s_skillDesc": "·子弹伤害增加至攻击的\u003ccolor=#FFAD54\u003e89%\u003c/color\u003e\n·霰弹伤害增加至攻击的\u003ccolor=#FFAD54\u003e179%\u003c/color\u003e\n·攻击时获得\u003ccolor=#FFAD54\u003e20%\u003c/color\u003e攻速",
+		"s_skillInfoDesc": "进入战斗后，可自动升至2星\n并获得：子弹伤害增加至攻击的\u003ccolor=#FFAD54\u003e89%\u003c/color\u003e\n霰弹伤害增加至攻击的\u003ccolor=#FFAD54\u003e179%\u003c/color\u003e\n攻击时获得\u003ccolor=#FFAD54\u003e20%\u003c/color\u003e攻速",
+		"s_skillName": "未来机器"
+	},
+	{
+		"i_effectType": 1,
+		"i_id": 133,
+		"i_skillId": 13,
+		"i_skillLevel": 3,
+		"ill_effect": [
+			[
+				0
+			]
+		],
+		"ill_effectcondition": [
+			[
+				0
+			]
+		],
+		"s_itemIcon": "awake_hero_1",
+		"s_skillDesc": "·子弹伤害增加至攻击的\u003ccolor=#FFAD54\u003e102%\u003c/color\u003e\n·霰弹伤害增加至攻击的\u003ccolor=#FFAD54\u003e204%\u003c/color\u003e\n·攻击时获得\u003ccolor=#FFAD54\u003e20%\u003c/color\u003e攻速",
+		"s_skillInfoDesc": "进入战斗后，可自动升至3星\n战斗中获得：子弹伤害增加至攻击的\u003ccolor=#FFAD54\u003e102%\u003c/color\u003e\n霰弹伤害增加至攻击的\u003ccolor=#FFAD54\u003e204%\u003c/color\u003e\n攻击时获得\u003ccolor=#FFAD54\u003e20%\u003c/color\u003e攻速",
+		"s_skillName": "未来机器"
+	},
+	{
+		"i_effectType": 1,
+		"i_id": 141,
+		"i_skillId": 14,
+		"i_skillLevel": 1,
+		"ill_effect": [
+			[
+				0
+			]
+		],
+		"ill_effectcondition": [
+			[
+				0
+			]
+		],
+		"s_itemIcon": "awake_hero_1",
+		"s_skillDesc": "·冲刺伤害增加至攻击的\u003ccolor=#FFAD54\u003e360%\u003c/color\u003e\n·神速力伤害增加至攻击的\u003ccolor=#FFAD54\u003e103%\u003c/color\u003e",
+		"s_skillInfoDesc": "战斗中，星级可突破5星\n并获得：冲刺伤害增加至攻击的\u003ccolor=#FFAD54\u003e360%\u003c/color\u003e\n神速力伤害增加至攻击的\u003ccolor=#FFAD54\u003e103%\u003c/color\u003e",
+		"s_skillName": "神速力"
+	},
+	{
+		"i_effectType": 1,
+		"i_id": 142,
+		"i_skillId": 14,
+		"i_skillLevel": 2,
+		"ill_effect": [
+			[
+				0
+			]
+		],
+		"ill_effectcondition": [
+			[
+				0
+			]
+		],
+		"s_itemIcon": "awake_hero_1",
+		"s_skillDesc": "·冲刺伤害增加至攻击的\u003ccolor=#FFAD54\u003e420%\u003c/color\u003e\n·神速力伤害增加至攻击的\u003ccolor=#FFAD54\u003e120%\u003c/color\u003e\n·冲刺\u003ccolor=#FFAD54\u003e4\u003c/color\u003e次",
+		"s_skillInfoDesc": "进入战斗后，可自动升至2星\n并获得：一闪伤害增加至攻击的\u003ccolor=#FFAD54\u003e420%\u003c/color\u003e\n神速力伤害增加至攻击的\u003ccolor=#FFAD54\u003e120%\u003c/color\u003e\n冲刺\u003ccolor=#FFAD54\u003e4\u003c/color\u003e次",
+		"s_skillName": "神速力"
+	},
+	{
+		"i_effectType": 1,
+		"i_id": 143,
+		"i_skillId": 14,
+		"i_skillLevel": 3,
+		"ill_effect": [
+			[
+				0
+			]
+		],
+		"ill_effectcondition": [
+			[
+				0
+			]
+		],
+		"s_itemIcon": "awake_hero_1",
+		"s_skillDesc": "·冲刺伤害增加至攻击的\u003ccolor=#FFAD54\u003e480%\u003c/color\u003e\n·神速力伤害增加至攻击的\u003ccolor=#FFAD54\u003e137%\u003c/color\u003e\n·冲刺\u003ccolor=#FFAD54\u003e4\u003c/color\u003e次",
+		"s_skillInfoDesc": "进入战斗后，可自动升至3星\n战斗中获得：一闪伤害增加至攻击的\u003ccolor=#FFAD54\u003e480%\u003c/color\u003e\n神速力伤害增加至攻击的\u003ccolor=#FFAD54\u003e137%\u003c/color\u003e\n冲刺\u003ccolor=#FFAD54\u003e4\u003c/color\u003e次",
+		"s_skillName": "神速力"
+	},
+	{
+		"i_effectType": 1,
+		"i_id": 151,
+		"i_skillId": 15,
+		"i_skillLevel": 1,
+		"ill_effect": [
+			[
+				0
+			]
+		],
+		"ill_effectcondition": [
+			[
+				0
+			]
+		],
+		"s_itemIcon": "awake_hero_1",
+		"s_skillDesc": "·穿透箭伤害增加至攻击的\u003ccolor=#FFAD54\u003e66%\u003c/color\u003e\n·爆炸箭伤害增加至攻击的\u003ccolor=#FFAD54\u003e136%\u003c/color\u003e",
+		"s_skillInfoDesc": "战斗中，星级可突破5星\n并获得：穿透箭伤害增加至攻击的\u003ccolor=#FFAD54\u003e66%\u003c/color\u003e\n爆炸箭伤害增加至攻击的\u003ccolor=#FFAD54\u003e136%\u003c/color\u003e",
+		"s_skillName": "箭无虚发"
+	},
+	{
+		"i_effectType": 1,
+		"i_id": 152,
+		"i_skillId": 15,
+		"i_skillLevel": 2,
+		"ill_effect": [
+			[
+				0
+			]
+		],
+		"ill_effectcondition": [
+			[
+				0
+			]
+		],
+		"s_itemIcon": "awake_hero_1",
+		"s_skillDesc": "·穿透箭伤害增加至攻击的\u003ccolor=#FFAD54\u003e77%\u003c/color\u003e\n·爆炸箭伤害增加至攻击的\u003ccolor=#FFAD54\u003e159%\u003c/color\u003e\n·攻击时获得\u003ccolor=#FFAD54\u003e20%\u003c/color\u003e攻速",
+		"s_skillInfoDesc": "进入战斗后，可自动升至2星\n并获得：穿透箭伤害增加至攻击的\u003ccolor=#FFAD54\u003e77%\u003c/color\u003e\n爆炸箭伤害增加至攻击的\u003ccolor=#FFAD54\u003e159%\u003c/color\u003e\n攻击时获得\u003ccolor=#FFAD54\u003e20%\u003c/color\u003e攻速",
+		"s_skillName": "箭无虚发"
+	},
+	{
+		"i_effectType": 1,
+		"i_id": 153,
+		"i_skillId": 15,
+		"i_skillLevel": 3,
+		"ill_effect": [
+			[
+				0
+			]
+		],
+		"ill_effectcondition": [
+			[
+				0
+			]
+		],
+		"s_itemIcon": "awake_hero_1",
+		"s_skillDesc": "·穿透箭伤害增加至攻击的\u003ccolor=#FFAD54\u003e88%\u003c/color\u003e\n·爆炸箭伤害增加至攻击的\u003ccolor=#FFAD54\u003e182%\u003c/color\u003e\n·攻击时获得\u003ccolor=#FFAD54\u003e20%\u003c/color\u003e攻速",
+		"s_skillInfoDesc": "进入战斗后，可自动升至3星\n战斗中获得：穿透箭伤害增加至攻击的\u003ccolor=#FFAD54\u003e88%\u003c/color\u003e\n爆炸箭伤害增加至攻击的\u003ccolor=#FFAD54\u003e182%\u003c/color\u003e\n攻击时获得\u003ccolor=#FFAD54\u003e20%\u003c/color\u003e攻速",
+		"s_skillName": "箭无虚发"
+	},
+	{
+		"i_effectType": 1,
+		"i_id": 161,
+		"i_skillId": 16,
+		"i_skillLevel": 1,
+		"ill_effect": [
+			[
+				0
+			]
+		],
+		"ill_effectcondition": [
+			[
+				0
+			]
+		],
+		"s_itemIcon": "awake_hero_1",
+		"s_skillDesc": "·炮弹伤害增加至攻击的\u003ccolor=#FFAD54\u003e120%\u003c/color\u003e\n·触手伤害增加至攻击的\u003ccolor=#FFAD54\u003e360%\u003c/color\u003e",
+		"s_skillInfoDesc": "战斗中，星级可突破5星\n并获得：炮弹伤害增加至攻击的\u003ccolor=#FFAD54\u003e120%\u003c/color\u003e\n触手伤害增加至攻击的\u003ccolor=#FFAD54\u003e360%\u003c/color\u003e",
+		"s_skillName": "黑珍珠号"
+	},
+	{
+		"i_effectType": 1,
+		"i_id": 162,
+		"i_skillId": 16,
+		"i_skillLevel": 2,
+		"ill_effect": [
+			[
+				0
+			]
+		],
+		"ill_effectcondition": [
+			[
+				0
+			]
+		],
+		"s_itemIcon": "awake_hero_1",
+		"s_skillDesc": "·炮弹伤害增加至攻击的\u003ccolor=#FFAD54\u003e140%\u003c/color\u003e\n·触手伤害增加至攻击的\u003ccolor=#FFAD54\u003e420%\u003c/color\u003e\n·触手数量\u003ccolor=#FFAD54\u003e+3\u003c/color\u003e",
+		"s_skillInfoDesc": "进入战斗后，可自动升至2星\n并获得：炮弹伤害增加至攻击的\u003ccolor=#FFAD54\u003e140%\u003c/color\u003e\n触手伤害增加至攻击的\u003ccolor=#FFAD54\u003e420%\u003c/color\u003e触手数量\u003ccolor=#FFAD54\u003e+3\u003c/color\u003e",
+		"s_skillName": "黑珍珠号"
+	},
+	{
+		"i_effectType": 1,
+		"i_id": 163,
+		"i_skillId": 16,
+		"i_skillLevel": 3,
+		"ill_effect": [
+			[
+				0
+			]
+		],
+		"ill_effectcondition": [
+			[
+				0
+			]
+		],
+		"s_itemIcon": "awake_hero_1",
+		"s_skillDesc": "·炮弹伤害增加至攻击的\u003ccolor=#FFAD54\u003e160%\u003c/color\u003e\n·触手伤害增加至攻击的\u003ccolor=#FFAD54\u003e480%\u003c/color\u003e\n·触手数量\u003ccolor=#FFAD54\u003e+3\u003c/color\u003e",
+		"s_skillInfoDesc": "进入战斗后，可自动升至3星\n战斗中获得：炮弹伤害增加至攻击的\u003ccolor=#FFAD54\u003e160%\u003c/color\u003e\n触手伤害增加至攻击的\u003ccolor=#FFAD54\u003e480%\u003c/color\u003e\n触手数量\u003ccolor=#FFAD54\u003e+3\u003c/color\u003e",
+		"s_skillName": "黑珍珠号"
+	},
+	{
+		"i_effectType": 1,
+		"i_id": 171,
+		"i_skillId": 17,
+		"i_skillLevel": 1,
+		"ill_effect": [
+			[
+				0
+			]
+		],
+		"ill_effectcondition": [
+			[
+				0
+			]
+		],
+		"s_itemIcon": "awake_hero_1",
+		"s_skillDesc": "·冰幔撞击伤害增加至攻击的\u003ccolor=#FFAD54\u003e360%\u003c/color\u003e\n·冰晶爆炸伤害增加至攻击的\u003ccolor=#FFAD54\u003e168%\u003c/color\u003e",
+		"s_skillInfoDesc": "战斗中，星级可突破5星\n并获得：冰幔撞击伤害增加至攻击的\u003ccolor=#FFAD54\u003e360%\u003c/color\u003e\n冰晶爆炸伤害增加至攻击的\u003ccolor=#FFAD54\u003e168%\u003c/color\u003e",
+		"s_skillName": "深度冻结"
+	},
+	{
+		"i_effectType": 1,
+		"i_id": 172,
+		"i_skillId": 17,
+		"i_skillLevel": 2,
+		"ill_effect": [
+			[
+				0
+			]
+		],
+		"ill_effectcondition": [
+			[
+				0
+			]
+		],
+		"s_itemIcon": "awake_hero_1",
+		"s_skillDesc": "·冰幔撞击伤害增加至攻击的\u003ccolor=#FFAD54\u003e420%\u003c/color\u003e\n·冰晶爆炸伤害增加至攻击的\u003ccolor=#FFAD54\u003e196%\u003c/color\u003e\n·冰幔撞击冲刺\u003ccolor=#FFAD54\u003e4\u003c/color\u003e次",
+		"s_skillInfoDesc": "进入战斗后，可自动升至2星\n并获得：冰幔撞击伤害增加至攻击的\u003ccolor=#FFAD54\u003e420%\u003c/color\u003e\n冰晶爆炸增加至攻击的\u003ccolor=#FFAD54\u003e196%\u003c/color\u003e\n冰幔撞击冲刺\u003ccolor=#FFAD54\u003e4\u003c/color\u003e次",
+		"s_skillName": "深度冻结"
+	},
+	{
+		"i_effectType": 1,
+		"i_id": 173,
+		"i_skillId": 17,
+		"i_skillLevel": 3,
+		"ill_effect": [
+			[
+				0
+			]
+		],
+		"ill_effectcondition": [
+			[
+				0
+			]
+		],
+		"s_itemIcon": "awake_hero_1",
+		"s_skillDesc": "·冰幔撞击伤害增加至攻击的\u003ccolor=#FFAD54\u003e480%\u003c/color\u003e\n·冰晶爆炸伤害增加至攻击的\u003ccolor=#FFAD54\u003e224%\u003c/color\u003e\n·冰幔撞击冲刺\u003ccolor=#FFAD54\u003e4\u003c/color\u003e次",
+		"s_skillInfoDesc": "进入战斗后，可自动升至3星\n战斗中获得：冰幔撞击伤害增加至攻击的\u003ccolor=#FFAD54\u003e480%\u003c/color\u003e\n冰晶爆炸伤害增加至攻击的\u003ccolor=#FFAD54\u003e224%\u003c/color\u003e",
+		"s_skillName": "深度冻结"
+	},
+	{
+		"i_effectType": 1,
+		"i_id": 181,
+		"i_skillId": 18,
+		"i_skillLevel": 1,
+		"ill_effect": [
+			[
+				0
+			]
+		],
+		"ill_effectcondition": [
+			[
+				0
+			]
+		],
+		"s_itemIcon": "awake_hero_1",
+		"s_skillDesc": "·子弹伤害增加至攻击的\u003ccolor=#FFAD54\u003e93%\u003c/color\u003e\n·邪恶飞弹伤害增加至攻击的\u003ccolor=#FFAD54\u003e144%\u003c/color\u003e",
+		"s_skillInfoDesc": "战斗中，星级可突破5星\n并获得：子弹伤害增加至攻击的\u003ccolor=#FFAD54\u003e93%\u003c/color\u003e\n邪恶飞弹伤害增加至攻击的\u003ccolor=#FFAD54\u003e144%\u003c/color\u003e",
+		"s_skillName": "罪恶快感"
+	},
+	{
+		"i_effectType": 1,
+		"i_id": 182,
+		"i_skillId": 18,
+		"i_skillLevel": 2,
+		"ill_effect": [
+			[
+				0
+			]
+		],
+		"ill_effectcondition": [
+			[
+				0
+			]
+		],
+		"s_itemIcon": "awake_hero_1",
+		"s_skillDesc": "·子弹伤害增加至攻击的\u003ccolor=#FFAD54\u003e110%\u003c/color\u003e\n·邪恶飞弹伤害增加至攻击的\u003ccolor=#FFAD54\u003e168%\u003c/color\u003e\n·攻击时获得\u003ccolor=#FFAD54\u003e20%\u003c/color\u003e攻速",
+		"s_skillInfoDesc": "进入战斗后，可自动升至2星\n并获得：子弹伤害增加至攻击的\u003ccolor=#FFAD54\u003e110%\u003c/color\u003e\n邪恶飞弹伤害增加至攻击的\u003ccolor=#FFAD54\u003e168%\u003c/color\u003e\n攻击时获得\u003ccolor=#FFAD54\u003e20%\u003c/color\u003e攻速",
+		"s_skillName": "罪恶快感"
+	},
+	{
+		"i_effectType": 1,
+		"i_id": 183,
+		"i_skillId": 18,
+		"i_skillLevel": 3,
+		"ill_effect": [
+			[
+				0
+			]
+		],
+		"ill_effectcondition": [
+			[
+				0
+			]
+		],
+		"s_itemIcon": "awake_hero_1",
+		"s_skillDesc": "·子弹伤害增加至攻击的\u003ccolor=#FFAD54\u003e124%\u003c/color\u003e\n·邪恶飞弹伤害增加至攻击的\u003ccolor=#FFAD54\u003e192%\u003c/color\u003e\n·攻击时获得\u003ccolor=#FFAD54\u003e20%\u003c/color\u003e攻速",
+		"s_skillInfoDesc": "进入战斗后，可自动升至3星\n战斗中获得：子弹伤害增加至攻击的\u003ccolor=#FFAD54\u003e124%\u003c/color\u003e\n邪恶飞弹伤害增加至攻击的\u003ccolor=#FFAD54\u003e192%\u003c/color\u003e\n攻击时获得\u003ccolor=#FFAD54\u003e20%\u003c/color\u003e攻速",
+		"s_skillName": "罪恶快感"
+	},
+	{
+		"i_effectType": 1,
+		"i_id": 191,
+		"i_skillId": 19,
+		"i_skillLevel": 1,
+		"ill_effect": [
+			[
+				0
+			]
+		],
+		"ill_effectcondition": [
+			[
+				0
+			]
+		],
+		"s_itemIcon": "awake_hero_1",
+		"s_skillDesc": "·贰号机伤害增加至攻击的\u003ccolor=#FFAD54\u003e360%\u003c/color\u003e\n·弑神领域伤害增加至攻击的\u003ccolor=#FFAD54\u003e86%\u003c/color\u003e",
+		"s_skillInfoDesc": "战斗中，星级可突破5星\n并获得：贰号机伤害增加至攻击的\u003ccolor=#FFAD54\u003e360%\u003c/color\u003e\n弑神领域伤害增加至攻击的\u003ccolor=#FFAD54\u003e86%\u003c/color\u003e",
+		"s_skillName": "驾驶天才"
+	},
+	{
+		"i_effectType": 1,
+		"i_id": 192,
+		"i_skillId": 19,
+		"i_skillLevel": 2,
+		"ill_effect": [
+			[
+				0
+			]
+		],
+		"ill_effectcondition": [
+			[
+				0
+			]
+		],
+		"s_itemIcon": "awake_hero_1",
+		"s_skillDesc": "·贰号机伤害增加至攻击的\u003ccolor=#FFAD54\u003e420%\u003c/color\u003e\n·弑神领域伤害增加至攻击的\u003ccolor=#FFAD54\u003e100%\u003c/color\u003e\n·攻击时召唤\u003ccolor=#FFAD54\u003e4\u003c/color\u003e个贰号机",
+		"s_skillInfoDesc": "进入战斗后，可自动升至2星\n并获得：贰号机伤害增加至攻击的\u003ccolor=#FFAD54\u003e420%\u003c/color\u003e\n弑神领域伤害增加至攻击的\u003ccolor=#FFAD54\u003e100%\u003c/color\u003e\n攻击时召唤\u003ccolor=#FFAD54\u003e4\u003c/color\u003e个贰号机",
+		"s_skillName": "驾驶天才"
+	},
+	{
+		"i_effectType": 1,
+		"i_id": 193,
+		"i_skillId": 19,
+		"i_skillLevel": 3,
+		"ill_effect": [
+			[
+				0
+			]
+		],
+		"ill_effectcondition": [
+			[
+				0
+			]
+		],
+		"s_itemIcon": "awake_hero_1",
+		"s_skillDesc": "·贰号机伤害增加至攻击的\u003ccolor=#FFAD54\u003e480%\u003c/color\u003e\n·弑神领域伤害增加至攻击的\u003ccolor=#FFAD54\u003e115%\u003c/color\u003e\n·攻击时召唤\u003ccolor=#FFAD54\u003e4\u003c/color\u003e个贰号机",
+		"s_skillInfoDesc": "进入战斗后，可自动升至3星\n战斗中获得：贰号机伤害增加至攻击的\u003ccolor=#FFAD54\u003e480%\u003c/color\u003e\n弑神领域伤害增加至攻击的\u003ccolor=#FFAD54\u003e115%\u003c/color\u003e\n攻击时召唤\u003ccolor=#FFAD54\u003e4\u003c/color\u003e个贰号机",
+		"s_skillName": "驾驶天才"
+	},
+	{
+		"i_effectType": 1,
+		"i_id": 201,
+		"i_skillId": 20,
+		"i_skillLevel": 1,
+		"ill_effect": [
+			[
+				0
+			]
+		],
+		"ill_effectcondition": [
+			[
+				0
+			]
+		],
+		"s_itemIcon": "awake_hero_1",
+		"s_skillDesc": "·火焰放射伤害增加至攻击的\u003ccolor=#FFAD54\u003e120%\u003c/color\u003e\n·巨龙咆哮伤害增加至攻击的\u003ccolor=#FFAD54\u003e168%\u003c/color\u003e",
+		"s_skillInfoDesc": "战斗中，星级可突破5星\n并获得：火焰放射伤害增加至攻击的\u003ccolor=#FFAD54\u003e120%\u003c/color\u003e\n巨龙咆哮伤害增加至攻击的\u003ccolor=#FFAD54\u003e168%\u003c/color\u003e",
+		"s_skillName": "七国女王"
+	},
+	{
+		"i_effectType": 1,
+		"i_id": 202,
+		"i_skillId": 20,
+		"i_skillLevel": 2,
+		"ill_effect": [
+			[
+				0
+			]
+		],
+		"ill_effectcondition": [
+			[
+				0
+			]
+		],
+		"s_itemIcon": "awake_hero_1",
+		"s_skillDesc": "·火焰放射伤害增加至攻击的\u003ccolor=#FFAD54\u003e140%\u003c/color\u003e\n·巨龙咆哮伤害增加至攻击的\u003ccolor=#FFAD54\u003e196%\u003c/color\u003e\n·发射\u003ccolor=#FFAD54\u003e4\u003c/color\u003e个龙痰",
+		"s_skillInfoDesc": "进入战斗后，可自动升至2星\n并获得：火焰放射伤害增加至攻击的\u003ccolor=#FFAD54\u003e140%\u003c/color\u003e\n巨龙咆哮伤害增加至攻击的\u003ccolor=#FFAD54\u003e196%\u003c/color\u003e\n发射\u003ccolor=#FFAD54\u003e4\u003c/color\u003e个龙痰",
+		"s_skillName": "七国女王"
+	},
+	{
+		"i_effectType": 1,
+		"i_id": 203,
+		"i_skillId": 20,
+		"i_skillLevel": 3,
+		"ill_effect": [
+			[
+				0
+			]
+		],
+		"ill_effectcondition": [
+			[
+				0
+			]
+		],
+		"s_itemIcon": "awake_hero_1",
+		"s_skillDesc": "·火焰放射伤害增加至攻击的\u003ccolor=#FFAD54\u003e160%\u003c/color\u003e\n·巨龙咆哮伤害增加至攻击的\u003ccolor=#FFAD54\u003e224%\u003c/color\u003e\n·发射\u003ccolor=#FFAD54\u003e4\u003c/color\u003e个龙痰",
+		"s_skillInfoDesc": "进入战斗后，可自动升至3星\n战斗中获得：火焰放射伤害增加至攻击的\u003ccolor=#FFAD54\u003e160%\u003c/color\u003e\n巨龙咆哮伤害增加至攻击的\u003ccolor=#FFAD54\u003e224%\u003c/color\u003e",
+		"s_skillName": "七国女王"
+	},
+	{
+		"i_effectType": 1,
+		"i_id": 211,
+		"i_skillId": 21,
+		"i_skillLevel": 1,
+		"ill_effect": [
+			[
+				0
+			]
+		],
+		"ill_effectcondition": [
+			[
+				0
+			]
+		],
+		"s_itemIcon": "awake_hero_1",
+		"s_skillDesc": "·飓风能量伤害增加至攻击的\u003ccolor=#FFAD54\u003e114%\u003c/color\u003e\n·风暴来袭伤害增加至攻击的\u003ccolor=#FFAD54\u003e360%\u003c/color\u003e",
+		"s_skillInfoDesc": "战斗中，星级可突破5星\n并获得：飓风能量伤害增加至攻击的\u003ccolor=#FFAD54\u003e114%\u003c/color\u003e\n风暴来袭伤害增加至攻击的\u003ccolor=#FFAD54\u003e360%\u003c/color\u003e",
+		"s_skillName": "风暴感应"
+	},
+	{
+		"i_effectType": 1,
+		"i_id": 212,
+		"i_skillId": 21,
+		"i_skillLevel": 2,
+		"ill_effect": [
+			[
+				0
+			]
+		],
+		"ill_effectcondition": [
+			[
+				0
+			]
+		],
+		"s_itemIcon": "awake_hero_1",
+		"s_skillDesc": "·飓风能量伤害增加至攻击的\u003ccolor=#FFAD54\u003e133%\u003c/color\u003e\n·风暴来袭伤害增加至攻击的\u003ccolor=#FFAD54\u003e420%\u003c/color\u003e\n·龙卷风释放数量\u003ccolor=#FFAD54\u003e+2\u003c/color\u003e",
+		"s_skillInfoDesc": "进入战斗后，可自动升至2星\n并获得：飓风能量伤害增加至攻击的\u003ccolor=#FFAD54\u003e133%\u003c/color\u003e\n风暴来袭伤害增加至攻击的\u003ccolor=#FFAD54\u003e420%\u003c/color\u003e\n龙卷风释放数量\u003ccolor=#FFAD54\u003e+2\u003c/color\u003e",
+		"s_skillName": "风暴感应"
+	},
+	{
+		"i_effectType": 1,
+		"i_id": 213,
+		"i_skillId": 21,
+		"i_skillLevel": 3,
+		"ill_effect": [
+			[
+				0
+			]
+		],
+		"ill_effectcondition": [
+			[
+				0
+			]
+		],
+		"s_itemIcon": "awake_hero_1",
+		"s_skillDesc": "·飓风能量伤害增加至攻击的\u003ccolor=#FFAD54\u003e152%\u003c/color\u003e\n·风暴来袭伤害增加至攻击的\u003ccolor=#FFAD54\u003e480%\u003c/color\u003e\n·龙卷风释放数量\u003ccolor=#FFAD54\u003e+2\u003c/color\u003e",
+		"s_skillInfoDesc": "进入战斗后，可自动升至3星\n战斗中获得：飓风能量伤害增加至攻击的\u003ccolor=#FFAD54\u003e152%\u003c/color\u003e\n风暴来袭伤害增加至攻击的\u003ccolor=#FFAD54\u003e480%\u003c/color\u003e\n龙卷风释放数量\u003ccolor=#FFAD54\u003e+2\u003c/color\u003e",
+		"s_skillName": "风暴感应"
+	},
+	{
+		"i_effectType": 1,
+		"i_id": 221,
+		"i_skillId": 22,
+		"i_skillLevel": 1,
+		"ill_effect": [
+			[
+				0
+			]
+		],
+		"ill_effectcondition": [
+			[
+				0
+			]
+		],
+		"s_itemIcon": "awake_hero_1",
+		"s_skillDesc": "·雷神之锤伤害增加至攻击的\u003ccolor=#FFAD54\u003e93%\u003c/color\u003e\n·雷神降临伤害增加至攻击的\u003ccolor=#FFAD54\u003e336%\u003c/color\u003e",
+		"s_skillInfoDesc": "战斗中，星级可突破5星\n并获得：雷神之锤伤害增加至攻击的\u003ccolor=#FFAD54\u003e93%\u003c/color\u003e\n雷神降临伤害增加至攻击的\u003ccolor=#FFAD54\u003e336%\u003c/color\u003e",
+		"s_skillName": "奥丁之力"
+	},
+	{
+		"i_effectType": 1,
+		"i_id": 222,
+		"i_skillId": 22,
+		"i_skillLevel": 2,
+		"ill_effect": [
+			[
+				0
+			]
+		],
+		"ill_effectcondition": [
+			[
+				0
+			]
+		],
+		"s_itemIcon": "awake_hero_1",
+		"s_skillDesc": "·雷神之锤伤害增加至攻击的\u003ccolor=#FFAD54\u003e109%\u003c/color\u003e\n·雷神降临伤害增加至攻击的\u003ccolor=#FFAD54\u003e392%\u003c/color\u003e\n·雷神降临范围\u003ccolor=#FFAD54\u003e+20%\u003c/color\u003e",
+		"s_skillInfoDesc": "进入战斗后，可自动升至2星\n并获得：雷神之锤伤害增加至攻击的\u003ccolor=#FFAD54\u003e109%\u003c/color\u003e\n雷神降临伤害增加至攻击的\u003ccolor=#FFAD54\u003e392%\u003c/color\u003e\n雷神降临范围\u003ccolor=#FFAD54\u003e+20%\u003c/color\u003e",
+		"s_skillName": "奥丁之力"
+	},
+	{
+		"i_effectType": 1,
+		"i_id": 223,
+		"i_skillId": 22,
+		"i_skillLevel": 3,
+		"ill_effect": [
+			[
+				0
+			]
+		],
+		"ill_effectcondition": [
+			[
+				0
+			]
+		],
+		"s_itemIcon": "awake_hero_1",
+		"s_skillDesc": "·雷神之锤伤害增加至攻击的\u003ccolor=#FFAD54\u003e124%\u003c/color\u003e\n·雷神降临伤害增加至攻击的\u003ccolor=#FFAD54\u003e448%\u003c/color\u003e\n·雷神降临范围\u003ccolor=#FFAD54\u003e+20%\u003c/color\u003e",
+		"s_skillInfoDesc": "进入战斗后，可自动升至3星\n战斗中获得：雷神之锤伤害增加至攻击的\u003ccolor=#FFAD54\u003e124%\u003c/color\u003e\n雷神降临伤害增加至攻击的\u003ccolor=#FFAD54\u003e448%\u003c/color\u003e\n雷神降临范围\u003ccolor=#FFAD54\u003e+20%\u003c/color\u003e",
+		"s_skillName": "奥丁之力"
+	},
+	{
+		"i_effectType": 1,
+		"i_id": 231,
+		"i_skillId": 23,
+		"i_skillLevel": 1,
+		"ill_effect": [
+			[
+				0
+			]
+		],
+		"ill_effectcondition": [
+			[
+				0
+			]
+		],
+		"s_itemIcon": "awake_hero_1",
+		"s_skillDesc": "·气功波伤害增加至攻击的\u003ccolor=#FFAD54\u003e81%\u003c/color\u003e\n·超级气功波伤害增加至攻击的\u003ccolor=#FFAD54\u003e199%\u003c/color\u003e",
+		"s_skillInfoDesc": "战斗中，星级可突破5星\n并获得：气功波伤害增加至攻击的\u003ccolor=#FFAD54\u003e81%\u003c/color\u003e\n超级气功波伤害增加至攻击的\u003ccolor=#FFAD54\u003e199%\u003c/color\u003e",
+		"s_skillName": "战斗民族"
+	},
+	{
+		"i_effectType": 1,
+		"i_id": 232,
+		"i_skillId": 23,
+		"i_skillLevel": 2,
+		"ill_effect": [
+			[
+				0
+			]
+		],
+		"ill_effectcondition": [
+			[
+				0
+			]
+		],
+		"s_itemIcon": "awake_hero_1",
+		"s_skillDesc": "·气功波伤害增加至攻击的\u003ccolor=#FFAD54\u003e95%\u003c/color\u003e\n·超级气功波伤害增加至攻击的\u003ccolor=#FFAD54\u003e232%\u003c/color\u003e\n·攻击时获得\u003ccolor=#FFAD54\u003e20%\u003c/color\u003e攻速",
+		"s_skillInfoDesc": "进入战斗后，可自动升至2星\n并获得：气功波伤害增加至攻击的\u003ccolor=#FFAD54\u003e95%\u003c/color\u003e\n超级气功波伤害增加至攻击的\u003ccolor=#FFAD54\u003e232%\u003c/color\u003e\n攻击时获得\u003ccolor=#FFAD54\u003e20%\u003c/color\u003e攻速",
+		"s_skillName": "战斗民族"
+	},
+	{
+		"i_effectType": 1,
+		"i_id": 233,
+		"i_skillId": 23,
+		"i_skillLevel": 3,
+		"ill_effect": [
+			[
+				0
+			]
+		],
+		"ill_effectcondition": [
+			[
+				0
+			]
+		],
+		"s_itemIcon": "awake_hero_1",
+		"s_skillDesc": "·气功波伤害增加至攻击的\u003ccolor=#FFAD54\u003e108%\u003c/color\u003e\n·超级气功波伤害增加至攻击的\u003ccolor=#FFAD54\u003e265%\u003c/color\u003e\n·攻击时获得\u003ccolor=#FFAD54\u003e20%\u003c/color\u003e攻速",
+		"s_skillInfoDesc": "进入战斗后，可自动升至3星\n战斗中获得：气功波伤害增加至攻击的\u003ccolor=#FFAD54\u003e108%\u003c/color\u003e\n超级气功波伤害增加至攻击的\u003ccolor=#FFAD54\u003e265%\u003c/color\u003e\n攻击时获得\u003ccolor=#FFAD54\u003e20%\u003c/color\u003e攻速",
+		"s_skillName": "战斗民族"
+	},
+	{
+		"i_effectType": 1,
+		"i_id": 241,
+		"i_skillId": 24,
+		"i_skillLevel": 1,
+		"ill_effect": [
+			[
+				0
+			]
+		],
+		"ill_effectcondition": [
+			[
+				0
+			]
+		],
+		"s_itemIcon": "awake_hero_1",
+		"s_skillDesc": "·蝙蝠伤害增加至攻击的\u003ccolor=#FFAD54\u003e96%\u003c/color\u003e\n·蝙蝠术伤害增加至攻击的\u003ccolor=#FFAD54\u003e230%\u003c/color\u003e",
+		"s_skillInfoDesc": "战斗中，星级可突破5星\n并获得：蝙蝠伤害增加至攻击的\u003ccolor=#FFAD54\u003e96%\u003c/color\u003e\n蝙蝠术伤害增加至攻击的\u003ccolor=#FFAD54\u003e230%\u003c/color\u003e",
+		"s_skillName": "血族恶魔"
+	},
+	{
+		"i_effectType": 1,
+		"i_id": 242,
+		"i_skillId": 24,
+		"i_skillLevel": 2,
+		"ill_effect": [
+			[
+				0
+			]
+		],
+		"ill_effectcondition": [
+			[
+				0
+			]
+		],
+		"s_itemIcon": "awake_hero_1",
+		"s_skillDesc": "·蝙蝠伤害增加至攻击的\u003ccolor=#FFAD54\u003e112%\u003c/color\u003e\n·蝙蝠术伤害增加至攻击的\u003ccolor=#FFAD54\u003e268%\u003c/color\u003e\n·蝙蝠术额外治疗\u003ccolor=#FFAD54\u003e2\u003c/color\u003e名队友",
+		"s_skillInfoDesc": "进入战斗后，可自动升至2星\n并获得：蝙蝠伤害增加至攻击的\u003ccolor=#FFAD54\u003e112%\u003c/color\u003e\n蝙蝠术伤害增加至攻击的\u003ccolor=#FFAD54\u003e268%\u003c/color\u003e\n蝙蝠术额外治疗\u003ccolor=#FFAD54\u003e2\u003c/color\u003e名队友",
+		"s_skillName": "血族恶魔"
+	},
+	{
+		"i_effectType": 1,
+		"i_id": 243,
+		"i_skillId": 24,
+		"i_skillLevel": 3,
+		"ill_effect": [
+			[
+				0
+			]
+		],
+		"ill_effectcondition": [
+			[
+				0
+			]
+		],
+		"s_itemIcon": "awake_hero_1",
+		"s_skillDesc": "·蝙蝠伤害增加至攻击的\u003ccolor=#FFAD54\u003e128%\u003c/color\u003e\n·蝙蝠术伤害增加至攻击的\u003ccolor=#FFAD54\u003e308%\u003c/color\u003e\n·蝙蝠术额外治疗\u003ccolor=#FFAD54\u003e2\u003c/color\u003e名队友",
+		"s_skillInfoDesc": "进入战斗后，可自动升至3星\n战斗中获得：蝙蝠伤害增加至攻击的\u003ccolor=#FFAD54\u003e128%\u003c/color\u003e\n蝙蝠术伤害增加至攻击的\u003ccolor=#FFAD54\u003e308%\u003c/color\u003e\n蝙蝠术额外治疗\u003ccolor=#FFAD54\u003e2\u003c/color\u003e名队友",
+		"s_skillName": "血族恶魔"
+	},
+	{
+		"i_effectType": 1,
+		"i_id": 251,
+		"i_skillId": 25,
+		"i_skillLevel": 1,
+		"ill_effect": [
+			[
+				0
+			]
+		],
+		"ill_effectcondition": [
+			[
+				0
+			]
+		],
+		"s_itemIcon": "awake_hero_1",
+		"s_skillDesc": "·宝石伤害增加至攻击的\u003ccolor=#FFAD54\u003e144%\u003c/color\u003e\n·清除计划伤害增加至攻击的\u003ccolor=#FFAD54\u003e360%\u003c/color\u003e",
+		"s_skillInfoDesc": "战斗中，星级可突破5星\n并获得：宝石伤害增加至攻击的\u003ccolor=#FFAD54\u003e144%\u003c/color\u003e\n清除计划伤害增加至攻击的\u003ccolor=#FFAD54\u003e360%\u003c/color\u003e",
+		"s_skillName": "超级反派"
+	},
+	{
+		"i_effectType": 1,
+		"i_id": 252,
+		"i_skillId": 25,
+		"i_skillLevel": 2,
+		"ill_effect": [
+			[
+				0
+			]
+		],
+		"ill_effectcondition": [
+			[
+				0
+			]
+		],
+		"s_itemIcon": "awake_hero_1",
+		"s_skillDesc": "·宝石伤害增加至攻击的\u003ccolor=#FFAD54\u003e168%\u003c/color\u003e\n·清除计划伤害增加至攻击的\u003ccolor=#FFAD54\u003e420%\u003c/color\u003e\n·清除计划范围\u003ccolor=#FFAD54\u003e+20%\u003c/color\u003e",
+		"s_skillInfoDesc": "进入战斗后，可自动升至2星\n并获得：宝石伤害增加至攻击的\u003ccolor=#FFAD54\u003e168%\u003c/color\u003e\n清除计划伤害增加至攻击的\u003ccolor=#FFAD54\u003e420%\u003c/color\u003e\n清除计划范围\u003ccolor=#FFAD54\u003e+20%\u003c/color\u003e",
+		"s_skillName": "超级反派"
+	},
+	{
+		"i_effectType": 1,
+		"i_id": 253,
+		"i_skillId": 25,
+		"i_skillLevel": 3,
+		"ill_effect": [
+			[
+				0
+			]
+		],
+		"ill_effectcondition": [
+			[
+				0
+			]
+		],
+		"s_itemIcon": "awake_hero_1",
+		"s_skillDesc": "·宝石伤害增加至攻击的\u003ccolor=#FFAD54\u003e192%\u003c/color\u003e\n·清除计划伤害增加至攻击的\u003ccolor=#FFAD54\u003e480%\u003c/color\u003e\n·清除计划范围\u003ccolor=#FFAD54\u003e+20%\u003c/color\u003e",
+		"s_skillInfoDesc": "进入战斗后，可自动升至3星\n战斗中获得：宝石伤害增加至攻击的\u003ccolor=#FFAD54\u003e192%\u003c/color\u003e\n清除计划伤害增加至攻击的\u003ccolor=#FFAD54\u003e480%\u003c/color\u003e\n清除计划范围\u003ccolor=#FFAD54\u003e+20%\u003c/color\u003e",
+		"s_skillName": "超级反派"
+	},
+	{
+		"i_effectType": 1,
+		"i_id": 261,
+		"i_skillId": 26,
+		"i_skillLevel": 1,
+		"ill_effect": [
+			[
+				0
+			]
+		],
+		"ill_effectcondition": [
+			[
+				0
+			]
+		],
+		"s_itemIcon": "awake_hero_1",
+		"s_skillDesc": "·邪恶爆弹伤害增加至攻击的\u003ccolor=#FFAD54\u003e132%\u003c/color\u003e\n·四分五裂伤害增加至攻击的\u003ccolor=#FFAD54\u003e360%\u003c/color\u003e",
+		"s_skillInfoDesc": "战斗中，星级可突破5星\n并获得：邪恶爆弹伤害增加至攻击的\u003ccolor=#FFAD54\u003e132%\u003c/color\u003e\n四分五裂伤害增加至攻击的\u003ccolor=#FFAD54\u003e360%\u003c/color\u003e",
+		"s_skillName": "邪恶基因"
+	},
+	{
+		"i_effectType": 1,
+		"i_id": 262,
+		"i_skillId": 26,
+		"i_skillLevel": 2,
+		"ill_effect": [
+			[
+				0
+			]
+		],
+		"ill_effectcondition": [
+			[
+				0
+			]
+		],
+		"s_itemIcon": "awake_hero_1",
+		"s_skillDesc": "·邪恶爆弹伤害增加至攻击的\u003ccolor=#FFAD54\u003e154%\u003c/color\u003e\n·四分五裂伤害增加至攻击的\u003ccolor=#FFAD54\u003e420%\u003c/color\u003e\n·四分五裂分裂次数\u003ccolor=#FFAD54\u003e+4\u003c/color\u003e",
+		"s_skillInfoDesc": "进入战斗后，可自动升至2星\n并获得：邪恶爆弹伤害增加至攻击的\u003ccolor=#FFAD54\u003e154%\u003c/color\u003e\n四分五裂伤害增加至攻击的\u003ccolor=#FFAD54\u003e420%\u003c/color\u003e\n四分五裂分裂次数\u003ccolor=#FFAD54\u003e+4\u003c/color\u003e",
+		"s_skillName": "邪恶基因"
+	},
+	{
+		"i_effectType": 1,
+		"i_id": 263,
+		"i_skillId": 26,
+		"i_skillLevel": 3,
+		"ill_effect": [
+			[
+				0
+			]
+		],
+		"ill_effectcondition": [
+			[
+				0
+			]
+		],
+		"s_itemIcon": "awake_hero_1",
+		"s_skillDesc": "·邪恶爆弹伤害增加至攻击的\u003ccolor=#FFAD54\u003e176%\u003c/color\u003e\n·四分五裂伤害增加至攻击的\u003ccolor=#FFAD54\u003e480%\u003c/color\u003e\n·四分五裂分裂次数\u003ccolor=#FFAD54\u003e+4\u003c/color\u003e",
+		"s_skillInfoDesc": "进入战斗后，可自动升至3星\n战斗中获得：邪恶爆弹伤害增加至攻击的\u003ccolor=#FFAD54\u003e176%\u003c/color\u003e\n四分五裂伤害增加至攻击的\u003ccolor=#FFAD54\u003e480%\u003c/color\u003e\n四分五裂分裂次数\u003ccolor=#FFAD54\u003e+4\u003c/color\u003e",
+		"s_skillName": "邪恶基因"
+	},
+	{
+		"i_effectType": 0,
+		"i_id": 10011,
+		"i_skillId": 1001,
+		"i_skillLevel": 1,
+		"ill_effect": [
+			[
+				6,
+				1000
+			],
+			[
+				7,
+				1000
+			],
+			[
+				8,
+				1000
+			]
+		],
+		"ill_effectcondition": [
+			[
+				0
+			]
+		],
+		"s_itemIcon": "",
+		"s_skillInfoDesc": "所有上阵英雄三属性+10%",
+		"s_skillName": "同心协力"
+	},
+	{
+		"i_effectType": 0,
+		"i_id": 10012,
+		"i_skillId": 1001,
+		"i_skillLevel": 2,
+		"ill_effect": [
+			[
+				6,
+				1100
+			],
+			[
+				7,
+				1100
+			],
+			[
+				8,
+				1100
+			]
+		],
+		"ill_effectcondition": [
+			[
+				0
+			]
+		],
+		"s_itemIcon": "",
+		"s_skillInfoDesc": "所有上阵英雄三属性+11%",
+		"s_skillName": "普通英雄被动"
+	},
+	{
+		"i_effectType": 0,
+		"i_id": 10013,
+		"i_skillId": 1001,
+		"i_skillLevel": 3,
+		"ill_effect": [
+			[
+				6,
+				1200
+			],
+			[
+				7,
+				1200
+			],
+			[
+				8,
+				1200
+			]
+		],
+		"ill_effectcondition": [
+			[
+				0
+			]
+		],
+		"s_itemIcon": "",
+		"s_skillInfoDesc": "所有上阵英雄三属性+12%",
+		"s_skillName": "普通英雄被动"
+	},
+	{
+		"i_effectType": 0,
+		"i_id": 10014,
+		"i_skillId": 1001,
+		"i_skillLevel": 4,
+		"ill_effect": [
+			[
+				6,
+				1300
+			],
+			[
+				7,
+				1300
+			],
+			[
+				8,
+				1300
+			]
+		],
+		"ill_effectcondition": [
+			[
+				0
+			]
+		],
+		"s_itemIcon": "",
+		"s_skillInfoDesc": "所有上阵英雄三属性+13%",
+		"s_skillName": "普通英雄被动"
+	},
+	{
+		"i_effectType": 0,
+		"i_id": 10015,
+		"i_skillId": 1001,
+		"i_skillLevel": 5,
+		"ill_effect": [
+			[
+				6,
+				1400
+			],
+			[
+				7,
+				1400
+			],
+			[
+				8,
+				1400
+			]
+		],
+		"ill_effectcondition": [
+			[
+				0
+			]
+		],
+		"s_itemIcon": "",
+		"s_skillInfoDesc": "所有上阵英雄三属性+14%",
+		"s_skillName": "普通英雄被动"
+	},
+	{
+		"i_id": 110101,
+		"i_skillId": 110101,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_1",
+		"s_skillName": "测试技能1"
+	},
+	{
+		"i_id": 110102,
+		"i_skillId": 110102,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_2",
+		"s_skillName": "测试技能2"
+	},
+	{
+		"i_id": 110103,
+		"i_skillId": 110103,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_3",
+		"s_skillName": "测试技能3"
+	},
+	{
+		"i_id": 110104,
+		"i_skillId": 110104,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_4",
+		"s_skillName": "测试技能4"
+	},
+	{
+		"i_id": 110201,
+		"i_skillId": 110201,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_5",
+		"s_skillName": "测试技能5"
+	},
+	{
+		"i_id": 110202,
+		"i_skillId": 110202,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_6",
+		"s_skillName": "测试技能6"
+	},
+	{
+		"i_id": 110203,
+		"i_skillId": 110203,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_7",
+		"s_skillName": "测试技能7"
+	},
+	{
+		"i_id": 110204,
+		"i_skillId": 110204,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_8",
+		"s_skillName": "测试技能8"
+	},
+	{
+		"i_id": 110301,
+		"i_skillId": 110301,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_1",
+		"s_skillName": "测试技能9"
+	},
+	{
+		"i_id": 110302,
+		"i_skillId": 110302,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_2",
+		"s_skillName": "测试技能10"
+	},
+	{
+		"i_id": 110303,
+		"i_skillId": 110303,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_3",
+		"s_skillName": "测试技能11"
+	},
+	{
+		"i_id": 110304,
+		"i_skillId": 110304,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_4",
+		"s_skillName": "测试技能12"
+	},
+	{
+		"i_id": 110305,
+		"i_skillId": 110305,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_5",
+		"s_skillName": "测试技能13"
+	},
+	{
+		"i_id": 110401,
+		"i_skillId": 110401,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_6",
+		"s_skillName": "测试技能14"
+	},
+	{
+		"i_id": 110402,
+		"i_skillId": 110402,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_7",
+		"s_skillName": "测试技能15"
+	},
+	{
+		"i_id": 110403,
+		"i_skillId": 110403,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_8",
+		"s_skillName": "测试技能16"
+	},
+	{
+		"i_id": 110404,
+		"i_skillId": 110404,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_1",
+		"s_skillName": "测试技能17"
+	},
+	{
+		"i_id": 110405,
+		"i_skillId": 110405,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_2",
+		"s_skillName": "测试技能18"
+	},
+	{
+		"i_id": 110501,
+		"i_skillId": 110501,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_3",
+		"s_skillName": "测试技能19"
+	},
+	{
+		"i_id": 110502,
+		"i_skillId": 110502,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_4",
+		"s_skillName": "测试技能20"
+	},
+	{
+		"i_id": 110503,
+		"i_skillId": 110503,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_5",
+		"s_skillName": "测试技能21"
+	},
+	{
+		"i_id": 110504,
+		"i_skillId": 110504,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_6",
+		"s_skillName": "测试技能22"
+	},
+	{
+		"i_id": 110505,
+		"i_skillId": 110505,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_7",
+		"s_skillName": "测试技能23"
+	},
+	{
+		"i_id": 110506,
+		"i_skillId": 110506,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_8",
+		"s_skillName": "测试技能24"
+	},
+	{
+		"i_id": 110601,
+		"i_skillId": 110601,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_1",
+		"s_skillName": "测试技能25"
+	},
+	{
+		"i_id": 110602,
+		"i_skillId": 110602,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_2",
+		"s_skillName": "测试技能26"
+	},
+	{
+		"i_id": 110603,
+		"i_skillId": 110603,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_3",
+		"s_skillName": "测试技能27"
+	},
+	{
+		"i_id": 110604,
+		"i_skillId": 110604,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_4",
+		"s_skillName": "测试技能28"
+	},
+	{
+		"i_id": 110605,
+		"i_skillId": 110605,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_5",
+		"s_skillName": "测试技能29"
+	},
+	{
+		"i_id": 110606,
+		"i_skillId": 110606,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_6",
+		"s_skillName": "测试技能30"
+	},
+	{
+		"i_id": 110607,
+		"i_skillId": 110607,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_7",
+		"s_skillName": "测试技能31"
+	},
+	{
+		"i_id": 110608,
+		"i_skillId": 110608,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_8",
+		"s_skillName": "测试技能32"
+	},
+	{
+		"i_id": 120101,
+		"i_skillId": 120101,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_1",
+		"s_skillName": "测试技能33"
+	},
+	{
+		"i_id": 120102,
+		"i_skillId": 120102,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_2",
+		"s_skillName": "测试技能34"
+	},
+	{
+		"i_id": 120103,
+		"i_skillId": 120103,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_3",
+		"s_skillName": "测试技能35"
+	},
+	{
+		"i_id": 120104,
+		"i_skillId": 120104,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_4",
+		"s_skillName": "测试技能36"
+	},
+	{
+		"i_id": 120201,
+		"i_skillId": 120201,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_5",
+		"s_skillName": "测试技能37"
+	},
+	{
+		"i_id": 120202,
+		"i_skillId": 120202,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_6",
+		"s_skillName": "测试技能38"
+	},
+	{
+		"i_id": 120203,
+		"i_skillId": 120203,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_7",
+		"s_skillName": "测试技能39"
+	},
+	{
+		"i_id": 120204,
+		"i_skillId": 120204,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_8",
+		"s_skillName": "测试技能40"
+	},
+	{
+		"i_id": 120301,
+		"i_skillId": 120301,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_1",
+		"s_skillName": "测试技能41"
+	},
+	{
+		"i_id": 120302,
+		"i_skillId": 120302,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_2",
+		"s_skillName": "测试技能42"
+	},
+	{
+		"i_id": 120303,
+		"i_skillId": 120303,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_3",
+		"s_skillName": "测试技能43"
+	},
+	{
+		"i_id": 120304,
+		"i_skillId": 120304,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_4",
+		"s_skillName": "测试技能44"
+	},
+	{
+		"i_id": 120305,
+		"i_skillId": 120305,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_5",
+		"s_skillName": "测试技能45"
+	},
+	{
+		"i_id": 120401,
+		"i_skillId": 120401,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_6",
+		"s_skillName": "测试技能46"
+	},
+	{
+		"i_id": 120402,
+		"i_skillId": 120402,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_7",
+		"s_skillName": "测试技能47"
+	},
+	{
+		"i_id": 120403,
+		"i_skillId": 120403,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_8",
+		"s_skillName": "测试技能48"
+	},
+	{
+		"i_id": 120404,
+		"i_skillId": 120404,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_1",
+		"s_skillName": "测试技能49"
+	},
+	{
+		"i_id": 120405,
+		"i_skillId": 120405,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_2",
+		"s_skillName": "测试技能50"
+	},
+	{
+		"i_id": 120501,
+		"i_skillId": 120501,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_3",
+		"s_skillName": "测试技能51"
+	},
+	{
+		"i_id": 120502,
+		"i_skillId": 120502,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_4",
+		"s_skillName": "测试技能52"
+	},
+	{
+		"i_id": 120503,
+		"i_skillId": 120503,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_5",
+		"s_skillName": "测试技能53"
+	},
+	{
+		"i_id": 120504,
+		"i_skillId": 120504,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_6",
+		"s_skillName": "测试技能54"
+	},
+	{
+		"i_id": 120505,
+		"i_skillId": 120505,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_7",
+		"s_skillName": "测试技能55"
+	},
+	{
+		"i_id": 120506,
+		"i_skillId": 120506,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_8",
+		"s_skillName": "测试技能56"
+	},
+	{
+		"i_id": 120601,
+		"i_skillId": 120601,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_1",
+		"s_skillName": "测试技能57"
+	},
+	{
+		"i_id": 120602,
+		"i_skillId": 120602,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_2",
+		"s_skillName": "测试技能58"
+	},
+	{
+		"i_id": 120603,
+		"i_skillId": 120603,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_3",
+		"s_skillName": "测试技能59"
+	},
+	{
+		"i_id": 120604,
+		"i_skillId": 120604,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_4",
+		"s_skillName": "测试技能60"
+	},
+	{
+		"i_id": 120605,
+		"i_skillId": 120605,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_5",
+		"s_skillName": "测试技能61"
+	},
+	{
+		"i_id": 120606,
+		"i_skillId": 120606,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_6",
+		"s_skillName": "测试技能62"
+	},
+	{
+		"i_id": 120607,
+		"i_skillId": 120607,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_7",
+		"s_skillName": "测试技能63"
+	},
+	{
+		"i_id": 120608,
+		"i_skillId": 120608,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_8",
+		"s_skillName": "测试技能64"
+	},
+	{
+		"i_id": 130101,
+		"i_skillId": 130101,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_1",
+		"s_skillName": "测试技能65"
+	},
+	{
+		"i_id": 130102,
+		"i_skillId": 130102,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_2",
+		"s_skillName": "测试技能66"
+	},
+	{
+		"i_id": 130103,
+		"i_skillId": 130103,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_3",
+		"s_skillName": "测试技能67"
+	},
+	{
+		"i_id": 130104,
+		"i_skillId": 130104,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_4",
+		"s_skillName": "测试技能68"
+	},
+	{
+		"i_id": 130201,
+		"i_skillId": 130201,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_5",
+		"s_skillName": "测试技能69"
+	},
+	{
+		"i_id": 130202,
+		"i_skillId": 130202,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_6",
+		"s_skillName": "测试技能70"
+	},
+	{
+		"i_id": 130203,
+		"i_skillId": 130203,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_7",
+		"s_skillName": "测试技能71"
+	},
+	{
+		"i_id": 130204,
+		"i_skillId": 130204,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_8",
+		"s_skillName": "测试技能72"
+	},
+	{
+		"i_id": 130301,
+		"i_skillId": 130301,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_1",
+		"s_skillName": "测试技能73"
+	},
+	{
+		"i_id": 130302,
+		"i_skillId": 130302,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_2",
+		"s_skillName": "测试技能74"
+	},
+	{
+		"i_id": 130303,
+		"i_skillId": 130303,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_3",
+		"s_skillName": "测试技能75"
+	},
+	{
+		"i_id": 130304,
+		"i_skillId": 130304,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_4",
+		"s_skillName": "测试技能76"
+	},
+	{
+		"i_id": 130305,
+		"i_skillId": 130305,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_5",
+		"s_skillName": "测试技能77"
+	},
+	{
+		"i_id": 130401,
+		"i_skillId": 130401,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_6",
+		"s_skillName": "测试技能78"
+	},
+	{
+		"i_id": 130402,
+		"i_skillId": 130402,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_7",
+		"s_skillName": "测试技能79"
+	},
+	{
+		"i_id": 130403,
+		"i_skillId": 130403,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_8",
+		"s_skillName": "测试技能80"
+	},
+	{
+		"i_id": 130404,
+		"i_skillId": 130404,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_1",
+		"s_skillName": "测试技能81"
+	},
+	{
+		"i_id": 130405,
+		"i_skillId": 130405,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_2",
+		"s_skillName": "测试技能82"
+	},
+	{
+		"i_id": 130501,
+		"i_skillId": 130501,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_3",
+		"s_skillName": "测试技能83"
+	},
+	{
+		"i_id": 130502,
+		"i_skillId": 130502,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_4",
+		"s_skillName": "测试技能84"
+	},
+	{
+		"i_id": 130503,
+		"i_skillId": 130503,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_5",
+		"s_skillName": "测试技能85"
+	},
+	{
+		"i_id": 130504,
+		"i_skillId": 130504,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_6",
+		"s_skillName": "测试技能86"
+	},
+	{
+		"i_id": 130505,
+		"i_skillId": 130505,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_7",
+		"s_skillName": "测试技能87"
+	},
+	{
+		"i_id": 130506,
+		"i_skillId": 130506,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_8",
+		"s_skillName": "测试技能88"
+	},
+	{
+		"i_id": 130601,
+		"i_skillId": 130601,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_1",
+		"s_skillName": "测试技能89"
+	},
+	{
+		"i_id": 130602,
+		"i_skillId": 130602,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_2",
+		"s_skillName": "测试技能90"
+	},
+	{
+		"i_id": 130603,
+		"i_skillId": 130603,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_3",
+		"s_skillName": "测试技能91"
+	},
+	{
+		"i_id": 130604,
+		"i_skillId": 130604,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_4",
+		"s_skillName": "测试技能92"
+	},
+	{
+		"i_id": 130605,
+		"i_skillId": 130605,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_5",
+		"s_skillName": "测试技能93"
+	},
+	{
+		"i_id": 130606,
+		"i_skillId": 130606,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_6",
+		"s_skillName": "测试技能94"
+	},
+	{
+		"i_id": 130607,
+		"i_skillId": 130607,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_7",
+		"s_skillName": "测试技能95"
+	},
+	{
+		"i_id": 130608,
+		"i_skillId": 130608,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_8",
+		"s_skillName": "测试技能96"
+	},
+	{
+		"i_id": 140101,
+		"i_skillId": 140101,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_1",
+		"s_skillName": "测试技能97"
+	},
+	{
+		"i_id": 140102,
+		"i_skillId": 140102,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_2",
+		"s_skillName": "测试技能98"
+	},
+	{
+		"i_id": 140103,
+		"i_skillId": 140103,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_3",
+		"s_skillName": "测试技能99"
+	},
+	{
+		"i_id": 140104,
+		"i_skillId": 140104,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_4",
+		"s_skillName": "测试技能100"
+	},
+	{
+		"i_id": 140201,
+		"i_skillId": 140201,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_5",
+		"s_skillName": "测试技能101"
+	},
+	{
+		"i_id": 140202,
+		"i_skillId": 140202,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_6",
+		"s_skillName": "测试技能102"
+	},
+	{
+		"i_id": 140203,
+		"i_skillId": 140203,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_7",
+		"s_skillName": "测试技能103"
+	},
+	{
+		"i_id": 140204,
+		"i_skillId": 140204,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_8",
+		"s_skillName": "测试技能104"
+	},
+	{
+		"i_id": 140301,
+		"i_skillId": 140301,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_1",
+		"s_skillName": "测试技能105"
+	},
+	{
+		"i_id": 140302,
+		"i_skillId": 140302,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_2",
+		"s_skillName": "测试技能106"
+	},
+	{
+		"i_id": 140303,
+		"i_skillId": 140303,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_3",
+		"s_skillName": "测试技能107"
+	},
+	{
+		"i_id": 140304,
+		"i_skillId": 140304,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_4",
+		"s_skillName": "测试技能108"
+	},
+	{
+		"i_id": 140305,
+		"i_skillId": 140305,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_5",
+		"s_skillName": "测试技能109"
+	},
+	{
+		"i_id": 140401,
+		"i_skillId": 140401,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_6",
+		"s_skillName": "测试技能110"
+	},
+	{
+		"i_id": 140402,
+		"i_skillId": 140402,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_7",
+		"s_skillName": "测试技能111"
+	},
+	{
+		"i_id": 140403,
+		"i_skillId": 140403,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_8",
+		"s_skillName": "测试技能112"
+	},
+	{
+		"i_id": 140404,
+		"i_skillId": 140404,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_1",
+		"s_skillName": "测试技能113"
+	},
+	{
+		"i_id": 140405,
+		"i_skillId": 140405,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_2",
+		"s_skillName": "测试技能114"
+	},
+	{
+		"i_id": 140501,
+		"i_skillId": 140501,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_3",
+		"s_skillName": "测试技能115"
+	},
+	{
+		"i_id": 140502,
+		"i_skillId": 140502,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_4",
+		"s_skillName": "测试技能116"
+	},
+	{
+		"i_id": 140503,
+		"i_skillId": 140503,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_5",
+		"s_skillName": "测试技能117"
+	},
+	{
+		"i_id": 140504,
+		"i_skillId": 140504,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_6",
+		"s_skillName": "测试技能118"
+	},
+	{
+		"i_id": 140505,
+		"i_skillId": 140505,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_7",
+		"s_skillName": "测试技能119"
+	},
+	{
+		"i_id": 140506,
+		"i_skillId": 140506,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_8",
+		"s_skillName": "测试技能120"
+	},
+	{
+		"i_id": 140601,
+		"i_skillId": 140601,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_1",
+		"s_skillName": "测试技能121"
+	},
+	{
+		"i_id": 140602,
+		"i_skillId": 140602,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_2",
+		"s_skillName": "测试技能122"
+	},
+	{
+		"i_id": 140603,
+		"i_skillId": 140603,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_3",
+		"s_skillName": "测试技能123"
+	},
+	{
+		"i_id": 140604,
+		"i_skillId": 140604,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_4",
+		"s_skillName": "测试技能124"
+	},
+	{
+		"i_id": 140605,
+		"i_skillId": 140605,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_5",
+		"s_skillName": "测试技能125"
+	},
+	{
+		"i_id": 140606,
+		"i_skillId": 140606,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_6",
+		"s_skillName": "测试技能126"
+	},
+	{
+		"i_id": 140607,
+		"i_skillId": 140607,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_7",
+		"s_skillName": "测试技能127"
+	},
+	{
+		"i_id": 140608,
+		"i_skillId": 140608,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_8",
+		"s_skillName": "测试技能128"
+	},
+	{
+		"i_id": 150101,
+		"i_skillId": 150101,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_1",
+		"s_skillName": "测试技能129"
+	},
+	{
+		"i_id": 150102,
+		"i_skillId": 150102,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_2",
+		"s_skillName": "测试技能130"
+	},
+	{
+		"i_id": 150103,
+		"i_skillId": 150103,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_3",
+		"s_skillName": "测试技能131"
+	},
+	{
+		"i_id": 150104,
+		"i_skillId": 150104,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_4",
+		"s_skillName": "测试技能132"
+	},
+	{
+		"i_id": 150201,
+		"i_skillId": 150201,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_5",
+		"s_skillName": "测试技能133"
+	},
+	{
+		"i_id": 150202,
+		"i_skillId": 150202,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_6",
+		"s_skillName": "测试技能134"
+	},
+	{
+		"i_id": 150203,
+		"i_skillId": 150203,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_7",
+		"s_skillName": "测试技能135"
+	},
+	{
+		"i_id": 150204,
+		"i_skillId": 150204,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_8",
+		"s_skillName": "测试技能136"
+	},
+	{
+		"i_id": 150301,
+		"i_skillId": 150301,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_1",
+		"s_skillName": "测试技能137"
+	},
+	{
+		"i_id": 150302,
+		"i_skillId": 150302,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_2",
+		"s_skillName": "测试技能138"
+	},
+	{
+		"i_id": 150303,
+		"i_skillId": 150303,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_3",
+		"s_skillName": "测试技能139"
+	},
+	{
+		"i_id": 150304,
+		"i_skillId": 150304,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_4",
+		"s_skillName": "测试技能140"
+	},
+	{
+		"i_id": 150305,
+		"i_skillId": 150305,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_5",
+		"s_skillName": "测试技能141"
+	},
+	{
+		"i_id": 150401,
+		"i_skillId": 150401,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_6",
+		"s_skillName": "测试技能142"
+	},
+	{
+		"i_id": 150402,
+		"i_skillId": 150402,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_7",
+		"s_skillName": "测试技能143"
+	},
+	{
+		"i_id": 150403,
+		"i_skillId": 150403,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_8",
+		"s_skillName": "测试技能144"
+	},
+	{
+		"i_id": 150404,
+		"i_skillId": 150404,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_1",
+		"s_skillName": "测试技能145"
+	},
+	{
+		"i_id": 150405,
+		"i_skillId": 150405,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_2",
+		"s_skillName": "测试技能146"
+	},
+	{
+		"i_id": 150501,
+		"i_skillId": 150501,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_3",
+		"s_skillName": "测试技能147"
+	},
+	{
+		"i_id": 150502,
+		"i_skillId": 150502,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_4",
+		"s_skillName": "测试技能148"
+	},
+	{
+		"i_id": 150503,
+		"i_skillId": 150503,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_5",
+		"s_skillName": "测试技能149"
+	},
+	{
+		"i_id": 150504,
+		"i_skillId": 150504,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_6",
+		"s_skillName": "测试技能150"
+	},
+	{
+		"i_id": 150505,
+		"i_skillId": 150505,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_7",
+		"s_skillName": "测试技能151"
+	},
+	{
+		"i_id": 150506,
+		"i_skillId": 150506,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_8",
+		"s_skillName": "测试技能152"
+	},
+	{
+		"i_id": 150601,
+		"i_skillId": 150601,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_1",
+		"s_skillName": "测试技能153"
+	},
+	{
+		"i_id": 150602,
+		"i_skillId": 150602,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_2",
+		"s_skillName": "测试技能154"
+	},
+	{
+		"i_id": 150603,
+		"i_skillId": 150603,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_3",
+		"s_skillName": "测试技能155"
+	},
+	{
+		"i_id": 150604,
+		"i_skillId": 150604,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_4",
+		"s_skillName": "测试技能156"
+	},
+	{
+		"i_id": 150605,
+		"i_skillId": 150605,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_5",
+		"s_skillName": "测试技能157"
+	},
+	{
+		"i_id": 150606,
+		"i_skillId": 150606,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_6",
+		"s_skillName": "测试技能158"
+	},
+	{
+		"i_id": 150607,
+		"i_skillId": 150607,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_7",
+		"s_skillName": "测试技能159"
+	},
+	{
+		"i_id": 150608,
+		"i_skillId": 150608,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_8",
+		"s_skillName": "测试技能160"
+	},
+	{
+		"i_id": 160101,
+		"i_skillId": 160101,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_1",
+		"s_skillName": "测试技能161"
+	},
+	{
+		"i_id": 160102,
+		"i_skillId": 160102,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_2",
+		"s_skillName": "测试技能162"
+	},
+	{
+		"i_id": 160103,
+		"i_skillId": 160103,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_3",
+		"s_skillName": "测试技能163"
+	},
+	{
+		"i_id": 160104,
+		"i_skillId": 160104,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_4",
+		"s_skillName": "测试技能164"
+	},
+	{
+		"i_id": 160201,
+		"i_skillId": 160201,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_5",
+		"s_skillName": "测试技能165"
+	},
+	{
+		"i_id": 160202,
+		"i_skillId": 160202,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_6",
+		"s_skillName": "测试技能166"
+	},
+	{
+		"i_id": 160203,
+		"i_skillId": 160203,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_7",
+		"s_skillName": "测试技能167"
+	},
+	{
+		"i_id": 160204,
+		"i_skillId": 160204,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_8",
+		"s_skillName": "测试技能168"
+	},
+	{
+		"i_id": 160301,
+		"i_skillId": 160301,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_1",
+		"s_skillName": "测试技能169"
+	},
+	{
+		"i_id": 160302,
+		"i_skillId": 160302,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_2",
+		"s_skillName": "测试技能170"
+	},
+	{
+		"i_id": 160303,
+		"i_skillId": 160303,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_3",
+		"s_skillName": "测试技能171"
+	},
+	{
+		"i_id": 160304,
+		"i_skillId": 160304,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_4",
+		"s_skillName": "测试技能172"
+	},
+	{
+		"i_id": 160305,
+		"i_skillId": 160305,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_5",
+		"s_skillName": "测试技能173"
+	},
+	{
+		"i_id": 160401,
+		"i_skillId": 160401,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_6",
+		"s_skillName": "测试技能174"
+	},
+	{
+		"i_id": 160402,
+		"i_skillId": 160402,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_7",
+		"s_skillName": "测试技能175"
+	},
+	{
+		"i_id": 160403,
+		"i_skillId": 160403,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_8",
+		"s_skillName": "测试技能176"
+	},
+	{
+		"i_id": 160404,
+		"i_skillId": 160404,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_1",
+		"s_skillName": "测试技能177"
+	},
+	{
+		"i_id": 160405,
+		"i_skillId": 160405,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_2",
+		"s_skillName": "测试技能178"
+	},
+	{
+		"i_id": 160501,
+		"i_skillId": 160501,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_3",
+		"s_skillName": "测试技能179"
+	},
+	{
+		"i_id": 160502,
+		"i_skillId": 160502,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_4",
+		"s_skillName": "测试技能180"
+	},
+	{
+		"i_id": 160503,
+		"i_skillId": 160503,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_5",
+		"s_skillName": "测试技能181"
+	},
+	{
+		"i_id": 160504,
+		"i_skillId": 160504,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_6",
+		"s_skillName": "测试技能182"
+	},
+	{
+		"i_id": 160505,
+		"i_skillId": 160505,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_7",
+		"s_skillName": "测试技能183"
+	},
+	{
+		"i_id": 160506,
+		"i_skillId": 160506,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_8",
+		"s_skillName": "测试技能184"
+	},
+	{
+		"i_id": 160601,
+		"i_skillId": 160601,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_1",
+		"s_skillName": "测试技能185"
+	},
+	{
+		"i_id": 160602,
+		"i_skillId": 160602,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_2",
+		"s_skillName": "测试技能186"
+	},
+	{
+		"i_id": 160603,
+		"i_skillId": 160603,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_3",
+		"s_skillName": "测试技能187"
+	},
+	{
+		"i_id": 160604,
+		"i_skillId": 160604,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_4",
+		"s_skillName": "测试技能188"
+	},
+	{
+		"i_id": 160605,
+		"i_skillId": 160605,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_5",
+		"s_skillName": "测试技能189"
+	},
+	{
+		"i_id": 160606,
+		"i_skillId": 160606,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_6",
+		"s_skillName": "测试技能190"
+	},
+	{
+		"i_id": 160607,
+		"i_skillId": 160607,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_7",
+		"s_skillName": "测试技能191"
+	},
+	{
+		"i_id": 160608,
+		"i_skillId": 160608,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_8",
+		"s_skillName": "测试技能192"
+	},
+	{
+		"i_id": 170101,
+		"i_skillId": 170101,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_1",
+		"s_skillName": "测试技能193"
+	},
+	{
+		"i_id": 170102,
+		"i_skillId": 170102,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_2",
+		"s_skillName": "测试技能194"
+	},
+	{
+		"i_id": 170103,
+		"i_skillId": 170103,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_3",
+		"s_skillName": "测试技能195"
+	},
+	{
+		"i_id": 170104,
+		"i_skillId": 170104,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_4",
+		"s_skillName": "测试技能196"
+	},
+	{
+		"i_id": 170201,
+		"i_skillId": 170201,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_1",
+		"s_skillName": "测试技能197"
+	},
+	{
+		"i_id": 170202,
+		"i_skillId": 170202,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_2",
+		"s_skillName": "测试技能198"
+	},
+	{
+		"i_id": 170203,
+		"i_skillId": 170203,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_3",
+		"s_skillName": "测试技能199"
+	},
+	{
+		"i_id": 170204,
+		"i_skillId": 170204,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_4",
+		"s_skillName": "测试技能200"
+	},
+	{
+		"i_id": 170301,
+		"i_skillId": 170301,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_1",
+		"s_skillName": "测试技能201"
+	},
+	{
+		"i_id": 170302,
+		"i_skillId": 170302,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_2",
+		"s_skillName": "测试技能202"
+	},
+	{
+		"i_id": 170303,
+		"i_skillId": 170303,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_3",
+		"s_skillName": "测试技能203"
+	},
+	{
+		"i_id": 170304,
+		"i_skillId": 170304,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_4",
+		"s_skillName": "测试技能204"
+	},
+	{
+		"i_id": 170401,
+		"i_skillId": 170401,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_1",
+		"s_skillName": "测试技能205"
+	},
+	{
+		"i_id": 170402,
+		"i_skillId": 170402,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_2",
+		"s_skillName": "测试技能206"
+	},
+	{
+		"i_id": 170403,
+		"i_skillId": 170403,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_3",
+		"s_skillName": "测试技能207"
+	},
+	{
+		"i_id": 170404,
+		"i_skillId": 170404,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_4",
+		"s_skillName": "测试技能208"
+	},
+	{
+		"i_id": 170501,
+		"i_skillId": 170501,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_1",
+		"s_skillName": "测试技能209"
+	},
+	{
+		"i_id": 170502,
+		"i_skillId": 170502,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_2",
+		"s_skillName": "测试技能210"
+	},
+	{
+		"i_id": 170503,
+		"i_skillId": 170503,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_3",
+		"s_skillName": "测试技能211"
+	},
+	{
+		"i_id": 170504,
+		"i_skillId": 170504,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_4",
+		"s_skillName": "测试技能212"
+	},
+	{
+		"i_id": 170505,
+		"i_skillId": 170505,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_5",
+		"s_skillName": "测试技能213"
+	},
+	{
+		"i_id": 170601,
+		"i_skillId": 170601,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_1",
+		"s_skillName": "测试技能214"
+	},
+	{
+		"i_id": 170602,
+		"i_skillId": 170602,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_2",
+		"s_skillName": "测试技能215"
+	},
+	{
+		"i_id": 170603,
+		"i_skillId": 170603,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_3",
+		"s_skillName": "测试技能216"
+	},
+	{
+		"i_id": 170604,
+		"i_skillId": 170604,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_4",
+		"s_skillName": "测试技能217"
+	},
+	{
+		"i_id": 170605,
+		"i_skillId": 170605,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_5",
+		"s_skillName": "测试技能218"
+	},
+	{
+		"i_id": 170701,
+		"i_skillId": 170701,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_1",
+		"s_skillName": "测试技能219"
+	},
+	{
+		"i_id": 170702,
+		"i_skillId": 170702,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_2",
+		"s_skillName": "测试技能220"
+	},
+	{
+		"i_id": 170703,
+		"i_skillId": 170703,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_3",
+		"s_skillName": "测试技能221"
+	},
+	{
+		"i_id": 170704,
+		"i_skillId": 170704,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_4",
+		"s_skillName": "测试技能222"
+	},
+	{
+		"i_id": 170705,
+		"i_skillId": 170705,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_5",
+		"s_skillName": "测试技能223"
+	},
+	{
+		"i_id": 170801,
+		"i_skillId": 170801,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_1",
+		"s_skillName": "测试技能224"
+	},
+	{
+		"i_id": 170802,
+		"i_skillId": 170802,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_2",
+		"s_skillName": "测试技能225"
+	},
+	{
+		"i_id": 170803,
+		"i_skillId": 170803,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_3",
+		"s_skillName": "测试技能226"
+	},
+	{
+		"i_id": 170804,
+		"i_skillId": 170804,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_4",
+		"s_skillName": "测试技能227"
+	},
+	{
+		"i_id": 170805,
+		"i_skillId": 170805,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_5",
+		"s_skillName": "测试技能228"
+	},
+	{
+		"i_id": 170901,
+		"i_skillId": 170901,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_1",
+		"s_skillName": "测试技能229"
+	},
+	{
+		"i_id": 170902,
+		"i_skillId": 170902,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_2",
+		"s_skillName": "测试技能230"
+	},
+	{
+		"i_id": 170903,
+		"i_skillId": 170903,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_3",
+		"s_skillName": "测试技能231"
+	},
+	{
+		"i_id": 170904,
+		"i_skillId": 170904,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_4",
+		"s_skillName": "测试技能232"
+	},
+	{
+		"i_id": 170905,
+		"i_skillId": 170905,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_5",
+		"s_skillName": "测试技能233"
+	},
+	{
+		"i_id": 170906,
+		"i_skillId": 170906,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_6",
+		"s_skillName": "测试技能234"
+	},
+	{
+		"i_id": 171001,
+		"i_skillId": 171001,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_1",
+		"s_skillName": "测试技能235"
+	},
+	{
+		"i_id": 171002,
+		"i_skillId": 171002,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_2",
+		"s_skillName": "测试技能236"
+	},
+	{
+		"i_id": 171003,
+		"i_skillId": 171003,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_3",
+		"s_skillName": "测试技能237"
+	},
+	{
+		"i_id": 171004,
+		"i_skillId": 171004,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_4",
+		"s_skillName": "测试技能238"
+	},
+	{
+		"i_id": 171005,
+		"i_skillId": 171005,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_5",
+		"s_skillName": "测试技能239"
+	},
+	{
+		"i_id": 171006,
+		"i_skillId": 171006,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_6",
+		"s_skillName": "测试技能240"
+	},
+	{
+		"i_id": 171101,
+		"i_skillId": 171101,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_1",
+		"s_skillName": "测试技能241"
+	},
+	{
+		"i_id": 171102,
+		"i_skillId": 171102,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_2",
+		"s_skillName": "测试技能242"
+	},
+	{
+		"i_id": 171103,
+		"i_skillId": 171103,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_3",
+		"s_skillName": "测试技能243"
+	},
+	{
+		"i_id": 171104,
+		"i_skillId": 171104,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_4",
+		"s_skillName": "测试技能244"
+	},
+	{
+		"i_id": 171105,
+		"i_skillId": 171105,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_5",
+		"s_skillName": "测试技能245"
+	},
+	{
+		"i_id": 171106,
+		"i_skillId": 171106,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_6",
+		"s_skillName": "测试技能246"
+	},
+	{
+		"i_id": 171107,
+		"i_skillId": 171107,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_7",
+		"s_skillName": "测试技能247"
+	},
+	{
+		"i_id": 171108,
+		"i_skillId": 171108,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_8",
+		"s_skillName": "测试技能248"
+	},
+	{
+		"i_id": 171201,
+		"i_skillId": 171201,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_1",
+		"s_skillName": "测试技能249"
+	},
+	{
+		"i_id": 171202,
+		"i_skillId": 171202,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_2",
+		"s_skillName": "测试技能250"
+	},
+	{
+		"i_id": 171203,
+		"i_skillId": 171203,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_3",
+		"s_skillName": "测试技能251"
+	},
+	{
+		"i_id": 171204,
+		"i_skillId": 171204,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_4",
+		"s_skillName": "测试技能252"
+	},
+	{
+		"i_id": 171205,
+		"i_skillId": 171205,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_5",
+		"s_skillName": "测试技能253"
+	},
+	{
+		"i_id": 171206,
+		"i_skillId": 171206,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_6",
+		"s_skillName": "测试技能254"
+	},
+	{
+		"i_id": 171207,
+		"i_skillId": 171207,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_7",
+		"s_skillName": "测试技能255"
+	},
+	{
+		"i_id": 171208,
+		"i_skillId": 171208,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_8",
+		"s_skillName": "测试技能256"
+	},
+	{
+		"i_id": 180101,
+		"i_skillId": 180101,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_1",
+		"s_skillName": "测试技能257"
+	},
+	{
+		"i_id": 180102,
+		"i_skillId": 180102,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_2",
+		"s_skillName": "测试技能258"
+	},
+	{
+		"i_id": 180103,
+		"i_skillId": 180103,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_3",
+		"s_skillName": "测试技能259"
+	},
+	{
+		"i_id": 180104,
+		"i_skillId": 180104,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_4",
+		"s_skillName": "测试技能260"
+	},
+	{
+		"i_id": 180201,
+		"i_skillId": 180201,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_1",
+		"s_skillName": "测试技能261"
+	},
+	{
+		"i_id": 180202,
+		"i_skillId": 180202,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_2",
+		"s_skillName": "测试技能262"
+	},
+	{
+		"i_id": 180203,
+		"i_skillId": 180203,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_3",
+		"s_skillName": "测试技能263"
+	},
+	{
+		"i_id": 180204,
+		"i_skillId": 180204,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_4",
+		"s_skillName": "测试技能264"
+	},
+	{
+		"i_id": 180301,
+		"i_skillId": 180301,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_1",
+		"s_skillName": "测试技能265"
+	},
+	{
+		"i_id": 180302,
+		"i_skillId": 180302,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_2",
+		"s_skillName": "测试技能266"
+	},
+	{
+		"i_id": 180303,
+		"i_skillId": 180303,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_3",
+		"s_skillName": "测试技能267"
+	},
+	{
+		"i_id": 180304,
+		"i_skillId": 180304,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_4",
+		"s_skillName": "测试技能268"
+	},
+	{
+		"i_id": 180401,
+		"i_skillId": 180401,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_1",
+		"s_skillName": "测试技能269"
+	},
+	{
+		"i_id": 180402,
+		"i_skillId": 180402,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_2",
+		"s_skillName": "测试技能270"
+	},
+	{
+		"i_id": 180403,
+		"i_skillId": 180403,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_3",
+		"s_skillName": "测试技能271"
+	},
+	{
+		"i_id": 180404,
+		"i_skillId": 180404,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_4",
+		"s_skillName": "测试技能272"
+	},
+	{
+		"i_id": 180501,
+		"i_skillId": 180501,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_1",
+		"s_skillName": "测试技能273"
+	},
+	{
+		"i_id": 180502,
+		"i_skillId": 180502,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_2",
+		"s_skillName": "测试技能274"
+	},
+	{
+		"i_id": 180503,
+		"i_skillId": 180503,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_3",
+		"s_skillName": "测试技能275"
+	},
+	{
+		"i_id": 180504,
+		"i_skillId": 180504,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_4",
+		"s_skillName": "测试技能276"
+	},
+	{
+		"i_id": 180505,
+		"i_skillId": 180505,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_5",
+		"s_skillName": "测试技能277"
+	},
+	{
+		"i_id": 180601,
+		"i_skillId": 180601,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_1",
+		"s_skillName": "测试技能278"
+	},
+	{
+		"i_id": 180602,
+		"i_skillId": 180602,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_2",
+		"s_skillName": "测试技能279"
+	},
+	{
+		"i_id": 180603,
+		"i_skillId": 180603,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_3",
+		"s_skillName": "测试技能280"
+	},
+	{
+		"i_id": 180604,
+		"i_skillId": 180604,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_4",
+		"s_skillName": "测试技能281"
+	},
+	{
+		"i_id": 180605,
+		"i_skillId": 180605,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_5",
+		"s_skillName": "测试技能282"
+	},
+	{
+		"i_id": 180701,
+		"i_skillId": 180701,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_1",
+		"s_skillName": "测试技能283"
+	},
+	{
+		"i_id": 180702,
+		"i_skillId": 180702,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_2",
+		"s_skillName": "测试技能284"
+	},
+	{
+		"i_id": 180703,
+		"i_skillId": 180703,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_3",
+		"s_skillName": "测试技能285"
+	},
+	{
+		"i_id": 180704,
+		"i_skillId": 180704,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_4",
+		"s_skillName": "测试技能286"
+	},
+	{
+		"i_id": 180705,
+		"i_skillId": 180705,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_5",
+		"s_skillName": "测试技能287"
+	},
+	{
+		"i_id": 180801,
+		"i_skillId": 180801,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_1",
+		"s_skillName": "测试技能288"
+	},
+	{
+		"i_id": 180802,
+		"i_skillId": 180802,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_2",
+		"s_skillName": "测试技能289"
+	},
+	{
+		"i_id": 180803,
+		"i_skillId": 180803,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_3",
+		"s_skillName": "测试技能290"
+	},
+	{
+		"i_id": 180804,
+		"i_skillId": 180804,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_4",
+		"s_skillName": "测试技能291"
+	},
+	{
+		"i_id": 180805,
+		"i_skillId": 180805,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_5",
+		"s_skillName": "测试技能292"
+	},
+	{
+		"i_id": 180901,
+		"i_skillId": 180901,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_1",
+		"s_skillName": "测试技能293"
+	},
+	{
+		"i_id": 180902,
+		"i_skillId": 180902,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_2",
+		"s_skillName": "测试技能294"
+	},
+	{
+		"i_id": 180903,
+		"i_skillId": 180903,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_3",
+		"s_skillName": "测试技能295"
+	},
+	{
+		"i_id": 180904,
+		"i_skillId": 180904,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_4",
+		"s_skillName": "测试技能296"
+	},
+	{
+		"i_id": 180905,
+		"i_skillId": 180905,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_5",
+		"s_skillName": "测试技能297"
+	},
+	{
+		"i_id": 180906,
+		"i_skillId": 180906,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_6",
+		"s_skillName": "测试技能298"
+	},
+	{
+		"i_id": 181001,
+		"i_skillId": 181001,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_1",
+		"s_skillName": "测试技能299"
+	},
+	{
+		"i_id": 181002,
+		"i_skillId": 181002,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_2",
+		"s_skillName": "测试技能300"
+	},
+	{
+		"i_id": 181003,
+		"i_skillId": 181003,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_3",
+		"s_skillName": "测试技能301"
+	},
+	{
+		"i_id": 181004,
+		"i_skillId": 181004,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_4",
+		"s_skillName": "测试技能302"
+	},
+	{
+		"i_id": 181005,
+		"i_skillId": 181005,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_5",
+		"s_skillName": "测试技能303"
+	},
+	{
+		"i_id": 181006,
+		"i_skillId": 181006,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_6",
+		"s_skillName": "测试技能304"
+	},
+	{
+		"i_id": 181101,
+		"i_skillId": 181101,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_1",
+		"s_skillName": "测试技能305"
+	},
+	{
+		"i_id": 181102,
+		"i_skillId": 181102,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_2",
+		"s_skillName": "测试技能306"
+	},
+	{
+		"i_id": 181103,
+		"i_skillId": 181103,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_3",
+		"s_skillName": "测试技能307"
+	},
+	{
+		"i_id": 181104,
+		"i_skillId": 181104,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_4",
+		"s_skillName": "测试技能308"
+	},
+	{
+		"i_id": 181105,
+		"i_skillId": 181105,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_5",
+		"s_skillName": "测试技能309"
+	},
+	{
+		"i_id": 181106,
+		"i_skillId": 181106,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_6",
+		"s_skillName": "测试技能310"
+	},
+	{
+		"i_id": 181107,
+		"i_skillId": 181107,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_7",
+		"s_skillName": "测试技能311"
+	},
+	{
+		"i_id": 181108,
+		"i_skillId": 181108,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_8",
+		"s_skillName": "测试技能312"
+	},
+	{
+		"i_id": 181201,
+		"i_skillId": 181201,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_1",
+		"s_skillName": "测试技能313"
+	},
+	{
+		"i_id": 181202,
+		"i_skillId": 181202,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_2",
+		"s_skillName": "测试技能314"
+	},
+	{
+		"i_id": 181203,
+		"i_skillId": 181203,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_3",
+		"s_skillName": "测试技能315"
+	},
+	{
+		"i_id": 181204,
+		"i_skillId": 181204,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_4",
+		"s_skillName": "测试技能316"
+	},
+	{
+		"i_id": 181205,
+		"i_skillId": 181205,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_5",
+		"s_skillName": "测试技能317"
+	},
+	{
+		"i_id": 181206,
+		"i_skillId": 181206,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_6",
+		"s_skillName": "测试技能318"
+	},
+	{
+		"i_id": 181207,
+		"i_skillId": 181207,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_7",
+		"s_skillName": "测试技能319"
+	},
+	{
+		"i_id": 181208,
+		"i_skillId": 181208,
+		"i_skillLevel": 1,
+		"s_itemIcon": "icon_8",
+		"s_skillName": "测试技能320"
+	}
+]

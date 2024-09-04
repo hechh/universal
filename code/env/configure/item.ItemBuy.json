@@ -1,0 +1,142 @@
+[
+	{
+		"i_count": 5,
+		"i_id": 1,
+		"i_itemId": 21,
+		"il_needItem": [
+			1,
+			1,
+			10
+		]
+	},
+	{
+		"i_count": 10,
+		"i_id": 2,
+		"i_itemId": 21,
+		"il_needItem": [
+			1,
+			1,
+			13
+		]
+	},
+	{
+		"i_count": 15,
+		"i_id": 3,
+		"i_itemId": 21,
+		"il_needItem": [
+			1,
+			1,
+			16
+		]
+	},
+	{
+		"i_count": 20,
+		"i_id": 4,
+		"i_itemId": 21,
+		"il_needItem": [
+			1,
+			1,
+			20
+		]
+	},
+	{
+		"i_count": 25,
+		"i_id": 5,
+		"i_itemId": 21,
+		"il_needItem": [
+			1,
+			1,
+			25
+		]
+	},
+	{
+		"i_count": 30,
+		"i_id": 6,
+		"i_itemId": 21,
+		"il_needItem": [
+			1,
+			1,
+			33
+		]
+	},
+	{
+		"i_count": 35,
+		"i_id": 7,
+		"i_itemId": 21,
+		"il_needItem": [
+			1,
+			1,
+			45
+		]
+	},
+	{
+		"i_count": 40,
+		"i_id": 8,
+		"i_itemId": 21,
+		"il_needItem": [
+			1,
+			1,
+			62
+		]
+	},
+	{
+		"i_count": 45,
+		"i_id": 9,
+		"i_itemId": 21,
+		"il_needItem": [
+			1,
+			1,
+			85
+		]
+	},
+	{
+		"i_count": 50,
+		"i_id": 10,
+		"i_itemId": 21,
+		"il_needItem": [
+			1,
+			1,
+			115
+		]
+	},
+	{
+		"i_count": 55,
+		"i_id": 11,
+		"i_itemId": 21,
+		"il_needItem": [
+			1,
+			1,
+			153
+		]
+	},
+	{
+		"i_count": 60,
+		"i_id": 12,
+		"i_itemId": 21,
+		"il_needItem": [
+			1,
+			1,
+			200
+		]
+	},
+	{
+		"i_count": 5000,
+		"i_id": 13,
+		"i_itemId": 12,
+		"il_needItem": [
+			1,
+			1,
+			6
+		]
+	},
+	{
+		"i_count": 200,
+		"i_id": 14,
+		"i_itemId": 13,
+		"il_needItem": [
+			1,
+			1,
+			200
+		]
+	}
+]

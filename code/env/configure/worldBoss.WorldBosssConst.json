@@ -1,0 +1,16 @@
+[
+	{
+		"i_dailyBuyCount": 1,
+		"i_dailyEndCount": 1,
+		"i_dailyEnterCount": 3,
+		"i_id": 1,
+		"il_buyNeedItem": [
+			1,
+			1,
+			50
+		],
+		"s_beginTime": "9:00",
+		"s_endTime": "21:30",
+		"s_prizeTime": "22:00"
+	}
+]

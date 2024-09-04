@@ -18,6 +18,7 @@ const (
 const (
 	PACKAGE = "package"
 	XLSX    = "xlsx"
+	JSON    = "json"
 	HTTPKIT = "httpkit.tpl"
 	PBCLASS = "pbclass.tpl"
 	PROTO   = "proto.tpl"

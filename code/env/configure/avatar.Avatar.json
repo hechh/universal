@@ -1,0 +1,236 @@
+[
+	{
+		"i_id": 1,
+		"i_quality": 0,
+		"i_source": 3,
+		"s_desc": "用了你就是始皇帝",
+		"s_icon": "img_yx_tx_1",
+		"s_name": "始皇帝",
+		"s_unlockDesc": "解锁英雄获得"
+	},
+	{
+		"i_id": 2,
+		"i_quality": 0,
+		"i_source": 3,
+		"s_desc": "用了你就是佑助",
+		"s_icon": "img_yx_tx_6",
+		"s_name": "佑助",
+		"s_unlockDesc": "解锁英雄获得"
+	},
+	{
+		"i_id": 3,
+		"i_quality": 0,
+		"i_source": 3,
+		"s_desc": "用了你就是爱因斯坦",
+		"s_icon": "img_yx_tx_5",
+		"s_name": "爱因斯坦",
+		"s_unlockDesc": "解锁英雄获得"
+	},
+	{
+		"i_id": 4,
+		"i_quality": 0,
+		"i_source": 3,
+		"s_desc": "用了你就是南丁格尔",
+		"s_icon": "img_yx_tx_2",
+		"s_name": "南丁格尔",
+		"s_unlockDesc": "解锁英雄获得"
+	},
+	{
+		"i_id": 5,
+		"i_quality": 0,
+		"i_source": 3,
+		"s_desc": "用了你就是小贱贱",
+		"s_icon": "img_yx_tx_3",
+		"s_name": "小贱贱",
+		"s_unlockDesc": "解锁英雄获得"
+	},
+	{
+		"i_id": 6,
+		"i_quality": 0,
+		"i_source": 3,
+		"s_desc": "用了你就是火箭",
+		"s_icon": "img_yx_tx_4",
+		"s_name": "火箭",
+		"s_unlockDesc": "解锁英雄获得"
+	},
+	{
+		"i_id": 7,
+		"i_quality": 0,
+		"i_source": 3,
+		"s_desc": "用了你就是海洋霸主",
+		"s_icon": "img_yx_tx_7",
+		"s_name": "海洋霸主",
+		"s_unlockDesc": "解锁英雄获得"
+	},
+	{
+		"i_id": 8,
+		"i_quality": 0,
+		"i_source": 3,
+		"s_desc": "用了你就是叮当狼",
+		"s_icon": "img_yx_tx_8",
+		"s_name": "叮当狼",
+		"s_unlockDesc": "解锁英雄获得"
+	},
+	{
+		"i_id": 9,
+		"i_quality": 0,
+		"i_source": 3,
+		"s_desc": "用了你就是奇异博士",
+		"s_icon": "img_yx_tx_9",
+		"s_name": "奇异博士",
+		"s_unlockDesc": "解锁英雄获得"
+	},
+	{
+		"i_id": 10,
+		"i_quality": 0,
+		"i_source": 3,
+		"s_desc": "用了你就是生化巨人",
+		"s_icon": "img_yx_tx_10",
+		"s_name": "生化巨人",
+		"s_unlockDesc": "解锁英雄获得"
+	},
+	{
+		"i_id": 11,
+		"i_quality": 0,
+		"i_source": 3,
+		"s_desc": "用了你就是小丑",
+		"s_icon": "img_yx_tx_11",
+		"s_name": "小丑",
+		"s_unlockDesc": "解锁英雄获得"
+	},
+	{
+		"i_id": 12,
+		"i_quality": 0,
+		"i_source": 3,
+		"s_desc": "用了你就是星月女神",
+		"s_icon": "img_yx_tx_12",
+		"s_name": "星月女神",
+		"s_unlockDesc": "解锁英雄获得"
+	},
+	{
+		"i_id": 13,
+		"i_quality": 0,
+		"i_source": 3,
+		"s_desc": "用了你就是终结者",
+		"s_icon": "img_yx_tx_13",
+		"s_name": "终结者",
+		"s_unlockDesc": "解锁英雄获得"
+	},
+	{
+		"i_id": 14,
+		"i_quality": 0,
+		"i_source": 3,
+		"s_desc": "用了你就是电光侠",
+		"s_icon": "img_yx_tx_14",
+		"s_name": "电光侠",
+		"s_unlockDesc": "解锁英雄获得"
+	},
+	{
+		"i_id": 15,
+		"i_quality": 0,
+		"i_source": 3,
+		"s_desc": "用了你就是绿林箭手",
+		"s_icon": "img_yx_tx_15",
+		"s_name": "绿林箭手",
+		"s_unlockDesc": "解锁英雄获得"
+	},
+	{
+		"i_id": 16,
+		"i_quality": 0,
+		"i_source": 3,
+		"s_desc": "用了你就是幽灵船长",
+		"s_icon": "img_yx_tx_16",
+		"s_name": "幽灵船长",
+		"s_unlockDesc": "解锁英雄获得"
+	},
+	{
+		"i_id": 17,
+		"i_quality": 0,
+		"i_source": 3,
+		"s_desc": "用了你就是冰人",
+		"s_icon": "img_yx_tx_17",
+		"s_name": "冰人",
+		"s_unlockDesc": "解锁英雄获得"
+	},
+	{
+		"i_id": 18,
+		"i_quality": 0,
+		"i_source": 3,
+		"s_desc": "用了你就是金克斯",
+		"s_icon": "img_yx_tx_18",
+		"s_name": "金克斯",
+		"s_unlockDesc": "解锁英雄获得"
+	},
+	{
+		"i_id": 19,
+		"i_quality": 0,
+		"i_source": 3,
+		"s_desc": "用了你就是明日香",
+		"s_icon": "img_yx_tx_19",
+		"s_name": "明日香",
+		"s_unlockDesc": "解锁英雄获得"
+	},
+	{
+		"i_id": 20,
+		"i_quality": 0,
+		"i_source": 3,
+		"s_desc": "用了你就是龙姨",
+		"s_icon": "img_yx_tx_20",
+		"s_name": "龙姨",
+		"s_unlockDesc": "解锁英雄获得"
+	},
+	{
+		"i_id": 21,
+		"i_quality": 0,
+		"i_source": 3,
+		"s_desc": "用了你就是暴风女",
+		"s_icon": "img_yx_tx_21",
+		"s_name": "暴风女",
+		"s_unlockDesc": "解锁英雄获得"
+	},
+	{
+		"i_id": 22,
+		"i_quality": 0,
+		"i_source": 3,
+		"s_desc": "用了你就是雷神",
+		"s_icon": "img_yx_tx_22",
+		"s_name": "雷神",
+		"s_unlockDesc": "解锁英雄获得"
+	},
+	{
+		"i_id": 23,
+		"i_quality": 0,
+		"i_source": 3,
+		"s_desc": "用了你就是赛亚人",
+		"s_icon": "img_yx_tx_23",
+		"s_name": "赛亚人",
+		"s_unlockDesc": "解锁英雄获得"
+	},
+	{
+		"i_id": 24,
+		"i_quality": 0,
+		"i_source": 3,
+		"s_desc": "用了你就是吸血鬼",
+		"s_icon": "img_yx_tx_24",
+		"s_name": "吸血鬼",
+		"s_unlockDesc": "解锁英雄获得"
+	},
+	{
+		"i_id": 25,
+		"i_quality": 0,
+		"i_source": 3,
+		"s_desc": "用了你就是灭霸",
+		"s_icon": "img_yx_tx_25",
+		"s_name": "灭霸",
+		"s_unlockDesc": "解锁英雄获得"
+	},
+	{
+		"i_id": 26,
+		"i_quality": 0,
+		"i_source": 3,
+		"s_desc": "用了你就是魔人布欧",
+		"s_icon": "img_yx_tx_26",
+		"s_name": "魔人布欧",
+		"s_unlockDesc": "解锁英雄获得"
+	}
+]

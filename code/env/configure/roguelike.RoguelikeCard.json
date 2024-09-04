@@ -1,0 +1,1082 @@
+[
+	{
+		"i_applyProf": 999,
+		"i_cardTag": 0,
+		"i_cardType": 1,
+		"i_id": 1,
+		"i_prof": 999,
+		"i_quality": 2,
+		"il_skill": [
+			0
+		],
+		"s_briefDesc": "",
+		"s_cardTypeDesc": "",
+		"s_desc": "",
+		"s_enhanceDesc": "",
+		"s_icon": "",
+		"s_name": "英雄登场"
+	},
+	{
+		"i_applyProf": 999,
+		"i_cardTag": 0,
+		"i_cardType": 2,
+		"i_id": 2,
+		"i_prof": 999,
+		"i_quality": 2,
+		"il_skill": [
+			0
+		],
+		"s_briefDesc": "提升英雄星级",
+		"s_cardTypeDesc": "",
+		"s_desc": "提升英雄星级",
+		"s_enhanceDesc": "",
+		"s_icon": "",
+		"s_name": "英雄修炼"
+	},
+	{
+		"i_applyProf": 999,
+		"i_cardTag": 1,
+		"i_cardType": 3,
+		"i_id": 3,
+		"i_prof": 999,
+		"i_quality": 3,
+		"il_skill": [
+			0
+		],
+		"s_briefDesc": "获得强大的觉醒技能！",
+		"s_cardTypeDesc": "",
+		"s_desc": "获得强大的觉醒技能！",
+		"s_enhanceDesc": "",
+		"s_icon": "",
+		"s_name": "英雄觉醒"
+	},
+	{
+		"fl_params": [
+			1
+		],
+		"i_applyProf": 4,
+		"i_cardTag": 0,
+		"i_cardType": 4,
+		"i_id": 10,
+		"i_prof": 4,
+		"i_quality": 3,
+		"il_skill": [
+			999,
+			15
+		],
+		"s_briefDesc": "",
+		"s_cardTypeDesc": "强化",
+		"s_desc": "触发\u003csprite=3\u003e\u003ccolor=#FFAD54\u003e霹雳\u003c/color\u003e的概率\u003ccolor=#2EEE64\u003e+50%\u003c/color\u003e",
+		"s_enhanceDesc": "",
+		"s_icon": "icon_zd_kpjn_4",
+		"s_name": "高爆霹雳"
+	},
+	{
+		"fl_params": [
+			2
+		],
+		"i_applyProf": 4,
+		"i_cardTag": 0,
+		"i_cardType": 4,
+		"i_id": 11,
+		"i_prof": 4,
+		"i_quality": 3,
+		"il_skill": [
+			999,
+			16
+		],
+		"s_briefDesc": "",
+		"s_cardTypeDesc": "强化",
+		"s_desc": "\u003csprite=3\u003e\u003ccolor=#FFAD54\u003e霹雳\u003c/color\u003e有\u003ccolor=#2EEE64\u003e27%\u003c/color\u003e概率触发一次\u003ccolor=#FFAD54\u003e延时\u003c/color\u003e霹雳",
+		"s_enhanceDesc": "",
+		"s_icon": "icon_zd_kpjn_4",
+		"s_name": "延时霹雳"
+	},
+	{
+		"fl_params": [
+			3
+		],
+		"i_applyProf": 4,
+		"i_cardTag": 0,
+		"i_cardType": 4,
+		"i_id": 12,
+		"i_prof": 4,
+		"i_quality": 3,
+		"il_skill": [
+			999,
+			17
+		],
+		"s_briefDesc": "",
+		"s_cardTypeDesc": "强化",
+		"s_desc": "\u003csprite=3\u003e\u003ccolor=#FFAD54\u003e霹雳\u003c/color\u003e有\u003ccolor=#2EEE64\u003e12%\u003c/color\u003e的概率向四周\u003ccolor=#FFAD54\u003e扩散",
+		"s_enhanceDesc": "",
+		"s_icon": "icon_zd_kpjn_4",
+		"s_name": "扩散霹雳"
+	},
+	{
+		"fl_params": [
+			4
+		],
+		"i_applyProf": 4,
+		"i_cardTag": 0,
+		"i_cardType": 4,
+		"i_id": 13,
+		"i_prof": 4,
+		"i_quality": 3,
+		"il_skill": [
+			999,
+			18
+		],
+		"s_briefDesc": "",
+		"s_cardTypeDesc": "强化",
+		"s_desc": "\u003csprite=3\u003e\u003ccolor=#FFAD54\u003e霹雳\u003c/color\u003e有\u003ccolor=#2EEE64\u003e35%\u003c/color\u003e概率再次触发",
+		"s_enhanceDesc": "",
+		"s_icon": "icon_zd_kpjn_4",
+		"s_name": "连发霹雳"
+	},
+	{
+		"fl_params": [
+			5
+		],
+		"i_applyProf": 4,
+		"i_cardTag": 0,
+		"i_cardType": 4,
+		"i_id": 14,
+		"i_prof": 4,
+		"i_quality": 3,
+		"il_skill": [
+			999,
+			19
+		],
+		"s_briefDesc": "",
+		"s_cardTypeDesc": "强化",
+		"s_desc": "爆破师每次触发\u003csprite=3\u003e\u003ccolor=#FFAD54\u003e霹雳\u003c/color\u003e,自身伤害\u003ccolor=#2EEE64\u003e+7%\u003c/color\u003e",
+		"s_enhanceDesc": "",
+		"s_icon": "icon_zd_kpjn_4",
+		"s_name": "增幅霹雳"
+	},
+	{
+		"fl_params": [
+			1
+		],
+		"i_applyProf": 3,
+		"i_cardTag": 0,
+		"i_cardType": 4,
+		"i_id": 15,
+		"i_prof": 3,
+		"i_quality": 3,
+		"il_skill": [
+			999,
+			10
+		],
+		"s_briefDesc": "",
+		"s_cardTypeDesc": "强化",
+		"s_desc": "生成\u003csprite=2\u003e\u003ccolor=#FFAD54\u003e灵能\u003c/color\u003e时,\u003ccolor=#2EEE64\u003e50%\u003c/color\u003e概率\u003ccolor=#FFAD54\u003e额外\u003c/color\u003e生成一个",
+		"s_enhanceDesc": "",
+		"s_icon": "icon_zd_kpjn_3",
+		"s_name": "灵能复制"
+	},
+	{
+		"fl_params": [
+			2
+		],
+		"i_applyProf": 3,
+		"i_cardTag": 0,
+		"i_cardType": 4,
+		"i_id": 16,
+		"i_prof": 3,
+		"i_quality": 3,
+		"il_skill": [
+			999,
+			11
+		],
+		"s_briefDesc": "",
+		"s_cardTypeDesc": "强化",
+		"s_desc": "\u003csprite=2\u003e\u003ccolor=#FFAD54\u003e灵能\u003c/color\u003e半径\u003ccolor=#2EEE64\u003e+30%\u003c/color\u003e",
+		"s_enhanceDesc": "",
+		"s_icon": "icon_zd_kpjn_3",
+		"s_name": "灵能扩张"
+	},
+	{
+		"fl_params": [
+			3
+		],
+		"i_applyProf": 3,
+		"i_cardTag": 0,
+		"i_cardType": 4,
+		"i_id": 17,
+		"i_prof": 3,
+		"i_quality": 3,
+		"il_skill": [
+			999,
+			12
+		],
+		"s_briefDesc": "",
+		"s_cardTypeDesc": "强化",
+		"s_desc": "\u003csprite=2\u003e\u003ccolor=#FFAD54\u003e灵能\u003c/color\u003e消失时,有\u003ccolor=#2EEE64\u003e35%\u003c/color\u003e概率原地\u003ccolor=#FFAD54\u003e再生\u003c/color\u003e",
+		"s_enhanceDesc": "",
+		"s_icon": "icon_zd_kpjn_3",
+		"s_name": "灵能再生"
+	},
+	{
+		"fl_params": [
+			4
+		],
+		"i_applyProf": 3,
+		"i_cardTag": 0,
+		"i_cardType": 4,
+		"i_id": 18,
+		"i_prof": 3,
+		"i_quality": 3,
+		"il_skill": [
+			999,
+			13
+		],
+		"s_briefDesc": "",
+		"s_cardTypeDesc": "强化",
+		"s_desc": "\u003csprite=2\u003e\u003ccolor=#FFAD54\u003e灵能\u003c/color\u003e产生时有\u003ccolor=#2EEE64\u003e50%\u003c/color\u003e的概率变成两个",
+		"s_enhanceDesc": "",
+		"s_icon": "icon_zd_kpjn_3",
+		"s_name": "灵能双生"
+	},
+	{
+		"fl_params": [
+			5
+		],
+		"i_applyProf": 3,
+		"i_cardTag": 0,
+		"i_cardType": 4,
+		"i_id": 19,
+		"i_prof": 3,
+		"i_quality": 3,
+		"il_skill": [
+			999,
+			14
+		],
+		"s_briefDesc": "",
+		"s_cardTypeDesc": "强化",
+		"s_desc": "\u003csprite=2\u003e\u003ccolor=#FFAD54\u003e灵能\u003c/color\u003e每次造成伤害,全队伤害\u003ccolor=#2EEE64\u003e+1%\u003c/color\u003e",
+		"s_enhanceDesc": "",
+		"s_icon": "icon_zd_kpjn_3",
+		"s_name": "灵能增幅"
+	},
+	{
+		"fl_params": [
+			1
+		],
+		"i_applyProf": 1,
+		"i_cardTag": 0,
+		"i_cardType": 4,
+		"i_id": 20,
+		"i_prof": 1,
+		"i_quality": 3,
+		"il_skill": [
+			999,
+			20
+		],
+		"s_briefDesc": "",
+		"s_cardTypeDesc": "强化",
+		"s_desc": "发射\u003csprite=4\u003e\u003ccolor=#FFAD54\u003e贯穿\u003c/color\u003e箭周期缩短\u003ccolor=#2EEE64\u003e50%\u003c/color\u003e",
+		"s_enhanceDesc": "",
+		"s_icon": "icon_zd_kpjn_1",
+		"s_name": "高能贯穿"
+	},
+	{
+		"fl_params": [
+			2
+		],
+		"i_applyProf": 1,
+		"i_cardTag": 0,
+		"i_cardType": 4,
+		"i_id": 21,
+		"i_prof": 1,
+		"i_quality": 3,
+		"il_skill": [
+			999,
+			21
+		],
+		"s_briefDesc": "",
+		"s_cardTypeDesc": "强化",
+		"s_desc": "\u003csprite=4\u003e\u003ccolor=#FFAD54\u003e贯穿\u003c/color\u003e箭矢每\u003ccolor=#2EEE64\u003e0.25s\u003c/color\u003e\u003ccolor=#FFAD54\u003e折射\u003c/color\u003e一次",
+		"s_enhanceDesc": "",
+		"s_icon": "icon_zd_kpjn_1",
+		"s_name": "折射贯穿"
+	},
+	{
+		"fl_params": [
+			3
+		],
+		"i_applyProf": 1,
+		"i_cardTag": 0,
+		"i_cardType": 4,
+		"i_id": 22,
+		"i_prof": 1,
+		"i_quality": 3,
+		"il_skill": [
+			999,
+			22
+		],
+		"s_briefDesc": "",
+		"s_cardTypeDesc": "强化",
+		"s_desc": "\u003csprite=4\u003e\u003ccolor=#FFAD54\u003e贯穿\u003c/color\u003e箭有\u003ccolor=#2EEE64\u003e50%\u003c/color\u003e概率会\u003ccolor=#FFAD54\u003e连发\u003c/color\u003e",
+		"s_enhanceDesc": "",
+		"s_icon": "icon_zd_kpjn_1",
+		"s_name": "连击贯穿"
+	},
+	{
+		"fl_params": [
+			4
+		],
+		"i_applyProf": 1,
+		"i_cardTag": 0,
+		"i_cardType": 4,
+		"i_id": 23,
+		"i_prof": 1,
+		"i_quality": 3,
+		"il_skill": [
+			999,
+			23
+		],
+		"s_briefDesc": "",
+		"s_cardTypeDesc": "强化",
+		"s_desc": "\u003csprite=4\u003e\u003ccolor=#FFAD54\u003e贯穿\u003c/color\u003e箭矢有\u003ccolor=#2EEE64\u003e50%\u003c/color\u003e概率\u003ccolor=#FFAD54\u003e分裂\u003c/color\u003e",
+		"s_enhanceDesc": "",
+		"s_icon": "icon_zd_kpjn_1",
+		"s_name": "分裂贯穿"
+	},
+	{
+		"fl_params": [
+			5
+		],
+		"i_applyProf": 1,
+		"i_cardTag": 0,
+		"i_cardType": 4,
+		"i_id": 24,
+		"i_prof": 1,
+		"i_quality": 3,
+		"il_skill": [
+			999,
+			24
+		],
+		"s_briefDesc": "",
+		"s_cardTypeDesc": "强化",
+		"s_desc": "枪械师每次发射\u003csprite=4\u003e\u003ccolor=#FFAD54\u003e贯穿\u003c/color\u003e箭,自身伤害\u003ccolor=#2EEE64\u003e+1%\u003c/color\u003e",
+		"s_enhanceDesc": "",
+		"s_icon": "icon_zd_kpjn_1",
+		"s_name": "增幅贯穿"
+	},
+	{
+		"fl_params": [
+			1
+		],
+		"i_applyProf": 0,
+		"i_cardTag": 0,
+		"i_cardType": 4,
+		"i_id": 25,
+		"i_prof": 0,
+		"i_quality": 3,
+		"il_skill": [
+			999,
+			25
+		],
+		"s_briefDesc": "",
+		"s_cardTypeDesc": "强化",
+		"s_desc": "生成\u003csprite=0\u003e\u003ccolor=#FFAD54\u003e力场\u003c/color\u003e时,有\u003ccolor=#2EEE64\u003e50%\u003c/color\u003e概率额外生成一个",
+		"s_enhanceDesc": "",
+		"s_icon": "icon_zd_kpjn_0",
+		"s_name": "力场复制"
+	},
+	{
+		"fl_params": [
+			2
+		],
+		"i_applyProf": 0,
+		"i_cardTag": 0,
+		"i_cardType": 4,
+		"i_id": 26,
+		"i_prof": 0,
+		"i_quality": 3,
+		"il_skill": [
+			999,
+			26
+		],
+		"s_briefDesc": "",
+		"s_cardTypeDesc": "强化",
+		"s_desc": "\u003csprite=0\u003e\u003ccolor=#FFAD54\u003e力场\u003c/color\u003e持续时间增加\u003ccolor=#2EEE64\u003e4\u003c/color\u003e秒",
+		"s_enhanceDesc": "",
+		"s_icon": "icon_zd_kpjn_0",
+		"s_name": "力场延续"
+	},
+	{
+		"fl_params": [
+			3
+		],
+		"i_applyProf": 0,
+		"i_cardTag": 0,
+		"i_cardType": 4,
+		"i_id": 27,
+		"i_prof": 0,
+		"i_quality": 3,
+		"il_skill": [
+			999,
+			27
+		],
+		"s_briefDesc": "",
+		"s_cardTypeDesc": "强化",
+		"s_desc": "\u003csprite=0\u003e\u003ccolor=#FFAD54\u003e力场\u003c/color\u003e消失时,有\u003ccolor=#2EEE64\u003e50%\u003c/color\u003e概率\u003ccolor=#FFAD54\u003e分裂\u003c/color\u003e",
+		"s_enhanceDesc": "",
+		"s_icon": "icon_zd_kpjn_0",
+		"s_name": "力场分裂"
+	},
+	{
+		"fl_params": [
+			4
+		],
+		"i_applyProf": 0,
+		"i_cardTag": 0,
+		"i_cardType": 4,
+		"i_id": 28,
+		"i_prof": 0,
+		"i_quality": 3,
+		"il_skill": [
+			999,
+			28
+		],
+		"s_briefDesc": "",
+		"s_cardTypeDesc": "强化",
+		"s_desc": "\u003csprite=0\u003e\u003ccolor=#FFAD54\u003e力场\u003c/color\u003e存在期间,会周期性\u003ccolor=#FFAD54\u003e缩放\u003c/color\u003e",
+		"s_enhanceDesc": "",
+		"s_icon": "icon_zd_kpjn_0",
+		"s_name": "力场共振"
+	},
+	{
+		"fl_params": [
+			5
+		],
+		"i_applyProf": 0,
+		"i_cardTag": 0,
+		"i_cardType": 4,
+		"i_id": 29,
+		"i_prof": 0,
+		"i_quality": 3,
+		"il_skill": [
+			999,
+			29
+		],
+		"s_briefDesc": "",
+		"s_cardTypeDesc": "强化",
+		"s_desc": "\u003csprite=0\u003e\u003ccolor=#FFAD54\u003e力场\u003c/color\u003e每次造成伤害,全队伤害\u003ccolor=#2EEE64\u003e+2%\u003c/color\u003e",
+		"s_enhanceDesc": "",
+		"s_icon": "icon_zd_kpjn_0",
+		"s_name": "力场增幅"
+	},
+	{
+		"fl_params": [
+			1
+		],
+		"i_applyProf": 2,
+		"i_cardTag": 0,
+		"i_cardType": 4,
+		"i_id": 30,
+		"i_prof": 2,
+		"i_quality": 3,
+		"il_skill": [
+			999,
+			30
+		],
+		"s_briefDesc": "",
+		"s_cardTypeDesc": "强化",
+		"s_desc": "触发\u003csprite=5\u003e\u003ccolor=#FFAD54\u003e影袭\u003c/color\u003e的概率增加\u003ccolor=#2EEE64\u003e50%\u003c/color\u003e",
+		"s_enhanceDesc": "",
+		"s_icon": "icon_zd_kpjn_2",
+		"s_name": "高能影袭"
+	},
+	{
+		"fl_params": [
+			2
+		],
+		"i_applyProf": 2,
+		"i_cardTag": 0,
+		"i_cardType": 4,
+		"i_id": 31,
+		"i_prof": 2,
+		"i_quality": 3,
+		"il_skill": [
+			999,
+			31
+		],
+		"s_briefDesc": "",
+		"s_cardTypeDesc": "强化",
+		"s_desc": "\u003csprite=5\u003e\u003ccolor=#FFAD54\u003e影袭\u003c/color\u003e伤害范围\u003ccolor=#2EEE64\u003e+50%\u003c/color\u003e",
+		"s_enhanceDesc": "",
+		"s_icon": "icon_zd_kpjn_2",
+		"s_name": "强力影袭"
+	},
+	{
+		"fl_params": [
+			3
+		],
+		"i_applyProf": 2,
+		"i_cardTag": 0,
+		"i_cardType": 4,
+		"i_id": 32,
+		"i_prof": 2,
+		"i_quality": 3,
+		"il_skill": [
+			999,
+			32
+		],
+		"s_briefDesc": "",
+		"s_cardTypeDesc": "强化",
+		"s_desc": "\u003csprite=5\u003e\u003ccolor=#FFAD54\u003e影袭\u003c/color\u003e有\u003ccolor=#2EEE64\u003e25%\u003c/color\u003e概率向前方\u003ccolor=#FFAD54\u003e连斩\u003c/color\u003e三次",
+		"s_enhanceDesc": "",
+		"s_icon": "icon_zd_kpjn_2",
+		"s_name": "连斩影袭"
+	},
+	{
+		"fl_params": [
+			4
+		],
+		"i_applyProf": 2,
+		"i_cardTag": 0,
+		"i_cardType": 4,
+		"i_id": 33,
+		"i_prof": 2,
+		"i_quality": 3,
+		"il_skill": [
+			999,
+			33
+		],
+		"s_briefDesc": "",
+		"s_cardTypeDesc": "强化",
+		"s_desc": "\u003csprite=5\u003e\u003ccolor=#FFAD54\u003e影袭\u003c/color\u003e有\u003ccolor=#2EEE64\u003e50%\u003c/color\u003e概率\u003ccolor=#FFAD54\u003e额外触发\u003c/color\u003e一次",
+		"s_enhanceDesc": "",
+		"s_icon": "icon_zd_kpjn_2",
+		"s_name": "双发影袭"
+	},
+	{
+		"fl_params": [
+			5
+		],
+		"i_applyProf": 2,
+		"i_cardTag": 0,
+		"i_cardType": 4,
+		"i_id": 34,
+		"i_prof": 2,
+		"i_quality": 3,
+		"il_skill": [
+			999,
+			34
+		],
+		"s_briefDesc": "",
+		"s_cardTypeDesc": "强化",
+		"s_desc": "独行侠每次触发\u003csprite=5\u003e\u003ccolor=#FFAD54\u003e影袭\u003c/color\u003e,自身伤害\u003ccolor=#2EEE64\u003e+7%\u003c/color\u003e",
+		"s_enhanceDesc": "",
+		"s_icon": "icon_zd_kpjn_2",
+		"s_name": "增幅影袭"
+	},
+	{
+		"fl_params": [
+			1
+		],
+		"i_applyProf": 4,
+		"i_cardTag": 0,
+		"i_cardType": 5,
+		"i_id": 35,
+		"i_prof": 4,
+		"i_quality": 4,
+		"il_skill": [
+			994
+		],
+		"s_briefDesc": "",
+		"s_cardTypeDesc": "共鸣",
+		"s_desc": "爆破师攻击概率触发\u003csprite=3\u003e\u003ccolor=#FFAD54\u003e霹雳\u003c/color\u003e",
+		"s_enhanceDesc": "",
+		"s_icon": "icon_zd_kpjn_4",
+		"s_name": "爆破师"
+	},
+	{
+		"fl_params": [
+			2
+		],
+		"i_applyProf": 3,
+		"i_cardTag": 0,
+		"i_cardType": 5,
+		"i_id": 36,
+		"i_prof": 3,
+		"i_quality": 4,
+		"il_skill": [
+			994
+		],
+		"s_briefDesc": "",
+		"s_cardTypeDesc": "共鸣",
+		"s_desc": "吟游者释放大招后创造\u003csprite=2\u003e\u003ccolor=#FFAD54\u003e灵能\u003c/color\u003e",
+		"s_enhanceDesc": "",
+		"s_icon": "icon_zd_kpjn_3",
+		"s_name": "吟游者"
+	},
+	{
+		"fl_params": [
+			3
+		],
+		"i_applyProf": 1,
+		"i_cardTag": 0,
+		"i_cardType": 5,
+		"i_id": 37,
+		"i_prof": 1,
+		"i_quality": 4,
+		"il_skill": [
+			994
+		],
+		"s_briefDesc": "",
+		"s_cardTypeDesc": "共鸣",
+		"s_desc": "枪械师攻击间歇释放\u003csprite=4\u003e\u003ccolor=#FFAD54\u003e贯穿\u003c/color\u003e箭矢",
+		"s_enhanceDesc": "",
+		"s_icon": "icon_zd_kpjn_1",
+		"s_name": "枪械师"
+	},
+	{
+		"fl_params": [
+			4
+		],
+		"i_applyProf": 0,
+		"i_cardTag": 0,
+		"i_cardType": 5,
+		"i_id": 38,
+		"i_prof": 0,
+		"i_quality": 4,
+		"il_skill": [
+			994
+		],
+		"s_briefDesc": "",
+		"s_cardTypeDesc": "共鸣",
+		"s_desc": "无畏者释放大招后创造\u003csprite=0\u003e\u003ccolor=#FFAD54\u003e力场\u003c/color\u003e",
+		"s_enhanceDesc": "",
+		"s_icon": "icon_zd_kpjn_0",
+		"s_name": "无畏者"
+	},
+	{
+		"fl_params": [
+			5
+		],
+		"i_applyProf": 2,
+		"i_cardTag": 0,
+		"i_cardType": 5,
+		"i_id": 39,
+		"i_prof": 2,
+		"i_quality": 4,
+		"il_skill": [
+			994
+		],
+		"s_briefDesc": "",
+		"s_cardTypeDesc": "共鸣",
+		"s_desc": "独行侠攻击概率触发\u003csprite=5\u003e\u003ccolor=#FFAD54\u003e影袭\u003c/color\u003e",
+		"s_enhanceDesc": "",
+		"s_icon": "icon_zd_kpjn_2",
+		"s_name": "独行侠"
+	},
+	{
+		"fl_params": [
+			5000
+		],
+		"i_applyProf": 999,
+		"i_cardTag": 0,
+		"i_cardType": 7,
+		"i_id": 100,
+		"i_prof": 999,
+		"i_quality": 2,
+		"il_skill": [
+			995
+		],
+		"s_briefDesc": "强伤",
+		"s_cardTypeDesc": "增强",
+		"s_desc": "强化伤害",
+		"s_enhanceDesc": "",
+		"s_icon": "icon_kpxz_baodi",
+		"s_name": "伤害增强"
+	},
+	{
+		"fl_params": [
+			1000
+		],
+		"i_applyProf": 999,
+		"i_cardTag": 0,
+		"i_cardType": 8,
+		"i_id": 1000,
+		"i_prof": 999,
+		"i_quality": 4,
+		"il_skill": [
+			0
+		],
+		"s_briefDesc": "冰星",
+		"s_cardTypeDesc": "共鸣",
+		"s_desc": "冰霜新星",
+		"s_enhanceDesc": "",
+		"s_icon": "",
+		"s_name": "冰霜新星"
+	},
+	{
+		"fl_params": [
+			1000,
+			100002,
+			100005
+		],
+		"i_applyProf": 999,
+		"i_cardTag": 0,
+		"i_cardType": 6,
+		"i_id": 10000,
+		"i_prof": 999,
+		"i_quality": 4,
+		"il_skill": [
+			0
+		],
+		"s_briefDesc": "冰星强化1",
+		"s_cardTypeDesc": "共鸣进阶",
+		"s_desc": "冰霜新星强化1",
+		"s_enhanceDesc": "",
+		"s_icon": "",
+		"s_name": "冰雾冻结"
+	},
+	{
+		"fl_params": [
+			1000,
+			100004,
+			100006
+		],
+		"i_applyProf": 999,
+		"i_cardTag": 0,
+		"i_cardType": 6,
+		"i_id": 10001,
+		"i_prof": 999,
+		"i_quality": 4,
+		"il_skill": [
+			0
+		],
+		"s_briefDesc": "冰星强化2",
+		"s_cardTypeDesc": "共鸣进阶",
+		"s_desc": "冰霜新星强化2",
+		"s_enhanceDesc": "",
+		"s_icon": "",
+		"s_name": "扩散打击"
+	},
+	{
+		"fl_params": [
+			1001
+		],
+		"i_applyProf": 999,
+		"i_cardTag": 0,
+		"i_cardType": 8,
+		"i_id": 1001,
+		"i_prof": 999,
+		"i_quality": 4,
+		"il_skill": [
+			0
+		],
+		"s_briefDesc": "火轰",
+		"s_cardTypeDesc": "共鸣",
+		"s_desc": "火焰轰鸣",
+		"s_enhanceDesc": "",
+		"s_icon": "",
+		"s_name": "火焰轰鸣"
+	},
+	{
+		"fl_params": [
+			1001,
+			100012,
+			100015
+		],
+		"i_applyProf": 999,
+		"i_cardTag": 0,
+		"i_cardType": 6,
+		"i_id": 10010,
+		"i_prof": 999,
+		"i_quality": 4,
+		"il_skill": [
+			0
+		],
+		"s_briefDesc": "火轰强化1",
+		"s_cardTypeDesc": "共鸣进阶",
+		"s_desc": "火焰轰鸣强化1",
+		"s_enhanceDesc": "",
+		"s_icon": "",
+		"s_name": "火焰悦动"
+	},
+	{
+		"fl_params": [
+			1001,
+			100014,
+			100016
+		],
+		"i_applyProf": 999,
+		"i_cardTag": 0,
+		"i_cardType": 6,
+		"i_id": 10011,
+		"i_prof": 999,
+		"i_quality": 4,
+		"il_skill": [
+			0
+		],
+		"s_briefDesc": "火轰强化2",
+		"s_cardTypeDesc": "共鸣进阶",
+		"s_desc": "火焰轰鸣强化2",
+		"s_enhanceDesc": "",
+		"s_icon": "",
+		"s_name": "熔岩碎块"
+	},
+	{
+		"fl_params": [
+			1002
+		],
+		"i_applyProf": 999,
+		"i_cardTag": 0,
+		"i_cardType": 8,
+		"i_id": 1002,
+		"i_prof": 999,
+		"i_quality": 4,
+		"il_skill": [
+			0
+		],
+		"s_briefDesc": "治附",
+		"s_cardTypeDesc": "共鸣",
+		"s_desc": "治愈附魔",
+		"s_enhanceDesc": "",
+		"s_icon": "",
+		"s_name": "治愈附魔"
+	},
+	{
+		"fl_params": [
+			1002,
+			100022,
+			100025
+		],
+		"i_applyProf": 999,
+		"i_cardTag": 0,
+		"i_cardType": 6,
+		"i_id": 10020,
+		"i_prof": 999,
+		"i_quality": 4,
+		"il_skill": [
+			0
+		],
+		"s_briefDesc": "治附强化1",
+		"s_cardTypeDesc": "共鸣进阶",
+		"s_desc": "治愈附魔强化1",
+		"s_enhanceDesc": "",
+		"s_icon": "",
+		"s_name": "治愈附魔"
+	},
+	{
+		"fl_params": [
+			1002,
+			100024,
+			100026
+		],
+		"i_applyProf": 999,
+		"i_cardTag": 0,
+		"i_cardType": 6,
+		"i_id": 10021,
+		"i_prof": 999,
+		"i_quality": 4,
+		"il_skill": [
+			0
+		],
+		"s_briefDesc": "治附强化2",
+		"s_cardTypeDesc": "共鸣进阶",
+		"s_desc": "治愈附魔强化2",
+		"s_enhanceDesc": "",
+		"s_icon": "",
+		"s_name": "治愈附魔"
+	},
+	{
+		"fl_params": [
+			1003
+		],
+		"i_applyProf": 999,
+		"i_cardTag": 0,
+		"i_cardType": 8,
+		"i_id": 1003,
+		"i_prof": 999,
+		"i_quality": 4,
+		"il_skill": [
+			0
+		],
+		"s_briefDesc": "火环",
+		"s_cardTypeDesc": "共鸣",
+		"s_desc": "火焰法环",
+		"s_enhanceDesc": "",
+		"s_icon": "",
+		"s_name": "火焰法环"
+	},
+	{
+		"fl_params": [
+			1003,
+			100032,
+			100035
+		],
+		"i_applyProf": 999,
+		"i_cardTag": 0,
+		"i_cardType": 6,
+		"i_id": 10030,
+		"i_prof": 999,
+		"i_quality": 4,
+		"il_skill": [
+			0
+		],
+		"s_briefDesc": "火环强化1",
+		"s_cardTypeDesc": "共鸣进阶",
+		"s_desc": "火焰法环强化1",
+		"s_enhanceDesc": "",
+		"s_icon": "",
+		"s_name": "蔓延火环"
+	},
+	{
+		"fl_params": [
+			1003,
+			100034,
+			100036
+		],
+		"i_applyProf": 999,
+		"i_cardTag": 0,
+		"i_cardType": 6,
+		"i_id": 10031,
+		"i_prof": 999,
+		"i_quality": 4,
+		"il_skill": [
+			0
+		],
+		"s_briefDesc": "火环强化2",
+		"s_cardTypeDesc": "共鸣进阶",
+		"s_desc": "火焰法环强化2",
+		"s_enhanceDesc": "",
+		"s_icon": "",
+		"s_name": "火环裂变"
+	},
+	{
+		"fl_params": [
+			1004
+		],
+		"i_applyProf": 999,
+		"i_cardTag": 0,
+		"i_cardType": 8,
+		"i_id": 1004,
+		"i_prof": 999,
+		"i_quality": 4,
+		"il_skill": [
+			0
+		],
+		"s_briefDesc": "反风",
+		"s_cardTypeDesc": "共鸣",
+		"s_desc": "反击风暴",
+		"s_enhanceDesc": "",
+		"s_icon": "",
+		"s_name": "反击风暴"
+	},
+	{
+		"fl_params": [
+			1004,
+			100042,
+			100045
+		],
+		"i_applyProf": 999,
+		"i_cardTag": 0,
+		"i_cardType": 6,
+		"i_id": 10040,
+		"i_prof": 999,
+		"i_quality": 4,
+		"il_skill": [
+			0
+		],
+		"s_briefDesc": "反风强化1",
+		"s_cardTypeDesc": "共鸣进阶",
+		"s_desc": "反击风暴强化1",
+		"s_enhanceDesc": "",
+		"s_icon": "",
+		"s_name": "移动风暴"
+	},
+	{
+		"fl_params": [
+			1004,
+			100044,
+			100046
+		],
+		"i_applyProf": 999,
+		"i_cardTag": 0,
+		"i_cardType": 6,
+		"i_id": 10041,
+		"i_prof": 999,
+		"i_quality": 4,
+		"il_skill": [
+			0
+		],
+		"s_briefDesc": "反风强化2",
+		"s_cardTypeDesc": "共鸣进阶",
+		"s_desc": "反击风暴强化2",
+		"s_enhanceDesc": "",
+		"s_icon": "",
+		"s_name": "闪电核心"
+	},
+	{
+		"fl_params": [
+			1005
+		],
+		"i_applyProf": 999,
+		"i_cardTag": 0,
+		"i_cardType": 8,
+		"i_id": 1005,
+		"i_prof": 999,
+		"i_quality": 4,
+		"il_skill": [
+			0
+		],
+		"s_briefDesc": "蜿月",
+		"s_cardTypeDesc": "共鸣",
+		"s_desc": "寒冰法球",
+		"s_enhanceDesc": "",
+		"s_icon": "",
+		"s_name": "寒冰法球"
+	},
+	{
+		"fl_params": [
+			1005,
+			100052,
+			100055
+		],
+		"i_applyProf": 999,
+		"i_cardTag": 0,
+		"i_cardType": 6,
+		"i_id": 10050,
+		"i_prof": 999,
+		"i_quality": 4,
+		"il_skill": [
+			0
+		],
+		"s_briefDesc": "蜿月强化1",
+		"s_cardTypeDesc": "共鸣进阶",
+		"s_desc": "寒冰法球强化1",
+		"s_enhanceDesc": "",
+		"s_icon": "",
+		"s_name": "寒冰法球"
+	},
+	{
+		"fl_params": [
+			1005,
+			100054,
+			100056
+		],
+		"i_applyProf": 999,
+		"i_cardTag": 0,
+		"i_cardType": 6,
+		"i_id": 10051,
+		"i_prof": 999,
+		"i_quality": 4,
+		"il_skill": [
+			0
+		],
+		"s_briefDesc": "蜿月强化2",
+		"s_cardTypeDesc": "共鸣进阶",
+		"s_desc": "寒冰法球强化2",
+		"s_enhanceDesc": "",
+		"s_icon": "",
+		"s_name": "寒冰法球"
+	}
+]

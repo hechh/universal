@@ -6,7 +6,7 @@ GEN_GO_PATH=./common/pb
 OUTPUT=./output
 
 
-.PHONY: protoc
+.PHONY: protoc tool json
 
 ############################生成代码选项##############################
 protoc:
@@ -26,5 +26,5 @@ tool: protoc
 	go run ./tools/gomaker/main.go -action="proto.tpl" -src="common/pb" -dst="tools/client/internal/httpkit/json.gen.go" -tpl="tools/gomaker/templates/"
 #	go install ./tools/client
 
-cfgtool:
-	go run ./tools/cfgtool/main.go -src="./share/table/" -dst="./output/json/"
+json: protoc
+	go run ./tools/gomaker/main.go -action="json" -src="../share/table" -dst="./env/configure"

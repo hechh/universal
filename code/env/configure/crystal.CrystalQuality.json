@@ -1,0 +1,1344 @@
+[
+	{
+		"i_collectCoin": 1,
+		"i_id": 1,
+		"i_quality": 2,
+		"i_redefineConsume": 10,
+		"i_redefinePercent": 0,
+		"i_star": 1,
+		"ill_delItem": [
+			[
+				1,
+				24,
+				3
+			]
+		]
+	},
+	{
+		"i_collectCoin": 1,
+		"i_id": 2,
+		"i_quality": 2,
+		"i_redefineConsume": 10,
+		"i_redefinePercent": 1000,
+		"i_star": 2,
+		"ill_delItem": [
+			[
+				1,
+				24,
+				3
+			]
+		]
+	},
+	{
+		"i_collectCoin": 1,
+		"i_id": 3,
+		"i_quality": 2,
+		"i_redefineConsume": 10,
+		"i_redefinePercent": 1000,
+		"i_star": 3,
+		"ill_delItem": [
+			[
+				1,
+				24,
+				3
+			]
+		]
+	},
+	{
+		"i_collectCoin": 1,
+		"i_id": 4,
+		"i_quality": 2,
+		"i_redefineConsume": 20,
+		"i_redefinePercent": 1000,
+		"i_star": 4,
+		"ill_delItem": [
+			[
+				1,
+				24,
+				4
+			]
+		]
+	},
+	{
+		"i_collectCoin": 1,
+		"i_id": 5,
+		"i_quality": 2,
+		"i_redefineConsume": 20,
+		"i_redefinePercent": 1000,
+		"i_star": 5,
+		"ill_delItem": [
+			[
+				1,
+				24,
+				4
+			]
+		]
+	},
+	{
+		"i_collectCoin": 1,
+		"i_id": 6,
+		"i_quality": 2,
+		"i_redefineConsume": 20,
+		"i_redefinePercent": 1000,
+		"i_star": 6,
+		"ill_delItem": [
+			[
+				1,
+				24,
+				4
+			]
+		]
+	},
+	{
+		"i_collectCoin": 1,
+		"i_id": 7,
+		"i_quality": 2,
+		"i_redefineConsume": 20,
+		"i_redefinePercent": 1000,
+		"i_star": 7,
+		"ill_delItem": [
+			[
+				1,
+				24,
+				4
+			]
+		]
+	},
+	{
+		"i_collectCoin": 1,
+		"i_id": 8,
+		"i_quality": 2,
+		"i_redefineConsume": 20,
+		"i_redefinePercent": 1000,
+		"i_star": 8,
+		"ill_delItem": [
+			[
+				1,
+				24,
+				4
+			]
+		]
+	},
+	{
+		"i_collectCoin": 1,
+		"i_id": 9,
+		"i_quality": 2,
+		"i_redefineConsume": 30,
+		"i_redefinePercent": 1000,
+		"i_star": 9,
+		"ill_delItem": [
+			[
+				1,
+				24,
+				6
+			]
+		]
+	},
+	{
+		"i_collectCoin": 1,
+		"i_id": 10,
+		"i_quality": 2,
+		"i_redefineConsume": 30,
+		"i_redefinePercent": 1000,
+		"i_star": 10,
+		"ill_delItem": [
+			[
+				1,
+				24,
+				6
+			]
+		]
+	},
+	{
+		"i_collectCoin": 1,
+		"i_id": 11,
+		"i_quality": 2,
+		"i_redefineConsume": 30,
+		"i_redefinePercent": 1000,
+		"i_star": 11,
+		"ill_delItem": [
+			[
+				1,
+				24,
+				6
+			]
+		]
+	},
+	{
+		"i_collectCoin": 1,
+		"i_id": 12,
+		"i_quality": 2,
+		"i_redefineConsume": 30,
+		"i_redefinePercent": 1000,
+		"i_star": 12,
+		"ill_delItem": [
+			[
+				1,
+				24,
+				6
+			]
+		]
+	},
+	{
+		"i_collectCoin": 1,
+		"i_id": 13,
+		"i_quality": 2,
+		"i_redefineConsume": 30,
+		"i_redefinePercent": 1000,
+		"i_star": 13,
+		"ill_delItem": [
+			[
+				1,
+				24,
+				6
+			]
+		]
+	},
+	{
+		"i_collectCoin": 1,
+		"i_id": 14,
+		"i_quality": 2,
+		"i_redefineConsume": 40,
+		"i_redefinePercent": 1000,
+		"i_star": 14,
+		"ill_delItem": [
+			[
+				1,
+				24,
+				8
+			]
+		]
+	},
+	{
+		"i_collectCoin": 1,
+		"i_id": 15,
+		"i_quality": 2,
+		"i_redefineConsume": 0,
+		"i_redefinePercent": 1000,
+		"i_star": 15,
+		"ill_delItem": [
+			[
+				0
+			]
+		]
+	},
+	{
+		"i_collectCoin": 2,
+		"i_id": 21,
+		"i_quality": 3,
+		"i_redefineConsume": 10,
+		"i_redefinePercent": 0,
+		"i_star": 1,
+		"ill_delItem": [
+			[
+				1,
+				24,
+				6
+			]
+		]
+	},
+	{
+		"i_collectCoin": 2,
+		"i_id": 22,
+		"i_quality": 3,
+		"i_redefineConsume": 10,
+		"i_redefinePercent": 1000,
+		"i_star": 2,
+		"ill_delItem": [
+			[
+				1,
+				24,
+				6
+			]
+		]
+	},
+	{
+		"i_collectCoin": 2,
+		"i_id": 23,
+		"i_quality": 3,
+		"i_redefineConsume": 10,
+		"i_redefinePercent": 1000,
+		"i_star": 3,
+		"ill_delItem": [
+			[
+				1,
+				24,
+				6
+			]
+		]
+	},
+	{
+		"i_collectCoin": 2,
+		"i_id": 24,
+		"i_quality": 3,
+		"i_redefineConsume": 20,
+		"i_redefinePercent": 1000,
+		"i_star": 4,
+		"ill_delItem": [
+			[
+				1,
+				24,
+				8
+			]
+		]
+	},
+	{
+		"i_collectCoin": 2,
+		"i_id": 25,
+		"i_quality": 3,
+		"i_redefineConsume": 20,
+		"i_redefinePercent": 1000,
+		"i_star": 5,
+		"ill_delItem": [
+			[
+				1,
+				24,
+				8
+			]
+		]
+	},
+	{
+		"i_collectCoin": 2,
+		"i_id": 26,
+		"i_quality": 3,
+		"i_redefineConsume": 20,
+		"i_redefinePercent": 1000,
+		"i_star": 6,
+		"ill_delItem": [
+			[
+				1,
+				24,
+				8
+			]
+		]
+	},
+	{
+		"i_collectCoin": 2,
+		"i_id": 27,
+		"i_quality": 3,
+		"i_redefineConsume": 20,
+		"i_redefinePercent": 1000,
+		"i_star": 7,
+		"ill_delItem": [
+			[
+				1,
+				24,
+				8
+			]
+		]
+	},
+	{
+		"i_collectCoin": 2,
+		"i_id": 28,
+		"i_quality": 3,
+		"i_redefineConsume": 20,
+		"i_redefinePercent": 1000,
+		"i_star": 8,
+		"ill_delItem": [
+			[
+				1,
+				24,
+				8
+			]
+		]
+	},
+	{
+		"i_collectCoin": 2,
+		"i_id": 29,
+		"i_quality": 3,
+		"i_redefineConsume": 30,
+		"i_redefinePercent": 1000,
+		"i_star": 9,
+		"ill_delItem": [
+			[
+				1,
+				24,
+				12
+			]
+		]
+	},
+	{
+		"i_collectCoin": 2,
+		"i_id": 30,
+		"i_quality": 3,
+		"i_redefineConsume": 30,
+		"i_redefinePercent": 1000,
+		"i_star": 10,
+		"ill_delItem": [
+			[
+				1,
+				24,
+				12
+			]
+		]
+	},
+	{
+		"i_collectCoin": 2,
+		"i_id": 31,
+		"i_quality": 3,
+		"i_redefineConsume": 30,
+		"i_redefinePercent": 1000,
+		"i_star": 11,
+		"ill_delItem": [
+			[
+				1,
+				24,
+				12
+			]
+		]
+	},
+	{
+		"i_collectCoin": 2,
+		"i_id": 32,
+		"i_quality": 3,
+		"i_redefineConsume": 30,
+		"i_redefinePercent": 1000,
+		"i_star": 12,
+		"ill_delItem": [
+			[
+				1,
+				24,
+				12
+			]
+		]
+	},
+	{
+		"i_collectCoin": 2,
+		"i_id": 33,
+		"i_quality": 3,
+		"i_redefineConsume": 30,
+		"i_redefinePercent": 1000,
+		"i_star": 13,
+		"ill_delItem": [
+			[
+				1,
+				24,
+				12
+			]
+		]
+	},
+	{
+		"i_collectCoin": 2,
+		"i_id": 34,
+		"i_quality": 3,
+		"i_redefineConsume": 40,
+		"i_redefinePercent": 1000,
+		"i_star": 14,
+		"ill_delItem": [
+			[
+				1,
+				24,
+				16
+			]
+		]
+	},
+	{
+		"i_collectCoin": 2,
+		"i_id": 35,
+		"i_quality": 3,
+		"i_redefineConsume": 40,
+		"i_redefinePercent": 1000,
+		"i_star": 15,
+		"ill_delItem": [
+			[
+				1,
+				24,
+				16
+			]
+		]
+	},
+	{
+		"i_collectCoin": 2,
+		"i_id": 36,
+		"i_quality": 3,
+		"i_redefineConsume": 40,
+		"i_redefinePercent": 1000,
+		"i_star": 16,
+		"ill_delItem": [
+			[
+				1,
+				24,
+				16
+			]
+		]
+	},
+	{
+		"i_collectCoin": 2,
+		"i_id": 37,
+		"i_quality": 3,
+		"i_redefineConsume": 40,
+		"i_redefinePercent": 1000,
+		"i_star": 17,
+		"ill_delItem": [
+			[
+				1,
+				24,
+				16
+			]
+		]
+	},
+	{
+		"i_collectCoin": 2,
+		"i_id": 38,
+		"i_quality": 3,
+		"i_redefineConsume": 40,
+		"i_redefinePercent": 1000,
+		"i_star": 18,
+		"ill_delItem": [
+			[
+				1,
+				24,
+				16
+			]
+		]
+	},
+	{
+		"i_collectCoin": 2,
+		"i_id": 39,
+		"i_quality": 3,
+		"i_redefineConsume": 50,
+		"i_redefinePercent": 1000,
+		"i_star": 19,
+		"ill_delItem": [
+			[
+				1,
+				24,
+				20
+			]
+		]
+	},
+	{
+		"i_collectCoin": 2,
+		"i_id": 40,
+		"i_quality": 3,
+		"i_redefineConsume": 0,
+		"i_redefinePercent": 1000,
+		"i_star": 20,
+		"ill_delItem": [
+			[
+				0
+			]
+		]
+	},
+	{
+		"i_collectCoin": 4,
+		"i_id": 46,
+		"i_quality": 4,
+		"i_redefineConsume": 10,
+		"i_redefinePercent": 0,
+		"i_star": 1,
+		"ill_delItem": [
+			[
+				1,
+				24,
+				12
+			]
+		]
+	},
+	{
+		"i_collectCoin": 4,
+		"i_id": 47,
+		"i_quality": 4,
+		"i_redefineConsume": 10,
+		"i_redefinePercent": 1000,
+		"i_star": 2,
+		"ill_delItem": [
+			[
+				1,
+				24,
+				12
+			]
+		]
+	},
+	{
+		"i_collectCoin": 4,
+		"i_id": 48,
+		"i_quality": 4,
+		"i_redefineConsume": 10,
+		"i_redefinePercent": 1000,
+		"i_star": 3,
+		"ill_delItem": [
+			[
+				1,
+				24,
+				12
+			]
+		]
+	},
+	{
+		"i_collectCoin": 4,
+		"i_id": 49,
+		"i_quality": 4,
+		"i_redefineConsume": 20,
+		"i_redefinePercent": 1000,
+		"i_star": 4,
+		"ill_delItem": [
+			[
+				1,
+				24,
+				16
+			]
+		]
+	},
+	{
+		"i_collectCoin": 4,
+		"i_id": 50,
+		"i_quality": 4,
+		"i_redefineConsume": 20,
+		"i_redefinePercent": 1000,
+		"i_star": 5,
+		"ill_delItem": [
+			[
+				1,
+				24,
+				16
+			]
+		]
+	},
+	{
+		"i_collectCoin": 4,
+		"i_id": 51,
+		"i_quality": 4,
+		"i_redefineConsume": 20,
+		"i_redefinePercent": 1000,
+		"i_star": 6,
+		"ill_delItem": [
+			[
+				1,
+				24,
+				16
+			]
+		]
+	},
+	{
+		"i_collectCoin": 4,
+		"i_id": 52,
+		"i_quality": 4,
+		"i_redefineConsume": 20,
+		"i_redefinePercent": 1000,
+		"i_star": 7,
+		"ill_delItem": [
+			[
+				1,
+				24,
+				16
+			]
+		]
+	},
+	{
+		"i_collectCoin": 4,
+		"i_id": 53,
+		"i_quality": 4,
+		"i_redefineConsume": 20,
+		"i_redefinePercent": 1000,
+		"i_star": 8,
+		"ill_delItem": [
+			[
+				1,
+				24,
+				16
+			]
+		]
+	},
+	{
+		"i_collectCoin": 4,
+		"i_id": 54,
+		"i_quality": 4,
+		"i_redefineConsume": 30,
+		"i_redefinePercent": 1000,
+		"i_star": 9,
+		"ill_delItem": [
+			[
+				1,
+				24,
+				24
+			]
+		]
+	},
+	{
+		"i_collectCoin": 4,
+		"i_id": 55,
+		"i_quality": 4,
+		"i_redefineConsume": 30,
+		"i_redefinePercent": 1000,
+		"i_star": 10,
+		"ill_delItem": [
+			[
+				1,
+				24,
+				24
+			]
+		]
+	},
+	{
+		"i_collectCoin": 4,
+		"i_id": 56,
+		"i_quality": 4,
+		"i_redefineConsume": 30,
+		"i_redefinePercent": 1000,
+		"i_star": 11,
+		"ill_delItem": [
+			[
+				1,
+				24,
+				24
+			]
+		]
+	},
+	{
+		"i_collectCoin": 4,
+		"i_id": 57,
+		"i_quality": 4,
+		"i_redefineConsume": 30,
+		"i_redefinePercent": 1000,
+		"i_star": 12,
+		"ill_delItem": [
+			[
+				1,
+				24,
+				24
+			]
+		]
+	},
+	{
+		"i_collectCoin": 4,
+		"i_id": 58,
+		"i_quality": 4,
+		"i_redefineConsume": 30,
+		"i_redefinePercent": 1000,
+		"i_star": 13,
+		"ill_delItem": [
+			[
+				1,
+				24,
+				24
+			]
+		]
+	},
+	{
+		"i_collectCoin": 4,
+		"i_id": 59,
+		"i_quality": 4,
+		"i_redefineConsume": 40,
+		"i_redefinePercent": 1000,
+		"i_star": 14,
+		"ill_delItem": [
+			[
+				1,
+				24,
+				32
+			]
+		]
+	},
+	{
+		"i_collectCoin": 4,
+		"i_id": 60,
+		"i_quality": 4,
+		"i_redefineConsume": 40,
+		"i_redefinePercent": 1000,
+		"i_star": 15,
+		"ill_delItem": [
+			[
+				1,
+				24,
+				32
+			]
+		]
+	},
+	{
+		"i_collectCoin": 4,
+		"i_id": 61,
+		"i_quality": 4,
+		"i_redefineConsume": 40,
+		"i_redefinePercent": 1000,
+		"i_star": 16,
+		"ill_delItem": [
+			[
+				1,
+				24,
+				32
+			]
+		]
+	},
+	{
+		"i_collectCoin": 4,
+		"i_id": 62,
+		"i_quality": 4,
+		"i_redefineConsume": 40,
+		"i_redefinePercent": 1000,
+		"i_star": 17,
+		"ill_delItem": [
+			[
+				1,
+				24,
+				32
+			]
+		]
+	},
+	{
+		"i_collectCoin": 4,
+		"i_id": 63,
+		"i_quality": 4,
+		"i_redefineConsume": 40,
+		"i_redefinePercent": 1000,
+		"i_star": 18,
+		"ill_delItem": [
+			[
+				1,
+				24,
+				32
+			]
+		]
+	},
+	{
+		"i_collectCoin": 4,
+		"i_id": 64,
+		"i_quality": 4,
+		"i_redefineConsume": 50,
+		"i_redefinePercent": 1000,
+		"i_star": 19,
+		"ill_delItem": [
+			[
+				1,
+				24,
+				40
+			]
+		]
+	},
+	{
+		"i_collectCoin": 4,
+		"i_id": 65,
+		"i_quality": 4,
+		"i_redefineConsume": 50,
+		"i_redefinePercent": 1000,
+		"i_star": 20,
+		"ill_delItem": [
+			[
+				1,
+				24,
+				40
+			]
+		]
+	},
+	{
+		"i_collectCoin": 4,
+		"i_id": 66,
+		"i_quality": 4,
+		"i_redefineConsume": 50,
+		"i_redefinePercent": 1000,
+		"i_star": 21,
+		"ill_delItem": [
+			[
+				1,
+				24,
+				40
+			]
+		]
+	},
+	{
+		"i_collectCoin": 4,
+		"i_id": 67,
+		"i_quality": 4,
+		"i_redefineConsume": 50,
+		"i_redefinePercent": 1000,
+		"i_star": 22,
+		"ill_delItem": [
+			[
+				1,
+				24,
+				40
+			]
+		]
+	},
+	{
+		"i_collectCoin": 4,
+		"i_id": 68,
+		"i_quality": 4,
+		"i_redefineConsume": 50,
+		"i_redefinePercent": 1000,
+		"i_star": 23,
+		"ill_delItem": [
+			[
+				1,
+				24,
+				40
+			]
+		]
+	},
+	{
+		"i_collectCoin": 4,
+		"i_id": 69,
+		"i_quality": 4,
+		"i_redefineConsume": 60,
+		"i_redefinePercent": 1000,
+		"i_star": 24,
+		"ill_delItem": [
+			[
+				1,
+				24,
+				48
+			]
+		]
+	},
+	{
+		"i_collectCoin": 4,
+		"i_id": 70,
+		"i_quality": 4,
+		"i_redefineConsume": 0,
+		"i_redefinePercent": 1000,
+		"i_star": 25,
+		"ill_delItem": [
+			[
+				0
+			]
+		]
+	},
+	{
+		"i_collectCoin": 8,
+		"i_id": 76,
+		"i_quality": 5,
+		"i_redefineConsume": 10,
+		"i_redefinePercent": 0,
+		"i_star": 1,
+		"ill_delItem": [
+			[
+				1,
+				24,
+				24
+			]
+		]
+	},
+	{
+		"i_collectCoin": 8,
+		"i_id": 77,
+		"i_quality": 5,
+		"i_redefineConsume": 10,
+		"i_redefinePercent": 1000,
+		"i_star": 2,
+		"ill_delItem": [
+			[
+				1,
+				24,
+				24
+			]
+		]
+	},
+	{
+		"i_collectCoin": 8,
+		"i_id": 78,
+		"i_quality": 5,
+		"i_redefineConsume": 10,
+		"i_redefinePercent": 1000,
+		"i_star": 3,
+		"ill_delItem": [
+			[
+				1,
+				24,
+				24
+			]
+		]
+	},
+	{
+		"i_collectCoin": 8,
+		"i_id": 79,
+		"i_quality": 5,
+		"i_redefineConsume": 20,
+		"i_redefinePercent": 1000,
+		"i_star": 4,
+		"ill_delItem": [
+			[
+				1,
+				24,
+				32
+			]
+		]
+	},
+	{
+		"i_collectCoin": 8,
+		"i_id": 80,
+		"i_quality": 5,
+		"i_redefineConsume": 20,
+		"i_redefinePercent": 1000,
+		"i_star": 5,
+		"ill_delItem": [
+			[
+				1,
+				24,
+				32
+			]
+		]
+	},
+	{
+		"i_collectCoin": 8,
+		"i_id": 81,
+		"i_quality": 5,
+		"i_redefineConsume": 20,
+		"i_redefinePercent": 1000,
+		"i_star": 6,
+		"ill_delItem": [
+			[
+				1,
+				24,
+				32
+			]
+		]
+	},
+	{
+		"i_collectCoin": 8,
+		"i_id": 82,
+		"i_quality": 5,
+		"i_redefineConsume": 20,
+		"i_redefinePercent": 1000,
+		"i_star": 7,
+		"ill_delItem": [
+			[
+				1,
+				24,
+				32
+			]
+		]
+	},
+	{
+		"i_collectCoin": 8,
+		"i_id": 83,
+		"i_quality": 5,
+		"i_redefineConsume": 20,
+		"i_redefinePercent": 1000,
+		"i_star": 8,
+		"ill_delItem": [
+			[
+				1,
+				24,
+				32
+			]
+		]
+	},
+	{
+		"i_collectCoin": 8,
+		"i_id": 84,
+		"i_quality": 5,
+		"i_redefineConsume": 30,
+		"i_redefinePercent": 1000,
+		"i_star": 9,
+		"ill_delItem": [
+			[
+				1,
+				24,
+				48
+			]
+		]
+	},
+	{
+		"i_collectCoin": 8,
+		"i_id": 85,
+		"i_quality": 5,
+		"i_redefineConsume": 30,
+		"i_redefinePercent": 1000,
+		"i_star": 10,
+		"ill_delItem": [
+			[
+				1,
+				24,
+				48
+			]
+		]
+	},
+	{
+		"i_collectCoin": 8,
+		"i_id": 86,
+		"i_quality": 5,
+		"i_redefineConsume": 30,
+		"i_redefinePercent": 1000,
+		"i_star": 11,
+		"ill_delItem": [
+			[
+				1,
+				24,
+				48
+			]
+		]
+	},
+	{
+		"i_collectCoin": 8,
+		"i_id": 87,
+		"i_quality": 5,
+		"i_redefineConsume": 30,
+		"i_redefinePercent": 1000,
+		"i_star": 12,
+		"ill_delItem": [
+			[
+				1,
+				24,
+				48
+			]
+		]
+	},
+	{
+		"i_collectCoin": 8,
+		"i_id": 88,
+		"i_quality": 5,
+		"i_redefineConsume": 30,
+		"i_redefinePercent": 1000,
+		"i_star": 13,
+		"ill_delItem": [
+			[
+				1,
+				24,
+				48
+			]
+		]
+	},
+	{
+		"i_collectCoin": 8,
+		"i_id": 89,
+		"i_quality": 5,
+		"i_redefineConsume": 40,
+		"i_redefinePercent": 1000,
+		"i_star": 14,
+		"ill_delItem": [
+			[
+				1,
+				24,
+				64
+			]
+		]
+	},
+	{
+		"i_collectCoin": 8,
+		"i_id": 90,
+		"i_quality": 5,
+		"i_redefineConsume": 40,
+		"i_redefinePercent": 1000,
+		"i_star": 15,
+		"ill_delItem": [
+			[
+				1,
+				24,
+				64
+			]
+		]
+	},
+	{
+		"i_collectCoin": 8,
+		"i_id": 91,
+		"i_quality": 5,
+		"i_redefineConsume": 40,
+		"i_redefinePercent": 1000,
+		"i_star": 16,
+		"ill_delItem": [
+			[
+				1,
+				24,
+				64
+			]
+		]
+	},
+	{
+		"i_collectCoin": 8,
+		"i_id": 92,
+		"i_quality": 5,
+		"i_redefineConsume": 40,
+		"i_redefinePercent": 1000,
+		"i_star": 17,
+		"ill_delItem": [
+			[
+				1,
+				24,
+				64
+			]
+		]
+	},
+	{
+		"i_collectCoin": 8,
+		"i_id": 93,
+		"i_quality": 5,
+		"i_redefineConsume": 40,
+		"i_redefinePercent": 1000,
+		"i_star": 18,
+		"ill_delItem": [
+			[
+				1,
+				24,
+				64
+			]
+		]
+	},
+	{
+		"i_collectCoin": 8,
+		"i_id": 94,
+		"i_quality": 5,
+		"i_redefineConsume": 50,
+		"i_redefinePercent": 1000,
+		"i_star": 19,
+		"ill_delItem": [
+			[
+				1,
+				24,
+				80
+			]
+		]
+	},
+	{
+		"i_collectCoin": 8,
+		"i_id": 95,
+		"i_quality": 5,
+		"i_redefineConsume": 50,
+		"i_redefinePercent": 1000,
+		"i_star": 20,
+		"ill_delItem": [
+			[
+				1,
+				24,
+				80
+			]
+		]
+	},
+	{
+		"i_collectCoin": 8,
+		"i_id": 96,
+		"i_quality": 5,
+		"i_redefineConsume": 50,
+		"i_redefinePercent": 1000,
+		"i_star": 21,
+		"ill_delItem": [
+			[
+				1,
+				24,
+				80
+			]
+		]
+	},
+	{
+		"i_collectCoin": 8,
+		"i_id": 97,
+		"i_quality": 5,
+		"i_redefineConsume": 50,
+		"i_redefinePercent": 1000,
+		"i_star": 22,
+		"ill_delItem": [
+			[
+				1,
+				24,
+				80
+			]
+		]
+	},
+	{
+		"i_collectCoin": 8,
+		"i_id": 98,
+		"i_quality": 5,
+		"i_redefineConsume": 50,
+		"i_redefinePercent": 1000,
+		"i_star": 23,
+		"ill_delItem": [
+			[
+				1,
+				24,
+				80
+			]
+		]
+	},
+	{
+		"i_collectCoin": 8,
+		"i_id": 99,
+		"i_quality": 5,
+		"i_redefineConsume": 60,
+		"i_redefinePercent": 1000,
+		"i_star": 24,
+		"ill_delItem": [
+			[
+				1,
+				24,
+				96
+			]
+		]
+	},
+	{
+		"i_collectCoin": 8,
+		"i_id": 100,
+		"i_quality": 5,
+		"i_redefineConsume": 60,
+		"i_redefinePercent": 1000,
+		"i_star": 25,
+		"ill_delItem": [
+			[
+				1,
+				24,
+				96
+			]
+		]
+	},
+	{
+		"i_collectCoin": 8,
+		"i_id": 101,
+		"i_quality": 5,
+		"i_redefineConsume": 60,
+		"i_redefinePercent": 1000,
+		"i_star": 26,
+		"ill_delItem": [
+			[
+				1,
+				24,
+				96
+			]
+		]
+	},
+	{
+		"i_collectCoin": 8,
+		"i_id": 102,
+		"i_quality": 5,
+		"i_redefineConsume": 60,
+		"i_redefinePercent": 1000,
+		"i_star": 27,
+		"ill_delItem": [
+			[
+				1,
+				24,
+				96
+			]
+		]
+	},
+	{
+		"i_collectCoin": 8,
+		"i_id": 103,
+		"i_quality": 5,
+		"i_redefineConsume": 60,
+		"i_redefinePercent": 1000,
+		"i_star": 28,
+		"ill_delItem": [
+			[
+				1,
+				24,
+				96
+			]
+		]
+	},
+	{
+		"i_collectCoin": 8,
+		"i_id": 104,
+		"i_quality": 5,
+		"i_redefineConsume": 70,
+		"i_redefinePercent": 1000,
+		"i_star": 29,
+		"ill_delItem": [
+			[
+				1,
+				24,
+				112
+			]
+		]
+	},
+	{
+		"i_collectCoin": 8,
+		"i_id": 105,
+		"i_quality": 5,
+		"i_redefineConsume": 0,
+		"i_redefinePercent": 1000,
+		"i_star": 30,
+		"ill_delItem": [
+			[
+				0
+			]
+		]
+	}
+]

@@ -1,0 +1,22 @@
+[
+	{
+		"i_battleFunType": 1,
+		"i_freeCount": 1,
+		"i_id": 1,
+		"il_needItem": [
+			1,
+			1005,
+			1
+		]
+	},
+	{
+		"i_battleFunType": 2,
+		"i_freeCount": 1,
+		"i_id": 2,
+		"il_needItem": [
+			1,
+			1,
+			50
+		]
+	}
+]

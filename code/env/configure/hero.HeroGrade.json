@@ -1,0 +1,12 @@
+[
+	{
+		"i_growRate": 10000,
+		"i_id": 2,
+		"s_name": "A"
+	},
+	{
+		"i_growRate": 12500,
+		"i_id": 3,
+		"s_name": "S"
+	}
+]

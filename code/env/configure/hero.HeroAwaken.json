@@ -1,0 +1,30 @@
+[
+	{
+		"i_id": 0,
+		"i_needItemCount": 10,
+		"i_needStar": 7,
+		"i_replaceItemId": 100000,
+		"s_description": "觉醒技能描述1"
+	},
+	{
+		"i_id": 1,
+		"i_needItemCount": 20,
+		"i_needStar": 11,
+		"i_replaceItemId": 100000,
+		"s_description": "觉醒技能描述2"
+	},
+	{
+		"i_id": 2,
+		"i_needItemCount": 30,
+		"i_needStar": 15,
+		"i_replaceItemId": 100000,
+		"s_description": "觉醒技能描述3"
+	},
+	{
+		"i_id": 3,
+		"i_needItemCount": 0,
+		"i_needStar": 0,
+		"i_replaceItemId": 0,
+		"s_description": "觉醒技能描述4"
+	}
+]
