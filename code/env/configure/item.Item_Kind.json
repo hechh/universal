@@ -1,66 +1,66 @@
 [
 	{
-		"i_id": 1,
-		"s_desCount": "数量",
-		"s_desId": "物品id",
-		"s_name": "道具"
+		"i_Id": 1,
+		"s_DesCount": "数量",
+		"s_DesId": "物品id",
+		"s_Name": "道具"
 	},
 	{
-		"i_id": 2,
-		"s_desCount": "数量",
-		"s_desId": "装备ID",
-		"s_name": "装备",
-		"s_param1": "品质",
-		"s_param2": "星级"
+		"i_Id": 2,
+		"s_DesCount": "数量",
+		"s_DesId": "装备ID",
+		"s_Name": "装备",
+		"s_Param1": "品质",
+		"s_Param2": "星级"
 	},
 	{
-		"i_id": 3,
-		"s_desCount": "数量",
-		"s_desId": "英雄ID",
-		"s_name": "英雄",
-		"s_param1": "星级"
+		"i_Id": 3,
+		"s_DesCount": "数量",
+		"s_DesId": "英雄ID",
+		"s_Name": "英雄",
+		"s_Param1": "星级"
 	},
 	{
-		"i_id": 4,
-		"s_desCount": "数量",
-		"s_desId": "掉落组ID",
-		"s_name": "一般掉落组"
+		"i_Id": 4,
+		"s_DesCount": "数量",
+		"s_DesId": "掉落组ID",
+		"s_Name": "一般掉落组"
 	},
 	{
-		"i_id": 5,
-		"s_desCount": "数量",
-		"s_desId": "装备掉落组ID",
-		"s_name": "装备掉落组"
+		"i_Id": 5,
+		"s_DesCount": "数量",
+		"s_DesId": "装备掉落组ID",
+		"s_Name": "装备掉落组"
 	},
 	{
-		"i_id": 6,
-		"s_desCount": "数量",
-		"s_desId": "头像ID",
-		"s_name": "头像"
+		"i_Id": 6,
+		"s_DesCount": "数量",
+		"s_DesId": "头像ID",
+		"s_Name": "头像"
 	},
 	{
-		"i_id": 7,
-		"s_desCount": "数量",
-		"s_desId": "头像框ID",
-		"s_name": "头像框"
+		"i_Id": 7,
+		"s_DesCount": "数量",
+		"s_DesId": "头像框ID",
+		"s_Name": "头像框"
 	},
 	{
-		"i_id": 8,
-		"s_desCount": "次数",
-		"s_desId": "广告ID",
-		"s_name": "广告"
+		"i_Id": 8,
+		"s_DesCount": "次数",
+		"s_DesId": "广告ID",
+		"s_Name": "广告"
 	},
 	{
-		"i_id": 9,
-		"s_desCount": "次数",
-		"s_desId": "晶核ID",
-		"s_name": "晶核",
-		"s_param1": "星级"
+		"i_Id": 9,
+		"s_DesCount": "次数",
+		"s_DesId": "晶核ID",
+		"s_Name": "晶核",
+		"s_Param1": "星级"
 	},
 	{
-		"i_id": 10,
-		"s_desCount": "数量",
-		"s_desId": "使徒ID",
-		"s_name": "使徒"
+		"i_Id": 10,
+		"s_DesCount": "数量",
+		"s_DesId": "使徒ID",
+		"s_Name": "使徒"
 	}
 ]

@@ -1,46 +1,46 @@
 [
 	{
+		"i_Id": 1,
 		"i_activityType": 0,
-		"i_id": 1,
 		"i_sid": 0,
 		"il_condition": [
 			0,
 			1,
 			30
 		],
-		"s_name": "成长之路"
+		"s_Name": "成长之路"
 	},
 	{
+		"i_Id": 3,
 		"i_activityType": 0,
-		"i_id": 3,
 		"i_sid": 0,
 		"il_condition": [
 			0,
 			1,
 			30
 		],
-		"s_name": "直购礼包"
+		"s_Name": "直购礼包"
 	},
 	{
+		"i_Id": 4,
 		"i_activityType": 0,
-		"i_id": 4,
 		"i_sid": 0,
 		"il_condition": [
 			0,
 			1,
 			2
 		],
-		"s_name": "冒险奖励"
+		"s_Name": "冒险奖励"
 	},
 	{
+		"i_Id": 5,
 		"i_activityType": 0,
-		"i_id": 5,
 		"i_sid": 0,
 		"il_condition": [
 			0,
 			1,
 			30
 		],
-		"s_name": "开服特惠"
+		"s_Name": "开服特惠"
 	}
 ]

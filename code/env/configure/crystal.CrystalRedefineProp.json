@@ -1,26 +1,26 @@
 [
 	{
-		"i_id": 1,
-		"i_stageValue": 5
+		"i_Id": 1,
+		"i_StageValue": 5
 	},
 	{
-		"i_id": 2,
-		"i_stageValue": 10
+		"i_Id": 2,
+		"i_StageValue": 10
 	},
 	{
-		"i_id": 3,
-		"i_stageValue": 15
+		"i_Id": 3,
+		"i_StageValue": 15
 	},
 	{
-		"i_id": 4,
-		"i_stageValue": 20
+		"i_Id": 4,
+		"i_StageValue": 20
 	},
 	{
-		"i_id": 5,
-		"i_stageValue": 25
+		"i_Id": 5,
+		"i_StageValue": 25
 	},
 	{
-		"i_id": 6,
-		"i_stageValue": 30
+		"i_Id": 6,
+		"i_StageValue": 30
 	}
 ]

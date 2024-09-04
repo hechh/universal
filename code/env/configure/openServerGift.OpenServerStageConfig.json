@@ -1,11 +1,11 @@
 [
 	{
-		"i_giftId": 1,
-		"i_id": 1,
-		"i_limitCount": 1,
-		"i_productId": 50000,
-		"i_stage": 1,
-		"ill_addItem": [
+		"i_GiftId": 1,
+		"i_Id": 1,
+		"i_LimitCount": 1,
+		"i_ProductId": 50000,
+		"i_Stage": 1,
+		"ill_AddItem": [
 			[
 				1,
 				1005,
@@ -17,17 +17,17 @@
 				10
 			]
 		],
-		"s_tagTxt": "超值1000%",
-		"s_tip": "立刻获得冒险加速资源！",
-		"s_title": "新手冒险大促"
+		"s_TagTxt": "超值1000%",
+		"s_Tip": "立刻获得冒险加速资源！",
+		"s_Title": "新手冒险大促"
 	},
 	{
-		"i_giftId": 2,
-		"i_id": 2,
-		"i_limitCount": 1,
-		"i_productId": 50001,
-		"i_stage": 1,
-		"ill_addItem": [
+		"i_GiftId": 2,
+		"i_Id": 2,
+		"i_LimitCount": 1,
+		"i_ProductId": 50001,
+		"i_Stage": 1,
+		"ill_AddItem": [
 			[
 				1,
 				12,
@@ -39,17 +39,17 @@
 				1250
 			]
 		],
-		"s_tagTxt": "超值800%",
-		"s_tip": "立刻获得晶核制造资源！",
-		"s_title": "新手晶核礼包一"
+		"s_TagTxt": "超值800%",
+		"s_Tip": "立刻获得晶核制造资源！",
+		"s_Title": "新手晶核礼包一"
 	},
 	{
-		"i_giftId": 2,
-		"i_id": 3,
-		"i_limitCount": 1,
-		"i_productId": 50002,
-		"i_stage": 2,
-		"ill_addItem": [
+		"i_GiftId": 2,
+		"i_Id": 3,
+		"i_LimitCount": 1,
+		"i_ProductId": 50002,
+		"i_Stage": 2,
+		"ill_AddItem": [
 			[
 				1,
 				12,
@@ -61,17 +61,17 @@
 				2500
 			]
 		],
-		"s_tagTxt": "超值600%",
-		"s_tip": "立刻获得晶核制造资源！",
-		"s_title": "新手晶核礼包二"
+		"s_TagTxt": "超值600%",
+		"s_Tip": "立刻获得晶核制造资源！",
+		"s_Title": "新手晶核礼包二"
 	},
 	{
-		"i_giftId": 2,
-		"i_id": 4,
-		"i_limitCount": 1,
-		"i_productId": 50003,
-		"i_stage": 3,
-		"ill_addItem": [
+		"i_GiftId": 2,
+		"i_Id": 4,
+		"i_LimitCount": 1,
+		"i_ProductId": 50003,
+		"i_Stage": 3,
+		"ill_AddItem": [
 			[
 				1,
 				12,
@@ -83,17 +83,17 @@
 				3000
 			]
 		],
-		"s_tagTxt": "超值400%",
-		"s_tip": "立刻获得晶核制造资源！",
-		"s_title": "新手晶核礼包三"
+		"s_TagTxt": "超值400%",
+		"s_Tip": "立刻获得晶核制造资源！",
+		"s_Title": "新手晶核礼包三"
 	},
 	{
-		"i_giftId": 3,
-		"i_id": 5,
-		"i_limitCount": 1,
-		"i_productId": 50004,
-		"i_stage": 1,
-		"ill_addItem": [
+		"i_GiftId": 3,
+		"i_Id": 5,
+		"i_LimitCount": 1,
+		"i_ProductId": 50004,
+		"i_Stage": 1,
+		"ill_AddItem": [
 			[
 				1,
 				21,
@@ -105,17 +105,17 @@
 				1000
 			]
 		],
-		"s_tagTxt": "超值800%",
-		"s_tip": "立刻获得使徒召唤资源！",
-		"s_title": "新手使徒礼包一"
+		"s_TagTxt": "超值800%",
+		"s_Tip": "立刻获得使徒召唤资源！",
+		"s_Title": "新手使徒礼包一"
 	},
 	{
-		"i_giftId": 3,
-		"i_id": 6,
-		"i_limitCount": 1,
-		"i_productId": 50005,
-		"i_stage": 2,
-		"ill_addItem": [
+		"i_GiftId": 3,
+		"i_Id": 6,
+		"i_LimitCount": 1,
+		"i_ProductId": 50005,
+		"i_Stage": 2,
+		"ill_AddItem": [
 			[
 				1,
 				21,
@@ -127,17 +127,17 @@
 				2500
 			]
 		],
-		"s_tagTxt": "超值600%",
-		"s_tip": "立刻获得使徒召唤资源！",
-		"s_title": "新手使徒礼包二"
+		"s_TagTxt": "超值600%",
+		"s_Tip": "立刻获得使徒召唤资源！",
+		"s_Title": "新手使徒礼包二"
 	},
 	{
-		"i_giftId": 3,
-		"i_id": 7,
-		"i_limitCount": 1,
-		"i_productId": 50006,
-		"i_stage": 3,
-		"ill_addItem": [
+		"i_GiftId": 3,
+		"i_Id": 7,
+		"i_LimitCount": 1,
+		"i_ProductId": 50006,
+		"i_Stage": 3,
+		"ill_AddItem": [
 			[
 				1,
 				21,
@@ -149,17 +149,17 @@
 				3000
 			]
 		],
-		"s_tagTxt": "超值400%",
-		"s_tip": "立刻获得使徒召唤资源！",
-		"s_title": "新手使徒礼包三"
+		"s_TagTxt": "超值400%",
+		"s_Tip": "立刻获得使徒召唤资源！",
+		"s_Title": "新手使徒礼包三"
 	},
 	{
-		"i_giftId": 4,
-		"i_id": 8,
-		"i_limitCount": 1,
-		"i_productId": 50007,
-		"i_stage": 1,
-		"ill_addItem": [
+		"i_GiftId": 4,
+		"i_Id": 8,
+		"i_LimitCount": 1,
+		"i_ProductId": 50007,
+		"i_Stage": 1,
+		"ill_AddItem": [
 			[
 				1,
 				13,
@@ -171,17 +171,17 @@
 				50
 			]
 		],
-		"s_tagTxt": "超值600%",
-		"s_tip": "立刻获得英雄克隆资源！",
-		"s_title": "新手英雄礼包一"
+		"s_TagTxt": "超值600%",
+		"s_Tip": "立刻获得英雄克隆资源！",
+		"s_Title": "新手英雄礼包一"
 	},
 	{
-		"i_giftId": 4,
-		"i_id": 9,
-		"i_limitCount": 1,
-		"i_productId": 50008,
-		"i_stage": 2,
-		"ill_addItem": [
+		"i_GiftId": 4,
+		"i_Id": 9,
+		"i_LimitCount": 1,
+		"i_ProductId": 50008,
+		"i_Stage": 2,
+		"ill_AddItem": [
 			[
 				1,
 				13,
@@ -193,17 +193,17 @@
 				100
 			]
 		],
-		"s_tagTxt": "超值400%",
-		"s_tip": "立刻获得英雄克隆资源！",
-		"s_title": "新手英雄礼包二"
+		"s_TagTxt": "超值400%",
+		"s_Tip": "立刻获得英雄克隆资源！",
+		"s_Title": "新手英雄礼包二"
 	},
 	{
-		"i_giftId": 4,
-		"i_id": 10,
-		"i_limitCount": 1,
-		"i_productId": 50009,
-		"i_stage": 3,
-		"ill_addItem": [
+		"i_GiftId": 4,
+		"i_Id": 10,
+		"i_LimitCount": 1,
+		"i_ProductId": 50009,
+		"i_Stage": 3,
+		"ill_AddItem": [
 			[
 				1,
 				13,
@@ -215,42 +215,42 @@
 				150
 			]
 		],
-		"s_tagTxt": "超值350%",
-		"s_tip": "立刻获得英雄克隆资源！",
-		"s_title": "新手英雄礼包三"
+		"s_TagTxt": "超值350%",
+		"s_Tip": "立刻获得英雄克隆资源！",
+		"s_Title": "新手英雄礼包三"
 	},
 	{
-		"i_giftId": 5,
-		"i_id": 11,
-		"i_limitCount": 1,
-		"i_productId": 50010,
-		"i_stage": 1,
-		"ill_addItem": [
+		"i_GiftId": 5,
+		"i_Id": 11,
+		"i_LimitCount": 1,
+		"i_ProductId": 50010,
+		"i_Stage": 1,
+		"ill_AddItem": [
 			[
 				1,
 				1603,
 				1
 			]
 		],
-		"s_tagTxt": "超值350%",
-		"s_tip": "抽奖资源3选1，爽爽爽！",
-		"s_title": "冒险自选礼包一"
+		"s_TagTxt": "超值350%",
+		"s_Tip": "抽奖资源3选1，爽爽爽！",
+		"s_Title": "冒险自选礼包一"
 	},
 	{
-		"i_giftId": 6,
-		"i_id": 12,
-		"i_limitCount": 1,
-		"i_productId": 50011,
-		"i_stage": 1,
-		"ill_addItem": [
+		"i_GiftId": 6,
+		"i_Id": 12,
+		"i_LimitCount": 1,
+		"i_ProductId": 50011,
+		"i_Stage": 1,
+		"ill_AddItem": [
 			[
 				1,
 				1604,
 				1
 			]
 		],
-		"s_tagTxt": "超值300%",
-		"s_tip": "抽奖资源3选1，爽爽爽！",
-		"s_title": "冒险自选礼包二"
+		"s_TagTxt": "超值300%",
+		"s_Tip": "抽奖资源3选1，爽爽爽！",
+		"s_Title": "冒险自选礼包二"
 	}
 ]

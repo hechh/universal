@@ -1,12 +1,12 @@
 [
 	{
-		"i_effectParamRate": 400,
+		"i_EffectParamRate": 400,
+		"i_Id": 103,
+		"i_PieceCount": 10,
+		"i_PieceID": 10103,
 		"i_element": 0,
-		"i_id": 103,
-		"i_pieceCount": 10,
-		"i_pieceID": 10103,
 		"i_quality": 0,
-		"il_passiveSkillId": [
+		"il_PassiveSkillId": [
 			110301,
 			110302,
 			110303,
@@ -41,18 +41,18 @@
 				27
 			]
 		],
-		"s_desc": "特制仪器，能够储存少量炎能，是战士们常用的投掷武器",
-		"s_icon": "icon_jh_h3",
-		"s_name": "炎能水晶瓶"
+		"s_Desc": "特制仪器，能够储存少量炎能，是战士们常用的投掷武器",
+		"s_Icon": "icon_jh_h3",
+		"s_Name": "炎能水晶瓶"
 	},
 	{
-		"i_effectParamRate": 1200,
+		"i_EffectParamRate": 1200,
+		"i_Id": 104,
+		"i_PieceCount": 10,
+		"i_PieceID": 10104,
 		"i_element": 0,
-		"i_id": 104,
-		"i_pieceCount": 10,
-		"i_pieceID": 10104,
 		"i_quality": 0,
-		"il_passiveSkillId": [
+		"il_PassiveSkillId": [
 			110401,
 			110402,
 			110403,
@@ -87,18 +87,18 @@
 				66
 			]
 		],
-		"s_desc": "科技学院的最新科技，能够为机器人刻上能源印章，提供源源不断的能源",
-		"s_icon": "icon_jh_h9",
-		"s_name": "蓄能刻印仪"
+		"s_Desc": "科技学院的最新科技，能够为机器人刻上能源印章，提供源源不断的能源",
+		"s_Icon": "icon_jh_h9",
+		"s_Name": "蓄能刻印仪"
 	},
 	{
-		"i_effectParamRate": 200,
+		"i_EffectParamRate": 200,
+		"i_Id": 105,
+		"i_PieceCount": 10,
+		"i_PieceID": 10105,
 		"i_element": 0,
-		"i_id": 105,
-		"i_pieceCount": 10,
-		"i_pieceID": 10105,
 		"i_quality": 0,
-		"il_passiveSkillId": [
+		"il_PassiveSkillId": [
 			110501,
 			110502,
 			110503,
@@ -134,18 +134,18 @@
 				40
 			]
 		],
-		"s_desc": "被赋予了魔力的火炬，燃烧时可以让敌人沉睡",
-		"s_icon": "icon_jh_h5",
-		"s_name": "迷离火炬"
+		"s_Desc": "被赋予了魔力的火炬，燃烧时可以让敌人沉睡",
+		"s_Icon": "icon_jh_h5",
+		"s_Name": "迷离火炬"
 	},
 	{
-		"i_effectParamRate": 5,
+		"i_EffectParamRate": 5,
+		"i_Id": 106,
+		"i_PieceCount": 10,
+		"i_PieceID": 10106,
 		"i_element": 0,
-		"i_id": 106,
-		"i_pieceCount": 10,
-		"i_pieceID": 10106,
 		"i_quality": 0,
-		"il_passiveSkillId": [
+		"il_PassiveSkillId": [
 			110601,
 			110602,
 			110603,
@@ -183,18 +183,18 @@
 				126
 			]
 		],
-		"s_desc": "火星神殿中供奉的至高神器，只有在星球生死存亡之时才能使用",
-		"s_icon": "icon_jh_h7",
-		"s_name": "炽神法杖"
+		"s_Desc": "火星神殿中供奉的至高神器，只有在星球生死存亡之时才能使用",
+		"s_Icon": "icon_jh_h7",
+		"s_Name": "炽神法杖"
 	},
 	{
-		"i_effectParamRate": 500,
+		"i_EffectParamRate": 500,
+		"i_Id": 201,
+		"i_PieceCount": 10,
+		"i_PieceID": 10201,
 		"i_element": 0,
-		"i_id": 201,
-		"i_pieceCount": 10,
-		"i_pieceID": 10201,
 		"i_quality": 0,
-		"il_passiveSkillId": [
+		"il_PassiveSkillId": [
 			120101,
 			120102,
 			120103,
@@ -228,18 +228,18 @@
 				13
 			]
 		],
-		"s_desc": "标注了宇宙中大型星域的指引卷轴，在黑市中才能买到",
-		"s_icon": "icon_jh_s4",
-		"s_name": "星际卷轴"
+		"s_Desc": "标注了宇宙中大型星域的指引卷轴，在黑市中才能买到",
+		"s_Icon": "icon_jh_s4",
+		"s_Name": "星际卷轴"
 	},
 	{
-		"i_effectParamRate": 200,
+		"i_EffectParamRate": 200,
+		"i_Id": 202,
+		"i_PieceCount": 10,
+		"i_PieceID": 10201,
 		"i_element": 0,
-		"i_id": 202,
-		"i_pieceCount": 10,
-		"i_pieceID": 10201,
 		"i_quality": 0,
-		"il_passiveSkillId": [
+		"il_PassiveSkillId": [
 			120201,
 			120202,
 			120203,
@@ -273,18 +273,18 @@
 				33
 			]
 		],
-		"s_desc": "科研人员家中常备的仪器，不时拿来观测下宇宙",
-		"s_icon": "icon_jh_s1",
-		"s_name": "精密天文镜"
+		"s_Desc": "科研人员家中常备的仪器，不时拿来观测下宇宙",
+		"s_Icon": "icon_jh_s1",
+		"s_Name": "精密天文镜"
 	},
 	{
-		"i_effectParamRate": 1200,
+		"i_EffectParamRate": 1200,
+		"i_Id": 203,
+		"i_PieceCount": 10,
+		"i_PieceID": 10203,
 		"i_element": 0,
-		"i_id": 203,
-		"i_pieceCount": 10,
-		"i_pieceID": 10203,
 		"i_quality": 0,
-		"il_passiveSkillId": [
+		"il_PassiveSkillId": [
 			120301,
 			120302,
 			120303,
@@ -319,18 +319,18 @@
 				33
 			]
 		],
-		"s_desc": "青水科技的代表产物，能为边远城市提供短时间的能源供给",
-		"s_icon": "icon_jh_s8",
-		"s_name": "微型能源"
+		"s_Desc": "青水科技的代表产物，能为边远城市提供短时间的能源供给",
+		"s_Icon": "icon_jh_s8",
+		"s_Name": "微型能源"
 	},
 	{
-		"i_effectParamRate": 200,
+		"i_EffectParamRate": 200,
+		"i_Id": 205,
+		"i_PieceCount": 10,
+		"i_PieceID": 10205,
 		"i_element": 0,
-		"i_id": 205,
-		"i_pieceCount": 10,
-		"i_pieceID": 10205,
 		"i_quality": 0,
-		"il_passiveSkillId": [
+		"il_PassiveSkillId": [
 			120501,
 			120502,
 			120503,
@@ -366,18 +366,18 @@
 				98
 			]
 		],
-		"s_desc": "上古术士祭祀的法器，注入足够多的元素力量，便可获得想要的东西",
-		"s_icon": "icon_jh_s5",
-		"s_name": "元素祭祀鼎"
+		"s_Desc": "上古术士祭祀的法器，注入足够多的元素力量，便可获得想要的东西",
+		"s_Icon": "icon_jh_s5",
+		"s_Name": "元素祭祀鼎"
 	},
 	{
-		"i_effectParamRate": 100,
+		"i_EffectParamRate": 100,
+		"i_Id": 206,
+		"i_PieceCount": 10,
+		"i_PieceID": 10206,
 		"i_element": 0,
-		"i_id": 206,
-		"i_pieceCount": 10,
-		"i_pieceID": 10206,
 		"i_quality": 0,
-		"il_passiveSkillId": [
+		"il_PassiveSkillId": [
 			120601,
 			120602,
 			120603,
@@ -415,18 +415,18 @@
 				126
 			]
 		],
-		"s_desc": "上古贤者法纳斯的眼睛，被制成一件魔力无边的法器",
-		"s_icon": "icon_jh_s6",
-		"s_name": "法纳斯之眼"
+		"s_Desc": "上古贤者法纳斯的眼睛，被制成一件魔力无边的法器",
+		"s_Icon": "icon_jh_s6",
+		"s_Name": "法纳斯之眼"
 	},
 	{
-		"i_effectParamRate": 200,
+		"i_EffectParamRate": 200,
+		"i_Id": 301,
+		"i_PieceCount": 10,
+		"i_PieceID": 10301,
 		"i_element": 0,
-		"i_id": 301,
-		"i_pieceCount": 10,
-		"i_pieceID": 10301,
 		"i_quality": 0,
-		"il_passiveSkillId": [
+		"il_PassiveSkillId": [
 			130101,
 			130102,
 			130103,
@@ -460,18 +460,18 @@
 				16
 			]
 		],
-		"s_desc": "风铃星随处可见的结晶，只有观看价值",
-		"s_icon": "icon_jh_f2",
-		"s_name": "翠绿结晶"
+		"s_Desc": "风铃星随处可见的结晶，只有观看价值",
+		"s_Icon": "icon_jh_f2",
+		"s_Name": "翠绿结晶"
 	},
 	{
-		"i_effectParamRate": 400,
+		"i_EffectParamRate": 400,
+		"i_Id": 303,
+		"i_PieceCount": 10,
+		"i_PieceID": 10303,
 		"i_element": 0,
-		"i_id": 303,
-		"i_pieceCount": 10,
-		"i_pieceID": 10303,
 		"i_quality": 0,
-		"il_passiveSkillId": [
+		"il_PassiveSkillId": [
 			130301,
 			130302,
 			130303,
@@ -506,18 +506,18 @@
 				66
 			]
 		],
-		"s_desc": "风悠赌坊里取乐的小玩意，投掷时可以召唤对应的星辰映像",
-		"s_icon": "icon_jh_f3",
-		"s_name": "八面星骰"
+		"s_Desc": "风悠赌坊里取乐的小玩意，投掷时可以召唤对应的星辰映像",
+		"s_Icon": "icon_jh_f3",
+		"s_Name": "八面星骰"
 	},
 	{
-		"i_effectParamRate": 1200,
+		"i_EffectParamRate": 1200,
+		"i_Id": 304,
+		"i_PieceCount": 10,
+		"i_PieceID": 10304,
 		"i_element": 0,
-		"i_id": 304,
-		"i_pieceCount": 10,
-		"i_pieceID": 10304,
 		"i_quality": 0,
-		"il_passiveSkillId": [
+		"il_PassiveSkillId": [
 			130401,
 			130402,
 			130403,
@@ -552,18 +552,18 @@
 				27
 			]
 		],
-		"s_desc": "用于检测特殊矿石的仪器，戴上即可扫描前方1公里的区域",
-		"s_icon": "icon_jh_f5",
-		"s_name": "虚能头盔"
+		"s_Desc": "用于检测特殊矿石的仪器，戴上即可扫描前方1公里的区域",
+		"s_Icon": "icon_jh_f5",
+		"s_Name": "虚能头盔"
 	},
 	{
-		"i_effectParamRate": 200,
+		"i_EffectParamRate": 200,
+		"i_Id": 305,
+		"i_PieceCount": 10,
+		"i_PieceID": 10305,
 		"i_element": 0,
-		"i_id": 305,
-		"i_pieceCount": 10,
-		"i_pieceID": 10305,
 		"i_quality": 0,
-		"il_passiveSkillId": [
+		"il_PassiveSkillId": [
 			130501,
 			130502,
 			130503,
@@ -599,18 +599,18 @@
 				48
 			]
 		],
-		"s_desc": "次时代科技产物，放入少量能源，即可培养出一道完整的能源体",
-		"s_icon": "icon_jh_f8",
-		"s_name": "次古培养舱"
+		"s_Desc": "次时代科技产物，放入少量能源，即可培养出一道完整的能源体",
+		"s_Icon": "icon_jh_f8",
+		"s_Name": "次古培养舱"
 	},
 	{
-		"i_effectParamRate": 1,
+		"i_EffectParamRate": 1,
+		"i_Id": 306,
+		"i_PieceCount": 10,
+		"i_PieceID": 10306,
 		"i_element": 0,
-		"i_id": 306,
-		"i_pieceCount": 10,
-		"i_pieceID": 10306,
 		"i_quality": 0,
-		"il_passiveSkillId": [
+		"il_PassiveSkillId": [
 			130601,
 			130602,
 			130603,
@@ -648,18 +648,18 @@
 				126
 			]
 		],
-		"s_desc": "风铃星最高的科技成就之一，能够引爆氢能，毁灭数个星球不在话下",
-		"s_icon": "icon_jh_f10",
-		"s_name": "毁灭氢能"
+		"s_Desc": "风铃星最高的科技成就之一，能够引爆氢能，毁灭数个星球不在话下",
+		"s_Icon": "icon_jh_f10",
+		"s_Name": "毁灭氢能"
 	},
 	{
-		"i_effectParamRate": 500,
+		"i_EffectParamRate": 500,
+		"i_Id": 402,
+		"i_PieceCount": 10,
+		"i_PieceID": 10402,
 		"i_element": 0,
-		"i_id": 402,
-		"i_pieceCount": 10,
-		"i_pieceID": 10402,
 		"i_quality": 0,
-		"il_passiveSkillId": [
+		"il_PassiveSkillId": [
 			140201,
 			140202,
 			140203,
@@ -693,18 +693,18 @@
 				30
 			]
 		],
-		"s_desc": "风影卫里特殊的存在，没有人记得它的主人",
-		"s_icon": "icon_jh_f1",
-		"s_name": "风之头盔"
+		"s_Desc": "风影卫里特殊的存在，没有人记得它的主人",
+		"s_Icon": "icon_jh_f1",
+		"s_Name": "风之头盔"
 	},
 	{
-		"i_effectParamRate": 5,
+		"i_EffectParamRate": 5,
+		"i_Id": 405,
+		"i_PieceCount": 10,
+		"i_PieceID": 10405,
 		"i_element": 0,
-		"i_id": 405,
-		"i_pieceCount": 10,
-		"i_pieceID": 10405,
 		"i_quality": 0,
-		"il_passiveSkillId": [
+		"il_PassiveSkillId": [
 			140501,
 			140502,
 			140503,
@@ -740,18 +740,18 @@
 				90
 			]
 		],
-		"s_desc": "进入元素秘境必须的钥匙，风铃星国主已经找寻了数个纪元",
-		"s_icon": "icon_jh_f11",
-		"s_name": "失落的密匙"
+		"s_Desc": "进入元素秘境必须的钥匙，风铃星国主已经找寻了数个纪元",
+		"s_Icon": "icon_jh_f11",
+		"s_Name": "失落的密匙"
 	},
 	{
-		"i_effectParamRate": 1,
+		"i_EffectParamRate": 1,
+		"i_Id": 406,
+		"i_PieceCount": 10,
+		"i_PieceID": 10406,
 		"i_element": 0,
-		"i_id": 406,
-		"i_pieceCount": 10,
-		"i_pieceID": 10406,
 		"i_quality": 0,
-		"il_passiveSkillId": [
+		"il_PassiveSkillId": [
 			140601,
 			140603,
 			140604,
@@ -788,18 +788,18 @@
 				70
 			]
 		],
-		"s_desc": "风铃星最高的科技成就之一，能够形成超高能护罩，覆盖整个星球",
-		"s_icon": "icon_jh_f12",
-		"s_name": "永恒界锁"
+		"s_Desc": "风铃星最高的科技成就之一，能够形成超高能护罩，覆盖整个星球",
+		"s_Icon": "icon_jh_f12",
+		"s_Name": "永恒界锁"
 	},
 	{
-		"i_effectParamRate": 1,
+		"i_EffectParamRate": 1,
+		"i_Id": 407,
+		"i_PieceCount": 10,
+		"i_PieceID": 10407,
 		"i_element": 0,
-		"i_id": 407,
-		"i_pieceCount": 10,
-		"i_pieceID": 10407,
 		"i_quality": 0,
-		"il_passiveSkillId": [
+		"il_PassiveSkillId": [
 			140701,
 			140703,
 			140704,
@@ -836,18 +836,18 @@
 				80
 			]
 		],
-		"s_desc": "印刻着圣纹的奇异器具，据说能够指引拥有者前往次星圣域",
-		"s_icon": "icon_jh_f13",
-		"s_name": "次域定锚"
+		"s_Desc": "印刻着圣纹的奇异器具，据说能够指引拥有者前往次星圣域",
+		"s_Icon": "icon_jh_f13",
+		"s_Name": "次域定锚"
 	},
 	{
-		"i_effectParamRate": 500,
+		"i_EffectParamRate": 500,
+		"i_Id": 501,
+		"i_PieceCount": 10,
+		"i_PieceID": 10501,
 		"i_element": 0,
-		"i_id": 501,
-		"i_pieceCount": 10,
-		"i_pieceID": 10501,
 		"i_quality": 0,
-		"il_passiveSkillId": [
+		"il_PassiveSkillId": [
 			150101,
 			150102,
 			150103,
@@ -881,18 +881,18 @@
 				13
 			]
 		],
-		"s_desc": "有些年头的弹头，但被保存的很好，有收藏价值",
-		"s_icon": "icon_jh_h4",
-		"s_name": "古董弹头"
+		"s_Desc": "有些年头的弹头，但被保存的很好，有收藏价值",
+		"s_Icon": "icon_jh_h4",
+		"s_Name": "古董弹头"
 	},
 	{
-		"i_effectParamRate": 200,
+		"i_EffectParamRate": 200,
+		"i_Id": 502,
+		"i_PieceCount": 10,
+		"i_PieceID": 10502,
 		"i_element": 0,
-		"i_id": 502,
-		"i_pieceCount": 10,
-		"i_pieceID": 10502,
 		"i_quality": 0,
-		"il_passiveSkillId": [
+		"il_PassiveSkillId": [
 			150201,
 			150202,
 			150203,
@@ -926,18 +926,18 @@
 				33
 			]
 		],
-		"s_desc": "炽灵星女子最爱的饰品，人手一件",
-		"s_icon": "icon_jh_h2",
-		"s_name": "烈焰花饰"
+		"s_Desc": "炽灵星女子最爱的饰品，人手一件",
+		"s_Icon": "icon_jh_h2",
+		"s_Name": "烈焰花饰"
 	},
 	{
-		"i_effectParamRate": 1,
+		"i_EffectParamRate": 1,
+		"i_Id": 505,
+		"i_PieceCount": 10,
+		"i_PieceID": 10505,
 		"i_element": 0,
-		"i_id": 505,
-		"i_pieceCount": 10,
-		"i_pieceID": 10505,
 		"i_quality": 0,
-		"il_passiveSkillId": [
+		"il_PassiveSkillId": [
 			150501,
 			150502,
 			150503,
@@ -973,18 +973,18 @@
 				98
 			]
 		],
-		"s_desc": "能够探测其他星球的前沿科技，能够很好的处理外太空的各种事件",
-		"s_icon": "icon_jh_h10",
-		"s_name": "远烽卫星"
+		"s_Desc": "能够探测其他星球的前沿科技，能够很好的处理外太空的各种事件",
+		"s_Icon": "icon_jh_h10",
+		"s_Name": "远烽卫星"
 	},
 	{
-		"i_effectParamRate": 1,
+		"i_EffectParamRate": 1,
+		"i_Id": 506,
+		"i_PieceCount": 10,
+		"i_PieceID": 10506,
 		"i_element": 0,
-		"i_id": 506,
-		"i_pieceCount": 10,
-		"i_pieceID": 10506,
 		"i_quality": 0,
-		"il_passiveSkillId": [
+		"il_PassiveSkillId": [
 			150601,
 			150603,
 			150604,
@@ -1021,18 +1021,18 @@
 				70
 			]
 		],
-		"s_desc": "在异域缴获的神器，能够源源不断的投影圣灵晶体，制造防御结界",
-		"s_icon": "icon_jh_h12",
-		"s_name": "圣晶投影"
+		"s_Desc": "在异域缴获的神器，能够源源不断的投影圣灵晶体，制造防御结界",
+		"s_Icon": "icon_jh_h12",
+		"s_Name": "圣晶投影"
 	},
 	{
-		"i_effectParamRate": 1,
+		"i_EffectParamRate": 1,
+		"i_Id": 507,
+		"i_PieceCount": 10,
+		"i_PieceID": 10507,
 		"i_element": 0,
-		"i_id": 507,
-		"i_pieceCount": 10,
-		"i_pieceID": 10507,
 		"i_quality": 0,
-		"il_passiveSkillId": [
+		"il_PassiveSkillId": [
 			150701,
 			150703,
 			150704,
@@ -1069,18 +1069,18 @@
 				80
 			]
 		],
-		"s_desc": "上古科技与术法融合的至高圣物，能够释放无穷的烈焰燃烧一切邪恶",
-		"s_icon": "icon_jh_h13",
-		"s_name": "上古焱灵"
+		"s_Desc": "上古科技与术法融合的至高圣物，能够释放无穷的烈焰燃烧一切邪恶",
+		"s_Icon": "icon_jh_h13",
+		"s_Name": "上古焱灵"
 	},
 	{
-		"i_effectParamRate": 400,
+		"i_EffectParamRate": 400,
+		"i_Id": 604,
+		"i_PieceCount": 10,
+		"i_PieceID": 10604,
 		"i_element": 0,
-		"i_id": 604,
-		"i_pieceCount": 10,
-		"i_pieceID": 10604,
 		"i_quality": 0,
-		"il_passiveSkillId": [
+		"il_PassiveSkillId": [
 			160401,
 			160402,
 			160403,
@@ -1115,18 +1115,18 @@
 				60
 			]
 		],
-		"s_desc": "梵星圣使献给水星女王的贡品，放入少量水晶，就能产出一杯梵星美酒",
-		"s_icon": "icon_jh_s9",
-		"s_name": "梵星圣杯"
+		"s_Desc": "梵星圣使献给水星女王的贡品，放入少量水晶，就能产出一杯梵星美酒",
+		"s_Icon": "icon_jh_s9",
+		"s_Name": "梵星圣杯"
 	},
 	{
-		"i_effectParamRate": 5,
+		"i_EffectParamRate": 5,
+		"i_Id": 605,
+		"i_PieceCount": 10,
+		"i_PieceID": 10605,
 		"i_element": 0,
-		"i_id": 605,
-		"i_pieceCount": 10,
-		"i_pieceID": 10605,
 		"i_quality": 0,
-		"il_passiveSkillId": [
+		"il_PassiveSkillId": [
 			160501,
 			160502,
 			160503,
@@ -1162,18 +1162,18 @@
 				40
 			]
 		],
-		"s_desc": "深水大陆的入门许可，进入其中可以获得水灵赐福",
-		"s_icon": "icon_jh_s11",
-		"s_name": "水精纹章"
+		"s_Desc": "深水大陆的入门许可，进入其中可以获得水灵赐福",
+		"s_Icon": "icon_jh_s11",
+		"s_Name": "水精纹章"
 	},
 	{
-		"i_effectParamRate": 2,
+		"i_EffectParamRate": 2,
+		"i_Id": 606,
+		"i_PieceCount": 10,
+		"i_PieceID": 10606,
 		"i_element": 0,
-		"i_id": 606,
-		"i_pieceCount": 10,
-		"i_pieceID": 10606,
 		"i_quality": 0,
-		"il_passiveSkillId": [
+		"il_PassiveSkillId": [
 			160601,
 			160603,
 			160604,
@@ -1210,18 +1210,18 @@
 				70
 			]
 		],
-		"s_desc": "水星秘密研究的武器，注入了超过一万种能量，爆炸足以摧毁数个星球",
-		"s_icon": "icon_jh_s12",
-		"s_name": "万灵核能"
+		"s_Desc": "水星秘密研究的武器，注入了超过一万种能量，爆炸足以摧毁数个星球",
+		"s_Icon": "icon_jh_s12",
+		"s_Name": "万灵核能"
 	},
 	{
-		"i_effectParamRate": 1,
+		"i_EffectParamRate": 1,
+		"i_Id": 607,
+		"i_PieceCount": 10,
+		"i_PieceID": 10607,
 		"i_element": 0,
-		"i_id": 607,
-		"i_pieceCount": 10,
-		"i_pieceID": 10607,
 		"i_quality": 0,
-		"il_passiveSkillId": [
+		"il_PassiveSkillId": [
 			160701,
 			160703,
 			160704,
@@ -1258,18 +1258,18 @@
 				80
 			]
 		],
-		"s_desc": "融合了一万道水灵能量的神器，可以召唤无边的水浪吞噬一切",
-		"s_icon": "icon_jh_s13",
-		"s_name": "碧蓝之心"
+		"s_Desc": "融合了一万道水灵能量的神器，可以召唤无边的水浪吞噬一切",
+		"s_Icon": "icon_jh_s13",
+		"s_Name": "碧蓝之心"
 	},
 	{
-		"i_effectParamRate": 500,
+		"i_EffectParamRate": 500,
+		"i_Id": 701,
+		"i_PieceCount": 10,
+		"i_PieceID": 11001,
 		"i_element": 0,
-		"i_id": 701,
-		"i_pieceCount": 10,
-		"i_pieceID": 11001,
 		"i_quality": 0,
-		"il_passiveSkillId": [
+		"il_PassiveSkillId": [
 			170101,
 			170102,
 			170103,
@@ -1303,18 +1303,18 @@
 				16
 			]
 		],
-		"s_desc": "圣灵星最常见的货币，可以购买各种商品",
-		"s_icon": "icon_jh_g1",
-		"s_name": "圣灵金币"
+		"s_Desc": "圣灵星最常见的货币，可以购买各种商品",
+		"s_Icon": "icon_jh_g1",
+		"s_Name": "圣灵金币"
 	},
 	{
-		"i_effectParamRate": 200,
+		"i_EffectParamRate": 200,
+		"i_Id": 703,
+		"i_PieceCount": 10,
+		"i_PieceID": 11002,
 		"i_element": 0,
-		"i_id": 703,
-		"i_pieceCount": 10,
-		"i_pieceID": 11002,
 		"i_quality": 0,
-		"il_passiveSkillId": [
+		"il_PassiveSkillId": [
 			170301,
 			170302,
 			170303,
@@ -1348,18 +1348,18 @@
 				30
 			]
 		],
-		"s_desc": "匠星人为宇宙守卫军定制的护盾，可以同过光明能量抵挡攻击",
-		"s_icon": "icon_jh_g2",
-		"s_name": "十字盾"
+		"s_Desc": "匠星人为宇宙守卫军定制的护盾，可以同过光明能量抵挡攻击",
+		"s_Icon": "icon_jh_g2",
+		"s_Name": "十字盾"
 	},
 	{
-		"i_effectParamRate": 1200,
+		"i_EffectParamRate": 1200,
+		"i_Id": 706,
+		"i_PieceCount": 10,
+		"i_PieceID": 11003,
 		"i_element": 0,
-		"i_id": 706,
-		"i_pieceCount": 10,
-		"i_pieceID": 11003,
 		"i_quality": 0,
-		"il_passiveSkillId": [
+		"il_PassiveSkillId": [
 			170601,
 			170602,
 			170603,
@@ -1394,18 +1394,18 @@
 				33
 			]
 		],
-		"s_desc": "虽然外表可爱，但具备毁灭力量的高能粒子枪",
-		"s_icon": "icon_jh_g5",
-		"s_name": "天使枪"
+		"s_Desc": "虽然外表可爱，但具备毁灭力量的高能粒子枪",
+		"s_Icon": "icon_jh_g5",
+		"s_Name": "天使枪"
 	},
 	{
-		"i_effectParamRate": 400,
+		"i_EffectParamRate": 400,
+		"i_Id": 707,
+		"i_PieceCount": 10,
+		"i_PieceID": 11004,
 		"i_element": 0,
-		"i_id": 707,
-		"i_pieceCount": 10,
-		"i_pieceID": 11004,
 		"i_quality": 0,
-		"il_passiveSkillId": [
+		"il_PassiveSkillId": [
 			170701,
 			170702,
 			170703,
@@ -1440,18 +1440,18 @@
 				60
 			]
 		],
-		"s_desc": "光明星学者使用压缩核能制作的小型后备补给，有“战场恶魔”之名",
-		"s_icon": "icon_jh_g6",
-		"s_name": "光明芯源"
+		"s_Desc": "光明星学者使用压缩核能制作的小型后备补给，有“战场恶魔”之名",
+		"s_Icon": "icon_jh_g6",
+		"s_Name": "光明芯源"
 	},
 	{
-		"i_effectParamRate": 200,
+		"i_EffectParamRate": 200,
+		"i_Id": 709,
+		"i_PieceCount": 10,
+		"i_PieceID": 11005,
 		"i_element": 0,
-		"i_id": 709,
-		"i_pieceCount": 10,
-		"i_pieceID": 11005,
 		"i_quality": 0,
-		"il_passiveSkillId": [
+		"il_PassiveSkillId": [
 			170901,
 			170902,
 			170903,
@@ -1487,18 +1487,18 @@
 				48
 			]
 		],
-		"s_desc": "撒星王妃的随身饰品，念动咒语时可以召唤强大护卫",
-		"s_icon": "icon_jh_g3",
-		"s_name": "失落耳环"
+		"s_Desc": "撒星王妃的随身饰品，念动咒语时可以召唤强大护卫",
+		"s_Icon": "icon_jh_g3",
+		"s_Name": "失落耳环"
 	},
 	{
-		"i_effectParamRate": 1,
+		"i_EffectParamRate": 1,
+		"i_Id": 710,
+		"i_PieceCount": 10,
+		"i_PieceID": 11006,
 		"i_element": 0,
-		"i_id": 710,
-		"i_pieceCount": 10,
-		"i_pieceID": 11006,
 		"i_quality": 0,
-		"il_passiveSkillId": [
+		"il_PassiveSkillId": [
 			171001,
 			171002,
 			171003,
@@ -1534,18 +1534,18 @@
 				90
 			]
 		],
-		"s_desc": "光明圣者从创世树上折得一截树干制作的弓，射出的箭能穿透一切防御",
-		"s_icon": "icon_jh_g8",
-		"s_name": "圣者之弓"
+		"s_Desc": "光明圣者从创世树上折得一截树干制作的弓，射出的箭能穿透一切防御",
+		"s_Icon": "icon_jh_g8",
+		"s_Name": "圣者之弓"
 	},
 	{
-		"i_effectParamRate": 5,
+		"i_EffectParamRate": 5,
+		"i_Id": 711,
+		"i_PieceCount": 10,
+		"i_PieceID": 11007,
 		"i_element": 0,
-		"i_id": 711,
-		"i_pieceCount": 10,
-		"i_pieceID": 11007,
 		"i_quality": 0,
-		"il_passiveSkillId": [
+		"il_PassiveSkillId": [
 			171101,
 			171102,
 			171103,
@@ -1583,18 +1583,18 @@
 				126
 			]
 		],
-		"s_desc": "三代法老泰斯的权利象征，可以号令光沙星域的所有领主",
-		"s_icon": "icon_jh_g12",
-		"s_name": "泰斯权杖"
+		"s_Desc": "三代法老泰斯的权利象征，可以号令光沙星域的所有领主",
+		"s_Icon": "icon_jh_g12",
+		"s_Name": "泰斯权杖"
 	},
 	{
-		"i_effectParamRate": 1,
+		"i_EffectParamRate": 1,
+		"i_Id": 712,
+		"i_PieceCount": 10,
+		"i_PieceID": 11008,
 		"i_element": 0,
-		"i_id": 712,
-		"i_pieceCount": 10,
-		"i_pieceID": 11008,
 		"i_quality": 0,
-		"il_passiveSkillId": [
+		"il_PassiveSkillId": [
 			171201,
 			171203,
 			171204,
@@ -1631,18 +1631,18 @@
 				70
 			]
 		],
-		"s_desc": "传闻献祭了一族才完整的法器，有沟通过去与未来的异能",
-		"s_icon": "icon_jh_g11",
-		"s_name": "献祭法器"
+		"s_Desc": "传闻献祭了一族才完整的法器，有沟通过去与未来的异能",
+		"s_Icon": "icon_jh_g11",
+		"s_Name": "献祭法器"
 	},
 	{
-		"i_effectParamRate": 1,
+		"i_EffectParamRate": 1,
+		"i_Id": 713,
+		"i_PieceCount": 10,
+		"i_PieceID": 11009,
 		"i_element": 0,
-		"i_id": 713,
-		"i_pieceCount": 10,
-		"i_pieceID": 11009,
 		"i_quality": 0,
-		"il_passiveSkillId": [
+		"il_PassiveSkillId": [
 			171301,
 			171303,
 			171304,
@@ -1679,18 +1679,18 @@
 				80
 			]
 		],
-		"s_desc": "蕴含创世神沉睡时分离的部分力量，毁天灭地，不过尔尔",
-		"s_icon": "icon_jh_g13",
-		"s_name": "创世能源"
+		"s_Desc": "蕴含创世神沉睡时分离的部分力量，毁天灭地，不过尔尔",
+		"s_Icon": "icon_jh_g13",
+		"s_Name": "创世能源"
 	},
 	{
-		"i_effectParamRate": 200,
+		"i_EffectParamRate": 200,
+		"i_Id": 803,
+		"i_PieceCount": 10,
+		"i_PieceID": 11201,
 		"i_element": 0,
-		"i_id": 803,
-		"i_pieceCount": 10,
-		"i_pieceID": 11201,
 		"i_quality": 0,
-		"il_passiveSkillId": [
+		"il_PassiveSkillId": [
 			180301,
 			180302,
 			180303,
@@ -1724,18 +1724,18 @@
 				13
 			]
 		],
-		"s_desc": "暗星最常见的小玩意，深受孩子喜欢，有启发智力的效果",
-		"s_icon": "icon_jh_a2",
-		"s_name": "暗汀魔方"
+		"s_Desc": "暗星最常见的小玩意，深受孩子喜欢，有启发智力的效果",
+		"s_Icon": "icon_jh_a2",
+		"s_Name": "暗汀魔方"
 	},
 	{
-		"i_effectParamRate": 500,
+		"i_EffectParamRate": 500,
+		"i_Id": 804,
+		"i_PieceCount": 10,
+		"i_PieceID": 11202,
 		"i_element": 0,
-		"i_id": 804,
-		"i_pieceCount": 10,
-		"i_pieceID": 11202,
 		"i_quality": 0,
-		"il_passiveSkillId": [
+		"il_PassiveSkillId": [
 			180401,
 			180402,
 			180403,
@@ -1769,18 +1769,18 @@
 				33
 			]
 		],
-		"s_desc": "上古各族所签订的盟约，不能无故入侵其他种族",
-		"s_icon": "icon_jh_a6",
-		"s_name": "古代誓约"
+		"s_Desc": "上古各族所签订的盟约，不能无故入侵其他种族",
+		"s_Icon": "icon_jh_a6",
+		"s_Name": "古代誓约"
 	},
 	{
-		"i_effectParamRate": 400,
+		"i_EffectParamRate": 400,
+		"i_Id": 806,
+		"i_PieceCount": 10,
+		"i_PieceID": 11203,
 		"i_element": 0,
-		"i_id": 806,
-		"i_pieceCount": 10,
-		"i_pieceID": 11203,
 		"i_quality": 0,
-		"il_passiveSkillId": [
+		"il_PassiveSkillId": [
 			180601,
 			180602,
 			180603,
@@ -1815,18 +1815,18 @@
 				27
 			]
 		],
-		"s_desc": "人工智能的产物，戴上可以快速勘察周围数百里的地形",
-		"s_icon": "icon_jh_a5",
-		"s_name": "暗星护目"
+		"s_Desc": "人工智能的产物，戴上可以快速勘察周围数百里的地形",
+		"s_Icon": "icon_jh_a5",
+		"s_Name": "暗星护目"
 	},
 	{
-		"i_effectParamRate": 1200,
+		"i_EffectParamRate": 1200,
+		"i_Id": 807,
+		"i_PieceCount": 10,
+		"i_PieceID": 11204,
 		"i_element": 0,
-		"i_id": 807,
-		"i_pieceCount": 10,
-		"i_pieceID": 11204,
 		"i_quality": 0,
-		"il_passiveSkillId": [
+		"il_PassiveSkillId": [
 			180701,
 			180702,
 			180703,
@@ -1861,18 +1861,18 @@
 				66
 			]
 		],
-		"s_desc": "术士成年时被赠与的魔力斗篷，有隐身的超级能力",
-		"s_icon": "icon_jh_a8",
-		"s_name": "术士斗篷"
+		"s_Desc": "术士成年时被赠与的魔力斗篷，有隐身的超级能力",
+		"s_Icon": "icon_jh_a8",
+		"s_Name": "术士斗篷"
 	},
 	{
-		"i_effectParamRate": 200,
+		"i_EffectParamRate": 200,
+		"i_Id": 809,
+		"i_PieceCount": 10,
+		"i_PieceID": 11205,
 		"i_element": 0,
-		"i_id": 809,
-		"i_pieceCount": 10,
-		"i_pieceID": 11205,
 		"i_quality": 0,
-		"il_passiveSkillId": [
+		"il_PassiveSkillId": [
 			180901,
 			180902,
 			180903,
@@ -1908,18 +1908,18 @@
 				40
 			]
 		],
-		"s_desc": "暗之能源的特殊载体，不时传出一阵阵能量波动",
-		"s_icon": "icon_jh_a10",
-		"s_name": "暗灵之源"
+		"s_Desc": "暗之能源的特殊载体，不时传出一阵阵能量波动",
+		"s_Icon": "icon_jh_a10",
+		"s_Name": "暗灵之源"
 	},
 	{
-		"i_effectParamRate": 5,
+		"i_EffectParamRate": 5,
+		"i_Id": 810,
+		"i_PieceCount": 10,
+		"i_PieceID": 11206,
 		"i_element": 0,
-		"i_id": 810,
-		"i_pieceCount": 10,
-		"i_pieceID": 11206,
 		"i_quality": 0,
-		"il_passiveSkillId": [
+		"il_PassiveSkillId": [
 			181001,
 			181002,
 			181003,
@@ -1955,18 +1955,18 @@
 				98
 			]
 		],
-		"s_desc": "大魔法师的伴生魔法书，记录了各种强力的魔法，现在已经遗失",
-		"s_icon": "icon_jh_a11",
-		"s_name": "禁忌魔法书"
+		"s_Desc": "大魔法师的伴生魔法书，记录了各种强力的魔法，现在已经遗失",
+		"s_Icon": "icon_jh_a11",
+		"s_Name": "禁忌魔法书"
 	},
 	{
-		"i_effectParamRate": 5,
+		"i_EffectParamRate": 5,
+		"i_Id": 811,
+		"i_PieceCount": 10,
+		"i_PieceID": 11207,
 		"i_element": 0,
-		"i_id": 811,
-		"i_pieceCount": 10,
-		"i_pieceID": 11207,
 		"i_quality": 0,
-		"il_passiveSkillId": [
+		"il_PassiveSkillId": [
 			181101,
 			181102,
 			181103,
@@ -2004,18 +2004,18 @@
 				126
 			]
 		],
-		"s_desc": "从幽冥中萃取能量打造的最终武器，挥舞间有骇人的能量波动传出",
-		"s_icon": "icon_jh_a7",
-		"s_name": "死灵之刃"
+		"s_Desc": "从幽冥中萃取能量打造的最终武器，挥舞间有骇人的能量波动传出",
+		"s_Icon": "icon_jh_a7",
+		"s_Name": "死灵之刃"
 	},
 	{
-		"i_effectParamRate": 1,
+		"i_EffectParamRate": 1,
+		"i_Id": 812,
+		"i_PieceCount": 10,
+		"i_PieceID": 11208,
 		"i_element": 0,
-		"i_id": 812,
-		"i_pieceCount": 10,
-		"i_pieceID": 11208,
 		"i_quality": 0,
-		"il_passiveSkillId": [
+		"il_PassiveSkillId": [
 			181201,
 			181203,
 			181204,
@@ -2052,18 +2052,18 @@
 				70
 			]
 		],
-		"s_desc": "一个宇宙毁灭时所遗留的核心，或许有一天能再度唤醒它",
-		"s_icon": "icon_jh_a12",
-		"s_name": "宇宙之心"
+		"s_Desc": "一个宇宙毁灭时所遗留的核心，或许有一天能再度唤醒它",
+		"s_Icon": "icon_jh_a12",
+		"s_Name": "宇宙之心"
 	},
 	{
-		"i_effectParamRate": 1,
+		"i_EffectParamRate": 1,
+		"i_Id": 813,
+		"i_PieceCount": 10,
+		"i_PieceID": 11209,
 		"i_element": 0,
-		"i_id": 813,
-		"i_pieceCount": 10,
-		"i_pieceID": 11209,
 		"i_quality": 0,
-		"il_passiveSkillId": [
+		"il_PassiveSkillId": [
 			181301,
 			181303,
 			181304,
@@ -2100,18 +2100,18 @@
 				80
 			]
 		],
-		"s_desc": "受恶魔附着的面具，戴上它将会获得无穷的恶魔之力，但会侵蚀心智",
-		"s_icon": "icon_jh_a13",
-		"s_name": "恶魔面具"
+		"s_Desc": "受恶魔附着的面具，戴上它将会获得无穷的恶魔之力，但会侵蚀心智",
+		"s_Icon": "icon_jh_a13",
+		"s_Name": "恶魔面具"
 	},
 	{
-		"i_effectParamRate": 0,
+		"i_EffectParamRate": 0,
+		"i_Id": 0,
+		"i_PieceCount": 0,
+		"i_PieceID": 0,
 		"i_element": 0,
-		"i_id": 0,
-		"i_pieceCount": 0,
-		"i_pieceID": 0,
 		"i_quality": 0,
-		"il_passiveSkillId": [
+		"il_PassiveSkillId": [
 			0
 		],
 		"ill_addTalent": [
@@ -2124,18 +2124,18 @@
 				0
 			]
 		],
-		"s_desc": "",
-		"s_icon": "",
-		"s_name": ""
+		"s_Desc": "",
+		"s_Icon": "",
+		"s_Name": ""
 	},
 	{
-		"i_effectParamRate": 0,
+		"i_EffectParamRate": 0,
+		"i_Id": 0,
+		"i_PieceCount": 0,
+		"i_PieceID": 0,
 		"i_element": 0,
-		"i_id": 0,
-		"i_pieceCount": 0,
-		"i_pieceID": 0,
 		"i_quality": 0,
-		"il_passiveSkillId": [
+		"il_PassiveSkillId": [
 			0
 		],
 		"ill_addTalent": [
@@ -2148,18 +2148,18 @@
 				0
 			]
 		],
-		"s_desc": "",
-		"s_icon": "",
-		"s_name": ""
+		"s_Desc": "",
+		"s_Icon": "",
+		"s_Name": ""
 	},
 	{
-		"i_effectParamRate": 0,
+		"i_EffectParamRate": 0,
+		"i_Id": 0,
+		"i_PieceCount": 0,
+		"i_PieceID": 0,
 		"i_element": 0,
-		"i_id": 0,
-		"i_pieceCount": 0,
-		"i_pieceID": 0,
 		"i_quality": 0,
-		"il_passiveSkillId": [
+		"il_PassiveSkillId": [
 			0
 		],
 		"ill_addTalent": [
@@ -2172,18 +2172,18 @@
 				0
 			]
 		],
-		"s_desc": "",
-		"s_icon": "",
-		"s_name": ""
+		"s_Desc": "",
+		"s_Icon": "",
+		"s_Name": ""
 	},
 	{
-		"i_effectParamRate": 0,
+		"i_EffectParamRate": 0,
+		"i_Id": 0,
+		"i_PieceCount": 0,
+		"i_PieceID": 0,
 		"i_element": 0,
-		"i_id": 0,
-		"i_pieceCount": 0,
-		"i_pieceID": 0,
 		"i_quality": 0,
-		"il_passiveSkillId": [
+		"il_PassiveSkillId": [
 			0
 		],
 		"ill_addTalent": [
@@ -2196,18 +2196,18 @@
 				0
 			]
 		],
-		"s_desc": "",
-		"s_icon": "",
-		"s_name": ""
+		"s_Desc": "",
+		"s_Icon": "",
+		"s_Name": ""
 	},
 	{
-		"i_effectParamRate": 0,
+		"i_EffectParamRate": 0,
+		"i_Id": 0,
+		"i_PieceCount": 0,
+		"i_PieceID": 0,
 		"i_element": 0,
-		"i_id": 0,
-		"i_pieceCount": 0,
-		"i_pieceID": 0,
 		"i_quality": 0,
-		"il_passiveSkillId": [
+		"il_PassiveSkillId": [
 			0
 		],
 		"ill_addTalent": [
@@ -2220,18 +2220,18 @@
 				0
 			]
 		],
-		"s_desc": "",
-		"s_icon": "",
-		"s_name": ""
+		"s_Desc": "",
+		"s_Icon": "",
+		"s_Name": ""
 	},
 	{
-		"i_effectParamRate": 0,
+		"i_EffectParamRate": 0,
+		"i_Id": 0,
+		"i_PieceCount": 0,
+		"i_PieceID": 0,
 		"i_element": 0,
-		"i_id": 0,
-		"i_pieceCount": 0,
-		"i_pieceID": 0,
 		"i_quality": 0,
-		"il_passiveSkillId": [
+		"il_PassiveSkillId": [
 			0
 		],
 		"ill_addTalent": [
@@ -2244,19 +2244,19 @@
 				0
 			]
 		],
-		"s_desc": "",
-		"s_icon": "",
-		"s_name": ""
+		"s_Desc": "",
+		"s_Icon": "",
+		"s_Name": ""
 	},
 	{},
 	{
-		"i_effectParamRate": 0,
+		"i_EffectParamRate": 0,
+		"i_Id": 0,
+		"i_PieceCount": 0,
+		"i_PieceID": 0,
 		"i_element": 0,
-		"i_id": 0,
-		"i_pieceCount": 0,
-		"i_pieceID": 0,
 		"i_quality": 0,
-		"il_passiveSkillId": [
+		"il_PassiveSkillId": [
 			0
 		],
 		"ill_addTalent": [
@@ -2269,18 +2269,18 @@
 				0
 			]
 		],
-		"s_desc": "",
-		"s_icon": "",
-		"s_name": ""
+		"s_Desc": "",
+		"s_Icon": "",
+		"s_Name": ""
 	},
 	{
-		"i_effectParamRate": 0,
+		"i_EffectParamRate": 0,
+		"i_Id": 0,
+		"i_PieceCount": 0,
+		"i_PieceID": 0,
 		"i_element": 0,
-		"i_id": 0,
-		"i_pieceCount": 0,
-		"i_pieceID": 0,
 		"i_quality": 0,
-		"il_passiveSkillId": [
+		"il_PassiveSkillId": [
 			0
 		],
 		"ill_addTalent": [
@@ -2293,8 +2293,8 @@
 				0
 			]
 		],
-		"s_desc": "",
-		"s_icon": "",
-		"s_name": ""
+		"s_Desc": "",
+		"s_Icon": "",
+		"s_Name": ""
 	}
 ]

@@ -1,44 +1,44 @@
 [
 	{
-		"i_advertType": 0,
-		"i_dailyCount": 3,
-		"i_id": 1
+		"i_DailyCount": 3,
+		"i_Id": 1,
+		"i_advertType": 0
 	},
 	{
-		"i_advertType": 0,
-		"i_dailyCount": 3,
-		"i_id": 2
+		"i_DailyCount": 3,
+		"i_Id": 2,
+		"i_advertType": 0
 	},
 	{
-		"i_advertType": 0,
-		"i_dailyCount": 2,
-		"i_id": 3
+		"i_DailyCount": 2,
+		"i_Id": 3,
+		"i_advertType": 0
 	},
 	{
-		"i_advertType": 0,
-		"i_dailyCount": 2,
-		"i_id": 4
+		"i_DailyCount": 2,
+		"i_Id": 4,
+		"i_advertType": 0
 	},
 	{
-		"i_advertType": 0,
-		"i_dailyCount": 3,
-		"i_id": 5
+		"i_DailyCount": 3,
+		"i_Id": 5,
+		"i_advertType": 0
 	},
 	{
-		"i_advertType": 0,
-		"i_dailyCount": 2,
-		"i_id": 6,
-		"i_param": 5
+		"i_DailyCount": 2,
+		"i_Id": 6,
+		"i_Param": 5,
+		"i_advertType": 0
 	},
 	{
-		"i_advertType": 0,
-		"i_dailyCount": 1,
-		"i_id": 7,
-		"i_param": 120
+		"i_DailyCount": 1,
+		"i_Id": 7,
+		"i_Param": 120,
+		"i_advertType": 0
 	},
 	{
-		"i_advertType": 0,
-		"i_dailyCount": 1,
-		"i_id": 8
+		"i_DailyCount": 1,
+		"i_Id": 8,
+		"i_advertType": 0
 	}
 ]

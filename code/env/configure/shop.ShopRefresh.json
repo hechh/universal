@@ -1,19 +1,19 @@
 [
 	{
-		"i_id": 1,
-		"i_refreshCount": 1,
+		"i_Id": 1,
+		"i_RefreshCount": 1,
 		"i_shopType": 0,
-		"il_needItem": [
+		"il_NeedItem": [
 			1,
 			1,
 			10
 		]
 	},
 	{
-		"i_id": 2,
-		"i_refreshCount": 2,
+		"i_Id": 2,
+		"i_RefreshCount": 2,
 		"i_shopType": 0,
-		"il_needItem": [
+		"il_NeedItem": [
 			1,
 			1,
 			10

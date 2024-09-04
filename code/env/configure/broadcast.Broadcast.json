@@ -1,14 +1,14 @@
 [
 	{
+		"i_Id": 1,
 		"i_broadcastType": 0,
 		"i_channel": 0,
-		"i_id": 1,
-		"s_content": "恭喜%s获得%d英雄"
+		"s_Content": "恭喜%s获得%d英雄"
 	},
 	{
+		"i_Id": 2,
 		"i_broadcastType": 0,
 		"i_channel": 0,
-		"i_id": 2,
-		"s_content": "恭喜%s获得第%d名"
+		"s_Content": "恭喜%s获得第%d名"
 	}
 ]

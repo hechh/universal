@@ -1,8 +1,8 @@
 [
 	{
-		"i_hookTechLevelAdvertSpeedTime": 30,
-		"i_id": 1,
-		"il_hookTechSpeedNeedItem": [
+		"i_HookTechLevelAdvertSpeedTime": 30,
+		"i_Id": 1,
+		"il_HookTechSpeedNeedItem": [
 			1,
 			1,
 			3

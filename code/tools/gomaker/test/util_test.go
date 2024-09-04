@@ -9,6 +9,7 @@ import (
 	"os"
 	"testing"
 	"text/template"
+	"unicode"
 	"universal/tools/gomaker/internal/parse"
 	"universal/tools/gomaker/internal/util"
 )
@@ -57,5 +58,12 @@ func TestJson(t *testing.T) {
 	}
 
 	buf, _ := json.Marshal(aa)
+	t.Log(string(buf))
+}
+
+func TestToUpper(t *testing.T) {
+	aa := "addItem"
+	buf := []byte(aa)
+	buf[0] = byte(unicode.ToUpper(rune(buf[0])))
 	t.Log(string(buf))
 }

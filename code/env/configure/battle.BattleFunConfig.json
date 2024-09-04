@@ -1,19 +1,19 @@
 [
 	{
+		"i_FreeCount": 1,
+		"i_Id": 1,
 		"i_battleFunType": 0,
-		"i_freeCount": 1,
-		"i_id": 1,
-		"il_needItem": [
+		"il_NeedItem": [
 			1,
 			1005,
 			1
 		]
 	},
 	{
+		"i_FreeCount": 1,
+		"i_Id": 2,
 		"i_battleFunType": 0,
-		"i_freeCount": 1,
-		"i_id": 2,
-		"il_needItem": [
+		"il_NeedItem": [
 			1,
 			1,
 			50

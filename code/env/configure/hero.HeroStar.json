@@ -1,23 +1,23 @@
 [
 	{
-		"i_growDefense": 10000,
-		"i_growHealth": 10000,
-		"i_growRate": 10000,
-		"i_id": 1,
-		"i_level": 0,
-		"i_maxLevel": 100,
+		"i_GrowDefense": 10000,
+		"i_GrowHealth": 10000,
+		"i_GrowRate": 10000,
+		"i_Id": 1,
+		"i_Level": 0,
+		"i_MaxLevel": 100,
 		"i_quality": 0,
-		"il_awakenSkill": [
+		"il_NeedProf": [
 			0
 		],
-		"il_needProf": [
-			0
-		],
-		"il_needSelf": [
+		"il_NeedSelf": [
 			1,
 			2
 		],
-		"il_rebirthHero": [
+		"il_RebirthHero": [
+			0
+		],
+		"il_awakenSkill": [
 			0
 		],
 		"ill_bookProp": [
@@ -34,27 +34,27 @@
 				50
 			]
 		],
-		"s_name": "1星"
+		"s_Name": "1星"
 	},
 	{
-		"i_growDefense": 28800,
-		"i_growHealth": 28800,
-		"i_growRate": 20000,
-		"i_id": 2,
-		"i_level": 0,
-		"i_maxLevel": 500,
+		"i_GrowDefense": 28800,
+		"i_GrowHealth": 28800,
+		"i_GrowRate": 20000,
+		"i_Id": 2,
+		"i_Level": 0,
+		"i_MaxLevel": 500,
 		"i_quality": 0,
-		"il_awakenSkill": [
+		"il_NeedProf": [
 			0
 		],
-		"il_needProf": [
-			0
-		],
-		"il_needSelf": [
+		"il_NeedSelf": [
 			2,
 			2
 		],
-		"il_rebirthHero": [
+		"il_RebirthHero": [
+			0
+		],
+		"il_awakenSkill": [
 			0
 		],
 		"ill_bookProp": [
@@ -71,27 +71,27 @@
 				150
 			]
 		],
-		"s_name": "2星"
+		"s_Name": "2星"
 	},
 	{
-		"i_growDefense": 36000,
-		"i_growHealth": 36000,
-		"i_growRate": 30000,
-		"i_id": 3,
-		"i_level": 0,
-		"i_maxLevel": 800,
+		"i_GrowDefense": 36000,
+		"i_GrowHealth": 36000,
+		"i_GrowRate": 30000,
+		"i_Id": 3,
+		"i_Level": 0,
+		"i_MaxLevel": 800,
 		"i_quality": 0,
-		"il_awakenSkill": [
+		"il_NeedProf": [
 			0
 		],
-		"il_needProf": [
-			0
-		],
-		"il_needSelf": [
+		"il_NeedSelf": [
 			3,
 			2
 		],
-		"il_rebirthHero": [
+		"il_RebirthHero": [
+			0
+		],
+		"il_awakenSkill": [
 			0
 		],
 		"ill_bookProp": [
@@ -108,27 +108,27 @@
 				300
 			]
 		],
-		"s_name": "3星"
+		"s_Name": "3星"
 	},
 	{
-		"i_growDefense": 50000,
-		"i_growHealth": 50000,
-		"i_growRate": 50000,
-		"i_id": 4,
-		"i_level": 0,
-		"i_maxLevel": 1200,
+		"i_GrowDefense": 50000,
+		"i_GrowHealth": 50000,
+		"i_GrowRate": 50000,
+		"i_Id": 4,
+		"i_Level": 0,
+		"i_MaxLevel": 1200,
 		"i_quality": 0,
-		"il_awakenSkill": [
-			0
-		],
-		"il_needProf": [
+		"il_NeedProf": [
 			4,
 			1
 		],
-		"il_needSelf": [
+		"il_NeedSelf": [
 			0
 		],
-		"il_rebirthHero": [
+		"il_RebirthHero": [
+			0
+		],
+		"il_awakenSkill": [
 			0
 		],
 		"ill_bookProp": [
@@ -145,32 +145,32 @@
 				500
 			]
 		],
-		"s_name": "4星"
+		"s_Name": "4星"
 	},
 	{
-		"i_growDefense": 60000,
-		"i_growHealth": 60000,
-		"i_growRate": 60000,
-		"i_id": 5,
-		"i_level": 1,
-		"i_maxLevel": 1800,
+		"i_GrowDefense": 60000,
+		"i_GrowHealth": 60000,
+		"i_GrowRate": 60000,
+		"i_Id": 5,
+		"i_Level": 1,
+		"i_MaxLevel": 1800,
 		"i_quality": 0,
-		"il_awakenSkill": [
-			0
-		],
-		"il_needProf": [
+		"il_NeedProf": [
 			4,
 			2
 		],
-		"il_needSelf": [
+		"il_NeedSelf": [
 			0
 		],
-		"il_rebirthHero": [
+		"il_RebirthHero": [
 			1001,
 			1005,
 			1002,
 			1004,
 			1003
+		],
+		"il_awakenSkill": [
+			0
 		],
 		"ill_bookProp": [
 			[
@@ -186,32 +186,32 @@
 				750
 			]
 		],
-		"s_name": "4星+1"
+		"s_Name": "4星+1"
 	},
 	{
-		"i_growDefense": 70000,
-		"i_growHealth": 70000,
-		"i_growRate": 70000,
-		"i_id": 6,
-		"i_level": 2,
-		"i_maxLevel": 2400,
+		"i_GrowDefense": 70000,
+		"i_GrowHealth": 70000,
+		"i_GrowRate": 70000,
+		"i_Id": 6,
+		"i_Level": 2,
+		"i_MaxLevel": 2400,
 		"i_quality": 0,
-		"il_awakenSkill": [
+		"il_NeedProf": [
 			0
 		],
-		"il_needProf": [
-			0
-		],
-		"il_needSelf": [
+		"il_NeedSelf": [
 			6,
 			1
 		],
-		"il_rebirthHero": [
+		"il_RebirthHero": [
 			1001,
 			1005,
 			1002,
 			1004,
 			1003
+		],
+		"il_awakenSkill": [
+			0
 		],
 		"ill_bookProp": [
 			[
@@ -227,29 +227,29 @@
 				1050
 			]
 		],
-		"s_name": "4星+2"
+		"s_Name": "4星+2"
 	},
 	{
-		"i_growDefense": 100000,
-		"i_growHealth": 100000,
-		"i_growRate": 100000,
-		"i_id": 7,
-		"i_level": 0,
-		"i_maxLevel": 3000,
+		"i_GrowDefense": 100000,
+		"i_GrowHealth": 100000,
+		"i_GrowRate": 100000,
+		"i_Id": 7,
+		"i_Level": 0,
+		"i_MaxLevel": 3000,
 		"i_quality": 0,
-		"il_awakenSkill": [
-			0,
-			1
-		],
-		"il_needProf": [
+		"il_NeedProf": [
 			7,
 			1
 		],
-		"il_needSelf": [
+		"il_NeedSelf": [
 			0
 		],
-		"il_rebirthHero": [
+		"il_RebirthHero": [
 			0
+		],
+		"il_awakenSkill": [
+			0,
+			1
 		],
 		"ill_bookProp": [
 			[
@@ -265,32 +265,32 @@
 				1400
 			]
 		],
-		"s_name": "5星"
+		"s_Name": "5星"
 	},
 	{
-		"i_growDefense": 120000,
-		"i_growHealth": 120000,
-		"i_growRate": 120000,
-		"i_id": 8,
-		"i_level": 1,
-		"i_maxLevel": 3000,
+		"i_GrowDefense": 120000,
+		"i_GrowHealth": 120000,
+		"i_GrowRate": 120000,
+		"i_Id": 8,
+		"i_Level": 1,
+		"i_MaxLevel": 3000,
 		"i_quality": 0,
-		"il_awakenSkill": [
-			0
-		],
-		"il_needProf": [
+		"il_NeedProf": [
 			7,
 			2
 		],
-		"il_needSelf": [
+		"il_NeedSelf": [
 			0
 		],
-		"il_rebirthHero": [
+		"il_RebirthHero": [
 			1001,
 			1005,
 			1002,
 			1004,
 			1003
+		],
+		"il_awakenSkill": [
+			0
 		],
 		"ill_bookProp": [
 			[
@@ -306,32 +306,32 @@
 				1800
 			]
 		],
-		"s_name": "5星+1"
+		"s_Name": "5星+1"
 	},
 	{
-		"i_growDefense": 140000,
-		"i_growHealth": 140000,
-		"i_growRate": 140000,
-		"i_id": 9,
-		"i_level": 2,
-		"i_maxLevel": 3000,
+		"i_GrowDefense": 140000,
+		"i_GrowHealth": 140000,
+		"i_GrowRate": 140000,
+		"i_Id": 9,
+		"i_Level": 2,
+		"i_MaxLevel": 3000,
 		"i_quality": 0,
-		"il_awakenSkill": [
-			0
-		],
-		"il_needProf": [
+		"il_NeedProf": [
 			7,
 			2
 		],
-		"il_needSelf": [
+		"il_NeedSelf": [
 			0
 		],
-		"il_rebirthHero": [
+		"il_RebirthHero": [
 			1001,
 			1005,
 			1002,
 			1004,
 			1003
+		],
+		"il_awakenSkill": [
+			0
 		],
 		"ill_bookProp": [
 			[
@@ -347,32 +347,32 @@
 				2250
 			]
 		],
-		"s_name": "5星+2"
+		"s_Name": "5星+2"
 	},
 	{
-		"i_growDefense": 160000,
-		"i_growHealth": 160000,
-		"i_growRate": 160000,
-		"i_id": 10,
-		"i_level": 3,
-		"i_maxLevel": 3000,
+		"i_GrowDefense": 160000,
+		"i_GrowHealth": 160000,
+		"i_GrowRate": 160000,
+		"i_Id": 10,
+		"i_Level": 3,
+		"i_MaxLevel": 3000,
 		"i_quality": 0,
-		"il_awakenSkill": [
+		"il_NeedProf": [
 			0
 		],
-		"il_needProf": [
-			0
-		],
-		"il_needSelf": [
+		"il_NeedSelf": [
 			7,
 			2
 		],
-		"il_rebirthHero": [
+		"il_RebirthHero": [
 			1001,
 			1005,
 			1002,
 			1004,
 			1003
+		],
+		"il_awakenSkill": [
+			0
 		],
 		"ill_bookProp": [
 			[
@@ -388,29 +388,29 @@
 				2750
 			]
 		],
-		"s_name": "5星+3"
+		"s_Name": "5星+3"
 	},
 	{
-		"i_growDefense": 200000,
-		"i_growHealth": 200000,
-		"i_growRate": 200000,
-		"i_id": 11,
-		"i_level": 0,
-		"i_maxLevel": 3000,
+		"i_GrowDefense": 200000,
+		"i_GrowHealth": 200000,
+		"i_GrowRate": 200000,
+		"i_Id": 11,
+		"i_Level": 0,
+		"i_MaxLevel": 3000,
 		"i_quality": 0,
-		"il_awakenSkill": [
-			0,
-			2
-		],
-		"il_needProf": [
+		"il_NeedProf": [
 			11,
 			1
 		],
-		"il_needSelf": [
+		"il_NeedSelf": [
 			0
 		],
-		"il_rebirthHero": [
+		"il_RebirthHero": [
 			0
+		],
+		"il_awakenSkill": [
+			0,
+			2
 		],
 		"ill_bookProp": [
 			[
@@ -426,32 +426,32 @@
 				3500
 			]
 		],
-		"s_name": "6星"
+		"s_Name": "6星"
 	},
 	{
-		"i_growDefense": 230000,
-		"i_growHealth": 230000,
-		"i_growRate": 230000,
-		"i_id": 12,
-		"i_level": 1,
-		"i_maxLevel": 3000,
+		"i_GrowDefense": 230000,
+		"i_GrowHealth": 230000,
+		"i_GrowRate": 230000,
+		"i_Id": 12,
+		"i_Level": 1,
+		"i_MaxLevel": 3000,
 		"i_quality": 0,
-		"il_awakenSkill": [
-			0
-		],
-		"il_needProf": [
+		"il_NeedProf": [
 			11,
 			2
 		],
-		"il_needSelf": [
+		"il_NeedSelf": [
 			0
 		],
-		"il_rebirthHero": [
+		"il_RebirthHero": [
 			1001,
 			1005,
 			1002,
 			1004,
 			1003
+		],
+		"il_awakenSkill": [
+			0
 		],
 		"ill_bookProp": [
 			[
@@ -467,32 +467,32 @@
 				4500
 			]
 		],
-		"s_name": "6星+1"
+		"s_Name": "6星+1"
 	},
 	{
-		"i_growDefense": 260000,
-		"i_growHealth": 260000,
-		"i_growRate": 260000,
-		"i_id": 13,
-		"i_level": 2,
-		"i_maxLevel": 3000,
+		"i_GrowDefense": 260000,
+		"i_GrowHealth": 260000,
+		"i_GrowRate": 260000,
+		"i_Id": 13,
+		"i_Level": 2,
+		"i_MaxLevel": 3000,
 		"i_quality": 0,
-		"il_awakenSkill": [
-			0
-		],
-		"il_needProf": [
+		"il_NeedProf": [
 			11,
 			2
 		],
-		"il_needSelf": [
+		"il_NeedSelf": [
 			0
 		],
-		"il_rebirthHero": [
+		"il_RebirthHero": [
 			1001,
 			1005,
 			1002,
 			1004,
 			1003
+		],
+		"il_awakenSkill": [
+			0
 		],
 		"ill_bookProp": [
 			[
@@ -508,32 +508,32 @@
 				6000
 			]
 		],
-		"s_name": "6星+2"
+		"s_Name": "6星+2"
 	},
 	{
-		"i_growDefense": 290000,
-		"i_growHealth": 290000,
-		"i_growRate": 290000,
-		"i_id": 14,
-		"i_level": 3,
-		"i_maxLevel": 3000,
+		"i_GrowDefense": 290000,
+		"i_GrowHealth": 290000,
+		"i_GrowRate": 290000,
+		"i_Id": 14,
+		"i_Level": 3,
+		"i_MaxLevel": 3000,
 		"i_quality": 0,
-		"il_awakenSkill": [
+		"il_NeedProf": [
 			0
 		],
-		"il_needProf": [
-			0
-		],
-		"il_needSelf": [
+		"il_NeedSelf": [
 			11,
 			2
 		],
-		"il_rebirthHero": [
+		"il_RebirthHero": [
 			1001,
 			1005,
 			1002,
 			1004,
 			1003
+		],
+		"il_awakenSkill": [
+			0
 		],
 		"ill_bookProp": [
 			[
@@ -549,28 +549,28 @@
 				8000
 			]
 		],
-		"s_name": "6星+3"
+		"s_Name": "6星+3"
 	},
 	{
-		"i_growDefense": 350000,
-		"i_growHealth": 350000,
-		"i_growRate": 350000,
-		"i_id": 15,
-		"i_level": 0,
-		"i_maxLevel": 3000,
+		"i_GrowDefense": 350000,
+		"i_GrowHealth": 350000,
+		"i_GrowRate": 350000,
+		"i_Id": 15,
+		"i_Level": 0,
+		"i_MaxLevel": 3000,
 		"i_quality": 0,
+		"il_NeedProf": [
+			0
+		],
+		"il_NeedSelf": [
+			0
+		],
+		"il_RebirthHero": [
+			0
+		],
 		"il_awakenSkill": [
 			0,
 			3
-		],
-		"il_needProf": [
-			0
-		],
-		"il_needSelf": [
-			0
-		],
-		"il_rebirthHero": [
-			0
 		],
 		"ill_bookProp": [
 			[
@@ -586,6 +586,6 @@
 				10500
 			]
 		],
-		"s_name": "7星"
+		"s_Name": "7星"
 	}
 ]

@@ -72,7 +72,7 @@ func (d *Args) handleJson() {
 		panic(err)
 	}
 	// 解析所有配置
-	pp := parse.NewXlsxParser(d.dstpath)
+	pp := parse.NewJsonParser(d.dstpath)
 	if err := util.ParseXlsxs(pp, files...); err != nil {
 		panic(err)
 	}

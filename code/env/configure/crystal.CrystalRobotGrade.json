@@ -1,8 +1,8 @@
 [
 	{
+		"i_Debris": 30,
+		"i_Id": 1,
 		"i_add": 0,
-		"i_debris": 30,
-		"i_id": 1,
 		"il_consume": [
 			0,
 			22,
@@ -10,9 +10,9 @@
 		]
 	},
 	{
+		"i_Debris": 30,
+		"i_Id": 2,
 		"i_add": 333,
-		"i_debris": 30,
-		"i_id": 2,
 		"il_consume": [
 			0,
 			22,
@@ -20,9 +20,9 @@
 		]
 	},
 	{
+		"i_Debris": 60,
+		"i_Id": 3,
 		"i_add": 667,
-		"i_debris": 60,
-		"i_id": 3,
 		"il_consume": [
 			0,
 			22,
@@ -30,9 +30,9 @@
 		]
 	},
 	{
+		"i_Debris": 60,
+		"i_Id": 4,
 		"i_add": 1000,
-		"i_debris": 60,
-		"i_id": 4,
 		"il_consume": [
 			0,
 			22,
@@ -40,9 +40,9 @@
 		]
 	},
 	{
+		"i_Debris": 60,
+		"i_Id": 5,
 		"i_add": 1333,
-		"i_debris": 60,
-		"i_id": 5,
 		"il_consume": [
 			0,
 			22,
@@ -50,9 +50,9 @@
 		]
 	},
 	{
+		"i_Debris": 60,
+		"i_Id": 6,
 		"i_add": 1667,
-		"i_debris": 60,
-		"i_id": 6,
 		"il_consume": [
 			0,
 			22,
@@ -60,9 +60,9 @@
 		]
 	},
 	{
+		"i_Debris": 90,
+		"i_Id": 7,
 		"i_add": 2000,
-		"i_debris": 90,
-		"i_id": 7,
 		"il_consume": [
 			0,
 			22,
@@ -70,9 +70,9 @@
 		]
 	},
 	{
+		"i_Debris": 120,
+		"i_Id": 8,
 		"i_add": 2333,
-		"i_debris": 120,
-		"i_id": 8,
 		"il_consume": [
 			0,
 			22,
@@ -80,9 +80,9 @@
 		]
 	},
 	{
+		"i_Debris": 130,
+		"i_Id": 9,
 		"i_add": 2667,
-		"i_debris": 130,
-		"i_id": 9,
 		"il_consume": [
 			0,
 			22,
@@ -90,9 +90,9 @@
 		]
 	},
 	{
+		"i_Debris": 190,
+		"i_Id": 10,
 		"i_add": 3000,
-		"i_debris": 190,
-		"i_id": 10,
 		"il_consume": [
 			0,
 			22,
@@ -100,9 +100,9 @@
 		]
 	},
 	{
+		"i_Debris": 220,
+		"i_Id": 11,
 		"i_add": 3333,
-		"i_debris": 220,
-		"i_id": 11,
 		"il_consume": [
 			0,
 			22,
@@ -110,9 +110,9 @@
 		]
 	},
 	{
+		"i_Debris": 280,
+		"i_Id": 12,
 		"i_add": 3667,
-		"i_debris": 280,
-		"i_id": 12,
 		"il_consume": [
 			0,
 			22,
@@ -120,9 +120,9 @@
 		]
 	},
 	{
+		"i_Debris": 350,
+		"i_Id": 13,
 		"i_add": 4000,
-		"i_debris": 350,
-		"i_id": 13,
 		"il_consume": [
 			0,
 			22,
@@ -130,9 +130,9 @@
 		]
 	},
 	{
+		"i_Debris": 380,
+		"i_Id": 14,
 		"i_add": 4333,
-		"i_debris": 380,
-		"i_id": 14,
 		"il_consume": [
 			0,
 			22,
@@ -140,9 +140,9 @@
 		]
 	},
 	{
+		"i_Debris": 470,
+		"i_Id": 15,
 		"i_add": 4667,
-		"i_debris": 470,
-		"i_id": 15,
 		"il_consume": [
 			0,
 			22,
@@ -150,9 +150,9 @@
 		]
 	},
 	{
+		"i_Debris": 530,
+		"i_Id": 16,
 		"i_add": 5000,
-		"i_debris": 530,
-		"i_id": 16,
 		"il_consume": [
 			0,
 			22,
@@ -160,9 +160,9 @@
 		]
 	},
 	{
+		"i_Debris": 630,
+		"i_Id": 17,
 		"i_add": 5333,
-		"i_debris": 630,
-		"i_id": 17,
 		"il_consume": [
 			0,
 			22,
@@ -170,9 +170,9 @@
 		]
 	},
 	{
+		"i_Debris": 720,
+		"i_Id": 18,
 		"i_add": 5667,
-		"i_debris": 720,
-		"i_id": 18,
 		"il_consume": [
 			0,
 			22,
@@ -180,9 +180,9 @@
 		]
 	},
 	{
+		"i_Debris": 810,
+		"i_Id": 19,
 		"i_add": 6000,
-		"i_debris": 810,
-		"i_id": 19,
 		"il_consume": [
 			0,
 			22,
@@ -190,9 +190,9 @@
 		]
 	},
 	{
+		"i_Debris": 910,
+		"i_Id": 20,
 		"i_add": 6333,
-		"i_debris": 910,
-		"i_id": 20,
 		"il_consume": [
 			0,
 			22,
@@ -200,9 +200,9 @@
 		]
 	},
 	{
+		"i_Debris": 1040,
+		"i_Id": 21,
 		"i_add": 6667,
-		"i_debris": 1040,
-		"i_id": 21,
 		"il_consume": [
 			0,
 			22,
@@ -210,9 +210,9 @@
 		]
 	},
 	{
+		"i_Debris": 1160,
+		"i_Id": 22,
 		"i_add": 7000,
-		"i_debris": 1160,
-		"i_id": 22,
 		"il_consume": [
 			0,
 			22,
@@ -220,9 +220,9 @@
 		]
 	},
 	{
+		"i_Debris": 1280,
+		"i_Id": 23,
 		"i_add": 7333,
-		"i_debris": 1280,
-		"i_id": 23,
 		"il_consume": [
 			0,
 			22,
@@ -230,9 +230,9 @@
 		]
 	},
 	{
+		"i_Debris": 1420,
+		"i_Id": 24,
 		"i_add": 7667,
-		"i_debris": 1420,
-		"i_id": 24,
 		"il_consume": [
 			0,
 			22,
@@ -240,9 +240,9 @@
 		]
 	},
 	{
+		"i_Debris": 1560,
+		"i_Id": 25,
 		"i_add": 8000,
-		"i_debris": 1560,
-		"i_id": 25,
 		"il_consume": [
 			0,
 			22,
@@ -250,9 +250,9 @@
 		]
 	},
 	{
+		"i_Debris": 1740,
+		"i_Id": 26,
 		"i_add": 8333,
-		"i_debris": 1740,
-		"i_id": 26,
 		"il_consume": [
 			0,
 			22,
@@ -260,9 +260,9 @@
 		]
 	},
 	{
+		"i_Debris": 1870,
+		"i_Id": 27,
 		"i_add": 8667,
-		"i_debris": 1870,
-		"i_id": 27,
 		"il_consume": [
 			0,
 			22,
@@ -270,9 +270,9 @@
 		]
 	},
 	{
+		"i_Debris": 2080,
+		"i_Id": 28,
 		"i_add": 9000,
-		"i_debris": 2080,
-		"i_id": 28,
 		"il_consume": [
 			0,
 			22,
@@ -280,9 +280,9 @@
 		]
 	},
 	{
+		"i_Debris": 2220,
+		"i_Id": 29,
 		"i_add": 9333,
-		"i_debris": 2220,
-		"i_id": 29,
 		"il_consume": [
 			0,
 			22,
@@ -290,9 +290,9 @@
 		]
 	},
 	{
+		"i_Debris": 2500,
+		"i_Id": 30,
 		"i_add": 9667,
-		"i_debris": 2500,
-		"i_id": 30,
 		"il_consume": [
 			0,
 			22,
@@ -300,9 +300,9 @@
 		]
 	},
 	{
+		"i_Debris": 999999999,
+		"i_Id": 31,
 		"i_add": 10000,
-		"i_debris": 999999999,
-		"i_id": 31,
 		"il_consume": [
 			0,
 			22,

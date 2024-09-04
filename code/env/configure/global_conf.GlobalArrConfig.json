@@ -4,7 +4,7 @@
 			2,
 			2
 		],
-		"s_id": "MAP_MAX_STAGE"
+		"s_Id": "MAP_MAX_STAGE"
 	},
 	{
 		"il_value": [
@@ -13,7 +13,7 @@
 			4,
 			2
 		],
-		"s_id": "GLOBAL_CFG_ARRTEST2"
+		"s_Id": "GLOBAL_CFG_ARRTEST2"
 	},
 	{
 		"il_value": [
@@ -68,14 +68,14 @@
 			11750,
 			12000
 		],
-		"s_id": "GLOBAL_CFG_COINNUM"
+		"s_Id": "GLOBAL_CFG_COINNUM"
 	},
 	{
 		"il_value": [
 			1,
 			20
 		],
-		"s_id": "GLOBAL_CFG_BUYPACKAGECAPACITY"
+		"s_Id": "GLOBAL_CFG_BUYPACKAGECAPACITY"
 	},
 	{
 		"il_value": [
@@ -86,7 +86,7 @@
 			4,
 			2
 		],
-		"s_id": "GLOBAL_CFG_NewAddHero"
+		"s_Id": "GLOBAL_CFG_NewAddHero"
 	},
 	{
 		"il_value": [
@@ -95,7 +95,7 @@
 			1007,
 			4
 		],
-		"s_id": "GLOBAL_CFG_NewAddItem"
+		"s_Id": "GLOBAL_CFG_NewAddItem"
 	},
 	{
 		"il_value": [
@@ -108,7 +108,7 @@
 			9,
 			14
 		],
-		"s_id": "GLOBAL_TEAMPOS_UNLOCKMAP"
+		"s_Id": "GLOBAL_TEAMPOS_UNLOCKMAP"
 	},
 	{
 		"il_value": [
@@ -117,7 +117,7 @@
 			3000,
 			3000
 		],
-		"s_id": "GLOBAL_GAME_STAR_ENHANCE"
+		"s_Id": "GLOBAL_GAME_STAR_ENHANCE"
 	},
 	{
 		"il_value": [
@@ -127,7 +127,7 @@
 			4500,
 			7000
 		],
-		"s_id": "GLOBAL_GAME_AIRDROP"
+		"s_Id": "GLOBAL_GAME_AIRDROP"
 	},
 	{
 		"il_value": [
@@ -135,6 +135,6 @@
 			1,
 			30
 		],
-		"s_id": "GLOBAL_CARD_REFRESH_COST"
+		"s_Id": "GLOBAL_CARD_REFRESH_COST"
 	}
 ]

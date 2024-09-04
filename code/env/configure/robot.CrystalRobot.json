@@ -1,6 +1,6 @@
 [
 	{
-		"f_moveSpeed": 0,
+		"f_MoveSpeed": 0,
 		"fl_propData": [
 			0,
 			1,
@@ -9,11 +9,11 @@
 			0,
 			8788
 		],
-		"i_id": 1,
-		"i_roleCfgID": 2001
+		"i_Id": 1,
+		"i_RoleCfgID": 2001
 	},
 	{
-		"f_moveSpeed": 2,
+		"f_MoveSpeed": 2,
 		"fl_propData": [
 			0,
 			0.2,
@@ -22,7 +22,7 @@
 			0,
 			0.2
 		],
-		"i_id": 2,
-		"i_roleCfgID": 2001
+		"i_Id": 2,
+		"i_RoleCfgID": 2001
 	}
 ]

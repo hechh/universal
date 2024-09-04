@@ -1,14 +1,14 @@
 [
 	{
-		"i_id": 501,
-		"il_equipmentList": [
+		"i_Id": 501,
+		"il_EquipmentList": [
 			1,
 			2,
 			3,
 			4,
 			5
 		],
-		"il_qualityRate": [
+		"il_QualityRate": [
 			7200,
 			1900,
 			0,
@@ -17,25 +17,25 @@
 			0,
 			0
 		],
-		"il_starRange": [
+		"il_StarRange": [
 			1,
 			2
 		],
-		"il_starRate": [
+		"il_StarRate": [
 			100,
 			30
 		]
 	},
 	{
-		"i_id": 502,
-		"il_equipmentList": [
+		"i_Id": 502,
+		"il_EquipmentList": [
 			6,
 			7,
 			8,
 			9,
 			10
 		],
-		"il_qualityRate": [
+		"il_QualityRate": [
 			7200,
 			1900,
 			0,
@@ -44,25 +44,25 @@
 			0,
 			0
 		],
-		"il_starRange": [
+		"il_StarRange": [
 			1,
 			2
 		],
-		"il_starRate": [
+		"il_StarRate": [
 			100,
 			30
 		]
 	},
 	{
-		"i_id": 503,
-		"il_equipmentList": [
+		"i_Id": 503,
+		"il_EquipmentList": [
 			11,
 			12,
 			13,
 			14,
 			15
 		],
-		"il_qualityRate": [
+		"il_QualityRate": [
 			7200,
 			1900,
 			0,
@@ -71,25 +71,25 @@
 			0,
 			0
 		],
-		"il_starRange": [
+		"il_StarRange": [
 			1,
 			2
 		],
-		"il_starRate": [
+		"il_StarRate": [
 			100,
 			30
 		]
 	},
 	{
-		"i_id": 601,
-		"il_equipmentList": [
+		"i_Id": 601,
+		"il_EquipmentList": [
 			1,
 			2,
 			3,
 			4,
 			5
 		],
-		"il_qualityRate": [
+		"il_QualityRate": [
 			7200,
 			1900,
 			0,
@@ -98,24 +98,24 @@
 			0,
 			0
 		],
-		"il_starRange": [
+		"il_StarRange": [
 			1,
 			1
 		],
-		"il_starRate": [
+		"il_StarRate": [
 			100
 		]
 	},
 	{
-		"i_id": 602,
-		"il_equipmentList": [
+		"i_Id": 602,
+		"il_EquipmentList": [
 			6,
 			7,
 			8,
 			9,
 			10
 		],
-		"il_qualityRate": [
+		"il_QualityRate": [
 			7200,
 			1900,
 			0,
@@ -124,24 +124,24 @@
 			0,
 			0
 		],
-		"il_starRange": [
+		"il_StarRange": [
 			1,
 			1
 		],
-		"il_starRate": [
+		"il_StarRate": [
 			100
 		]
 	},
 	{
-		"i_id": 603,
-		"il_equipmentList": [
+		"i_Id": 603,
+		"il_EquipmentList": [
 			11,
 			12,
 			13,
 			14,
 			15
 		],
-		"il_qualityRate": [
+		"il_QualityRate": [
 			7200,
 			1900,
 			0,
@@ -150,24 +150,24 @@
 			0,
 			0
 		],
-		"il_starRange": [
+		"il_StarRange": [
 			1,
 			1
 		],
-		"il_starRate": [
+		"il_StarRate": [
 			100
 		]
 	},
 	{
-		"i_id": 604,
-		"il_equipmentList": [
+		"i_Id": 604,
+		"il_EquipmentList": [
 			16,
 			17,
 			18,
 			19,
 			20
 		],
-		"il_qualityRate": [
+		"il_QualityRate": [
 			7200,
 			1900,
 			0,
@@ -176,24 +176,24 @@
 			0,
 			0
 		],
-		"il_starRange": [
+		"il_StarRange": [
 			1,
 			1
 		],
-		"il_starRate": [
+		"il_StarRate": [
 			100
 		]
 	},
 	{
-		"i_id": 701,
-		"il_equipmentList": [
+		"i_Id": 701,
+		"il_EquipmentList": [
 			1,
 			2,
 			3,
 			4,
 			5
 		],
-		"il_qualityRate": [
+		"il_QualityRate": [
 			7200,
 			1900,
 			0,
@@ -202,24 +202,24 @@
 			0,
 			0
 		],
-		"il_starRange": [
+		"il_StarRange": [
 			1,
 			1
 		],
-		"il_starRate": [
+		"il_StarRate": [
 			100
 		]
 	},
 	{
-		"i_id": 702,
-		"il_equipmentList": [
+		"i_Id": 702,
+		"il_EquipmentList": [
 			6,
 			7,
 			8,
 			9,
 			10
 		],
-		"il_qualityRate": [
+		"il_QualityRate": [
 			7200,
 			1900,
 			0,
@@ -228,24 +228,24 @@
 			0,
 			0
 		],
-		"il_starRange": [
+		"il_StarRange": [
 			1,
 			1
 		],
-		"il_starRate": [
+		"il_StarRate": [
 			100
 		]
 	},
 	{
-		"i_id": 703,
-		"il_equipmentList": [
+		"i_Id": 703,
+		"il_EquipmentList": [
 			11,
 			12,
 			13,
 			14,
 			15
 		],
-		"il_qualityRate": [
+		"il_QualityRate": [
 			7200,
 			1900,
 			0,
@@ -254,24 +254,24 @@
 			0,
 			0
 		],
-		"il_starRange": [
+		"il_StarRange": [
 			1,
 			1
 		],
-		"il_starRate": [
+		"il_StarRate": [
 			100
 		]
 	},
 	{
-		"i_id": 704,
-		"il_equipmentList": [
+		"i_Id": 704,
+		"il_EquipmentList": [
 			16,
 			17,
 			18,
 			19,
 			20
 		],
-		"il_qualityRate": [
+		"il_QualityRate": [
 			7200,
 			1900,
 			0,
@@ -280,20 +280,20 @@
 			0,
 			0
 		],
-		"il_starRange": [
+		"il_StarRange": [
 			1,
 			1
 		],
-		"il_starRate": [
+		"il_StarRate": [
 			100
 		]
 	},
 	{
-		"i_id": 705,
-		"il_equipmentList": [
+		"i_Id": 705,
+		"il_EquipmentList": [
 			21
 		],
-		"il_qualityRate": [
+		"il_QualityRate": [
 			7200,
 			1900,
 			0,
@@ -302,24 +302,24 @@
 			0,
 			0
 		],
-		"il_starRange": [
+		"il_StarRange": [
 			1,
 			1
 		],
-		"il_starRate": [
+		"il_StarRate": [
 			100
 		]
 	},
 	{
-		"i_id": 801,
-		"il_equipmentList": [
+		"i_Id": 801,
+		"il_EquipmentList": [
 			1,
 			2,
 			3,
 			4,
 			5
 		],
-		"il_qualityRate": [
+		"il_QualityRate": [
 			7200,
 			1900,
 			0,
@@ -328,24 +328,24 @@
 			0,
 			0
 		],
-		"il_starRange": [
+		"il_StarRange": [
 			1,
 			1
 		],
-		"il_starRate": [
+		"il_StarRate": [
 			100
 		]
 	},
 	{
-		"i_id": 802,
-		"il_equipmentList": [
+		"i_Id": 802,
+		"il_EquipmentList": [
 			6,
 			7,
 			8,
 			9,
 			10
 		],
-		"il_qualityRate": [
+		"il_QualityRate": [
 			7200,
 			1900,
 			0,
@@ -354,24 +354,24 @@
 			0,
 			0
 		],
-		"il_starRange": [
+		"il_StarRange": [
 			1,
 			1
 		],
-		"il_starRate": [
+		"il_StarRate": [
 			100
 		]
 	},
 	{
-		"i_id": 803,
-		"il_equipmentList": [
+		"i_Id": 803,
+		"il_EquipmentList": [
 			11,
 			12,
 			13,
 			14,
 			15
 		],
-		"il_qualityRate": [
+		"il_QualityRate": [
 			7200,
 			1900,
 			0,
@@ -380,24 +380,24 @@
 			0,
 			0
 		],
-		"il_starRange": [
+		"il_StarRange": [
 			1,
 			1
 		],
-		"il_starRate": [
+		"il_StarRate": [
 			100
 		]
 	},
 	{
-		"i_id": 804,
-		"il_equipmentList": [
+		"i_Id": 804,
+		"il_EquipmentList": [
 			16,
 			17,
 			18,
 			19,
 			20
 		],
-		"il_qualityRate": [
+		"il_QualityRate": [
 			7200,
 			1900,
 			0,
@@ -406,20 +406,20 @@
 			0,
 			0
 		],
-		"il_starRange": [
+		"il_StarRange": [
 			1,
 			1
 		],
-		"il_starRate": [
+		"il_StarRate": [
 			100
 		]
 	},
 	{
-		"i_id": 805,
-		"il_equipmentList": [
+		"i_Id": 805,
+		"il_EquipmentList": [
 			21
 		],
-		"il_qualityRate": [
+		"il_QualityRate": [
 			7200,
 			1900,
 			0,
@@ -428,20 +428,20 @@
 			0,
 			0
 		],
-		"il_starRange": [
+		"il_StarRange": [
 			1,
 			1
 		],
-		"il_starRate": [
+		"il_StarRate": [
 			100
 		]
 	},
 	{
-		"i_id": 806,
-		"il_equipmentList": [
+		"i_Id": 806,
+		"il_EquipmentList": [
 			22
 		],
-		"il_qualityRate": [
+		"il_QualityRate": [
 			7200,
 			1900,
 			0,
@@ -450,24 +450,24 @@
 			0,
 			0
 		],
-		"il_starRange": [
+		"il_StarRange": [
 			1,
 			1
 		],
-		"il_starRate": [
+		"il_StarRate": [
 			100
 		]
 	},
 	{
-		"i_id": 901,
-		"il_equipmentList": [
+		"i_Id": 901,
+		"il_EquipmentList": [
 			1,
 			2,
 			3,
 			4,
 			5
 		],
-		"il_qualityRate": [
+		"il_QualityRate": [
 			7200,
 			1900,
 			0,
@@ -476,24 +476,24 @@
 			0,
 			0
 		],
-		"il_starRange": [
+		"il_StarRange": [
 			1,
 			1
 		],
-		"il_starRate": [
+		"il_StarRate": [
 			100
 		]
 	},
 	{
-		"i_id": 902,
-		"il_equipmentList": [
+		"i_Id": 902,
+		"il_EquipmentList": [
 			6,
 			7,
 			8,
 			9,
 			10
 		],
-		"il_qualityRate": [
+		"il_QualityRate": [
 			7200,
 			1900,
 			0,
@@ -502,24 +502,24 @@
 			0,
 			0
 		],
-		"il_starRange": [
+		"il_StarRange": [
 			1,
 			1
 		],
-		"il_starRate": [
+		"il_StarRate": [
 			100
 		]
 	},
 	{
-		"i_id": 903,
-		"il_equipmentList": [
+		"i_Id": 903,
+		"il_EquipmentList": [
 			11,
 			12,
 			13,
 			14,
 			15
 		],
-		"il_qualityRate": [
+		"il_QualityRate": [
 			7200,
 			1900,
 			0,
@@ -528,24 +528,24 @@
 			0,
 			0
 		],
-		"il_starRange": [
+		"il_StarRange": [
 			1,
 			1
 		],
-		"il_starRate": [
+		"il_StarRate": [
 			100
 		]
 	},
 	{
-		"i_id": 904,
-		"il_equipmentList": [
+		"i_Id": 904,
+		"il_EquipmentList": [
 			16,
 			17,
 			18,
 			19,
 			20
 		],
-		"il_qualityRate": [
+		"il_QualityRate": [
 			7200,
 			1900,
 			0,
@@ -554,20 +554,20 @@
 			0,
 			0
 		],
-		"il_starRange": [
+		"il_StarRange": [
 			1,
 			1
 		],
-		"il_starRate": [
+		"il_StarRate": [
 			100
 		]
 	},
 	{
-		"i_id": 905,
-		"il_equipmentList": [
+		"i_Id": 905,
+		"il_EquipmentList": [
 			21
 		],
-		"il_qualityRate": [
+		"il_QualityRate": [
 			7200,
 			1900,
 			0,
@@ -576,20 +576,20 @@
 			0,
 			0
 		],
-		"il_starRange": [
+		"il_StarRange": [
 			1,
 			1
 		],
-		"il_starRate": [
+		"il_StarRate": [
 			100
 		]
 	},
 	{
-		"i_id": 906,
-		"il_equipmentList": [
+		"i_Id": 906,
+		"il_EquipmentList": [
 			22
 		],
-		"il_qualityRate": [
+		"il_QualityRate": [
 			7200,
 			1900,
 			0,
@@ -598,24 +598,24 @@
 			0,
 			0
 		],
-		"il_starRange": [
+		"il_StarRange": [
 			1,
 			1
 		],
-		"il_starRate": [
+		"il_StarRate": [
 			100
 		]
 	},
 	{
-		"i_id": 1001,
-		"il_equipmentList": [
+		"i_Id": 1001,
+		"il_EquipmentList": [
 			1,
 			2,
 			3,
 			4,
 			5
 		],
-		"il_qualityRate": [
+		"il_QualityRate": [
 			9020,
 			880,
 			100,
@@ -624,24 +624,24 @@
 			0,
 			0
 		],
-		"il_starRange": [
+		"il_StarRange": [
 			1,
 			1
 		],
-		"il_starRate": [
+		"il_StarRate": [
 			100
 		]
 	},
 	{
-		"i_id": 1002,
-		"il_equipmentList": [
+		"i_Id": 1002,
+		"il_EquipmentList": [
 			6,
 			7,
 			8,
 			9,
 			10
 		],
-		"il_qualityRate": [
+		"il_QualityRate": [
 			9020,
 			880,
 			100,
@@ -650,24 +650,24 @@
 			0,
 			0
 		],
-		"il_starRange": [
+		"il_StarRange": [
 			1,
 			1
 		],
-		"il_starRate": [
+		"il_StarRate": [
 			100
 		]
 	},
 	{
-		"i_id": 1003,
-		"il_equipmentList": [
+		"i_Id": 1003,
+		"il_EquipmentList": [
 			11,
 			12,
 			13,
 			14,
 			15
 		],
-		"il_qualityRate": [
+		"il_QualityRate": [
 			9020,
 			880,
 			100,
@@ -676,24 +676,24 @@
 			0,
 			0
 		],
-		"il_starRange": [
+		"il_StarRange": [
 			1,
 			1
 		],
-		"il_starRate": [
+		"il_StarRate": [
 			100
 		]
 	},
 	{
-		"i_id": 2001,
-		"il_equipmentList": [
+		"i_Id": 2001,
+		"il_EquipmentList": [
 			101,
 			102,
 			103,
 			104,
 			105
 		],
-		"il_qualityRate": [
+		"il_QualityRate": [
 			9020,
 			880,
 			100,
@@ -702,24 +702,24 @@
 			0,
 			0
 		],
-		"il_starRange": [
+		"il_StarRange": [
 			1,
 			1
 		],
-		"il_starRate": [
+		"il_StarRate": [
 			100
 		]
 	},
 	{
-		"i_id": 2002,
-		"il_equipmentList": [
+		"i_Id": 2002,
+		"il_EquipmentList": [
 			106,
 			107,
 			108,
 			109,
 			110
 		],
-		"il_qualityRate": [
+		"il_QualityRate": [
 			9020,
 			880,
 			100,
@@ -728,24 +728,24 @@
 			0,
 			0
 		],
-		"il_starRange": [
+		"il_StarRange": [
 			1,
 			1
 		],
-		"il_starRate": [
+		"il_StarRate": [
 			100
 		]
 	},
 	{
-		"i_id": 2003,
-		"il_equipmentList": [
+		"i_Id": 2003,
+		"il_EquipmentList": [
 			111,
 			112,
 			113,
 			114,
 			115
 		],
-		"il_qualityRate": [
+		"il_QualityRate": [
 			9020,
 			880,
 			100,
@@ -754,24 +754,24 @@
 			0,
 			0
 		],
-		"il_starRange": [
+		"il_StarRange": [
 			1,
 			1
 		],
-		"il_starRate": [
+		"il_StarRate": [
 			100
 		]
 	},
 	{
-		"i_id": 2004,
-		"il_equipmentList": [
+		"i_Id": 2004,
+		"il_EquipmentList": [
 			116,
 			117,
 			118,
 			119,
 			120
 		],
-		"il_qualityRate": [
+		"il_QualityRate": [
 			9020,
 			880,
 			100,
@@ -780,24 +780,24 @@
 			0,
 			0
 		],
-		"il_starRange": [
+		"il_StarRange": [
 			1,
 			1
 		],
-		"il_starRate": [
+		"il_StarRate": [
 			100
 		]
 	},
 	{
-		"i_id": 3001,
-		"il_equipmentList": [
+		"i_Id": 3001,
+		"il_EquipmentList": [
 			201,
 			202,
 			203,
 			204,
 			205
 		],
-		"il_qualityRate": [
+		"il_QualityRate": [
 			9020,
 			880,
 			100,
@@ -806,24 +806,24 @@
 			0,
 			0
 		],
-		"il_starRange": [
+		"il_StarRange": [
 			1,
 			1
 		],
-		"il_starRate": [
+		"il_StarRate": [
 			100
 		]
 	},
 	{
-		"i_id": 3002,
-		"il_equipmentList": [
+		"i_Id": 3002,
+		"il_EquipmentList": [
 			206,
 			207,
 			208,
 			209,
 			210
 		],
-		"il_qualityRate": [
+		"il_QualityRate": [
 			9020,
 			880,
 			100,
@@ -832,24 +832,24 @@
 			0,
 			0
 		],
-		"il_starRange": [
+		"il_StarRange": [
 			1,
 			1
 		],
-		"il_starRate": [
+		"il_StarRate": [
 			100
 		]
 	},
 	{
-		"i_id": 3003,
-		"il_equipmentList": [
+		"i_Id": 3003,
+		"il_EquipmentList": [
 			211,
 			212,
 			213,
 			214,
 			215
 		],
-		"il_qualityRate": [
+		"il_QualityRate": [
 			9020,
 			880,
 			100,
@@ -858,24 +858,24 @@
 			0,
 			0
 		],
-		"il_starRange": [
+		"il_StarRange": [
 			1,
 			1
 		],
-		"il_starRate": [
+		"il_StarRate": [
 			100
 		]
 	},
 	{
-		"i_id": 3004,
-		"il_equipmentList": [
+		"i_Id": 3004,
+		"il_EquipmentList": [
 			216,
 			217,
 			218,
 			219,
 			220
 		],
-		"il_qualityRate": [
+		"il_QualityRate": [
 			9020,
 			880,
 			100,
@@ -884,20 +884,20 @@
 			0,
 			0
 		],
-		"il_starRange": [
+		"il_StarRange": [
 			1,
 			1
 		],
-		"il_starRate": [
+		"il_StarRate": [
 			100
 		]
 	},
 	{
-		"i_id": 3005,
-		"il_equipmentList": [
+		"i_Id": 3005,
+		"il_EquipmentList": [
 			221
 		],
-		"il_qualityRate": [
+		"il_QualityRate": [
 			9020,
 			880,
 			100,
@@ -906,24 +906,24 @@
 			0,
 			0
 		],
-		"il_starRange": [
+		"il_StarRange": [
 			1,
 			1
 		],
-		"il_starRate": [
+		"il_StarRate": [
 			100
 		]
 	},
 	{
-		"i_id": 4001,
-		"il_equipmentList": [
+		"i_Id": 4001,
+		"il_EquipmentList": [
 			201,
 			202,
 			203,
 			204,
 			205
 		],
-		"il_qualityRate": [
+		"il_QualityRate": [
 			9020,
 			880,
 			100,
@@ -932,24 +932,24 @@
 			0,
 			0
 		],
-		"il_starRange": [
+		"il_StarRange": [
 			1,
 			1
 		],
-		"il_starRate": [
+		"il_StarRate": [
 			100
 		]
 	},
 	{
-		"i_id": 4002,
-		"il_equipmentList": [
+		"i_Id": 4002,
+		"il_EquipmentList": [
 			206,
 			207,
 			208,
 			209,
 			210
 		],
-		"il_qualityRate": [
+		"il_QualityRate": [
 			9020,
 			880,
 			100,
@@ -958,24 +958,24 @@
 			0,
 			0
 		],
-		"il_starRange": [
+		"il_StarRange": [
 			1,
 			1
 		],
-		"il_starRate": [
+		"il_StarRate": [
 			100
 		]
 	},
 	{
-		"i_id": 4003,
-		"il_equipmentList": [
+		"i_Id": 4003,
+		"il_EquipmentList": [
 			211,
 			212,
 			213,
 			214,
 			215
 		],
-		"il_qualityRate": [
+		"il_QualityRate": [
 			9020,
 			880,
 			100,
@@ -984,24 +984,24 @@
 			0,
 			0
 		],
-		"il_starRange": [
+		"il_StarRange": [
 			1,
 			1
 		],
-		"il_starRate": [
+		"il_StarRate": [
 			100
 		]
 	},
 	{
-		"i_id": 4004,
-		"il_equipmentList": [
+		"i_Id": 4004,
+		"il_EquipmentList": [
 			216,
 			217,
 			218,
 			219,
 			220
 		],
-		"il_qualityRate": [
+		"il_QualityRate": [
 			9020,
 			880,
 			100,
@@ -1010,20 +1010,20 @@
 			0,
 			0
 		],
-		"il_starRange": [
+		"il_StarRange": [
 			1,
 			1
 		],
-		"il_starRate": [
+		"il_StarRate": [
 			100
 		]
 	},
 	{
-		"i_id": 4005,
-		"il_equipmentList": [
+		"i_Id": 4005,
+		"il_EquipmentList": [
 			221
 		],
-		"il_qualityRate": [
+		"il_QualityRate": [
 			9020,
 			880,
 			100,
@@ -1032,20 +1032,20 @@
 			0,
 			0
 		],
-		"il_starRange": [
+		"il_StarRange": [
 			1,
 			1
 		],
-		"il_starRate": [
+		"il_StarRate": [
 			100
 		]
 	},
 	{
-		"i_id": 4006,
-		"il_equipmentList": [
+		"i_Id": 4006,
+		"il_EquipmentList": [
 			222
 		],
-		"il_qualityRate": [
+		"il_QualityRate": [
 			9020,
 			880,
 			100,
@@ -1054,24 +1054,24 @@
 			0,
 			0
 		],
-		"il_starRange": [
+		"il_StarRange": [
 			1,
 			1
 		],
-		"il_starRate": [
+		"il_StarRate": [
 			100
 		]
 	},
 	{
-		"i_id": 5001,
-		"il_equipmentList": [
+		"i_Id": 5001,
+		"il_EquipmentList": [
 			301,
 			302,
 			303,
 			304,
 			305
 		],
-		"il_qualityRate": [
+		"il_QualityRate": [
 			9020,
 			880,
 			100,
@@ -1080,24 +1080,24 @@
 			0,
 			0
 		],
-		"il_starRange": [
+		"il_StarRange": [
 			1,
 			1
 		],
-		"il_starRate": [
+		"il_StarRate": [
 			100
 		]
 	},
 	{
-		"i_id": 5002,
-		"il_equipmentList": [
+		"i_Id": 5002,
+		"il_EquipmentList": [
 			306,
 			307,
 			308,
 			309,
 			310
 		],
-		"il_qualityRate": [
+		"il_QualityRate": [
 			9020,
 			880,
 			100,
@@ -1106,24 +1106,24 @@
 			0,
 			0
 		],
-		"il_starRange": [
+		"il_StarRange": [
 			1,
 			1
 		],
-		"il_starRate": [
+		"il_StarRate": [
 			100
 		]
 	},
 	{
-		"i_id": 5003,
-		"il_equipmentList": [
+		"i_Id": 5003,
+		"il_EquipmentList": [
 			311,
 			312,
 			313,
 			314,
 			315
 		],
-		"il_qualityRate": [
+		"il_QualityRate": [
 			9020,
 			880,
 			100,
@@ -1132,24 +1132,24 @@
 			0,
 			0
 		],
-		"il_starRange": [
+		"il_StarRange": [
 			1,
 			1
 		],
-		"il_starRate": [
+		"il_StarRate": [
 			100
 		]
 	},
 	{
-		"i_id": 5004,
-		"il_equipmentList": [
+		"i_Id": 5004,
+		"il_EquipmentList": [
 			316,
 			317,
 			318,
 			319,
 			320
 		],
-		"il_qualityRate": [
+		"il_QualityRate": [
 			9020,
 			880,
 			100,
@@ -1158,20 +1158,20 @@
 			0,
 			0
 		],
-		"il_starRange": [
+		"il_StarRange": [
 			1,
 			1
 		],
-		"il_starRate": [
+		"il_StarRate": [
 			100
 		]
 	},
 	{
-		"i_id": 5005,
-		"il_equipmentList": [
+		"i_Id": 5005,
+		"il_EquipmentList": [
 			321
 		],
-		"il_qualityRate": [
+		"il_QualityRate": [
 			9020,
 			880,
 			100,
@@ -1180,20 +1180,20 @@
 			0,
 			0
 		],
-		"il_starRange": [
+		"il_StarRange": [
 			1,
 			1
 		],
-		"il_starRate": [
+		"il_StarRate": [
 			100
 		]
 	},
 	{
-		"i_id": 5006,
-		"il_equipmentList": [
+		"i_Id": 5006,
+		"il_EquipmentList": [
 			322
 		],
-		"il_qualityRate": [
+		"il_QualityRate": [
 			9020,
 			880,
 			100,
@@ -1202,11 +1202,11 @@
 			0,
 			0
 		],
-		"il_starRange": [
+		"il_StarRange": [
 			1,
 			1
 		],
-		"il_starRate": [
+		"il_StarRate": [
 			100
 		]
 	}

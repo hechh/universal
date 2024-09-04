@@ -1,23 +1,23 @@
 [
 	{
+		"i_Id": 1,
+		"i_RecordCount": 3,
+		"i_ReliveCount": 2,
 		"i_battleType": 0,
-		"i_id": 1,
-		"i_rankType": 0,
-		"i_recordCount": 3,
-		"i_reliveCount": 2
+		"i_rankType": 0
 	},
 	{
+		"i_Id": 2,
+		"i_RecordCount": 0,
+		"i_ReliveCount": 2,
 		"i_battleType": 0,
-		"i_id": 2,
-		"i_rankType": 0,
-		"i_recordCount": 0,
-		"i_reliveCount": 2
+		"i_rankType": 0
 	},
 	{
+		"i_Id": 3,
+		"i_RecordCount": 0,
+		"i_ReliveCount": 2,
 		"i_battleType": 0,
-		"i_id": 3,
-		"i_rankType": 0,
-		"i_recordCount": 0,
-		"i_reliveCount": 2
+		"i_rankType": 0
 	}
 ]

@@ -1,12 +1,12 @@
 [
 	{
-		"i_growRate": 10000,
+		"i_GrowRate": 10000,
 		"i_id": 0,
-		"s_name": "A"
+		"s_Name": "A"
 	},
 	{
-		"i_growRate": 12500,
+		"i_GrowRate": 12500,
 		"i_id": 0,
-		"s_name": "S"
+		"s_Name": "S"
 	}
 ]

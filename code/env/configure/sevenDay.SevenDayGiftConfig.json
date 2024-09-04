@@ -1,427 +1,427 @@
 [
 	{
-		"i_activityID": 1,
-		"i_day": 1,
-		"i_id": 1,
-		"i_limitCount": 1,
-		"i_productId": 0,
-		"il_needItem": [
+		"i_ActivityID": 1,
+		"i_Day": 1,
+		"i_Id": 1,
+		"i_LimitCount": 1,
+		"i_ProductId": 0,
+		"il_NeedItem": [
 			1,
 			1,
 			350
 		],
-		"il_originItem": [
+		"il_OriginItem": [
 			1,
 			1,
 			650
 		],
-		"ill_addItem": [
+		"ill_AddItem": [
 			[
 				1,
 				1201,
 				25
 			]
 		],
-		"s_desc": "大胆升级"
+		"s_Desc": "大胆升级"
 	},
 	{
-		"i_activityID": 1,
-		"i_day": 1,
-		"i_id": 2,
-		"i_limitCount": 1,
-		"i_productId": 0,
-		"il_needItem": [
+		"i_ActivityID": 1,
+		"i_Day": 1,
+		"i_Id": 2,
+		"i_LimitCount": 1,
+		"i_ProductId": 0,
+		"il_NeedItem": [
 			1,
 			1,
 			450
 		],
-		"il_originItem": [
+		"il_OriginItem": [
 			1,
 			1,
 			560
 		],
-		"ill_addItem": [
+		"ill_AddItem": [
 			[
 				1,
 				3,
 				150
 			]
 		],
-		"s_desc": "用力突破"
+		"s_Desc": "用力突破"
 	},
 	{
-		"i_activityID": 1,
-		"i_day": 2,
-		"i_id": 3,
-		"i_limitCount": 1,
-		"i_productId": 0,
-		"il_needItem": [
+		"i_ActivityID": 1,
+		"i_Day": 2,
+		"i_Id": 3,
+		"i_LimitCount": 1,
+		"i_ProductId": 0,
+		"il_NeedItem": [
 			1,
 			1,
 			1800
 		],
-		"il_originItem": [
+		"il_OriginItem": [
 			1,
 			1,
 			2000
 		],
-		"ill_addItem": [
+		"ill_AddItem": [
 			[
 				1,
 				13,
 				10
 			]
 		],
-		"s_desc": "英雄爽抽"
+		"s_Desc": "英雄爽抽"
 	},
 	{
-		"i_activityID": 1,
-		"i_day": 2,
-		"i_id": 4,
-		"i_limitCount": 1,
-		"i_productId": 0,
-		"il_needItem": [
+		"i_ActivityID": 1,
+		"i_Day": 2,
+		"i_Id": 4,
+		"i_LimitCount": 1,
+		"i_ProductId": 0,
+		"il_NeedItem": [
 			1,
 			1,
 			280
 		],
-		"il_originItem": [
+		"il_OriginItem": [
 			1,
 			1,
 			350
 		],
-		"ill_addItem": [
+		"ill_AddItem": [
 			[
 				1,
 				15,
 				1000
 			]
 		],
-		"s_desc": "装备狂升"
+		"s_Desc": "装备狂升"
 	},
 	{
-		"i_activityID": 1,
-		"i_day": 2,
-		"i_id": 5,
-		"i_limitCount": 1,
-		"i_productId": 0,
-		"il_needItem": [
+		"i_ActivityID": 1,
+		"i_Day": 2,
+		"i_Id": 5,
+		"i_LimitCount": 1,
+		"i_ProductId": 0,
+		"il_NeedItem": [
 			1,
 			1,
 			350
 		],
-		"il_originItem": [
+		"il_OriginItem": [
 			1,
 			1,
 			650
 		],
-		"ill_addItem": [
+		"ill_AddItem": [
 			[
 				1,
 				1500,
 				30
 			]
 		],
-		"s_desc": "金币满满"
+		"s_Desc": "金币满满"
 	},
 	{
-		"i_activityID": 1,
-		"i_day": 3,
-		"i_id": 6,
-		"i_limitCount": 1,
-		"i_productId": 0,
-		"il_needItem": [
+		"i_ActivityID": 1,
+		"i_Day": 3,
+		"i_Id": 6,
+		"i_LimitCount": 1,
+		"i_ProductId": 0,
+		"il_NeedItem": [
 			1,
 			1,
 			1350
 		],
-		"il_originItem": [
+		"il_OriginItem": [
 			1,
 			1,
 			1500
 		],
-		"ill_addItem": [
+		"ill_AddItem": [
 			[
 				1,
 				21,
 				100
 			]
 		],
-		"s_desc": "使徒猛招"
+		"s_Desc": "使徒猛招"
 	},
 	{
-		"i_activityID": 1,
-		"i_day": 3,
-		"i_id": 7,
-		"i_limitCount": 1,
-		"i_productId": 0,
-		"il_needItem": [
+		"i_ActivityID": 1,
+		"i_Day": 3,
+		"i_Id": 7,
+		"i_LimitCount": 1,
+		"i_ProductId": 0,
+		"il_NeedItem": [
 			1,
 			1,
 			550
 		],
-		"il_originItem": [
+		"il_OriginItem": [
 			1,
 			1,
 			666
 		],
-		"ill_addItem": [
+		"ill_AddItem": [
 			[
 				1,
 				22,
 				1000
 			]
 		],
-		"s_desc": "使徒猛升"
+		"s_Desc": "使徒猛升"
 	},
 	{
-		"i_activityID": 1,
-		"i_day": 3,
-		"i_id": 8,
-		"i_limitCount": 1,
-		"i_productId": 0,
-		"il_needItem": [
+		"i_ActivityID": 1,
+		"i_Day": 3,
+		"i_Id": 8,
+		"i_LimitCount": 1,
+		"i_ProductId": 0,
+		"il_NeedItem": [
 			1,
 			1,
 			350
 		],
-		"il_originItem": [
+		"il_OriginItem": [
 			1,
 			1,
 			650
 		],
-		"ill_addItem": [
+		"ill_AddItem": [
 			[
 				1,
 				1500,
 				30
 			]
 		],
-		"s_desc": "金币满满"
+		"s_Desc": "金币满满"
 	},
 	{
-		"i_activityID": 1,
-		"i_day": 4,
-		"i_id": 9,
-		"i_limitCount": 1,
-		"i_productId": 0,
-		"il_needItem": [
+		"i_ActivityID": 1,
+		"i_Day": 4,
+		"i_Id": 9,
+		"i_LimitCount": 1,
+		"i_ProductId": 0,
+		"il_NeedItem": [
 			1,
 			1,
 			540
 		],
-		"il_originItem": [
+		"il_OriginItem": [
 			1,
 			1,
 			600
 		],
-		"ill_addItem": [
+		"ill_AddItem": [
 			[
 				1,
 				12,
 				100
 			]
 		],
-		"s_desc": "晶核狠造"
+		"s_Desc": "晶核狠造"
 	},
 	{
-		"i_activityID": 1,
-		"i_day": 4,
-		"i_id": 10,
-		"i_limitCount": 1,
-		"i_productId": 0,
-		"il_needItem": [
+		"i_ActivityID": 1,
+		"i_Day": 4,
+		"i_Id": 10,
+		"i_LimitCount": 1,
+		"i_ProductId": 0,
+		"il_NeedItem": [
 			1,
 			1,
 			500
 		],
-		"il_originItem": [
+		"il_OriginItem": [
 			1,
 			1,
 			623
 		],
-		"ill_addItem": [
+		"ill_AddItem": [
 			[
 				1,
 				19,
 				1000
 			]
 		],
-		"s_desc": "晶核狠升"
+		"s_Desc": "晶核狠升"
 	},
 	{
-		"i_activityID": 1,
-		"i_day": 5,
-		"i_id": 11,
-		"i_limitCount": 1,
-		"i_productId": 0,
-		"il_needItem": [
+		"i_ActivityID": 1,
+		"i_Day": 5,
+		"i_Id": 11,
+		"i_LimitCount": 1,
+		"i_ProductId": 0,
+		"il_NeedItem": [
 			1,
 			1,
 			450
 		],
-		"il_originItem": [
+		"il_OriginItem": [
 			1,
 			1,
 			560
 		],
-		"ill_addItem": [
+		"ill_AddItem": [
 			[
 				1,
 				3,
 				150
 			]
 		],
-		"s_desc": "用力突破"
+		"s_Desc": "用力突破"
 	},
 	{
-		"i_activityID": 1,
-		"i_day": 5,
-		"i_id": 12,
-		"i_limitCount": 1,
-		"i_productId": 0,
-		"il_needItem": [
+		"i_ActivityID": 1,
+		"i_Day": 5,
+		"i_Id": 12,
+		"i_LimitCount": 1,
+		"i_ProductId": 0,
+		"il_NeedItem": [
 			1,
 			1,
 			1280
 		],
-		"il_originItem": [
+		"il_OriginItem": [
 			1,
 			1,
 			1600
 		],
-		"ill_addItem": [
+		"ill_AddItem": [
 			[
 				1,
 				16,
 				50
 			]
 		],
-		"s_desc": "肆意精炼"
+		"s_Desc": "肆意精炼"
 	},
 	{
-		"i_activityID": 1,
-		"i_day": 5,
-		"i_id": 13,
-		"i_limitCount": 1,
-		"i_productId": 0,
-		"il_needItem": [
+		"i_ActivityID": 1,
+		"i_Day": 5,
+		"i_Id": 13,
+		"i_LimitCount": 1,
+		"i_ProductId": 0,
+		"il_NeedItem": [
 			1,
 			1,
 			280
 		],
-		"il_originItem": [
+		"il_OriginItem": [
 			1,
 			1,
 			350
 		],
-		"ill_addItem": [
+		"ill_AddItem": [
 			[
 				1,
 				15,
 				1000
 			]
 		],
-		"s_desc": "装备狂升"
+		"s_Desc": "装备狂升"
 	},
 	{
-		"i_activityID": 1,
-		"i_day": 6,
-		"i_id": 14,
-		"i_limitCount": 1,
-		"i_productId": 0,
-		"il_needItem": [
+		"i_ActivityID": 1,
+		"i_Day": 6,
+		"i_Id": 14,
+		"i_LimitCount": 1,
+		"i_ProductId": 0,
+		"il_NeedItem": [
 			1,
 			1,
 			1800
 		],
-		"il_originItem": [
+		"il_OriginItem": [
 			1,
 			1,
 			2000
 		],
-		"ill_addItem": [
+		"ill_AddItem": [
 			[
 				1,
 				13,
 				10
 			]
 		],
-		"s_desc": "英雄爽抽"
+		"s_Desc": "英雄爽抽"
 	},
 	{
-		"i_activityID": 1,
-		"i_day": 6,
-		"i_id": 15,
-		"i_limitCount": 1,
-		"i_productId": 0,
-		"il_needItem": [
+		"i_ActivityID": 1,
+		"i_Day": 6,
+		"i_Id": 15,
+		"i_LimitCount": 1,
+		"i_ProductId": 0,
+		"il_NeedItem": [
 			1,
 			1,
 			1200
 		],
-		"il_originItem": [
+		"il_OriginItem": [
 			1,
 			1,
 			1500
 		],
-		"ill_addItem": [
+		"ill_AddItem": [
 			[
 				1,
 				21,
 				100
 			]
 		],
-		"s_desc": "使徒猛招"
+		"s_Desc": "使徒猛招"
 	},
 	{
-		"i_activityID": 1,
-		"i_day": 7,
-		"i_id": 16,
-		"i_limitCount": 1,
-		"i_productId": 0,
-		"il_needItem": [
+		"i_ActivityID": 1,
+		"i_Day": 7,
+		"i_Id": 16,
+		"i_LimitCount": 1,
+		"i_ProductId": 0,
+		"il_NeedItem": [
 			1,
 			1,
 			1800
 		],
-		"il_originItem": [
+		"il_OriginItem": [
 			1,
 			1,
 			2000
 		],
-		"ill_addItem": [
+		"ill_AddItem": [
 			[
 				1,
 				13,
 				10
 			]
 		],
-		"s_desc": "英雄爽抽"
+		"s_Desc": "英雄爽抽"
 	},
 	{
-		"i_activityID": 1,
-		"i_day": 7,
-		"i_id": 17,
-		"i_limitCount": 1,
-		"i_productId": 0,
-		"il_needItem": [
+		"i_ActivityID": 1,
+		"i_Day": 7,
+		"i_Id": 17,
+		"i_LimitCount": 1,
+		"i_ProductId": 0,
+		"il_NeedItem": [
 			1,
 			1,
 			540
 		],
-		"il_originItem": [
+		"il_OriginItem": [
 			1,
 			1,
 			600
 		],
-		"ill_addItem": [
+		"ill_AddItem": [
 			[
 				1,
 				12,
 				100
 			]
 		],
-		"s_desc": "晶核狠造"
+		"s_Desc": "晶核狠造"
 	}
 ]

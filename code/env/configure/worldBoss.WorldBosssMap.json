@@ -1,27 +1,27 @@
 [
 	{
-		"i_bossId": 100001,
-		"i_element": 0,
-		"i_id": 1
+		"i_BossId": 100001,
+		"i_Id": 1,
+		"i_element": 0
 	},
 	{
-		"i_bossId": 100001,
-		"i_element": 0,
-		"i_id": 2
+		"i_BossId": 100001,
+		"i_Id": 2,
+		"i_element": 0
 	},
 	{
-		"i_bossId": 100001,
-		"i_element": 0,
-		"i_id": 3
+		"i_BossId": 100001,
+		"i_Id": 3,
+		"i_element": 0
 	},
 	{
-		"i_bossId": 100001,
-		"i_element": 0,
-		"i_id": 4
+		"i_BossId": 100001,
+		"i_Id": 4,
+		"i_element": 0
 	},
 	{
-		"i_bossId": 100001,
-		"i_element": 0,
-		"i_id": 5
+		"i_BossId": 100001,
+		"i_Id": 5,
+		"i_element": 0
 	}
 ]

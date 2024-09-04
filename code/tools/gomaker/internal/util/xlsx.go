@@ -67,12 +67,18 @@ func parseXlsx(v domain.IParser, filename string) error {
 					ss := strings.Split(val, ":")
 					switch len(ss) {
 					case 4:
-						v.Visit(typespec.NewEnumNode(sheet, ss))
+						if v.Visit(typespec.NewEnumNode(sheet, ss)) == nil {
+							goto loop
+						}
 					case 3:
-						v.Visit(typespec.NewProxyNode(sheet, ss))
+						if v.Visit(typespec.NewProxyNode(sheet, ss)) == nil {
+							goto loop
+						}
 					}
 				}
 			}
+		loop:
+			continue
 		}
 	}
 	return nil

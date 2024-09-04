@@ -1,7 +1,7 @@
 [
 	{
 		"i_id": 0,
-		"ill_dailyAddItem": [
+		"ill_DailyAddItem": [
 			[
 				1,
 				1201,
@@ -13,6 +13,6 @@
 				5
 			]
 		],
-		"s_name": "特惠1"
+		"s_Name": "特惠1"
 	}
 ]

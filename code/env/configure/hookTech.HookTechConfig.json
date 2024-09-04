@@ -1,560 +1,560 @@
 [
 	{
-		"i_id": 100,
+		"i_Id": 100,
 		"i_techEffectType": 0,
-		"il_fatherId": [
+		"il_FatherId": [
 			0
 		],
-		"s_icon": "icon_yxkj_hx1_7",
-		"s_name": "金币补给",
-		"s_techName": "金币补给箱金币产出增加"
+		"s_Icon": "icon_yxkj_hx1_7",
+		"s_Name": "金币补给",
+		"s_TechName": "金币补给箱金币产出增加"
 	},
 	{
-		"i_id": 101,
+		"i_Id": 101,
 		"i_techEffectType": 0,
-		"il_fatherId": [
+		"il_FatherId": [
 			100
 		],
-		"s_icon": "icon_yxkj_hx1_3",
-		"s_name": "能量核心",
-		"s_techName": "英雄生命值(守卫战生效)增加"
+		"s_Icon": "icon_yxkj_hx1_3",
+		"s_Name": "能量核心",
+		"s_TechName": "英雄生命值(守卫战生效)增加"
 	},
 	{
-		"i_id": 102,
+		"i_Id": 102,
 		"i_techEffectType": 0,
-		"il_fatherId": [
+		"il_FatherId": [
 			100
 		],
-		"s_icon": "icon_yxkj_hx1_6",
-		"s_name": "改造基因",
-		"s_techName": "英雄生命值(全局生效）增加"
+		"s_Icon": "icon_yxkj_hx1_6",
+		"s_Name": "改造基因",
+		"s_TechName": "英雄生命值(全局生效）增加"
 	},
 	{
-		"i_id": 103,
+		"i_Id": 103,
 		"i_techEffectType": 0,
-		"il_fatherId": [
+		"il_FatherId": [
 			100
 		],
-		"s_icon": "icon_yxkj_hx1_8",
-		"s_name": "全能装甲",
-		"s_techName": "\u003ccolor=#299DFF\u003e稀有\u003c/color\u003e装备掉落概率提升"
+		"s_Icon": "icon_yxkj_hx1_8",
+		"s_Name": "全能装甲",
+		"s_TechName": "\u003ccolor=#299DFF\u003e稀有\u003c/color\u003e装备掉落概率提升"
 	},
 	{
-		"i_id": 104,
+		"i_Id": 104,
 		"i_techEffectType": 0,
-		"il_fatherId": [
+		"il_FatherId": [
 			103
 		],
-		"s_icon": "icon_yxkj_hx1_9",
-		"s_name": "钛合金甲",
-		"s_techName": "掉落装备品阶提升"
+		"s_Icon": "icon_yxkj_hx1_9",
+		"s_Name": "钛合金甲",
+		"s_TechName": "掉落装备品阶提升"
 	},
 	{
-		"i_id": 105,
+		"i_Id": 105,
 		"i_techEffectType": 0,
-		"il_fatherId": [
+		"il_FatherId": [
 			103
 		],
-		"s_icon": "icon_yxkj_hx1_2",
-		"s_name": "矿石钢盾",
-		"s_techName": "英雄防御力(守卫战生效)增加"
+		"s_Icon": "icon_yxkj_hx1_2",
+		"s_Name": "矿石钢盾",
+		"s_TechName": "英雄防御力(守卫战生效)增加"
 	},
 	{
-		"i_id": 106,
+		"i_Id": 106,
 		"i_techEffectType": 0,
-		"il_fatherId": [
+		"il_FatherId": [
 			104
 		],
-		"s_icon": "icon_yxkj_hx1_7",
-		"s_name": "金币补给",
-		"s_techName": "金币补给箱金币产出增加"
+		"s_Icon": "icon_yxkj_hx1_7",
+		"s_Name": "金币补给",
+		"s_TechName": "金币补给箱金币产出增加"
 	},
 	{
-		"i_id": 107,
+		"i_Id": 107,
 		"i_techEffectType": 0,
-		"il_fatherId": [
+		"il_FatherId": [
 			105
 		],
-		"s_icon": "icon_yxkj_hx1_5",
-		"s_name": "生化盾牌",
-		"s_techName": "英雄防御力(全局生效）增加"
+		"s_Icon": "icon_yxkj_hx1_5",
+		"s_Name": "生化盾牌",
+		"s_TechName": "英雄防御力(全局生效）增加"
 	},
 	{
-		"i_id": 108,
+		"i_Id": 108,
 		"i_techEffectType": 0,
-		"il_fatherId": [
+		"il_FatherId": [
 			106
 		],
-		"s_icon": "icon_yxkj_hx1_8",
-		"s_name": "全能装甲",
-		"s_techName": "\u003ccolor=#8817FF\u003e史诗\u003c/color\u003e装备掉落概率提升"
+		"s_Icon": "icon_yxkj_hx1_8",
+		"s_Name": "全能装甲",
+		"s_TechName": "\u003ccolor=#8817FF\u003e史诗\u003c/color\u003e装备掉落概率提升"
 	},
 	{
-		"i_id": 109,
+		"i_Id": 109,
 		"i_techEffectType": 0,
-		"il_fatherId": [
+		"il_FatherId": [
 			106
 		],
-		"s_icon": "icon_yxkj_hx1_1",
-		"s_name": "伐木巨斧",
-		"s_techName": "英雄攻击力(守卫战生效)增加"
+		"s_Icon": "icon_yxkj_hx1_1",
+		"s_Name": "伐木巨斧",
+		"s_TechName": "英雄攻击力(守卫战生效)增加"
 	},
 	{
-		"i_id": 110,
+		"i_Id": 110,
 		"i_techEffectType": 0,
-		"il_fatherId": [
+		"il_FatherId": [
 			106
 		],
-		"s_icon": "icon_yxkj_hx1_9",
-		"s_name": "钛合金甲",
-		"s_techName": "掉落装备品阶提升"
+		"s_Icon": "icon_yxkj_hx1_9",
+		"s_Name": "钛合金甲",
+		"s_TechName": "掉落装备品阶提升"
 	},
 	{
-		"i_id": 200,
+		"i_Id": 200,
 		"i_techEffectType": 0,
-		"il_fatherId": [
+		"il_FatherId": [
 			108,
 			109,
 			110
 		],
-		"s_icon": "icon_yxkj_hx1_7",
-		"s_name": "金币补给",
-		"s_techName": "金币补给箱金币产出增加"
+		"s_Icon": "icon_yxkj_hx1_7",
+		"s_Name": "金币补给",
+		"s_TechName": "金币补给箱金币产出增加"
 	},
 	{
-		"i_id": 201,
+		"i_Id": 201,
 		"i_techEffectType": 0,
-		"il_fatherId": [
+		"il_FatherId": [
 			200
 		],
-		"s_icon": "icon_yxkj_hx1_3",
-		"s_name": "能量核心",
-		"s_techName": "英雄生命值(守卫战生效)增加"
+		"s_Icon": "icon_yxkj_hx1_3",
+		"s_Name": "能量核心",
+		"s_TechName": "英雄生命值(守卫战生效)增加"
 	},
 	{
-		"i_id": 202,
+		"i_Id": 202,
 		"i_techEffectType": 0,
-		"il_fatherId": [
+		"il_FatherId": [
 			200
 		],
-		"s_icon": "icon_yxkj_hx1_6",
-		"s_name": "改造基因",
-		"s_techName": "英雄生命值(全局生效）增加"
+		"s_Icon": "icon_yxkj_hx1_6",
+		"s_Name": "改造基因",
+		"s_TechName": "英雄生命值(全局生效）增加"
 	},
 	{
-		"i_id": 203,
+		"i_Id": 203,
 		"i_techEffectType": 0,
-		"il_fatherId": [
+		"il_FatherId": [
 			200
 		],
-		"s_icon": "icon_yxkj_hx1_8",
-		"s_name": "全能装甲",
-		"s_techName": "\u003ccolor=#F4D82A\u003e传说\u003c/color\u003e装备掉落概率提升"
+		"s_Icon": "icon_yxkj_hx1_8",
+		"s_Name": "全能装甲",
+		"s_TechName": "\u003ccolor=#F4D82A\u003e传说\u003c/color\u003e装备掉落概率提升"
 	},
 	{
-		"i_id": 204,
+		"i_Id": 204,
 		"i_techEffectType": 0,
-		"il_fatherId": [
+		"il_FatherId": [
 			203
 		],
-		"s_icon": "icon_yxkj_hx1_9",
-		"s_name": "钛合金甲",
-		"s_techName": "掉落装备品阶提升"
+		"s_Icon": "icon_yxkj_hx1_9",
+		"s_Name": "钛合金甲",
+		"s_TechName": "掉落装备品阶提升"
 	},
 	{
-		"i_id": 205,
+		"i_Id": 205,
 		"i_techEffectType": 0,
-		"il_fatherId": [
+		"il_FatherId": [
 			203
 		],
-		"s_icon": "icon_yxkj_hx1_1",
-		"s_name": "伐木巨斧",
-		"s_techName": "英雄攻击力(守卫战生效)增加"
+		"s_Icon": "icon_yxkj_hx1_1",
+		"s_Name": "伐木巨斧",
+		"s_TechName": "英雄攻击力(守卫战生效)增加"
 	},
 	{
-		"i_id": 206,
+		"i_Id": 206,
 		"i_techEffectType": 0,
-		"il_fatherId": [
+		"il_FatherId": [
 			204
 		],
-		"s_icon": "icon_yxkj_hx1_7",
-		"s_name": "金币补给",
-		"s_techName": "金币补给箱金币产出增加"
+		"s_Icon": "icon_yxkj_hx1_7",
+		"s_Name": "金币补给",
+		"s_TechName": "金币补给箱金币产出增加"
 	},
 	{
-		"i_id": 207,
+		"i_Id": 207,
 		"i_techEffectType": 0,
-		"il_fatherId": [
+		"il_FatherId": [
 			205
 		],
-		"s_icon": "icon_yxkj_hx1_4",
-		"s_name": "动能巨斧",
-		"s_techName": "英雄攻击力(全局生效）增加"
+		"s_Icon": "icon_yxkj_hx1_4",
+		"s_Name": "动能巨斧",
+		"s_TechName": "英雄攻击力(全局生效）增加"
 	},
 	{
-		"i_id": 208,
+		"i_Id": 208,
 		"i_techEffectType": 0,
-		"il_fatherId": [
+		"il_FatherId": [
 			206
 		],
-		"s_icon": "icon_yxkj_hx1_8",
-		"s_name": "全能装甲",
-		"s_techName": "\u003ccolor=#F53838\u003e神话\u003c/color\u003e装备掉落概率提升"
+		"s_Icon": "icon_yxkj_hx1_8",
+		"s_Name": "全能装甲",
+		"s_TechName": "\u003ccolor=#F53838\u003e神话\u003c/color\u003e装备掉落概率提升"
 	},
 	{
-		"i_id": 209,
+		"i_Id": 209,
 		"i_techEffectType": 0,
-		"il_fatherId": [
+		"il_FatherId": [
 			206
 		],
-		"s_icon": "icon_yxkj_hx1_5",
-		"s_name": "生化盾牌",
-		"s_techName": "英雄防御力(全局生效）增加"
+		"s_Icon": "icon_yxkj_hx1_5",
+		"s_Name": "生化盾牌",
+		"s_TechName": "英雄防御力(全局生效）增加"
 	},
 	{
-		"i_id": 210,
+		"i_Id": 210,
 		"i_techEffectType": 0,
-		"il_fatherId": [
+		"il_FatherId": [
 			206
 		],
-		"s_icon": "icon_yxkj_hx1_9",
-		"s_name": "钛合金甲",
-		"s_techName": "掉落装备品阶提升"
+		"s_Icon": "icon_yxkj_hx1_9",
+		"s_Name": "钛合金甲",
+		"s_TechName": "掉落装备品阶提升"
 	},
 	{
-		"i_id": 300,
+		"i_Id": 300,
 		"i_techEffectType": 0,
-		"il_fatherId": [
+		"il_FatherId": [
 			208,
 			209,
 			210
 		],
-		"s_icon": "icon_yxkj_hx1_7",
-		"s_name": "金币补给",
-		"s_techName": "金币补给箱金币产出增加"
+		"s_Icon": "icon_yxkj_hx1_7",
+		"s_Name": "金币补给",
+		"s_TechName": "金币补给箱金币产出增加"
 	},
 	{
-		"i_id": 301,
+		"i_Id": 301,
 		"i_techEffectType": 0,
-		"il_fatherId": [
+		"il_FatherId": [
 			300
 		],
-		"s_icon": "icon_yxkj_hx1_1",
-		"s_name": "伐木巨斧",
-		"s_techName": "英雄攻击力(守卫战生效)增加"
+		"s_Icon": "icon_yxkj_hx1_1",
+		"s_Name": "伐木巨斧",
+		"s_TechName": "英雄攻击力(守卫战生效)增加"
 	},
 	{
-		"i_id": 302,
+		"i_Id": 302,
 		"i_techEffectType": 0,
-		"il_fatherId": [
+		"il_FatherId": [
 			300
 		],
-		"s_icon": "icon_yxkj_hx1_4",
-		"s_name": "动能巨斧",
-		"s_techName": "英雄攻击力(全局生效）增加"
+		"s_Icon": "icon_yxkj_hx1_4",
+		"s_Name": "动能巨斧",
+		"s_TechName": "英雄攻击力(全局生效）增加"
 	},
 	{
-		"i_id": 303,
+		"i_Id": 303,
 		"i_techEffectType": 0,
-		"il_fatherId": [
+		"il_FatherId": [
 			300
 		],
-		"s_icon": "icon_yxkj_hx1_8",
-		"s_name": "全能装甲",
-		"s_techName": "\u003ccolor=#F53838\u003e神话\u003c/color\u003e装备掉落概率提升"
+		"s_Icon": "icon_yxkj_hx1_8",
+		"s_Name": "全能装甲",
+		"s_TechName": "\u003ccolor=#F53838\u003e神话\u003c/color\u003e装备掉落概率提升"
 	},
 	{
-		"i_id": 304,
+		"i_Id": 304,
 		"i_techEffectType": 0,
-		"il_fatherId": [
+		"il_FatherId": [
 			303
 		],
-		"s_icon": "icon_yxkj_hx1_9",
-		"s_name": "钛合金甲",
-		"s_techName": "掉落装备品阶提升"
+		"s_Icon": "icon_yxkj_hx1_9",
+		"s_Name": "钛合金甲",
+		"s_TechName": "掉落装备品阶提升"
 	},
 	{
-		"i_id": 305,
+		"i_Id": 305,
 		"i_techEffectType": 0,
-		"il_fatherId": [
+		"il_FatherId": [
 			303
 		],
-		"s_icon": "icon_yxkj_hx1_2",
-		"s_name": "矿石钢盾",
-		"s_techName": "英雄防御力(守卫战生效)增加"
+		"s_Icon": "icon_yxkj_hx1_2",
+		"s_Name": "矿石钢盾",
+		"s_TechName": "英雄防御力(守卫战生效)增加"
 	},
 	{
-		"i_id": 306,
+		"i_Id": 306,
 		"i_techEffectType": 0,
-		"il_fatherId": [
+		"il_FatherId": [
 			304
 		],
-		"s_icon": "icon_yxkj_hx1_7",
-		"s_name": "金币补给",
-		"s_techName": "金币补给箱金币产出增加"
+		"s_Icon": "icon_yxkj_hx1_7",
+		"s_Name": "金币补给",
+		"s_TechName": "金币补给箱金币产出增加"
 	},
 	{
-		"i_id": 307,
+		"i_Id": 307,
 		"i_techEffectType": 0,
-		"il_fatherId": [
+		"il_FatherId": [
 			305
 		],
-		"s_icon": "icon_yxkj_hx1_5",
-		"s_name": "生化盾牌",
-		"s_techName": "英雄防御力(全局生效）增加"
+		"s_Icon": "icon_yxkj_hx1_5",
+		"s_Name": "生化盾牌",
+		"s_TechName": "英雄防御力(全局生效）增加"
 	},
 	{
-		"i_id": 308,
+		"i_Id": 308,
 		"i_techEffectType": 0,
-		"il_fatherId": [
+		"il_FatherId": [
 			306
 		],
-		"s_icon": "icon_yxkj_hx1_8",
-		"s_name": "全能装甲",
-		"s_techName": "\u003ccolor=#F53838\u003e神话\u003c/color\u003e装备掉落概率提升"
+		"s_Icon": "icon_yxkj_hx1_8",
+		"s_Name": "全能装甲",
+		"s_TechName": "\u003ccolor=#F53838\u003e神话\u003c/color\u003e装备掉落概率提升"
 	},
 	{
-		"i_id": 309,
+		"i_Id": 309,
 		"i_techEffectType": 0,
-		"il_fatherId": [
+		"il_FatherId": [
 			306
 		],
-		"s_icon": "icon_yxkj_hx1_3",
-		"s_name": "能量核心",
-		"s_techName": "英雄生命值(守卫战生效)增加"
+		"s_Icon": "icon_yxkj_hx1_3",
+		"s_Name": "能量核心",
+		"s_TechName": "英雄生命值(守卫战生效)增加"
 	},
 	{
-		"i_id": 310,
+		"i_Id": 310,
 		"i_techEffectType": 0,
-		"il_fatherId": [
+		"il_FatherId": [
 			306
 		],
-		"s_icon": "icon_yxkj_hx1_9",
-		"s_name": "钛合金甲",
-		"s_techName": "掉落装备品阶提升"
+		"s_Icon": "icon_yxkj_hx1_9",
+		"s_Name": "钛合金甲",
+		"s_TechName": "掉落装备品阶提升"
 	},
 	{
-		"i_id": 400,
+		"i_Id": 400,
 		"i_techEffectType": 0,
-		"il_fatherId": [
+		"il_FatherId": [
 			308,
 			309,
 			310
 		],
-		"s_icon": "icon_yxkj_hx1_7",
-		"s_name": "金币补给",
-		"s_techName": "金币补给箱金币产出增加"
+		"s_Icon": "icon_yxkj_hx1_7",
+		"s_Name": "金币补给",
+		"s_TechName": "金币补给箱金币产出增加"
 	},
 	{
-		"i_id": 401,
+		"i_Id": 401,
 		"i_techEffectType": 0,
-		"il_fatherId": [
+		"il_FatherId": [
 			400
 		],
-		"s_icon": "icon_yxkj_hx1_3",
-		"s_name": "能量核心",
-		"s_techName": "英雄生命值(守卫战生效)增加"
+		"s_Icon": "icon_yxkj_hx1_3",
+		"s_Name": "能量核心",
+		"s_TechName": "英雄生命值(守卫战生效)增加"
 	},
 	{
-		"i_id": 402,
+		"i_Id": 402,
 		"i_techEffectType": 0,
-		"il_fatherId": [
+		"il_FatherId": [
 			400
 		],
-		"s_icon": "icon_yxkj_hx1_6",
-		"s_name": "改造基因",
-		"s_techName": "英雄生命值(全局生效）增加"
+		"s_Icon": "icon_yxkj_hx1_6",
+		"s_Name": "改造基因",
+		"s_TechName": "英雄生命值(全局生效）增加"
 	},
 	{
-		"i_id": 403,
+		"i_Id": 403,
 		"i_techEffectType": 0,
-		"il_fatherId": [
+		"il_FatherId": [
 			400
 		],
-		"s_icon": "icon_yxkj_hx1_8",
-		"s_name": "全能装甲",
-		"s_techName": "\u003ccolor=#F53838\u003e神话\u003c/color\u003e装备掉落概率提升"
+		"s_Icon": "icon_yxkj_hx1_8",
+		"s_Name": "全能装甲",
+		"s_TechName": "\u003ccolor=#F53838\u003e神话\u003c/color\u003e装备掉落概率提升"
 	},
 	{
-		"i_id": 404,
+		"i_Id": 404,
 		"i_techEffectType": 0,
-		"il_fatherId": [
+		"il_FatherId": [
 			403
 		],
-		"s_icon": "icon_yxkj_hx1_9",
-		"s_name": "钛合金甲",
-		"s_techName": "掉落装备品阶提升"
+		"s_Icon": "icon_yxkj_hx1_9",
+		"s_Name": "钛合金甲",
+		"s_TechName": "掉落装备品阶提升"
 	},
 	{
-		"i_id": 405,
+		"i_Id": 405,
 		"i_techEffectType": 0,
-		"il_fatherId": [
+		"il_FatherId": [
 			403
 		],
-		"s_icon": "icon_yxkj_hx1_2",
-		"s_name": "矿石钢盾",
-		"s_techName": "英雄防御力(守卫战生效)增加"
+		"s_Icon": "icon_yxkj_hx1_2",
+		"s_Name": "矿石钢盾",
+		"s_TechName": "英雄防御力(守卫战生效)增加"
 	},
 	{
-		"i_id": 406,
+		"i_Id": 406,
 		"i_techEffectType": 0,
-		"il_fatherId": [
+		"il_FatherId": [
 			404
 		],
-		"s_icon": "icon_yxkj_hx1_7",
-		"s_name": "金币补给",
-		"s_techName": "金币补给箱金币产出增加"
+		"s_Icon": "icon_yxkj_hx1_7",
+		"s_Name": "金币补给",
+		"s_TechName": "金币补给箱金币产出增加"
 	},
 	{
-		"i_id": 407,
+		"i_Id": 407,
 		"i_techEffectType": 0,
-		"il_fatherId": [
+		"il_FatherId": [
 			405
 		],
-		"s_icon": "icon_yxkj_hx1_5",
-		"s_name": "生化盾牌",
-		"s_techName": "英雄防御力(全局生效）增加"
+		"s_Icon": "icon_yxkj_hx1_5",
+		"s_Name": "生化盾牌",
+		"s_TechName": "英雄防御力(全局生效）增加"
 	},
 	{
-		"i_id": 408,
+		"i_Id": 408,
 		"i_techEffectType": 0,
-		"il_fatherId": [
+		"il_FatherId": [
 			406
 		],
-		"s_icon": "icon_yxkj_hx1_8",
-		"s_name": "全能装甲",
-		"s_techName": "\u003ccolor=#F53838\u003e神话\u003c/color\u003e装备掉落概率提升"
+		"s_Icon": "icon_yxkj_hx1_8",
+		"s_Name": "全能装甲",
+		"s_TechName": "\u003ccolor=#F53838\u003e神话\u003c/color\u003e装备掉落概率提升"
 	},
 	{
-		"i_id": 409,
+		"i_Id": 409,
 		"i_techEffectType": 0,
-		"il_fatherId": [
+		"il_FatherId": [
 			406
 		],
-		"s_icon": "icon_yxkj_hx1_1",
-		"s_name": "伐木巨斧",
-		"s_techName": "英雄攻击力(守卫战生效)增加"
+		"s_Icon": "icon_yxkj_hx1_1",
+		"s_Name": "伐木巨斧",
+		"s_TechName": "英雄攻击力(守卫战生效)增加"
 	},
 	{
-		"i_id": 410,
+		"i_Id": 410,
 		"i_techEffectType": 0,
-		"il_fatherId": [
+		"il_FatherId": [
 			406
 		],
-		"s_icon": "icon_yxkj_hx1_9",
-		"s_name": "钛合金甲",
-		"s_techName": "掉落装备品阶提升"
+		"s_Icon": "icon_yxkj_hx1_9",
+		"s_Name": "钛合金甲",
+		"s_TechName": "掉落装备品阶提升"
 	},
 	{
-		"i_id": 500,
+		"i_Id": 500,
 		"i_techEffectType": 0,
-		"il_fatherId": [
+		"il_FatherId": [
 			408,
 			409,
 			410
 		],
-		"s_icon": "icon_yxkj_hx1_7",
-		"s_name": "金币补给",
-		"s_techName": "金币补给箱金币产出增加"
+		"s_Icon": "icon_yxkj_hx1_7",
+		"s_Name": "金币补给",
+		"s_TechName": "金币补给箱金币产出增加"
 	},
 	{
-		"i_id": 501,
+		"i_Id": 501,
 		"i_techEffectType": 0,
-		"il_fatherId": [
+		"il_FatherId": [
 			500
 		],
-		"s_icon": "icon_yxkj_hx1_1",
-		"s_name": "伐木巨斧",
-		"s_techName": "英雄攻击力(守卫战生效)增加"
+		"s_Icon": "icon_yxkj_hx1_1",
+		"s_Name": "伐木巨斧",
+		"s_TechName": "英雄攻击力(守卫战生效)增加"
 	},
 	{
-		"i_id": 502,
+		"i_Id": 502,
 		"i_techEffectType": 0,
-		"il_fatherId": [
+		"il_FatherId": [
 			500
 		],
-		"s_icon": "icon_yxkj_hx1_4",
-		"s_name": "动能巨斧",
-		"s_techName": "英雄攻击力(全局生效）增加"
+		"s_Icon": "icon_yxkj_hx1_4",
+		"s_Name": "动能巨斧",
+		"s_TechName": "英雄攻击力(全局生效）增加"
 	},
 	{
-		"i_id": 503,
+		"i_Id": 503,
 		"i_techEffectType": 0,
-		"il_fatherId": [
+		"il_FatherId": [
 			500
 		],
-		"s_icon": "icon_yxkj_hx1_8",
-		"s_name": "全能装甲",
-		"s_techName": "\u003ccolor=#F53838\u003e神话\u003c/color\u003e装备掉落概率提升"
+		"s_Icon": "icon_yxkj_hx1_8",
+		"s_Name": "全能装甲",
+		"s_TechName": "\u003ccolor=#F53838\u003e神话\u003c/color\u003e装备掉落概率提升"
 	},
 	{
-		"i_id": 504,
+		"i_Id": 504,
 		"i_techEffectType": 0,
-		"il_fatherId": [
+		"il_FatherId": [
 			503
 		],
-		"s_icon": "icon_yxkj_hx1_9",
-		"s_name": "钛合金甲",
-		"s_techName": "掉落装备品阶提升"
+		"s_Icon": "icon_yxkj_hx1_9",
+		"s_Name": "钛合金甲",
+		"s_TechName": "掉落装备品阶提升"
 	},
 	{
-		"i_id": 505,
+		"i_Id": 505,
 		"i_techEffectType": 0,
-		"il_fatherId": [
+		"il_FatherId": [
 			503
 		],
-		"s_icon": "icon_yxkj_hx1_3",
-		"s_name": "能量核心",
-		"s_techName": "英雄生命值(守卫战生效)增加"
+		"s_Icon": "icon_yxkj_hx1_3",
+		"s_Name": "能量核心",
+		"s_TechName": "英雄生命值(守卫战生效)增加"
 	},
 	{
-		"i_id": 506,
+		"i_Id": 506,
 		"i_techEffectType": 0,
-		"il_fatherId": [
+		"il_FatherId": [
 			504
 		],
-		"s_icon": "icon_yxkj_hx1_7",
-		"s_name": "金币补给",
-		"s_techName": "金币补给箱金币产出增加"
+		"s_Icon": "icon_yxkj_hx1_7",
+		"s_Name": "金币补给",
+		"s_TechName": "金币补给箱金币产出增加"
 	},
 	{
-		"i_id": 507,
+		"i_Id": 507,
 		"i_techEffectType": 0,
-		"il_fatherId": [
+		"il_FatherId": [
 			505
 		],
-		"s_icon": "icon_yxkj_hx1_6",
-		"s_name": "改造基因",
-		"s_techName": "英雄生命值(全局生效）增加"
+		"s_Icon": "icon_yxkj_hx1_6",
+		"s_Name": "改造基因",
+		"s_TechName": "英雄生命值(全局生效）增加"
 	},
 	{
-		"i_id": 508,
+		"i_Id": 508,
 		"i_techEffectType": 0,
-		"il_fatherId": [
+		"il_FatherId": [
 			506
 		],
-		"s_icon": "icon_yxkj_hx1_8",
-		"s_name": "全能装甲",
-		"s_techName": "\u003ccolor=#F53838\u003e神话\u003c/color\u003e装备掉落概率提升"
+		"s_Icon": "icon_yxkj_hx1_8",
+		"s_Name": "全能装甲",
+		"s_TechName": "\u003ccolor=#F53838\u003e神话\u003c/color\u003e装备掉落概率提升"
 	},
 	{
-		"i_id": 509,
+		"i_Id": 509,
 		"i_techEffectType": 0,
-		"il_fatherId": [
+		"il_FatherId": [
 			506
 		],
-		"s_icon": "icon_yxkj_hx1_2",
-		"s_name": "矿石钢盾",
-		"s_techName": "英雄防御力(守卫战生效)增加"
+		"s_Icon": "icon_yxkj_hx1_2",
+		"s_Name": "矿石钢盾",
+		"s_TechName": "英雄防御力(守卫战生效)增加"
 	},
 	{
-		"i_id": 510,
+		"i_Id": 510,
 		"i_techEffectType": 0,
-		"il_fatherId": [
+		"il_FatherId": [
 			506
 		],
-		"s_icon": "icon_yxkj_hx1_9",
-		"s_name": "钛合金甲",
-		"s_techName": "掉落装备品阶提升"
+		"s_Icon": "icon_yxkj_hx1_9",
+		"s_Name": "钛合金甲",
+		"s_TechName": "掉落装备品阶提升"
 	}
 ]

@@ -1,30 +1,30 @@
 [
 	{
-		"i_id": 1,
+		"i_Id": 1,
 		"i_serverType": 0,
-		"s_downloadUrl": "http://172.16.126.208",
-		"s_serverUrl": "http://172.16.126.208",
-		"s_updateUrl": "http://172.16.126.208"
+		"s_DownloadUrl": "http://172.16.126.208",
+		"s_ServerUrl": "http://172.16.126.208",
+		"s_UpdateUrl": "http://172.16.126.208"
 	},
 	{
-		"i_id": 2,
+		"i_Id": 2,
 		"i_serverType": 0,
-		"s_downloadUrl": "http://172.16.126.208",
-		"s_serverUrl": "https://loginjt.hntz68.cn",
-		"s_updateUrl": "http://172.16.126.208"
+		"s_DownloadUrl": "http://172.16.126.208",
+		"s_ServerUrl": "https://loginjt.hntz68.cn",
+		"s_UpdateUrl": "http://172.16.126.208"
 	},
 	{
-		"i_id": 3,
+		"i_Id": 3,
 		"i_serverType": 0,
-		"s_downloadUrl": "http://172.16.126.208",
-		"s_serverUrl": "https://loginjtsh.hntz68.cn",
-		"s_updateUrl": "http://172.16.126.208"
+		"s_DownloadUrl": "http://172.16.126.208",
+		"s_ServerUrl": "https://loginjtsh.hntz68.cn",
+		"s_UpdateUrl": "http://172.16.126.208"
 	},
 	{
-		"i_id": 4,
+		"i_Id": 4,
 		"i_serverType": 0,
-		"s_downloadUrl": "http://172.16.126.208",
-		"s_serverUrl": "https://loginjttest.hntz68.cn",
-		"s_updateUrl": "http://172.16.126.208"
+		"s_DownloadUrl": "http://172.16.126.208",
+		"s_ServerUrl": "https://loginjttest.hntz68.cn",
+		"s_UpdateUrl": "http://172.16.126.208"
 	}
 ]

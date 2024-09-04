@@ -1,12 +1,12 @@
 [
 	{
-		"i_day": 1,
-		"i_discount": 1100,
-		"i_id": 1,
-		"i_limitCount": 1,
-		"i_productId": 40001,
+		"i_Day": 1,
+		"i_Discount": 1100,
+		"i_Id": 1,
+		"i_LimitCount": 1,
+		"i_ProductId": 40001,
 		"i_sid": 0,
-		"ill_addItem": [
+		"ill_AddItem": [
 			[
 				1,
 				1400,
@@ -18,16 +18,16 @@
 				20
 			]
 		],
-		"s_desc": "开服直购礼包·1"
+		"s_Desc": "开服直购礼包·1"
 	},
 	{
-		"i_day": 2,
-		"i_discount": 700,
-		"i_id": 2,
-		"i_limitCount": 1,
-		"i_productId": 40002,
+		"i_Day": 2,
+		"i_Discount": 700,
+		"i_Id": 2,
+		"i_LimitCount": 1,
+		"i_ProductId": 40002,
 		"i_sid": 0,
-		"ill_addItem": [
+		"ill_AddItem": [
 			[
 				1,
 				13,
@@ -44,16 +44,16 @@
 				20
 			]
 		],
-		"s_desc": "开服直购礼包·2"
+		"s_Desc": "开服直购礼包·2"
 	},
 	{
-		"i_day": 3,
-		"i_discount": 600,
-		"i_id": 3,
-		"i_limitCount": 1,
-		"i_productId": 40003,
+		"i_Day": 3,
+		"i_Discount": 600,
+		"i_Id": 3,
+		"i_LimitCount": 1,
+		"i_ProductId": 40003,
 		"i_sid": 0,
-		"ill_addItem": [
+		"ill_AddItem": [
 			[
 				1,
 				1403,
@@ -70,16 +70,16 @@
 				100
 			]
 		],
-		"s_desc": "开服直购礼包·3"
+		"s_Desc": "开服直购礼包·3"
 	},
 	{
-		"i_day": 4,
-		"i_discount": 600,
-		"i_id": 4,
-		"i_limitCount": 1,
-		"i_productId": 40004,
+		"i_Day": 4,
+		"i_Discount": 600,
+		"i_Id": 4,
+		"i_LimitCount": 1,
+		"i_ProductId": 40004,
 		"i_sid": 0,
-		"ill_addItem": [
+		"ill_AddItem": [
 			[
 				1,
 				1403,
@@ -91,16 +91,16 @@
 				10
 			]
 		],
-		"s_desc": "开服直购礼包·4"
+		"s_Desc": "开服直购礼包·4"
 	},
 	{
-		"i_day": 5,
-		"i_discount": 500,
-		"i_id": 5,
-		"i_limitCount": 1,
-		"i_productId": 40005,
+		"i_Day": 5,
+		"i_Discount": 500,
+		"i_Id": 5,
+		"i_LimitCount": 1,
+		"i_ProductId": 40005,
 		"i_sid": 0,
-		"ill_addItem": [
+		"ill_AddItem": [
 			[
 				1,
 				1400,
@@ -112,16 +112,16 @@
 				10
 			]
 		],
-		"s_desc": "开服直购礼包·5"
+		"s_Desc": "开服直购礼包·5"
 	},
 	{
-		"i_day": 6,
-		"i_discount": 400,
-		"i_id": 6,
-		"i_limitCount": 1,
-		"i_productId": 40006,
+		"i_Day": 6,
+		"i_Discount": 400,
+		"i_Id": 6,
+		"i_LimitCount": 1,
+		"i_ProductId": 40006,
 		"i_sid": 0,
-		"ill_addItem": [
+		"ill_AddItem": [
 			[
 				1,
 				1403,
@@ -138,16 +138,16 @@
 				300
 			]
 		],
-		"s_desc": "开服直购礼包·6"
+		"s_Desc": "开服直购礼包·6"
 	},
 	{
-		"i_day": 7,
-		"i_discount": 400,
-		"i_id": 7,
-		"i_limitCount": 1,
-		"i_productId": 40007,
+		"i_Day": 7,
+		"i_Discount": 400,
+		"i_Id": 7,
+		"i_LimitCount": 1,
+		"i_ProductId": 40007,
 		"i_sid": 0,
-		"ill_addItem": [
+		"ill_AddItem": [
 			[
 				1,
 				1400,
@@ -164,6 +164,6 @@
 				60
 			]
 		],
-		"s_desc": "开服直购礼包·7"
+		"s_Desc": "开服直购礼包·7"
 	}
 ]

@@ -1,31 +1,31 @@
 [
 	{
-		"i_heroId": 1,
-		"i_id": 1001,
-		"i_needStar": 1,
+		"i_HeroId": 1,
+		"i_Id": 1001,
+		"i_NeedStar": 1,
 		"i_talentType": 0,
-		"s_name": "始皇帝"
+		"s_Name": "始皇帝"
 	},
 	{
+		"i_HeroId": 1,
+		"i_Id": 1002,
+		"i_NeedStar": 2,
 		"i_applyProf": 0,
-		"i_heroId": 1,
-		"i_id": 1002,
-		"i_needStar": 2,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_briefDescTalent": "【溢伤力场】：产生一个圆形区域，区域内的敌人受到持续伤害，并且受到的伤害增加10%，持续7秒",
-		"s_descTalent": "力劈华山释放后会在落点形成一片【溢伤力场】",
-		"s_name": "始皇帝"
+		"s_BriefDescTalent": "【溢伤力场】：产生一个圆形区域，区域内的敌人受到持续伤害，并且受到的伤害增加10%，持续7秒",
+		"s_DescTalent": "力劈华山释放后会在落点形成一片【溢伤力场】",
+		"s_Name": "始皇帝"
 	},
 	{
+		"i_HeroId": 1,
+		"i_Id": 1003,
+		"i_NeedStar": 3,
 		"i_applyProf": 0,
-		"i_heroId": 1,
-		"i_id": 1003,
-		"i_needStar": 3,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -41,29 +41,29 @@
 				60
 			]
 		],
-		"s_descTalent": "自身属性：基础攻击+210，基础生命+2100，基础防御+60",
-		"s_name": "始皇帝"
+		"s_DescTalent": "自身属性：基础攻击+210，基础生命+2100，基础防御+60",
+		"s_Name": "始皇帝"
 	},
 	{
+		"i_HeroId": 1,
+		"i_Id": 1004,
+		"i_NeedStar": 4,
 		"i_applyProf": 0,
-		"i_heroId": 1,
-		"i_id": 1004,
-		"i_needStar": 4,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_briefDescTalent": "【溢伤力场】：产生一个圆形区域，区域内的敌人受到持续伤害，并且受到的伤害增加10%，持续7秒",
-		"s_descTalent": "【溢伤力场】范围增加35%，力场范围内的敌人受到伤害额外增加5%",
-		"s_name": "始皇帝"
+		"s_BriefDescTalent": "【溢伤力场】：产生一个圆形区域，区域内的敌人受到持续伤害，并且受到的伤害增加10%，持续7秒",
+		"s_DescTalent": "【溢伤力场】范围增加35%，力场范围内的敌人受到伤害额外增加5%",
+		"s_Name": "始皇帝"
 	},
 	{
+		"i_HeroId": 1,
+		"i_Id": 1005,
+		"i_NeedStar": 5,
 		"i_applyProf": 0,
-		"i_heroId": 1,
-		"i_id": 1005,
-		"i_needStar": 5,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -79,50 +79,50 @@
 				30
 			]
 		],
-		"s_descTalent": "全体队员：基础攻击+120，基础生命+1200，基础防御+30（上阵生效）",
-		"s_name": "始皇帝"
+		"s_DescTalent": "全体队员：基础攻击+120，基础生命+1200，基础防御+30（上阵生效）",
+		"s_Name": "始皇帝"
 	},
 	{
+		"i_HeroId": 1,
+		"i_Id": 1006,
+		"i_NeedStar": 6,
 		"i_applyProf": 0,
-		"i_heroId": 1,
-		"i_id": 1006,
-		"i_needStar": 6,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_descTalent": "触发元素共鸣时，所有队友获得伤害减免+10%，持续5秒。10s内只可触发一次",
-		"s_name": "始皇帝"
+		"s_DescTalent": "触发元素共鸣时，所有队友获得伤害减免+10%，持续5秒。10s内只可触发一次",
+		"s_Name": "始皇帝"
 	},
 	{
-		"i_heroId": 1,
-		"i_id": 1007,
-		"i_needStar": 7,
+		"i_HeroId": 1,
+		"i_Id": 1007,
+		"i_NeedStar": 7,
 		"i_talentType": 0,
-		"s_name": "始皇帝"
+		"s_Name": "始皇帝"
 	},
 	{
+		"i_HeroId": 1,
+		"i_Id": 1008,
+		"i_NeedStar": 8,
 		"i_applyProf": 0,
-		"i_heroId": 1,
-		"i_id": 1008,
-		"i_needStar": 8,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_briefDescTalent": "【力场】：产生一个圆形区域，区域内的敌人受到持续伤害，持续7秒",
-		"s_descTalent": "局内每激活一个【力场】基因，自身基础防御+6.8%",
-		"s_name": "始皇帝"
+		"s_BriefDescTalent": "【力场】：产生一个圆形区域，区域内的敌人受到持续伤害，持续7秒",
+		"s_DescTalent": "局内每激活一个【力场】基因，自身基础防御+6.8%",
+		"s_Name": "始皇帝"
 	},
 	{
+		"i_HeroId": 1,
+		"i_Id": 1009,
+		"i_NeedStar": 9,
 		"i_applyProf": 0,
-		"i_heroId": 1,
-		"i_id": 1009,
-		"i_needStar": 9,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -138,35 +138,35 @@
 				500
 			]
 		],
-		"s_descTalent": "自身属性：基础攻击+5%，基础生命+5%，基础防御+5%",
-		"s_name": "始皇帝"
+		"s_DescTalent": "自身属性：基础攻击+5%，基础生命+5%，基础防御+5%",
+		"s_Name": "始皇帝"
 	},
 	{
+		"i_HeroId": 1,
+		"i_Id": 1010,
+		"i_NeedStar": 10,
 		"i_applyProf": 0,
-		"i_heroId": 1,
-		"i_id": 1010,
-		"i_needStar": 10,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_descTalent": "力劈华山释放时，所有队员受到的伤害减少18.2%，持续5秒",
-		"s_name": "始皇帝"
+		"s_DescTalent": "力劈华山释放时，所有队员受到的伤害减少18.2%，持续5秒",
+		"s_Name": "始皇帝"
 	},
 	{
-		"i_heroId": 1,
-		"i_id": 1011,
-		"i_needStar": 11,
+		"i_HeroId": 1,
+		"i_Id": 1011,
+		"i_NeedStar": 11,
 		"i_talentType": 0,
-		"s_name": "始皇帝"
+		"s_Name": "始皇帝"
 	},
 	{
+		"i_HeroId": 1,
+		"i_Id": 1012,
+		"i_NeedStar": 12,
 		"i_applyProf": 0,
-		"i_heroId": 1,
-		"i_id": 1012,
-		"i_needStar": 12,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -182,14 +182,14 @@
 				64
 			]
 		],
-		"s_descTalent": "全体队员：基础攻击+300，基础生命+3000，基础防御+64（上阵生效）",
-		"s_name": "始皇帝"
+		"s_DescTalent": "全体队员：基础攻击+300，基础生命+3000，基础防御+64（上阵生效）",
+		"s_Name": "始皇帝"
 	},
 	{
+		"i_HeroId": 1,
+		"i_Id": 1013,
+		"i_NeedStar": 13,
 		"i_applyProf": 0,
-		"i_heroId": 1,
-		"i_id": 1013,
-		"i_needStar": 13,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -205,14 +205,14 @@
 				500
 			]
 		],
-		"s_descTalent": "自身属性：基础攻击+5%，基础生命+5%，基础防御+5%",
-		"s_name": "始皇帝"
+		"s_DescTalent": "自身属性：基础攻击+5%，基础生命+5%，基础防御+5%",
+		"s_Name": "始皇帝"
 	},
 	{
+		"i_HeroId": 1,
+		"i_Id": 1014,
+		"i_NeedStar": 14,
 		"i_applyProf": 0,
-		"i_heroId": 1,
-		"i_id": 1014,
-		"i_needStar": 14,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -228,43 +228,43 @@
 				500
 			]
 		],
-		"s_descTalent": "全体队员：基础攻击+5%，基础生命+5%，基础防御+5%（上阵生效）",
-		"s_name": "始皇帝"
+		"s_DescTalent": "全体队员：基础攻击+5%，基础生命+5%，基础防御+5%（上阵生效）",
+		"s_Name": "始皇帝"
 	},
 	{
-		"i_heroId": 1,
-		"i_id": 1015,
-		"i_needStar": 15,
+		"i_HeroId": 1,
+		"i_Id": 1015,
+		"i_NeedStar": 15,
 		"i_talentType": 0,
-		"s_name": "始皇帝"
+		"s_Name": "始皇帝"
 	},
 	{
-		"i_heroId": 2,
-		"i_id": 2001,
-		"i_needStar": 1,
+		"i_HeroId": 2,
+		"i_Id": 2001,
+		"i_NeedStar": 1,
 		"i_talentType": 0,
-		"s_name": "佑助"
+		"s_Name": "佑助"
 	},
 	{
+		"i_HeroId": 2,
+		"i_Id": 2002,
+		"i_NeedStar": 2,
 		"i_applyProf": 0,
-		"i_heroId": 2,
-		"i_id": 2002,
-		"i_needStar": 2,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_briefDescTalent": "【影袭】：原地划出一道半圆，产生小范围伤害",
-		"s_descTalent": "一闪有23.2%概率在目标点释放1次【影袭】",
-		"s_name": "佑助"
+		"s_BriefDescTalent": "【影袭】：原地划出一道半圆，产生小范围伤害",
+		"s_DescTalent": "一闪有23.2%概率在目标点释放1次【影袭】",
+		"s_Name": "佑助"
 	},
 	{
+		"i_HeroId": 2,
+		"i_Id": 2003,
+		"i_NeedStar": 3,
 		"i_applyProf": 0,
-		"i_heroId": 2,
-		"i_id": 2003,
-		"i_needStar": 3,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -280,29 +280,29 @@
 				42
 			]
 		],
-		"s_descTalent": "自身属性：基础攻击+210，基础生命+2100，基础防御+42",
-		"s_name": "佑助"
+		"s_DescTalent": "自身属性：基础攻击+210，基础生命+2100，基础防御+42",
+		"s_Name": "佑助"
 	},
 	{
+		"i_HeroId": 2,
+		"i_Id": 2004,
+		"i_NeedStar": 4,
 		"i_applyProf": 0,
-		"i_heroId": 2,
-		"i_id": 2004,
-		"i_needStar": 4,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_briefDescTalent": "【影袭】：原地划出一道半圆，产生小范围伤害",
-		"s_descTalent": "通灵术召唤大蛇后，每条大蛇攻击都有38%概率在目标点触发1次【影袭】",
-		"s_name": "佑助"
+		"s_BriefDescTalent": "【影袭】：原地划出一道半圆，产生小范围伤害",
+		"s_DescTalent": "通灵术召唤大蛇后，每条大蛇攻击都有38%概率在目标点触发1次【影袭】",
+		"s_Name": "佑助"
 	},
 	{
+		"i_HeroId": 2,
+		"i_Id": 2005,
+		"i_NeedStar": 5,
 		"i_applyProf": 0,
-		"i_heroId": 2,
-		"i_id": 2005,
-		"i_needStar": 5,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -310,50 +310,50 @@
 				315
 			]
 		],
-		"s_descTalent": "全体独行侠的基础攻击+315（上阵生效）",
-		"s_name": "佑助"
+		"s_DescTalent": "全体独行侠的基础攻击+315（上阵生效）",
+		"s_Name": "佑助"
 	},
 	{
+		"i_HeroId": 2,
+		"i_Id": 2006,
+		"i_NeedStar": 6,
 		"i_applyProf": 0,
-		"i_heroId": 2,
-		"i_id": 2006,
-		"i_needStar": 6,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_briefDescTalent": "【影袭】：原地划出一道半圆，产生小范围伤害",
-		"s_descTalent": "一闪触发【影袭】的概率增加到39%，大蛇触发【影袭】的概率增加到51%",
-		"s_name": "佑助"
+		"s_BriefDescTalent": "【影袭】：原地划出一道半圆，产生小范围伤害",
+		"s_DescTalent": "一闪触发【影袭】的概率增加到39%，大蛇触发【影袭】的概率增加到51%",
+		"s_Name": "佑助"
 	},
 	{
-		"i_heroId": 2,
-		"i_id": 2007,
-		"i_needStar": 7,
+		"i_HeroId": 2,
+		"i_Id": 2007,
+		"i_NeedStar": 7,
 		"i_talentType": 0,
-		"s_name": "佑助"
+		"s_Name": "佑助"
 	},
 	{
+		"i_HeroId": 2,
+		"i_Id": 2008,
+		"i_NeedStar": 8,
 		"i_applyProf": 0,
-		"i_heroId": 2,
-		"i_id": 2008,
-		"i_needStar": 8,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_descTalent": "基础共鸣伤害+15%，触发暗元素共鸣时产生的共鸣伤害额外+15%",
-		"s_name": "佑助"
+		"s_DescTalent": "基础共鸣伤害+15%，触发暗元素共鸣时产生的共鸣伤害额外+15%",
+		"s_Name": "佑助"
 	},
 	{
+		"i_HeroId": 2,
+		"i_Id": 2009,
+		"i_NeedStar": 9,
 		"i_applyProf": 0,
-		"i_heroId": 2,
-		"i_id": 2009,
-		"i_needStar": 9,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -369,50 +369,50 @@
 				500
 			]
 		],
-		"s_descTalent": "自身属性：基础攻击+5%，基础生命+5%，基础防御+5%",
-		"s_name": "佑助"
+		"s_DescTalent": "自身属性：基础攻击+5%，基础生命+5%，基础防御+5%",
+		"s_Name": "佑助"
 	},
 	{
+		"i_HeroId": 2,
+		"i_Id": 2010,
+		"i_NeedStar": 10,
 		"i_applyProf": 0,
-		"i_heroId": 2,
-		"i_id": 2010,
-		"i_needStar": 10,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_descTalent": "一闪可以直接斩杀生命值低于5%以下的怪物",
-		"s_name": "佑助"
+		"s_DescTalent": "一闪可以直接斩杀生命值低于5%以下的怪物",
+		"s_Name": "佑助"
 	},
 	{
-		"i_heroId": 2,
-		"i_id": 2011,
-		"i_needStar": 11,
+		"i_HeroId": 2,
+		"i_Id": 2011,
+		"i_NeedStar": 11,
 		"i_talentType": 0,
-		"s_name": "佑助"
+		"s_Name": "佑助"
 	},
 	{
+		"i_HeroId": 2,
+		"i_Id": 2012,
+		"i_NeedStar": 12,
 		"i_applyProf": 0,
-		"i_heroId": 2,
-		"i_id": 2012,
-		"i_needStar": 12,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_briefDescTalent": "【影袭】：原地划出一道半圆，产生小范围伤害",
-		"s_descTalent": "局内每激活一个【影袭】基因，造成伤害+5%",
-		"s_name": "佑助"
+		"s_BriefDescTalent": "【影袭】：原地划出一道半圆，产生小范围伤害",
+		"s_DescTalent": "局内每激活一个【影袭】基因，造成伤害+5%",
+		"s_Name": "佑助"
 	},
 	{
+		"i_HeroId": 2,
+		"i_Id": 2013,
+		"i_NeedStar": 13,
 		"i_applyProf": 0,
-		"i_heroId": 2,
-		"i_id": 2013,
-		"i_needStar": 13,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -420,14 +420,14 @@
 				500
 			]
 		],
-		"s_descTalent": "全体独行侠的基础攻击+5%（上阵生效）",
-		"s_name": "佑助"
+		"s_DescTalent": "全体独行侠的基础攻击+5%（上阵生效）",
+		"s_Name": "佑助"
 	},
 	{
+		"i_HeroId": 2,
+		"i_Id": 2014,
+		"i_NeedStar": 14,
 		"i_applyProf": 0,
-		"i_heroId": 2,
-		"i_id": 2014,
-		"i_needStar": 14,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -443,43 +443,43 @@
 				500
 			]
 		],
-		"s_descTalent": "自身属性：基础攻击+5%，基础生命+5%，基础防御+5%",
-		"s_name": "佑助"
+		"s_DescTalent": "自身属性：基础攻击+5%，基础生命+5%，基础防御+5%",
+		"s_Name": "佑助"
 	},
 	{
-		"i_heroId": 2,
-		"i_id": 2015,
-		"i_needStar": 15,
+		"i_HeroId": 2,
+		"i_Id": 2015,
+		"i_NeedStar": 15,
 		"i_talentType": 0,
-		"s_name": "佑助"
+		"s_Name": "佑助"
 	},
 	{
-		"i_heroId": 3,
-		"i_id": 3001,
-		"i_needStar": 1,
+		"i_HeroId": 3,
+		"i_Id": 3001,
+		"i_NeedStar": 1,
 		"i_talentType": 0,
-		"s_name": "爱因斯坦"
+		"s_Name": "爱因斯坦"
 	},
 	{
+		"i_HeroId": 3,
+		"i_Id": 3002,
+		"i_NeedStar": 2,
 		"i_applyProf": 0,
-		"i_heroId": 3,
-		"i_id": 3002,
-		"i_needStar": 2,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_briefDescTalent": "【霹雳】：在地面释放一道闪电，造成小范围伤害",
-		"s_descTalent": "能量光球爆炸时，有20%概率触发1次【霹雳】",
-		"s_name": "爱因斯坦"
+		"s_BriefDescTalent": "【霹雳】：在地面释放一道闪电，造成小范围伤害",
+		"s_DescTalent": "能量光球爆炸时，有20%概率触发1次【霹雳】",
+		"s_Name": "爱因斯坦"
 	},
 	{
+		"i_HeroId": 3,
+		"i_Id": 3003,
+		"i_NeedStar": 3,
 		"i_applyProf": 0,
-		"i_heroId": 3,
-		"i_id": 3003,
-		"i_needStar": 3,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -495,29 +495,29 @@
 				25
 			]
 		],
-		"s_descTalent": "自身属性：基础攻击+210，基础生命+2100，基础防御+25",
-		"s_name": "爱因斯坦"
+		"s_DescTalent": "自身属性：基础攻击+210，基础生命+2100，基础防御+25",
+		"s_Name": "爱因斯坦"
 	},
 	{
+		"i_HeroId": 3,
+		"i_Id": 3004,
+		"i_NeedStar": 4,
 		"i_applyProf": 0,
-		"i_heroId": 3,
-		"i_id": 3004,
-		"i_needStar": 4,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_briefDescTalent": "【霹雳】：在地面释放一道闪电，造成小范围伤害",
-		"s_descTalent": "巨型能量球爆炸或者弹跳时，都有40%概率触发一次【霹雳】",
-		"s_name": "爱因斯坦"
+		"s_BriefDescTalent": "【霹雳】：在地面释放一道闪电，造成小范围伤害",
+		"s_DescTalent": "巨型能量球爆炸或者弹跳时，都有40%概率触发一次【霹雳】",
+		"s_Name": "爱因斯坦"
 	},
 	{
+		"i_HeroId": 3,
+		"i_Id": 3005,
+		"i_NeedStar": 5,
 		"i_applyProf": 0,
-		"i_heroId": 3,
-		"i_id": 3005,
-		"i_needStar": 5,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -525,51 +525,51 @@
 				315
 			]
 		],
-		"s_descTalent": "全体爆破师的基础攻击+315（上阵生效）",
-		"s_name": "爱因斯坦"
+		"s_DescTalent": "全体爆破师的基础攻击+315（上阵生效）",
+		"s_Name": "爱因斯坦"
 	},
 	{
+		"i_HeroId": 3,
+		"i_Id": 3006,
+		"i_NeedStar": 6,
 		"i_applyProf": 0,
-		"i_heroId": 3,
-		"i_id": 3006,
-		"i_needStar": 6,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_briefDescTalent": "【霹雳】：在地面释放一道闪电，造成小范围伤害",
-		"s_descTalent": "局内每激活一个【霹雳】基因，造成伤害+5%",
-		"s_name": "爱因斯坦"
+		"s_BriefDescTalent": "【霹雳】：在地面释放一道闪电，造成小范围伤害",
+		"s_DescTalent": "局内每激活一个【霹雳】基因，造成伤害+5%",
+		"s_Name": "爱因斯坦"
 	},
 	{
-		"i_heroId": 3,
-		"i_id": 3007,
-		"i_needStar": 7,
+		"i_HeroId": 3,
+		"i_Id": 3007,
+		"i_NeedStar": 7,
 		"i_talentType": 0,
-		"s_name": "爱因斯坦"
+		"s_Name": "爱因斯坦"
 	},
 	{
+		"i_HeroId": 3,
+		"i_Id": 3008,
+		"i_NeedStar": 8,
 		"i_applyProf": 0,
-		"i_heroId": 3,
-		"i_id": 3008,
-		"i_needStar": 8,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_briefDescTalent": "【霹雳】：在地面释放一道闪电，造成小范围伤害",
-		"s_descTalent": "能量光球触发【霹雳】的概率增加到25%，巨型能量球触发【霹雳】的概率增加到50%",
-		"s_name": "爱因斯坦"
+		"s_BriefDescTalent": "【霹雳】：在地面释放一道闪电，造成小范围伤害",
+		"s_DescTalent": "能量光球触发【霹雳】的概率增加到25%，巨型能量球触发【霹雳】的概率增加到50%",
+		"s_Name": "爱因斯坦"
 	},
 	{
+		"i_HeroId": 3,
+		"i_Id": 3009,
+		"i_NeedStar": 9,
 		"i_applyProf": 0,
-		"i_heroId": 3,
-		"i_id": 3009,
-		"i_needStar": 9,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -585,49 +585,49 @@
 				500
 			]
 		],
-		"s_descTalent": "自身属性：基础攻击+5%，基础生命+5%，基础防御+5%",
-		"s_name": "爱因斯坦"
+		"s_DescTalent": "自身属性：基础攻击+5%，基础生命+5%，基础防御+5%",
+		"s_Name": "爱因斯坦"
 	},
 	{
+		"i_HeroId": 3,
+		"i_Id": 3010,
+		"i_NeedStar": 10,
 		"i_applyProf": 0,
-		"i_heroId": 3,
-		"i_id": 3010,
-		"i_needStar": 10,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_descTalent": "基础共鸣伤害+15%，触发光元素共鸣效果时，共鸣伤害额外+20%",
-		"s_name": "爱因斯坦"
+		"s_DescTalent": "基础共鸣伤害+15%，触发光元素共鸣效果时，共鸣伤害额外+20%",
+		"s_Name": "爱因斯坦"
 	},
 	{
-		"i_heroId": 3,
-		"i_id": 3011,
-		"i_needStar": 11,
+		"i_HeroId": 3,
+		"i_Id": 3011,
+		"i_NeedStar": 11,
 		"i_talentType": 0,
-		"s_name": "爱因斯坦"
+		"s_Name": "爱因斯坦"
 	},
 	{
+		"i_HeroId": 3,
+		"i_Id": 3012,
+		"i_NeedStar": 12,
 		"i_applyProf": 0,
-		"i_heroId": 3,
-		"i_id": 3012,
-		"i_needStar": 12,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_descTalent": "所有巨型能量球可额外弹跳一次",
-		"s_name": "爱因斯坦"
+		"s_DescTalent": "所有巨型能量球可额外弹跳一次",
+		"s_Name": "爱因斯坦"
 	},
 	{
+		"i_HeroId": 3,
+		"i_Id": 3013,
+		"i_NeedStar": 13,
 		"i_applyProf": 0,
-		"i_heroId": 3,
-		"i_id": 3013,
-		"i_needStar": 13,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -635,14 +635,14 @@
 				500
 			]
 		],
-		"s_descTalent": "全体爆破师的基础攻击+5%（上阵生效）",
-		"s_name": "爱因斯坦"
+		"s_DescTalent": "全体爆破师的基础攻击+5%（上阵生效）",
+		"s_Name": "爱因斯坦"
 	},
 	{
+		"i_HeroId": 3,
+		"i_Id": 3014,
+		"i_NeedStar": 14,
 		"i_applyProf": 0,
-		"i_heroId": 3,
-		"i_id": 3014,
-		"i_needStar": 14,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -658,43 +658,43 @@
 				500
 			]
 		],
-		"s_descTalent": "自身属性：基础攻击+5%，基础生命+5%，基础防御+5%",
-		"s_name": "爱因斯坦"
+		"s_DescTalent": "自身属性：基础攻击+5%，基础生命+5%，基础防御+5%",
+		"s_Name": "爱因斯坦"
 	},
 	{
-		"i_heroId": 3,
-		"i_id": 3015,
-		"i_needStar": 15,
+		"i_HeroId": 3,
+		"i_Id": 3015,
+		"i_NeedStar": 15,
 		"i_talentType": 0,
-		"s_name": "爱因斯坦"
+		"s_Name": "爱因斯坦"
 	},
 	{
-		"i_heroId": 4,
-		"i_id": 4001,
-		"i_needStar": 1,
+		"i_HeroId": 4,
+		"i_Id": 4001,
+		"i_NeedStar": 1,
 		"i_talentType": 0,
-		"s_name": "南丁格尔"
+		"s_Name": "南丁格尔"
 	},
 	{
+		"i_HeroId": 4,
+		"i_Id": 4002,
+		"i_NeedStar": 2,
 		"i_applyProf": 0,
-		"i_heroId": 4,
-		"i_id": 4002,
-		"i_needStar": 2,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_briefDescTalent": "【蓝色灵能】：灵能每隔2秒对周围的敌人造成伤害，持续8秒。消失后随机使一个英雄获得护盾",
-		"s_descTalent": "引魂灯消失后，召唤出3个【蓝色灵能】",
-		"s_name": "南丁格尔"
+		"s_BriefDescTalent": "【蓝色灵能】：灵能每隔2秒对周围的敌人造成伤害，持续8秒。消失后随机使一个英雄获得护盾",
+		"s_DescTalent": "引魂灯消失后，召唤出3个【蓝色灵能】",
+		"s_Name": "南丁格尔"
 	},
 	{
+		"i_HeroId": 4,
+		"i_Id": 4003,
+		"i_NeedStar": 3,
 		"i_applyProf": 0,
-		"i_heroId": 4,
-		"i_id": 4003,
-		"i_needStar": 3,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -710,29 +710,29 @@
 				50
 			]
 		],
-		"s_descTalent": "自身属性：基础攻击+210，基础生命+2100，基础防御+50",
-		"s_name": "南丁格尔"
+		"s_DescTalent": "自身属性：基础攻击+210，基础生命+2100，基础防御+50",
+		"s_Name": "南丁格尔"
 	},
 	{
+		"i_HeroId": 4,
+		"i_Id": 4004,
+		"i_NeedStar": 4,
 		"i_applyProf": 0,
-		"i_heroId": 4,
-		"i_id": 4004,
-		"i_needStar": 4,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_briefDescTalent": "【蓝色灵能】：灵能每隔2秒对周围的敌人造成伤害，持续8秒。消失后随机使一个英雄获得护盾",
-		"s_descTalent": "【蓝色灵能】持续时间增加4秒，消失时生成的护盾值增加50%",
-		"s_name": "南丁格尔"
+		"s_BriefDescTalent": "【蓝色灵能】：灵能每隔2秒对周围的敌人造成伤害，持续8秒。消失后随机使一个英雄获得护盾",
+		"s_DescTalent": "【蓝色灵能】持续时间增加4秒，消失时生成的护盾值增加50%",
+		"s_Name": "南丁格尔"
 	},
 	{
+		"i_HeroId": 4,
+		"i_Id": 4005,
+		"i_NeedStar": 5,
 		"i_applyProf": 0,
-		"i_heroId": 4,
-		"i_id": 4005,
-		"i_needStar": 5,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -748,50 +748,50 @@
 				30
 			]
 		],
-		"s_descTalent": "全体队员：基础攻击+120，基础生命+1200，基础防御+30（上阵生效）",
-		"s_name": "南丁格尔"
+		"s_DescTalent": "全体队员：基础攻击+120，基础生命+1200，基础防御+30（上阵生效）",
+		"s_Name": "南丁格尔"
 	},
 	{
+		"i_HeroId": 4,
+		"i_Id": 4006,
+		"i_NeedStar": 6,
 		"i_applyProf": 0,
-		"i_heroId": 4,
-		"i_id": 4006,
-		"i_needStar": 6,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_descTalent": "触发元素共鸣时，所有队友获得伤害减免+10%，持续5秒。10s内只可触发一次",
-		"s_name": "南丁格尔"
+		"s_DescTalent": "触发元素共鸣时，所有队友获得伤害减免+10%，持续5秒。10s内只可触发一次",
+		"s_Name": "南丁格尔"
 	},
 	{
-		"i_heroId": 4,
-		"i_id": 4007,
-		"i_needStar": 7,
+		"i_HeroId": 4,
+		"i_Id": 4007,
+		"i_NeedStar": 7,
 		"i_talentType": 0,
-		"s_name": "南丁格尔"
+		"s_Name": "南丁格尔"
 	},
 	{
+		"i_HeroId": 4,
+		"i_Id": 4008,
+		"i_NeedStar": 8,
 		"i_applyProf": 0,
-		"i_heroId": 4,
-		"i_id": 4008,
-		"i_needStar": 8,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_briefDescTalent": "【灵能】：灵能每隔2秒对周围的敌人造成伤害，持续8秒",
-		"s_descTalent": "局内每激活一个【灵能】基因，造成伤害+6.8%",
-		"s_name": "南丁格尔"
+		"s_BriefDescTalent": "【灵能】：灵能每隔2秒对周围的敌人造成伤害，持续8秒",
+		"s_DescTalent": "局内每激活一个【灵能】基因，造成伤害+6.8%",
+		"s_Name": "南丁格尔"
 	},
 	{
+		"i_HeroId": 4,
+		"i_Id": 4009,
+		"i_NeedStar": 9,
 		"i_applyProf": 0,
-		"i_heroId": 4,
-		"i_id": 4009,
-		"i_needStar": 9,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -807,35 +807,35 @@
 				500
 			]
 		],
-		"s_descTalent": "自身属性：基础攻击+5%，基础生命+5%，基础防御+5%",
-		"s_name": "南丁格尔"
+		"s_DescTalent": "自身属性：基础攻击+5%，基础生命+5%，基础防御+5%",
+		"s_Name": "南丁格尔"
 	},
 	{
+		"i_HeroId": 4,
+		"i_Id": 4010,
+		"i_NeedStar": 10,
 		"i_applyProf": 0,
-		"i_heroId": 4,
-		"i_id": 4010,
-		"i_needStar": 10,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_descTalent": "治疗队友时，可以使自身获得一些治疗效果",
-		"s_name": "南丁格尔"
+		"s_DescTalent": "治疗队友时，可以使自身获得一些治疗效果",
+		"s_Name": "南丁格尔"
 	},
 	{
-		"i_heroId": 4,
-		"i_id": 4011,
-		"i_needStar": 11,
+		"i_HeroId": 4,
+		"i_Id": 4011,
+		"i_NeedStar": 11,
 		"i_talentType": 0,
-		"s_name": "南丁格尔"
+		"s_Name": "南丁格尔"
 	},
 	{
+		"i_HeroId": 4,
+		"i_Id": 4012,
+		"i_NeedStar": 12,
 		"i_applyProf": 0,
-		"i_heroId": 4,
-		"i_id": 4012,
-		"i_needStar": 12,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -851,14 +851,14 @@
 				64
 			]
 		],
-		"s_descTalent": "全体队员：基础攻击+300，基础生命+3000，基础防御+64（上阵生效）",
-		"s_name": "南丁格尔"
+		"s_DescTalent": "全体队员：基础攻击+300，基础生命+3000，基础防御+64（上阵生效）",
+		"s_Name": "南丁格尔"
 	},
 	{
+		"i_HeroId": 4,
+		"i_Id": 4013,
+		"i_NeedStar": 13,
 		"i_applyProf": 0,
-		"i_heroId": 4,
-		"i_id": 4013,
-		"i_needStar": 13,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -874,14 +874,14 @@
 				500
 			]
 		],
-		"s_descTalent": "自身属性：基础攻击+5%，基础生命+5%，基础防御+5%",
-		"s_name": "南丁格尔"
+		"s_DescTalent": "自身属性：基础攻击+5%，基础生命+5%，基础防御+5%",
+		"s_Name": "南丁格尔"
 	},
 	{
+		"i_HeroId": 4,
+		"i_Id": 4014,
+		"i_NeedStar": 14,
 		"i_applyProf": 0,
-		"i_heroId": 4,
-		"i_id": 4014,
-		"i_needStar": 14,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -897,43 +897,43 @@
 				500
 			]
 		],
-		"s_descTalent": "全体队员：基础攻击+5%，基础生命+5%，基础防御+5%（上阵生效）",
-		"s_name": "南丁格尔"
+		"s_DescTalent": "全体队员：基础攻击+5%，基础生命+5%，基础防御+5%（上阵生效）",
+		"s_Name": "南丁格尔"
 	},
 	{
-		"i_heroId": 4,
-		"i_id": 4015,
-		"i_needStar": 15,
+		"i_HeroId": 4,
+		"i_Id": 4015,
+		"i_NeedStar": 15,
 		"i_talentType": 0,
-		"s_name": "南丁格尔"
+		"s_Name": "南丁格尔"
 	},
 	{
-		"i_heroId": 5,
-		"i_id": 5001,
-		"i_needStar": 1,
+		"i_HeroId": 5,
+		"i_Id": 5001,
+		"i_NeedStar": 1,
 		"i_talentType": 0,
-		"s_name": "死侍"
+		"s_Name": "死侍"
 	},
 	{
+		"i_HeroId": 5,
+		"i_Id": 5002,
+		"i_NeedStar": 2,
 		"i_applyProf": 0,
-		"i_heroId": 5,
-		"i_id": 5002,
-		"i_needStar": 2,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_briefDescTalent": "【贯穿】：召唤一支可无限穿透的飞箭",
-		"s_descTalent": "每射出1发子弹，有3%概率向前方和左前方各触发1次【贯穿】。大招期间概率翻倍",
-		"s_name": "死侍"
+		"s_BriefDescTalent": "【贯穿】：召唤一支可无限穿透的飞箭",
+		"s_DescTalent": "每射出1发子弹，有3%概率向前方和左前方各触发1次【贯穿】。大招期间概率翻倍",
+		"s_Name": "死侍"
 	},
 	{
+		"i_HeroId": 5,
+		"i_Id": 5003,
+		"i_NeedStar": 3,
 		"i_applyProf": 0,
-		"i_heroId": 5,
-		"i_id": 5003,
-		"i_needStar": 3,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -949,29 +949,29 @@
 				35
 			]
 		],
-		"s_descTalent": "自身属性：基础攻击+210，基础生命+2100，基础防御+35",
-		"s_name": "死侍"
+		"s_DescTalent": "自身属性：基础攻击+210，基础生命+2100，基础防御+35",
+		"s_Name": "死侍"
 	},
 	{
+		"i_HeroId": 5,
+		"i_Id": 5004,
+		"i_NeedStar": 4,
 		"i_applyProf": 0,
-		"i_heroId": 5,
-		"i_id": 5004,
-		"i_needStar": 4,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_briefDescTalent": "【贯穿】：召唤一支可无限穿透的飞箭",
-		"s_descTalent": "触发【贯穿】时，会额外向后方和右前方各触发1次【贯穿】",
-		"s_name": "死侍"
+		"s_BriefDescTalent": "【贯穿】：召唤一支可无限穿透的飞箭",
+		"s_DescTalent": "触发【贯穿】时，会额外向后方和右前方各触发1次【贯穿】",
+		"s_Name": "死侍"
 	},
 	{
+		"i_HeroId": 5,
+		"i_Id": 5005,
+		"i_NeedStar": 5,
 		"i_applyProf": 0,
-		"i_heroId": 5,
-		"i_id": 5005,
-		"i_needStar": 5,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -979,50 +979,50 @@
 				315
 			]
 		],
-		"s_descTalent": "全体枪械师的基础攻击+315（上阵生效）",
-		"s_name": "死侍"
+		"s_DescTalent": "全体枪械师的基础攻击+315（上阵生效）",
+		"s_Name": "死侍"
 	},
 	{
+		"i_HeroId": 5,
+		"i_Id": 5006,
+		"i_NeedStar": 6,
 		"i_applyProf": 0,
-		"i_heroId": 5,
-		"i_id": 5006,
-		"i_needStar": 6,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_descTalent": "第一次死亡后免费复活一次（仅局内生效且每关只生效一次），每次死亡复活后造成伤害+15%",
-		"s_name": "死侍"
+		"s_DescTalent": "第一次死亡后免费复活一次（仅局内生效且每关只生效一次），每次死亡复活后造成伤害+15%",
+		"s_Name": "死侍"
 	},
 	{
-		"i_heroId": 5,
-		"i_id": 5007,
-		"i_needStar": 7,
+		"i_HeroId": 5,
+		"i_Id": 5007,
+		"i_NeedStar": 7,
 		"i_talentType": 0,
-		"s_name": "死侍"
+		"s_Name": "死侍"
 	},
 	{
+		"i_HeroId": 5,
+		"i_Id": 5008,
+		"i_NeedStar": 8,
 		"i_applyProf": 0,
-		"i_heroId": 5,
-		"i_id": 5008,
-		"i_needStar": 8,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_briefDescTalent": "【贯穿】：召唤一支可无限穿透的飞箭",
-		"s_descTalent": "触发【贯穿】时，会额外向左后方和右后方各触发1次【贯穿】",
-		"s_name": "死侍"
+		"s_BriefDescTalent": "【贯穿】：召唤一支可无限穿透的飞箭",
+		"s_DescTalent": "触发【贯穿】时，会额外向左后方和右后方各触发1次【贯穿】",
+		"s_Name": "死侍"
 	},
 	{
+		"i_HeroId": 5,
+		"i_Id": 5009,
+		"i_NeedStar": 9,
 		"i_applyProf": 0,
-		"i_heroId": 5,
-		"i_id": 5009,
-		"i_needStar": 9,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -1038,50 +1038,50 @@
 				500
 			]
 		],
-		"s_descTalent": "自身属性：基础攻击+5%，基础生命+5%，基础防御+5%",
-		"s_name": "死侍"
+		"s_DescTalent": "自身属性：基础攻击+5%，基础生命+5%，基础防御+5%",
+		"s_Name": "死侍"
 	},
 	{
+		"i_HeroId": 5,
+		"i_Id": 5010,
+		"i_NeedStar": 10,
 		"i_applyProf": 0,
-		"i_heroId": 5,
-		"i_id": 5010,
-		"i_needStar": 10,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_descTalent": "基础共鸣伤害+20%，触发火元素共鸣时，共鸣伤害额外+20%",
-		"s_name": "死侍"
+		"s_DescTalent": "基础共鸣伤害+20%，触发火元素共鸣时，共鸣伤害额外+20%",
+		"s_Name": "死侍"
 	},
 	{
-		"i_heroId": 5,
-		"i_id": 5011,
-		"i_needStar": 11,
+		"i_HeroId": 5,
+		"i_Id": 5011,
+		"i_NeedStar": 11,
 		"i_talentType": 0,
-		"s_name": "死侍"
+		"s_Name": "死侍"
 	},
 	{
+		"i_HeroId": 5,
+		"i_Id": 5012,
+		"i_NeedStar": 12,
 		"i_applyProf": 0,
-		"i_heroId": 5,
-		"i_id": 5012,
-		"i_needStar": 12,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_briefDescTalent": "【贯穿】：召唤一支可无限穿透的飞箭",
-		"s_descTalent": "局内每激活一个【贯穿】基因，造成伤害+5%",
-		"s_name": "死侍"
+		"s_BriefDescTalent": "【贯穿】：召唤一支可无限穿透的飞箭",
+		"s_DescTalent": "局内每激活一个【贯穿】基因，造成伤害+5%",
+		"s_Name": "死侍"
 	},
 	{
+		"i_HeroId": 5,
+		"i_Id": 5013,
+		"i_NeedStar": 13,
 		"i_applyProf": 0,
-		"i_heroId": 5,
-		"i_id": 5013,
-		"i_needStar": 13,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -1089,14 +1089,14 @@
 				500
 			]
 		],
-		"s_descTalent": "全体枪械师的基础攻击+5%（上阵生效）",
-		"s_name": "死侍"
+		"s_DescTalent": "全体枪械师的基础攻击+5%（上阵生效）",
+		"s_Name": "死侍"
 	},
 	{
+		"i_HeroId": 5,
+		"i_Id": 5014,
+		"i_NeedStar": 14,
 		"i_applyProf": 0,
-		"i_heroId": 5,
-		"i_id": 5014,
-		"i_needStar": 14,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -1112,43 +1112,43 @@
 				500
 			]
 		],
-		"s_descTalent": "自身属性：基础攻击+5%，基础生命+5%，基础防御+5%",
-		"s_name": "死侍"
+		"s_DescTalent": "自身属性：基础攻击+5%，基础生命+5%，基础防御+5%",
+		"s_Name": "死侍"
 	},
 	{
-		"i_heroId": 5,
-		"i_id": 5015,
-		"i_needStar": 15,
+		"i_HeroId": 5,
+		"i_Id": 5015,
+		"i_NeedStar": 15,
 		"i_talentType": 0,
-		"s_name": "死侍"
+		"s_Name": "死侍"
 	},
 	{
-		"i_heroId": 6,
-		"i_id": 6001,
-		"i_needStar": 1,
+		"i_HeroId": 6,
+		"i_Id": 6001,
+		"i_NeedStar": 1,
 		"i_talentType": 0,
-		"s_name": "火箭"
+		"s_Name": "火箭"
 	},
 	{
+		"i_HeroId": 6,
+		"i_Id": 6002,
+		"i_NeedStar": 2,
 		"i_applyProf": 0,
-		"i_heroId": 6,
-		"i_id": 6002,
-		"i_needStar": 2,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_briefDescTalent": "【霹雳】：在地面释放一道闪电，造成小范围伤害",
-		"s_descTalent": "火箭爆炸时，有18%概率触发1次【霹雳】",
-		"s_name": "火箭"
+		"s_BriefDescTalent": "【霹雳】：在地面释放一道闪电，造成小范围伤害",
+		"s_DescTalent": "火箭爆炸时，有18%概率触发1次【霹雳】",
+		"s_Name": "火箭"
 	},
 	{
+		"i_HeroId": 6,
+		"i_Id": 6003,
+		"i_NeedStar": 3,
 		"i_applyProf": 0,
-		"i_heroId": 6,
-		"i_id": 6003,
-		"i_needStar": 3,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -1164,29 +1164,29 @@
 				25
 			]
 		],
-		"s_descTalent": "自身属性：基础攻击+210，基础生命+2100，基础防御+25",
-		"s_name": "火箭"
+		"s_DescTalent": "自身属性：基础攻击+210，基础生命+2100，基础防御+25",
+		"s_Name": "火箭"
 	},
 	{
+		"i_HeroId": 6,
+		"i_Id": 6004,
+		"i_NeedStar": 4,
 		"i_applyProf": 0,
-		"i_heroId": 6,
-		"i_id": 6004,
-		"i_needStar": 4,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_briefDescTalent": "【霹雳】：在地面释放一道闪电，造成小范围伤害",
-		"s_descTalent": "银河舰队每次轰炸都有17%概率触发一次【霹雳】",
-		"s_name": "火箭"
+		"s_BriefDescTalent": "【霹雳】：在地面释放一道闪电，造成小范围伤害",
+		"s_DescTalent": "银河舰队每次轰炸都有17%概率触发一次【霹雳】",
+		"s_Name": "火箭"
 	},
 	{
+		"i_HeroId": 6,
+		"i_Id": 6005,
+		"i_NeedStar": 5,
 		"i_applyProf": 0,
-		"i_heroId": 6,
-		"i_id": 6005,
-		"i_needStar": 5,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -1194,50 +1194,50 @@
 				315
 			]
 		],
-		"s_descTalent": "全体爆破师的基础攻击+315（上阵生效）",
-		"s_name": "火箭"
+		"s_DescTalent": "全体爆破师的基础攻击+315（上阵生效）",
+		"s_Name": "火箭"
 	},
 	{
+		"i_HeroId": 6,
+		"i_Id": 6006,
+		"i_NeedStar": 6,
 		"i_applyProf": 0,
-		"i_heroId": 6,
-		"i_id": 6006,
-		"i_needStar": 6,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_briefDescTalent": "【霹雳】：在地面释放一道闪电，造成小范围伤害",
-		"s_descTalent": "火箭触发【霹雳】的概率增加到23%，轰炸触发【霹雳】的概率增加到20%",
-		"s_name": "火箭"
+		"s_BriefDescTalent": "【霹雳】：在地面释放一道闪电，造成小范围伤害",
+		"s_DescTalent": "火箭触发【霹雳】的概率增加到23%，轰炸触发【霹雳】的概率增加到20%",
+		"s_Name": "火箭"
 	},
 	{
-		"i_heroId": 6,
-		"i_id": 6007,
-		"i_needStar": 7,
+		"i_HeroId": 6,
+		"i_Id": 6007,
+		"i_NeedStar": 7,
 		"i_talentType": 0,
-		"s_name": "火箭"
+		"s_Name": "火箭"
 	},
 	{
+		"i_HeroId": 6,
+		"i_Id": 6008,
+		"i_NeedStar": 8,
 		"i_applyProf": 0,
-		"i_heroId": 6,
-		"i_id": 6008,
-		"i_needStar": 8,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_descTalent": "基础共鸣伤害+20%，触发火元素共鸣效果时，共鸣伤害额外+20%",
-		"s_name": "火箭"
+		"s_DescTalent": "基础共鸣伤害+20%，触发火元素共鸣效果时，共鸣伤害额外+20%",
+		"s_Name": "火箭"
 	},
 	{
+		"i_HeroId": 6,
+		"i_Id": 6009,
+		"i_NeedStar": 9,
 		"i_applyProf": 0,
-		"i_heroId": 6,
-		"i_id": 6009,
-		"i_needStar": 9,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -1253,50 +1253,50 @@
 				500
 			]
 		],
-		"s_descTalent": "自身属性：基础攻击+5%，基础生命+5%，基础防御+5%",
-		"s_name": "火箭"
+		"s_DescTalent": "自身属性：基础攻击+5%，基础生命+5%，基础防御+5%",
+		"s_Name": "火箭"
 	},
 	{
+		"i_HeroId": 6,
+		"i_Id": 6010,
+		"i_NeedStar": 10,
 		"i_applyProf": 0,
-		"i_heroId": 6,
-		"i_id": 6010,
-		"i_needStar": 10,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_descTalent": "银河舰队额外增加一片轰炸区域",
-		"s_name": "火箭"
+		"s_DescTalent": "银河舰队额外增加一片轰炸区域",
+		"s_Name": "火箭"
 	},
 	{
-		"i_heroId": 6,
-		"i_id": 6011,
-		"i_needStar": 11,
+		"i_HeroId": 6,
+		"i_Id": 6011,
+		"i_NeedStar": 11,
 		"i_talentType": 0,
-		"s_name": "火箭"
+		"s_Name": "火箭"
 	},
 	{
+		"i_HeroId": 6,
+		"i_Id": 6012,
+		"i_NeedStar": 12,
 		"i_applyProf": 0,
-		"i_heroId": 6,
-		"i_id": 6012,
-		"i_needStar": 12,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_briefDescTalent": "【霹雳】：在地面释放一道闪电，造成小范围伤害",
-		"s_descTalent": "战场上每拥有一个【霹雳】效果的基因，造成伤害+5%",
-		"s_name": "火箭"
+		"s_BriefDescTalent": "【霹雳】：在地面释放一道闪电，造成小范围伤害",
+		"s_DescTalent": "战场上每拥有一个【霹雳】效果的基因，造成伤害+5%",
+		"s_Name": "火箭"
 	},
 	{
+		"i_HeroId": 6,
+		"i_Id": 6013,
+		"i_NeedStar": 13,
 		"i_applyProf": 0,
-		"i_heroId": 6,
-		"i_id": 6013,
-		"i_needStar": 13,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -1304,14 +1304,14 @@
 				500
 			]
 		],
-		"s_descTalent": "全体爆破师的基础攻击+5%（上阵生效）",
-		"s_name": "火箭"
+		"s_DescTalent": "全体爆破师的基础攻击+5%（上阵生效）",
+		"s_Name": "火箭"
 	},
 	{
+		"i_HeroId": 6,
+		"i_Id": 6014,
+		"i_NeedStar": 14,
 		"i_applyProf": 0,
-		"i_heroId": 6,
-		"i_id": 6014,
-		"i_needStar": 14,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -1327,43 +1327,43 @@
 				500
 			]
 		],
-		"s_descTalent": "自身属性：基础攻击+5%，基础生命+5%，基础防御+5%",
-		"s_name": "火箭"
+		"s_DescTalent": "自身属性：基础攻击+5%，基础生命+5%，基础防御+5%",
+		"s_Name": "火箭"
 	},
 	{
-		"i_heroId": 6,
-		"i_id": 6015,
-		"i_needStar": 15,
+		"i_HeroId": 6,
+		"i_Id": 6015,
+		"i_NeedStar": 15,
 		"i_talentType": 0,
-		"s_name": "火箭"
+		"s_Name": "火箭"
 	},
 	{
-		"i_heroId": 7,
-		"i_id": 7001,
-		"i_needStar": 1,
+		"i_HeroId": 7,
+		"i_Id": 7001,
+		"i_NeedStar": 1,
 		"i_talentType": 0,
-		"s_name": "海王"
+		"s_Name": "海王"
 	},
 	{
+		"i_HeroId": 7,
+		"i_Id": 7002,
+		"i_NeedStar": 2,
 		"i_applyProf": 0,
-		"i_heroId": 7,
-		"i_id": 7002,
-		"i_needStar": 2,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_briefDescTalent": "【减速力场】：产生一个圆形区域，区域内的敌人受到持续伤害，并且移速降低20%，持续7秒",
-		"s_descTalent": "海浪狂潮释放中会形成一片【减速力场】",
-		"s_name": "海王"
+		"s_BriefDescTalent": "【减速力场】：产生一个圆形区域，区域内的敌人受到持续伤害，并且移速降低20%，持续7秒",
+		"s_DescTalent": "海浪狂潮释放中会形成一片【减速力场】",
+		"s_Name": "海王"
 	},
 	{
+		"i_HeroId": 7,
+		"i_Id": 7003,
+		"i_NeedStar": 3,
 		"i_applyProf": 0,
-		"i_heroId": 7,
-		"i_id": 7003,
-		"i_needStar": 3,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -1379,29 +1379,29 @@
 				60
 			]
 		],
-		"s_descTalent": "自身属性：基础攻击+210，基础生命+2100，基础防御+60",
-		"s_name": "海王"
+		"s_DescTalent": "自身属性：基础攻击+210，基础生命+2100，基础防御+60",
+		"s_Name": "海王"
 	},
 	{
+		"i_HeroId": 7,
+		"i_Id": 7004,
+		"i_NeedStar": 4,
 		"i_applyProf": 0,
-		"i_heroId": 7,
-		"i_id": 7004,
-		"i_needStar": 4,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_briefDescTalent": "【减速力场】：产生一个圆形区域，区域内的敌人受到持续伤害，并且移速降低20%，持续7秒",
-		"s_descTalent": "【减速力场】范围增加35%，力场范围内的敌人移速额外降低10%",
-		"s_name": "海王"
+		"s_BriefDescTalent": "【减速力场】：产生一个圆形区域，区域内的敌人受到持续伤害，并且移速降低20%，持续7秒",
+		"s_DescTalent": "【减速力场】范围增加35%，力场范围内的敌人移速额外降低10%",
+		"s_Name": "海王"
 	},
 	{
+		"i_HeroId": 7,
+		"i_Id": 7005,
+		"i_NeedStar": 5,
 		"i_applyProf": 0,
-		"i_heroId": 7,
-		"i_id": 7005,
-		"i_needStar": 5,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -1417,50 +1417,50 @@
 				30
 			]
 		],
-		"s_descTalent": "全体队员：基础攻击+120，基础生命+1200，基础防御+30（上阵生效）",
-		"s_name": "海王"
+		"s_DescTalent": "全体队员：基础攻击+120，基础生命+1200，基础防御+30（上阵生效）",
+		"s_Name": "海王"
 	},
 	{
+		"i_HeroId": 7,
+		"i_Id": 7006,
+		"i_NeedStar": 6,
 		"i_applyProf": 0,
-		"i_heroId": 7,
-		"i_id": 7006,
-		"i_needStar": 6,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_descTalent": "海浪狂潮可以为基地增加额外37.7%的护盾值",
-		"s_name": "海王"
+		"s_DescTalent": "海浪狂潮可以为基地增加额外37.7%的护盾值",
+		"s_Name": "海王"
 	},
 	{
-		"i_heroId": 7,
-		"i_id": 7007,
-		"i_needStar": 7,
+		"i_HeroId": 7,
+		"i_Id": 7007,
+		"i_NeedStar": 7,
 		"i_talentType": 0,
-		"s_name": "海王"
+		"s_Name": "海王"
 	},
 	{
+		"i_HeroId": 7,
+		"i_Id": 7008,
+		"i_NeedStar": 8,
 		"i_applyProf": 0,
-		"i_heroId": 7,
-		"i_id": 7008,
-		"i_needStar": 8,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_briefDescTalent": "【力场】：产生一个圆形区域，区域内的敌人受到持续伤害，持续7秒",
-		"s_descTalent": "局内每激活一个【力场】基因，自身伤害减免+5%",
-		"s_name": "海王"
+		"s_BriefDescTalent": "【力场】：产生一个圆形区域，区域内的敌人受到持续伤害，持续7秒",
+		"s_DescTalent": "局内每激活一个【力场】基因，自身伤害减免+5%",
+		"s_Name": "海王"
 	},
 	{
+		"i_HeroId": 7,
+		"i_Id": 7009,
+		"i_NeedStar": 9,
 		"i_applyProf": 0,
-		"i_heroId": 7,
-		"i_id": 7009,
-		"i_needStar": 9,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -1476,35 +1476,35 @@
 				500
 			]
 		],
-		"s_descTalent": "自身属性：基础攻击+5%，基础生命+5%，基础防御+5%",
-		"s_name": "海王"
+		"s_DescTalent": "自身属性：基础攻击+5%，基础生命+5%，基础防御+5%",
+		"s_Name": "海王"
 	},
 	{
+		"i_HeroId": 7,
+		"i_Id": 7010,
+		"i_NeedStar": 10,
 		"i_applyProf": 0,
-		"i_heroId": 7,
-		"i_id": 7010,
-		"i_needStar": 10,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_descTalent": "触发元素共鸣时，所有队友造成伤害+70%，持续5秒。10s内只可触发一次",
-		"s_name": "海王"
+		"s_DescTalent": "触发元素共鸣时，所有队友造成伤害+70%，持续5秒。10s内只可触发一次",
+		"s_Name": "海王"
 	},
 	{
-		"i_heroId": 7,
-		"i_id": 7011,
-		"i_needStar": 11,
+		"i_HeroId": 7,
+		"i_Id": 7011,
+		"i_NeedStar": 11,
 		"i_talentType": 0,
-		"s_name": "海王"
+		"s_Name": "海王"
 	},
 	{
+		"i_HeroId": 7,
+		"i_Id": 7012,
+		"i_NeedStar": 12,
 		"i_applyProf": 0,
-		"i_heroId": 7,
-		"i_id": 7012,
-		"i_needStar": 12,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -1520,14 +1520,14 @@
 				64
 			]
 		],
-		"s_descTalent": "全体队员：基础攻击+300，基础生命+3000，基础防御+64（上阵生效）",
-		"s_name": "海王"
+		"s_DescTalent": "全体队员：基础攻击+300，基础生命+3000，基础防御+64（上阵生效）",
+		"s_Name": "海王"
 	},
 	{
+		"i_HeroId": 7,
+		"i_Id": 7013,
+		"i_NeedStar": 13,
 		"i_applyProf": 0,
-		"i_heroId": 7,
-		"i_id": 7013,
-		"i_needStar": 13,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -1543,14 +1543,14 @@
 				500
 			]
 		],
-		"s_descTalent": "自身属性：基础攻击+5%，基础生命+5%，基础防御+5%",
-		"s_name": "海王"
+		"s_DescTalent": "自身属性：基础攻击+5%，基础生命+5%，基础防御+5%",
+		"s_Name": "海王"
 	},
 	{
+		"i_HeroId": 7,
+		"i_Id": 7014,
+		"i_NeedStar": 14,
 		"i_applyProf": 0,
-		"i_heroId": 7,
-		"i_id": 7014,
-		"i_needStar": 14,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -1566,43 +1566,43 @@
 				500
 			]
 		],
-		"s_descTalent": "全体队员：基础攻击+5%，基础生命+5%，基础防御+5%（上阵生效）",
-		"s_name": "海王"
+		"s_DescTalent": "全体队员：基础攻击+5%，基础生命+5%，基础防御+5%（上阵生效）",
+		"s_Name": "海王"
 	},
 	{
-		"i_heroId": 7,
-		"i_id": 7015,
-		"i_needStar": 15,
+		"i_HeroId": 7,
+		"i_Id": 7015,
+		"i_NeedStar": 15,
 		"i_talentType": 0,
-		"s_name": "海王"
+		"s_Name": "海王"
 	},
 	{
-		"i_heroId": 8,
-		"i_id": 8001,
-		"i_needStar": 1,
+		"i_HeroId": 8,
+		"i_Id": 8001,
+		"i_NeedStar": 1,
 		"i_talentType": 0,
-		"s_name": "金刚狼"
+		"s_Name": "金刚狼"
 	},
 	{
+		"i_HeroId": 8,
+		"i_Id": 8002,
+		"i_NeedStar": 2,
 		"i_applyProf": 0,
-		"i_heroId": 8,
-		"i_id": 8002,
-		"i_needStar": 2,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_briefDescTalent": "【影袭】：原地划出一道半圆，产生小范围伤害",
-		"s_descTalent": "利爪旋刃有20.9%概率在目标点触发1次【影袭】",
-		"s_name": "金刚狼"
+		"s_BriefDescTalent": "【影袭】：原地划出一道半圆，产生小范围伤害",
+		"s_DescTalent": "利爪旋刃有20.9%概率在目标点触发1次【影袭】",
+		"s_Name": "金刚狼"
 	},
 	{
+		"i_HeroId": 8,
+		"i_Id": 8003,
+		"i_NeedStar": 3,
 		"i_applyProf": 0,
-		"i_heroId": 8,
-		"i_id": 8003,
-		"i_needStar": 3,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -1618,29 +1618,29 @@
 				42
 			]
 		],
-		"s_descTalent": "自身属性：基础攻击+210，基础生命+2100，基础防御+42",
-		"s_name": "金刚狼"
+		"s_DescTalent": "自身属性：基础攻击+210，基础生命+2100，基础防御+42",
+		"s_Name": "金刚狼"
 	},
 	{
+		"i_HeroId": 8,
+		"i_Id": 8004,
+		"i_NeedStar": 4,
 		"i_applyProf": 0,
-		"i_heroId": 8,
-		"i_id": 8004,
-		"i_needStar": 4,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_briefDescTalent": "【影袭】：原地划出一道半圆，产生小范围伤害",
-		"s_descTalent": "释放艾德曼旋风时，每次旋转都有42.8%概率在旋转中心触发1次【影袭】",
-		"s_name": "金刚狼"
+		"s_BriefDescTalent": "【影袭】：原地划出一道半圆，产生小范围伤害",
+		"s_DescTalent": "释放艾德曼旋风时，每次旋转都有42.8%概率在旋转中心触发1次【影袭】",
+		"s_Name": "金刚狼"
 	},
 	{
+		"i_HeroId": 8,
+		"i_Id": 8005,
+		"i_NeedStar": 5,
 		"i_applyProf": 0,
-		"i_heroId": 8,
-		"i_id": 8005,
-		"i_needStar": 5,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -1648,51 +1648,51 @@
 				315
 			]
 		],
-		"s_descTalent": "全体独行侠的基础攻击+315（上阵生效）",
-		"s_name": "金刚狼"
+		"s_DescTalent": "全体独行侠的基础攻击+315（上阵生效）",
+		"s_Name": "金刚狼"
 	},
 	{
+		"i_HeroId": 8,
+		"i_Id": 8006,
+		"i_NeedStar": 6,
 		"i_applyProf": 0,
-		"i_heroId": 8,
-		"i_id": 8006,
-		"i_needStar": 6,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_briefDescTalent": "【影袭】：原地划出一道半圆，产生小范围伤害",
-		"s_descTalent": "基础共鸣伤害+15%，触发风元素共鸣时，共鸣伤害额外+10%",
-		"s_name": "金刚狼"
+		"s_BriefDescTalent": "【影袭】：原地划出一道半圆，产生小范围伤害",
+		"s_DescTalent": "基础共鸣伤害+15%，触发风元素共鸣时，共鸣伤害额外+10%",
+		"s_Name": "金刚狼"
 	},
 	{
-		"i_heroId": 8,
-		"i_id": 8007,
-		"i_needStar": 7,
+		"i_HeroId": 8,
+		"i_Id": 8007,
+		"i_NeedStar": 7,
 		"i_talentType": 0,
-		"s_name": "金刚狼"
+		"s_Name": "金刚狼"
 	},
 	{
+		"i_HeroId": 8,
+		"i_Id": 8008,
+		"i_NeedStar": 8,
 		"i_applyProf": 0,
-		"i_heroId": 8,
-		"i_id": 8008,
-		"i_needStar": 8,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_briefDescTalent": "【影袭】：原地划出一道半圆，产生小范围伤害",
-		"s_descTalent": "每第四段利爪旋刃，必定在目标点触发一次【影袭】",
-		"s_name": "金刚狼"
+		"s_BriefDescTalent": "【影袭】：原地划出一道半圆，产生小范围伤害",
+		"s_DescTalent": "每第四段利爪旋刃，必定在目标点触发一次【影袭】",
+		"s_Name": "金刚狼"
 	},
 	{
+		"i_HeroId": 8,
+		"i_Id": 8009,
+		"i_NeedStar": 9,
 		"i_applyProf": 0,
-		"i_heroId": 8,
-		"i_id": 8009,
-		"i_needStar": 9,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -1708,49 +1708,49 @@
 				500
 			]
 		],
-		"s_descTalent": "自身属性：基础攻击+5%，基础生命+5%，基础防御+5%",
-		"s_name": "金刚狼"
+		"s_DescTalent": "自身属性：基础攻击+5%，基础生命+5%，基础防御+5%",
+		"s_Name": "金刚狼"
 	},
 	{
+		"i_HeroId": 8,
+		"i_Id": 8010,
+		"i_NeedStar": 10,
 		"i_applyProf": 0,
-		"i_heroId": 8,
-		"i_id": 8010,
-		"i_needStar": 10,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_descTalent": "局内每激活一个【影袭】基因，攻击范围+2.5%",
-		"s_name": "金刚狼"
+		"s_DescTalent": "局内每激活一个【影袭】基因，攻击范围+2.5%",
+		"s_Name": "金刚狼"
 	},
 	{
-		"i_heroId": 8,
-		"i_id": 8011,
-		"i_needStar": 11,
+		"i_HeroId": 8,
+		"i_Id": 8011,
+		"i_NeedStar": 11,
 		"i_talentType": 0,
-		"s_name": "金刚狼"
+		"s_Name": "金刚狼"
 	},
 	{
+		"i_HeroId": 8,
+		"i_Id": 8012,
+		"i_NeedStar": 12,
 		"i_applyProf": 0,
-		"i_heroId": 8,
-		"i_id": 8012,
-		"i_needStar": 12,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_descTalent": "每次释放利爪旋刃都会获得5%增伤，最多叠加160%，释放大招时重置",
-		"s_name": "金刚狼"
+		"s_DescTalent": "每次释放利爪旋刃都会获得5%增伤，最多叠加160%，释放大招时重置",
+		"s_Name": "金刚狼"
 	},
 	{
+		"i_HeroId": 8,
+		"i_Id": 8013,
+		"i_NeedStar": 13,
 		"i_applyProf": 0,
-		"i_heroId": 8,
-		"i_id": 8013,
-		"i_needStar": 13,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -1758,14 +1758,14 @@
 				500
 			]
 		],
-		"s_descTalent": "全体独行侠的基础攻击+5%（上阵生效）",
-		"s_name": "金刚狼"
+		"s_DescTalent": "全体独行侠的基础攻击+5%（上阵生效）",
+		"s_Name": "金刚狼"
 	},
 	{
+		"i_HeroId": 8,
+		"i_Id": 8014,
+		"i_NeedStar": 14,
 		"i_applyProf": 0,
-		"i_heroId": 8,
-		"i_id": 8014,
-		"i_needStar": 14,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -1781,43 +1781,43 @@
 				500
 			]
 		],
-		"s_descTalent": "自身属性：基础攻击+5%，基础生命+5%，基础防御+5%",
-		"s_name": "金刚狼"
+		"s_DescTalent": "自身属性：基础攻击+5%，基础生命+5%，基础防御+5%",
+		"s_Name": "金刚狼"
 	},
 	{
-		"i_heroId": 8,
-		"i_id": 8015,
-		"i_needStar": 15,
+		"i_HeroId": 8,
+		"i_Id": 8015,
+		"i_NeedStar": 15,
 		"i_talentType": 0,
-		"s_name": "金刚狼"
+		"s_Name": "金刚狼"
 	},
 	{
-		"i_heroId": 9,
-		"i_id": 9001,
-		"i_needStar": 1,
+		"i_HeroId": 9,
+		"i_Id": 9001,
+		"i_NeedStar": 1,
 		"i_talentType": 0,
-		"s_name": "奇异博士"
+		"s_Name": "奇异博士"
 	},
 	{
+		"i_HeroId": 9,
+		"i_Id": 9002,
+		"i_NeedStar": 2,
 		"i_applyProf": 0,
-		"i_heroId": 9,
-		"i_id": 9002,
-		"i_needStar": 2,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_briefDescTalent": "【绿色灵能】：灵能每隔2秒对周围的敌人造成伤害，持续8秒。消失后随机使一名英雄获得治疗",
-		"s_descTalent": "阿戈摩托之眼结束时，在周围随机召唤出3个【绿色灵能】",
-		"s_name": "奇异博士"
+		"s_BriefDescTalent": "【绿色灵能】：灵能每隔2秒对周围的敌人造成伤害，持续8秒。消失后随机使一名英雄获得治疗",
+		"s_DescTalent": "阿戈摩托之眼结束时，在周围随机召唤出3个【绿色灵能】",
+		"s_Name": "奇异博士"
 	},
 	{
+		"i_HeroId": 9,
+		"i_Id": 9003,
+		"i_NeedStar": 3,
 		"i_applyProf": 0,
-		"i_heroId": 9,
-		"i_id": 9003,
-		"i_needStar": 3,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -1833,29 +1833,29 @@
 				50
 			]
 		],
-		"s_descTalent": "自身属性：基础攻击+210，基础生命+2100，基础防御+50",
-		"s_name": "奇异博士"
+		"s_DescTalent": "自身属性：基础攻击+210，基础生命+2100，基础防御+50",
+		"s_Name": "奇异博士"
 	},
 	{
+		"i_HeroId": 9,
+		"i_Id": 9004,
+		"i_NeedStar": 4,
 		"i_applyProf": 0,
-		"i_heroId": 9,
-		"i_id": 9004,
-		"i_needStar": 4,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_briefDescTalent": "【绿色灵能】：灵能每隔2秒对周围的敌人造成伤害，持续8秒。消失后随机使一名英雄获得治疗",
-		"s_descTalent": "【绿色灵能】持续时间增加4秒，治疗效果增加100%",
-		"s_name": "奇异博士"
+		"s_BriefDescTalent": "【绿色灵能】：灵能每隔2秒对周围的敌人造成伤害，持续8秒。消失后随机使一名英雄获得治疗",
+		"s_DescTalent": "【绿色灵能】持续时间增加4秒，治疗效果增加100%",
+		"s_Name": "奇异博士"
 	},
 	{
+		"i_HeroId": 9,
+		"i_Id": 9005,
+		"i_NeedStar": 5,
 		"i_applyProf": 0,
-		"i_heroId": 9,
-		"i_id": 9005,
-		"i_needStar": 5,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -1871,50 +1871,50 @@
 				30
 			]
 		],
-		"s_descTalent": "全体队员：基础攻击+120，基础生命+1200，基础防御+30（上阵生效）",
-		"s_name": "奇异博士"
+		"s_DescTalent": "全体队员：基础攻击+120，基础生命+1200，基础防御+30（上阵生效）",
+		"s_Name": "奇异博士"
 	},
 	{
+		"i_HeroId": 9,
+		"i_Id": 9006,
+		"i_NeedStar": 6,
 		"i_applyProf": 0,
-		"i_heroId": 9,
-		"i_id": 9006,
-		"i_needStar": 6,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_briefDescTalent": "【灵能】：灵能每隔2秒对周围的敌人造成伤害，持续8秒",
-		"s_descTalent": "局内每激活一个【灵能】基因，造成伤害+3.4%，治疗增强率+10%",
-		"s_name": "奇异博士"
+		"s_BriefDescTalent": "【灵能】：灵能每隔2秒对周围的敌人造成伤害，持续8秒",
+		"s_DescTalent": "局内每激活一个【灵能】基因，造成伤害+3.4%，治疗增强率+10%",
+		"s_Name": "奇异博士"
 	},
 	{
-		"i_heroId": 9,
-		"i_id": 9007,
-		"i_needStar": 7,
+		"i_HeroId": 9,
+		"i_Id": 9007,
+		"i_NeedStar": 7,
 		"i_talentType": 0,
-		"s_name": "奇异博士"
+		"s_Name": "奇异博士"
 	},
 	{
+		"i_HeroId": 9,
+		"i_Id": 9008,
+		"i_NeedStar": 8,
 		"i_applyProf": 0,
-		"i_heroId": 9,
-		"i_id": 9008,
-		"i_needStar": 8,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_descTalent": "能量体穿透数量+2",
-		"s_name": "奇异博士"
+		"s_DescTalent": "能量体穿透数量+2",
+		"s_Name": "奇异博士"
 	},
 	{
+		"i_HeroId": 9,
+		"i_Id": 9009,
+		"i_NeedStar": 9,
 		"i_applyProf": 0,
-		"i_heroId": 9,
-		"i_id": 9009,
-		"i_needStar": 9,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -1930,35 +1930,35 @@
 				500
 			]
 		],
-		"s_descTalent": "自身属性：基础攻击+5%，基础生命+5%，基础防御+5%",
-		"s_name": "奇异博士"
+		"s_DescTalent": "自身属性：基础攻击+5%，基础生命+5%，基础防御+5%",
+		"s_Name": "奇异博士"
 	},
 	{
+		"i_HeroId": 9,
+		"i_Id": 9010,
+		"i_NeedStar": 10,
 		"i_applyProf": 0,
-		"i_heroId": 9,
-		"i_id": 9010,
-		"i_needStar": 10,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_descTalent": "触发元素共鸣时，所有队友造成伤害+70%，持续5秒。10s内只可触发一次",
-		"s_name": "奇异博士"
+		"s_DescTalent": "触发元素共鸣时，所有队友造成伤害+70%，持续5秒。10s内只可触发一次",
+		"s_Name": "奇异博士"
 	},
 	{
-		"i_heroId": 9,
-		"i_id": 9011,
-		"i_needStar": 11,
+		"i_HeroId": 9,
+		"i_Id": 9011,
+		"i_NeedStar": 11,
 		"i_talentType": 0,
-		"s_name": "奇异博士"
+		"s_Name": "奇异博士"
 	},
 	{
+		"i_HeroId": 9,
+		"i_Id": 9012,
+		"i_NeedStar": 12,
 		"i_applyProf": 0,
-		"i_heroId": 9,
-		"i_id": 9012,
-		"i_needStar": 12,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -1974,14 +1974,14 @@
 				64
 			]
 		],
-		"s_descTalent": "全体队员：基础攻击+300，基础生命+3000，基础防御+64（上阵生效）",
-		"s_name": "奇异博士"
+		"s_DescTalent": "全体队员：基础攻击+300，基础生命+3000，基础防御+64（上阵生效）",
+		"s_Name": "奇异博士"
 	},
 	{
+		"i_HeroId": 9,
+		"i_Id": 9013,
+		"i_NeedStar": 13,
 		"i_applyProf": 0,
-		"i_heroId": 9,
-		"i_id": 9013,
-		"i_needStar": 13,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -1997,14 +1997,14 @@
 				500
 			]
 		],
-		"s_descTalent": "自身属性：基础攻击+5%，基础生命+5%，基础防御+5%",
-		"s_name": "奇异博士"
+		"s_DescTalent": "自身属性：基础攻击+5%，基础生命+5%，基础防御+5%",
+		"s_Name": "奇异博士"
 	},
 	{
+		"i_HeroId": 9,
+		"i_Id": 9014,
+		"i_NeedStar": 14,
 		"i_applyProf": 0,
-		"i_heroId": 9,
-		"i_id": 9014,
-		"i_needStar": 14,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -2020,43 +2020,43 @@
 				500
 			]
 		],
-		"s_descTalent": "全体队员：基础攻击+5%，基础生命+5%，基础防御+5%（上阵生效）",
-		"s_name": "奇异博士"
+		"s_DescTalent": "全体队员：基础攻击+5%，基础生命+5%，基础防御+5%（上阵生效）",
+		"s_Name": "奇异博士"
 	},
 	{
-		"i_heroId": 9,
-		"i_id": 9015,
-		"i_needStar": 15,
+		"i_HeroId": 9,
+		"i_Id": 9015,
+		"i_NeedStar": 15,
 		"i_talentType": 0,
-		"s_name": "奇异博士"
+		"s_Name": "奇异博士"
 	},
 	{
-		"i_heroId": 10,
-		"i_id": 10001,
-		"i_needStar": 1,
+		"i_HeroId": 10,
+		"i_Id": 10001,
+		"i_NeedStar": 1,
 		"i_talentType": 0,
-		"s_name": "绿巨人"
+		"s_Name": "绿巨人"
 	},
 	{
+		"i_HeroId": 10,
+		"i_Id": 10002,
+		"i_NeedStar": 2,
 		"i_applyProf": 0,
-		"i_heroId": 10,
-		"i_id": 10002,
-		"i_needStar": 2,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_briefDescTalent": "【缴械力场】：产生一个圆形区域，区域内的敌人无法攻击，并受到伤害持续7秒",
-		"s_descTalent": "伽马能量释放结束后形成一片【缴械力场】",
-		"s_name": "绿巨人"
+		"s_BriefDescTalent": "【缴械力场】：产生一个圆形区域，区域内的敌人无法攻击，并受到伤害持续7秒",
+		"s_DescTalent": "伽马能量释放结束后形成一片【缴械力场】",
+		"s_Name": "绿巨人"
 	},
 	{
+		"i_HeroId": 10,
+		"i_Id": 10003,
+		"i_NeedStar": 3,
 		"i_applyProf": 0,
-		"i_heroId": 10,
-		"i_id": 10003,
-		"i_needStar": 3,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -2072,29 +2072,29 @@
 				60
 			]
 		],
-		"s_descTalent": "自身属性：基础攻击+210，基础生命+2100，基础防御+60",
-		"s_name": "绿巨人"
+		"s_DescTalent": "自身属性：基础攻击+210，基础生命+2100，基础防御+60",
+		"s_Name": "绿巨人"
 	},
 	{
+		"i_HeroId": 10,
+		"i_Id": 10004,
+		"i_NeedStar": 4,
 		"i_applyProf": 0,
-		"i_heroId": 10,
-		"i_id": 10004,
-		"i_needStar": 4,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_briefDescTalent": "【缴械力场】：产生一个圆形区域，区域内的敌人无法攻击，并受到伤害持续7秒",
-		"s_descTalent": "【缴械力场】范围增加35%",
-		"s_name": "绿巨人"
+		"s_BriefDescTalent": "【缴械力场】：产生一个圆形区域，区域内的敌人无法攻击，并受到伤害持续7秒",
+		"s_DescTalent": "【缴械力场】范围增加35%",
+		"s_Name": "绿巨人"
 	},
 	{
+		"i_HeroId": 10,
+		"i_Id": 10005,
+		"i_NeedStar": 5,
 		"i_applyProf": 0,
-		"i_heroId": 10,
-		"i_id": 10005,
-		"i_needStar": 5,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -2110,50 +2110,50 @@
 				30
 			]
 		],
-		"s_descTalent": "全体队员：基础攻击+120，基础生命+1200，基础防御+30（上阵生效）",
-		"s_name": "绿巨人"
+		"s_DescTalent": "全体队员：基础攻击+120，基础生命+1200，基础防御+30（上阵生效）",
+		"s_Name": "绿巨人"
 	},
 	{
+		"i_HeroId": 10,
+		"i_Id": 10006,
+		"i_NeedStar": 6,
 		"i_applyProf": 0,
-		"i_heroId": 10,
-		"i_id": 10006,
-		"i_needStar": 6,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_briefDescTalent": "【力场】：产生一个圆形区域，区域内的敌人受到持续伤害，持续7秒",
-		"s_descTalent": "局内每激活一个【力场】基因，造成伤害+6.8%",
-		"s_name": "绿巨人"
+		"s_BriefDescTalent": "【力场】：产生一个圆形区域，区域内的敌人受到持续伤害，持续7秒",
+		"s_DescTalent": "局内每激活一个【力场】基因，造成伤害+6.8%",
+		"s_Name": "绿巨人"
 	},
 	{
-		"i_heroId": 10,
-		"i_id": 10007,
-		"i_needStar": 7,
+		"i_HeroId": 10,
+		"i_Id": 10007,
+		"i_NeedStar": 7,
 		"i_talentType": 0,
-		"s_name": "绿巨人"
+		"s_Name": "绿巨人"
 	},
 	{
+		"i_HeroId": 10,
+		"i_Id": 10008,
+		"i_NeedStar": 8,
 		"i_applyProf": 0,
-		"i_heroId": 10,
-		"i_id": 10008,
-		"i_needStar": 8,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_descTalent": "触发元素共鸣时，所有队友造成伤害+60%，持续5秒。10s内只可触发一次",
-		"s_name": "绿巨人"
+		"s_DescTalent": "触发元素共鸣时，所有队友造成伤害+60%，持续5秒。10s内只可触发一次",
+		"s_Name": "绿巨人"
 	},
 	{
+		"i_HeroId": 10,
+		"i_Id": 10009,
+		"i_NeedStar": 9,
 		"i_applyProf": 0,
-		"i_heroId": 10,
-		"i_id": 10009,
-		"i_needStar": 9,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -2169,35 +2169,35 @@
 				500
 			]
 		],
-		"s_descTalent": "自身属性：基础攻击+5%，基础生命+5%，基础防御+5%",
-		"s_name": "绿巨人"
+		"s_DescTalent": "自身属性：基础攻击+5%，基础生命+5%，基础防御+5%",
+		"s_Name": "绿巨人"
 	},
 	{
+		"i_HeroId": 10,
+		"i_Id": 10010,
+		"i_NeedStar": 10,
 		"i_applyProf": 0,
-		"i_heroId": 10,
-		"i_id": 10010,
-		"i_needStar": 10,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_descTalent": "伽马能量释放后，使所有队友造成伤害+46.1%，持续5秒",
-		"s_name": "绿巨人"
+		"s_DescTalent": "伽马能量释放后，使所有队友造成伤害+46.1%，持续5秒",
+		"s_Name": "绿巨人"
 	},
 	{
-		"i_heroId": 10,
-		"i_id": 10011,
-		"i_needStar": 11,
+		"i_HeroId": 10,
+		"i_Id": 10011,
+		"i_NeedStar": 11,
 		"i_talentType": 0,
-		"s_name": "绿巨人"
+		"s_Name": "绿巨人"
 	},
 	{
+		"i_HeroId": 10,
+		"i_Id": 10012,
+		"i_NeedStar": 12,
 		"i_applyProf": 0,
-		"i_heroId": 10,
-		"i_id": 10012,
-		"i_needStar": 12,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -2213,14 +2213,14 @@
 				64
 			]
 		],
-		"s_descTalent": "全体队员：基础攻击+300，基础生命+3000，基础防御+64（上阵生效）",
-		"s_name": "绿巨人"
+		"s_DescTalent": "全体队员：基础攻击+300，基础生命+3000，基础防御+64（上阵生效）",
+		"s_Name": "绿巨人"
 	},
 	{
+		"i_HeroId": 10,
+		"i_Id": 10013,
+		"i_NeedStar": 13,
 		"i_applyProf": 0,
-		"i_heroId": 10,
-		"i_id": 10013,
-		"i_needStar": 13,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -2236,14 +2236,14 @@
 				500
 			]
 		],
-		"s_descTalent": "自身属性：基础攻击+5%，基础生命+5%，基础防御+5%",
-		"s_name": "绿巨人"
+		"s_DescTalent": "自身属性：基础攻击+5%，基础生命+5%，基础防御+5%",
+		"s_Name": "绿巨人"
 	},
 	{
+		"i_HeroId": 10,
+		"i_Id": 10014,
+		"i_NeedStar": 14,
 		"i_applyProf": 0,
-		"i_heroId": 10,
-		"i_id": 10014,
-		"i_needStar": 14,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -2259,43 +2259,43 @@
 				500
 			]
 		],
-		"s_descTalent": "全体队员：基础攻击+5%，基础生命+5%，基础防御+5%（上阵生效）",
-		"s_name": "绿巨人"
+		"s_DescTalent": "全体队员：基础攻击+5%，基础生命+5%，基础防御+5%（上阵生效）",
+		"s_Name": "绿巨人"
 	},
 	{
-		"i_heroId": 10,
-		"i_id": 10015,
-		"i_needStar": 15,
+		"i_HeroId": 10,
+		"i_Id": 10015,
+		"i_NeedStar": 15,
 		"i_talentType": 0,
-		"s_name": "绿巨人"
+		"s_Name": "绿巨人"
 	},
 	{
-		"i_heroId": 11,
-		"i_id": 11001,
-		"i_needStar": 1,
+		"i_HeroId": 11,
+		"i_Id": 11001,
+		"i_NeedStar": 1,
 		"i_talentType": 0,
-		"s_name": "小丑"
+		"s_Name": "小丑"
 	},
 	{
+		"i_HeroId": 11,
+		"i_Id": 11002,
+		"i_NeedStar": 2,
 		"i_applyProf": 0,
-		"i_heroId": 11,
-		"i_id": 11002,
-		"i_needStar": 2,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_briefDescTalent": "【贯穿】：召唤一支可无限穿透的飞箭",
-		"s_descTalent": "每发子弹，有3%概率向前方连续触发2次【贯穿】。大招期间概率翻倍",
-		"s_name": "小丑"
+		"s_BriefDescTalent": "【贯穿】：召唤一支可无限穿透的飞箭",
+		"s_DescTalent": "每发子弹，有3%概率向前方连续触发2次【贯穿】。大招期间概率翻倍",
+		"s_Name": "小丑"
 	},
 	{
+		"i_HeroId": 11,
+		"i_Id": 11003,
+		"i_NeedStar": 3,
 		"i_applyProf": 0,
-		"i_heroId": 11,
-		"i_id": 11003,
-		"i_needStar": 3,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -2311,29 +2311,29 @@
 				35
 			]
 		],
-		"s_descTalent": "自身属性：基础攻击+210，基础生命+2100，基础防御+35",
-		"s_name": "小丑"
+		"s_DescTalent": "自身属性：基础攻击+210，基础生命+2100，基础防御+35",
+		"s_Name": "小丑"
 	},
 	{
+		"i_HeroId": 11,
+		"i_Id": 11004,
+		"i_NeedStar": 4,
 		"i_applyProf": 0,
-		"i_heroId": 11,
-		"i_id": 11004,
-		"i_needStar": 4,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_briefDescTalent": "【贯穿】：召唤一支可无限穿透的飞箭",
-		"s_descTalent": "触发【贯穿】时，会额外向左前方连续触发2次【贯穿】",
-		"s_name": "小丑"
+		"s_BriefDescTalent": "【贯穿】：召唤一支可无限穿透的飞箭",
+		"s_DescTalent": "触发【贯穿】时，会额外向左前方连续触发2次【贯穿】",
+		"s_Name": "小丑"
 	},
 	{
+		"i_HeroId": 11,
+		"i_Id": 11005,
+		"i_NeedStar": 5,
 		"i_applyProf": 0,
-		"i_heroId": 11,
-		"i_id": 11005,
-		"i_needStar": 5,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -2341,50 +2341,50 @@
 				315
 			]
 		],
-		"s_descTalent": "全体枪械师的基础攻击+315（上阵生效）",
-		"s_name": "小丑"
+		"s_DescTalent": "全体枪械师的基础攻击+315（上阵生效）",
+		"s_Name": "小丑"
 	},
 	{
+		"i_HeroId": 11,
+		"i_Id": 11006,
+		"i_NeedStar": 6,
 		"i_applyProf": 0,
-		"i_heroId": 11,
-		"i_id": 11006,
-		"i_needStar": 6,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_briefDescTalent": "【贯穿】：召唤一支可无限穿透的飞箭",
-		"s_descTalent": "触发【贯穿】时，会额外向右前方连续触发2次【贯穿】",
-		"s_name": "小丑"
+		"s_BriefDescTalent": "【贯穿】：召唤一支可无限穿透的飞箭",
+		"s_DescTalent": "触发【贯穿】时，会额外向右前方连续触发2次【贯穿】",
+		"s_Name": "小丑"
 	},
 	{
-		"i_heroId": 11,
-		"i_id": 11007,
-		"i_needStar": 7,
+		"i_HeroId": 11,
+		"i_Id": 11007,
+		"i_NeedStar": 7,
 		"i_talentType": 0,
-		"s_name": "小丑"
+		"s_Name": "小丑"
 	},
 	{
+		"i_HeroId": 11,
+		"i_Id": 11008,
+		"i_NeedStar": 8,
 		"i_applyProf": 0,
-		"i_heroId": 11,
-		"i_id": 11008,
-		"i_needStar": 8,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_descTalent": "基础共鸣伤害+20%，触发暗元素共鸣时，共鸣伤害额外+20%",
-		"s_name": "小丑"
+		"s_DescTalent": "基础共鸣伤害+20%，触发暗元素共鸣时，共鸣伤害额外+20%",
+		"s_Name": "小丑"
 	},
 	{
+		"i_HeroId": 11,
+		"i_Id": 11009,
+		"i_NeedStar": 9,
 		"i_applyProf": 0,
-		"i_heroId": 11,
-		"i_id": 11009,
-		"i_needStar": 9,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -2400,50 +2400,50 @@
 				500
 			]
 		],
-		"s_descTalent": "自身属性：基础攻击+5%，基础生命+5%，基础防御+5%",
-		"s_name": "小丑"
+		"s_DescTalent": "自身属性：基础攻击+5%，基础生命+5%，基础防御+5%",
+		"s_Name": "小丑"
 	},
 	{
+		"i_HeroId": 11,
+		"i_Id": 11010,
+		"i_NeedStar": 10,
 		"i_applyProf": 0,
-		"i_heroId": 11,
-		"i_id": 11010,
-		"i_needStar": 10,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_descTalent": "每次攻击时攻速+1%，最多叠加10%，释放惊吓魔盒时重置",
-		"s_name": "小丑"
+		"s_DescTalent": "每次攻击时攻速+1%，最多叠加10%，释放惊吓魔盒时重置",
+		"s_Name": "小丑"
 	},
 	{
-		"i_heroId": 11,
-		"i_id": 11011,
-		"i_needStar": 11,
+		"i_HeroId": 11,
+		"i_Id": 11011,
+		"i_NeedStar": 11,
 		"i_talentType": 0,
-		"s_name": "小丑"
+		"s_Name": "小丑"
 	},
 	{
+		"i_HeroId": 11,
+		"i_Id": 11012,
+		"i_NeedStar": 12,
 		"i_applyProf": 0,
-		"i_heroId": 11,
-		"i_id": 11012,
-		"i_needStar": 12,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_briefDescTalent": "【贯穿】：召唤一支可无限穿透的飞箭",
-		"s_descTalent": "局内每激活一个【贯穿】基因，自身造成的暴击伤害+8%",
-		"s_name": "小丑"
+		"s_BriefDescTalent": "【贯穿】：召唤一支可无限穿透的飞箭",
+		"s_DescTalent": "局内每激活一个【贯穿】基因，自身造成的暴击伤害+8%",
+		"s_Name": "小丑"
 	},
 	{
+		"i_HeroId": 11,
+		"i_Id": 11013,
+		"i_NeedStar": 13,
 		"i_applyProf": 0,
-		"i_heroId": 11,
-		"i_id": 11013,
-		"i_needStar": 13,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -2451,14 +2451,14 @@
 				500
 			]
 		],
-		"s_descTalent": "全体枪械师的基础攻击+5%（上阵生效）",
-		"s_name": "小丑"
+		"s_DescTalent": "全体枪械师的基础攻击+5%（上阵生效）",
+		"s_Name": "小丑"
 	},
 	{
+		"i_HeroId": 11,
+		"i_Id": 11014,
+		"i_NeedStar": 14,
 		"i_applyProf": 0,
-		"i_heroId": 11,
-		"i_id": 11014,
-		"i_needStar": 14,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -2474,43 +2474,43 @@
 				500
 			]
 		],
-		"s_descTalent": "自身属性：基础攻击+5%，基础生命+5%，基础防御+5%",
-		"s_name": "小丑"
+		"s_DescTalent": "自身属性：基础攻击+5%，基础生命+5%，基础防御+5%",
+		"s_Name": "小丑"
 	},
 	{
-		"i_heroId": 11,
-		"i_id": 11015,
-		"i_needStar": 15,
+		"i_HeroId": 11,
+		"i_Id": 11015,
+		"i_NeedStar": 15,
 		"i_talentType": 0,
-		"s_name": "小丑"
+		"s_Name": "小丑"
 	},
 	{
-		"i_heroId": 12,
-		"i_id": 12001,
-		"i_needStar": 1,
+		"i_HeroId": 12,
+		"i_Id": 12001,
+		"i_NeedStar": 1,
 		"i_talentType": 0,
-		"s_name": "水兵月"
+		"s_Name": "水兵月"
 	},
 	{
+		"i_HeroId": 12,
+		"i_Id": 12002,
+		"i_NeedStar": 2,
 		"i_applyProf": 0,
-		"i_heroId": 12,
-		"i_id": 12002,
-		"i_needStar": 2,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_briefDescTalent": "【黄色灵能】：灵能每隔2秒对周围的敌人造成伤害，持续8秒。消失后消失后随机使一个英雄获得10点能量值",
-		"s_descTalent": "月亮闪烁结束后，在周围随机召唤出3个【黄色灵能】。",
-		"s_name": "水兵月"
+		"s_BriefDescTalent": "【黄色灵能】：灵能每隔2秒对周围的敌人造成伤害，持续8秒。消失后消失后随机使一个英雄获得10点能量值",
+		"s_DescTalent": "月亮闪烁结束后，在周围随机召唤出3个【黄色灵能】。",
+		"s_Name": "水兵月"
 	},
 	{
+		"i_HeroId": 12,
+		"i_Id": 12003,
+		"i_NeedStar": 3,
 		"i_applyProf": 0,
-		"i_heroId": 12,
-		"i_id": 12003,
-		"i_needStar": 3,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -2526,29 +2526,29 @@
 				50
 			]
 		],
-		"s_descTalent": "自身属性：基础攻击+210，基础生命+2100，基础防御+50",
-		"s_name": "水兵月"
+		"s_DescTalent": "自身属性：基础攻击+210，基础生命+2100，基础防御+50",
+		"s_Name": "水兵月"
 	},
 	{
+		"i_HeroId": 12,
+		"i_Id": 12004,
+		"i_NeedStar": 4,
 		"i_applyProf": 0,
-		"i_heroId": 12,
-		"i_id": 12004,
-		"i_needStar": 4,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_briefDescTalent": "【黄色灵能】：灵能每隔2秒对周围的敌人造成伤害，持续8秒。消失后消失后随机使一个英雄获得20点能量值",
-		"s_descTalent": "【黄色灵能】持续时间增加4秒，消失后随机使一个英雄获得20点能量值",
-		"s_name": "水兵月"
+		"s_BriefDescTalent": "【黄色灵能】：灵能每隔2秒对周围的敌人造成伤害，持续8秒。消失后消失后随机使一个英雄获得20点能量值",
+		"s_DescTalent": "【黄色灵能】持续时间增加4秒，消失后随机使一个英雄获得20点能量值",
+		"s_Name": "水兵月"
 	},
 	{
+		"i_HeroId": 12,
+		"i_Id": 12005,
+		"i_NeedStar": 5,
 		"i_applyProf": 0,
-		"i_heroId": 12,
-		"i_id": 12005,
-		"i_needStar": 5,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -2564,50 +2564,50 @@
 				30
 			]
 		],
-		"s_descTalent": "全体队员：基础攻击+120，基础生命+1200，基础防御+30（上阵生效）",
-		"s_name": "水兵月"
+		"s_DescTalent": "全体队员：基础攻击+120，基础生命+1200，基础防御+30（上阵生效）",
+		"s_Name": "水兵月"
 	},
 	{
+		"i_HeroId": 12,
+		"i_Id": 12006,
+		"i_NeedStar": 6,
 		"i_applyProf": 0,
-		"i_heroId": 12,
-		"i_id": 12006,
-		"i_needStar": 6,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_briefDescTalent": "【灵能】：灵能每隔2秒对周围的敌人造成伤害，持续8秒",
-		"s_descTalent": "局内每激活一个【灵能】基因，治疗增强率+20%",
-		"s_name": "水兵月"
+		"s_BriefDescTalent": "【灵能】：灵能每隔2秒对周围的敌人造成伤害，持续8秒",
+		"s_DescTalent": "局内每激活一个【灵能】基因，治疗增强率+20%",
+		"s_Name": "水兵月"
 	},
 	{
-		"i_heroId": 12,
-		"i_id": 12007,
-		"i_needStar": 7,
+		"i_HeroId": 12,
+		"i_Id": 12007,
+		"i_NeedStar": 7,
 		"i_talentType": 0,
-		"s_name": "水兵月"
+		"s_Name": "水兵月"
 	},
 	{
+		"i_HeroId": 12,
+		"i_Id": 12008,
+		"i_NeedStar": 8,
 		"i_applyProf": 0,
-		"i_heroId": 12,
-		"i_id": 12008,
-		"i_needStar": 8,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_descTalent": "触发元素共鸣时，所有队友获得伤害减免+15%，持续5秒。10s内只可触发一次",
-		"s_name": "水兵月"
+		"s_DescTalent": "触发元素共鸣时，所有队友获得伤害减免+15%，持续5秒。10s内只可触发一次",
+		"s_Name": "水兵月"
 	},
 	{
+		"i_HeroId": 12,
+		"i_Id": 12009,
+		"i_NeedStar": 9,
 		"i_applyProf": 0,
-		"i_heroId": 12,
-		"i_id": 12009,
-		"i_needStar": 9,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -2623,35 +2623,35 @@
 				500
 			]
 		],
-		"s_descTalent": "自身属性：基础攻击+5%，基础生命+5%，基础防御+5%",
-		"s_name": "水兵月"
+		"s_DescTalent": "自身属性：基础攻击+5%，基础生命+5%，基础防御+5%",
+		"s_Name": "水兵月"
 	},
 	{
+		"i_HeroId": 12,
+		"i_Id": 12010,
+		"i_NeedStar": 10,
 		"i_applyProf": 0,
-		"i_heroId": 12,
-		"i_id": 12010,
-		"i_needStar": 10,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_descTalent": "第四次普通攻击时，会使所有英雄增加50%攻击力的护盾值",
-		"s_name": "水兵月"
+		"s_DescTalent": "第四次普通攻击时，会使所有英雄增加50%攻击力的护盾值",
+		"s_Name": "水兵月"
 	},
 	{
-		"i_heroId": 12,
-		"i_id": 12011,
-		"i_needStar": 11,
+		"i_HeroId": 12,
+		"i_Id": 12011,
+		"i_NeedStar": 11,
 		"i_talentType": 0,
-		"s_name": "水兵月"
+		"s_Name": "水兵月"
 	},
 	{
+		"i_HeroId": 12,
+		"i_Id": 12012,
+		"i_NeedStar": 12,
 		"i_applyProf": 0,
-		"i_heroId": 12,
-		"i_id": 12012,
-		"i_needStar": 12,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -2667,14 +2667,14 @@
 				64
 			]
 		],
-		"s_descTalent": "全体队员：基础攻击+300，基础生命+3000，基础防御+64（上阵生效）",
-		"s_name": "水兵月"
+		"s_DescTalent": "全体队员：基础攻击+300，基础生命+3000，基础防御+64（上阵生效）",
+		"s_Name": "水兵月"
 	},
 	{
+		"i_HeroId": 12,
+		"i_Id": 12013,
+		"i_NeedStar": 13,
 		"i_applyProf": 0,
-		"i_heroId": 12,
-		"i_id": 12013,
-		"i_needStar": 13,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -2690,14 +2690,14 @@
 				500
 			]
 		],
-		"s_descTalent": "自身属性：基础攻击+5%，基础生命+5%，基础防御+5%",
-		"s_name": "水兵月"
+		"s_DescTalent": "自身属性：基础攻击+5%，基础生命+5%，基础防御+5%",
+		"s_Name": "水兵月"
 	},
 	{
+		"i_HeroId": 12,
+		"i_Id": 12014,
+		"i_NeedStar": 14,
 		"i_applyProf": 0,
-		"i_heroId": 12,
-		"i_id": 12014,
-		"i_needStar": 14,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -2713,43 +2713,43 @@
 				500
 			]
 		],
-		"s_descTalent": "全体队员：基础攻击+5%，基础生命+5%，基础防御+5%（上阵生效）",
-		"s_name": "水兵月"
+		"s_DescTalent": "全体队员：基础攻击+5%，基础生命+5%，基础防御+5%（上阵生效）",
+		"s_Name": "水兵月"
 	},
 	{
-		"i_heroId": 12,
-		"i_id": 12015,
-		"i_needStar": 15,
+		"i_HeroId": 12,
+		"i_Id": 12015,
+		"i_NeedStar": 15,
 		"i_talentType": 0,
-		"s_name": "水兵月"
+		"s_Name": "水兵月"
 	},
 	{
-		"i_heroId": 13,
-		"i_id": 13001,
-		"i_needStar": 1,
+		"i_HeroId": 13,
+		"i_Id": 13001,
+		"i_NeedStar": 1,
 		"i_talentType": 0,
-		"s_name": "终结者"
+		"s_Name": "终结者"
 	},
 	{
+		"i_HeroId": 13,
+		"i_Id": 13002,
+		"i_NeedStar": 2,
 		"i_applyProf": 0,
-		"i_heroId": 13,
-		"i_id": 13002,
-		"i_needStar": 2,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_briefDescTalent": "【贯穿】：召唤一支可无限穿透的飞箭",
-		"s_descTalent": "每发子弹，有3%概率向前方连续触发2次【贯穿】。大招期间概率翻倍。",
-		"s_name": "终结者"
+		"s_BriefDescTalent": "【贯穿】：召唤一支可无限穿透的飞箭",
+		"s_DescTalent": "每发子弹，有3%概率向前方连续触发2次【贯穿】。大招期间概率翻倍。",
+		"s_Name": "终结者"
 	},
 	{
+		"i_HeroId": 13,
+		"i_Id": 13003,
+		"i_NeedStar": 3,
 		"i_applyProf": 0,
-		"i_heroId": 13,
-		"i_id": 13003,
-		"i_needStar": 3,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -2765,29 +2765,29 @@
 				35
 			]
 		],
-		"s_descTalent": "自身属性：基础攻击+210，基础生命+2100，基础防御+35",
-		"s_name": "终结者"
+		"s_DescTalent": "自身属性：基础攻击+210，基础生命+2100，基础防御+35",
+		"s_Name": "终结者"
 	},
 	{
+		"i_HeroId": 13,
+		"i_Id": 13004,
+		"i_NeedStar": 4,
 		"i_applyProf": 0,
-		"i_heroId": 13,
-		"i_id": 13004,
-		"i_needStar": 4,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_briefDescTalent": "【贯穿】：召唤一支可无限穿透的飞箭",
-		"s_descTalent": "触发【贯穿】时，会额外向左后方连续触发2次【贯穿】",
-		"s_name": "终结者"
+		"s_BriefDescTalent": "【贯穿】：召唤一支可无限穿透的飞箭",
+		"s_DescTalent": "触发【贯穿】时，会额外向左后方连续触发2次【贯穿】",
+		"s_Name": "终结者"
 	},
 	{
+		"i_HeroId": 13,
+		"i_Id": 13005,
+		"i_NeedStar": 5,
 		"i_applyProf": 0,
-		"i_heroId": 13,
-		"i_id": 13005,
-		"i_needStar": 5,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -2795,50 +2795,50 @@
 				315
 			]
 		],
-		"s_descTalent": "全体枪械师的基础攻击+315（上阵生效）",
-		"s_name": "终结者"
+		"s_DescTalent": "全体枪械师的基础攻击+315（上阵生效）",
+		"s_Name": "终结者"
 	},
 	{
+		"i_HeroId": 13,
+		"i_Id": 13006,
+		"i_NeedStar": 6,
 		"i_applyProf": 0,
-		"i_heroId": 13,
-		"i_id": 13006,
-		"i_needStar": 6,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_descTalent": "散弹枪攻击范围+25%，高爆弹范围+30%",
-		"s_name": "终结者"
+		"s_DescTalent": "散弹枪攻击范围+25%，高爆弹范围+30%",
+		"s_Name": "终结者"
 	},
 	{
-		"i_heroId": 13,
-		"i_id": 13007,
-		"i_needStar": 7,
+		"i_HeroId": 13,
+		"i_Id": 13007,
+		"i_NeedStar": 7,
 		"i_talentType": 0,
-		"s_name": "终结者"
+		"s_Name": "终结者"
 	},
 	{
+		"i_HeroId": 13,
+		"i_Id": 13008,
+		"i_NeedStar": 8,
 		"i_applyProf": 0,
-		"i_heroId": 13,
-		"i_id": 13008,
-		"i_needStar": 8,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_briefDescTalent": "【贯穿】：召唤一支可无限穿透的飞箭",
-		"s_descTalent": "触发【贯穿】时，会额外向右后方连续触发2次【贯穿】",
-		"s_name": "终结者"
+		"s_BriefDescTalent": "【贯穿】：召唤一支可无限穿透的飞箭",
+		"s_DescTalent": "触发【贯穿】时，会额外向右后方连续触发2次【贯穿】",
+		"s_Name": "终结者"
 	},
 	{
+		"i_HeroId": 13,
+		"i_Id": 13009,
+		"i_NeedStar": 9,
 		"i_applyProf": 0,
-		"i_heroId": 13,
-		"i_id": 13009,
-		"i_needStar": 9,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -2854,50 +2854,50 @@
 				500
 			]
 		],
-		"s_descTalent": "自身属性：基础攻击+5%，基础生命+5%，基础防御+5%",
-		"s_name": "终结者"
+		"s_DescTalent": "自身属性：基础攻击+5%，基础生命+5%，基础防御+5%",
+		"s_Name": "终结者"
 	},
 	{
+		"i_HeroId": 13,
+		"i_Id": 13010,
+		"i_NeedStar": 10,
 		"i_applyProf": 0,
-		"i_heroId": 13,
-		"i_id": 13010,
-		"i_needStar": 10,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_descTalent": "基础共鸣伤害+20%，触发暗元素共鸣时，共鸣伤害额外+20%",
-		"s_name": "终结者"
+		"s_DescTalent": "基础共鸣伤害+20%，触发暗元素共鸣时，共鸣伤害额外+20%",
+		"s_Name": "终结者"
 	},
 	{
-		"i_heroId": 13,
-		"i_id": 13011,
-		"i_needStar": 11,
+		"i_HeroId": 13,
+		"i_Id": 13011,
+		"i_NeedStar": 11,
 		"i_talentType": 0,
-		"s_name": "终结者"
+		"s_Name": "终结者"
 	},
 	{
+		"i_HeroId": 13,
+		"i_Id": 13012,
+		"i_NeedStar": 12,
 		"i_applyProf": 0,
-		"i_heroId": 13,
-		"i_id": 13012,
-		"i_needStar": 12,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_briefDescTalent": "【贯穿】：召唤一支可无限穿透的飞箭",
-		"s_descTalent": "局内每激活一个【贯穿】基因，造成伤害+5%",
-		"s_name": "终结者"
+		"s_BriefDescTalent": "【贯穿】：召唤一支可无限穿透的飞箭",
+		"s_DescTalent": "局内每激活一个【贯穿】基因，造成伤害+5%",
+		"s_Name": "终结者"
 	},
 	{
+		"i_HeroId": 13,
+		"i_Id": 13013,
+		"i_NeedStar": 13,
 		"i_applyProf": 0,
-		"i_heroId": 13,
-		"i_id": 13013,
-		"i_needStar": 13,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -2905,14 +2905,14 @@
 				500
 			]
 		],
-		"s_descTalent": "全体枪械师的基础攻击+5%（上阵生效）",
-		"s_name": "终结者"
+		"s_DescTalent": "全体枪械师的基础攻击+5%（上阵生效）",
+		"s_Name": "终结者"
 	},
 	{
+		"i_HeroId": 13,
+		"i_Id": 13014,
+		"i_NeedStar": 14,
 		"i_applyProf": 0,
-		"i_heroId": 13,
-		"i_id": 13014,
-		"i_needStar": 14,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -2928,43 +2928,43 @@
 				500
 			]
 		],
-		"s_descTalent": "自身属性：基础攻击+5%，基础生命+5%，基础防御+5%",
-		"s_name": "终结者"
+		"s_DescTalent": "自身属性：基础攻击+5%，基础生命+5%，基础防御+5%",
+		"s_Name": "终结者"
 	},
 	{
-		"i_heroId": 13,
-		"i_id": 13015,
-		"i_needStar": 15,
+		"i_HeroId": 13,
+		"i_Id": 13015,
+		"i_NeedStar": 15,
 		"i_talentType": 0,
-		"s_name": "终结者"
+		"s_Name": "终结者"
 	},
 	{
-		"i_heroId": 14,
-		"i_id": 14001,
-		"i_needStar": 1,
+		"i_HeroId": 14,
+		"i_Id": 14001,
+		"i_NeedStar": 1,
 		"i_talentType": 0,
-		"s_name": "闪电侠"
+		"s_Name": "闪电侠"
 	},
 	{
+		"i_HeroId": 14,
+		"i_Id": 14002,
+		"i_NeedStar": 2,
 		"i_applyProf": 0,
-		"i_heroId": 14,
-		"i_id": 14002,
-		"i_needStar": 2,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_briefDescTalent": "【影袭】：原地划出一道半圆，产生小范围伤害",
-		"s_descTalent": "高速冲刺有26.5%概率在目标点触发1次【影袭】",
-		"s_name": "闪电侠"
+		"s_BriefDescTalent": "【影袭】：原地划出一道半圆，产生小范围伤害",
+		"s_DescTalent": "高速冲刺有26.5%概率在目标点触发1次【影袭】",
+		"s_Name": "闪电侠"
 	},
 	{
+		"i_HeroId": 14,
+		"i_Id": 14003,
+		"i_NeedStar": 3,
 		"i_applyProf": 0,
-		"i_heroId": 14,
-		"i_id": 14003,
-		"i_needStar": 3,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -2980,29 +2980,29 @@
 				42
 			]
 		],
-		"s_descTalent": "自身属性：基础攻击+210，基础生命+2100，基础防御+42",
-		"s_name": "闪电侠"
+		"s_DescTalent": "自身属性：基础攻击+210，基础生命+2100，基础防御+42",
+		"s_Name": "闪电侠"
 	},
 	{
+		"i_HeroId": 14,
+		"i_Id": 14004,
+		"i_NeedStar": 4,
 		"i_applyProf": 0,
-		"i_heroId": 14,
-		"i_id": 14004,
-		"i_needStar": 4,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_briefDescTalent": "【影袭】：原地划出一道半圆，产生小范围伤害",
-		"s_descTalent": "神速力造成的每一次爆炸，都有24%概率在目标点触发1次【影袭】",
-		"s_name": "闪电侠"
+		"s_BriefDescTalent": "【影袭】：原地划出一道半圆，产生小范围伤害",
+		"s_DescTalent": "神速力造成的每一次爆炸，都有24%概率在目标点触发1次【影袭】",
+		"s_Name": "闪电侠"
 	},
 	{
+		"i_HeroId": 14,
+		"i_Id": 14005,
+		"i_NeedStar": 5,
 		"i_applyProf": 0,
-		"i_heroId": 14,
-		"i_id": 14005,
-		"i_needStar": 5,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -3010,50 +3010,50 @@
 				315
 			]
 		],
-		"s_descTalent": "全体独行侠的基础攻击+315（上阵生效）",
-		"s_name": "闪电侠"
+		"s_DescTalent": "全体独行侠的基础攻击+315（上阵生效）",
+		"s_Name": "闪电侠"
 	},
 	{
+		"i_HeroId": 14,
+		"i_Id": 14006,
+		"i_NeedStar": 6,
 		"i_applyProf": 0,
-		"i_heroId": 14,
-		"i_id": 14006,
-		"i_needStar": 6,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_briefDescTalent": "【影袭】：原地划出一道半圆，产生小范围伤害",
-		"s_descTalent": "冲刺触发【影袭】的概率增加到44.1%，神速力触发【影袭】的概率增加到32%",
-		"s_name": "闪电侠"
+		"s_BriefDescTalent": "【影袭】：原地划出一道半圆，产生小范围伤害",
+		"s_DescTalent": "冲刺触发【影袭】的概率增加到44.1%，神速力触发【影袭】的概率增加到32%",
+		"s_Name": "闪电侠"
 	},
 	{
-		"i_heroId": 14,
-		"i_id": 14007,
-		"i_needStar": 7,
+		"i_HeroId": 14,
+		"i_Id": 14007,
+		"i_NeedStar": 7,
 		"i_talentType": 0,
-		"s_name": "闪电侠"
+		"s_Name": "闪电侠"
 	},
 	{
+		"i_HeroId": 14,
+		"i_Id": 14008,
+		"i_NeedStar": 8,
 		"i_applyProf": 0,
-		"i_heroId": 14,
-		"i_id": 14008,
-		"i_needStar": 8,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_descTalent": "局内每激活一个【影袭】基因，造成伤害+5%",
-		"s_name": "闪电侠"
+		"s_DescTalent": "局内每激活一个【影袭】基因，造成伤害+5%",
+		"s_Name": "闪电侠"
 	},
 	{
+		"i_HeroId": 14,
+		"i_Id": 14009,
+		"i_NeedStar": 9,
 		"i_applyProf": 0,
-		"i_heroId": 14,
-		"i_id": 14009,
-		"i_needStar": 9,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -3069,50 +3069,50 @@
 				500
 			]
 		],
-		"s_descTalent": "自身属性：基础攻击+5%，基础生命+5%，基础防御+5%",
-		"s_name": "闪电侠"
+		"s_DescTalent": "自身属性：基础攻击+5%，基础生命+5%，基础防御+5%",
+		"s_Name": "闪电侠"
 	},
 	{
+		"i_HeroId": 14,
+		"i_Id": 14010,
+		"i_NeedStar": 10,
 		"i_applyProf": 0,
-		"i_heroId": 14,
-		"i_id": 14010,
-		"i_needStar": 10,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_briefDescTalent": "【影袭】：原地划出一道半圆，产生小范围伤害",
-		"s_descTalent": "基础共鸣伤害+15%，触发光元素共鸣时，基础共鸣伤害额外+20%",
-		"s_name": "闪电侠"
+		"s_BriefDescTalent": "【影袭】：原地划出一道半圆，产生小范围伤害",
+		"s_DescTalent": "基础共鸣伤害+15%，触发光元素共鸣时，基础共鸣伤害额外+20%",
+		"s_Name": "闪电侠"
 	},
 	{
-		"i_heroId": 14,
-		"i_id": 14011,
-		"i_needStar": 11,
+		"i_HeroId": 14,
+		"i_Id": 14011,
+		"i_NeedStar": 11,
 		"i_talentType": 0,
-		"s_name": "闪电侠"
+		"s_Name": "闪电侠"
 	},
 	{
+		"i_HeroId": 14,
+		"i_Id": 14012,
+		"i_NeedStar": 12,
 		"i_applyProf": 0,
-		"i_heroId": 14,
-		"i_id": 14012,
-		"i_needStar": 12,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_descTalent": "神速力结束后，造成伤害+80%，持续10秒",
-		"s_name": "闪电侠"
+		"s_DescTalent": "神速力结束后，造成伤害+80%，持续10秒",
+		"s_Name": "闪电侠"
 	},
 	{
+		"i_HeroId": 14,
+		"i_Id": 14013,
+		"i_NeedStar": 13,
 		"i_applyProf": 0,
-		"i_heroId": 14,
-		"i_id": 14013,
-		"i_needStar": 13,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -3120,14 +3120,14 @@
 				500
 			]
 		],
-		"s_descTalent": "全体独行侠的基础攻击+5%（上阵生效）",
-		"s_name": "闪电侠"
+		"s_DescTalent": "全体独行侠的基础攻击+5%（上阵生效）",
+		"s_Name": "闪电侠"
 	},
 	{
+		"i_HeroId": 14,
+		"i_Id": 14014,
+		"i_NeedStar": 14,
 		"i_applyProf": 0,
-		"i_heroId": 14,
-		"i_id": 14014,
-		"i_needStar": 14,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -3143,43 +3143,43 @@
 				500
 			]
 		],
-		"s_descTalent": "自身属性：基础攻击+5%，基础生命+5%，基础防御+5%",
-		"s_name": "闪电侠"
+		"s_DescTalent": "自身属性：基础攻击+5%，基础生命+5%，基础防御+5%",
+		"s_Name": "闪电侠"
 	},
 	{
-		"i_heroId": 14,
-		"i_id": 14015,
-		"i_needStar": 15,
+		"i_HeroId": 14,
+		"i_Id": 14015,
+		"i_NeedStar": 15,
 		"i_talentType": 0,
-		"s_name": "闪电侠"
+		"s_Name": "闪电侠"
 	},
 	{
-		"i_heroId": 15,
-		"i_id": 15001,
-		"i_needStar": 1,
+		"i_HeroId": 15,
+		"i_Id": 15001,
+		"i_NeedStar": 1,
 		"i_talentType": 0,
-		"s_name": "绿箭侠"
+		"s_Name": "绿箭侠"
 	},
 	{
+		"i_HeroId": 15,
+		"i_Id": 15002,
+		"i_NeedStar": 2,
 		"i_applyProf": 0,
-		"i_heroId": 15,
-		"i_id": 15002,
-		"i_needStar": 2,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_briefDescTalent": "【贯穿】：召唤一支可无限穿透的飞箭",
-		"s_descTalent": "每发弓箭，有3%概率向前方并排触发2次【贯穿】。大招期间概率翻倍。",
-		"s_name": "绿箭侠"
+		"s_BriefDescTalent": "【贯穿】：召唤一支可无限穿透的飞箭",
+		"s_DescTalent": "每发弓箭，有3%概率向前方并排触发2次【贯穿】。大招期间概率翻倍。",
+		"s_Name": "绿箭侠"
 	},
 	{
+		"i_HeroId": 15,
+		"i_Id": 15003,
+		"i_NeedStar": 3,
 		"i_applyProf": 0,
-		"i_heroId": 15,
-		"i_id": 15003,
-		"i_needStar": 3,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -3195,29 +3195,29 @@
 				35
 			]
 		],
-		"s_descTalent": "自身属性：基础攻击+210，基础生命+2100，基础防御+35",
-		"s_name": "绿箭侠"
+		"s_DescTalent": "自身属性：基础攻击+210，基础生命+2100，基础防御+35",
+		"s_Name": "绿箭侠"
 	},
 	{
+		"i_HeroId": 15,
+		"i_Id": 15004,
+		"i_NeedStar": 4,
 		"i_applyProf": 0,
-		"i_heroId": 15,
-		"i_id": 15004,
-		"i_needStar": 4,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_briefDescTalent": "【贯穿】：召唤一支可无限穿透的飞箭",
-		"s_descTalent": "触发【贯穿】时，并排触发的【贯穿】次数增加到4次",
-		"s_name": "绿箭侠"
+		"s_BriefDescTalent": "【贯穿】：召唤一支可无限穿透的飞箭",
+		"s_DescTalent": "触发【贯穿】时，并排触发的【贯穿】次数增加到4次",
+		"s_Name": "绿箭侠"
 	},
 	{
+		"i_HeroId": 15,
+		"i_Id": 15005,
+		"i_NeedStar": 5,
 		"i_applyProf": 0,
-		"i_heroId": 15,
-		"i_id": 15005,
-		"i_needStar": 5,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -3225,50 +3225,50 @@
 				315
 			]
 		],
-		"s_descTalent": "全体枪械师的基础攻击+315（上阵生效）",
-		"s_name": "绿箭侠"
+		"s_DescTalent": "全体枪械师的基础攻击+315（上阵生效）",
+		"s_Name": "绿箭侠"
 	},
 	{
+		"i_HeroId": 15,
+		"i_Id": 15006,
+		"i_NeedStar": 6,
 		"i_applyProf": 0,
-		"i_heroId": 15,
-		"i_id": 15006,
-		"i_needStar": 6,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_descTalent": "基础共鸣伤害+20%，触发风元素共鸣时，共鸣伤害额外+20%",
-		"s_name": "绿箭侠"
+		"s_DescTalent": "基础共鸣伤害+20%，触发风元素共鸣时，共鸣伤害额外+20%",
+		"s_Name": "绿箭侠"
 	},
 	{
-		"i_heroId": 15,
-		"i_id": 15007,
-		"i_needStar": 7,
+		"i_HeroId": 15,
+		"i_Id": 15007,
+		"i_NeedStar": 7,
 		"i_talentType": 0,
-		"s_name": "绿箭侠"
+		"s_Name": "绿箭侠"
 	},
 	{
+		"i_HeroId": 15,
+		"i_Id": 15008,
+		"i_NeedStar": 8,
 		"i_applyProf": 0,
-		"i_heroId": 15,
-		"i_id": 15008,
-		"i_needStar": 8,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_briefDescTalent": "【贯穿】：召唤一支可无限穿透的飞箭",
-		"s_descTalent": "触发【贯穿】时，并排触发的【贯穿】次数增加到6次",
-		"s_name": "绿箭侠"
+		"s_BriefDescTalent": "【贯穿】：召唤一支可无限穿透的飞箭",
+		"s_DescTalent": "触发【贯穿】时，并排触发的【贯穿】次数增加到6次",
+		"s_Name": "绿箭侠"
 	},
 	{
+		"i_HeroId": 15,
+		"i_Id": 15009,
+		"i_NeedStar": 9,
 		"i_applyProf": 0,
-		"i_heroId": 15,
-		"i_id": 15009,
-		"i_needStar": 9,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -3284,50 +3284,50 @@
 				500
 			]
 		],
-		"s_descTalent": "自身属性：基础攻击+5%，基础生命+5%，基础防御+5%",
-		"s_name": "绿箭侠"
+		"s_DescTalent": "自身属性：基础攻击+5%，基础生命+5%，基础防御+5%",
+		"s_Name": "绿箭侠"
 	},
 	{
+		"i_HeroId": 15,
+		"i_Id": 15010,
+		"i_NeedStar": 10,
 		"i_applyProf": 0,
-		"i_heroId": 15,
-		"i_id": 15010,
-		"i_needStar": 10,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_briefDescTalent": "【贯穿】：召唤一支可无限穿透的飞箭",
-		"s_descTalent": "局内每激活一个【贯穿】基因，造成伤害+5%",
-		"s_name": "绿箭侠"
+		"s_BriefDescTalent": "【贯穿】：召唤一支可无限穿透的飞箭",
+		"s_DescTalent": "局内每激活一个【贯穿】基因，造成伤害+5%",
+		"s_Name": "绿箭侠"
 	},
 	{
-		"i_heroId": 15,
-		"i_id": 15011,
-		"i_needStar": 11,
+		"i_HeroId": 15,
+		"i_Id": 15011,
+		"i_NeedStar": 11,
 		"i_talentType": 0,
-		"s_name": "绿箭侠"
+		"s_Name": "绿箭侠"
 	},
 	{
+		"i_HeroId": 15,
+		"i_Id": 15012,
+		"i_NeedStar": 12,
 		"i_applyProf": 0,
-		"i_heroId": 15,
-		"i_id": 15012,
-		"i_needStar": 12,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_descTalent": "穿透箭的飞行距离增加30%",
-		"s_name": "绿箭侠"
+		"s_DescTalent": "穿透箭的飞行距离增加30%",
+		"s_Name": "绿箭侠"
 	},
 	{
+		"i_HeroId": 15,
+		"i_Id": 15013,
+		"i_NeedStar": 13,
 		"i_applyProf": 0,
-		"i_heroId": 15,
-		"i_id": 15013,
-		"i_needStar": 13,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -3335,14 +3335,14 @@
 				500
 			]
 		],
-		"s_descTalent": "全体枪械师的基础攻击+3%（上阵生效）",
-		"s_name": "绿箭侠"
+		"s_DescTalent": "全体枪械师的基础攻击+3%（上阵生效）",
+		"s_Name": "绿箭侠"
 	},
 	{
+		"i_HeroId": 15,
+		"i_Id": 15014,
+		"i_NeedStar": 14,
 		"i_applyProf": 0,
-		"i_heroId": 15,
-		"i_id": 15014,
-		"i_needStar": 14,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -3358,43 +3358,43 @@
 				500
 			]
 		],
-		"s_descTalent": "自身属性：基础攻击+5%，基础生命+5%，基础防御+5%",
-		"s_name": "绿箭侠"
+		"s_DescTalent": "自身属性：基础攻击+5%，基础生命+5%，基础防御+5%",
+		"s_Name": "绿箭侠"
 	},
 	{
-		"i_heroId": 15,
-		"i_id": 15015,
-		"i_needStar": 15,
+		"i_HeroId": 15,
+		"i_Id": 15015,
+		"i_NeedStar": 15,
 		"i_talentType": 0,
-		"s_name": "绿箭侠"
+		"s_Name": "绿箭侠"
 	},
 	{
-		"i_heroId": 16,
-		"i_id": 16001,
-		"i_needStar": 1,
+		"i_HeroId": 16,
+		"i_Id": 16001,
+		"i_NeedStar": 1,
 		"i_talentType": 0,
-		"s_name": "船长"
+		"s_Name": "船长"
 	},
 	{
+		"i_HeroId": 16,
+		"i_Id": 16002,
+		"i_NeedStar": 2,
 		"i_applyProf": 0,
-		"i_heroId": 16,
-		"i_id": 16002,
-		"i_needStar": 2,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_briefDescTalent": "【霹雳】：在地面释放一道闪电，造成小范围伤害",
-		"s_descTalent": "水球爆炸时，有20%概率触发1次【霹雳】",
-		"s_name": "船长"
+		"s_BriefDescTalent": "【霹雳】：在地面释放一道闪电，造成小范围伤害",
+		"s_DescTalent": "水球爆炸时，有20%概率触发1次【霹雳】",
+		"s_Name": "船长"
 	},
 	{
+		"i_HeroId": 16,
+		"i_Id": 16003,
+		"i_NeedStar": 3,
 		"i_applyProf": 0,
-		"i_heroId": 16,
-		"i_id": 16003,
-		"i_needStar": 3,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -3410,29 +3410,29 @@
 				25
 			]
 		],
-		"s_descTalent": "自身属性：基础攻击+210，基础生命+2100，基础防御+25",
-		"s_name": "船长"
+		"s_DescTalent": "自身属性：基础攻击+210，基础生命+2100，基础防御+25",
+		"s_Name": "船长"
 	},
 	{
+		"i_HeroId": 16,
+		"i_Id": 16004,
+		"i_NeedStar": 4,
 		"i_applyProf": 0,
-		"i_heroId": 16,
-		"i_id": 16004,
-		"i_needStar": 4,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_briefDescTalent": "【霹雳】：在地面释放一道闪电，造成小范围伤害",
-		"s_descTalent": "幽灵触手攻击时，有20%概率在目标点触发一次【霹雳】",
-		"s_name": "船长"
+		"s_BriefDescTalent": "【霹雳】：在地面释放一道闪电，造成小范围伤害",
+		"s_DescTalent": "幽灵触手攻击时，有20%概率在目标点触发一次【霹雳】",
+		"s_Name": "船长"
 	},
 	{
+		"i_HeroId": 16,
+		"i_Id": 16005,
+		"i_NeedStar": 5,
 		"i_applyProf": 0,
-		"i_heroId": 16,
-		"i_id": 16005,
-		"i_needStar": 5,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -3440,50 +3440,50 @@
 				315
 			]
 		],
-		"s_descTalent": "全体爆破师的基础攻击+500（上阵生效）",
-		"s_name": "船长"
+		"s_DescTalent": "全体爆破师的基础攻击+500（上阵生效）",
+		"s_Name": "船长"
 	},
 	{
+		"i_HeroId": 16,
+		"i_Id": 16006,
+		"i_NeedStar": 6,
 		"i_applyProf": 0,
-		"i_heroId": 16,
-		"i_id": 16006,
-		"i_needStar": 6,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_descTalent": "基础共鸣伤害+15%，触发水元素共鸣效果时，共鸣伤害额外+10%",
-		"s_name": "船长"
+		"s_DescTalent": "基础共鸣伤害+15%，触发水元素共鸣效果时，共鸣伤害额外+10%",
+		"s_Name": "船长"
 	},
 	{
-		"i_heroId": 16,
-		"i_id": 16007,
-		"i_needStar": 7,
+		"i_HeroId": 16,
+		"i_Id": 16007,
+		"i_NeedStar": 7,
 		"i_talentType": 0,
-		"s_name": "船长"
+		"s_Name": "船长"
 	},
 	{
+		"i_HeroId": 16,
+		"i_Id": 16008,
+		"i_NeedStar": 8,
 		"i_applyProf": 0,
-		"i_heroId": 16,
-		"i_id": 16008,
-		"i_needStar": 8,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_briefDescTalent": "【霹雳】：在地面释放一道闪电，造成小范围伤害",
-		"s_descTalent": "水球触发【霹雳】的概率增加到25%，触手触发【霹雳】的概率增加到25%",
-		"s_name": "船长"
+		"s_BriefDescTalent": "【霹雳】：在地面释放一道闪电，造成小范围伤害",
+		"s_DescTalent": "水球触发【霹雳】的概率增加到25%，触手触发【霹雳】的概率增加到25%",
+		"s_Name": "船长"
 	},
 	{
+		"i_HeroId": 16,
+		"i_Id": 16009,
+		"i_NeedStar": 9,
 		"i_applyProf": 0,
-		"i_heroId": 16,
-		"i_id": 16009,
-		"i_needStar": 9,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -3499,50 +3499,50 @@
 				500
 			]
 		],
-		"s_descTalent": "自身属性：基础攻击+5%，基础生命+5%，基础防御+5%",
-		"s_name": "船长"
+		"s_DescTalent": "自身属性：基础攻击+5%，基础生命+5%，基础防御+5%",
+		"s_Name": "船长"
 	},
 	{
+		"i_HeroId": 16,
+		"i_Id": 16010,
+		"i_NeedStar": 10,
 		"i_applyProf": 0,
-		"i_heroId": 16,
-		"i_id": 16010,
-		"i_needStar": 10,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_descTalent": "幽灵船召唤的幽灵触手有50%概率额外造成一次伤害",
-		"s_name": "船长"
+		"s_DescTalent": "幽灵船召唤的幽灵触手有50%概率额外造成一次伤害",
+		"s_Name": "船长"
 	},
 	{
-		"i_heroId": 16,
-		"i_id": 16011,
-		"i_needStar": 11,
+		"i_HeroId": 16,
+		"i_Id": 16011,
+		"i_NeedStar": 11,
 		"i_talentType": 0,
-		"s_name": "船长"
+		"s_Name": "船长"
 	},
 	{
+		"i_HeroId": 16,
+		"i_Id": 16012,
+		"i_NeedStar": 12,
 		"i_applyProf": 0,
-		"i_heroId": 16,
-		"i_id": 16012,
-		"i_needStar": 12,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_briefDescTalent": "【霹雳】：在地面释放一道闪电，造成小范围伤害",
-		"s_descTalent": "战场上每拥有一个【霹雳】效果的基因，造成伤害+5%",
-		"s_name": "船长"
+		"s_BriefDescTalent": "【霹雳】：在地面释放一道闪电，造成小范围伤害",
+		"s_DescTalent": "战场上每拥有一个【霹雳】效果的基因，造成伤害+5%",
+		"s_Name": "船长"
 	},
 	{
+		"i_HeroId": 16,
+		"i_Id": 16013,
+		"i_NeedStar": 13,
 		"i_applyProf": 0,
-		"i_heroId": 16,
-		"i_id": 16013,
-		"i_needStar": 13,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -3550,14 +3550,14 @@
 				500
 			]
 		],
-		"s_descTalent": "全体爆破师的基础攻击+5%（上阵生效）",
-		"s_name": "船长"
+		"s_DescTalent": "全体爆破师的基础攻击+5%（上阵生效）",
+		"s_Name": "船长"
 	},
 	{
+		"i_HeroId": 16,
+		"i_Id": 16014,
+		"i_NeedStar": 14,
 		"i_applyProf": 0,
-		"i_heroId": 16,
-		"i_id": 16014,
-		"i_needStar": 14,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -3573,43 +3573,43 @@
 				500
 			]
 		],
-		"s_descTalent": "自身属性：基础攻击+5%，基础生命+5%，基础防御+5%",
-		"s_name": "船长"
+		"s_DescTalent": "自身属性：基础攻击+5%，基础生命+5%，基础防御+5%",
+		"s_Name": "船长"
 	},
 	{
-		"i_heroId": 16,
-		"i_id": 16015,
-		"i_needStar": 15,
+		"i_HeroId": 16,
+		"i_Id": 16015,
+		"i_NeedStar": 15,
 		"i_talentType": 0,
-		"s_name": "船长"
+		"s_Name": "船长"
 	},
 	{
-		"i_heroId": 17,
-		"i_id": 17001,
-		"i_needStar": 1,
+		"i_HeroId": 17,
+		"i_Id": 17001,
+		"i_NeedStar": 1,
 		"i_talentType": 0,
-		"s_name": "冰人"
+		"s_Name": "冰人"
 	},
 	{
+		"i_HeroId": 17,
+		"i_Id": 17002,
+		"i_NeedStar": 2,
 		"i_applyProf": 0,
-		"i_heroId": 17,
-		"i_id": 17002,
-		"i_needStar": 2,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_briefDescTalent": "【影袭】：原地划出一道半圆，产生小范围伤害",
-		"s_descTalent": "冰幔撞击有26.5%概率在目标点触发1次【影袭】",
-		"s_name": "冰人"
+		"s_BriefDescTalent": "【影袭】：原地划出一道半圆，产生小范围伤害",
+		"s_DescTalent": "冰幔撞击有26.5%概率在目标点触发1次【影袭】",
+		"s_Name": "冰人"
 	},
 	{
+		"i_HeroId": 17,
+		"i_Id": 17003,
+		"i_NeedStar": 3,
 		"i_applyProf": 0,
-		"i_heroId": 17,
-		"i_id": 17003,
-		"i_needStar": 3,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -3625,29 +3625,29 @@
 				42
 			]
 		],
-		"s_descTalent": "自身属性：基础攻击+210，基础生命+2100，基础防御+42",
-		"s_name": "冰人"
+		"s_DescTalent": "自身属性：基础攻击+210，基础生命+2100，基础防御+42",
+		"s_Name": "冰人"
 	},
 	{
+		"i_HeroId": 17,
+		"i_Id": 17004,
+		"i_NeedStar": 4,
 		"i_applyProf": 0,
-		"i_heroId": 17,
-		"i_id": 17004,
-		"i_needStar": 4,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_briefDescTalent": "【影袭】：原地划出一道半圆，产生小范围伤害",
-		"s_descTalent": "释放冰晶风暴后，冰柱每次爆炸都有27.5%概率在爆炸中心触发1次【影袭】",
-		"s_name": "冰人"
+		"s_BriefDescTalent": "【影袭】：原地划出一道半圆，产生小范围伤害",
+		"s_DescTalent": "释放冰晶风暴后，冰柱每次爆炸都有27.5%概率在爆炸中心触发1次【影袭】",
+		"s_Name": "冰人"
 	},
 	{
+		"i_HeroId": 17,
+		"i_Id": 17005,
+		"i_NeedStar": 5,
 		"i_applyProf": 0,
-		"i_heroId": 17,
-		"i_id": 17005,
-		"i_needStar": 5,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -3655,51 +3655,51 @@
 				315
 			]
 		],
-		"s_descTalent": "全体独行侠的基础攻击+315（上阵生效）",
-		"s_name": "冰人"
+		"s_DescTalent": "全体独行侠的基础攻击+315（上阵生效）",
+		"s_Name": "冰人"
 	},
 	{
+		"i_HeroId": 17,
+		"i_Id": 17006,
+		"i_NeedStar": 6,
 		"i_applyProf": 0,
-		"i_heroId": 17,
-		"i_id": 17006,
-		"i_needStar": 6,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_briefDescTalent": "【影袭】：原地划出一道半圆，产生小范围伤害",
-		"s_descTalent": "基础共鸣伤害+15%，触发水元素共鸣时，共鸣伤害额外+10%",
-		"s_name": "冰人"
+		"s_BriefDescTalent": "【影袭】：原地划出一道半圆，产生小范围伤害",
+		"s_DescTalent": "基础共鸣伤害+15%，触发水元素共鸣时，共鸣伤害额外+10%",
+		"s_Name": "冰人"
 	},
 	{
-		"i_heroId": 17,
-		"i_id": 17007,
-		"i_needStar": 7,
+		"i_HeroId": 17,
+		"i_Id": 17007,
+		"i_NeedStar": 7,
 		"i_talentType": 0,
-		"s_name": "冰人"
+		"s_Name": "冰人"
 	},
 	{
+		"i_HeroId": 17,
+		"i_Id": 17008,
+		"i_NeedStar": 8,
 		"i_applyProf": 0,
-		"i_heroId": 17,
-		"i_id": 17008,
-		"i_needStar": 8,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_briefDescTalent": "【影袭】：原地划出一道半圆，产生小范围伤害",
-		"s_descTalent": "冰人突袭触发【影袭】的概率增加到44.1%，冰晶风暴触发【影袭】的概率增加到36.7%",
-		"s_name": "冰人"
+		"s_BriefDescTalent": "【影袭】：原地划出一道半圆，产生小范围伤害",
+		"s_DescTalent": "冰人突袭触发【影袭】的概率增加到44.1%，冰晶风暴触发【影袭】的概率增加到36.7%",
+		"s_Name": "冰人"
 	},
 	{
+		"i_HeroId": 17,
+		"i_Id": 17009,
+		"i_NeedStar": 9,
 		"i_applyProf": 0,
-		"i_heroId": 17,
-		"i_id": 17009,
-		"i_needStar": 9,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -3715,49 +3715,49 @@
 				500
 			]
 		],
-		"s_descTalent": "自身属性：基础攻击+5%，基础生命+5%，基础防御+5%",
-		"s_name": "冰人"
+		"s_DescTalent": "自身属性：基础攻击+5%，基础生命+5%，基础防御+5%",
+		"s_Name": "冰人"
 	},
 	{
+		"i_HeroId": 17,
+		"i_Id": 17010,
+		"i_NeedStar": 10,
 		"i_applyProf": 0,
-		"i_heroId": 17,
-		"i_id": 17010,
-		"i_needStar": 10,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_descTalent": "局内每激活一个【影袭】基因，造成伤害+5%",
-		"s_name": "冰人"
+		"s_DescTalent": "局内每激活一个【影袭】基因，造成伤害+5%",
+		"s_Name": "冰人"
 	},
 	{
-		"i_heroId": 17,
-		"i_id": 17011,
-		"i_needStar": 11,
+		"i_HeroId": 17,
+		"i_Id": 17011,
+		"i_NeedStar": 11,
 		"i_talentType": 0,
-		"s_name": "冰人"
+		"s_Name": "冰人"
 	},
 	{
+		"i_HeroId": 17,
+		"i_Id": 17012,
+		"i_NeedStar": 12,
 		"i_applyProf": 0,
-		"i_heroId": 17,
-		"i_id": 17012,
-		"i_needStar": 12,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_descTalent": "冰人突袭撞到冰柱时，可引发冰柱爆炸，且获得伤害增加10%buff，持续5秒，最多叠加到60%",
-		"s_name": "冰人"
+		"s_DescTalent": "冰人突袭撞到冰柱时，可引发冰柱爆炸，且获得伤害增加10%buff，持续5秒，最多叠加到60%",
+		"s_Name": "冰人"
 	},
 	{
+		"i_HeroId": 17,
+		"i_Id": 17013,
+		"i_NeedStar": 13,
 		"i_applyProf": 0,
-		"i_heroId": 17,
-		"i_id": 17013,
-		"i_needStar": 13,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -3765,14 +3765,14 @@
 				500
 			]
 		],
-		"s_descTalent": "全体独行侠的基础攻击+5%（上阵生效）",
-		"s_name": "冰人"
+		"s_DescTalent": "全体独行侠的基础攻击+5%（上阵生效）",
+		"s_Name": "冰人"
 	},
 	{
+		"i_HeroId": 17,
+		"i_Id": 17014,
+		"i_NeedStar": 14,
 		"i_applyProf": 0,
-		"i_heroId": 17,
-		"i_id": 17014,
-		"i_needStar": 14,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -3788,43 +3788,43 @@
 				500
 			]
 		],
-		"s_descTalent": "自身属性：基础攻击+5%，基础生命+5%，基础防御+5%",
-		"s_name": "冰人"
+		"s_DescTalent": "自身属性：基础攻击+5%，基础生命+5%，基础防御+5%",
+		"s_Name": "冰人"
 	},
 	{
-		"i_heroId": 17,
-		"i_id": 17015,
-		"i_needStar": 15,
+		"i_HeroId": 17,
+		"i_Id": 17015,
+		"i_NeedStar": 15,
 		"i_talentType": 0,
-		"s_name": "冰人"
+		"s_Name": "冰人"
 	},
 	{
-		"i_heroId": 18,
-		"i_id": 18001,
-		"i_needStar": 1,
+		"i_HeroId": 18,
+		"i_Id": 18001,
+		"i_NeedStar": 1,
 		"i_talentType": 0,
-		"s_name": "金克斯"
+		"s_Name": "金克斯"
 	},
 	{
+		"i_HeroId": 18,
+		"i_Id": 18002,
+		"i_NeedStar": 2,
 		"i_applyProf": 0,
-		"i_heroId": 18,
-		"i_id": 18002,
-		"i_needStar": 2,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_briefDescTalent": "【贯穿】：召唤一支可无限穿透的飞箭",
-		"s_descTalent": "每发子弹，有3%概率向前方先后触发2次【贯穿】。大招期间概率翻倍。",
-		"s_name": "金克斯"
+		"s_BriefDescTalent": "【贯穿】：召唤一支可无限穿透的飞箭",
+		"s_DescTalent": "每发子弹，有3%概率向前方先后触发2次【贯穿】。大招期间概率翻倍。",
+		"s_Name": "金克斯"
 	},
 	{
+		"i_HeroId": 18,
+		"i_Id": 18003,
+		"i_NeedStar": 3,
 		"i_applyProf": 0,
-		"i_heroId": 18,
-		"i_id": 18003,
-		"i_needStar": 3,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -3840,29 +3840,29 @@
 				35
 			]
 		],
-		"s_descTalent": "自身属性：基础攻击+210，基础生命+2100，基础防御+35",
-		"s_name": "金克斯"
+		"s_DescTalent": "自身属性：基础攻击+210，基础生命+2100，基础防御+35",
+		"s_Name": "金克斯"
 	},
 	{
+		"i_HeroId": 18,
+		"i_Id": 18004,
+		"i_NeedStar": 4,
 		"i_applyProf": 0,
-		"i_heroId": 18,
-		"i_id": 18004,
-		"i_needStar": 4,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_briefDescTalent": "【贯穿】：召唤一支可无限穿透的飞箭",
-		"s_descTalent": "触发【贯穿】时，额外向左前方和左方触发2次",
-		"s_name": "金克斯"
+		"s_BriefDescTalent": "【贯穿】：召唤一支可无限穿透的飞箭",
+		"s_DescTalent": "触发【贯穿】时，额外向左前方和左方触发2次",
+		"s_Name": "金克斯"
 	},
 	{
+		"i_HeroId": 18,
+		"i_Id": 18005,
+		"i_NeedStar": 5,
 		"i_applyProf": 0,
-		"i_heroId": 18,
-		"i_id": 18005,
-		"i_needStar": 5,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -3870,50 +3870,50 @@
 				315
 			]
 		],
-		"s_descTalent": "全体枪械师的基础攻击+315（上阵生效）",
-		"s_name": "金克斯"
+		"s_DescTalent": "全体枪械师的基础攻击+315（上阵生效）",
+		"s_Name": "金克斯"
 	},
 	{
+		"i_HeroId": 18,
+		"i_Id": 18006,
+		"i_NeedStar": 6,
 		"i_applyProf": 0,
-		"i_heroId": 18,
-		"i_id": 18006,
-		"i_needStar": 6,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_descTalent": "基础共鸣伤害+20%，触发水元素共鸣时，共鸣伤害额外+20%",
-		"s_name": "金克斯"
+		"s_DescTalent": "基础共鸣伤害+20%，触发水元素共鸣时，共鸣伤害额外+20%",
+		"s_Name": "金克斯"
 	},
 	{
-		"i_heroId": 18,
-		"i_id": 18007,
-		"i_needStar": 7,
+		"i_HeroId": 18,
+		"i_Id": 18007,
+		"i_NeedStar": 7,
 		"i_talentType": 0,
-		"s_name": "金克斯"
+		"s_Name": "金克斯"
 	},
 	{
+		"i_HeroId": 18,
+		"i_Id": 18008,
+		"i_NeedStar": 8,
 		"i_applyProf": 0,
-		"i_heroId": 18,
-		"i_id": 18008,
-		"i_needStar": 8,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_briefDescTalent": "【贯穿】：召唤一支可无限穿透的飞箭",
-		"s_descTalent": "触发【贯穿】时，额外向右前方和右方触发2次",
-		"s_name": "金克斯"
+		"s_BriefDescTalent": "【贯穿】：召唤一支可无限穿透的飞箭",
+		"s_DescTalent": "触发【贯穿】时，额外向右前方和右方触发2次",
+		"s_Name": "金克斯"
 	},
 	{
+		"i_HeroId": 18,
+		"i_Id": 18009,
+		"i_NeedStar": 9,
 		"i_applyProf": 0,
-		"i_heroId": 18,
-		"i_id": 18009,
-		"i_needStar": 9,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -3929,50 +3929,50 @@
 				500
 			]
 		],
-		"s_descTalent": "自身属性：基础攻击+5%，基础生命+5%，基础防御+5%",
-		"s_name": "金克斯"
+		"s_DescTalent": "自身属性：基础攻击+5%，基础生命+5%，基础防御+5%",
+		"s_Name": "金克斯"
 	},
 	{
+		"i_HeroId": 18,
+		"i_Id": 18010,
+		"i_NeedStar": 10,
 		"i_applyProf": 0,
-		"i_heroId": 18,
-		"i_id": 18010,
-		"i_needStar": 10,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_briefDescTalent": "【贯穿】：召唤一支可无限穿透的飞箭",
-		"s_descTalent": "局内每激活一个【贯穿】基因，造成伤害+5%",
-		"s_name": "金克斯"
+		"s_BriefDescTalent": "【贯穿】：召唤一支可无限穿透的飞箭",
+		"s_DescTalent": "局内每激活一个【贯穿】基因，造成伤害+5%",
+		"s_Name": "金克斯"
 	},
 	{
-		"i_heroId": 18,
-		"i_id": 18011,
-		"i_needStar": 11,
+		"i_HeroId": 18,
+		"i_Id": 18011,
+		"i_NeedStar": 11,
 		"i_talentType": 0,
-		"s_name": "金克斯"
+		"s_Name": "金克斯"
 	},
 	{
+		"i_HeroId": 18,
+		"i_Id": 18012,
+		"i_NeedStar": 12,
 		"i_applyProf": 0,
-		"i_heroId": 18,
-		"i_id": 18012,
-		"i_needStar": 12,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_descTalent": "每击杀一个单位，获得0.3%攻速，最多叠加20%，切换武器时重置",
-		"s_name": "金克斯"
+		"s_DescTalent": "每击杀一个单位，获得0.3%攻速，最多叠加20%，切换武器时重置",
+		"s_Name": "金克斯"
 	},
 	{
+		"i_HeroId": 18,
+		"i_Id": 18013,
+		"i_NeedStar": 13,
 		"i_applyProf": 0,
-		"i_heroId": 18,
-		"i_id": 18013,
-		"i_needStar": 13,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -3980,14 +3980,14 @@
 				500
 			]
 		],
-		"s_descTalent": "全体枪械师的基础攻击+3%（上阵生效）",
-		"s_name": "金克斯"
+		"s_DescTalent": "全体枪械师的基础攻击+3%（上阵生效）",
+		"s_Name": "金克斯"
 	},
 	{
+		"i_HeroId": 18,
+		"i_Id": 18014,
+		"i_NeedStar": 14,
 		"i_applyProf": 0,
-		"i_heroId": 18,
-		"i_id": 18014,
-		"i_needStar": 14,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -4003,43 +4003,43 @@
 				500
 			]
 		],
-		"s_descTalent": "自身属性：基础攻击+5%，基础生命+5%，基础防御+5%",
-		"s_name": "金克斯"
+		"s_DescTalent": "自身属性：基础攻击+5%，基础生命+5%，基础防御+5%",
+		"s_Name": "金克斯"
 	},
 	{
-		"i_heroId": 18,
-		"i_id": 18015,
-		"i_needStar": 15,
+		"i_HeroId": 18,
+		"i_Id": 18015,
+		"i_NeedStar": 15,
 		"i_talentType": 0,
-		"s_name": "金克斯"
+		"s_Name": "金克斯"
 	},
 	{
-		"i_heroId": 19,
-		"i_id": 19001,
-		"i_needStar": 1,
+		"i_HeroId": 19,
+		"i_Id": 19001,
+		"i_NeedStar": 1,
 		"i_talentType": 0,
-		"s_name": "明日香"
+		"s_Name": "明日香"
 	},
 	{
+		"i_HeroId": 19,
+		"i_Id": 19002,
+		"i_NeedStar": 2,
 		"i_applyProf": 0,
-		"i_heroId": 19,
-		"i_id": 19002,
-		"i_needStar": 2,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_briefDescTalent": "【影袭】：原地划出一道半圆，产生小范围伤害",
-		"s_descTalent": "2号机有27.5%概率在目标点触发1次【影袭】",
-		"s_name": "明日香"
+		"s_BriefDescTalent": "【影袭】：原地划出一道半圆，产生小范围伤害",
+		"s_DescTalent": "2号机有27.5%概率在目标点触发1次【影袭】",
+		"s_Name": "明日香"
 	},
 	{
+		"i_HeroId": 19,
+		"i_Id": 19003,
+		"i_NeedStar": 3,
 		"i_applyProf": 0,
-		"i_heroId": 19,
-		"i_id": 19003,
-		"i_needStar": 3,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -4055,29 +4055,29 @@
 				42
 			]
 		],
-		"s_descTalent": "自身属性：基础攻击+210，基础生命+2100，基础防御+42",
-		"s_name": "明日香"
+		"s_DescTalent": "自身属性：基础攻击+210，基础生命+2100，基础防御+42",
+		"s_Name": "明日香"
 	},
 	{
+		"i_HeroId": 19,
+		"i_Id": 19004,
+		"i_NeedStar": 4,
 		"i_applyProf": 0,
-		"i_heroId": 19,
-		"i_id": 19004,
-		"i_needStar": 4,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_briefDescTalent": "【影袭】：原地划出一道半圆，产生小范围伤害",
-		"s_descTalent": "释放弑神领域时，有25.7%概率在3个固定点（升星可增加点数）触发1次【影袭】",
-		"s_name": "明日香"
+		"s_BriefDescTalent": "【影袭】：原地划出一道半圆，产生小范围伤害",
+		"s_DescTalent": "释放弑神领域时，有25.7%概率在3个固定点（升星可增加点数）触发1次【影袭】",
+		"s_Name": "明日香"
 	},
 	{
+		"i_HeroId": 19,
+		"i_Id": 19005,
+		"i_NeedStar": 5,
 		"i_applyProf": 0,
-		"i_heroId": 19,
-		"i_id": 19005,
-		"i_needStar": 5,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -4085,50 +4085,50 @@
 				315
 			]
 		],
-		"s_descTalent": "全体独行侠的基础攻击+315（上阵生效）",
-		"s_name": "明日香"
+		"s_DescTalent": "全体独行侠的基础攻击+315（上阵生效）",
+		"s_Name": "明日香"
 	},
 	{
+		"i_HeroId": 19,
+		"i_Id": 19006,
+		"i_NeedStar": 6,
 		"i_applyProf": 0,
-		"i_heroId": 19,
-		"i_id": 19006,
-		"i_needStar": 6,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_briefDescTalent": "【影袭】：原地划出一道半圆，产生小范围伤害",
-		"s_descTalent": "2号机触发【影袭】的概率增加到45.7%，弑神领域触发【影袭】的概率增加到34.3%",
-		"s_name": "明日香"
+		"s_BriefDescTalent": "【影袭】：原地划出一道半圆，产生小范围伤害",
+		"s_DescTalent": "2号机触发【影袭】的概率增加到45.7%，弑神领域触发【影袭】的概率增加到34.3%",
+		"s_Name": "明日香"
 	},
 	{
-		"i_heroId": 19,
-		"i_id": 19007,
-		"i_needStar": 7,
+		"i_HeroId": 19,
+		"i_Id": 19007,
+		"i_NeedStar": 7,
 		"i_talentType": 0,
-		"s_name": "明日香"
+		"s_Name": "明日香"
 	},
 	{
+		"i_HeroId": 19,
+		"i_Id": 19008,
+		"i_NeedStar": 8,
 		"i_applyProf": 0,
-		"i_heroId": 19,
-		"i_id": 19008,
-		"i_needStar": 8,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_descTalent": "局内每激活一个【影袭】基因，造成伤害+5%",
-		"s_name": "明日香"
+		"s_DescTalent": "局内每激活一个【影袭】基因，造成伤害+5%",
+		"s_Name": "明日香"
 	},
 	{
+		"i_HeroId": 19,
+		"i_Id": 19009,
+		"i_NeedStar": 9,
 		"i_applyProf": 0,
-		"i_heroId": 19,
-		"i_id": 19009,
-		"i_needStar": 9,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -4144,50 +4144,50 @@
 				500
 			]
 		],
-		"s_descTalent": "自身属性：基础攻击+5%，基础生命+5%，基础防御+5%",
-		"s_name": "明日香"
+		"s_DescTalent": "自身属性：基础攻击+5%，基础生命+5%，基础防御+5%",
+		"s_Name": "明日香"
 	},
 	{
+		"i_HeroId": 19,
+		"i_Id": 19010,
+		"i_NeedStar": 10,
 		"i_applyProf": 0,
-		"i_heroId": 19,
-		"i_id": 19010,
-		"i_needStar": 10,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_briefDescTalent": "【影袭】：原地划出一道半圆，产生小范围伤害",
-		"s_descTalent": "基础共鸣伤害+15%，触发火元素共鸣时，共鸣伤害额外+20%",
-		"s_name": "明日香"
+		"s_BriefDescTalent": "【影袭】：原地划出一道半圆，产生小范围伤害",
+		"s_DescTalent": "基础共鸣伤害+15%，触发火元素共鸣时，共鸣伤害额外+20%",
+		"s_Name": "明日香"
 	},
 	{
-		"i_heroId": 19,
-		"i_id": 19011,
-		"i_needStar": 11,
+		"i_HeroId": 19,
+		"i_Id": 19011,
+		"i_NeedStar": 11,
 		"i_talentType": 0,
-		"s_name": "明日香"
+		"s_Name": "明日香"
 	},
 	{
+		"i_HeroId": 19,
+		"i_Id": 19012,
+		"i_NeedStar": 12,
 		"i_applyProf": 0,
-		"i_heroId": 19,
-		"i_id": 19012,
-		"i_needStar": 12,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_descTalent": "2号机的第一段攻击伤害增加80%",
-		"s_name": "明日香"
+		"s_DescTalent": "2号机的第一段攻击伤害增加80%",
+		"s_Name": "明日香"
 	},
 	{
+		"i_HeroId": 19,
+		"i_Id": 19013,
+		"i_NeedStar": 13,
 		"i_applyProf": 0,
-		"i_heroId": 19,
-		"i_id": 19013,
-		"i_needStar": 13,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -4195,14 +4195,14 @@
 				500
 			]
 		],
-		"s_descTalent": "全体独行侠的基础攻击+5%（上阵生效）",
-		"s_name": "明日香"
+		"s_DescTalent": "全体独行侠的基础攻击+5%（上阵生效）",
+		"s_Name": "明日香"
 	},
 	{
+		"i_HeroId": 19,
+		"i_Id": 19014,
+		"i_NeedStar": 14,
 		"i_applyProf": 0,
-		"i_heroId": 19,
-		"i_id": 19014,
-		"i_needStar": 14,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -4218,43 +4218,43 @@
 				500
 			]
 		],
-		"s_descTalent": "自身属性：基础攻击+5%，基础生命+5%，基础防御+5%",
-		"s_name": "明日香"
+		"s_DescTalent": "自身属性：基础攻击+5%，基础生命+5%，基础防御+5%",
+		"s_Name": "明日香"
 	},
 	{
-		"i_heroId": 19,
-		"i_id": 19015,
-		"i_needStar": 15,
+		"i_HeroId": 19,
+		"i_Id": 19015,
+		"i_NeedStar": 15,
 		"i_talentType": 0,
-		"s_name": "明日香"
+		"s_Name": "明日香"
 	},
 	{
-		"i_heroId": 20,
-		"i_id": 20001,
-		"i_needStar": 1,
+		"i_HeroId": 20,
+		"i_Id": 20001,
+		"i_NeedStar": 1,
 		"i_talentType": 0,
-		"s_name": "龙姨"
+		"s_Name": "龙姨"
 	},
 	{
+		"i_HeroId": 20,
+		"i_Id": 20002,
+		"i_NeedStar": 2,
 		"i_applyProf": 0,
-		"i_heroId": 20,
-		"i_id": 20002,
-		"i_needStar": 2,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_briefDescTalent": "【红色灵能】：灵能每隔2秒对周围的敌人造成伤害，持续8秒。消失时造成大范围伤害",
-		"s_descTalent": "巨龙咆哮释放后，召唤出3个【红色灵能】",
-		"s_name": "龙姨"
+		"s_BriefDescTalent": "【红色灵能】：灵能每隔2秒对周围的敌人造成伤害，持续8秒。消失时造成大范围伤害",
+		"s_DescTalent": "巨龙咆哮释放后，召唤出3个【红色灵能】",
+		"s_Name": "龙姨"
 	},
 	{
+		"i_HeroId": 20,
+		"i_Id": 20003,
+		"i_NeedStar": 3,
 		"i_applyProf": 0,
-		"i_heroId": 20,
-		"i_id": 20003,
-		"i_needStar": 3,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -4270,29 +4270,29 @@
 				50
 			]
 		],
-		"s_descTalent": "自身属性：基础攻击+210，基础生命+2100，基础防御+50",
-		"s_name": "龙姨"
+		"s_DescTalent": "自身属性：基础攻击+210，基础生命+2100，基础防御+50",
+		"s_Name": "龙姨"
 	},
 	{
+		"i_HeroId": 20,
+		"i_Id": 20004,
+		"i_NeedStar": 4,
 		"i_applyProf": 0,
-		"i_heroId": 20,
-		"i_id": 20004,
-		"i_needStar": 4,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_briefDescTalent": "【红色灵能】：灵能每隔2秒对周围的敌人造成伤害，持续8秒。消失时造成大范围伤害",
-		"s_descTalent": "【红色灵能】持续时间增加4秒，消失时造成的伤害增加100%",
-		"s_name": "龙姨"
+		"s_BriefDescTalent": "【红色灵能】：灵能每隔2秒对周围的敌人造成伤害，持续8秒。消失时造成大范围伤害",
+		"s_DescTalent": "【红色灵能】持续时间增加4秒，消失时造成的伤害增加100%",
+		"s_Name": "龙姨"
 	},
 	{
+		"i_HeroId": 20,
+		"i_Id": 20005,
+		"i_NeedStar": 5,
 		"i_applyProf": 0,
-		"i_heroId": 20,
-		"i_id": 20005,
-		"i_needStar": 5,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -4308,50 +4308,50 @@
 				30
 			]
 		],
-		"s_descTalent": "全体队员：基础攻击+120，基础生命+1200，基础防御+30（上阵生效）",
-		"s_name": "龙姨"
+		"s_DescTalent": "全体队员：基础攻击+120，基础生命+1200，基础防御+30（上阵生效）",
+		"s_Name": "龙姨"
 	},
 	{
+		"i_HeroId": 20,
+		"i_Id": 20006,
+		"i_NeedStar": 6,
 		"i_applyProf": 0,
-		"i_heroId": 20,
-		"i_id": 20006,
-		"i_needStar": 6,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_descTalent": "触发元素共鸣时，所有队友获得伤害减免+10%，持续5秒。10s内只可触发一次",
-		"s_name": "龙姨"
+		"s_DescTalent": "触发元素共鸣时，所有队友获得伤害减免+10%，持续5秒。10s内只可触发一次",
+		"s_Name": "龙姨"
 	},
 	{
-		"i_heroId": 20,
-		"i_id": 20007,
-		"i_needStar": 7,
+		"i_HeroId": 20,
+		"i_Id": 20007,
+		"i_NeedStar": 7,
 		"i_talentType": 0,
-		"s_name": "龙姨"
+		"s_Name": "龙姨"
 	},
 	{
+		"i_HeroId": 20,
+		"i_Id": 20008,
+		"i_NeedStar": 8,
 		"i_applyProf": 0,
-		"i_heroId": 20,
-		"i_id": 20008,
-		"i_needStar": 8,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_briefDescTalent": "【灵能】：灵能每隔2秒对周围的敌人造成伤害，持续8秒",
-		"s_descTalent": "局内每激活一个【灵能】基因，造成伤害+6.8%",
-		"s_name": "龙姨"
+		"s_BriefDescTalent": "【灵能】：灵能每隔2秒对周围的敌人造成伤害，持续8秒",
+		"s_DescTalent": "局内每激活一个【灵能】基因，造成伤害+6.8%",
+		"s_Name": "龙姨"
 	},
 	{
+		"i_HeroId": 20,
+		"i_Id": 20009,
+		"i_NeedStar": 9,
 		"i_applyProf": 0,
-		"i_heroId": 20,
-		"i_id": 20009,
-		"i_needStar": 9,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -4367,35 +4367,35 @@
 				500
 			]
 		],
-		"s_descTalent": "自身属性：基础攻击+5%，基础生命+5%，基础防御+5%",
-		"s_name": "龙姨"
+		"s_DescTalent": "自身属性：基础攻击+5%，基础生命+5%，基础防御+5%",
+		"s_Name": "龙姨"
 	},
 	{
+		"i_HeroId": 20,
+		"i_Id": 20010,
+		"i_NeedStar": 10,
 		"i_applyProf": 0,
-		"i_heroId": 20,
-		"i_id": 20010,
-		"i_needStar": 10,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_descTalent": "巨龙咆哮释放的护盾可以使所有英雄获得20%的伤害增加，随护盾的消失而消失",
-		"s_name": "龙姨"
+		"s_DescTalent": "巨龙咆哮释放的护盾可以使所有英雄获得20%的伤害增加，随护盾的消失而消失",
+		"s_Name": "龙姨"
 	},
 	{
-		"i_heroId": 20,
-		"i_id": 20011,
-		"i_needStar": 11,
+		"i_HeroId": 20,
+		"i_Id": 20011,
+		"i_NeedStar": 11,
 		"i_talentType": 0,
-		"s_name": "龙姨"
+		"s_Name": "龙姨"
 	},
 	{
+		"i_HeroId": 20,
+		"i_Id": 20012,
+		"i_NeedStar": 12,
 		"i_applyProf": 0,
-		"i_heroId": 20,
-		"i_id": 20012,
-		"i_needStar": 12,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -4411,14 +4411,14 @@
 				64
 			]
 		],
-		"s_descTalent": "全体队员：基础攻击+300，基础生命+3000，基础防御+64（上阵生效）",
-		"s_name": "龙姨"
+		"s_DescTalent": "全体队员：基础攻击+300，基础生命+3000，基础防御+64（上阵生效）",
+		"s_Name": "龙姨"
 	},
 	{
+		"i_HeroId": 20,
+		"i_Id": 20013,
+		"i_NeedStar": 13,
 		"i_applyProf": 0,
-		"i_heroId": 20,
-		"i_id": 20013,
-		"i_needStar": 13,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -4434,14 +4434,14 @@
 				500
 			]
 		],
-		"s_descTalent": "自身属性：基础攻击+5%，基础生命+5%，基础防御+5%",
-		"s_name": "龙姨"
+		"s_DescTalent": "自身属性：基础攻击+5%，基础生命+5%，基础防御+5%",
+		"s_Name": "龙姨"
 	},
 	{
+		"i_HeroId": 20,
+		"i_Id": 20014,
+		"i_NeedStar": 14,
 		"i_applyProf": 0,
-		"i_heroId": 20,
-		"i_id": 20014,
-		"i_needStar": 14,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -4457,43 +4457,43 @@
 				500
 			]
 		],
-		"s_descTalent": "全体队员：基础攻击+5%，基础生命+5%，基础防御+5%（上阵生效）",
-		"s_name": "龙姨"
+		"s_DescTalent": "全体队员：基础攻击+5%，基础生命+5%，基础防御+5%（上阵生效）",
+		"s_Name": "龙姨"
 	},
 	{
-		"i_heroId": 20,
-		"i_id": 20015,
-		"i_needStar": 15,
+		"i_HeroId": 20,
+		"i_Id": 20015,
+		"i_NeedStar": 15,
 		"i_talentType": 0,
-		"s_name": "龙姨"
+		"s_Name": "龙姨"
 	},
 	{
-		"i_heroId": 21,
-		"i_id": 21001,
-		"i_needStar": 1,
+		"i_HeroId": 21,
+		"i_Id": 21001,
+		"i_NeedStar": 1,
 		"i_talentType": 0,
-		"s_name": "暴风女"
+		"s_Name": "暴风女"
 	},
 	{
+		"i_HeroId": 21,
+		"i_Id": 21002,
+		"i_NeedStar": 2,
 		"i_applyProf": 0,
-		"i_heroId": 21,
-		"i_id": 21002,
-		"i_needStar": 2,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_briefDescTalent": "【霹雳】：在地面释放一道闪电，造成小范围伤害",
-		"s_descTalent": "飓风爆炸时，有14%概率触发1次【霹雳】",
-		"s_name": "暴风女"
+		"s_BriefDescTalent": "【霹雳】：在地面释放一道闪电，造成小范围伤害",
+		"s_DescTalent": "飓风爆炸时，有14%概率触发1次【霹雳】",
+		"s_Name": "暴风女"
 	},
 	{
+		"i_HeroId": 21,
+		"i_Id": 21003,
+		"i_NeedStar": 3,
 		"i_applyProf": 0,
-		"i_heroId": 21,
-		"i_id": 21003,
-		"i_needStar": 3,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -4509,29 +4509,29 @@
 				25
 			]
 		],
-		"s_descTalent": "自身属性：基础攻击+210，基础生命+2100，基础防御+25",
-		"s_name": "暴风女"
+		"s_DescTalent": "自身属性：基础攻击+210，基础生命+2100，基础防御+25",
+		"s_Name": "暴风女"
 	},
 	{
+		"i_HeroId": 21,
+		"i_Id": 21004,
+		"i_NeedStar": 4,
 		"i_applyProf": 0,
-		"i_heroId": 21,
-		"i_id": 21004,
-		"i_needStar": 4,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_briefDescTalent": "【霹雳】：在地面释放一道闪电，造成小范围伤害",
-		"s_descTalent": "龙卷风爆炸时，有66%概率在目标点触发一次【霹雳】",
-		"s_name": "暴风女"
+		"s_BriefDescTalent": "【霹雳】：在地面释放一道闪电，造成小范围伤害",
+		"s_DescTalent": "龙卷风爆炸时，有66%概率在目标点触发一次【霹雳】",
+		"s_Name": "暴风女"
 	},
 	{
+		"i_HeroId": 21,
+		"i_Id": 21005,
+		"i_NeedStar": 5,
 		"i_applyProf": 0,
-		"i_heroId": 21,
-		"i_id": 21005,
-		"i_needStar": 5,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -4539,50 +4539,50 @@
 				315
 			]
 		],
-		"s_descTalent": "全体爆破师的基础攻击+500（上阵生效）",
-		"s_name": "暴风女"
+		"s_DescTalent": "全体爆破师的基础攻击+500（上阵生效）",
+		"s_Name": "暴风女"
 	},
 	{
+		"i_HeroId": 21,
+		"i_Id": 21006,
+		"i_NeedStar": 6,
 		"i_applyProf": 0,
-		"i_heroId": 21,
-		"i_id": 21006,
-		"i_needStar": 6,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_descTalent": "基础共鸣伤害+15%，触发风元素共鸣效果时，共鸣伤害额外+10%",
-		"s_name": "暴风女"
+		"s_DescTalent": "基础共鸣伤害+15%，触发风元素共鸣效果时，共鸣伤害额外+10%",
+		"s_Name": "暴风女"
 	},
 	{
-		"i_heroId": 21,
-		"i_id": 21007,
-		"i_needStar": 7,
+		"i_HeroId": 21,
+		"i_Id": 21007,
+		"i_NeedStar": 7,
 		"i_talentType": 0,
-		"s_name": "暴风女"
+		"s_Name": "暴风女"
 	},
 	{
+		"i_HeroId": 21,
+		"i_Id": 21008,
+		"i_NeedStar": 8,
 		"i_applyProf": 0,
-		"i_heroId": 21,
-		"i_id": 21008,
-		"i_needStar": 8,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_briefDescTalent": "【霹雳】：在地面释放一道闪电，造成小范围伤害",
-		"s_descTalent": "飓风触发【霹雳】的概率增加到23%，龙卷风触发【霹雳】的概率增加到84%",
-		"s_name": "暴风女"
+		"s_BriefDescTalent": "【霹雳】：在地面释放一道闪电，造成小范围伤害",
+		"s_DescTalent": "飓风触发【霹雳】的概率增加到23%，龙卷风触发【霹雳】的概率增加到84%",
+		"s_Name": "暴风女"
 	},
 	{
+		"i_HeroId": 21,
+		"i_Id": 21009,
+		"i_NeedStar": 9,
 		"i_applyProf": 0,
-		"i_heroId": 21,
-		"i_id": 21009,
-		"i_needStar": 9,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -4598,50 +4598,50 @@
 				500
 			]
 		],
-		"s_descTalent": "自身属性：基础攻击+5%，基础生命+5%，基础防御+5%",
-		"s_name": "暴风女"
+		"s_DescTalent": "自身属性：基础攻击+5%，基础生命+5%，基础防御+5%",
+		"s_Name": "暴风女"
 	},
 	{
+		"i_HeroId": 21,
+		"i_Id": 21010,
+		"i_NeedStar": 10,
 		"i_applyProf": 0,
-		"i_heroId": 21,
-		"i_id": 21010,
-		"i_needStar": 10,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_descTalent": "风暴来袭召唤的龙卷风爆炸范围+50%",
-		"s_name": "暴风女"
+		"s_DescTalent": "风暴来袭召唤的龙卷风爆炸范围+50%",
+		"s_Name": "暴风女"
 	},
 	{
-		"i_heroId": 21,
-		"i_id": 21011,
-		"i_needStar": 11,
+		"i_HeroId": 21,
+		"i_Id": 21011,
+		"i_NeedStar": 11,
 		"i_talentType": 0,
-		"s_name": "暴风女"
+		"s_Name": "暴风女"
 	},
 	{
+		"i_HeroId": 21,
+		"i_Id": 21012,
+		"i_NeedStar": 12,
 		"i_applyProf": 0,
-		"i_heroId": 21,
-		"i_id": 21012,
-		"i_needStar": 12,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_briefDescTalent": "【霹雳】：在地面释放一道闪电，造成小范围伤害",
-		"s_descTalent": "战场上每拥有一个【霹雳】效果的基因，造成伤害+5%",
-		"s_name": "暴风女"
+		"s_BriefDescTalent": "【霹雳】：在地面释放一道闪电，造成小范围伤害",
+		"s_DescTalent": "战场上每拥有一个【霹雳】效果的基因，造成伤害+5%",
+		"s_Name": "暴风女"
 	},
 	{
+		"i_HeroId": 21,
+		"i_Id": 21013,
+		"i_NeedStar": 13,
 		"i_applyProf": 0,
-		"i_heroId": 21,
-		"i_id": 21013,
-		"i_needStar": 13,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -4649,14 +4649,14 @@
 				500
 			]
 		],
-		"s_descTalent": "全体爆破师的基础攻击+5%（上阵生效）",
-		"s_name": "暴风女"
+		"s_DescTalent": "全体爆破师的基础攻击+5%（上阵生效）",
+		"s_Name": "暴风女"
 	},
 	{
+		"i_HeroId": 21,
+		"i_Id": 21014,
+		"i_NeedStar": 14,
 		"i_applyProf": 0,
-		"i_heroId": 21,
-		"i_id": 21014,
-		"i_needStar": 14,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -4672,43 +4672,43 @@
 				500
 			]
 		],
-		"s_descTalent": "自身属性：基础攻击+5%，基础生命+5%，基础防御+5%",
-		"s_name": "暴风女"
+		"s_DescTalent": "自身属性：基础攻击+5%，基础生命+5%，基础防御+5%",
+		"s_Name": "暴风女"
 	},
 	{
-		"i_heroId": 21,
-		"i_id": 21015,
-		"i_needStar": 15,
+		"i_HeroId": 21,
+		"i_Id": 21015,
+		"i_NeedStar": 15,
 		"i_talentType": 0,
-		"s_name": "暴风女"
+		"s_Name": "暴风女"
 	},
 	{
-		"i_heroId": 22,
-		"i_id": 22001,
-		"i_needStar": 1,
+		"i_HeroId": 22,
+		"i_Id": 22001,
+		"i_NeedStar": 1,
 		"i_talentType": 0,
-		"s_name": "雷神"
+		"s_Name": "雷神"
 	},
 	{
+		"i_HeroId": 22,
+		"i_Id": 22002,
+		"i_NeedStar": 2,
 		"i_applyProf": 0,
-		"i_heroId": 22,
-		"i_id": 22002,
-		"i_needStar": 2,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_briefDescTalent": "【虚弱力场】：产生一个圆形区域，区域内的敌人受到持续伤害，并且造成伤害永久降低20%，持续7秒",
-		"s_descTalent": "雷神降临释放后会在落点形成一片【虚弱力场】",
-		"s_name": "雷神"
+		"s_BriefDescTalent": "【虚弱力场】：产生一个圆形区域，区域内的敌人受到持续伤害，并且造成伤害永久降低20%，持续7秒",
+		"s_DescTalent": "雷神降临释放后会在落点形成一片【虚弱力场】",
+		"s_Name": "雷神"
 	},
 	{
+		"i_HeroId": 22,
+		"i_Id": 22003,
+		"i_NeedStar": 3,
 		"i_applyProf": 0,
-		"i_heroId": 22,
-		"i_id": 22003,
-		"i_needStar": 3,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -4724,29 +4724,29 @@
 				60
 			]
 		],
-		"s_descTalent": "自身属性：基础攻击+210，基础生命+2100，基础防御+60",
-		"s_name": "雷神"
+		"s_DescTalent": "自身属性：基础攻击+210，基础生命+2100，基础防御+60",
+		"s_Name": "雷神"
 	},
 	{
+		"i_HeroId": 22,
+		"i_Id": 22004,
+		"i_NeedStar": 4,
 		"i_applyProf": 0,
-		"i_heroId": 22,
-		"i_id": 22004,
-		"i_needStar": 4,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_briefDescTalent": "【虚弱力场】：产生一个圆形区域，区域内的敌人受到持续伤害，并且造成伤害永久降低30%，持续7秒",
-		"s_descTalent": "【虚弱力场】范围增加35%，虚弱效果提升50%",
-		"s_name": "雷神"
+		"s_BriefDescTalent": "【虚弱力场】：产生一个圆形区域，区域内的敌人受到持续伤害，并且造成伤害永久降低30%，持续7秒",
+		"s_DescTalent": "【虚弱力场】范围增加35%，虚弱效果提升50%",
+		"s_Name": "雷神"
 	},
 	{
+		"i_HeroId": 22,
+		"i_Id": 22005,
+		"i_NeedStar": 5,
 		"i_applyProf": 0,
-		"i_heroId": 22,
-		"i_id": 22005,
-		"i_needStar": 5,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -4762,50 +4762,50 @@
 				30
 			]
 		],
-		"s_descTalent": "全体队员：基础攻击+120，基础生命+1200，基础防御+30（上阵生效）",
-		"s_name": "雷神"
+		"s_DescTalent": "全体队员：基础攻击+120，基础生命+1200，基础防御+30（上阵生效）",
+		"s_Name": "雷神"
 	},
 	{
+		"i_HeroId": 22,
+		"i_Id": 22006,
+		"i_NeedStar": 6,
 		"i_applyProf": 0,
-		"i_heroId": 22,
-		"i_id": 22006,
-		"i_needStar": 6,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_descTalent": "触发元素共鸣时，所有队友获得伤害减免+10%，持续5秒。10s内只可触发一次",
-		"s_name": "雷神"
+		"s_DescTalent": "触发元素共鸣时，所有队友获得伤害减免+10%，持续5秒。10s内只可触发一次",
+		"s_Name": "雷神"
 	},
 	{
-		"i_heroId": 22,
-		"i_id": 22007,
-		"i_needStar": 7,
+		"i_HeroId": 22,
+		"i_Id": 22007,
+		"i_NeedStar": 7,
 		"i_talentType": 0,
-		"s_name": "雷神"
+		"s_Name": "雷神"
 	},
 	{
+		"i_HeroId": 22,
+		"i_Id": 22008,
+		"i_NeedStar": 8,
 		"i_applyProf": 0,
-		"i_heroId": 22,
-		"i_id": 22008,
-		"i_needStar": 8,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_briefDescTalent": "【力场】：产生一个圆形区域，区域内的敌人受到持续伤害，持续7秒",
-		"s_descTalent": "局内每激活一个【力场】基因，自身基础防御+6.8%",
-		"s_name": "雷神"
+		"s_BriefDescTalent": "【力场】：产生一个圆形区域，区域内的敌人受到持续伤害，持续7秒",
+		"s_DescTalent": "局内每激活一个【力场】基因，自身基础防御+6.8%",
+		"s_Name": "雷神"
 	},
 	{
+		"i_HeroId": 22,
+		"i_Id": 22009,
+		"i_NeedStar": 9,
 		"i_applyProf": 0,
-		"i_heroId": 22,
-		"i_id": 22009,
-		"i_needStar": 9,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -4821,35 +4821,35 @@
 				500
 			]
 		],
-		"s_descTalent": "自身属性：基础攻击+5%，基础生命+5%，基础防御+5%",
-		"s_name": "雷神"
+		"s_DescTalent": "自身属性：基础攻击+5%，基础生命+5%，基础防御+5%",
+		"s_Name": "雷神"
 	},
 	{
+		"i_HeroId": 22,
+		"i_Id": 22010,
+		"i_NeedStar": 10,
 		"i_applyProf": 0,
-		"i_heroId": 22,
-		"i_id": 22010,
-		"i_needStar": 10,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_descTalent": "被雷神降临击中的敌人会被禁锢2秒",
-		"s_name": "雷神"
+		"s_DescTalent": "被雷神降临击中的敌人会被禁锢2秒",
+		"s_Name": "雷神"
 	},
 	{
-		"i_heroId": 22,
-		"i_id": 22011,
-		"i_needStar": 11,
+		"i_HeroId": 22,
+		"i_Id": 22011,
+		"i_NeedStar": 11,
 		"i_talentType": 0,
-		"s_name": "雷神"
+		"s_Name": "雷神"
 	},
 	{
+		"i_HeroId": 22,
+		"i_Id": 22012,
+		"i_NeedStar": 12,
 		"i_applyProf": 0,
-		"i_heroId": 22,
-		"i_id": 22012,
-		"i_needStar": 12,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -4865,14 +4865,14 @@
 				64
 			]
 		],
-		"s_descTalent": "全体队员：基础攻击+300，基础生命+3000，基础防御+64（上阵生效）",
-		"s_name": "雷神"
+		"s_DescTalent": "全体队员：基础攻击+300，基础生命+3000，基础防御+64（上阵生效）",
+		"s_Name": "雷神"
 	},
 	{
+		"i_HeroId": 22,
+		"i_Id": 22013,
+		"i_NeedStar": 13,
 		"i_applyProf": 0,
-		"i_heroId": 22,
-		"i_id": 22013,
-		"i_needStar": 13,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -4888,14 +4888,14 @@
 				500
 			]
 		],
-		"s_descTalent": "自身属性：基础攻击+5%，基础生命+5%，基础防御+5%",
-		"s_name": "雷神"
+		"s_DescTalent": "自身属性：基础攻击+5%，基础生命+5%，基础防御+5%",
+		"s_Name": "雷神"
 	},
 	{
+		"i_HeroId": 22,
+		"i_Id": 22014,
+		"i_NeedStar": 14,
 		"i_applyProf": 0,
-		"i_heroId": 22,
-		"i_id": 22014,
-		"i_needStar": 14,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -4911,43 +4911,43 @@
 				500
 			]
 		],
-		"s_descTalent": "全体队员：基础攻击+5%，基础生命+5%，基础防御+5%（上阵生效）",
-		"s_name": "雷神"
+		"s_DescTalent": "全体队员：基础攻击+5%，基础生命+5%，基础防御+5%（上阵生效）",
+		"s_Name": "雷神"
 	},
 	{
-		"i_heroId": 22,
-		"i_id": 22015,
-		"i_needStar": 15,
+		"i_HeroId": 22,
+		"i_Id": 22015,
+		"i_NeedStar": 15,
 		"i_talentType": 0,
-		"s_name": "雷神"
+		"s_Name": "雷神"
 	},
 	{
-		"i_heroId": 23,
-		"i_id": 23001,
-		"i_needStar": 1,
+		"i_HeroId": 23,
+		"i_Id": 23001,
+		"i_NeedStar": 1,
 		"i_talentType": 0,
-		"s_name": "赛亚人"
+		"s_Name": "赛亚人"
 	},
 	{
+		"i_HeroId": 23,
+		"i_Id": 23002,
+		"i_NeedStar": 2,
 		"i_applyProf": 0,
-		"i_heroId": 23,
-		"i_id": 23002,
-		"i_needStar": 2,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_briefDescTalent": "【贯穿】：召唤一支可无限穿透的飞箭",
-		"s_descTalent": "每射出1发子弹，有3%概率向前方先后触发2次【贯穿】。大招期间概率翻倍",
-		"s_name": "赛亚人"
+		"s_BriefDescTalent": "【贯穿】：召唤一支可无限穿透的飞箭",
+		"s_DescTalent": "每射出1发子弹，有3%概率向前方先后触发2次【贯穿】。大招期间概率翻倍",
+		"s_Name": "赛亚人"
 	},
 	{
+		"i_HeroId": 23,
+		"i_Id": 23003,
+		"i_NeedStar": 3,
 		"i_applyProf": 0,
-		"i_heroId": 23,
-		"i_id": 23003,
-		"i_needStar": 3,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -4963,29 +4963,29 @@
 				35
 			]
 		],
-		"s_descTalent": "自身属性：基础攻击+210，基础生命+2100，基础防御+35",
-		"s_name": "赛亚人"
+		"s_DescTalent": "自身属性：基础攻击+210，基础生命+2100，基础防御+35",
+		"s_Name": "赛亚人"
 	},
 	{
+		"i_HeroId": 23,
+		"i_Id": 23004,
+		"i_NeedStar": 4,
 		"i_applyProf": 0,
-		"i_heroId": 23,
-		"i_id": 23004,
-		"i_needStar": 4,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_briefDescTalent": "【贯穿】：召唤一支可无限穿透的飞箭",
-		"s_descTalent": "触发【贯穿】时，会向前方先后并排触发4次【贯穿】",
-		"s_name": "赛亚人"
+		"s_BriefDescTalent": "【贯穿】：召唤一支可无限穿透的飞箭",
+		"s_DescTalent": "触发【贯穿】时，会向前方先后并排触发4次【贯穿】",
+		"s_Name": "赛亚人"
 	},
 	{
+		"i_HeroId": 23,
+		"i_Id": 23005,
+		"i_NeedStar": 5,
 		"i_applyProf": 0,
-		"i_heroId": 23,
-		"i_id": 23005,
-		"i_needStar": 5,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -4993,50 +4993,50 @@
 				315
 			]
 		],
-		"s_descTalent": "全体枪械师的基础攻击+315（上阵生效）",
-		"s_name": "赛亚人"
+		"s_DescTalent": "全体枪械师的基础攻击+315（上阵生效）",
+		"s_Name": "赛亚人"
 	},
 	{
+		"i_HeroId": 23,
+		"i_Id": 23006,
+		"i_NeedStar": 6,
 		"i_applyProf": 0,
-		"i_heroId": 23,
-		"i_id": 23006,
-		"i_needStar": 6,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_descTalent": "超级气功波对遇到的第一个敌人造成额外60%伤害",
-		"s_name": "赛亚人"
+		"s_DescTalent": "超级气功波对遇到的第一个敌人造成额外60%伤害",
+		"s_Name": "赛亚人"
 	},
 	{
-		"i_heroId": 23,
-		"i_id": 23007,
-		"i_needStar": 7,
+		"i_HeroId": 23,
+		"i_Id": 23007,
+		"i_NeedStar": 7,
 		"i_talentType": 0,
-		"s_name": "赛亚人"
+		"s_Name": "赛亚人"
 	},
 	{
+		"i_HeroId": 23,
+		"i_Id": 23008,
+		"i_NeedStar": 8,
 		"i_applyProf": 0,
-		"i_heroId": 23,
-		"i_id": 23008,
-		"i_needStar": 8,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_briefDescTalent": "【贯穿】：召唤一支可无限穿透的飞箭",
-		"s_descTalent": "触发【贯穿】时，会向前方先后并排触发6次【贯穿】",
-		"s_name": "赛亚人"
+		"s_BriefDescTalent": "【贯穿】：召唤一支可无限穿透的飞箭",
+		"s_DescTalent": "触发【贯穿】时，会向前方先后并排触发6次【贯穿】",
+		"s_Name": "赛亚人"
 	},
 	{
+		"i_HeroId": 23,
+		"i_Id": 23009,
+		"i_NeedStar": 9,
 		"i_applyProf": 0,
-		"i_heroId": 23,
-		"i_id": 23009,
-		"i_needStar": 9,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -5052,50 +5052,50 @@
 				500
 			]
 		],
-		"s_descTalent": "自身属性：基础攻击+5%，基础生命+5%，基础防御+5%",
-		"s_name": "赛亚人"
+		"s_DescTalent": "自身属性：基础攻击+5%，基础生命+5%，基础防御+5%",
+		"s_Name": "赛亚人"
 	},
 	{
+		"i_HeroId": 23,
+		"i_Id": 23010,
+		"i_NeedStar": 10,
 		"i_applyProf": 0,
-		"i_heroId": 23,
-		"i_id": 23010,
-		"i_needStar": 10,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_descTalent": "基础共鸣伤害+20%，触发光元素共鸣时，共鸣伤害额外+20%",
-		"s_name": "赛亚人"
+		"s_DescTalent": "基础共鸣伤害+20%，触发光元素共鸣时，共鸣伤害额外+20%",
+		"s_Name": "赛亚人"
 	},
 	{
-		"i_heroId": 23,
-		"i_id": 23011,
-		"i_needStar": 11,
+		"i_HeroId": 23,
+		"i_Id": 23011,
+		"i_NeedStar": 11,
 		"i_talentType": 0,
-		"s_name": "赛亚人"
+		"s_Name": "赛亚人"
 	},
 	{
+		"i_HeroId": 23,
+		"i_Id": 23012,
+		"i_NeedStar": 12,
 		"i_applyProf": 0,
-		"i_heroId": 23,
-		"i_id": 23012,
-		"i_needStar": 12,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_briefDescTalent": "【贯穿】：召唤一支可无限穿透的飞箭",
-		"s_descTalent": "局内每激活一个【贯穿】基因，造成伤害+5%",
-		"s_name": "赛亚人"
+		"s_BriefDescTalent": "【贯穿】：召唤一支可无限穿透的飞箭",
+		"s_DescTalent": "局内每激活一个【贯穿】基因，造成伤害+5%",
+		"s_Name": "赛亚人"
 	},
 	{
+		"i_HeroId": 23,
+		"i_Id": 23013,
+		"i_NeedStar": 13,
 		"i_applyProf": 0,
-		"i_heroId": 23,
-		"i_id": 23013,
-		"i_needStar": 13,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -5103,14 +5103,14 @@
 				500
 			]
 		],
-		"s_descTalent": "全体枪械师的基础攻击+5%（上阵生效）",
-		"s_name": "赛亚人"
+		"s_DescTalent": "全体枪械师的基础攻击+5%（上阵生效）",
+		"s_Name": "赛亚人"
 	},
 	{
+		"i_HeroId": 23,
+		"i_Id": 23014,
+		"i_NeedStar": 14,
 		"i_applyProf": 0,
-		"i_heroId": 23,
-		"i_id": 23014,
-		"i_needStar": 14,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -5126,43 +5126,43 @@
 				500
 			]
 		],
-		"s_descTalent": "自身属性：基础攻击+5%，基础生命+5%，基础防御+5%",
-		"s_name": "赛亚人"
+		"s_DescTalent": "自身属性：基础攻击+5%，基础生命+5%，基础防御+5%",
+		"s_Name": "赛亚人"
 	},
 	{
-		"i_heroId": 23,
-		"i_id": 23015,
-		"i_needStar": 15,
+		"i_HeroId": 23,
+		"i_Id": 23015,
+		"i_NeedStar": 15,
 		"i_talentType": 0,
-		"s_name": "赛亚人"
+		"s_Name": "赛亚人"
 	},
 	{
-		"i_heroId": 24,
-		"i_id": 24001,
-		"i_needStar": 1,
+		"i_HeroId": 24,
+		"i_Id": 24001,
+		"i_NeedStar": 1,
 		"i_talentType": 0,
-		"s_name": "吸血鬼"
+		"s_Name": "吸血鬼"
 	},
 	{
+		"i_HeroId": 24,
+		"i_Id": 24002,
+		"i_NeedStar": 2,
 		"i_applyProf": 0,
-		"i_heroId": 24,
-		"i_id": 24002,
-		"i_needStar": 2,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_briefDescTalent": "【紫色灵能】：灵能每隔2秒对周围的敌人造成伤害，持续8秒。消失后随机使一个英雄增加6%攻速",
-		"s_descTalent": "蝙蝠术结束时，在周围随机召唤出3个【紫色灵能】",
-		"s_name": "吸血鬼"
+		"s_BriefDescTalent": "【紫色灵能】：灵能每隔2秒对周围的敌人造成伤害，持续8秒。消失后随机使一个英雄增加6%攻速",
+		"s_DescTalent": "蝙蝠术结束时，在周围随机召唤出3个【紫色灵能】",
+		"s_Name": "吸血鬼"
 	},
 	{
+		"i_HeroId": 24,
+		"i_Id": 24003,
+		"i_NeedStar": 3,
 		"i_applyProf": 0,
-		"i_heroId": 24,
-		"i_id": 24003,
-		"i_needStar": 3,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -5178,29 +5178,29 @@
 				50
 			]
 		],
-		"s_descTalent": "自身属性：基础攻击+210，基础生命+2100，基础防御+50",
-		"s_name": "吸血鬼"
+		"s_DescTalent": "自身属性：基础攻击+210，基础生命+2100，基础防御+50",
+		"s_Name": "吸血鬼"
 	},
 	{
+		"i_HeroId": 24,
+		"i_Id": 24004,
+		"i_NeedStar": 4,
 		"i_applyProf": 0,
-		"i_heroId": 24,
-		"i_id": 24004,
-		"i_needStar": 4,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_briefDescTalent": "【紫色灵能】：灵能每隔2秒对周围的敌人造成伤害，持续8秒。消失后随机使一个英雄增加13%攻速",
-		"s_descTalent": "【紫色灵能】持续时间增加4秒，消失后随机使一个英雄增加20%攻速",
-		"s_name": "吸血鬼"
+		"s_BriefDescTalent": "【紫色灵能】：灵能每隔2秒对周围的敌人造成伤害，持续8秒。消失后随机使一个英雄增加13%攻速",
+		"s_DescTalent": "【紫色灵能】持续时间增加4秒，消失后随机使一个英雄增加20%攻速",
+		"s_Name": "吸血鬼"
 	},
 	{
+		"i_HeroId": 24,
+		"i_Id": 24005,
+		"i_NeedStar": 5,
 		"i_applyProf": 0,
-		"i_heroId": 24,
-		"i_id": 24005,
-		"i_needStar": 5,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -5216,50 +5216,50 @@
 				30
 			]
 		],
-		"s_descTalent": "全体队员：基础攻击+120，基础生命+1200，基础防御+30（上阵生效）",
-		"s_name": "吸血鬼"
+		"s_DescTalent": "全体队员：基础攻击+120，基础生命+1200，基础防御+30（上阵生效）",
+		"s_Name": "吸血鬼"
 	},
 	{
+		"i_HeroId": 24,
+		"i_Id": 24006,
+		"i_NeedStar": 6,
 		"i_applyProf": 0,
-		"i_heroId": 24,
-		"i_id": 24006,
-		"i_needStar": 6,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_briefDescTalent": "【灵能】：灵能每隔2秒对周围的敌人造成伤害，持续8秒",
-		"s_descTalent": "局内每激活一个【灵能】基因，造成伤害+3.4%，治疗增强率+10%",
-		"s_name": "吸血鬼"
+		"s_BriefDescTalent": "【灵能】：灵能每隔2秒对周围的敌人造成伤害，持续8秒",
+		"s_DescTalent": "局内每激活一个【灵能】基因，造成伤害+3.4%，治疗增强率+10%",
+		"s_Name": "吸血鬼"
 	},
 	{
-		"i_heroId": 24,
-		"i_id": 24007,
-		"i_needStar": 7,
+		"i_HeroId": 24,
+		"i_Id": 24007,
+		"i_NeedStar": 7,
 		"i_talentType": 0,
-		"s_name": "吸血鬼"
+		"s_Name": "吸血鬼"
 	},
 	{
+		"i_HeroId": 24,
+		"i_Id": 24008,
+		"i_NeedStar": 8,
 		"i_applyProf": 0,
-		"i_heroId": 24,
-		"i_id": 24008,
-		"i_needStar": 8,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_descTalent": "被蝙蝠术治疗的英雄获得吸血鬼基因，持续10秒。吸血鬼基因：攻击可召唤蝙蝠并回复自身生命值",
-		"s_name": "吸血鬼"
+		"s_DescTalent": "被蝙蝠术治疗的英雄获得吸血鬼基因，持续10秒。吸血鬼基因：攻击可召唤蝙蝠并回复自身生命值",
+		"s_Name": "吸血鬼"
 	},
 	{
+		"i_HeroId": 24,
+		"i_Id": 24009,
+		"i_NeedStar": 9,
 		"i_applyProf": 0,
-		"i_heroId": 24,
-		"i_id": 24009,
-		"i_needStar": 9,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -5275,35 +5275,35 @@
 				500
 			]
 		],
-		"s_descTalent": "自身属性：基础攻击+5%，基础生命+5%，基础防御+5%",
-		"s_name": "吸血鬼"
+		"s_DescTalent": "自身属性：基础攻击+5%，基础生命+5%，基础防御+5%",
+		"s_Name": "吸血鬼"
 	},
 	{
+		"i_HeroId": 24,
+		"i_Id": 24010,
+		"i_NeedStar": 10,
 		"i_applyProf": 0,
-		"i_heroId": 24,
-		"i_id": 24010,
-		"i_needStar": 10,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_descTalent": "触发元素共鸣时，所有队友造成伤害+70%，持续5秒。10s内只可触发一次",
-		"s_name": "吸血鬼"
+		"s_DescTalent": "触发元素共鸣时，所有队友造成伤害+70%，持续5秒。10s内只可触发一次",
+		"s_Name": "吸血鬼"
 	},
 	{
-		"i_heroId": 24,
-		"i_id": 24011,
-		"i_needStar": 11,
+		"i_HeroId": 24,
+		"i_Id": 24011,
+		"i_NeedStar": 11,
 		"i_talentType": 0,
-		"s_name": "吸血鬼"
+		"s_Name": "吸血鬼"
 	},
 	{
+		"i_HeroId": 24,
+		"i_Id": 24012,
+		"i_NeedStar": 12,
 		"i_applyProf": 0,
-		"i_heroId": 24,
-		"i_id": 24012,
-		"i_needStar": 12,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -5319,14 +5319,14 @@
 				64
 			]
 		],
-		"s_descTalent": "全体队员：基础攻击+300，基础生命+3000，基础防御+64（上阵生效）",
-		"s_name": "吸血鬼"
+		"s_DescTalent": "全体队员：基础攻击+300，基础生命+3000，基础防御+64（上阵生效）",
+		"s_Name": "吸血鬼"
 	},
 	{
+		"i_HeroId": 24,
+		"i_Id": 24013,
+		"i_NeedStar": 13,
 		"i_applyProf": 0,
-		"i_heroId": 24,
-		"i_id": 24013,
-		"i_needStar": 13,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -5342,14 +5342,14 @@
 				500
 			]
 		],
-		"s_descTalent": "自身属性：基础攻击+5%，基础生命+5%，基础防御+5%",
-		"s_name": "吸血鬼"
+		"s_DescTalent": "自身属性：基础攻击+5%，基础生命+5%，基础防御+5%",
+		"s_Name": "吸血鬼"
 	},
 	{
+		"i_HeroId": 24,
+		"i_Id": 24014,
+		"i_NeedStar": 14,
 		"i_applyProf": 0,
-		"i_heroId": 24,
-		"i_id": 24014,
-		"i_needStar": 14,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -5365,43 +5365,43 @@
 				500
 			]
 		],
-		"s_descTalent": "全体队员：基础攻击+5%，基础生命+5%，基础防御+5%（上阵生效）",
-		"s_name": "吸血鬼"
+		"s_DescTalent": "全体队员：基础攻击+5%，基础生命+5%，基础防御+5%（上阵生效）",
+		"s_Name": "吸血鬼"
 	},
 	{
-		"i_heroId": 24,
-		"i_id": 24015,
-		"i_needStar": 15,
+		"i_HeroId": 24,
+		"i_Id": 24015,
+		"i_NeedStar": 15,
 		"i_talentType": 0,
-		"s_name": "吸血鬼"
+		"s_Name": "吸血鬼"
 	},
 	{
-		"i_heroId": 25,
-		"i_id": 25001,
-		"i_needStar": 1,
+		"i_HeroId": 25,
+		"i_Id": 25001,
+		"i_NeedStar": 1,
 		"i_talentType": 0,
-		"s_name": "灭霸"
+		"s_Name": "灭霸"
 	},
 	{
+		"i_HeroId": 25,
+		"i_Id": 25002,
+		"i_NeedStar": 2,
 		"i_applyProf": 0,
-		"i_heroId": 25,
-		"i_id": 25002,
-		"i_needStar": 2,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_briefDescTalent": "【斩杀力场】：产生一个圆形区域，区域内的敌人受到持续伤害，并且血量低于5%的敌人（除BOSS外）被斩杀，持续7秒",
-		"s_descTalent": "清除计划释放后会形成一片【斩杀力场】",
-		"s_name": "灭霸"
+		"s_BriefDescTalent": "【斩杀力场】：产生一个圆形区域，区域内的敌人受到持续伤害，并且血量低于5%的敌人（除BOSS外）被斩杀，持续7秒",
+		"s_DescTalent": "清除计划释放后会形成一片【斩杀力场】",
+		"s_Name": "灭霸"
 	},
 	{
+		"i_HeroId": 25,
+		"i_Id": 25003,
+		"i_NeedStar": 3,
 		"i_applyProf": 0,
-		"i_heroId": 25,
-		"i_id": 25003,
-		"i_needStar": 3,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -5417,29 +5417,29 @@
 				60
 			]
 		],
-		"s_descTalent": "自身属性：基础攻击+210，基础生命+2100，基础防御+60",
-		"s_name": "灭霸"
+		"s_DescTalent": "自身属性：基础攻击+210，基础生命+2100，基础防御+60",
+		"s_Name": "灭霸"
 	},
 	{
+		"i_HeroId": 25,
+		"i_Id": 25004,
+		"i_NeedStar": 4,
 		"i_applyProf": 0,
-		"i_heroId": 25,
-		"i_id": 25004,
-		"i_needStar": 4,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_briefDescTalent": "【斩杀力场】：产生一个圆形区域，区域内的敌人受到持续伤害，并且血量低于5%的敌人（除BOSS外）被斩杀，持续7秒",
-		"s_descTalent": "【斩杀力场】范围增加35%",
-		"s_name": "灭霸"
+		"s_BriefDescTalent": "【斩杀力场】：产生一个圆形区域，区域内的敌人受到持续伤害，并且血量低于5%的敌人（除BOSS外）被斩杀，持续7秒",
+		"s_DescTalent": "【斩杀力场】范围增加35%",
+		"s_Name": "灭霸"
 	},
 	{
+		"i_HeroId": 25,
+		"i_Id": 25005,
+		"i_NeedStar": 5,
 		"i_applyProf": 0,
-		"i_heroId": 25,
-		"i_id": 25005,
-		"i_needStar": 5,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -5455,50 +5455,50 @@
 				30
 			]
 		],
-		"s_descTalent": "全体队员：基础攻击+120，基础生命+1200，基础防御+30（上阵生效）",
-		"s_name": "灭霸"
+		"s_DescTalent": "全体队员：基础攻击+120，基础生命+1200，基础防御+30（上阵生效）",
+		"s_Name": "灭霸"
 	},
 	{
+		"i_HeroId": 25,
+		"i_Id": 25006,
+		"i_NeedStar": 6,
 		"i_applyProf": 0,
-		"i_heroId": 25,
-		"i_id": 25006,
-		"i_needStar": 6,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_descTalent": "清除计划可以直接斩杀小怪（除BOSS,精英怪）",
-		"s_name": "灭霸"
+		"s_DescTalent": "清除计划可以直接斩杀小怪（除BOSS,精英怪）",
+		"s_Name": "灭霸"
 	},
 	{
-		"i_heroId": 25,
-		"i_id": 25007,
-		"i_needStar": 7,
+		"i_HeroId": 25,
+		"i_Id": 25007,
+		"i_NeedStar": 7,
 		"i_talentType": 0,
-		"s_name": "灭霸"
+		"s_Name": "灭霸"
 	},
 	{
+		"i_HeroId": 25,
+		"i_Id": 25008,
+		"i_NeedStar": 8,
 		"i_applyProf": 0,
-		"i_heroId": 25,
-		"i_id": 25008,
-		"i_needStar": 8,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_briefDescTalent": "【力场】：产生一个圆形区域，区域内的敌人受到持续伤害，持续7秒",
-		"s_descTalent": "局内每激活一个【力场】基因，自身伤害减免+5%",
-		"s_name": "灭霸"
+		"s_BriefDescTalent": "【力场】：产生一个圆形区域，区域内的敌人受到持续伤害，持续7秒",
+		"s_DescTalent": "局内每激活一个【力场】基因，自身伤害减免+5%",
+		"s_Name": "灭霸"
 	},
 	{
+		"i_HeroId": 25,
+		"i_Id": 25009,
+		"i_NeedStar": 9,
 		"i_applyProf": 0,
-		"i_heroId": 25,
-		"i_id": 25009,
-		"i_needStar": 9,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -5514,35 +5514,35 @@
 				500
 			]
 		],
-		"s_descTalent": "自身属性：基础攻击+5%，基础生命+5%，基础防御+5%",
-		"s_name": "灭霸"
+		"s_DescTalent": "自身属性：基础攻击+5%，基础生命+5%，基础防御+5%",
+		"s_Name": "灭霸"
 	},
 	{
+		"i_HeroId": 25,
+		"i_Id": 25010,
+		"i_NeedStar": 10,
 		"i_applyProf": 0,
-		"i_heroId": 25,
-		"i_id": 25010,
-		"i_needStar": 10,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_descTalent": "触发元素共鸣时，所有队友造成伤害+70%，持续5秒。10s内只可触发一次",
-		"s_name": "灭霸"
+		"s_DescTalent": "触发元素共鸣时，所有队友造成伤害+70%，持续5秒。10s内只可触发一次",
+		"s_Name": "灭霸"
 	},
 	{
-		"i_heroId": 25,
-		"i_id": 25011,
-		"i_needStar": 11,
+		"i_HeroId": 25,
+		"i_Id": 25011,
+		"i_NeedStar": 11,
 		"i_talentType": 0,
-		"s_name": "灭霸"
+		"s_Name": "灭霸"
 	},
 	{
+		"i_HeroId": 25,
+		"i_Id": 25012,
+		"i_NeedStar": 12,
 		"i_applyProf": 0,
-		"i_heroId": 25,
-		"i_id": 25012,
-		"i_needStar": 12,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -5558,14 +5558,14 @@
 				64
 			]
 		],
-		"s_descTalent": "全体队员：基础攻击+300，基础生命+3000，基础防御+64（上阵生效）",
-		"s_name": "灭霸"
+		"s_DescTalent": "全体队员：基础攻击+300，基础生命+3000，基础防御+64（上阵生效）",
+		"s_Name": "灭霸"
 	},
 	{
+		"i_HeroId": 25,
+		"i_Id": 25013,
+		"i_NeedStar": 13,
 		"i_applyProf": 0,
-		"i_heroId": 25,
-		"i_id": 25013,
-		"i_needStar": 13,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -5581,14 +5581,14 @@
 				500
 			]
 		],
-		"s_descTalent": "自身属性：基础攻击+5%，基础生命+5%，基础防御+5%",
-		"s_name": "灭霸"
+		"s_DescTalent": "自身属性：基础攻击+5%，基础生命+5%，基础防御+5%",
+		"s_Name": "灭霸"
 	},
 	{
+		"i_HeroId": 25,
+		"i_Id": 25014,
+		"i_NeedStar": 14,
 		"i_applyProf": 0,
-		"i_heroId": 25,
-		"i_id": 25014,
-		"i_needStar": 14,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -5604,43 +5604,43 @@
 				500
 			]
 		],
-		"s_descTalent": "全体队员：基础攻击+5%，基础生命+5%，基础防御+5%（上阵生效）",
-		"s_name": "灭霸"
+		"s_DescTalent": "全体队员：基础攻击+5%，基础生命+5%，基础防御+5%（上阵生效）",
+		"s_Name": "灭霸"
 	},
 	{
-		"i_heroId": 25,
-		"i_id": 25015,
-		"i_needStar": 15,
+		"i_HeroId": 25,
+		"i_Id": 25015,
+		"i_NeedStar": 15,
 		"i_talentType": 0,
-		"s_name": "灭霸"
+		"s_Name": "灭霸"
 	},
 	{
-		"i_heroId": 26,
-		"i_id": 26001,
-		"i_needStar": 1,
+		"i_HeroId": 26,
+		"i_Id": 26001,
+		"i_NeedStar": 1,
 		"i_talentType": 0,
-		"s_name": "魔人布欧"
+		"s_Name": "魔人布欧"
 	},
 	{
+		"i_HeroId": 26,
+		"i_Id": 26002,
+		"i_NeedStar": 2,
 		"i_applyProf": 0,
-		"i_heroId": 26,
-		"i_id": 26002,
-		"i_needStar": 2,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_briefDescTalent": "【霹雳】：在地面释放一道闪电，造成小范围伤害",
-		"s_descTalent": "邪恶爆弹爆炸时，有17%概率触发1次【霹雳】",
-		"s_name": "魔人布欧"
+		"s_BriefDescTalent": "【霹雳】：在地面释放一道闪电，造成小范围伤害",
+		"s_DescTalent": "邪恶爆弹爆炸时，有17%概率触发1次【霹雳】",
+		"s_Name": "魔人布欧"
 	},
 	{
+		"i_HeroId": 26,
+		"i_Id": 26003,
+		"i_NeedStar": 3,
 		"i_applyProf": 0,
-		"i_heroId": 26,
-		"i_id": 26003,
-		"i_needStar": 3,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -5656,29 +5656,29 @@
 				25
 			]
 		],
-		"s_descTalent": "自身属性：基础攻击+210，基础生命+2100，基础防御+25",
-		"s_name": "魔人布欧"
+		"s_DescTalent": "自身属性：基础攻击+210，基础生命+2100，基础防御+25",
+		"s_Name": "魔人布欧"
 	},
 	{
+		"i_HeroId": 26,
+		"i_Id": 26004,
+		"i_NeedStar": 4,
 		"i_applyProf": 0,
-		"i_heroId": 26,
-		"i_id": 26004,
-		"i_needStar": 4,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_briefDescTalent": "【霹雳】：在地面释放一道闪电，造成小范围伤害",
-		"s_descTalent": "分裂炸弹爆炸时，有24%概率触发1次【霹雳】",
-		"s_name": "魔人布欧"
+		"s_BriefDescTalent": "【霹雳】：在地面释放一道闪电，造成小范围伤害",
+		"s_DescTalent": "分裂炸弹爆炸时，有24%概率触发1次【霹雳】",
+		"s_Name": "魔人布欧"
 	},
 	{
+		"i_HeroId": 26,
+		"i_Id": 26005,
+		"i_NeedStar": 5,
 		"i_applyProf": 0,
-		"i_heroId": 26,
-		"i_id": 26005,
-		"i_needStar": 5,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -5686,51 +5686,51 @@
 				315
 			]
 		],
-		"s_descTalent": "全体爆破师的基础攻击+315（上阵生效）",
-		"s_name": "魔人布欧"
+		"s_DescTalent": "全体爆破师的基础攻击+315（上阵生效）",
+		"s_Name": "魔人布欧"
 	},
 	{
+		"i_HeroId": 26,
+		"i_Id": 26006,
+		"i_NeedStar": 6,
 		"i_applyProf": 0,
-		"i_heroId": 26,
-		"i_id": 26006,
-		"i_needStar": 6,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_briefDescTalent": "【霹雳】：在地面释放一道闪电，造成小范围伤害",
-		"s_descTalent": "局内每激活一个【霹雳】基因，造成伤害+5%",
-		"s_name": "魔人布欧"
+		"s_BriefDescTalent": "【霹雳】：在地面释放一道闪电，造成小范围伤害",
+		"s_DescTalent": "局内每激活一个【霹雳】基因，造成伤害+5%",
+		"s_Name": "魔人布欧"
 	},
 	{
-		"i_heroId": 26,
-		"i_id": 26007,
-		"i_needStar": 7,
+		"i_HeroId": 26,
+		"i_Id": 26007,
+		"i_NeedStar": 7,
 		"i_talentType": 0,
-		"s_name": "魔人布欧"
+		"s_Name": "魔人布欧"
 	},
 	{
+		"i_HeroId": 26,
+		"i_Id": 26008,
+		"i_NeedStar": 8,
 		"i_applyProf": 0,
-		"i_heroId": 26,
-		"i_id": 26008,
-		"i_needStar": 8,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_briefDescTalent": "【霹雳】：在地面释放一道闪电，造成小范围伤害",
-		"s_descTalent": "邪恶爆弹触发【霹雳】的概率增加到25%，分裂炸弹触发【霹雳】的概率增加到40%",
-		"s_name": "魔人布欧"
+		"s_BriefDescTalent": "【霹雳】：在地面释放一道闪电，造成小范围伤害",
+		"s_DescTalent": "邪恶爆弹触发【霹雳】的概率增加到25%，分裂炸弹触发【霹雳】的概率增加到40%",
+		"s_Name": "魔人布欧"
 	},
 	{
+		"i_HeroId": 26,
+		"i_Id": 26009,
+		"i_NeedStar": 9,
 		"i_applyProf": 0,
-		"i_heroId": 26,
-		"i_id": 26009,
-		"i_needStar": 9,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -5746,49 +5746,49 @@
 				500
 			]
 		],
-		"s_descTalent": "自身属性：基础攻击+5%，基础生命+5%，基础防御+5%",
-		"s_name": "魔人布欧"
+		"s_DescTalent": "自身属性：基础攻击+5%，基础生命+5%，基础防御+5%",
+		"s_Name": "魔人布欧"
 	},
 	{
+		"i_HeroId": 26,
+		"i_Id": 26010,
+		"i_NeedStar": 10,
 		"i_applyProf": 0,
-		"i_heroId": 26,
-		"i_id": 26010,
-		"i_needStar": 10,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_descTalent": "基础共鸣伤害+15%，触发暗元素共鸣效果时，共鸣伤害额外+20%",
-		"s_name": "魔人布欧"
+		"s_DescTalent": "基础共鸣伤害+15%，触发暗元素共鸣效果时，共鸣伤害额外+20%",
+		"s_Name": "魔人布欧"
 	},
 	{
-		"i_heroId": 26,
-		"i_id": 26011,
-		"i_needStar": 11,
+		"i_HeroId": 26,
+		"i_Id": 26011,
+		"i_NeedStar": 11,
 		"i_talentType": 0,
-		"s_name": "魔人布欧"
+		"s_Name": "魔人布欧"
 	},
 	{
+		"i_HeroId": 26,
+		"i_Id": 26012,
+		"i_NeedStar": 12,
 		"i_applyProf": 0,
-		"i_heroId": 26,
-		"i_id": 26012,
-		"i_needStar": 12,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
 				0
 			]
 		],
-		"s_descTalent": "四分五裂时，分裂炸弹的爆炸范围+50%",
-		"s_name": "魔人布欧"
+		"s_DescTalent": "四分五裂时，分裂炸弹的爆炸范围+50%",
+		"s_Name": "魔人布欧"
 	},
 	{
+		"i_HeroId": 26,
+		"i_Id": 26013,
+		"i_NeedStar": 13,
 		"i_applyProf": 0,
-		"i_heroId": 26,
-		"i_id": 26013,
-		"i_needStar": 13,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -5796,14 +5796,14 @@
 				500
 			]
 		],
-		"s_descTalent": "全体爆破师的基础攻击+5%（上阵生效）",
-		"s_name": "魔人布欧"
+		"s_DescTalent": "全体爆破师的基础攻击+5%（上阵生效）",
+		"s_Name": "魔人布欧"
 	},
 	{
+		"i_HeroId": 26,
+		"i_Id": 26014,
+		"i_NeedStar": 14,
 		"i_applyProf": 0,
-		"i_heroId": 26,
-		"i_id": 26014,
-		"i_needStar": 14,
 		"i_talentType": 0,
 		"ill_talentParam": [
 			[
@@ -5819,14 +5819,14 @@
 				500
 			]
 		],
-		"s_descTalent": "自身属性：基础攻击+5%，基础生命+5%，基础防御+5%",
-		"s_name": "魔人布欧"
+		"s_DescTalent": "自身属性：基础攻击+5%，基础生命+5%，基础防御+5%",
+		"s_Name": "魔人布欧"
 	},
 	{
-		"i_heroId": 26,
-		"i_id": 26015,
-		"i_needStar": 15,
+		"i_HeroId": 26,
+		"i_Id": 26015,
+		"i_NeedStar": 15,
 		"i_talentType": 0,
-		"s_name": "魔人布欧"
+		"s_Name": "魔人布欧"
 	}
 ]

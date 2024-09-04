@@ -1,11 +1,11 @@
 [
 	{
+		"i_Id": 1,
+		"i_NeedValue": 1005,
+		"i_PrizeId": 1,
+		"i_Stage": 1,
 		"i_bpType": 0,
-		"i_id": 1,
-		"i_needValue": 1005,
-		"i_prizeId": 1,
-		"i_stage": 1,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				1,
@@ -17,7 +17,7 @@
 				10
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				1,
@@ -26,19 +26,19 @@
 		]
 	},
 	{
+		"i_Id": 2,
+		"i_NeedValue": 2003,
+		"i_PrizeId": 2,
+		"i_Stage": 1,
 		"i_bpType": 0,
-		"i_id": 2,
-		"i_needValue": 2003,
-		"i_prizeId": 2,
-		"i_stage": 1,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				1,
 				200
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				1,
@@ -47,19 +47,19 @@
 		]
 	},
 	{
+		"i_Id": 3,
+		"i_NeedValue": 3003,
+		"i_PrizeId": 3,
+		"i_Stage": 1,
 		"i_bpType": 0,
-		"i_id": 3,
-		"i_needValue": 3003,
-		"i_prizeId": 3,
-		"i_stage": 1,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				1,
 				200
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				1,
@@ -68,19 +68,19 @@
 		]
 	},
 	{
+		"i_Id": 4,
+		"i_NeedValue": 4001,
+		"i_PrizeId": 4,
+		"i_Stage": 1,
 		"i_bpType": 0,
-		"i_id": 4,
-		"i_needValue": 4001,
-		"i_prizeId": 4,
-		"i_stage": 1,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				1,
 				200
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				1,
@@ -89,12 +89,12 @@
 		]
 	},
 	{
+		"i_Id": 5,
+		"i_NeedValue": 4003,
+		"i_PrizeId": 5,
+		"i_Stage": 1,
 		"i_bpType": 0,
-		"i_id": 5,
-		"i_needValue": 4003,
-		"i_prizeId": 5,
-		"i_stage": 1,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				1,
@@ -106,7 +106,7 @@
 				10
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				1,
@@ -120,19 +120,19 @@
 		]
 	},
 	{
+		"i_Id": 6,
+		"i_NeedValue": 4005,
+		"i_PrizeId": 6,
+		"i_Stage": 1,
 		"i_bpType": 0,
-		"i_id": 6,
-		"i_needValue": 4005,
-		"i_prizeId": 6,
-		"i_stage": 1,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				1,
 				200
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				1,
@@ -141,19 +141,19 @@
 		]
 	},
 	{
+		"i_Id": 7,
+		"i_NeedValue": 5001,
+		"i_PrizeId": 7,
+		"i_Stage": 1,
 		"i_bpType": 0,
-		"i_id": 7,
-		"i_needValue": 5001,
-		"i_prizeId": 7,
-		"i_stage": 1,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				1,
 				200
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				1,
@@ -162,19 +162,19 @@
 		]
 	},
 	{
+		"i_Id": 8,
+		"i_NeedValue": 5003,
+		"i_PrizeId": 8,
+		"i_Stage": 1,
 		"i_bpType": 0,
-		"i_id": 8,
-		"i_needValue": 5003,
-		"i_prizeId": 8,
-		"i_stage": 1,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				1,
 				200
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				1,
@@ -183,19 +183,19 @@
 		]
 	},
 	{
+		"i_Id": 9,
+		"i_NeedValue": 5005,
+		"i_PrizeId": 9,
+		"i_Stage": 1,
 		"i_bpType": 0,
-		"i_id": 9,
-		"i_needValue": 5005,
-		"i_prizeId": 9,
-		"i_stage": 1,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				1,
 				200
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				1,
@@ -204,127 +204,12 @@
 		]
 	},
 	{
+		"i_Id": 10,
+		"i_NeedValue": 6001,
+		"i_PrizeId": 10,
+		"i_Stage": 1,
 		"i_bpType": 0,
-		"i_id": 10,
-		"i_needValue": 6001,
-		"i_prizeId": 10,
-		"i_stage": 1,
-		"ill_extraItem": [
-			[
-				1,
-				1,
-				500
-			],
-			[
-				1,
-				1201,
-				20
-			]
-		],
-		"ill_normalItem": [
-			[
-				1,
-				1,
-				30
-			],
-			[
-				1,
-				1201,
-				10
-			]
-		]
-	},
-	{
-		"i_bpType": 0,
-		"i_id": 11,
-		"i_needValue": 6003,
-		"i_prizeId": 11,
-		"i_stage": 1,
-		"ill_extraItem": [
-			[
-				1,
-				1,
-				200
-			]
-		],
-		"ill_normalItem": [
-			[
-				1,
-				1,
-				30
-			]
-		]
-	},
-	{
-		"i_bpType": 0,
-		"i_id": 12,
-		"i_needValue": 6005,
-		"i_prizeId": 12,
-		"i_stage": 1,
-		"ill_extraItem": [
-			[
-				1,
-				1,
-				200
-			]
-		],
-		"ill_normalItem": [
-			[
-				1,
-				1,
-				30
-			]
-		]
-	},
-	{
-		"i_bpType": 0,
-		"i_id": 13,
-		"i_needValue": 7001,
-		"i_prizeId": 13,
-		"i_stage": 1,
-		"ill_extraItem": [
-			[
-				1,
-				1,
-				200
-			]
-		],
-		"ill_normalItem": [
-			[
-				1,
-				1,
-				30
-			]
-		]
-	},
-	{
-		"i_bpType": 0,
-		"i_id": 14,
-		"i_needValue": 7003,
-		"i_prizeId": 14,
-		"i_stage": 1,
-		"ill_extraItem": [
-			[
-				1,
-				1,
-				200
-			]
-		],
-		"ill_normalItem": [
-			[
-				1,
-				1,
-				30
-			]
-		]
-	},
-	{
-		"i_bpType": 0,
-		"i_id": 15,
-		"i_needValue": 7005,
-		"i_prizeId": 15,
-		"i_stage": 1,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				1,
@@ -336,7 +221,122 @@
 				20
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
+			[
+				1,
+				1,
+				30
+			],
+			[
+				1,
+				1201,
+				10
+			]
+		]
+	},
+	{
+		"i_Id": 11,
+		"i_NeedValue": 6003,
+		"i_PrizeId": 11,
+		"i_Stage": 1,
+		"i_bpType": 0,
+		"ill_ExtraItem": [
+			[
+				1,
+				1,
+				200
+			]
+		],
+		"ill_NormalItem": [
+			[
+				1,
+				1,
+				30
+			]
+		]
+	},
+	{
+		"i_Id": 12,
+		"i_NeedValue": 6005,
+		"i_PrizeId": 12,
+		"i_Stage": 1,
+		"i_bpType": 0,
+		"ill_ExtraItem": [
+			[
+				1,
+				1,
+				200
+			]
+		],
+		"ill_NormalItem": [
+			[
+				1,
+				1,
+				30
+			]
+		]
+	},
+	{
+		"i_Id": 13,
+		"i_NeedValue": 7001,
+		"i_PrizeId": 13,
+		"i_Stage": 1,
+		"i_bpType": 0,
+		"ill_ExtraItem": [
+			[
+				1,
+				1,
+				200
+			]
+		],
+		"ill_NormalItem": [
+			[
+				1,
+				1,
+				30
+			]
+		]
+	},
+	{
+		"i_Id": 14,
+		"i_NeedValue": 7003,
+		"i_PrizeId": 14,
+		"i_Stage": 1,
+		"i_bpType": 0,
+		"ill_ExtraItem": [
+			[
+				1,
+				1,
+				200
+			]
+		],
+		"ill_NormalItem": [
+			[
+				1,
+				1,
+				30
+			]
+		]
+	},
+	{
+		"i_Id": 15,
+		"i_NeedValue": 7005,
+		"i_PrizeId": 15,
+		"i_Stage": 1,
+		"i_bpType": 0,
+		"ill_ExtraItem": [
+			[
+				1,
+				1,
+				500
+			],
+			[
+				1,
+				1201,
+				20
+			]
+		],
+		"ill_NormalItem": [
 			[
 				1,
 				1,
@@ -350,12 +350,12 @@
 		]
 	},
 	{
+		"i_Id": 16,
+		"i_NeedValue": 8001,
+		"i_PrizeId": 1,
+		"i_Stage": 2,
 		"i_bpType": 0,
-		"i_id": 16,
-		"i_needValue": 8001,
-		"i_prizeId": 1,
-		"i_stage": 2,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				1,
@@ -367,7 +367,7 @@
 				10
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				1,
@@ -376,19 +376,19 @@
 		]
 	},
 	{
+		"i_Id": 17,
+		"i_NeedValue": 8002,
+		"i_PrizeId": 2,
+		"i_Stage": 2,
 		"i_bpType": 0,
-		"i_id": 17,
-		"i_needValue": 8002,
-		"i_prizeId": 2,
-		"i_stage": 2,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				1,
 				200
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				1,
@@ -397,19 +397,19 @@
 		]
 	},
 	{
+		"i_Id": 18,
+		"i_NeedValue": 8003,
+		"i_PrizeId": 3,
+		"i_Stage": 2,
 		"i_bpType": 0,
-		"i_id": 18,
-		"i_needValue": 8003,
-		"i_prizeId": 3,
-		"i_stage": 2,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				1,
 				200
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				1,
@@ -418,19 +418,19 @@
 		]
 	},
 	{
+		"i_Id": 19,
+		"i_NeedValue": 8004,
+		"i_PrizeId": 4,
+		"i_Stage": 2,
 		"i_bpType": 0,
-		"i_id": 19,
-		"i_needValue": 8004,
-		"i_prizeId": 4,
-		"i_stage": 2,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				1,
 				200
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				1,
@@ -439,12 +439,12 @@
 		]
 	},
 	{
+		"i_Id": 20,
+		"i_NeedValue": 8005,
+		"i_PrizeId": 5,
+		"i_Stage": 2,
 		"i_bpType": 0,
-		"i_id": 20,
-		"i_needValue": 8005,
-		"i_prizeId": 5,
-		"i_stage": 2,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				1,
@@ -456,7 +456,7 @@
 				10
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				1,
@@ -470,19 +470,19 @@
 		]
 	},
 	{
+		"i_Id": 21,
+		"i_NeedValue": 9001,
+		"i_PrizeId": 6,
+		"i_Stage": 2,
 		"i_bpType": 0,
-		"i_id": 21,
-		"i_needValue": 9001,
-		"i_prizeId": 6,
-		"i_stage": 2,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				1,
 				200
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				1,
@@ -491,19 +491,19 @@
 		]
 	},
 	{
+		"i_Id": 22,
+		"i_NeedValue": 9002,
+		"i_PrizeId": 7,
+		"i_Stage": 2,
 		"i_bpType": 0,
-		"i_id": 22,
-		"i_needValue": 9002,
-		"i_prizeId": 7,
-		"i_stage": 2,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				1,
 				200
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				1,
@@ -512,19 +512,19 @@
 		]
 	},
 	{
+		"i_Id": 23,
+		"i_NeedValue": 9003,
+		"i_PrizeId": 8,
+		"i_Stage": 2,
 		"i_bpType": 0,
-		"i_id": 23,
-		"i_needValue": 9003,
-		"i_prizeId": 8,
-		"i_stage": 2,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				1,
 				200
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				1,
@@ -533,19 +533,19 @@
 		]
 	},
 	{
+		"i_Id": 24,
+		"i_NeedValue": 9004,
+		"i_PrizeId": 9,
+		"i_Stage": 2,
 		"i_bpType": 0,
-		"i_id": 24,
-		"i_needValue": 9004,
-		"i_prizeId": 9,
-		"i_stage": 2,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				1,
 				200
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				1,
@@ -554,127 +554,12 @@
 		]
 	},
 	{
+		"i_Id": 25,
+		"i_NeedValue": 9005,
+		"i_PrizeId": 10,
+		"i_Stage": 2,
 		"i_bpType": 0,
-		"i_id": 25,
-		"i_needValue": 9005,
-		"i_prizeId": 10,
-		"i_stage": 2,
-		"ill_extraItem": [
-			[
-				1,
-				1,
-				500
-			],
-			[
-				1,
-				1201,
-				20
-			]
-		],
-		"ill_normalItem": [
-			[
-				1,
-				1,
-				30
-			],
-			[
-				1,
-				1201,
-				10
-			]
-		]
-	},
-	{
-		"i_bpType": 0,
-		"i_id": 26,
-		"i_needValue": 10001,
-		"i_prizeId": 11,
-		"i_stage": 2,
-		"ill_extraItem": [
-			[
-				1,
-				1,
-				200
-			]
-		],
-		"ill_normalItem": [
-			[
-				1,
-				1,
-				30
-			]
-		]
-	},
-	{
-		"i_bpType": 0,
-		"i_id": 27,
-		"i_needValue": 10002,
-		"i_prizeId": 12,
-		"i_stage": 2,
-		"ill_extraItem": [
-			[
-				1,
-				1,
-				200
-			]
-		],
-		"ill_normalItem": [
-			[
-				1,
-				1,
-				30
-			]
-		]
-	},
-	{
-		"i_bpType": 0,
-		"i_id": 28,
-		"i_needValue": 10003,
-		"i_prizeId": 13,
-		"i_stage": 2,
-		"ill_extraItem": [
-			[
-				1,
-				1,
-				200
-			]
-		],
-		"ill_normalItem": [
-			[
-				1,
-				1,
-				30
-			]
-		]
-	},
-	{
-		"i_bpType": 0,
-		"i_id": 29,
-		"i_needValue": 10004,
-		"i_prizeId": 14,
-		"i_stage": 2,
-		"ill_extraItem": [
-			[
-				1,
-				1,
-				200
-			]
-		],
-		"ill_normalItem": [
-			[
-				1,
-				1,
-				30
-			]
-		]
-	},
-	{
-		"i_bpType": 0,
-		"i_id": 30,
-		"i_needValue": 10005,
-		"i_prizeId": 15,
-		"i_stage": 2,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				1,
@@ -686,7 +571,122 @@
 				20
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
+			[
+				1,
+				1,
+				30
+			],
+			[
+				1,
+				1201,
+				10
+			]
+		]
+	},
+	{
+		"i_Id": 26,
+		"i_NeedValue": 10001,
+		"i_PrizeId": 11,
+		"i_Stage": 2,
+		"i_bpType": 0,
+		"ill_ExtraItem": [
+			[
+				1,
+				1,
+				200
+			]
+		],
+		"ill_NormalItem": [
+			[
+				1,
+				1,
+				30
+			]
+		]
+	},
+	{
+		"i_Id": 27,
+		"i_NeedValue": 10002,
+		"i_PrizeId": 12,
+		"i_Stage": 2,
+		"i_bpType": 0,
+		"ill_ExtraItem": [
+			[
+				1,
+				1,
+				200
+			]
+		],
+		"ill_NormalItem": [
+			[
+				1,
+				1,
+				30
+			]
+		]
+	},
+	{
+		"i_Id": 28,
+		"i_NeedValue": 10003,
+		"i_PrizeId": 13,
+		"i_Stage": 2,
+		"i_bpType": 0,
+		"ill_ExtraItem": [
+			[
+				1,
+				1,
+				200
+			]
+		],
+		"ill_NormalItem": [
+			[
+				1,
+				1,
+				30
+			]
+		]
+	},
+	{
+		"i_Id": 29,
+		"i_NeedValue": 10004,
+		"i_PrizeId": 14,
+		"i_Stage": 2,
+		"i_bpType": 0,
+		"ill_ExtraItem": [
+			[
+				1,
+				1,
+				200
+			]
+		],
+		"ill_NormalItem": [
+			[
+				1,
+				1,
+				30
+			]
+		]
+	},
+	{
+		"i_Id": 30,
+		"i_NeedValue": 10005,
+		"i_PrizeId": 15,
+		"i_Stage": 2,
+		"i_bpType": 0,
+		"ill_ExtraItem": [
+			[
+				1,
+				1,
+				500
+			],
+			[
+				1,
+				1201,
+				20
+			]
+		],
+		"ill_NormalItem": [
 			[
 				1,
 				1,
@@ -700,12 +700,12 @@
 		]
 	},
 	{
+		"i_Id": 31,
+		"i_NeedValue": 11001,
+		"i_PrizeId": 1,
+		"i_Stage": 3,
 		"i_bpType": 0,
-		"i_id": 31,
-		"i_needValue": 11001,
-		"i_prizeId": 1,
-		"i_stage": 3,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				1,
@@ -717,7 +717,7 @@
 				10
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				1,
@@ -726,19 +726,19 @@
 		]
 	},
 	{
+		"i_Id": 32,
+		"i_NeedValue": 11002,
+		"i_PrizeId": 2,
+		"i_Stage": 3,
 		"i_bpType": 0,
-		"i_id": 32,
-		"i_needValue": 11002,
-		"i_prizeId": 2,
-		"i_stage": 3,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				1,
 				200
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				1,
@@ -747,19 +747,19 @@
 		]
 	},
 	{
+		"i_Id": 33,
+		"i_NeedValue": 11003,
+		"i_PrizeId": 3,
+		"i_Stage": 3,
 		"i_bpType": 0,
-		"i_id": 33,
-		"i_needValue": 11003,
-		"i_prizeId": 3,
-		"i_stage": 3,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				1,
 				200
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				1,
@@ -768,19 +768,19 @@
 		]
 	},
 	{
+		"i_Id": 34,
+		"i_NeedValue": 11004,
+		"i_PrizeId": 4,
+		"i_Stage": 3,
 		"i_bpType": 0,
-		"i_id": 34,
-		"i_needValue": 11004,
-		"i_prizeId": 4,
-		"i_stage": 3,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				1,
 				200
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				1,
@@ -789,12 +789,12 @@
 		]
 	},
 	{
+		"i_Id": 35,
+		"i_NeedValue": 11005,
+		"i_PrizeId": 5,
+		"i_Stage": 3,
 		"i_bpType": 0,
-		"i_id": 35,
-		"i_needValue": 11005,
-		"i_prizeId": 5,
-		"i_stage": 3,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				1,
@@ -806,7 +806,7 @@
 				10
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				1,
@@ -820,19 +820,19 @@
 		]
 	},
 	{
+		"i_Id": 36,
+		"i_NeedValue": 12001,
+		"i_PrizeId": 6,
+		"i_Stage": 3,
 		"i_bpType": 0,
-		"i_id": 36,
-		"i_needValue": 12001,
-		"i_prizeId": 6,
-		"i_stage": 3,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				1,
 				200
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				1,
@@ -841,19 +841,19 @@
 		]
 	},
 	{
+		"i_Id": 37,
+		"i_NeedValue": 12002,
+		"i_PrizeId": 7,
+		"i_Stage": 3,
 		"i_bpType": 0,
-		"i_id": 37,
-		"i_needValue": 12002,
-		"i_prizeId": 7,
-		"i_stage": 3,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				1,
 				200
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				1,
@@ -862,19 +862,19 @@
 		]
 	},
 	{
+		"i_Id": 38,
+		"i_NeedValue": 12003,
+		"i_PrizeId": 8,
+		"i_Stage": 3,
 		"i_bpType": 0,
-		"i_id": 38,
-		"i_needValue": 12003,
-		"i_prizeId": 8,
-		"i_stage": 3,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				1,
 				200
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				1,
@@ -883,19 +883,19 @@
 		]
 	},
 	{
+		"i_Id": 39,
+		"i_NeedValue": 12004,
+		"i_PrizeId": 9,
+		"i_Stage": 3,
 		"i_bpType": 0,
-		"i_id": 39,
-		"i_needValue": 12004,
-		"i_prizeId": 9,
-		"i_stage": 3,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				1,
 				200
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				1,
@@ -904,127 +904,12 @@
 		]
 	},
 	{
+		"i_Id": 40,
+		"i_NeedValue": 12005,
+		"i_PrizeId": 10,
+		"i_Stage": 3,
 		"i_bpType": 0,
-		"i_id": 40,
-		"i_needValue": 12005,
-		"i_prizeId": 10,
-		"i_stage": 3,
-		"ill_extraItem": [
-			[
-				1,
-				1,
-				500
-			],
-			[
-				1,
-				1201,
-				20
-			]
-		],
-		"ill_normalItem": [
-			[
-				1,
-				1,
-				30
-			],
-			[
-				1,
-				1201,
-				10
-			]
-		]
-	},
-	{
-		"i_bpType": 0,
-		"i_id": 41,
-		"i_needValue": 13001,
-		"i_prizeId": 11,
-		"i_stage": 3,
-		"ill_extraItem": [
-			[
-				1,
-				1,
-				200
-			]
-		],
-		"ill_normalItem": [
-			[
-				1,
-				1,
-				30
-			]
-		]
-	},
-	{
-		"i_bpType": 0,
-		"i_id": 42,
-		"i_needValue": 13002,
-		"i_prizeId": 12,
-		"i_stage": 3,
-		"ill_extraItem": [
-			[
-				1,
-				1,
-				200
-			]
-		],
-		"ill_normalItem": [
-			[
-				1,
-				1,
-				30
-			]
-		]
-	},
-	{
-		"i_bpType": 0,
-		"i_id": 43,
-		"i_needValue": 13003,
-		"i_prizeId": 13,
-		"i_stage": 3,
-		"ill_extraItem": [
-			[
-				1,
-				1,
-				200
-			]
-		],
-		"ill_normalItem": [
-			[
-				1,
-				1,
-				30
-			]
-		]
-	},
-	{
-		"i_bpType": 0,
-		"i_id": 44,
-		"i_needValue": 13004,
-		"i_prizeId": 14,
-		"i_stage": 3,
-		"ill_extraItem": [
-			[
-				1,
-				1,
-				200
-			]
-		],
-		"ill_normalItem": [
-			[
-				1,
-				1,
-				30
-			]
-		]
-	},
-	{
-		"i_bpType": 0,
-		"i_id": 45,
-		"i_needValue": 13005,
-		"i_prizeId": 15,
-		"i_stage": 3,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				1,
@@ -1036,7 +921,122 @@
 				20
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
+			[
+				1,
+				1,
+				30
+			],
+			[
+				1,
+				1201,
+				10
+			]
+		]
+	},
+	{
+		"i_Id": 41,
+		"i_NeedValue": 13001,
+		"i_PrizeId": 11,
+		"i_Stage": 3,
+		"i_bpType": 0,
+		"ill_ExtraItem": [
+			[
+				1,
+				1,
+				200
+			]
+		],
+		"ill_NormalItem": [
+			[
+				1,
+				1,
+				30
+			]
+		]
+	},
+	{
+		"i_Id": 42,
+		"i_NeedValue": 13002,
+		"i_PrizeId": 12,
+		"i_Stage": 3,
+		"i_bpType": 0,
+		"ill_ExtraItem": [
+			[
+				1,
+				1,
+				200
+			]
+		],
+		"ill_NormalItem": [
+			[
+				1,
+				1,
+				30
+			]
+		]
+	},
+	{
+		"i_Id": 43,
+		"i_NeedValue": 13003,
+		"i_PrizeId": 13,
+		"i_Stage": 3,
+		"i_bpType": 0,
+		"ill_ExtraItem": [
+			[
+				1,
+				1,
+				200
+			]
+		],
+		"ill_NormalItem": [
+			[
+				1,
+				1,
+				30
+			]
+		]
+	},
+	{
+		"i_Id": 44,
+		"i_NeedValue": 13004,
+		"i_PrizeId": 14,
+		"i_Stage": 3,
+		"i_bpType": 0,
+		"ill_ExtraItem": [
+			[
+				1,
+				1,
+				200
+			]
+		],
+		"ill_NormalItem": [
+			[
+				1,
+				1,
+				30
+			]
+		]
+	},
+	{
+		"i_Id": 45,
+		"i_NeedValue": 13005,
+		"i_PrizeId": 15,
+		"i_Stage": 3,
+		"i_bpType": 0,
+		"ill_ExtraItem": [
+			[
+				1,
+				1,
+				500
+			],
+			[
+				1,
+				1201,
+				20
+			]
+		],
+		"ill_NormalItem": [
 			[
 				1,
 				1,
@@ -1050,12 +1050,12 @@
 		]
 	},
 	{
+		"i_Id": 46,
+		"i_NeedValue": 1000,
+		"i_PrizeId": 1,
+		"i_Stage": 1,
 		"i_bpType": 0,
-		"i_id": 46,
-		"i_needValue": 1000,
-		"i_prizeId": 1,
-		"i_stage": 1,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				21,
@@ -1067,7 +1067,7 @@
 				600
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				21,
@@ -1076,19 +1076,19 @@
 		]
 	},
 	{
+		"i_Id": 47,
+		"i_NeedValue": 1500,
+		"i_PrizeId": 2,
+		"i_Stage": 1,
 		"i_bpType": 0,
-		"i_id": 47,
-		"i_needValue": 1500,
-		"i_prizeId": 2,
-		"i_stage": 1,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				21,
 				10
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				21,
@@ -1097,19 +1097,19 @@
 		]
 	},
 	{
+		"i_Id": 48,
+		"i_NeedValue": 2000,
+		"i_PrizeId": 3,
+		"i_Stage": 1,
 		"i_bpType": 0,
-		"i_id": 48,
-		"i_needValue": 2000,
-		"i_prizeId": 3,
-		"i_stage": 1,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				21,
 				10
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				21,
@@ -1118,19 +1118,19 @@
 		]
 	},
 	{
+		"i_Id": 49,
+		"i_NeedValue": 2500,
+		"i_PrizeId": 4,
+		"i_Stage": 1,
 		"i_bpType": 0,
-		"i_id": 49,
-		"i_needValue": 2500,
-		"i_prizeId": 4,
-		"i_stage": 1,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				21,
 				10
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				21,
@@ -1139,12 +1139,12 @@
 		]
 	},
 	{
+		"i_Id": 50,
+		"i_NeedValue": 3000,
+		"i_PrizeId": 5,
+		"i_Stage": 1,
 		"i_bpType": 0,
-		"i_id": 50,
-		"i_needValue": 3000,
-		"i_prizeId": 5,
-		"i_stage": 1,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				21,
@@ -1156,7 +1156,7 @@
 				600
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				21,
@@ -1165,19 +1165,19 @@
 		]
 	},
 	{
+		"i_Id": 51,
+		"i_NeedValue": 3500,
+		"i_PrizeId": 6,
+		"i_Stage": 1,
 		"i_bpType": 0,
-		"i_id": 51,
-		"i_needValue": 3500,
-		"i_prizeId": 6,
-		"i_stage": 1,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				21,
 				10
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				21,
@@ -1186,19 +1186,19 @@
 		]
 	},
 	{
+		"i_Id": 52,
+		"i_NeedValue": 4000,
+		"i_PrizeId": 7,
+		"i_Stage": 1,
 		"i_bpType": 0,
-		"i_id": 52,
-		"i_needValue": 4000,
-		"i_prizeId": 7,
-		"i_stage": 1,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				21,
 				10
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				21,
@@ -1207,19 +1207,19 @@
 		]
 	},
 	{
+		"i_Id": 53,
+		"i_NeedValue": 4500,
+		"i_PrizeId": 8,
+		"i_Stage": 1,
 		"i_bpType": 0,
-		"i_id": 53,
-		"i_needValue": 4500,
-		"i_prizeId": 8,
-		"i_stage": 1,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				21,
 				10
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				21,
@@ -1228,19 +1228,19 @@
 		]
 	},
 	{
+		"i_Id": 54,
+		"i_NeedValue": 5000,
+		"i_PrizeId": 9,
+		"i_Stage": 1,
 		"i_bpType": 0,
-		"i_id": 54,
-		"i_needValue": 5000,
-		"i_prizeId": 9,
-		"i_stage": 1,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				21,
 				10
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				21,
@@ -1249,12 +1249,12 @@
 		]
 	},
 	{
+		"i_Id": 55,
+		"i_NeedValue": 5500,
+		"i_PrizeId": 10,
+		"i_Stage": 1,
 		"i_bpType": 0,
-		"i_id": 55,
-		"i_needValue": 5500,
-		"i_prizeId": 10,
-		"i_stage": 1,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				21,
@@ -1266,7 +1266,7 @@
 				600
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				21,
@@ -1275,19 +1275,19 @@
 		]
 	},
 	{
+		"i_Id": 56,
+		"i_NeedValue": 6000,
+		"i_PrizeId": 11,
+		"i_Stage": 1,
 		"i_bpType": 0,
-		"i_id": 56,
-		"i_needValue": 6000,
-		"i_prizeId": 11,
-		"i_stage": 1,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				21,
 				10
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				21,
@@ -1296,19 +1296,19 @@
 		]
 	},
 	{
+		"i_Id": 57,
+		"i_NeedValue": 6500,
+		"i_PrizeId": 12,
+		"i_Stage": 1,
 		"i_bpType": 0,
-		"i_id": 57,
-		"i_needValue": 6500,
-		"i_prizeId": 12,
-		"i_stage": 1,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				21,
 				10
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				21,
@@ -1317,19 +1317,19 @@
 		]
 	},
 	{
+		"i_Id": 58,
+		"i_NeedValue": 7000,
+		"i_PrizeId": 13,
+		"i_Stage": 1,
 		"i_bpType": 0,
-		"i_id": 58,
-		"i_needValue": 7000,
-		"i_prizeId": 13,
-		"i_stage": 1,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				21,
 				10
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				21,
@@ -1338,19 +1338,19 @@
 		]
 	},
 	{
+		"i_Id": 59,
+		"i_NeedValue": 7500,
+		"i_PrizeId": 14,
+		"i_Stage": 1,
 		"i_bpType": 0,
-		"i_id": 59,
-		"i_needValue": 7500,
-		"i_prizeId": 14,
-		"i_stage": 1,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				21,
 				10
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				21,
@@ -1359,12 +1359,12 @@
 		]
 	},
 	{
+		"i_Id": 60,
+		"i_NeedValue": 8000,
+		"i_PrizeId": 15,
+		"i_Stage": 1,
 		"i_bpType": 0,
-		"i_id": 60,
-		"i_needValue": 8000,
-		"i_prizeId": 15,
-		"i_stage": 1,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				21,
@@ -1376,7 +1376,7 @@
 				1000
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				21,
@@ -1385,12 +1385,12 @@
 		]
 	},
 	{
+		"i_Id": 61,
+		"i_NeedValue": 8500,
+		"i_PrizeId": 1,
+		"i_Stage": 2,
 		"i_bpType": 0,
-		"i_id": 61,
-		"i_needValue": 8500,
-		"i_prizeId": 1,
-		"i_stage": 2,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				21,
@@ -1402,7 +1402,7 @@
 				600
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				21,
@@ -1411,19 +1411,19 @@
 		]
 	},
 	{
+		"i_Id": 62,
+		"i_NeedValue": 9000,
+		"i_PrizeId": 2,
+		"i_Stage": 2,
 		"i_bpType": 0,
-		"i_id": 62,
-		"i_needValue": 9000,
-		"i_prizeId": 2,
-		"i_stage": 2,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				21,
 				10
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				21,
@@ -1432,19 +1432,19 @@
 		]
 	},
 	{
+		"i_Id": 63,
+		"i_NeedValue": 9500,
+		"i_PrizeId": 3,
+		"i_Stage": 2,
 		"i_bpType": 0,
-		"i_id": 63,
-		"i_needValue": 9500,
-		"i_prizeId": 3,
-		"i_stage": 2,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				21,
 				10
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				21,
@@ -1453,19 +1453,19 @@
 		]
 	},
 	{
+		"i_Id": 64,
+		"i_NeedValue": 10000,
+		"i_PrizeId": 4,
+		"i_Stage": 2,
 		"i_bpType": 0,
-		"i_id": 64,
-		"i_needValue": 10000,
-		"i_prizeId": 4,
-		"i_stage": 2,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				21,
 				10
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				21,
@@ -1474,12 +1474,12 @@
 		]
 	},
 	{
+		"i_Id": 65,
+		"i_NeedValue": 10500,
+		"i_PrizeId": 5,
+		"i_Stage": 2,
 		"i_bpType": 0,
-		"i_id": 65,
-		"i_needValue": 10500,
-		"i_prizeId": 5,
-		"i_stage": 2,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				21,
@@ -1491,7 +1491,7 @@
 				600
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				21,
@@ -1500,19 +1500,19 @@
 		]
 	},
 	{
+		"i_Id": 66,
+		"i_NeedValue": 11000,
+		"i_PrizeId": 6,
+		"i_Stage": 2,
 		"i_bpType": 0,
-		"i_id": 66,
-		"i_needValue": 11000,
-		"i_prizeId": 6,
-		"i_stage": 2,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				21,
 				10
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				21,
@@ -1521,19 +1521,19 @@
 		]
 	},
 	{
+		"i_Id": 67,
+		"i_NeedValue": 11500,
+		"i_PrizeId": 7,
+		"i_Stage": 2,
 		"i_bpType": 0,
-		"i_id": 67,
-		"i_needValue": 11500,
-		"i_prizeId": 7,
-		"i_stage": 2,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				21,
 				10
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				21,
@@ -1542,19 +1542,19 @@
 		]
 	},
 	{
+		"i_Id": 68,
+		"i_NeedValue": 12000,
+		"i_PrizeId": 8,
+		"i_Stage": 2,
 		"i_bpType": 0,
-		"i_id": 68,
-		"i_needValue": 12000,
-		"i_prizeId": 8,
-		"i_stage": 2,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				21,
 				10
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				21,
@@ -1563,19 +1563,19 @@
 		]
 	},
 	{
+		"i_Id": 69,
+		"i_NeedValue": 12500,
+		"i_PrizeId": 9,
+		"i_Stage": 2,
 		"i_bpType": 0,
-		"i_id": 69,
-		"i_needValue": 12500,
-		"i_prizeId": 9,
-		"i_stage": 2,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				21,
 				10
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				21,
@@ -1584,12 +1584,12 @@
 		]
 	},
 	{
+		"i_Id": 70,
+		"i_NeedValue": 13000,
+		"i_PrizeId": 10,
+		"i_Stage": 2,
 		"i_bpType": 0,
-		"i_id": 70,
-		"i_needValue": 13000,
-		"i_prizeId": 10,
-		"i_stage": 2,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				21,
@@ -1601,7 +1601,7 @@
 				600
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				21,
@@ -1610,19 +1610,19 @@
 		]
 	},
 	{
+		"i_Id": 71,
+		"i_NeedValue": 13400,
+		"i_PrizeId": 11,
+		"i_Stage": 2,
 		"i_bpType": 0,
-		"i_id": 71,
-		"i_needValue": 13400,
-		"i_prizeId": 11,
-		"i_stage": 2,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				21,
 				10
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				21,
@@ -1631,19 +1631,19 @@
 		]
 	},
 	{
+		"i_Id": 72,
+		"i_NeedValue": 13800,
+		"i_PrizeId": 12,
+		"i_Stage": 2,
 		"i_bpType": 0,
-		"i_id": 72,
-		"i_needValue": 13800,
-		"i_prizeId": 12,
-		"i_stage": 2,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				21,
 				10
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				21,
@@ -1652,19 +1652,19 @@
 		]
 	},
 	{
+		"i_Id": 73,
+		"i_NeedValue": 14200,
+		"i_PrizeId": 13,
+		"i_Stage": 2,
 		"i_bpType": 0,
-		"i_id": 73,
-		"i_needValue": 14200,
-		"i_prizeId": 13,
-		"i_stage": 2,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				21,
 				10
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				21,
@@ -1673,19 +1673,19 @@
 		]
 	},
 	{
+		"i_Id": 74,
+		"i_NeedValue": 14600,
+		"i_PrizeId": 14,
+		"i_Stage": 2,
 		"i_bpType": 0,
-		"i_id": 74,
-		"i_needValue": 14600,
-		"i_prizeId": 14,
-		"i_stage": 2,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				21,
 				10
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				21,
@@ -1694,12 +1694,12 @@
 		]
 	},
 	{
+		"i_Id": 75,
+		"i_NeedValue": 15000,
+		"i_PrizeId": 15,
+		"i_Stage": 2,
 		"i_bpType": 0,
-		"i_id": 75,
-		"i_needValue": 15000,
-		"i_prizeId": 15,
-		"i_stage": 2,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				21,
@@ -1711,7 +1711,7 @@
 				1000
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				21,
@@ -1720,12 +1720,12 @@
 		]
 	},
 	{
+		"i_Id": 76,
+		"i_NeedValue": 1050,
+		"i_PrizeId": 1,
+		"i_Stage": 1,
 		"i_bpType": 0,
-		"i_id": 76,
-		"i_needValue": 1050,
-		"i_prizeId": 1,
-		"i_stage": 1,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				12,
@@ -1737,7 +1737,7 @@
 				500
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				12,
@@ -1751,19 +1751,19 @@
 		]
 	},
 	{
+		"i_Id": 77,
+		"i_NeedValue": 1100,
+		"i_PrizeId": 2,
+		"i_Stage": 1,
 		"i_bpType": 0,
-		"i_id": 77,
-		"i_needValue": 1100,
-		"i_prizeId": 2,
-		"i_stage": 1,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				12,
 				30
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				12,
@@ -1772,19 +1772,19 @@
 		]
 	},
 	{
+		"i_Id": 78,
+		"i_NeedValue": 2050,
+		"i_PrizeId": 3,
+		"i_Stage": 1,
 		"i_bpType": 0,
-		"i_id": 78,
-		"i_needValue": 2050,
-		"i_prizeId": 3,
-		"i_stage": 1,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				12,
 				30
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				12,
@@ -1793,19 +1793,19 @@
 		]
 	},
 	{
+		"i_Id": 79,
+		"i_NeedValue": 2100,
+		"i_PrizeId": 4,
+		"i_Stage": 1,
 		"i_bpType": 0,
-		"i_id": 79,
-		"i_needValue": 2100,
-		"i_prizeId": 4,
-		"i_stage": 1,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				12,
 				30
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				12,
@@ -1814,12 +1814,12 @@
 		]
 	},
 	{
+		"i_Id": 80,
+		"i_NeedValue": 2150,
+		"i_PrizeId": 5,
+		"i_Stage": 1,
 		"i_bpType": 0,
-		"i_id": 80,
-		"i_needValue": 2150,
-		"i_prizeId": 5,
-		"i_stage": 1,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				12,
@@ -1831,7 +1831,7 @@
 				1000
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				12,
@@ -1845,19 +1845,19 @@
 		]
 	},
 	{
+		"i_Id": 81,
+		"i_NeedValue": 3050,
+		"i_PrizeId": 6,
+		"i_Stage": 1,
 		"i_bpType": 0,
-		"i_id": 81,
-		"i_needValue": 3050,
-		"i_prizeId": 6,
-		"i_stage": 1,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				12,
 				30
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				12,
@@ -1866,19 +1866,19 @@
 		]
 	},
 	{
+		"i_Id": 82,
+		"i_NeedValue": 3100,
+		"i_PrizeId": 7,
+		"i_Stage": 1,
 		"i_bpType": 0,
-		"i_id": 82,
-		"i_needValue": 3100,
-		"i_prizeId": 7,
-		"i_stage": 1,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				12,
 				30
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				12,
@@ -1887,19 +1887,19 @@
 		]
 	},
 	{
+		"i_Id": 83,
+		"i_NeedValue": 3150,
+		"i_PrizeId": 8,
+		"i_Stage": 1,
 		"i_bpType": 0,
-		"i_id": 83,
-		"i_needValue": 3150,
-		"i_prizeId": 8,
-		"i_stage": 1,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				12,
 				30
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				12,
@@ -1908,19 +1908,19 @@
 		]
 	},
 	{
+		"i_Id": 84,
+		"i_NeedValue": 3200,
+		"i_PrizeId": 9,
+		"i_Stage": 1,
 		"i_bpType": 0,
-		"i_id": 84,
-		"i_needValue": 3200,
-		"i_prizeId": 9,
-		"i_stage": 1,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				12,
 				30
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				12,
@@ -1929,12 +1929,12 @@
 		]
 	},
 	{
+		"i_Id": 85,
+		"i_NeedValue": 3250,
+		"i_PrizeId": 10,
+		"i_Stage": 1,
 		"i_bpType": 0,
-		"i_id": 85,
-		"i_needValue": 3250,
-		"i_prizeId": 10,
-		"i_stage": 1,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				12,
@@ -1946,7 +1946,7 @@
 				1000
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				12,
@@ -1960,19 +1960,19 @@
 		]
 	},
 	{
+		"i_Id": 86,
+		"i_NeedValue": 4050,
+		"i_PrizeId": 11,
+		"i_Stage": 1,
 		"i_bpType": 0,
-		"i_id": 86,
-		"i_needValue": 4050,
-		"i_prizeId": 11,
-		"i_stage": 1,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				12,
 				30
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				12,
@@ -1981,19 +1981,19 @@
 		]
 	},
 	{
+		"i_Id": 87,
+		"i_NeedValue": 4100,
+		"i_PrizeId": 12,
+		"i_Stage": 1,
 		"i_bpType": 0,
-		"i_id": 87,
-		"i_needValue": 4100,
-		"i_prizeId": 12,
-		"i_stage": 1,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				12,
 				30
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				12,
@@ -2002,19 +2002,19 @@
 		]
 	},
 	{
+		"i_Id": 88,
+		"i_NeedValue": 4150,
+		"i_PrizeId": 13,
+		"i_Stage": 1,
 		"i_bpType": 0,
-		"i_id": 88,
-		"i_needValue": 4150,
-		"i_prizeId": 13,
-		"i_stage": 1,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				12,
 				30
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				12,
@@ -2023,19 +2023,19 @@
 		]
 	},
 	{
+		"i_Id": 89,
+		"i_NeedValue": 4200,
+		"i_PrizeId": 14,
+		"i_Stage": 1,
 		"i_bpType": 0,
-		"i_id": 89,
-		"i_needValue": 4200,
-		"i_prizeId": 14,
-		"i_stage": 1,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				12,
 				30
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				12,
@@ -2044,12 +2044,12 @@
 		]
 	},
 	{
+		"i_Id": 90,
+		"i_NeedValue": 4250,
+		"i_PrizeId": 15,
+		"i_Stage": 1,
 		"i_bpType": 0,
-		"i_id": 90,
-		"i_needValue": 4250,
-		"i_prizeId": 15,
-		"i_stage": 1,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				12,
@@ -2061,7 +2061,7 @@
 				1500
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				12,
@@ -2075,12 +2075,12 @@
 		]
 	},
 	{
+		"i_Id": 91,
+		"i_NeedValue": 4300,
+		"i_PrizeId": 1,
+		"i_Stage": 2,
 		"i_bpType": 0,
-		"i_id": 91,
-		"i_needValue": 4300,
-		"i_prizeId": 1,
-		"i_stage": 2,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				12,
@@ -2092,7 +2092,7 @@
 				500
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				12,
@@ -2106,19 +2106,19 @@
 		]
 	},
 	{
+		"i_Id": 92,
+		"i_NeedValue": 5050,
+		"i_PrizeId": 2,
+		"i_Stage": 2,
 		"i_bpType": 0,
-		"i_id": 92,
-		"i_needValue": 5050,
-		"i_prizeId": 2,
-		"i_stage": 2,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				12,
 				30
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				12,
@@ -2127,19 +2127,19 @@
 		]
 	},
 	{
+		"i_Id": 93,
+		"i_NeedValue": 5100,
+		"i_PrizeId": 3,
+		"i_Stage": 2,
 		"i_bpType": 0,
-		"i_id": 93,
-		"i_needValue": 5100,
-		"i_prizeId": 3,
-		"i_stage": 2,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				12,
 				30
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				12,
@@ -2148,19 +2148,19 @@
 		]
 	},
 	{
+		"i_Id": 94,
+		"i_NeedValue": 5150,
+		"i_PrizeId": 4,
+		"i_Stage": 2,
 		"i_bpType": 0,
-		"i_id": 94,
-		"i_needValue": 5150,
-		"i_prizeId": 4,
-		"i_stage": 2,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				12,
 				30
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				12,
@@ -2169,12 +2169,12 @@
 		]
 	},
 	{
+		"i_Id": 95,
+		"i_NeedValue": 5200,
+		"i_PrizeId": 5,
+		"i_Stage": 2,
 		"i_bpType": 0,
-		"i_id": 95,
-		"i_needValue": 5200,
-		"i_prizeId": 5,
-		"i_stage": 2,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				12,
@@ -2186,7 +2186,7 @@
 				1000
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				12,
@@ -2200,19 +2200,19 @@
 		]
 	},
 	{
+		"i_Id": 96,
+		"i_NeedValue": 5250,
+		"i_PrizeId": 6,
+		"i_Stage": 2,
 		"i_bpType": 0,
-		"i_id": 96,
-		"i_needValue": 5250,
-		"i_prizeId": 6,
-		"i_stage": 2,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				12,
 				30
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				12,
@@ -2221,19 +2221,19 @@
 		]
 	},
 	{
+		"i_Id": 97,
+		"i_NeedValue": 5300,
+		"i_PrizeId": 7,
+		"i_Stage": 2,
 		"i_bpType": 0,
-		"i_id": 97,
-		"i_needValue": 5300,
-		"i_prizeId": 7,
-		"i_stage": 2,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				12,
 				30
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				12,
@@ -2242,19 +2242,19 @@
 		]
 	},
 	{
+		"i_Id": 98,
+		"i_NeedValue": 5350,
+		"i_PrizeId": 8,
+		"i_Stage": 2,
 		"i_bpType": 0,
-		"i_id": 98,
-		"i_needValue": 5350,
-		"i_prizeId": 8,
-		"i_stage": 2,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				12,
 				30
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				12,
@@ -2263,19 +2263,19 @@
 		]
 	},
 	{
+		"i_Id": 99,
+		"i_NeedValue": 6040,
+		"i_PrizeId": 9,
+		"i_Stage": 2,
 		"i_bpType": 0,
-		"i_id": 99,
-		"i_needValue": 6040,
-		"i_prizeId": 9,
-		"i_stage": 2,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				12,
 				30
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				12,
@@ -2284,12 +2284,12 @@
 		]
 	},
 	{
+		"i_Id": 100,
+		"i_NeedValue": 6080,
+		"i_PrizeId": 10,
+		"i_Stage": 2,
 		"i_bpType": 0,
-		"i_id": 100,
-		"i_needValue": 6080,
-		"i_prizeId": 10,
-		"i_stage": 2,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				12,
@@ -2301,7 +2301,7 @@
 				1000
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				12,
@@ -2315,19 +2315,19 @@
 		]
 	},
 	{
+		"i_Id": 101,
+		"i_NeedValue": 6120,
+		"i_PrizeId": 11,
+		"i_Stage": 2,
 		"i_bpType": 0,
-		"i_id": 101,
-		"i_needValue": 6120,
-		"i_prizeId": 11,
-		"i_stage": 2,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				12,
 				30
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				12,
@@ -2336,19 +2336,19 @@
 		]
 	},
 	{
+		"i_Id": 102,
+		"i_NeedValue": 6160,
+		"i_PrizeId": 12,
+		"i_Stage": 2,
 		"i_bpType": 0,
-		"i_id": 102,
-		"i_needValue": 6160,
-		"i_prizeId": 12,
-		"i_stage": 2,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				12,
 				30
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				12,
@@ -2357,19 +2357,19 @@
 		]
 	},
 	{
+		"i_Id": 103,
+		"i_NeedValue": 6200,
+		"i_PrizeId": 13,
+		"i_Stage": 2,
 		"i_bpType": 0,
-		"i_id": 103,
-		"i_needValue": 6200,
-		"i_prizeId": 13,
-		"i_stage": 2,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				12,
 				30
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				12,
@@ -2378,19 +2378,19 @@
 		]
 	},
 	{
+		"i_Id": 104,
+		"i_NeedValue": 6240,
+		"i_PrizeId": 14,
+		"i_Stage": 2,
 		"i_bpType": 0,
-		"i_id": 104,
-		"i_needValue": 6240,
-		"i_prizeId": 14,
-		"i_stage": 2,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				12,
 				30
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				12,
@@ -2399,12 +2399,12 @@
 		]
 	},
 	{
+		"i_Id": 105,
+		"i_NeedValue": 6280,
+		"i_PrizeId": 15,
+		"i_Stage": 2,
 		"i_bpType": 0,
-		"i_id": 105,
-		"i_needValue": 6280,
-		"i_prizeId": 15,
-		"i_stage": 2,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				12,
@@ -2416,7 +2416,7 @@
 				1500
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				12,
@@ -2430,12 +2430,12 @@
 		]
 	},
 	{
+		"i_Id": 106,
+		"i_NeedValue": 1,
+		"i_PrizeId": 1,
+		"i_Stage": 1,
 		"i_bpType": 0,
-		"i_id": 106,
-		"i_needValue": 1,
-		"i_prizeId": 1,
-		"i_stage": 1,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				15,
@@ -2447,7 +2447,7 @@
 				15
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				15,
@@ -2456,19 +2456,19 @@
 		]
 	},
 	{
+		"i_Id": 107,
+		"i_NeedValue": 2,
+		"i_PrizeId": 2,
+		"i_Stage": 1,
 		"i_bpType": 0,
-		"i_id": 107,
-		"i_needValue": 2,
-		"i_prizeId": 2,
-		"i_stage": 1,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				15,
 				800
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				15,
@@ -2477,19 +2477,19 @@
 		]
 	},
 	{
+		"i_Id": 108,
+		"i_NeedValue": 3,
+		"i_PrizeId": 3,
+		"i_Stage": 1,
 		"i_bpType": 0,
-		"i_id": 108,
-		"i_needValue": 3,
-		"i_prizeId": 3,
-		"i_stage": 1,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				15,
 				800
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				15,
@@ -2498,19 +2498,19 @@
 		]
 	},
 	{
+		"i_Id": 109,
+		"i_NeedValue": 4,
+		"i_PrizeId": 4,
+		"i_Stage": 1,
 		"i_bpType": 0,
-		"i_id": 109,
-		"i_needValue": 4,
-		"i_prizeId": 4,
-		"i_stage": 1,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				15,
 				800
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				15,
@@ -2519,122 +2519,12 @@
 		]
 	},
 	{
+		"i_Id": 110,
+		"i_NeedValue": 5,
+		"i_PrizeId": 5,
+		"i_Stage": 1,
 		"i_bpType": 0,
-		"i_id": 110,
-		"i_needValue": 5,
-		"i_prizeId": 5,
-		"i_stage": 1,
-		"ill_extraItem": [
-			[
-				1,
-				15,
-				800
-			],
-			[
-				1,
-				16,
-				15
-			]
-		],
-		"ill_normalItem": [
-			[
-				1,
-				15,
-				100
-			]
-		]
-	},
-	{
-		"i_bpType": 0,
-		"i_id": 111,
-		"i_needValue": 6,
-		"i_prizeId": 6,
-		"i_stage": 1,
-		"ill_extraItem": [
-			[
-				1,
-				15,
-				800
-			]
-		],
-		"ill_normalItem": [
-			[
-				1,
-				15,
-				100
-			]
-		]
-	},
-	{
-		"i_bpType": 0,
-		"i_id": 112,
-		"i_needValue": 7,
-		"i_prizeId": 7,
-		"i_stage": 1,
-		"ill_extraItem": [
-			[
-				1,
-				15,
-				800
-			]
-		],
-		"ill_normalItem": [
-			[
-				1,
-				15,
-				100
-			]
-		]
-	},
-	{
-		"i_bpType": 0,
-		"i_id": 113,
-		"i_needValue": 8,
-		"i_prizeId": 8,
-		"i_stage": 1,
-		"ill_extraItem": [
-			[
-				1,
-				15,
-				800
-			]
-		],
-		"ill_normalItem": [
-			[
-				1,
-				15,
-				100
-			]
-		]
-	},
-	{
-		"i_bpType": 0,
-		"i_id": 114,
-		"i_needValue": 9,
-		"i_prizeId": 9,
-		"i_stage": 1,
-		"ill_extraItem": [
-			[
-				1,
-				15,
-				800
-			]
-		],
-		"ill_normalItem": [
-			[
-				1,
-				15,
-				100
-			]
-		]
-	},
-	{
-		"i_bpType": 0,
-		"i_id": 115,
-		"i_needValue": 10,
-		"i_prizeId": 10,
-		"i_stage": 1,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				15,
@@ -2646,7 +2536,7 @@
 				15
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				15,
@@ -2655,19 +2545,19 @@
 		]
 	},
 	{
+		"i_Id": 111,
+		"i_NeedValue": 6,
+		"i_PrizeId": 6,
+		"i_Stage": 1,
 		"i_bpType": 0,
-		"i_id": 116,
-		"i_needValue": 11,
-		"i_prizeId": 11,
-		"i_stage": 1,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				15,
 				800
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				15,
@@ -2676,19 +2566,19 @@
 		]
 	},
 	{
+		"i_Id": 112,
+		"i_NeedValue": 7,
+		"i_PrizeId": 7,
+		"i_Stage": 1,
 		"i_bpType": 0,
-		"i_id": 117,
-		"i_needValue": 12,
-		"i_prizeId": 12,
-		"i_stage": 1,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				15,
 				800
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				15,
@@ -2697,19 +2587,19 @@
 		]
 	},
 	{
+		"i_Id": 113,
+		"i_NeedValue": 8,
+		"i_PrizeId": 8,
+		"i_Stage": 1,
 		"i_bpType": 0,
-		"i_id": 118,
-		"i_needValue": 13,
-		"i_prizeId": 13,
-		"i_stage": 1,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				15,
 				800
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				15,
@@ -2718,19 +2608,19 @@
 		]
 	},
 	{
+		"i_Id": 114,
+		"i_NeedValue": 9,
+		"i_PrizeId": 9,
+		"i_Stage": 1,
 		"i_bpType": 0,
-		"i_id": 119,
-		"i_needValue": 14,
-		"i_prizeId": 14,
-		"i_stage": 1,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				15,
 				800
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				15,
@@ -2739,12 +2629,12 @@
 		]
 	},
 	{
+		"i_Id": 115,
+		"i_NeedValue": 10,
+		"i_PrizeId": 10,
+		"i_Stage": 1,
 		"i_bpType": 0,
-		"i_id": 120,
-		"i_needValue": 15,
-		"i_prizeId": 15,
-		"i_stage": 1,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				15,
@@ -2756,7 +2646,117 @@
 				15
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
+			[
+				1,
+				15,
+				100
+			]
+		]
+	},
+	{
+		"i_Id": 116,
+		"i_NeedValue": 11,
+		"i_PrizeId": 11,
+		"i_Stage": 1,
+		"i_bpType": 0,
+		"ill_ExtraItem": [
+			[
+				1,
+				15,
+				800
+			]
+		],
+		"ill_NormalItem": [
+			[
+				1,
+				15,
+				100
+			]
+		]
+	},
+	{
+		"i_Id": 117,
+		"i_NeedValue": 12,
+		"i_PrizeId": 12,
+		"i_Stage": 1,
+		"i_bpType": 0,
+		"ill_ExtraItem": [
+			[
+				1,
+				15,
+				800
+			]
+		],
+		"ill_NormalItem": [
+			[
+				1,
+				15,
+				100
+			]
+		]
+	},
+	{
+		"i_Id": 118,
+		"i_NeedValue": 13,
+		"i_PrizeId": 13,
+		"i_Stage": 1,
+		"i_bpType": 0,
+		"ill_ExtraItem": [
+			[
+				1,
+				15,
+				800
+			]
+		],
+		"ill_NormalItem": [
+			[
+				1,
+				15,
+				100
+			]
+		]
+	},
+	{
+		"i_Id": 119,
+		"i_NeedValue": 14,
+		"i_PrizeId": 14,
+		"i_Stage": 1,
+		"i_bpType": 0,
+		"ill_ExtraItem": [
+			[
+				1,
+				15,
+				800
+			]
+		],
+		"ill_NormalItem": [
+			[
+				1,
+				15,
+				100
+			]
+		]
+	},
+	{
+		"i_Id": 120,
+		"i_NeedValue": 15,
+		"i_PrizeId": 15,
+		"i_Stage": 1,
+		"i_bpType": 0,
+		"ill_ExtraItem": [
+			[
+				1,
+				15,
+				800
+			],
+			[
+				1,
+				16,
+				15
+			]
+		],
+		"ill_NormalItem": [
 			[
 				1,
 				15,
@@ -2770,19 +2770,19 @@
 		]
 	},
 	{
+		"i_Id": 10101,
+		"i_NeedValue": 750,
+		"i_PrizeId": 1,
+		"i_Stage": 1,
 		"i_bpType": 0,
-		"i_id": 10101,
-		"i_needValue": 750,
-		"i_prizeId": 1,
-		"i_stage": 1,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				13,
 				3
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				9,
@@ -2791,19 +2791,19 @@
 		]
 	},
 	{
+		"i_Id": 10102,
+		"i_NeedValue": 1250,
+		"i_PrizeId": 2,
+		"i_Stage": 1,
 		"i_bpType": 0,
-		"i_id": 10102,
-		"i_needValue": 1250,
-		"i_prizeId": 2,
-		"i_stage": 1,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				13,
 				3
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				9,
@@ -2812,19 +2812,19 @@
 		]
 	},
 	{
+		"i_Id": 10103,
+		"i_NeedValue": 1750,
+		"i_PrizeId": 3,
+		"i_Stage": 1,
 		"i_bpType": 0,
-		"i_id": 10103,
-		"i_needValue": 1750,
-		"i_prizeId": 3,
-		"i_stage": 1,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				13,
 				3
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				9,
@@ -2833,19 +2833,19 @@
 		]
 	},
 	{
+		"i_Id": 10104,
+		"i_NeedValue": 2250,
+		"i_PrizeId": 4,
+		"i_Stage": 1,
 		"i_bpType": 0,
-		"i_id": 10104,
-		"i_needValue": 2250,
-		"i_prizeId": 4,
-		"i_stage": 1,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				13,
 				3
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				9,
@@ -2854,12 +2854,12 @@
 		]
 	},
 	{
+		"i_Id": 10105,
+		"i_NeedValue": 2750,
+		"i_PrizeId": 5,
+		"i_Stage": 1,
 		"i_bpType": 0,
-		"i_id": 10105,
-		"i_needValue": 2750,
-		"i_prizeId": 5,
-		"i_stage": 1,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				13,
@@ -2871,7 +2871,7 @@
 				100
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				11,
@@ -2885,19 +2885,19 @@
 		]
 	},
 	{
+		"i_Id": 10106,
+		"i_NeedValue": 3250,
+		"i_PrizeId": 6,
+		"i_Stage": 1,
 		"i_bpType": 0,
-		"i_id": 10106,
-		"i_needValue": 3250,
-		"i_prizeId": 6,
-		"i_stage": 1,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				13,
 				3
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				9,
@@ -2906,19 +2906,19 @@
 		]
 	},
 	{
+		"i_Id": 10107,
+		"i_NeedValue": 3750,
+		"i_PrizeId": 7,
+		"i_Stage": 1,
 		"i_bpType": 0,
-		"i_id": 10107,
-		"i_needValue": 3750,
-		"i_prizeId": 7,
-		"i_stage": 1,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				13,
 				3
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				9,
@@ -2927,19 +2927,19 @@
 		]
 	},
 	{
+		"i_Id": 10108,
+		"i_NeedValue": 4250,
+		"i_PrizeId": 8,
+		"i_Stage": 1,
 		"i_bpType": 0,
-		"i_id": 10108,
-		"i_needValue": 4250,
-		"i_prizeId": 8,
-		"i_stage": 1,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				13,
 				3
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				9,
@@ -2948,19 +2948,19 @@
 		]
 	},
 	{
+		"i_Id": 10109,
+		"i_NeedValue": 4750,
+		"i_PrizeId": 9,
+		"i_Stage": 1,
 		"i_bpType": 0,
-		"i_id": 10109,
-		"i_needValue": 4750,
-		"i_prizeId": 9,
-		"i_stage": 1,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				13,
 				3
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				9,
@@ -2969,12 +2969,12 @@
 		]
 	},
 	{
+		"i_Id": 10110,
+		"i_NeedValue": 5250,
+		"i_PrizeId": 10,
+		"i_Stage": 1,
 		"i_bpType": 0,
-		"i_id": 10110,
-		"i_needValue": 5250,
-		"i_prizeId": 10,
-		"i_stage": 1,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				13,
@@ -2986,7 +2986,7 @@
 				200
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				11,
@@ -3000,19 +3000,19 @@
 		]
 	},
 	{
+		"i_Id": 10111,
+		"i_NeedValue": 5750,
+		"i_PrizeId": 11,
+		"i_Stage": 1,
 		"i_bpType": 0,
-		"i_id": 10111,
-		"i_needValue": 5750,
-		"i_prizeId": 11,
-		"i_stage": 1,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				13,
 				3
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				9,
@@ -3021,19 +3021,19 @@
 		]
 	},
 	{
+		"i_Id": 10112,
+		"i_NeedValue": 6250,
+		"i_PrizeId": 12,
+		"i_Stage": 1,
 		"i_bpType": 0,
-		"i_id": 10112,
-		"i_needValue": 6250,
-		"i_prizeId": 12,
-		"i_stage": 1,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				13,
 				3
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				9,
@@ -3042,19 +3042,19 @@
 		]
 	},
 	{
+		"i_Id": 10113,
+		"i_NeedValue": 6750,
+		"i_PrizeId": 13,
+		"i_Stage": 1,
 		"i_bpType": 0,
-		"i_id": 10113,
-		"i_needValue": 6750,
-		"i_prizeId": 13,
-		"i_stage": 1,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				13,
 				3
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				9,
@@ -3063,19 +3063,19 @@
 		]
 	},
 	{
+		"i_Id": 10114,
+		"i_NeedValue": 7250,
+		"i_PrizeId": 14,
+		"i_Stage": 1,
 		"i_bpType": 0,
-		"i_id": 10114,
-		"i_needValue": 7250,
-		"i_prizeId": 14,
-		"i_stage": 1,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				13,
 				3
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				9,
@@ -3084,12 +3084,12 @@
 		]
 	},
 	{
+		"i_Id": 10115,
+		"i_NeedValue": 7750,
+		"i_PrizeId": 15,
+		"i_Stage": 1,
 		"i_bpType": 0,
-		"i_id": 10115,
-		"i_needValue": 7750,
-		"i_prizeId": 15,
-		"i_stage": 1,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				13,
@@ -3101,7 +3101,7 @@
 				300
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				11,
@@ -3115,19 +3115,19 @@
 		]
 	},
 	{
+		"i_Id": 10201,
+		"i_NeedValue": 8250,
+		"i_PrizeId": 1,
+		"i_Stage": 2,
 		"i_bpType": 0,
-		"i_id": 10201,
-		"i_needValue": 8250,
-		"i_prizeId": 1,
-		"i_stage": 2,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				13,
 				3
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				9,
@@ -3136,19 +3136,19 @@
 		]
 	},
 	{
+		"i_Id": 10202,
+		"i_NeedValue": 8750,
+		"i_PrizeId": 2,
+		"i_Stage": 2,
 		"i_bpType": 0,
-		"i_id": 10202,
-		"i_needValue": 8750,
-		"i_prizeId": 2,
-		"i_stage": 2,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				13,
 				3
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				9,
@@ -3157,19 +3157,19 @@
 		]
 	},
 	{
+		"i_Id": 10203,
+		"i_NeedValue": 9250,
+		"i_PrizeId": 3,
+		"i_Stage": 2,
 		"i_bpType": 0,
-		"i_id": 10203,
-		"i_needValue": 9250,
-		"i_prizeId": 3,
-		"i_stage": 2,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				13,
 				3
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				9,
@@ -3178,19 +3178,19 @@
 		]
 	},
 	{
+		"i_Id": 10204,
+		"i_NeedValue": 9750,
+		"i_PrizeId": 4,
+		"i_Stage": 2,
 		"i_bpType": 0,
-		"i_id": 10204,
-		"i_needValue": 9750,
-		"i_prizeId": 4,
-		"i_stage": 2,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				13,
 				3
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				9,
@@ -3199,12 +3199,12 @@
 		]
 	},
 	{
+		"i_Id": 10205,
+		"i_NeedValue": 10250,
+		"i_PrizeId": 5,
+		"i_Stage": 2,
 		"i_bpType": 0,
-		"i_id": 10205,
-		"i_needValue": 10250,
-		"i_prizeId": 5,
-		"i_stage": 2,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				13,
@@ -3216,7 +3216,7 @@
 				100
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				11,
@@ -3230,19 +3230,19 @@
 		]
 	},
 	{
+		"i_Id": 10206,
+		"i_NeedValue": 10750,
+		"i_PrizeId": 6,
+		"i_Stage": 2,
 		"i_bpType": 0,
-		"i_id": 10206,
-		"i_needValue": 10750,
-		"i_prizeId": 6,
-		"i_stage": 2,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				13,
 				3
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				9,
@@ -3251,19 +3251,19 @@
 		]
 	},
 	{
+		"i_Id": 10207,
+		"i_NeedValue": 11250,
+		"i_PrizeId": 7,
+		"i_Stage": 2,
 		"i_bpType": 0,
-		"i_id": 10207,
-		"i_needValue": 11250,
-		"i_prizeId": 7,
-		"i_stage": 2,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				13,
 				3
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				9,
@@ -3272,19 +3272,19 @@
 		]
 	},
 	{
+		"i_Id": 10208,
+		"i_NeedValue": 11750,
+		"i_PrizeId": 8,
+		"i_Stage": 2,
 		"i_bpType": 0,
-		"i_id": 10208,
-		"i_needValue": 11750,
-		"i_prizeId": 8,
-		"i_stage": 2,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				13,
 				3
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				9,
@@ -3293,19 +3293,19 @@
 		]
 	},
 	{
+		"i_Id": 10209,
+		"i_NeedValue": 12250,
+		"i_PrizeId": 9,
+		"i_Stage": 2,
 		"i_bpType": 0,
-		"i_id": 10209,
-		"i_needValue": 12250,
-		"i_prizeId": 9,
-		"i_stage": 2,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				13,
 				3
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				9,
@@ -3314,12 +3314,12 @@
 		]
 	},
 	{
+		"i_Id": 10210,
+		"i_NeedValue": 12750,
+		"i_PrizeId": 10,
+		"i_Stage": 2,
 		"i_bpType": 0,
-		"i_id": 10210,
-		"i_needValue": 12750,
-		"i_prizeId": 10,
-		"i_stage": 2,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				13,
@@ -3331,7 +3331,7 @@
 				200
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				11,
@@ -3345,19 +3345,19 @@
 		]
 	},
 	{
+		"i_Id": 10211,
+		"i_NeedValue": 13150,
+		"i_PrizeId": 11,
+		"i_Stage": 2,
 		"i_bpType": 0,
-		"i_id": 10211,
-		"i_needValue": 13150,
-		"i_prizeId": 11,
-		"i_stage": 2,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				13,
 				3
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				9,
@@ -3366,19 +3366,19 @@
 		]
 	},
 	{
+		"i_Id": 10212,
+		"i_NeedValue": 13550,
+		"i_PrizeId": 12,
+		"i_Stage": 2,
 		"i_bpType": 0,
-		"i_id": 10212,
-		"i_needValue": 13550,
-		"i_prizeId": 12,
-		"i_stage": 2,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				13,
 				3
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				9,
@@ -3387,19 +3387,19 @@
 		]
 	},
 	{
+		"i_Id": 10213,
+		"i_NeedValue": 13950,
+		"i_PrizeId": 13,
+		"i_Stage": 2,
 		"i_bpType": 0,
-		"i_id": 10213,
-		"i_needValue": 13950,
-		"i_prizeId": 13,
-		"i_stage": 2,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				13,
 				3
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				9,
@@ -3408,19 +3408,19 @@
 		]
 	},
 	{
+		"i_Id": 10214,
+		"i_NeedValue": 14350,
+		"i_PrizeId": 14,
+		"i_Stage": 2,
 		"i_bpType": 0,
-		"i_id": 10214,
-		"i_needValue": 14350,
-		"i_prizeId": 14,
-		"i_stage": 2,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				13,
 				3
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				9,
@@ -3429,12 +3429,12 @@
 		]
 	},
 	{
+		"i_Id": 10215,
+		"i_NeedValue": 14750,
+		"i_PrizeId": 15,
+		"i_Stage": 2,
 		"i_bpType": 0,
-		"i_id": 10215,
-		"i_needValue": 14750,
-		"i_prizeId": 15,
-		"i_stage": 2,
-		"ill_extraItem": [
+		"ill_ExtraItem": [
 			[
 				1,
 				13,
@@ -3446,7 +3446,7 @@
 				300
 			]
 		],
-		"ill_normalItem": [
+		"ill_NormalItem": [
 			[
 				1,
 				11,

@@ -1,11 +1,11 @@
 [
 	{
-		"i_discount": 0,
-		"i_id": 1,
-		"i_limitBuyNum": 1,
-		"i_productId": 0,
+		"i_Discount": 0,
+		"i_Id": 1,
+		"i_LimitBuyNum": 1,
+		"i_ProductId": 0,
+		"i_SortTag": 100,
 		"i_shopType": 0,
-		"i_sortTag": 100,
 		"il_needItem": [
 			0,
 			20,
@@ -19,16 +19,16 @@
 				4
 			]
 		],
-		"s_productName": "",
-		"s_valueTips": ""
+		"s_ProductName": "",
+		"s_ValueTips": ""
 	},
 	{
-		"i_discount": 0,
-		"i_id": 2,
-		"i_limitBuyNum": 1,
-		"i_productId": 0,
+		"i_Discount": 0,
+		"i_Id": 2,
+		"i_LimitBuyNum": 1,
+		"i_ProductId": 0,
+		"i_SortTag": 99,
 		"i_shopType": 0,
-		"i_sortTag": 99,
 		"il_needItem": [
 			0,
 			20,
@@ -42,16 +42,16 @@
 				4
 			]
 		],
-		"s_productName": "",
-		"s_valueTips": ""
+		"s_ProductName": "",
+		"s_ValueTips": ""
 	},
 	{
-		"i_discount": 0,
-		"i_id": 3,
-		"i_limitBuyNum": 1,
-		"i_productId": 0,
+		"i_Discount": 0,
+		"i_Id": 3,
+		"i_LimitBuyNum": 1,
+		"i_ProductId": 0,
+		"i_SortTag": 98,
 		"i_shopType": 0,
-		"i_sortTag": 98,
 		"il_needItem": [
 			0,
 			20,
@@ -65,16 +65,16 @@
 				4
 			]
 		],
-		"s_productName": "",
-		"s_valueTips": ""
+		"s_ProductName": "",
+		"s_ValueTips": ""
 	},
 	{
-		"i_discount": 0,
-		"i_id": 4,
-		"i_limitBuyNum": 1,
-		"i_productId": 0,
+		"i_Discount": 0,
+		"i_Id": 4,
+		"i_LimitBuyNum": 1,
+		"i_ProductId": 0,
+		"i_SortTag": 97,
 		"i_shopType": 0,
-		"i_sortTag": 97,
 		"il_needItem": [
 			0,
 			20,
@@ -88,16 +88,16 @@
 				4
 			]
 		],
-		"s_productName": "",
-		"s_valueTips": ""
+		"s_ProductName": "",
+		"s_ValueTips": ""
 	},
 	{
-		"i_discount": 0,
-		"i_id": 5,
-		"i_limitBuyNum": 1,
-		"i_productId": 0,
+		"i_Discount": 0,
+		"i_Id": 5,
+		"i_LimitBuyNum": 1,
+		"i_ProductId": 0,
+		"i_SortTag": 96,
 		"i_shopType": 0,
-		"i_sortTag": 96,
 		"il_needItem": [
 			0,
 			20,
@@ -111,16 +111,16 @@
 				4
 			]
 		],
-		"s_productName": "",
-		"s_valueTips": ""
+		"s_ProductName": "",
+		"s_ValueTips": ""
 	},
 	{
-		"i_discount": 0,
-		"i_id": 6,
-		"i_limitBuyNum": 1,
-		"i_productId": 0,
+		"i_Discount": 0,
+		"i_Id": 6,
+		"i_LimitBuyNum": 1,
+		"i_ProductId": 0,
+		"i_SortTag": 95,
 		"i_shopType": 0,
-		"i_sortTag": 95,
 		"il_needItem": [
 			0,
 			20,
@@ -133,16 +133,16 @@
 				1
 			]
 		],
-		"s_productName": "",
-		"s_valueTips": ""
+		"s_ProductName": "",
+		"s_ValueTips": ""
 	},
 	{
-		"i_discount": 0,
-		"i_id": 7,
-		"i_limitBuyNum": 1,
-		"i_productId": 0,
+		"i_Discount": 0,
+		"i_Id": 7,
+		"i_LimitBuyNum": 1,
+		"i_ProductId": 0,
+		"i_SortTag": 94,
 		"i_shopType": 0,
-		"i_sortTag": 94,
 		"il_needItem": [
 			0,
 			20,
@@ -155,16 +155,16 @@
 				1
 			]
 		],
-		"s_productName": "",
-		"s_valueTips": ""
+		"s_ProductName": "",
+		"s_ValueTips": ""
 	},
 	{
-		"i_discount": 0,
-		"i_id": 8,
-		"i_limitBuyNum": 1,
-		"i_productId": 0,
+		"i_Discount": 0,
+		"i_Id": 8,
+		"i_LimitBuyNum": 1,
+		"i_ProductId": 0,
+		"i_SortTag": 93,
 		"i_shopType": 0,
-		"i_sortTag": 93,
 		"il_needItem": [
 			0,
 			20,
@@ -177,16 +177,16 @@
 				1
 			]
 		],
-		"s_productName": "",
-		"s_valueTips": ""
+		"s_ProductName": "",
+		"s_ValueTips": ""
 	},
 	{
-		"i_discount": 0,
-		"i_id": 9,
-		"i_limitBuyNum": 1,
-		"i_productId": 0,
+		"i_Discount": 0,
+		"i_Id": 9,
+		"i_LimitBuyNum": 1,
+		"i_ProductId": 0,
+		"i_SortTag": 92,
 		"i_shopType": 0,
-		"i_sortTag": 92,
 		"il_needItem": [
 			0,
 			20,
@@ -199,16 +199,16 @@
 				1
 			]
 		],
-		"s_productName": "",
-		"s_valueTips": ""
+		"s_ProductName": "",
+		"s_ValueTips": ""
 	},
 	{
-		"i_discount": 0,
-		"i_id": 10,
-		"i_limitBuyNum": 1,
-		"i_productId": 0,
+		"i_Discount": 0,
+		"i_Id": 10,
+		"i_LimitBuyNum": 1,
+		"i_ProductId": 0,
+		"i_SortTag": 91,
 		"i_shopType": 0,
-		"i_sortTag": 91,
 		"il_needItem": [
 			0,
 			20,
@@ -221,16 +221,16 @@
 				1
 			]
 		],
-		"s_productName": "",
-		"s_valueTips": ""
+		"s_ProductName": "",
+		"s_ValueTips": ""
 	},
 	{
-		"i_discount": 0,
-		"i_id": 11,
-		"i_limitBuyNum": 1,
-		"i_productId": 0,
+		"i_Discount": 0,
+		"i_Id": 11,
+		"i_LimitBuyNum": 1,
+		"i_ProductId": 0,
+		"i_SortTag": 90,
 		"i_shopType": 0,
-		"i_sortTag": 90,
 		"il_needItem": [
 			0,
 			20,
@@ -243,16 +243,16 @@
 				1
 			]
 		],
-		"s_productName": "",
-		"s_valueTips": ""
+		"s_ProductName": "",
+		"s_ValueTips": ""
 	},
 	{
-		"i_discount": 0,
-		"i_id": 12,
-		"i_limitBuyNum": 10,
-		"i_productId": 0,
+		"i_Discount": 0,
+		"i_Id": 12,
+		"i_LimitBuyNum": 10,
+		"i_ProductId": 0,
+		"i_SortTag": 89,
 		"i_shopType": 0,
-		"i_sortTag": 89,
 		"il_needItem": [
 			0,
 			20,
@@ -265,16 +265,16 @@
 				50
 			]
 		],
-		"s_productName": "",
-		"s_valueTips": ""
+		"s_ProductName": "",
+		"s_ValueTips": ""
 	},
 	{
-		"i_discount": 0,
-		"i_id": 13,
-		"i_limitBuyNum": 5,
-		"i_productId": 0,
+		"i_Discount": 0,
+		"i_Id": 13,
+		"i_LimitBuyNum": 5,
+		"i_ProductId": 0,
+		"i_SortTag": 88,
 		"i_shopType": 0,
-		"i_sortTag": 88,
 		"il_needItem": [
 			0,
 			20,
@@ -287,13 +287,13 @@
 				5
 			]
 		],
-		"s_productName": "",
-		"s_valueTips": ""
+		"s_ProductName": "",
+		"s_ValueTips": ""
 	},
 	{
-		"i_id": 100,
-		"i_limitBuyNum": 0,
-		"i_productId": 1,
+		"i_Id": 100,
+		"i_LimitBuyNum": 0,
+		"i_ProductId": 1,
 		"i_shopType": 0,
 		"il_needItem": [
 			0
@@ -305,12 +305,12 @@
 				60
 			]
 		],
-		"s_productName": ""
+		"s_ProductName": ""
 	},
 	{
-		"i_id": 101,
-		"i_limitBuyNum": 0,
-		"i_productId": 2,
+		"i_Id": 101,
+		"i_LimitBuyNum": 0,
+		"i_ProductId": 2,
 		"i_shopType": 0,
 		"il_needItem": [
 			0
@@ -322,12 +322,12 @@
 				300
 			]
 		],
-		"s_productName": ""
+		"s_ProductName": ""
 	},
 	{
-		"i_id": 102,
-		"i_limitBuyNum": 0,
-		"i_productId": 3,
+		"i_Id": 102,
+		"i_LimitBuyNum": 0,
+		"i_ProductId": 3,
 		"i_shopType": 0,
 		"il_needItem": [
 			0
@@ -339,12 +339,12 @@
 				680
 			]
 		],
-		"s_productName": ""
+		"s_ProductName": ""
 	},
 	{
-		"i_id": 103,
-		"i_limitBuyNum": 0,
-		"i_productId": 4,
+		"i_Id": 103,
+		"i_LimitBuyNum": 0,
+		"i_ProductId": 4,
 		"i_shopType": 0,
 		"il_needItem": [
 			0
@@ -356,12 +356,12 @@
 				980
 			]
 		],
-		"s_productName": ""
+		"s_ProductName": ""
 	},
 	{
-		"i_id": 104,
-		"i_limitBuyNum": 0,
-		"i_productId": 5,
+		"i_Id": 104,
+		"i_LimitBuyNum": 0,
+		"i_ProductId": 5,
 		"i_shopType": 0,
 		"il_needItem": [
 			0
@@ -373,12 +373,12 @@
 				1280
 			]
 		],
-		"s_productName": ""
+		"s_ProductName": ""
 	},
 	{
-		"i_id": 105,
-		"i_limitBuyNum": 0,
-		"i_productId": 6,
+		"i_Id": 105,
+		"i_LimitBuyNum": 0,
+		"i_ProductId": 6,
 		"i_shopType": 0,
 		"il_needItem": [
 			0
@@ -390,12 +390,12 @@
 				1980
 			]
 		],
-		"s_productName": ""
+		"s_ProductName": ""
 	},
 	{
-		"i_id": 106,
-		"i_limitBuyNum": 0,
-		"i_productId": 7,
+		"i_Id": 106,
+		"i_LimitBuyNum": 0,
+		"i_ProductId": 7,
 		"i_shopType": 0,
 		"il_needItem": [
 			0
@@ -407,15 +407,15 @@
 				3280
 			]
 		],
-		"s_productName": ""
+		"s_ProductName": ""
 	},
 	{
-		"i_discount": 0,
-		"i_id": 300,
-		"i_limitBuyNum": 1,
-		"i_productId": 0,
+		"i_Discount": 0,
+		"i_Id": 300,
+		"i_LimitBuyNum": 1,
+		"i_ProductId": 0,
+		"i_SortTag": 10,
 		"i_shopType": 0,
-		"i_sortTag": 10,
 		"il_needItem": [
 			0
 		],
@@ -426,16 +426,16 @@
 				10
 			]
 		],
-		"s_productName": "",
-		"s_valueTips": ""
+		"s_ProductName": "",
+		"s_ValueTips": ""
 	},
 	{
-		"i_discount": 0,
-		"i_id": 301,
-		"i_limitBuyNum": 1,
-		"i_productId": 301,
+		"i_Discount": 0,
+		"i_Id": 301,
+		"i_LimitBuyNum": 1,
+		"i_ProductId": 301,
+		"i_SortTag": 9,
 		"i_shopType": 0,
-		"i_sortTag": 9,
 		"il_needItem": [
 			0
 		],
@@ -451,16 +451,16 @@
 				30
 			]
 		],
-		"s_productName": "",
-		"s_valueTips": "500%"
+		"s_ProductName": "",
+		"s_ValueTips": "500%"
 	},
 	{
-		"i_discount": 0,
-		"i_id": 302,
-		"i_limitBuyNum": 1,
-		"i_productId": 302,
+		"i_Discount": 0,
+		"i_Id": 302,
+		"i_LimitBuyNum": 1,
+		"i_ProductId": 302,
+		"i_SortTag": 8,
 		"i_shopType": 0,
-		"i_sortTag": 8,
 		"il_needItem": [
 			0
 		],
@@ -476,16 +476,16 @@
 				180
 			]
 		],
-		"s_productName": "",
-		"s_valueTips": "400%"
+		"s_ProductName": "",
+		"s_ValueTips": "400%"
 	},
 	{
-		"i_discount": 0,
-		"i_id": 303,
-		"i_limitBuyNum": 1,
-		"i_productId": 303,
+		"i_Discount": 0,
+		"i_Id": 303,
+		"i_LimitBuyNum": 1,
+		"i_ProductId": 303,
+		"i_SortTag": 7,
 		"i_shopType": 0,
-		"i_sortTag": 7,
 		"il_needItem": [
 			0
 		],
@@ -501,16 +501,16 @@
 				3500
 			]
 		],
-		"s_productName": "",
-		"s_valueTips": "300%"
+		"s_ProductName": "",
+		"s_ValueTips": "300%"
 	},
 	{
-		"i_discount": 0,
-		"i_id": 304,
-		"i_limitBuyNum": 1,
-		"i_productId": 304,
+		"i_Discount": 0,
+		"i_Id": 304,
+		"i_LimitBuyNum": 1,
+		"i_ProductId": 304,
+		"i_SortTag": 6,
 		"i_shopType": 0,
-		"i_sortTag": 6,
 		"il_needItem": [
 			0
 		],
@@ -531,16 +531,16 @@
 				30
 			]
 		],
-		"s_productName": "",
-		"s_valueTips": "250%"
+		"s_ProductName": "",
+		"s_ValueTips": "250%"
 	},
 	{
-		"i_discount": 0,
-		"i_id": 305,
-		"i_limitBuyNum": 1,
-		"i_productId": 305,
+		"i_Discount": 0,
+		"i_Id": 305,
+		"i_LimitBuyNum": 1,
+		"i_ProductId": 305,
+		"i_SortTag": 5,
 		"i_shopType": 0,
-		"i_sortTag": 5,
 		"il_needItem": [
 			0
 		],
@@ -556,16 +556,16 @@
 				2000
 			]
 		],
-		"s_productName": "",
-		"s_valueTips": "250%"
+		"s_ProductName": "",
+		"s_ValueTips": "250%"
 	},
 	{
-		"i_discount": 0,
-		"i_id": 306,
-		"i_limitBuyNum": 1,
-		"i_productId": 306,
+		"i_Discount": 0,
+		"i_Id": 306,
+		"i_LimitBuyNum": 1,
+		"i_ProductId": 306,
+		"i_SortTag": 4,
 		"i_shopType": 0,
-		"i_sortTag": 4,
 		"il_needItem": [
 			0
 		],
@@ -581,16 +581,16 @@
 				2200
 			]
 		],
-		"s_productName": "",
-		"s_valueTips": "230%"
+		"s_ProductName": "",
+		"s_ValueTips": "230%"
 	},
 	{
-		"i_discount": 0,
-		"i_id": 307,
-		"i_limitBuyNum": 1,
-		"i_productId": 307,
+		"i_Discount": 0,
+		"i_Id": 307,
+		"i_LimitBuyNum": 1,
+		"i_ProductId": 307,
+		"i_SortTag": 3,
 		"i_shopType": 0,
-		"i_sortTag": 3,
 		"il_needItem": [
 			0
 		],
@@ -606,16 +606,16 @@
 				3
 			]
 		],
-		"s_productName": "",
-		"s_valueTips": "230%"
+		"s_ProductName": "",
+		"s_ValueTips": "230%"
 	},
 	{
-		"i_discount": 0,
-		"i_id": 308,
-		"i_limitBuyNum": 1,
-		"i_productId": 308,
+		"i_Discount": 0,
+		"i_Id": 308,
+		"i_LimitBuyNum": 1,
+		"i_ProductId": 308,
+		"i_SortTag": 2,
 		"i_shopType": 0,
-		"i_sortTag": 2,
 		"il_needItem": [
 			0
 		],
@@ -636,7 +636,7 @@
 				1
 			]
 		],
-		"s_productName": "",
-		"s_valueTips": "225%"
+		"s_ProductName": "",
+		"s_ValueTips": "225%"
 	}
 ]

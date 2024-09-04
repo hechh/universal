@@ -1,9 +1,9 @@
 [
 	{
-		"i_beginRegisterDays": 1,
-		"i_endRegisterDays": 7,
-		"i_id": 1,
-		"s_Name": "七日好礼活动",
-		"s_desc": "获得900活跃度领取超强英雄"
+		"i_BeginRegisterDays": 1,
+		"i_EndRegisterDays": 7,
+		"i_Id": 1,
+		"s_Desc": "获得900活跃度领取超强英雄",
+		"s_Name": "七日好礼活动"
 	}
 ]
