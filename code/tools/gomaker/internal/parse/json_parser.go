@@ -31,31 +31,74 @@ func (d *JsonParser) SetFile(filename string) {
 	d.filename = filepath.Base(filename)
 }
 
+func (d *JsonParser) parseEnum(n *typespec.SheetNode) {
+	for _, vals := range n.Rows {
+		for _, val := range vals {
+			ss := strings.Split(val, ":")
+			if len(ss) != 4 {
+				continue
+			}
+
+			if d.Visit(typespec.NewEnumNode(n.Sheet, ss)) == nil {
+				return
+			}
+		}
+	}
+}
+
+func (d *JsonParser) parseProxy(n *typespec.SheetNode) {
+	for _, vals := range n.Rows {
+		for _, val := range vals {
+			ss := strings.Split(val, ":")
+			switch len(ss) {
+			case 4:
+				d.Visit(typespec.NewInnerEnumNode(n.Sheet, ss))
+			case 3:
+				d.Visit(typespec.NewProxyNode(n.Sheet, ss))
+			}
+		}
+	}
+}
+
+func (d *JsonParser) parseStruct(n *typespec.SheetNode) {
+	if d.Visit(typespec.NewStructNode(n.Sheet, n.Rows[0], n.Rows[1])) == nil {
+		return
+	}
+	d.Visit(&typespec.ValueNode{n.Sheet, n.Rows[2:]})
+}
+
 func (d *JsonParser) Visit(node ast.Node) ast.Visitor {
 	switch n := node.(type) {
-	case *typespec.EnumNode:
-		item := &typespec.Value{
-			Type:  manager.GetOrAddType(&typespec.Type{domain.KIND_ENUM, "pb", n.Type, ""}),
-			Name:  n.Name,
-			Value: int32(n.Value),
-			Doc:   n.Doc,
+	case *typespec.SheetNode:
+		if d.filename == "define.xlsx" {
+			d.parseEnum(n)
+		} else if n.Sheet == "代对表" {
+			d.parseProxy(n)
+		} else if strings.HasPrefix(n.Sheet, "@") {
+			d.parseStruct(n)
 		}
+		return nil
+	case *typespec.EnumNode:
+		tt := &typespec.Type{domain.KIND_ENUM, "pb", n.Type, ""}
+		item := typespec.NewValue(manager.GetOrAddType(tt), n.Name, int32(n.Value), n.Doc)
 		d.enums[item.Doc] = item
-		manager.AddValue(d.filename, item)
+		manager.AddEnumValue(d.filename, item)
+	case *typespec.InnerEnumNode:
+		tt := &typespec.Type{domain.KIND_ENUM, "pb", n.Type, ""}
+		item := typespec.NewValue(manager.GetOrAddType(tt), n.Name, int32(n.Value), n.Doc)
+		d.enums[item.Doc] = item
+		manager.AddEnumValue(d.filename, item)
 	case *typespec.ProxyNode:
 		if n.IsCreator {
 			d.tables[n.Name] = n.English
 		}
-	case *typespec.TableNode:
+	case *typespec.StructNode:
 		if name, ok := d.tables[n.Sheet]; ok {
-			// 解析struct结构
 			item := typespec.NewStruct(d.filename, manager.GetOrAddType(&typespec.Type{domain.KIND_STRUCT, "pb", name, ""}))
 			for _, ff := range n.Fields {
 				item.Add(manager.ParseRule(ff))
 			}
 			manager.AddStruct(item)
-
-			// 临时存储
 			d.fields = n.Fields
 		}
 	case *typespec.ValueNode:

@@ -12,6 +12,10 @@ type Value struct {
 	Doc   string // 注释
 }
 
+func NewValue(tt *Type, name string, val int32, doc string) *Value {
+	return &Value{tt, name, val, doc}
+}
+
 func (d *Value) GetTypeName() string {
 	return d.Type.GetName(d.Type.PkgName)
 }

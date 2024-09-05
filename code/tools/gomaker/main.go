@@ -60,8 +60,35 @@ func (d *Args) Handle() {
 	switch d.action {
 	case domain.JSON:
 		d.handleJson()
+	case domain.CONFIG:
+		d.handleCfg()
 	default:
 		d.handleGo()
+	}
+}
+
+func (d *Args) handleCfg() {
+	if !manager.IsAction(d.action) {
+		panic(fmt.Errorf("%s不支持", d.action))
+	}
+	// 搜索所有配置
+	files, err := basic.Glob(d.srcpath, "*.xlsx", true)
+	if err != nil {
+		panic(err)
+	}
+	files = util.SortXlsx(files)
+	// 解析所有配置
+	if err := util.ParseXlsxs(parse.NewCfgParser(), util.SortSheet, files...); err != nil {
+		panic(err)
+	}
+	// 加载模板文件
+	tplFile, err := util.OpenTemplate(d.tplpath, "*.tpl", true)
+	if err != nil {
+		panic(err)
+	}
+	// 生成文件
+	if err := manager.Generator(d.action, d.dstpath, d.param, tplFile); err != nil {
+		panic(err)
 	}
 }
 
@@ -73,7 +100,7 @@ func (d *Args) handleJson() {
 	}
 	// 解析所有配置
 	pp := parse.NewJsonParser(d.dstpath)
-	if err := util.ParseXlsxs(pp, files...); err != nil {
+	if err := util.ParseXlsxs(pp, util.SortSheet, util.SortXlsx(files)...); err != nil {
 		panic(err)
 	}
 }

@@ -3,21 +3,19 @@ package parse
 import (
 	"go/ast"
 	"path/filepath"
+	"strings"
 	"universal/tools/gomaker/domain"
 	"universal/tools/gomaker/internal/manager"
 	"universal/tools/gomaker/internal/typespec"
 )
 
 type CfgParser struct {
-	filename string                     // 文件名字
-	enums    map[string]*typespec.Value // 中文--->所有代对
-	tables   map[string]string          // 中文--->英文
-	fields   []*typespec.FieldNode      // 字段信息
+	filename string            // 文件名字
+	tables   map[string]string // 中文--->英文
 }
 
 func NewCfgParser() *CfgParser {
 	return &CfgParser{
-		enums:  make(map[string]*typespec.Value),
 		tables: make(map[string]string),
 	}
 }
@@ -29,12 +27,26 @@ func (d *CfgParser) SetFile(filename string) {
 func (d *CfgParser) Visit(node ast.Node) ast.Visitor {
 	switch n := node.(type) {
 	case *typespec.EnumNode:
+	case *typespec.SheetNode:
+		if n.Sheet == "代对表" {
+			for _, vals := range n.Rows {
+				for _, val := range vals {
+					ss := strings.Split(val, ":")
+					switch len(ss) {
+					case 3:
+						d.Visit(typespec.NewProxyNode(n.Sheet, ss))
+					}
+				}
+			}
+		} else if strings.HasPrefix(n.Sheet, "@") {
+			d.Visit(typespec.NewStructNode(n.Sheet, n.Rows[0], n.Rows[1]))
+		}
 		return nil
 	case *typespec.ProxyNode:
 		if n.IsCreator {
 			d.tables[n.Name] = n.English
 		}
-	case *typespec.TableNode:
+	case *typespec.StructNode:
 		if name, ok := d.tables[n.Sheet]; ok {
 			// 解析struct结构
 			item := typespec.NewStruct(d.filename, manager.GetOrAddType(&typespec.Type{domain.KIND_STRUCT, "pb", name, ""}))
@@ -42,22 +54,7 @@ func (d *CfgParser) Visit(node ast.Node) ast.Visitor {
 				item.Add(manager.ParseRule(ff))
 			}
 			manager.AddStruct(item)
-
-			// 临时存储
-			d.fields = n.Fields
 		}
-	case *typespec.ValueNode:
-		return nil
 	}
 	return d
-}
-
-func (d *CfgParser) toMap(vals []string) map[string]interface{} {
-	tmp := map[string]interface{}{}
-	for _, ff := range d.fields {
-		if ff.Index < len(vals) {
-			tmp[ff.Original] = manager.CastRule(ff, d.enums, vals[ff.Index])
-		}
-	}
-	return tmp
 }
