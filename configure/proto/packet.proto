@@ -1,0 +1,69 @@
+syntax = "proto3";
+package pb;
+option  go_package = "../../common/pb";
+
+// 服务器类型
+enum SERVER {
+    Gate = 0;  // gate
+    Game = 1;  // game
+    Db   = 2;  // db
+    Gm   = 3;  // gm
+};
+
+// 路由类型
+enum ROUTE {
+    UID      = 0;
+    RegionID = 1;
+}
+
+// 发送类型
+enum SEND {
+    Point     = 0;
+    Broadcast = 1;
+}
+
+// 集群信息
+message ServerInfo {
+    SERVER Type       = 1;
+    string Ip         = 2;
+    int32  Port       = 3;
+    uint32 Version    = 4;  // 版本号
+    uint32 ServerID   = 5;
+    uint64 CreateTime = 6;  // 加入时间
+}
+
+message RouteTable {
+    uint32 Gate = 1;
+    uint32 Game = 2;
+    uint32 Gm   = 3;
+    uint32 Db   = 4;
+}
+
+message Head {
+    SEND       SendType      = 1;   // 发送类型
+    uint32     SrcServerID   = 2;   // 源集群id
+    SERVER     SrcServerType = 3;   // 目标集群类型
+    uint32     DstServerID   = 4;   // 目标集群id 大于0优先
+    SERVER     DstServerType = 5;   // 目标集群类型
+    ROUTE      RouteType     = 6;   // 路由类型
+    uint64     RegionID      = 7;   // 区服ID
+    uint64     UID           = 8;   // 玩家UID
+    uint32     SocketID      = 9;   // 客户端连接id
+    uint32     SeqID         = 10;  // 序列号
+    uint64     ApiID         = 11;  // 请求函数名称
+    RouteTable Table         = 12;  // 路由表
+}
+
+message Packet {
+    Head  Head = 1;
+    bytes Body = 2;
+}
+
+message RspHead {
+    uint32 Stx           = 1;
+    uint32 Ckx           = 2;
+    SERVER DstServerType = 3;  // 发送者服务器类型
+    uint64 UID           = 4;  // 目标ID
+    uint32 SeqID         = 5;  // 序列号
+    uint32 Code          = 6;  // 错误码 ErrorCode
+}
