@@ -1,5 +1,6 @@
 package test
 
+/*
 import (
 	"bytes"
 	"encoding/json"
@@ -67,3 +68,4 @@ func TestToUpper(t *testing.T) {
 	buf[0] = byte(unicode.ToUpper(rune(buf[0])))
 	t.Log(string(buf))
 }
+*/

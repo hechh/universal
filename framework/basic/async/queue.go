@@ -16,6 +16,14 @@ type Queue struct {
 	count int64
 }
 
+func NewQueuePool(size int64) (rets []*Queue) {
+	rets = make([]*Queue, size)
+	for i := int64(0); i < size; i++ {
+		rets[i] = NewQueue()
+	}
+	return
+}
+
 func NewQueue() *Queue {
 	node := new(node)
 	return &Queue{head: node, tail: node}

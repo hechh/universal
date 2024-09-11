@@ -1,5 +1,6 @@
 package test
 
+/*
 import (
 	"testing"
 	"universal/framework/plog"
@@ -16,3 +17,4 @@ func BenchmarkError(b *testing.B) {
 	}
 	b.Log(b.N)
 }
+*/

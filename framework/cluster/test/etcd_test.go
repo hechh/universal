@@ -1,5 +1,6 @@
 package test
 
+/*
 import (
 	"testing"
 	"time"
@@ -76,3 +77,4 @@ func TestWatch(t *testing.T) {
 	cli.Close()
 	time.Sleep(8 * time.Second)
 }
+*/

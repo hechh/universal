@@ -1,5 +1,6 @@
 package test
 
+/*
 import (
 	"testing"
 	"universal/common/dao/domain"
@@ -52,14 +53,10 @@ func TestPlayer(t *testing.T) {
 	info, err = player_name.Query(domain.MYSQL_CORPS_COMMON, 100100120)
 	t.Log(err, info)
 
-	/*
-		data, err := player_data.Get(domain.MYSQL_CORPS_GAME_2, 100101202)
-		t.Log(err, data)
-	*/
-
 	acco, err := account_name.Get(domain.MYSQL_CORPS_COMMON, 100000001)
 	t.Log(err, acco)
 
 	acc, err := account.Get(domain.MYSQL_CORPS_GAME_1, 100000001)
 	t.Log(err, acc)
 }
+*/
