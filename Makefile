@@ -29,6 +29,6 @@ tool: protoc
 json: protoc
 	go run ./tools/gomaker/main.go -action="json" -src="./share/table" -dst="./env/configure"
 
-config: protoc
-	go run ./tools/gomaker/main.go -action="xlsx.tpl" -src="./share/table" -dst="./common/pb/config.gen.go"
+config:
+	go run ./tools/cfgtool/main.go -src="./configure/table" -dst="./configure/proto"
 
