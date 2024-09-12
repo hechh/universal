@@ -137,8 +137,8 @@ func (d *Timer) expire(cur uint64) {
 func (d *Timer) shift(cur uint64) {
 	// 迁移定时器任务
 	for i, wl := range d.wheels {
-		index := INDEX(cur, uint64(i))
-		for tt := wl[index].Pop(); tt != nil; tt = wl[index].Pop() {
+		pos := INDEX(cur, uint64(i))
+		for tt := wl[pos].Pop(); tt != nil; tt = wl[pos].Pop() {
 			vv := tt.(*Task)
 			// 判断定时器是否有效
 			if *vv.id <= 0 || vv.times == 0 {
@@ -162,8 +162,8 @@ func (d *Timer) Start() {
 			select {
 			case <-d.timer.C:
 				cur := atomic.AddUint64(&d.cursor, 1)
-				d.shift(cur)
 				d.move(cur)
+				d.shift(cur)
 				d.expire(cur)
 			case <-d.exit:
 				return
@@ -174,13 +174,12 @@ func (d *Timer) Start() {
 
 func (d *Timer) StartTest(times int) {
 	defer d.Stop()
-
 	d.handle.Start()
 	for i := 0; i < times; i++ {
 		<-d.timer.C
 		cur := atomic.AddUint64(&d.cursor, 1)
-		d.shift(cur)
 		d.move(cur)
+		d.shift(cur)
 		d.expire(cur)
 	}
 }
