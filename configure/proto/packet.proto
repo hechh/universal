@@ -3,28 +3,6 @@ package pb;
 import "enum.gen.proto";
 option go_package = "../../common/pb";
 
-/*
-// 服务器类型
-enum SERVER {
-    Gate = 0;  // gate
-    Game = 1;  // game
-    Db   = 2;  // db
-    Gm   = 3;  // gm
-};
-
-// 路由类型
-enum ROUTE {
-    UID      = 0;
-    RegionID = 1;
-}
-
-// 发送类型
-enum SEND {
-    Point     = 0;
-    Broadcast = 1;
-}
-*/
-
 // 集群信息
 message ServerInfo {
     SERVER Type       = 1;
@@ -70,3 +48,25 @@ message RspHead {
     uint32 SeqID         = 5;  // 序列号
     uint32 Code          = 6;  // 错误码 ErrorCode
 }
+
+/*
+// 服务器类型
+enum SERVER {
+    Gate = 0;  // gate
+    Game = 1;  // game
+    Db   = 2;  // db
+    Gm   = 3;  // gm
+};
+
+// 路由类型
+enum ROUTE {
+    UID      = 0;
+    RegionID = 1;
+}
+
+// 发送类型
+enum SEND {
+    Point     = 0;
+    Broadcast = 1;
+}
+*/
