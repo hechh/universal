@@ -5,6 +5,7 @@ import (
 	"time"
 	"universal/framework/basic/async"
 	"universal/framework/basic/util"
+	"universal/framework/plog"
 )
 
 const (
@@ -17,10 +18,6 @@ const (
 	INTERVAL = 10 * time.Millisecond
 )
 
-func INDEX(expire, n uint64) uint64 {
-	return (expire >> (TVR_BITS + n*TVN_BITS)) & TVN_MASK
-}
-
 type Task struct {
 	id     *uint64 // 定时器唯一ID
 	f      func()  // 定时任务
@@ -30,7 +27,8 @@ type Task struct {
 }
 
 type Timer struct {
-	cursor uint64
+	handle *async.Async      // 定时任务处理程序
+	cursor uint64            // 游标
 	list   *async.Queue      // 添加任务队列
 	tick   []*async.Queue    // 最小刻度转盘
 	wheels [4][]*async.Queue // 时间轮
@@ -38,36 +36,23 @@ type Timer struct {
 	exit   chan struct{}     // 退出
 }
 
-func NewTask(id *uint64, expire uint64, f func(), ttl uint64, times int64) *Task {
-	return &Task{
-		id:     id,
-		f:      f,
-		ttl:    ttl,
-		expire: expire,
-		times:  times,
-	}
+func INDEX(expire, n uint64) uint64 {
+	return (expire >> (TVR_BITS + n*TVN_BITS)) & TVN_MASK
 }
-func NewTimer() *Timer {
+
+func NewTimer(tick time.Duration) *Timer {
 	return &Timer{
-		list: async.NewQueue(),
-		tick: async.NewQueuePool(TVR_SIZE),
-		wheels: [4][]*async.Queue{
-			async.NewQueuePool(TVN_SIZE),
-			async.NewQueuePool(TVN_SIZE),
-			async.NewQueuePool(TVN_SIZE),
-			async.NewQueuePool(TVN_SIZE),
-		},
-		timer: *time.NewTicker(INTERVAL),
-		exit:  make(chan struct{}, 1),
+		handle: async.NewAsync(),
+		list:   async.NewQueue(),
+		tick:   async.NewQueuePool(TVR_SIZE),
+		wheels: [4][]*async.Queue{async.NewQueuePool(TVN_SIZE), async.NewQueuePool(TVN_SIZE), async.NewQueuePool(TVN_SIZE), async.NewQueuePool(TVN_SIZE)},
+		timer:  *time.NewTicker(tick),
+		exit:   make(chan struct{}, 1),
 	}
 }
 
-func (d *Task) Handle(cur uint64) bool {
-	if *d.id <= 0 || d.times == 0 {
-		return false
-	}
-	// 执行定时任务
-	d.f()
+// 执行定时任务
+func (d *Task) Update(cur uint64) bool {
 	if d.times > 0 {
 		d.times--
 	}
@@ -75,35 +60,35 @@ func (d *Task) Handle(cur uint64) bool {
 	return d.times != 0
 }
 
-func (d *Timer) GetCursor() uint64 {
-	return atomic.LoadUint64(&d.cursor)
-}
-
-func (d *Timer) AddCursor() uint64 {
-	return atomic.AddUint64(&d.cursor, 1)
-}
-
-func (d *Timer) Insert(id *uint64, delay time.Duration, f func(), ttl time.Duration, times int64) {
+// 注册定时器
+func (d *Timer) RegisterTimer(id *uint64, f func(), ttl, delay time.Duration, times int64) {
 	d.list.Push(&Task{
 		id:     id,
 		f:      f,
 		ttl:    uint64(ttl / INTERVAL),
-		expire: d.GetCursor() + uint64((ttl+delay)/INTERVAL),
+		expire: atomic.LoadUint64(&d.cursor) + uint64((ttl+delay)/INTERVAL),
 		times:  times,
 	})
 }
 
-func (d *Timer) insert(diff uint64, tt *Task) {
+// 插入定时任务
+func (d *Timer) insert(cur uint64, tt *Task) {
+	diff := tt.expire - cur
 	if diff < TVR_SIZE {
-		d.tick[tt.expire&TVR_MASK].Push(tt)
+		pos := tt.expire & TVR_MASK
+		d.tick[pos].Push(tt)
 	} else if (diff >> TVR_BITS) < TVN_SIZE {
-		d.wheels[0][INDEX(tt.expire, 0)].Push(tt)
+		pos := INDEX(tt.expire, 0)
+		d.wheels[0][pos].Push(tt)
 	} else if (diff >> (TVR_BITS + TVN_BITS)) < TVN_SIZE {
-		d.wheels[1][INDEX(tt.expire, 1)].Push(tt)
+		pos := INDEX(tt.expire, 1)
+		d.wheels[1][pos].Push(tt)
 	} else if (diff >> (TVR_BITS + 2*TVN_BITS)) < TVN_SIZE {
-		d.wheels[2][INDEX(tt.expire, 2)].Push(tt)
+		pos := INDEX(tt.expire, 2)
+		d.wheels[2][pos].Push(tt)
 	} else if (diff >> (TVR_BITS + 3*TVN_BITS)) < TVN_SIZE {
-		d.wheels[3][INDEX(tt.expire, 3)].Push(tt)
+		pos := INDEX(tt.expire, 3)
+		d.wheels[3][pos].Push(tt)
 	}
 }
 
@@ -117,26 +102,39 @@ func (d *Timer) move(cur uint64) {
 		}
 		// 判断是否过期
 		if cur < vv.expire {
-			d.insert(vv.expire-cur, vv)
+			d.insert(cur, vv)
 			continue
 		}
 		// 处理过期定时任务
-		if vv.Handle(cur) {
-			d.insert(vv.expire-cur, vv)
+		d.handle.Push(vv.f)
+		// 更新定时任务
+		if vv.Update(cur) {
+			d.insert(cur, vv)
 		}
 	}
 }
 
 // 处理过期定时任务
 func (d *Timer) expire(cur uint64) {
-	q := d.tick[cur&TVR_MASK]
 	// 处理超时任务
-	for tt := q.Pop(); tt != nil; tt = q.Pop() {
+	pos := cur & TVR_MASK
+	for tt := d.tick[pos].Pop(); tt != nil; tt = d.tick[pos].Pop() {
 		vv := tt.(*Task)
-		if vv.Handle(cur) {
-			d.insert(vv.expire-cur, vv)
+		// 判断定时器是否有效
+		if *vv.id <= 0 || vv.times == 0 {
+			continue
+		}
+		// 处理过期定时任务
+		d.handle.Push(vv.f)
+		// 更新定时任务
+		if vv.Update(cur) {
+			d.insert(cur, vv)
 		}
 	}
+}
+
+// 迁移定时器任务
+func (d *Timer) shift(cur uint64) {
 	// 迁移定时器任务
 	for i, wl := range d.wheels {
 		index := INDEX(cur, uint64(i))
@@ -147,26 +145,42 @@ func (d *Timer) expire(cur uint64) {
 				continue
 			}
 			// 迁移任务
-			d.insert(vv.expire-cur, vv)
+			d.insert(cur, vv)
 		}
 	}
 }
 
-func (d *Timer) Update() {
-	cur := d.AddCursor()
-	d.expire(cur)
-	d.move(cur)
+func (d *Timer) Stop() {
+	d.exit <- struct{}{}
+	d.handle.Stop()
 }
 
 func (d *Timer) Start() {
-	util.SafeGo(nil, func() {
+	d.handle.Start()
+	util.SafeGo(plog.CatchStack, func() {
 		for {
 			select {
 			case <-d.timer.C:
-				d.Update()
+				cur := atomic.AddUint64(&d.cursor, 1)
+				d.shift(cur)
+				d.move(cur)
+				d.expire(cur)
 			case <-d.exit:
 				return
 			}
 		}
 	})
+}
+
+func (d *Timer) StartTest(times int) {
+	defer d.Stop()
+
+	d.handle.Start()
+	for i := 0; i < times; i++ {
+		<-d.timer.C
+		cur := atomic.AddUint64(&d.cursor, 1)
+		d.shift(cur)
+		d.move(cur)
+		d.expire(cur)
+	}
 }
