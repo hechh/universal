@@ -59,7 +59,7 @@ func (d *EtcdClient) Watch(path string, add, del func(string, string)) error {
 	}
 	// 监听最新变更
 	rsp := d.client.Watch(context.Background(), path, clientv3.WithPrefix())
-	util.SafeGo(plog.CatchStack, func() {
+	util.SafeGo(plog.Catch, func() {
 		select {
 		case <-d.exit:
 			select {
@@ -93,7 +93,7 @@ func (d *EtcdClient) KeepAlive(key, value string, ttl int64) error {
 	}
 	// 定时器执行
 	tt := time.NewTicker(time.Duration(ttl/2) * time.Second)
-	util.SafeGo(plog.CatchStack, func() {
+	util.SafeGo(plog.Catch, func() {
 		for {
 			select {
 			case <-d.exit:

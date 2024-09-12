@@ -157,7 +157,7 @@ func (d *Timer) Stop() {
 
 func (d *Timer) Start() {
 	d.handle.Start()
-	util.SafeGo(plog.CatchStack, func() {
+	util.SafeGo(plog.Catch, func() {
 		for {
 			select {
 			case <-d.timer.C:

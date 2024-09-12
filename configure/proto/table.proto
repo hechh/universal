@@ -1,0 +1,18 @@
+syntax = "proto3";
+package pb;
+import "packet.proto";
+option go_package = "../../common/pb";
+
+message ApiConfig {
+    uint32 ID         = 1;  // 唯一ID
+    string Request    = 2;  // 请求名称
+    string Response   = 3;  // 应答协议
+    SERVER ServerType = 4;  // 服务类型
+    string ActorName  = 5;  // 模块名称
+    string FuncName   = 6;  // 函数名称
+    ROUTE  RouteType  = 7;  // 路由类型
+}
+
+message ApiConfigAry {
+    repeated ApiConfig Ary = 1;
+}

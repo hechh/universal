@@ -77,6 +77,6 @@ func FatalSkip(skip int, format string, args ...interface{}) {
 	logger.Fatal(skip+1, format, args...)
 }
 
-func CatchStack(err interface{}) {
+func Catch(err interface{}) {
 	logger.Fatal(1, "%v\nstack: %v", err, string(debug.Stack()))
 }

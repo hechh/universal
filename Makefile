@@ -1,7 +1,7 @@
 
 SYSTEM=$(shell go env GOOS)
 GCFLAGS=-gcflags "all=-N -l"
-PROTO_PATH=./share/proto
+PROTO_PATH=./configure/proto
 GEN_GO_PATH=./common/pb
 OUTPUT=./output
 
