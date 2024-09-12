@@ -7,7 +7,7 @@ import (
 	"sort"
 	"strings"
 	"text/template"
-	"universal/framework/basic/uerror"
+	"universal/framework/uerror"
 	"universal/tools/gomaker/domain"
 	"universal/tools/gomaker/internal/manager"
 	"universal/tools/gomaker/internal/util"

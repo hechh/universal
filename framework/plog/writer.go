@@ -7,7 +7,7 @@ import (
 	"path"
 	"sync"
 	"time"
-	"universal/framework/basic/util"
+	"universal/framework/basic"
 )
 
 type MetaData struct {
@@ -56,7 +56,7 @@ func (d *Writer) Push(data *MetaData) {
 		// 关闭之前的文件
 		d.closeFb()
 		// 切换文件
-		if tmpFb, err := util.NewFile(fileName); err != nil {
+		if tmpFb, err := basic.NewFile(fileName); err != nil {
 			return
 		} else {
 			d.fileName = fileName
@@ -72,11 +72,11 @@ func (d *Writer) Push(data *MetaData) {
 
 func (d *Writer) Flush() {
 	// 判断文件是否已经被删除
-	if d.fb != nil && !util.SameFile(d.fb, d.fileName) {
+	if d.fb != nil && !basic.SameFile(d.fb, d.fileName) {
 		d.fb.Close()
 		d.fb = nil
 
-		if tmpFb, err := util.NewFile(d.fileName); err != nil {
+		if tmpFb, err := basic.NewFile(d.fileName); err != nil {
 			return
 		} else {
 			d.fb = tmpFb

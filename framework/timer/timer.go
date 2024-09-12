@@ -3,8 +3,8 @@ package timer
 import (
 	"sync/atomic"
 	"time"
-	"universal/framework/basic/async"
-	"universal/framework/basic/util"
+	"universal/framework/async"
+	"universal/framework/basic"
 	"universal/framework/plog"
 )
 
@@ -157,7 +157,7 @@ func (d *Timer) Stop() {
 
 func (d *Timer) Start() {
 	d.handle.Start()
-	util.SafeGo(plog.Catch, func() {
+	basic.SafeGo(plog.Catch, func() {
 		for {
 			select {
 			case <-d.timer.C:

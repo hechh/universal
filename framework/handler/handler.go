@@ -4,7 +4,7 @@ import (
 	"reflect"
 	"strings"
 	"universal/common/pb"
-	"universal/framework/basic/util"
+	"universal/framework/basic"
 
 	"github.com/golang/protobuf/proto"
 )
@@ -36,11 +36,11 @@ func (d *ApiInfo) GetRspName() string {
 }
 
 func (d *ApiInfo) GetReqCrc() uint32 {
-	return util.GetCrc(d.reqname)
+	return basic.GetCrc(d.reqname)
 }
 
 func (d *ApiInfo) GetRspCrc() uint32 {
-	return util.GetCrc(d.rspname)
+	return basic.GetCrc(d.rspname)
 }
 
 func (d *ApiInfo) NewRequest() proto.Message {
@@ -102,17 +102,17 @@ func Get(crc uint32) *ApiInfo {
 }
 
 func GetByName(name string) *ApiInfo {
-	return apis[util.GetCrc(name)]
+	return apis[basic.GetCrc(name)]
 }
 
 func Encode(packet proto.Message) []byte {
-	crc := util.GetCrc(GetProtoName(packet))
+	crc := basic.GetCrc(GetProtoName(packet))
 	buff, _ := proto.Marshal(packet)
-	data := append(util.IntToBytes(int(crc)), buff...)
+	data := append(basic.IntToBytes(int(crc)), buff...)
 	return data
 }
 
 func Decode(buff []byte) (uint32, []byte) {
-	packetId := uint32(util.BytesToInt(buff[0:4]))
+	packetId := uint32(basic.BytesToInt(buff[0:4]))
 	return packetId, buff[4:]
 }

@@ -7,7 +7,7 @@ import (
 	"strings"
 	"sync"
 	"universal/common/pb"
-	"universal/framework/basic/util"
+	"universal/framework/basic"
 	"universal/framework/plog"
 
 	"github.com/golang/protobuf/proto"
@@ -56,7 +56,7 @@ func DeleteNotify(key, value string) {
 // 添加节点通知
 func AddNotify(key, value string) {
 	data := &pb.ServerInfo{}
-	proto.Unmarshal(util.StringToBytes(value), data)
+	proto.Unmarshal(basic.StringToBytes(value), data)
 	Insert(data)
 }
 

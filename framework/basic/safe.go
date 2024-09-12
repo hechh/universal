@@ -1,4 +1,4 @@
-package util
+package basic
 
 func SafeRecover(cb func(interface{}), f func()) {
 	defer func() {

@@ -3,7 +3,7 @@ package discovery
 import (
 	"context"
 	"time"
-	"universal/framework/basic/util"
+	"universal/framework/basic"
 	"universal/framework/plog"
 
 	"go.etcd.io/etcd/clientv3"
@@ -46,7 +46,7 @@ func (d *EtcdClient) Walk(path string, f func(string, string)) error {
 		return err
 	}
 	for _, kv := range rsp.Kvs {
-		f(string(kv.Key), util.BytesToString(kv.Value))
+		f(string(kv.Key), basic.BytesToString(kv.Value))
 	}
 	return nil
 }
@@ -59,7 +59,7 @@ func (d *EtcdClient) Watch(path string, add, del func(string, string)) error {
 	}
 	// 监听最新变更
 	rsp := d.client.Watch(context.Background(), path, clientv3.WithPrefix())
-	util.SafeGo(plog.Catch, func() {
+	basic.SafeGo(plog.Catch, func() {
 		select {
 		case <-d.exit:
 			select {
@@ -70,9 +70,9 @@ func (d *EtcdClient) Watch(path string, add, del func(string, string)) error {
 		case item := <-rsp:
 			for _, event := range item.Events {
 				if event.Type == clientv3.EventTypeDelete {
-					del(string(event.Kv.Key), util.BytesToString(event.Kv.Value))
+					del(string(event.Kv.Key), basic.BytesToString(event.Kv.Value))
 				} else {
-					add(string(event.Kv.Key), util.BytesToString(event.Kv.Value))
+					add(string(event.Kv.Key), basic.BytesToString(event.Kv.Value))
 				}
 			}
 		}
@@ -93,7 +93,7 @@ func (d *EtcdClient) KeepAlive(key, value string, ttl int64) error {
 	}
 	// 定时器执行
 	tt := time.NewTicker(time.Duration(ttl/2) * time.Second)
-	util.SafeGo(plog.Catch, func() {
+	basic.SafeGo(plog.Catch, func() {
 		for {
 			select {
 			case <-d.exit:

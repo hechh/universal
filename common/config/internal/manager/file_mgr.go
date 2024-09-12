@@ -5,7 +5,7 @@ import (
 	"time"
 	"universal/common/config/domain"
 	"universal/common/config/internal/parse"
-	"universal/framework/basic/util"
+	"universal/framework/basic"
 	"universal/framework/plog"
 )
 
@@ -24,7 +24,7 @@ func Init(dir string, ttl time.Duration) error {
 	}
 	// 定时检查
 	tt := time.NewTicker(ttl)
-	util.SafeGo(func(err interface{}) {
+	basic.SafeGo(func(err interface{}) {
 		plog.Fatal("error: %v, stack: %s", err, string(debug.Stack()))
 	}, func() {
 		for {

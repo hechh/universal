@@ -20,153 +20,6 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// 服务器类型
-type SERVER int32
-
-const (
-	SERVER_Gate SERVER = 0 // gate
-	SERVER_Game SERVER = 1 // game
-	SERVER_Db   SERVER = 2 // db
-	SERVER_Gm   SERVER = 3 // gm
-)
-
-// Enum value maps for SERVER.
-var (
-	SERVER_name = map[int32]string{
-		0: "Gate",
-		1: "Game",
-		2: "Db",
-		3: "Gm",
-	}
-	SERVER_value = map[string]int32{
-		"Gate": 0,
-		"Game": 1,
-		"Db":   2,
-		"Gm":   3,
-	}
-)
-
-func (x SERVER) Enum() *SERVER {
-	p := new(SERVER)
-	*p = x
-	return p
-}
-
-func (x SERVER) String() string {
-	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
-}
-
-func (SERVER) Descriptor() protoreflect.EnumDescriptor {
-	return file_packet_proto_enumTypes[0].Descriptor()
-}
-
-func (SERVER) Type() protoreflect.EnumType {
-	return &file_packet_proto_enumTypes[0]
-}
-
-func (x SERVER) Number() protoreflect.EnumNumber {
-	return protoreflect.EnumNumber(x)
-}
-
-// Deprecated: Use SERVER.Descriptor instead.
-func (SERVER) EnumDescriptor() ([]byte, []int) {
-	return file_packet_proto_rawDescGZIP(), []int{0}
-}
-
-// 路由类型
-type ROUTE int32
-
-const (
-	ROUTE_UID      ROUTE = 0
-	ROUTE_RegionID ROUTE = 1
-)
-
-// Enum value maps for ROUTE.
-var (
-	ROUTE_name = map[int32]string{
-		0: "UID",
-		1: "RegionID",
-	}
-	ROUTE_value = map[string]int32{
-		"UID":      0,
-		"RegionID": 1,
-	}
-)
-
-func (x ROUTE) Enum() *ROUTE {
-	p := new(ROUTE)
-	*p = x
-	return p
-}
-
-func (x ROUTE) String() string {
-	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
-}
-
-func (ROUTE) Descriptor() protoreflect.EnumDescriptor {
-	return file_packet_proto_enumTypes[1].Descriptor()
-}
-
-func (ROUTE) Type() protoreflect.EnumType {
-	return &file_packet_proto_enumTypes[1]
-}
-
-func (x ROUTE) Number() protoreflect.EnumNumber {
-	return protoreflect.EnumNumber(x)
-}
-
-// Deprecated: Use ROUTE.Descriptor instead.
-func (ROUTE) EnumDescriptor() ([]byte, []int) {
-	return file_packet_proto_rawDescGZIP(), []int{1}
-}
-
-// 发送类型
-type SEND int32
-
-const (
-	SEND_Point     SEND = 0
-	SEND_Broadcast SEND = 1
-)
-
-// Enum value maps for SEND.
-var (
-	SEND_name = map[int32]string{
-		0: "Point",
-		1: "Broadcast",
-	}
-	SEND_value = map[string]int32{
-		"Point":     0,
-		"Broadcast": 1,
-	}
-)
-
-func (x SEND) Enum() *SEND {
-	p := new(SEND)
-	*p = x
-	return p
-}
-
-func (x SEND) String() string {
-	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
-}
-
-func (SEND) Descriptor() protoreflect.EnumDescriptor {
-	return file_packet_proto_enumTypes[2].Descriptor()
-}
-
-func (SEND) Type() protoreflect.EnumType {
-	return &file_packet_proto_enumTypes[2]
-}
-
-func (x SEND) Number() protoreflect.EnumNumber {
-	return protoreflect.EnumNumber(x)
-}
-
-// Deprecated: Use SEND.Descriptor instead.
-func (SEND) EnumDescriptor() ([]byte, []int) {
-	return file_packet_proto_rawDescGZIP(), []int{2}
-}
-
 // 集群信息
 type ServerInfo struct {
 	state         protoimpl.MessageState
@@ -607,7 +460,8 @@ var File_packet_proto protoreflect.FileDescriptor
 
 var file_packet_proto_rawDesc = []byte{
 	0x0a, 0x0c, 0x70, 0x61, 0x63, 0x6b, 0x65, 0x74, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x12, 0x02,
-	0x70, 0x62, 0x22, 0xa6, 0x01, 0x0a, 0x0a, 0x53, 0x65, 0x72, 0x76, 0x65, 0x72, 0x49, 0x6e, 0x66,
+	0x70, 0x62, 0x1a, 0x0e, 0x65, 0x6e, 0x75, 0x6d, 0x2e, 0x67, 0x65, 0x6e, 0x2e, 0x70, 0x72, 0x6f,
+	0x74, 0x6f, 0x22, 0xa6, 0x01, 0x0a, 0x0a, 0x53, 0x65, 0x72, 0x76, 0x65, 0x72, 0x49, 0x6e, 0x66,
 	0x6f, 0x12, 0x1e, 0x0a, 0x04, 0x54, 0x79, 0x70, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0e, 0x32,
 	0x0a, 0x2e, 0x70, 0x62, 0x2e, 0x53, 0x45, 0x52, 0x56, 0x45, 0x52, 0x52, 0x04, 0x54, 0x79, 0x70,
 	0x65, 0x12, 0x0e, 0x0a, 0x02, 0x49, 0x70, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x02, 0x49,
@@ -662,14 +516,7 @@ var file_packet_proto_rawDesc = []byte{
 	0x49, 0x44, 0x18, 0x04, 0x20, 0x01, 0x28, 0x04, 0x52, 0x03, 0x55, 0x49, 0x44, 0x12, 0x14, 0x0a,
 	0x05, 0x53, 0x65, 0x71, 0x49, 0x44, 0x18, 0x05, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x05, 0x53, 0x65,
 	0x71, 0x49, 0x44, 0x12, 0x12, 0x0a, 0x04, 0x43, 0x6f, 0x64, 0x65, 0x18, 0x06, 0x20, 0x01, 0x28,
-	0x0d, 0x52, 0x04, 0x43, 0x6f, 0x64, 0x65, 0x2a, 0x2c, 0x0a, 0x06, 0x53, 0x45, 0x52, 0x56, 0x45,
-	0x52, 0x12, 0x08, 0x0a, 0x04, 0x47, 0x61, 0x74, 0x65, 0x10, 0x00, 0x12, 0x08, 0x0a, 0x04, 0x47,
-	0x61, 0x6d, 0x65, 0x10, 0x01, 0x12, 0x06, 0x0a, 0x02, 0x44, 0x62, 0x10, 0x02, 0x12, 0x06, 0x0a,
-	0x02, 0x47, 0x6d, 0x10, 0x03, 0x2a, 0x1e, 0x0a, 0x05, 0x52, 0x4f, 0x55, 0x54, 0x45, 0x12, 0x07,
-	0x0a, 0x03, 0x55, 0x49, 0x44, 0x10, 0x00, 0x12, 0x0c, 0x0a, 0x08, 0x52, 0x65, 0x67, 0x69, 0x6f,
-	0x6e, 0x49, 0x44, 0x10, 0x01, 0x2a, 0x20, 0x0a, 0x04, 0x53, 0x45, 0x4e, 0x44, 0x12, 0x09, 0x0a,
-	0x05, 0x50, 0x6f, 0x69, 0x6e, 0x74, 0x10, 0x00, 0x12, 0x0d, 0x0a, 0x09, 0x42, 0x72, 0x6f, 0x61,
-	0x64, 0x63, 0x61, 0x73, 0x74, 0x10, 0x01, 0x42, 0x11, 0x5a, 0x0f, 0x2e, 0x2e, 0x2f, 0x2e, 0x2e,
+	0x0d, 0x52, 0x04, 0x43, 0x6f, 0x64, 0x65, 0x42, 0x11, 0x5a, 0x0f, 0x2e, 0x2e, 0x2f, 0x2e, 0x2e,
 	0x2f, 0x63, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0x2f, 0x70, 0x62, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74,
 	0x6f, 0x33,
 }
@@ -686,27 +533,26 @@ func file_packet_proto_rawDescGZIP() []byte {
 	return file_packet_proto_rawDescData
 }
 
-var file_packet_proto_enumTypes = make([]protoimpl.EnumInfo, 3)
 var file_packet_proto_msgTypes = make([]protoimpl.MessageInfo, 5)
 var file_packet_proto_goTypes = []interface{}{
-	(SERVER)(0),        // 0: pb.SERVER
-	(ROUTE)(0),         // 1: pb.ROUTE
-	(SEND)(0),          // 2: pb.SEND
-	(*ServerInfo)(nil), // 3: pb.ServerInfo
-	(*RouteTable)(nil), // 4: pb.RouteTable
-	(*Head)(nil),       // 5: pb.Head
-	(*Packet)(nil),     // 6: pb.Packet
-	(*RspHead)(nil),    // 7: pb.RspHead
+	(*ServerInfo)(nil), // 0: pb.ServerInfo
+	(*RouteTable)(nil), // 1: pb.RouteTable
+	(*Head)(nil),       // 2: pb.Head
+	(*Packet)(nil),     // 3: pb.Packet
+	(*RspHead)(nil),    // 4: pb.RspHead
+	(SERVER)(0),        // 5: pb.SERVER
+	(SEND)(0),          // 6: pb.SEND
+	(ROUTE)(0),         // 7: pb.ROUTE
 }
 var file_packet_proto_depIdxs = []int32{
-	0, // 0: pb.ServerInfo.Type:type_name -> pb.SERVER
-	2, // 1: pb.Head.SendType:type_name -> pb.SEND
-	0, // 2: pb.Head.SrcServerType:type_name -> pb.SERVER
-	0, // 3: pb.Head.DstServerType:type_name -> pb.SERVER
-	1, // 4: pb.Head.RouteType:type_name -> pb.ROUTE
-	4, // 5: pb.Head.Table:type_name -> pb.RouteTable
-	5, // 6: pb.Packet.Head:type_name -> pb.Head
-	0, // 7: pb.RspHead.DstServerType:type_name -> pb.SERVER
+	5, // 0: pb.ServerInfo.Type:type_name -> pb.SERVER
+	6, // 1: pb.Head.SendType:type_name -> pb.SEND
+	5, // 2: pb.Head.SrcServerType:type_name -> pb.SERVER
+	5, // 3: pb.Head.DstServerType:type_name -> pb.SERVER
+	7, // 4: pb.Head.RouteType:type_name -> pb.ROUTE
+	1, // 5: pb.Head.Table:type_name -> pb.RouteTable
+	2, // 6: pb.Packet.Head:type_name -> pb.Head
+	5, // 7: pb.RspHead.DstServerType:type_name -> pb.SERVER
 	8, // [8:8] is the sub-list for method output_type
 	8, // [8:8] is the sub-list for method input_type
 	8, // [8:8] is the sub-list for extension type_name
@@ -719,6 +565,7 @@ func file_packet_proto_init() {
 	if File_packet_proto != nil {
 		return
 	}
+	file_enum_gen_proto_init()
 	if !protoimpl.UnsafeEnabled {
 		file_packet_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*ServerInfo); i {
@@ -786,14 +633,13 @@ func file_packet_proto_init() {
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_packet_proto_rawDesc,
-			NumEnums:      3,
+			NumEnums:      0,
 			NumMessages:   5,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
 		GoTypes:           file_packet_proto_goTypes,
 		DependencyIndexes: file_packet_proto_depIdxs,
-		EnumInfos:         file_packet_proto_enumTypes,
 		MessageInfos:      file_packet_proto_msgTypes,
 	}.Build()
 	File_packet_proto = out.File

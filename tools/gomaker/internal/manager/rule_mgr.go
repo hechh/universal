@@ -5,7 +5,7 @@ import (
 	"strings"
 	"time"
 	"unicode"
-	"universal/framework/basic/util"
+	"universal/framework/basic"
 	"universal/tools/gomaker/domain"
 	"universal/tools/gomaker/internal/typespec"
 
@@ -51,9 +51,9 @@ func init() {
 }
 
 func firstToBig(name string) string {
-	buf := util.StringToBytes(name)
+	buf := basic.StringToBytes(name)
 	buf[0] = byte(unicode.ToUpper(rune(buf[0])))
-	return util.BytesToString(buf)
+	return basic.BytesToString(buf)
 }
 
 // t

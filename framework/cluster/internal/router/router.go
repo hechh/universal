@@ -7,7 +7,7 @@ import (
 	"sync/atomic"
 	"time"
 	"universal/common/pb"
-	"universal/framework/basic/util"
+	"universal/framework/basic"
 	"universal/framework/plog"
 )
 
@@ -26,7 +26,7 @@ type RouteInfo struct {
 // 设置过期清理机制
 func Init(expire int64) {
 	tt := time.NewTicker(5 * time.Second)
-	util.SafeGo(nil, func() {
+	basic.SafeGo(nil, func() {
 		for {
 			<-tt.C
 			routes.Range(func(key, value interface{}) bool {
@@ -35,7 +35,7 @@ func Init(expire int64) {
 					return true
 				}
 				// 判断路由信息是否过期
-				if atomic.LoadInt64(&val.updateTime)+expire <= util.GetNowUnixSecond() {
+				if atomic.LoadInt64(&val.updateTime)+expire <= basic.GetNowUnixSecond() {
 					routes.Delete(key)
 					plog.Info("clear route success: %v", val)
 				}
@@ -59,7 +59,7 @@ func GetOrNew(uid uint64) *RouteInfo {
 	// 新建
 	item := &RouteInfo{
 		uid:        uid,
-		updateTime: util.GetNowUnixSecond(),
+		updateTime: basic.GetNowUnixSecond(),
 	}
 	routes.Store(uid, item)
 	return item
@@ -68,7 +68,7 @@ func GetOrNew(uid uint64) *RouteInfo {
 func Get(uid uint64) *RouteInfo {
 	if vv, ok := routes.Load(uid); ok {
 		rr := vv.(*RouteInfo)
-		atomic.StoreInt64(&rr.updateTime, util.GetNowUnixSecond())
+		atomic.StoreInt64(&rr.updateTime, basic.GetNowUnixSecond())
 		return rr
 	}
 	return nil

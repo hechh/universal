@@ -1,7 +1,9 @@
 syntax = "proto3";
 package pb;
-option  go_package = "../../common/pb";
+import "enum.gen.proto";
+option go_package = "../../common/pb";
 
+/*
 // 服务器类型
 enum SERVER {
     Gate = 0;  // gate
@@ -21,6 +23,7 @@ enum SEND {
     Point     = 0;
     Broadcast = 1;
 }
+*/
 
 // 集群信息
 message ServerInfo {

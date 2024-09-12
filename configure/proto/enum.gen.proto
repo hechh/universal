@@ -3,18 +3,18 @@ package pb;
 option go_package = "../../common/pb";
 
 enum ROUTE {
- 	ROUTE_UID  = 0; // 路由类型-玩家ID
-	ROUTE_RegionID  = 1; // 路由类型-区服ID 
+ 	UID  = 0; // 路由类型-玩家ID
+	RegionID  = 1; // 路由类型-区服ID 
 };
 
 enum SEND {
- 	SEND_Point  = 0; // 发送类型-点对点
-	SEND_Broadcast  = 1; // 发送类型-广播 
+ 	Point  = 0; // 发送类型-点对点
+	Broadcast  = 1; // 发送类型-广播 
 };
 
 enum SERVER {
- 	SERVER_Gate  = 0; // 服务器类型-Gate
-	SERVER_Game  = 1; // 服务器类型-Game
-	SERVER_Db  = 2; // 服务器类型-Db
-	SERVER_Gm  = 3; // 服务器类型-Gm 
+ 	Gate  = 0; // 服务器类型-Gate
+	Game  = 1; // 服务器类型-Game
+	Db  = 2; // 服务器类型-Db
+	Gm  = 3; // 服务器类型-Gm 
 };

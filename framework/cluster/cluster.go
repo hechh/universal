@@ -5,14 +5,14 @@ import (
 	"runtime/debug"
 	"universal/common/global"
 	"universal/common/pb"
-	"universal/framework/basic/uerror"
-	"universal/framework/basic/util"
+	"universal/framework/basic"
 	"universal/framework/cluster/domain"
 	"universal/framework/cluster/internal/discovery"
 	"universal/framework/cluster/internal/handler"
 	"universal/framework/cluster/internal/nodes"
 	"universal/framework/cluster/internal/router"
 	"universal/framework/plog"
+	"universal/framework/uerror"
 
 	"github.com/nats-io/nats.go"
 	"github.com/spf13/cast"
@@ -45,12 +45,12 @@ func Init(cfg *global.Config, typ pb.SERVER, serverId uint32, expire int64) (err
 	natsCli.Subscribe(nodes.GetSelfChannel(), func(msg *nats.Msg) {
 		inner := &pb.Packet{}
 		proto.Unmarshal(msg.Data, inner)
-		util.SafeRecover(fatal, func() { handler.HandlePoint(inner.Head, inner.Body) })
+		basic.SafeRecover(fatal, func() { handler.HandlePoint(inner.Head, inner.Body) })
 	})
 	natsCli.Subscribe(nodes.GetSelfTopicChannel(), func(msg *nats.Msg) {
 		inner := &pb.Packet{}
 		proto.Unmarshal(msg.Data, inner)
-		util.SafeRecover(fatal, func() { handler.HandleTopic(inner.Head, inner.Body) })
+		basic.SafeRecover(fatal, func() { handler.HandleTopic(inner.Head, inner.Body) })
 	})
 	// 初始化
 	var host, port string
@@ -62,8 +62,8 @@ func Init(cfg *global.Config, typ pb.SERVER, serverId uint32, expire int64) (err
 		Type:       typ,
 		Ip:         host,
 		Port:       cast.ToInt32(port),
-		CreateTime: uint64(util.GetNowUnixMilli()),
-		ServerID:   util.GetCrc(cfg.Server[serverId].Host),
+		CreateTime: uint64(basic.GetNowUnixMilli()),
+		ServerID:   basic.GetCrc(cfg.Server[serverId].Host),
 	})
 	// 服务发现
 	if err = etcd.Watch(domain.ROOT_DIR, nodes.AddNotify, nodes.DeleteNotify); err != nil {

@@ -5,11 +5,11 @@ import (
 	"os"
 	"path/filepath"
 	"testing"
-	"universal/framework/basic/util"
+	"universal/framework/basic"
 )
 
 func TestRand(t *testing.T) {
-	t.Log(util.RangeInt63n(1, 2))
+	t.Log(basic.RangeInt63n(1, 2))
 	t.Log(rand.Int())
 }
 

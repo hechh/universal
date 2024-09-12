@@ -3,8 +3,8 @@ package profiler
 import (
 	"net/http"
 	"net/http/pprof"
-	"universal/framework/basic/uerror"
 	"universal/framework/plog"
+	"universal/framework/uerror"
 
 	"github.com/google/gops/agent"
 )

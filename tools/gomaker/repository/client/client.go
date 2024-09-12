@@ -7,7 +7,7 @@ import (
 	"strings"
 	"text/template"
 	"unicode"
-	"universal/framework/basic/uerror"
+	"universal/framework/uerror"
 	"universal/tools/gomaker/domain"
 	"universal/tools/gomaker/internal/manager"
 	"universal/tools/gomaker/internal/typespec"

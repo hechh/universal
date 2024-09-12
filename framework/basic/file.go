@@ -1,11 +1,10 @@
-package util
+package basic
 
 import (
 	"os"
 	"path"
 	"path/filepath"
 	"regexp"
-	"universal/framework/basic/uerror"
 )
 
 func NewFile(fileName string) (fb *os.File, err error) {
@@ -37,7 +36,7 @@ func SameFile(fb *os.File, name string) bool {
 func Glob(dir, pattern, filter string, recursive bool) (rets []string, err error) {
 	pre, err := regexp.Compile(pattern)
 	if err != nil {
-		return nil, uerror.NewUError(1, -1, "%v", err)
+		return nil, err
 	}
 	filepath.Walk(dir, func(path string, info os.FileInfo, err error) error {
 		// 不深度迭代
@@ -58,7 +57,7 @@ func Glob(dir, pattern, filter string, recursive bool) (rets []string, err error
 	if len(filter) > 0 {
 		fre, err := regexp.Compile(filter)
 		if err != nil {
-			return nil, uerror.NewUError(1, -1, "%v", err)
+			return nil, err
 		}
 		j := -1
 		for _, val := range rets {

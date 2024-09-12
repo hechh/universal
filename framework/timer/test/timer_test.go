@@ -4,12 +4,12 @@ import (
 	"fmt"
 	"testing"
 	"time"
-	"universal/framework/basic/util"
+	"universal/framework/basic"
 	"universal/framework/timer"
 )
 
 func Print() {
-	fmt.Println("---->", util.GetNowUnixSecond())
+	fmt.Println("---->", basic.GetNowUnixSecond())
 }
 
 func TestTimer(t *testing.T) {

@@ -4,7 +4,7 @@ import (
 	"database/sql"
 	"fmt"
 	"universal/common/global"
-	"universal/framework/basic/util"
+	"universal/framework/basic"
 
 	"github.com/astaxie/beego/orm"
 )
@@ -34,7 +34,7 @@ func InitMysql(cfgs map[uint32]*global.DbConfig) (err error) {
 	// 建立连接
 	for _, cfg := range cfgs {
 		// 建立连接
-		alias := util.GetString(cfg.Alias, cfg.DbName)
+		alias := basic.GetString(cfg.Alias, cfg.DbName)
 		str := fmt.Sprintf("%s:%s@tcp(%s)/%s?charset=utf8", cfg.User, cfg.Password, cfg.Host, cfg.DbName)
 		if err = orm.RegisterDataBase(alias, DriverName, str); err != nil {
 			return

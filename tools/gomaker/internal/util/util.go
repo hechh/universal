@@ -11,8 +11,8 @@ import (
 	"os"
 	"path/filepath"
 	"text/template"
-	"universal/framework/basic/uerror"
-	"universal/framework/basic/util"
+	"universal/framework/basic"
+	"universal/framework/uerror"
 	"universal/tools/gomaker/domain"
 	"universal/tools/gomaker/internal/typespec"
 
@@ -65,7 +65,7 @@ func GetAbsPath(cwd, pp string) string {
 
 // 打开所有tpl模板文件
 func OpenTemplate(dir string, pattern string, recursive bool) (*template.Template, error) {
-	files, err := util.Glob(dir, pattern, recursive)
+	files, err := basic.Glob(dir, pattern, "", recursive)
 	if err != nil {
 		return nil, err
 	}

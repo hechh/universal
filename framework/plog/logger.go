@@ -9,7 +9,7 @@ import (
 	"sync"
 	"sync/atomic"
 	"time"
-	"universal/framework/basic/util"
+	"universal/framework/basic"
 )
 
 var (
@@ -84,7 +84,7 @@ func (d *Logger) output(skip int, level uint32, msg string) {
 	// 获取调用堆栈
 	pc, file, line, _ := runtime.Caller(skip + 1)
 	funcName := path.Base(runtime.FuncForPC(pc).Name())
-	tt := util.GetNowTime()
+	tt := basic.GetNowTime()
 	builder := builders.Get().(*strings.Builder)
 	builder.Reset()
 	// 格式化输出

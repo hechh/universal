@@ -9,8 +9,8 @@ import (
 	"path/filepath"
 	"sort"
 	"strings"
-	"universal/framework/basic/uerror"
-	"universal/framework/basic/util"
+	"universal/framework/basic"
+	"universal/framework/uerror"
 	"universal/tools/cfgtool/internal/typespec"
 
 	"github.com/spf13/cast"
@@ -51,7 +51,7 @@ func main() {
 		panicout(err)
 	}
 	// 解析table表
-	files, err := util.Glob(src, ".*xlsx", "enum.xlsx", true)
+	files, err := basic.Glob(src, ".*xlsx", "enum.xlsx", true)
 	if err != nil {
 		panicout(err)
 	}
@@ -123,7 +123,7 @@ func parseEnum(filename string, enums map[string]*typespec.Enum, types map[strin
 					eval := &typespec.Enum{
 						ID:    ss[1],
 						Type:  ss[2],
-						Name:  fmt.Sprintf("%s_%s", ss[2], ss[3]),
+						Name:  ss[3],
 						Value: cast.ToInt32(ss[4]),
 					}
 					enums[eval.ID] = eval
