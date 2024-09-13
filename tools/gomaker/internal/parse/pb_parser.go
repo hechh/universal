@@ -58,7 +58,7 @@ func (d *PbParser) ParseConfig(filename string) error {
 	}
 	defer fb.Close()
 	// 根据生成表解析config结构
-	for k, v := range d.getTables(fb) {
+	for k, v := range GetTables(fb) {
 		values, _ := fb.GetRows(k)
 		item := d.parseStruct(v, values[0], values[1])
 		if len(item.List) <= 0 {
@@ -87,13 +87,13 @@ func (d *PbParser) parseStruct(tableName string, val01, val02 []string) *typespe
 		if len(val) <= 0 {
 			continue
 		}
-		field := d.parseField(val, val02[i])
+		field := d.parseField(i, val, val02[i])
 		item.Add(field)
 	}
 	return item
 }
 
-func (d *PbParser) getTables(fb *excelize.File) map[string]string {
+func GetTables(fb *excelize.File) map[string]string {
 	tmps := map[string]string{}
 	values, _ := fb.GetRows("生成表")
 	for _, vals := range values {
@@ -106,7 +106,7 @@ func (d *PbParser) getTables(fb *excelize.File) map[string]string {
 	return tmps
 }
 
-func (d *PbParser) parseField(str, doc string) *typespec.Field {
+func (d *PbParser) parseField(i int, str, doc string) *typespec.Field {
 	pos := strings.Index(str, "/")
 	if pos <= 0 {
 		return &typespec.Field{
@@ -114,8 +114,9 @@ func (d *PbParser) parseField(str, doc string) *typespec.Field {
 				Kind: domain.KIND_IDENT,
 				Name: "string",
 			}),
-			Name: str,
-			Doc:  doc,
+			Name:  str,
+			Doc:   doc,
+			Index: i,
 		}
 	}
 	dot := strings.Index(str, ".")
@@ -125,8 +126,9 @@ func (d *PbParser) parseField(str, doc string) *typespec.Field {
 				Kind: domain.KIND_IDENT,
 				Name: str[pos+1:],
 			}),
-			Name: str[:pos],
-			Doc:  doc,
+			Name:  str[:pos],
+			Doc:   doc,
+			Index: i,
 		}
 	}
 	return &typespec.Field{
@@ -135,7 +137,8 @@ func (d *PbParser) parseField(str, doc string) *typespec.Field {
 			Name:    str[dot+1:],
 			PkgName: str[pos+1 : dot],
 		}),
-		Name: str[:pos],
-		Doc:  doc,
+		Name:  str[:pos],
+		Doc:   doc,
+		Index: i,
 	}
 }

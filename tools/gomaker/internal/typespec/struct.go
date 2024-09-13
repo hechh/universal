@@ -13,6 +13,7 @@ type Field struct {
 	Name  string   // 字段名字
 	Tag   string   // 标签
 	Doc   string   // 注释
+	Index int      // 下标
 }
 
 func (d *Field) GetToken() string {

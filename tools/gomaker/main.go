@@ -23,7 +23,7 @@ func init() {
 func main() {
 	cwd, err := os.Getwd()
 	if err != nil {
-		panic(err)
+		util.Panic(err)
 	}
 	ParseArgs(cwd).Handle()
 }
@@ -74,14 +74,21 @@ func (d *Args) handleBytes() {
 	// 加载所有go文件
 	files, err := basic.Glob(d.srcpath, ".*\\.go", "", true)
 	if err != nil {
-		panic(err)
+		util.Panic(err)
 	}
 	// 解析go文件
 	if err := util.ParseFiles(&parse.Parser{}, files...); err != nil {
-		panic(err)
+		util.Panic(err)
 	}
 	manager.InitEvals()
-	// 解析配置
+	// 生成文件
+	xlsxs, err := basic.Glob(d.xlsxpath, ".*\\.xlsx", "enum.xlsx", true)
+	if err != nil {
+		util.Panic(err)
+	}
+	if err := manager.Generator(d.action, d.dstpath, nil, xlsxs...); err != nil {
+		util.Panic(err)
+	}
 }
 
 func (d *Args) handlePb() {
@@ -91,22 +98,22 @@ func (d *Args) handlePb() {
 	// 解析枚举类型
 	par := parse.PbParser{}
 	if err := par.ParseEnum(filepath.Join(d.xlsxpath, "enum.xlsx")); err != nil {
-		panic(err)
+		util.Panic(err)
 	}
 	manager.InitEvals()
 	// 解析配置结构
 	files, err := basic.Glob(d.xlsxpath, ".*\\.xlsx", "enum.xlsx", true)
 	if err != nil {
-		panic(err)
+		util.Panic(err)
 	}
 	for _, filename := range files {
 		if err := par.ParseConfig(filename); err != nil {
-			panic(err)
+			util.Panic(err)
 		}
 	}
 	// 生成文件
 	if err := manager.Generator(d.action, d.dstpath, nil); err != nil {
-		panic(err)
+		util.Panic(err)
 	}
 }
 
@@ -122,14 +129,14 @@ func (d *Args) handleGo() {
 	// 加载所有go文件
 	files, err := basic.Glob(d.srcpath, ".*\\.go", "", true)
 	if err != nil {
-		panic(err)
+		util.Panic(err)
 	}
 	// 解析文件
 	if err := util.ParseFiles(&parse.Parser{}, files...); err != nil {
-		panic(err)
+		util.Panic(err)
 	}
 	// 生成文件
 	if err := manager.Generator(d.action, d.dstpath, tplFile, d.param); err != nil {
-		panic(err)
+		util.Panic(err)
 	}
 }
