@@ -3,13 +3,13 @@ syntax = "proto3";
 package pb;
 import "enum.gen.proto";
 option go_package = "../../common/pb";
-	
+
 message RouteConfig {
-	uint32 ID = 1; // 唯一ID
-	string Request = 2; // 请求名称
-	string Response = 3; // 应答协议
-	string FuncName = 4; // 函数名称
-	string ActorName = 5; // 模块名称
-	SERVER ServerType = 6; // 服务类型
-	ROUTE RouteType = 7; // 路由类型
+    uint32 ID         = 1;  // 唯一ID
+    string Request    = 2;  // 请求名称
+    string Response   = 3;  // 应答协议
+    string FuncName   = 4;  // 函数名称
+    string ActorName  = 5;  // 模块名称
+    SERVER ServerType = 6;  // 服务类型
+    ROUTE  RouteType  = 7;  // 路由类型
 }

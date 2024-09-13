@@ -1,21 +1,21 @@
 
 syntax = "proto3";
 package pb;
-option go_package = "../../common/pb";
-	
+option  go_package = "../../common/pb";
+
 enum ROUTE {
-	UID = 0; // 路由类型-玩家ID
-	RegionID = 1; // 路由类型-区服ID
+    UID      = 0;  // 路由类型-玩家ID
+    RegionID = 1;  // 路由类型-区服ID
 }
 
 enum SEND {
-	Point = 0; // 发送类型-点对点
-	Broadcast = 1; // 发送类型-广播
+    Point     = 0;  // 发送类型-点对点
+    Broadcast = 1;  // 发送类型-广播
 }
 
 enum SERVER {
-	Gate = 0; // 服务器类型-Gate
-	Game = 1; // 服务器类型-Game
-	Db = 2; // 服务器类型-Db
-	Gm = 3; // 服务器类型-Gm
+    Gate = 0;  // 服务器类型-Gate
+    Game = 1;  // 服务器类型-Game
+    Db   = 2;  // 服务器类型-Db
+    Gm   = 3;  // 服务器类型-Gm
 }

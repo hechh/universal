@@ -2,7 +2,7 @@ package handler
 
 import (
 	"universal/common/pb"
-	"universal/framework/basic"
+	"universal/common/util"
 	"universal/framework/cluster/domain"
 )
 
@@ -21,7 +21,7 @@ func BindTopic(fs ...domain.HandleFunc) {
 
 func HandlePoint(head *pb.Head, buf []byte) {
 	for _, f := range points {
-		if f(basic.CopyHead(head), buf) {
+		if f(util.CopyHead(head), buf) {
 			return
 		}
 	}
@@ -29,7 +29,7 @@ func HandlePoint(head *pb.Head, buf []byte) {
 
 func HandleTopic(head *pb.Head, buf []byte) {
 	for _, f := range topics {
-		if f(basic.CopyHead(head), buf) {
+		if f(util.CopyHead(head), buf) {
 			return
 		}
 	}

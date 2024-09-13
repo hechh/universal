@@ -13,8 +13,8 @@ import (
 	"strings"
 	"sync"
 	"time"
-	"universal/framework/basic/async"
-	"universal/framework/basic/util"
+	"universal/framework/async"
+	"universal/framework/basic"
 	"universal/framework/handler"
 	"universal/framework/plog"
 	"universal/tools/client/domain"
@@ -53,7 +53,7 @@ func Init() {
 	http.HandleFunc("/online", online)
 	http.HandleFunc("/logout", logout)
 
-	util.SafeGo(fatalNotify, func() {
+	basic.SafeGo(fatalNotify, func() {
 		if err := http.ListenAndServe("localhost:22345", nil); err != nil {
 			plog.Info("start http server is failed, error: %v", err)
 		}
@@ -90,7 +90,7 @@ func login(w http.ResponseWriter, r *http.Request) {
 	wg := sync.WaitGroup{}
 	cache := async.NewQueue()
 	result := func(api *domain.Result) {
-		defer util.SafeRecover(fatalNotify, wg.Done)
+		defer basic.SafeRecover(fatalNotify, wg.Done)
 		cache.Push(api)
 	}
 	// 解析请求参数
@@ -113,9 +113,9 @@ func login(w http.ResponseWriter, r *http.Request) {
 	}
 	// 超时关闭
 	deadline(30*time.Second, &wg)
-	now := util.GetNowUnixSecond()
-	util.SafeRecover(fatalNotify, wg.Wait)
-	response(w, cache, "LoginRequest", util.GetNowUnixSecond()-now)
+	now := basic.GetNowUnixSecond()
+	basic.SafeRecover(fatalNotify, wg.Wait)
+	response(w, cache, "LoginRequest", basic.GetNowUnixSecond()-now)
 }
 
 func handle(w http.ResponseWriter, r *http.Request) {
@@ -134,7 +134,7 @@ func handle(w http.ResponseWriter, r *http.Request) {
 	cache := async.NewQueue()
 	wg := sync.WaitGroup{}
 	result := func(api *domain.Result) {
-		defer util.SafeRecover(fatalNotify, wg.Done)
+		defer basic.SafeRecover(fatalNotify, wg.Done)
 		cache.Push(api)
 	}
 	// 发送请求
@@ -143,13 +143,13 @@ func handle(w http.ResponseWriter, r *http.Request) {
 	}
 	// 超时关闭
 	deadline(15*time.Second, &wg)
-	now := util.GetNowUnixSecond()
-	util.SafeRecover(fatalNotify, wg.Wait)
-	response(w, cache, opr, util.GetNowUnixMilli()-now)
+	now := basic.GetNowUnixSecond()
+	basic.SafeRecover(fatalNotify, wg.Wait)
+	response(w, cache, opr, basic.GetNowUnixMilli()-now)
 }
 
 func deadline(dur time.Duration, wg *sync.WaitGroup) {
-	util.SafeGo(nil, func() {
+	basic.SafeGo(nil, func() {
 		<-time.NewTimer(dur).C
 		for i := 0; i < 10000; i++ {
 			wg.Done()

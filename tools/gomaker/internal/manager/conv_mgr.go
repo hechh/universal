@@ -52,3 +52,7 @@ func ToEValue(str string) int32 {
 	}
 	return cast.ToInt32(str)
 }
+
+func DefaultEnumConv(str string) interface{} {
+	return cast.ToInt32(str)
+}
