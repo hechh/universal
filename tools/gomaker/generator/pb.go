@@ -53,6 +53,7 @@ option go_package = "../../common/pb";
 			arrs = append(arrs, fmt.Sprintf("\t%s %s = %d; // %s", manager.GetProtoType(val.Type.GetPkgType()), val.Name, i+1, val.Doc))
 		}
 		buf.WriteString(fmt.Sprintf("\nmessage %s {\n%s\n}\n", st.Type.Name, strings.Join(arrs, "\n")))
+		buf.WriteString(fmt.Sprintf("\nmessage %sAry {\n repeated %s Ary = 1;\n}\n", st.Type.Name, st.Type.Name))
 	}
 	// 生成文件
 	return util.SaveFile(filepath.Join(dst, "table.gen.proto"), buf)

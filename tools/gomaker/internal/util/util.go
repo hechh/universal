@@ -12,6 +12,8 @@ import (
 	"text/template"
 	"universal/framework/basic"
 	"universal/framework/uerror"
+
+	"github.com/golang/protobuf/proto"
 )
 
 func Panic(err error) {
@@ -49,6 +51,36 @@ func SaveFile(filename string, buf *bytes.Buffer) error {
 
 	// 写入文件
 	if err := ioutil.WriteFile(filename, buf.Bytes(), os.FileMode(0666)); err != nil {
+		return uerror.NewUError(1, -1, "filename: %s, error: %v", filename, err)
+	}
+	return nil
+}
+
+func SaveBytes(filename string, data proto.Message) error {
+	buf, err := proto.Marshal(data)
+	if err != nil {
+		return uerror.NewUError(1, -1, "%v", err)
+	}
+	// 创建目录
+	if err := os.MkdirAll(filepath.Dir(filename), os.FileMode(0777)); err != nil {
+		return uerror.NewUError(1, -1, "filename: %s, error: %v", filename, err)
+	}
+
+	// 写入文件
+	if err := ioutil.WriteFile(filename, buf, os.FileMode(0666)); err != nil {
+		return uerror.NewUError(1, -1, "filename: %s, error: %v", filename, err)
+	}
+	return nil
+}
+
+func SaveJson(filename string, buf []byte) error {
+	// 创建目录
+	if err := os.MkdirAll(filepath.Dir(filename), os.FileMode(0777)); err != nil {
+		return uerror.NewUError(1, -1, "filename: %s, error: %v", filename, err)
+	}
+
+	// 写入文件
+	if err := ioutil.WriteFile(filename, buf, os.FileMode(0666)); err != nil {
 		return uerror.NewUError(1, -1, "filename: %s, error: %v", filename, err)
 	}
 	return nil

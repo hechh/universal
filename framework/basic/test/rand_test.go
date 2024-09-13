@@ -5,7 +5,10 @@ import (
 	"os"
 	"path/filepath"
 	"testing"
+	"universal/common/pb"
 	"universal/framework/basic"
+
+	"github.com/golang/protobuf/proto"
 )
 
 func TestRand(t *testing.T) {
@@ -24,4 +27,13 @@ func TestWalk(t *testing.T) {
 		t.Log(path, info.Name(), info.IsDir())
 		return nil
 	})
+}
+
+func TestMessage(t *testing.T) {
+	vv := &pb.Head{}
+
+	t.Log("========>", proto.MessageName(vv))
+
+	tt := proto.MessageType("pb.Head")
+	t.Log(tt == nil, tt)
 }

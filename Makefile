@@ -3,6 +3,7 @@ SYSTEM=$(shell go env GOOS)
 GCFLAGS=-gcflags "all=-N -l"
 PROTO_PATH=./configure/proto
 TABLE_PATH=./configure/table
+BYTES_PATH=./configure/bytes
 PB_PATH=./common/pb
 OUTPUT=./output
 
@@ -27,10 +28,10 @@ tool:
 #	go install ./tools/client
 
 pb: 
-	-rm -rf ${PROTO_PATH}/*.gen.proto ${PB_PATH}/*.pb.go
+#	-rm -rf ${PROTO_PATH}/*.gen.proto ${PB_PATH}/*.pb.go
 	go run ./tools/gomaker/main.go -action=pb -xlsx=${TABLE_PATH} -dst=${PROTO_PATH} -tpl="./tools/gomaker/templates/"
 	make protoc
 
 bytes: 
-	go run ./tools/gomaker/main.go -action=bytes -src=${PB_PATH} -xlsx=${TABLE_PATH} -dst="./" -tpl="./tools/gomaker/templates/"
+	go run ./tools/gomaker/main.go -action=bytes -src=${PB_PATH} -xlsx=${TABLE_PATH} -dst=${BYTES_PATH} -tpl="./tools/gomaker/templates/"
 

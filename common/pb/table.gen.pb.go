@@ -115,6 +115,52 @@ func (x *RouteConfig) GetRouteType() ROUTE {
 	return ROUTE_UID
 }
 
+type RouteConfigAry struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+	Ary []*RouteConfig `protobuf:"bytes,1,rep,name=Ary,proto3" json:"Ary,omitempty"`
+}
+
+func (x *RouteConfigAry) Reset() {
+	*x = RouteConfigAry{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_table_gen_proto_msgTypes[1]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *RouteConfigAry) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RouteConfigAry) ProtoMessage() {}
+
+func (x *RouteConfigAry) ProtoReflect() protoreflect.Message {
+	mi := &file_table_gen_proto_msgTypes[1]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RouteConfigAry.ProtoReflect.Descriptor instead.
+func (*RouteConfigAry) Descriptor() ([]byte, []int) {
+	return file_table_gen_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *RouteConfigAry) GetAry() []*RouteConfig {
+	if x != nil {
+		return x.Ary
+	}
+	return nil
+}
+
 var File_table_gen_proto protoreflect.FileDescriptor
 
 var file_table_gen_proto_rawDesc = []byte{
@@ -134,9 +180,12 @@ var file_table_gen_proto_rawDesc = []byte{
 	0x45, 0x52, 0x56, 0x45, 0x52, 0x52, 0x0a, 0x53, 0x65, 0x72, 0x76, 0x65, 0x72, 0x54, 0x79, 0x70,
 	0x65, 0x12, 0x27, 0x0a, 0x09, 0x52, 0x6f, 0x75, 0x74, 0x65, 0x54, 0x79, 0x70, 0x65, 0x18, 0x07,
 	0x20, 0x01, 0x28, 0x0e, 0x32, 0x09, 0x2e, 0x70, 0x62, 0x2e, 0x52, 0x4f, 0x55, 0x54, 0x45, 0x52,
-	0x09, 0x52, 0x6f, 0x75, 0x74, 0x65, 0x54, 0x79, 0x70, 0x65, 0x42, 0x11, 0x5a, 0x0f, 0x2e, 0x2e,
-	0x2f, 0x2e, 0x2e, 0x2f, 0x63, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0x2f, 0x70, 0x62, 0x62, 0x06, 0x70,
-	0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x09, 0x52, 0x6f, 0x75, 0x74, 0x65, 0x54, 0x79, 0x70, 0x65, 0x22, 0x33, 0x0a, 0x0e, 0x52, 0x6f,
+	0x75, 0x74, 0x65, 0x43, 0x6f, 0x6e, 0x66, 0x69, 0x67, 0x41, 0x72, 0x79, 0x12, 0x21, 0x0a, 0x03,
+	0x41, 0x72, 0x79, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x0f, 0x2e, 0x70, 0x62, 0x2e, 0x52,
+	0x6f, 0x75, 0x74, 0x65, 0x43, 0x6f, 0x6e, 0x66, 0x69, 0x67, 0x52, 0x03, 0x41, 0x72, 0x79, 0x42,
+	0x11, 0x5a, 0x0f, 0x2e, 0x2e, 0x2f, 0x2e, 0x2e, 0x2f, 0x63, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0x2f,
+	0x70, 0x62, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -151,20 +200,22 @@ func file_table_gen_proto_rawDescGZIP() []byte {
 	return file_table_gen_proto_rawDescData
 }
 
-var file_table_gen_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
+var file_table_gen_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_table_gen_proto_goTypes = []interface{}{
-	(*RouteConfig)(nil), // 0: pb.RouteConfig
-	(SERVER)(0),         // 1: pb.SERVER
-	(ROUTE)(0),          // 2: pb.ROUTE
+	(*RouteConfig)(nil),    // 0: pb.RouteConfig
+	(*RouteConfigAry)(nil), // 1: pb.RouteConfigAry
+	(SERVER)(0),            // 2: pb.SERVER
+	(ROUTE)(0),             // 3: pb.ROUTE
 }
 var file_table_gen_proto_depIdxs = []int32{
-	1, // 0: pb.RouteConfig.ServerType:type_name -> pb.SERVER
-	2, // 1: pb.RouteConfig.RouteType:type_name -> pb.ROUTE
-	2, // [2:2] is the sub-list for method output_type
-	2, // [2:2] is the sub-list for method input_type
-	2, // [2:2] is the sub-list for extension type_name
-	2, // [2:2] is the sub-list for extension extendee
-	0, // [0:2] is the sub-list for field type_name
+	2, // 0: pb.RouteConfig.ServerType:type_name -> pb.SERVER
+	3, // 1: pb.RouteConfig.RouteType:type_name -> pb.ROUTE
+	0, // 2: pb.RouteConfigAry.Ary:type_name -> pb.RouteConfig
+	3, // [3:3] is the sub-list for method output_type
+	3, // [3:3] is the sub-list for method input_type
+	3, // [3:3] is the sub-list for extension type_name
+	3, // [3:3] is the sub-list for extension extendee
+	0, // [0:3] is the sub-list for field type_name
 }
 
 func init() { file_table_gen_proto_init() }
@@ -186,6 +237,18 @@ func file_table_gen_proto_init() {
 				return nil
 			}
 		}
+		file_table_gen_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*RouteConfigAry); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
@@ -193,7 +256,7 @@ func file_table_gen_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_table_gen_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   1,
+			NumMessages:   2,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

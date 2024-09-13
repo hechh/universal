@@ -39,6 +39,10 @@ func GetProtoType(typ string) string {
 	return convs[typ].ProtoType
 }
 
+func ToConvert(typ string, val string) interface{} {
+	return convs[typ].conv(val)
+}
+
 func DefaultEnumConv(str string) interface{} {
 	if val, ok := evals[str]; ok {
 		return val.Value

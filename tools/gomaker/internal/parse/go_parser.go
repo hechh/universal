@@ -126,6 +126,10 @@ func parseType(n ast.Expr, tt *typespec.Type, token *[]uint32) {
 	switch vv := n.(type) {
 	case *ast.Ident:
 		tt.Name = vv.Name
+		switch vv.Name {
+		case "uint32", "uint64", "int64", "int32", "bool", "float32", "float64", "string", "byte":
+			tt.PkgName = ""
+		}
 	case *ast.SelectorExpr:
 		tt.PkgName = vv.X.(*ast.Ident).Name
 		tt.Name = vv.Sel.Name

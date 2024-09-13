@@ -1,27 +1,36 @@
 package generator
 
 import (
+	"encoding/json"
+	"fmt"
+	"path/filepath"
+	"reflect"
 	"text/template"
 	"unicode"
 	"universal/framework/uerror"
+	"universal/tools/gomaker/domain"
 	"universal/tools/gomaker/internal/manager"
 	"universal/tools/gomaker/internal/parse"
 	"universal/tools/gomaker/internal/typespec"
+	"universal/tools/gomaker/internal/util"
 
+	_ "universal/common/pb"
+
+	"github.com/golang/protobuf/proto"
 	"github.com/xuri/excelize/v2"
 )
 
 // 生成enum.gen.proto
 func bytesGenerator(dst string, tpls *template.Template, extra ...string) error {
 	for _, filename := range extra {
-		if err := parseXlsx(filename); err != nil {
+		if err := parseXlsx(filename, dst); err != nil {
 			return err
 		}
 	}
 	return nil
 }
 
-func parseXlsx(filename string) error {
+func parseXlsx(filename string, dst string) error {
 	fb, err := excelize.OpenFile(filename)
 	if err != nil {
 		return uerror.NewUError(1, -1, "%v", err)
@@ -46,13 +55,37 @@ func parseXlsx(filename string) error {
 			}
 			ff.Index = item.Fields[ff.Name].Index
 			fields[ff.Index] = ff
+			if ff.Type.Kind == domain.KIND_ENUM {
+				manager.AddConv(ff.Type.GetPkgType(), ff.Type.Name, manager.DefaultEnumConv)
+			}
 		}
 		// 解析配置数据
-		/*
-			for _, vals := range values[2:] {
+		if err := toBytes(pbItem, fields, values[2:], dst); err != nil {
+			return err
+		}
+	}
+	return nil
+}
 
+func toBytes(pbItem *typespec.Struct, fields map[int]*typespec.Field, values [][]string, dst string) error {
+	tmps := []interface{}{}
+	for _, vals := range values {
+		tmp := map[string]interface{}{}
+		for pos, field := range fields {
+			if len(vals) > pos && len(vals[pos]) > 0 {
+				tmp[field.Name] = manager.ToConvert(field.Type.GetPkgType(), vals[pos])
 			}
-		*/
+		}
+		if len(tmp) > 0 {
+			tmps = append(tmps, tmp)
+		}
+	}
+	if len(tmps) > 0 {
+		data := reflect.New(proto.MessageType(pbItem.Type.GetPkgType() + "Ary").Elem()).Interface()
+		buf, _ := json.Marshal(map[string]interface{}{"Ary": tmps})
+		//util.SaveJson(filepath.Join(dst, fmt.Sprintf("%s.json", pbItem.Type.Name)), buf)
+		json.Unmarshal(buf, data)
+		return util.SaveBytes(filepath.Join(dst, fmt.Sprintf("%s.bytes", pbItem.Type.Name)), data.(proto.Message))
 	}
 	return nil
 }
