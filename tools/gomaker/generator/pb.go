@@ -12,7 +12,7 @@ import (
 )
 
 // 生成enum.gen.proto
-func enumGenerator(dst string, param string, tpls *template.Template) error {
+func enumGenerator(dst string, tpls *template.Template, extra ...string) error {
 	if strings.HasSuffix(dst, ".go") {
 		dst = filepath.Dir(dst)
 	}
@@ -35,7 +35,7 @@ option go_package = "../../common/pb";
 	return util.SaveFile(filepath.Join(dst, "enum.gen.proto"), buf)
 }
 
-func tableGenerator(dst string, param string, tpls *template.Template) error {
+func tableGenerator(dst string, tpls *template.Template, extra ...string) error {
 	if strings.HasSuffix(dst, ".go") {
 		dst = filepath.Dir(dst)
 	}

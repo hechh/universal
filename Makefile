@@ -27,5 +27,5 @@ tool:
 
 pb: 
 	-rm -rf ${PROTO_PATH}/*.gen.proto ${PB_PATH}/*.pb.go
-	go run ./tools/gomaker/main.go -action=pb -src="./configure/table" -dst="./configure/proto" -tpl="./tools/gomaker/templates/"
+	go run ./tools/gomaker/main.go -action=pb -xlsx="./configure/table" -dst="./configure/proto" -tpl="./tools/gomaker/templates/"
 	make protoc

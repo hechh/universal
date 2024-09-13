@@ -32,9 +32,9 @@ func IsAction(action string) bool {
 	return ok
 }
 
-func Generator(action, dst, param string, tpls *template.Template) error {
+func Generator(action, dst string, tpls *template.Template, extra ...string) error {
 	for _, f := range apis[action].fs {
-		if err := f(dst, param, tpls); err != nil {
+		if err := f(dst, tpls, extra...); err != nil {
 			return err
 		}
 	}

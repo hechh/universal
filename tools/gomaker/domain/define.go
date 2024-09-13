@@ -15,5 +15,5 @@ const (
 )
 
 // 代码生成
-type GenFunc func(dst string, param string, tpls *template.Template) error
+type GenFunc func(dst string, tpls *template.Template, extra ...string) error
 type ConvFunc func(string) interface{}

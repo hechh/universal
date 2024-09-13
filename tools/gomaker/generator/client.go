@@ -11,7 +11,7 @@ import (
 )
 
 // 生成代码
-func HttpKitGenerator(dst string, param string, tpls *template.Template) error {
+func HttpKitGenerator(dst string, tpls *template.Template, extra ...string) error {
 	if strings.HasSuffix(dst, ".go") {
 		dst = filepath.Dir(dst)
 	}
@@ -32,7 +32,7 @@ func HttpKitGenerator(dst string, param string, tpls *template.Template) error {
 	return util.SaveGo(filepath.Join(dst, "init.gen.go"), buf)
 }
 
-func OmitEmptyGenerator(dst string, param string, tpls *template.Template) error {
+func OmitEmptyGenerator(dst string, tpls *template.Template, extra ...string) error {
 	if strings.HasSuffix(dst, ".go") {
 		dst = filepath.Dir(dst)
 	}
@@ -51,7 +51,7 @@ func OmitEmptyGenerator(dst string, param string, tpls *template.Template) error
 	return util.SaveGo(filepath.Join(dst, "pb.gen.go"), buf)
 }
 
-func ProtoGenerator(dst string, param string, tpls *template.Template) error {
+func ProtoGenerator(dst string, tpls *template.Template, extra ...string) error {
 	if strings.HasSuffix(dst, ".go") {
 		dst = filepath.Dir(dst)
 	}
