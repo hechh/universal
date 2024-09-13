@@ -2,6 +2,7 @@
 SYSTEM=$(shell go env GOOS)
 GCFLAGS=-gcflags "all=-N -l"
 PROTO_PATH=./configure/proto
+TABLE_PATH=./configure/table
 PB_PATH=./common/pb
 OUTPUT=./output
 
@@ -22,10 +23,14 @@ endif
 tool: 
 #	go install ./tool/gomaker
 #	go run ./tools/gomaker/main.go -action=client -src="./tools/gomaker/test" -dst="./tools/client/internal/httpkit" -tpl="./tools/gomaker/templates/"
-	go run ./tools/gomaker/main.go -action=pb -src="./configure/table" -dst="./configure/proto" -tpl="./tools/gomaker/templates/"
+	go run ./tools/gomaker/main.go -action=pb -src=${TABLE_PATH} -dst=${PROTO_PATH} -tpl="./tools/gomaker/templates/"
 #	go install ./tools/client
 
 pb: 
 	-rm -rf ${PROTO_PATH}/*.gen.proto ${PB_PATH}/*.pb.go
-	go run ./tools/gomaker/main.go -action=pb -xlsx="./configure/table" -dst="./configure/proto" -tpl="./tools/gomaker/templates/"
+	go run ./tools/gomaker/main.go -action=pb -xlsx=${TABLE_PATH} -dst=${PROTO_PATH} -tpl="./tools/gomaker/templates/"
 	make protoc
+
+bytes: 
+	go run ./tools/gomaker/main.go -action=bytes -src=${PB_PATH} -xlsx=${TABLE_PATH} -dst="./" -tpl="./tools/gomaker/templates/"
+

@@ -60,7 +60,7 @@ func (d *PbParser) ParseConfig(filename string) error {
 	// 根据生成表解析config结构
 	for k, v := range GetTables(fb) {
 		values, _ := fb.GetRows(k)
-		item := d.parseStruct(v, values[0], values[1])
+		item := ParseXlsxStruct(v, values[0], values[1])
 		if len(item.List) <= 0 {
 			continue
 		}
@@ -69,7 +69,7 @@ func (d *PbParser) ParseConfig(filename string) error {
 	return nil
 }
 
-func (d *PbParser) parseStruct(tableName string, val01, val02 []string) *typespec.Struct {
+func ParseXlsxStruct(tableName string, val01, val02 []string) *typespec.Struct {
 	item := &typespec.Struct{
 		Type: manager.GetTypeReference(&typespec.Type{
 			Kind:    domain.KIND_STRUCT,
@@ -87,7 +87,7 @@ func (d *PbParser) parseStruct(tableName string, val01, val02 []string) *typespe
 		if len(val) <= 0 {
 			continue
 		}
-		field := d.parseField(i, val, val02[i])
+		field := parseXlsxField(i, val, val02[i])
 		item.Add(field)
 	}
 	return item
@@ -106,7 +106,7 @@ func GetTables(fb *excelize.File) map[string]string {
 	return tmps
 }
 
-func (d *PbParser) parseField(i int, str, doc string) *typespec.Field {
+func parseXlsxField(i int, str, doc string) *typespec.Field {
 	pos := strings.Index(str, "/")
 	if pos <= 0 {
 		return &typespec.Field{
