@@ -71,6 +71,7 @@ func (d *Args) handlePb() {
 	if err := par.ParseEnum(filepath.Join(d.srcpath, "enum.xlsx")); err != nil {
 		panic(err)
 	}
+	manager.InitEvals()
 	// 解析配置结构
 	files, err := basic.Glob(d.srcpath, ".*\\.xlsx", "enum.xlsx", true)
 	if err != nil {

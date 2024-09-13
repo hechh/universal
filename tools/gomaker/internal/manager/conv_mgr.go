@@ -2,7 +2,6 @@ package manager
 
 import (
 	"universal/tools/gomaker/domain"
-	"universal/tools/gomaker/internal/typespec"
 
 	"github.com/spf13/cast"
 )
@@ -17,19 +16,17 @@ var (
 	convs = make(map[string]*ConvInfo)
 )
 
-func AddConvType(typ, proto string) {
-	if val, ok := convs[typ]; ok {
-		val.ProtoType = proto
-	} else {
-		convs[typ] = &ConvInfo{TableType: typ, ProtoType: proto}
+func AddConv(typ, proto string, f domain.ConvFunc) {
+	val, ok := convs[typ]
+	if !ok {
+		convs[typ] = &ConvInfo{TableType: typ, ProtoType: proto, conv: f}
+		return
 	}
-}
-
-func AddConvFunc(typ string, f domain.ConvFunc) {
-	if val, ok := convs[typ]; ok {
+	if len(proto) > 0 {
+		val.ProtoType = proto
+	}
+	if f != nil {
 		val.conv = f
-	} else {
-		convs[typ] = &ConvInfo{TableType: typ, conv: f}
 	}
 }
 
@@ -42,17 +39,9 @@ func GetProtoType(typ string) string {
 	return convs[typ].ProtoType
 }
 
-func AddEnumValue(item *typespec.Value) {
-	evals[item.Doc] = item
-}
-
-func ToEValue(str string) int32 {
+func DefaultEnumConv(str string) interface{} {
 	if val, ok := evals[str]; ok {
 		return val.Value
 	}
-	return cast.ToInt32(str)
-}
-
-func DefaultEnumConv(str string) interface{} {
 	return cast.ToInt32(str)
 }
