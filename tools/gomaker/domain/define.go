@@ -1,7 +1,6 @@
 package domain
 
 import (
-	"go/ast"
 	"text/template"
 )
 
@@ -15,20 +14,6 @@ const (
 	TOKEN_MAP     = 1 << 2
 )
 
-const (
-	PACKAGE = "package"
-	XLSX    = "xlsx.tpl"
-	CONFIG  = "config.tpl"
-	JSON    = "json"
-	HTTPKIT = "httpkit.tpl"
-	PBCLASS = "pbclass.tpl"
-	PROTO   = "proto.tpl"
-)
-
-// 代码生成接口
-type GenFunc func(string, string, *template.Template) error
-
-type IParser interface {
-	SetFile(string)
-	Visit(ast.Node) ast.Visitor
-}
+// 代码生成
+type GenFunc func(dst string, param string, tpls *template.Template) error
+type ConvFunc func(string) interface{}

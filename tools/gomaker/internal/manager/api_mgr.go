@@ -12,7 +12,7 @@ var (
 )
 
 type ApiInfo struct {
-	f    domain.GenFunc
+	fs   []domain.GenFunc
 	help string
 }
 
@@ -23,8 +23,8 @@ func Help() {
 	}
 }
 
-func Register(action string, info domain.GenFunc, help string) {
-	apis[action] = &ApiInfo{help: help, f: info}
+func Register(action, help string, fs ...domain.GenFunc) {
+	apis[action] = &ApiInfo{help: help, fs: fs}
 }
 
 func IsAction(action string) bool {
@@ -33,5 +33,10 @@ func IsAction(action string) bool {
 }
 
 func Generator(action, dst, param string, tpls *template.Template) error {
-	return apis[action].f(dst, param, tpls)
+	for _, f := range apis[action].fs {
+		if err := f(dst, param, tpls); err != nil {
+			return err
+		}
+	}
+	return nil
 }

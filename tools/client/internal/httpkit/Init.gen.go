@@ -35,6 +35,8 @@ func init() {
 	http.HandleFunc("/api/BattleEndResponse", handle)
 	http.HandleFunc("/api/BattleFunBuyRequest", handle)
 	http.HandleFunc("/api/BattleFunBuyResponse", handle)
+	http.HandleFunc("/api/BattleHookPassRewardRequest", handle)
+	http.HandleFunc("/api/BattleHookPassRewardResponse", handle)
 	http.HandleFunc("/api/BattleMapNotify", handle)
 	http.HandleFunc("/api/BattleNormalCardRequest", handle)
 	http.HandleFunc("/api/BattleNormalCardResponse", handle)
@@ -79,6 +81,8 @@ func init() {
 	http.HandleFunc("/api/ClientJsonNotify", handle)
 	http.HandleFunc("/api/CommonNotify", handle)
 	http.HandleFunc("/api/CommonPrizeNotify", handle)
+	http.HandleFunc("/api/CrystalGenerateRequest", handle)
+	http.HandleFunc("/api/CrystalGenerateResponse", handle)
 	http.HandleFunc("/api/CrystalNotify", handle)
 	http.HandleFunc("/api/CrystalRedefineRequest", handle)
 	http.HandleFunc("/api/CrystalRedefineResponse", handle)
@@ -288,5 +292,4 @@ func init() {
 	http.HandleFunc("/api/WorldBossStagePrizeResponse", handle)
 	http.HandleFunc("/api/WorldBossSweepRequest", handle)
 	http.HandleFunc("/api/WorldBossSweepResponse", handle)
-
 }

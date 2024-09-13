@@ -6,7 +6,7 @@ GEN_GO_PATH=./common/pb
 OUTPUT=./output
 
 
-.PHONY: protoc tool json
+.PHONY: protoc tool pb
 
 ############################生成代码选项##############################
 protoc:
@@ -19,16 +19,12 @@ endif
 
 
 ##########################client工具代码自动生成#######################
-tool: protoc
+tool: 
 #	go install ./tool/gomaker
-	go run ./tools/gomaker/main.go -action="httpkit.tpl" -src="./common/pb" -dst="./tools/client/internal/httpkit/Init.gen.go" -tpl="./tools/gomaker/templates/"
-	go run ./tools/gomaker/main.go -action=pbclass.tpl -src="common/pb" -dst="tools/client/internal/httpkit/pbclass.gen.go" -tpl="tools/gomaker/templates/"
-	go run ./tools/gomaker/main.go -action="proto.tpl" -src="common/pb" -dst="tools/client/internal/httpkit/json.gen.go" -tpl="tools/gomaker/templates/"
+#	go run ./tools/gomaker/main.go -action=client -src="./tools/gomaker/test" -dst="./tools/client/internal/httpkit" -tpl="./tools/gomaker/templates/"
+	go run ./tools/gomaker/main.go -action=pb -src="./configure/table" -dst="./configure/proto" -tpl="./tools/gomaker/templates/"
 #	go install ./tools/client
 
-json: protoc
-	go run ./tools/gomaker/main.go -action="json" -src="./share/table" -dst="./env/configure"
-
-config:
-	go run ./tools/cfgtool/main.go -src="./configure/table" -dst="./configure/proto"
-
+pb: 
+	go run ./tools/gomaker/main.go -action=pb -src="./configure/table" -dst="./configure/proto" -tpl="./tools/gomaker/templates/"
+	make protoc

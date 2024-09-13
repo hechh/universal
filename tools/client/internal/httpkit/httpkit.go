@@ -39,7 +39,7 @@ var (
 	jsons = make(map[string]string)
 )
 
-func RegisterJson(name string, reqJson interface{}) {
+func registerJson(name string, reqJson interface{}) {
 	if val := reflect.ValueOf(reqJson).Elem().Field(0); val.IsNil() {
 		val.Set(reflect.ValueOf(&IPacket{}))
 	}

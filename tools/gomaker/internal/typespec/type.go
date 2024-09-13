@@ -16,6 +16,13 @@ func (d *Type) GetName(pkg string) string {
 	return fmt.Sprintf("%s.%s", d.PkgName, d.Name)
 }
 
+func (d *Type) GetPkgType() string {
+	if len(d.PkgName) <= 0 {
+		return d.Name
+	}
+	return fmt.Sprintf("%s.%s", d.PkgName, d.Name)
+}
+
 func (d *Type) GetDoc() string {
 	if len(d.Doc) <= 0 {
 		return ""
@@ -24,15 +31,10 @@ func (d *Type) GetDoc() string {
 }
 
 type Alias struct {
-	FileName string   // 定义所在文件名
 	Token    []uint32 // 数据类型
 	Type     *Type    // 引用类型
 	RealType *Type    // 真实类型
 	Doc      string   // 注释
-}
-
-func (d *Alias) GetTypeName() string {
-	return d.Type.GetName(d.Type.PkgName)
 }
 
 func (d *Alias) GetDoc() string {

@@ -4,13 +4,12 @@ import (
 	"flag"
 	"fmt"
 	"os"
+	"path/filepath"
 	"universal/framework/basic"
-	"universal/tools/gomaker/domain"
+	"universal/tools/gomaker/generator"
 	"universal/tools/gomaker/internal/manager"
 	"universal/tools/gomaker/internal/parse"
 	"universal/tools/gomaker/internal/util"
-	"universal/tools/gomaker/repository/client"
-	"universal/tools/gomaker/repository/config"
 )
 
 func init() {
@@ -18,11 +17,7 @@ func init() {
 		flag.PrintDefaults()
 		manager.Help()
 	}
-
-	manager.Register(domain.HTTPKIT, client.HttpKitGenerator, "生成client代码")
-	manager.Register(domain.PBCLASS, client.OmitEmptyGenerator, "生成client代码")
-	manager.Register(domain.PROTO, client.ProtoGenerator, "生成client代码")
-	manager.Register(domain.XLSX, config.XlsxGenerator, "生成配置代码")
+	generator.Init()
 }
 
 func main() {
@@ -52,57 +47,42 @@ func ParseArgs(cwd string) *Args {
 	return &Args{
 		action:  action,
 		param:   param,
-		tplpath: util.GetAbsPath(cwd, tpl),
-		srcpath: util.GetAbsPath(cwd, src),
-		dstpath: util.GetAbsPath(cwd, dst),
+		tplpath: filepath.Clean(filepath.Join(cwd, tpl)),
+		srcpath: filepath.Clean(filepath.Join(cwd, src)),
+		dstpath: filepath.Clean(filepath.Join(cwd, dst)),
 	}
 }
 
 func (d *Args) Handle() {
 	switch d.action {
-	case domain.JSON:
-		d.handleJson()
-	case domain.CONFIG, domain.XLSX:
-		d.handleCfg()
+	case "pb":
+		d.handlePb()
 	default:
 		d.handleGo()
 	}
 }
 
-func (d *Args) handleCfg() {
+func (d *Args) handlePb() {
 	if !manager.IsAction(d.action) {
 		panic(fmt.Errorf("%s不支持", d.action))
 	}
-	// 搜索所有配置
-	files, err := basic.Glob(d.srcpath, "*.xlsx", "", true)
+	// 解析枚举类型
+	par := parse.PbParser{}
+	if err := par.ParseEnum(filepath.Join(d.srcpath, "enum.xlsx")); err != nil {
+		panic(err)
+	}
+	// 解析配置结构
+	files, err := basic.Glob(d.srcpath, ".*\\.xlsx", "enum.xlsx", true)
 	if err != nil {
 		panic(err)
 	}
-	// 解析所有配置
-	pp := parse.NewCfgParser()
-	if err := util.ParseXlsxs(pp, util.SortSheet, files...); err != nil {
-		panic(err)
-	}
-	// 加载模板文件
-	tplFile, err := util.OpenTemplate(d.tplpath, "*.tpl", true)
-	if err != nil {
-		panic(err)
+	for _, filename := range files {
+		if err := par.ParseConfig(filename); err != nil {
+			panic(err)
+		}
 	}
 	// 生成文件
-	if err := manager.Generator(d.action, d.dstpath, d.param, tplFile); err != nil {
-		panic(err)
-	}
-}
-
-func (d *Args) handleJson() {
-	// 搜索所有配置
-	files, err := basic.Glob(d.srcpath, "*.xlsx", "", true)
-	if err != nil {
-		panic(err)
-	}
-	// 解析所有配置
-	pp := parse.NewJsonParser(d.dstpath)
-	if err := util.ParseXlsxs(pp, util.SortSheet, util.SortXlsx(files)...); err != nil {
+	if err := manager.Generator(d.action, d.dstpath, d.param, nil); err != nil {
 		panic(err)
 	}
 }
@@ -112,17 +92,17 @@ func (d *Args) handleGo() {
 		panic(fmt.Errorf("%s不支持", d.action))
 	}
 	// 加载模板文件
-	tplFile, err := util.OpenTemplate(d.tplpath, "*.tpl", true)
+	tplFile, err := util.OpenTemplate(d.tplpath, ".*\\.tpl", "", true)
 	if err != nil {
-		panic(err)
+		util.Panic(err)
 	}
 	// 加载所有go文件
-	files, err := basic.Glob(d.srcpath, "*.go", "", true)
+	files, err := basic.Glob(d.srcpath, ".*\\.go", "", true)
 	if err != nil {
 		panic(err)
 	}
 	// 解析文件
-	if err := util.ParseFiles(&parse.GoParser{}, files...); err != nil {
+	if err := util.ParseFiles(&parse.Parser{}, files...); err != nil {
 		panic(err)
 	}
 	// 生成文件

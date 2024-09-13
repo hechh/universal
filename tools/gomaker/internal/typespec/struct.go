@@ -3,6 +3,7 @@ package typespec
 import (
 	"fmt"
 	"strings"
+	"unicode"
 	"universal/tools/gomaker/domain"
 )
 
@@ -10,7 +11,6 @@ type Field struct {
 	Token []uint32 // 数据类型
 	Type  *Type    // 类型
 	Name  string   // 字段名字
-	Index int      // 字段下标
 	Tag   string   // 标签
 	Doc   string   // 注释
 }
@@ -40,15 +40,28 @@ func (d *Field) Format(tt *Type) string {
 }
 
 type Struct struct {
-	FileName string            // 文件名
-	Type     *Type             // 类型
-	Fields   map[string]*Field // 字段
-	List     []*Field          // 排序队列
-	Doc      string
+	Type   *Type             // 类型
+	Fields map[string]*Field // 字段
+	List   []*Field          // 排序队列
+	Doc    string
 }
 
-func NewStruct(filename string, tt *Type) *Struct {
-	return &Struct{Type: tt, FileName: filename, Fields: make(map[string]*Field)}
+func (d *Struct) Clone() *Struct {
+	ret := &Struct{Type: d.Type, Doc: d.Doc}
+	for _, item := range d.List {
+		if unicode.IsLower(rune(item.Name[0])) {
+			continue
+		}
+		ret.List = append(ret.List, item)
+	}
+	return ret
+}
+
+func (d *Struct) Add(ff *Field) {
+	if _, ok := d.Fields[ff.Name]; !ok {
+		d.Fields[ff.Name] = ff
+		d.List = append(d.List, ff)
+	}
 }
 
 func (d *Struct) GetDoc() string {
@@ -64,11 +77,4 @@ func (d *Struct) Format() string {
 		vals = append(vals, val.Format(d.Type))
 	}
 	return fmt.Sprintf("%s\ntype %s struct {\n%s\n}", d.GetDoc(), d.Type.Name, strings.Join(vals, "\n"))
-}
-
-func (d *Struct) Add(ff *Field) {
-	if _, ok := d.Fields[ff.Name]; !ok {
-		d.Fields[ff.Name] = ff
-		d.List = append(d.List, ff)
-	}
 }
