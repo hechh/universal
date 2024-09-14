@@ -4,8 +4,7 @@ import (
 	"sort"
 	"strings"
 	"universal/framework/uerror"
-	"universal/tools/gomaker/domain"
-	"universal/tools/gomaker/internal/typespec"
+	"universal/tools/gomaker_new/internal/typespec"
 )
 
 var (
@@ -15,22 +14,9 @@ var (
 	structs = make(map[string]*typespec.Struct)
 )
 
-func GetKindType(name string) (int32, string) {
-	if en, ok := enums[name]; ok {
-		return en.Type.Kind, en.Type.Pkg
-	}
-	if al, ok := alias[name]; ok {
-		return al.Type.Kind, al.Type.Pkg
-	}
-	if st, ok := structs[name]; ok {
-		return st.Type.Kind, st.Type.Pkg
-	}
-	return domain.KindTypeIdent, ""
-}
-
 // 查询类型
-func GetType(k int32, pkg, name string, ts ...int32) *typespec.Type {
-	tt := typespec.TYPE(k, pkg, name, ts...)
+func GetType(k int32, pkg, name string) *typespec.Type {
+	tt := typespec.TYPE(k, pkg, name)
 	key := tt.GetType("")
 	val, ok := types[key]
 	if !ok {
@@ -39,9 +25,6 @@ func GetType(k int32, pkg, name string, ts ...int32) *typespec.Type {
 	}
 	if tt.Kind > 0 {
 		val.Kind = tt.Kind
-	}
-	if len(ts) > 0 {
-		val.Token = ts
 	}
 	return val
 }
@@ -55,9 +38,6 @@ func GetTypeReference(tt *typespec.Type) *typespec.Type {
 	}
 	if tt.Kind > 0 {
 		val.Kind = tt.Kind
-	}
-	if len(tt.Token) > 0 {
-		val.Token = tt.Token
 	}
 	return val
 }

@@ -5,9 +5,9 @@ import (
 	"os"
 	"path/filepath"
 	"universal/framework/basic"
-	"universal/tools/gomaker/internal/manager"
-	"universal/tools/gomaker/internal/parser"
-	"universal/tools/gomaker/internal/util"
+	"universal/tools/gomaker_new/internal/manager"
+	"universal/tools/gomaker_new/internal/parser"
+	"universal/tools/gomaker_new/internal/util"
 	"universal/tools/gomaker_old/repository/generator"
 )
 

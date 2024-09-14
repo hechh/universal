@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"text/template"
 	"universal/framework/uerror"
-	"universal/tools/gomaker_old/domain"
+	"universal/tools/gomaker_new/domain"
 )
 
 var (

@@ -3,9 +3,9 @@ package parser
 import (
 	"strings"
 	"universal/framework/uerror"
-	"universal/tools/gomaker/domain"
-	"universal/tools/gomaker/internal/manager"
-	"universal/tools/gomaker/internal/typespec"
+	"universal/tools/gomaker_new/domain"
+	"universal/tools/gomaker_new/internal/manager"
+	"universal/tools/gomaker_new/internal/typespec"
 
 	"github.com/spf13/cast"
 	"github.com/xuri/excelize/v2"
@@ -43,8 +43,13 @@ func (d *StructRule) Parse() error {
 				Doc:   values[1][i],
 			})
 		} else {
-			kind, pkg := manager.GetKindType(val[pos+1:])
+			token := int32(domain.TokenTypeNone)
+			if strings.HasPrefix(val[pos+1:], "[]") {
+				token = domain.TokenTypeArray
+			}
+			kind, pkg := manager.GetKindType(strings.ReplaceAll(val[pos+1:], "[]", ""))
 			fs = append(fs, &typespec.Field{
+				Token: []int32{token},
 				Type:  manager.GetType(kind, pkg, val[:pos]),
 				Name:  val[:pos],
 				Index: i,

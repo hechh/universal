@@ -3,7 +3,7 @@ package convert
 import (
 	"strings"
 	"universal/framework/basic"
-	"universal/tools/gomaker/internal/manager"
+	"universal/tools/gomaker_new/internal/manager"
 
 	"github.com/spf13/cast"
 )
@@ -27,6 +27,7 @@ func Init() {
 	manager.AddConv("[]float64", ToArrayFloat64)
 	manager.AddConv("[]bool", ToArrayBool)
 	manager.AddConv("[]string", ToArrayString)
+
 	manager.AddTrans("uint32", "uint32")
 	manager.AddTrans("uint64", "uint64")
 	manager.AddTrans("int32", "int32")

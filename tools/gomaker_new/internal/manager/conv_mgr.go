@@ -1,7 +1,7 @@
 package manager
 
 import (
-	"universal/tools/gomaker/domain"
+	"universal/tools/gomaker_new/domain"
 
 	"github.com/spf13/cast"
 )
@@ -10,14 +10,32 @@ var (
 	trans = make(map[string]string)          // 配置类型——>proto类型
 	convs = make(map[string]domain.ConvFunc) // 配置字段值转型
 	evals = make(map[string]int32)           // 配置枚举值准换
+	pbs   = make(map[string]int32)           // pb类型查询表
 )
 
 func InitEvals() {
 	for _, item := range enums {
+		pbs[item.Type.Name] = item.Type.Kind
 		for _, val := range item.List {
 			evals[val.Doc] = val.Value
 		}
 	}
+}
+
+func InitPbs() {
+	for _, item := range structs {
+		pbs[item.Type.Name] = item.Type.Kind
+	}
+	for _, item := range alias {
+		pbs[item.Type.Name] = item.Type.Kind
+	}
+}
+
+func GetKindType(name string) (int32, string) {
+	if val, ok := pbs[name]; ok {
+		return val, domain.DefaultPkg
+	}
+	return domain.KindTypeIdent, ""
 }
 
 func AddTrans(key, val string) {

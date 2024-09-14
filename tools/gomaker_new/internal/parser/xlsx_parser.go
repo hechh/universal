@@ -3,18 +3,18 @@ package parser
 import (
 	"strings"
 	"universal/framework/uerror"
-	"universal/tools/gomaker/domain"
-	"universal/tools/gomaker/internal/manager"
+	"universal/tools/gomaker_new/domain"
+	"universal/tools/gomaker_new/internal/manager"
 
 	"github.com/xuri/excelize/v2"
 )
 
-type ProtoParser struct {
+type XlsxParser struct {
 	prev []*EnumRule
 	next []*StructRule
 }
 
-func (d *ProtoParser) Parse() error {
+func (d *XlsxParser) Parse() error {
 	// 先解析枚举
 	for _, item := range d.prev {
 		if err := item.Parse(); err != nil {
@@ -32,7 +32,7 @@ func (d *ProtoParser) Parse() error {
 }
 
 // 解析生成表
-func (d *ProtoParser) ParseFiles(files ...string) error {
+func (d *XlsxParser) ParseFiles(files ...string) error {
 	for _, filename := range files {
 		fb, err := excelize.OpenFile(filename)
 		if err != nil {

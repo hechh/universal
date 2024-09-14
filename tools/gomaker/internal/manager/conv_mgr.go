@@ -1,7 +1,7 @@
 package manager
 
 import (
-	"universal/tools/gomaker/domain"
+	"universal/tools/gomaker_new/domain"
 
 	"github.com/spf13/cast"
 )

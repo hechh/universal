@@ -7,8 +7,8 @@ import (
 	"sort"
 	"strings"
 	"text/template"
-	"universal/tools/gomaker/internal/manager"
-	"universal/tools/gomaker/internal/util"
+	"universal/tools/gomaker_new/internal/manager"
+	"universal/tools/gomaker_new/internal/util"
 )
 
 // 生成enum.gen.proto

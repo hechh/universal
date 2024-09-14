@@ -4,18 +4,17 @@ import (
 	"fmt"
 	"sort"
 	"strings"
-	"universal/tools/gomaker/domain"
+	"universal/tools/gomaker_new/domain"
 )
 
 type Type struct {
-	Token []int32 // 结构类型
-	Kind  int32   // 数据类型
-	Pkg   string  // 包名
-	Name  string  // 字段名
+	Kind int32  // 数据类型
+	Pkg  string // 包名
+	Name string // 字段名
 }
 
-func TYPE(k int32, pkg, name string, ts ...int32) *Type {
-	return &Type{Kind: k, Pkg: pkg, Name: name, Token: ts}
+func TYPE(k int32, pkg, name string) *Type {
+	return &Type{Kind: k, Pkg: pkg, Name: name}
 }
 
 func (d *Type) GetType(pkg string) string {
@@ -25,9 +24,21 @@ func (d *Type) GetType(pkg string) string {
 	return fmt.Sprintf("%s.%s", d.Pkg, d.Name)
 }
 
-func (d *Type) GetToken(pkg string) string {
+type Alias struct {
+	Type      *Type   // 别名类型
+	RealToken []int32 // 结构类型
+	RealType  *Type   // 引用类型
+	Class     string  // 分类
+	Doc       string  // 注释
+}
+
+func ALIAS(t, r *Type, class, doc string, ts ...int32) *Alias {
+	return &Alias{Type: t, RealType: r, Class: class, Doc: doc, RealToken: ts}
+}
+
+func getToken(pkg string, tt *Type, ts ...int32) string {
 	ls := []string{}
-	for _, tname := range d.Token {
+	for _, tname := range ts {
 		switch tname {
 		case domain.TokenTypePointer:
 			ls = append(ls, "*")
@@ -35,22 +46,11 @@ func (d *Type) GetToken(pkg string) string {
 			ls = append(ls, "[]")
 		}
 	}
-	return fmt.Sprintf("%s%s", strings.Join(ls, ""), d.GetType(pkg))
-}
-
-type Alias struct {
-	Type     *Type  // 别名类型
-	RealType *Type  // 引用类型
-	Class    string // 分类
-	Doc      string // 注释
-}
-
-func ALIAS(t, r *Type, class, doc string) *Alias {
-	return &Alias{Type: t, RealType: r, Class: class, Doc: doc}
+	return fmt.Sprintf("%s%s", strings.Join(ls, ""), tt.GetType(pkg))
 }
 
 func (d *Alias) String() string {
-	return fmt.Sprintf("%s\ntype %s %s", getDoc(d.Doc), d.Type.Name, d.RealType.GetToken(d.Type.Pkg))
+	return fmt.Sprintf("%s\ntype %s %s", getDoc(d.Doc), d.Type.Name, getToken(d.Type.Pkg, d.RealType, d.RealToken...))
 }
 
 type Value struct {
@@ -110,11 +110,16 @@ func (d *Enum) String() string {
 }
 
 type Field struct {
-	Type  *Type  // 类型
-	Name  string // 字段名字
-	Index int    // 下标
-	Tag   string // 标签
-	Doc   string // 注释
+	Token []int32 // 结构类型
+	Type  *Type   // 类型
+	Name  string  // 字段名字
+	Index int     // 下标
+	Tag   string  // 标签
+	Doc   string  // 注释
+}
+
+func (d *Field) GetToken() string {
+	return getToken(d.Type.Pkg, d.Type, d.Token...)
 }
 
 type Struct struct {
@@ -144,7 +149,7 @@ func (d *Struct) Proto() string {
 func (d *Struct) String() string {
 	tmps := []string{}
 	for _, val := range d.List {
-		tmps = append(tmps, fmt.Sprintf("\t%s\t%s\t%s\t%s", val.Name, val.Type.GetToken(d.Type.Pkg), val.Tag, getDoc(val.Doc)))
+		tmps = append(tmps, fmt.Sprintf("\t%s\t%s\t%s\t%s", val.Name, getToken(d.Type.Pkg, val.Type, val.Token...), val.Tag, getDoc(val.Doc)))
 	}
 	return fmt.Sprintf("%s\ntype %s struct {\n%s\n}", getDoc(d.Doc), d.Type.Name, strings.Join(tmps, "\n"))
 }

@@ -4,7 +4,7 @@ import (
 	"flag"
 	"fmt"
 	"text/template"
-	"universal/tools/gomaker/domain"
+	"universal/tools/gomaker_new/domain"
 )
 
 var (
