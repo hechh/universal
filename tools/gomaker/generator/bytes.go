@@ -8,11 +8,11 @@ import (
 	"text/template"
 	"unicode"
 	"universal/framework/uerror"
-	"universal/tools/gomaker_new/domain"
-	"universal/tools/gomaker_new/internal/manager"
-	"universal/tools/gomaker_new/internal/parse"
-	"universal/tools/gomaker_new/internal/typespec"
-	"universal/tools/gomaker_new/internal/util"
+	"universal/tools/gomaker/domain"
+	"universal/tools/gomaker/internal/manager"
+	"universal/tools/gomaker/internal/parse"
+	"universal/tools/gomaker/internal/typespec"
+	"universal/tools/gomaker/internal/util"
 
 	_ "universal/common/pb"
 

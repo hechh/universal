@@ -3,7 +3,7 @@ package parse
 import (
 	"strings"
 	"universal/framework/basic"
-	"universal/tools/gomaker_new/internal/manager"
+	"universal/tools/gomaker/internal/manager"
 
 	"github.com/spf13/cast"
 )

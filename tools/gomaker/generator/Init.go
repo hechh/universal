@@ -1,6 +1,6 @@
 package generator
 
-import "universal/tools/gomaker_new/internal/manager"
+import "universal/tools/gomaker/internal/manager"
 
 func Init() {
 	manager.Register("client", "生成client代码", HttpKitGenerator, OmitEmptyGenerator, ProtoGenerator)

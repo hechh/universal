@@ -4,7 +4,7 @@ import (
 	"sort"
 	"strings"
 	"universal/framework/uerror"
-	"universal/tools/gomaker_new/internal/typespec"
+	"universal/tools/gomaker/internal/typespec"
 )
 
 var (

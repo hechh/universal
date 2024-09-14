@@ -6,10 +6,10 @@ import (
 	"os"
 	"path/filepath"
 	"universal/framework/basic"
-	"universal/tools/gomaker_new/generator"
-	"universal/tools/gomaker_new/internal/manager"
-	"universal/tools/gomaker_new/internal/parse"
-	"universal/tools/gomaker_new/internal/util"
+	"universal/tools/gomaker/generator"
+	"universal/tools/gomaker/internal/manager"
+	"universal/tools/gomaker/internal/parse"
+	"universal/tools/gomaker/internal/util"
 )
 
 func init() {

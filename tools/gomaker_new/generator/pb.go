@@ -2,13 +2,12 @@ package generator
 
 import (
 	"bytes"
-	"fmt"
 	"path/filepath"
 	"sort"
 	"strings"
 	"text/template"
-	"universal/tools/gomaker/internal/manager"
-	"universal/tools/gomaker/internal/util"
+	"universal/tools/gomaker_new/internal/manager"
+	"universal/tools/gomaker_new/internal/util"
 )
 
 // 生成enum.gen.proto
@@ -25,14 +24,12 @@ option go_package = "../../common/pb";
 	// 注册
 	for _, st := range manager.GetEnumList() {
 		sort.Slice(st.List, func(i, j int) bool { return st.List[i].Value < st.List[j].Value })
-		arrs := []string{}
-		for _, val := range st.List {
-			arrs = append(arrs, fmt.Sprintf("\t%s = %d; // %s", val.Name, val.Value, val.Doc))
-		}
-		buf.WriteString(fmt.Sprintf("\nenum %s {\n%s\n}\n", st.Type.Name, strings.Join(arrs, "\n")))
+		buf.WriteRune('\n')
+		buf.WriteString(st.Proto())
+		buf.WriteRune('\n')
 	}
 	// 生成文件
-	return util.SaveFile(filepath.Join(dst, "enum.gen.proto"), buf)
+	return util.SaveFile(filepath.Join(dst, "enum.gen.proto"), buf.Bytes())
 }
 
 func tableGenerator(dst string, tpls *template.Template, extra ...string) error {
@@ -48,13 +45,10 @@ option go_package = "../../common/pb";
 	`)
 	// 注册
 	for _, st := range manager.GetStructList() {
-		arrs := []string{}
-		for i, val := range st.List {
-			arrs = append(arrs, fmt.Sprintf("\t%s %s = %d; // %s", manager.GetProtoType(val.Type.GetPkgType()), val.Name, i+1, val.Doc))
-		}
-		buf.WriteString(fmt.Sprintf("\nmessage %s {\n%s\n}\n", st.Type.Name, strings.Join(arrs, "\n")))
-		buf.WriteString(fmt.Sprintf("\nmessage %sAry {\n repeated %s Ary = 1;\n}\n", st.Type.Name, st.Type.Name))
+		buf.WriteRune('\n')
+		buf.WriteString(st.Proto())
+		buf.WriteRune('\n')
 	}
 	// 生成文件
-	return util.SaveFile(filepath.Join(dst, "table.gen.proto"), buf)
+	return util.SaveFile(filepath.Join(dst, "table.gen.proto"), buf.Bytes())
 }

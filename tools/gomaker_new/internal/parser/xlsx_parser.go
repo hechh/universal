@@ -28,6 +28,7 @@ func (d *XlsxParser) Parse() error {
 			return err
 		}
 	}
+	manager.InitPbs()
 	return nil
 }
 

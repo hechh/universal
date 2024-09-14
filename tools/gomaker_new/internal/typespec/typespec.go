@@ -96,7 +96,7 @@ func (d *Enum) AddValue(name string, val int32, doc string) {
 func (d *Enum) Proto() string {
 	tmps := []string{}
 	for _, val := range d.List {
-		tmps = append(tmps, fmt.Sprintf("\t%s\t=\t%d;\t%s", val.Name, val.Value, getDoc(val.Doc)))
+		tmps = append(tmps, fmt.Sprintf("\t%s = %d;\t%s", val.Name, val.Value, getDoc(val.Doc)))
 	}
 	return fmt.Sprintf("%s\nenum %s {\n%s\n}", getDoc(d.Doc), d.Type.Name, strings.Join(tmps, "\n"))
 }
@@ -141,7 +141,11 @@ func STRUCT(t *Type, class, doc string, vs ...*Field) *Struct {
 func (d *Struct) Proto() string {
 	tmps := []string{}
 	for _, val := range d.List {
-		tmps = append(tmps, fmt.Sprintf("\t%s\t%s\t=\t%d;\t%s", val.Type.GetType(d.Type.Name), val.Name, val.Index+1, getDoc(val.Doc)))
+		if len(val.Token) > 0 {
+			tmps = append(tmps, fmt.Sprintf("\trepeated %s %s = %d;\t%s", val.Type.Name, val.Name, val.Index+1, getDoc(val.Doc)))
+		} else {
+			tmps = append(tmps, fmt.Sprintf("\t%s %s = %d;\t%s", val.Type.GetType(d.Type.Name), val.Name, val.Index+1, getDoc(val.Doc)))
+		}
 	}
 	return fmt.Sprintf("%s\nmessage %s {\n%s\n}", getDoc(d.Doc), d.Type.Name, strings.Join(tmps, "\n"))
 }

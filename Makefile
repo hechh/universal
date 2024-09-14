@@ -8,7 +8,7 @@ PB_PATH=./common/pb
 OUTPUT=./output
 
 
-.PHONY: protoc tool pb
+.PHONY: protoc tool proto
 
 ############################生成代码选项##############################
 protoc:
@@ -27,10 +27,10 @@ tool:
 	go run ./tools/gomaker/main.go -action=pb -src=${TABLE_PATH} -dst=${PROTO_PATH} -tpl="./tools/gomaker/templates/"
 #	go install ./tools/client
 
-pb: 
+proto: 
 #	-rm -rf ${PROTO_PATH}/*.gen.proto ${PB_PATH}/*.pb.go
-	go run ./tools/gomaker/main.go -action=pb -xlsx=${TABLE_PATH} -dst=${PROTO_PATH} -tpl="./tools/gomaker/templates/"
-	make protoc
+	go run ./tools/gomaker_new/main.go -action=proto -xlsx=${TABLE_PATH} -dst=${PROTO_PATH}
+#	make protoc
 
 bytes: 
 	go run ./tools/gomaker/main.go -action=bytes -src=${PB_PATH} -xlsx=${TABLE_PATH} -dst=${BYTES_PATH} -tpl="./tools/gomaker/templates/"

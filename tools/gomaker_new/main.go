@@ -5,10 +5,11 @@ import (
 	"os"
 	"path/filepath"
 	"universal/framework/basic"
+	"universal/tools/gomaker_new/generator"
+	"universal/tools/gomaker_new/internal/convert"
 	"universal/tools/gomaker_new/internal/manager"
 	"universal/tools/gomaker_new/internal/parser"
 	"universal/tools/gomaker_new/internal/util"
-	"universal/tools/gomaker_old/repository/generator"
 )
 
 func init() {
@@ -17,6 +18,7 @@ func init() {
 		manager.Help()
 	}
 	generator.Init()
+	convert.Init()
 }
 
 func main() {
@@ -67,10 +69,12 @@ func (d *Args) handleProto() {
 		util.Panic(err)
 	}
 	// 解析xlsx文件生成表
-	par := parser.ProtoParser{}
+	par := parser.XlsxParser{}
 	util.Panic(par.ParseFiles(files...))
 	// 解析结构
 	util.Panic(par.Parse())
+	// 生成文件
+	util.Panic(manager.Generator(d.action, d.dst, nil))
 }
 
 func (d *Args) handleGo() {

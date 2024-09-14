@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strings"
 	"unicode"
-	"universal/tools/gomaker_new/domain"
+	"universal/tools/gomaker/domain"
 )
 
 type Field struct {

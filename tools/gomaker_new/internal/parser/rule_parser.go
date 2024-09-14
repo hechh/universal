@@ -42,15 +42,20 @@ func (d *StructRule) Parse() error {
 				Index: i,
 				Doc:   values[1][i],
 			})
-		} else {
-			token := int32(domain.TokenTypeNone)
-			if strings.HasPrefix(val[pos+1:], "[]") {
-				token = domain.TokenTypeArray
-			}
-			kind, pkg := manager.GetKindType(strings.ReplaceAll(val[pos+1:], "[]", ""))
+		} else if strings.HasPrefix(val[pos+1:], "[]") {
+			typeName := strings.ReplaceAll(val[pos+1:], "[]", "")
+			kind, pkg := manager.GetKindType(typeName)
 			fs = append(fs, &typespec.Field{
-				Token: []int32{token},
-				Type:  manager.GetType(kind, pkg, val[:pos]),
+				Token: []int32{domain.TokenTypeArray},
+				Type:  manager.GetType(kind, pkg, typeName),
+				Name:  val[:pos],
+				Index: i,
+				Doc:   values[1][i],
+			})
+		} else {
+			kind, pkg := manager.GetKindType(val[pos+1:])
+			fs = append(fs, &typespec.Field{
+				Type:  manager.GetType(kind, pkg, val[pos+1:]),
 				Name:  val[:pos],
 				Index: i,
 				Doc:   values[1][i],
