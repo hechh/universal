@@ -2,14 +2,14 @@ package main
 
 import (
 	"flag"
-	"fmt"
 	"os"
 	"path/filepath"
 	"universal/framework/basic"
-	"universal/tools/gomaker/generator"
+	"universal/tools/gomaker/domain"
 	"universal/tools/gomaker/internal/manager"
-	"universal/tools/gomaker/internal/parse"
+	"universal/tools/gomaker/internal/parser"
 	"universal/tools/gomaker/internal/util"
+	"universal/tools/gomaker/repository"
 )
 
 func init() {
@@ -17,7 +17,7 @@ func init() {
 		flag.PrintDefaults()
 		manager.Help()
 	}
-	generator.Init()
+	repository.Init()
 }
 
 func main() {
@@ -25,118 +25,71 @@ func main() {
 	if err != nil {
 		util.Panic(err)
 	}
-	ParseArgs(cwd).Handle()
+	GetArgs(cwd).Handle()
 }
 
 type Args struct {
-	action   string // 模式
-	tplpath  string // tpl模板文件目录
-	xlsxpath string // xlsx文件目录
-	srcpath  string // 解析原文件目录
-	dstpath  string // 生成go文件目录
-	param    string // action模式参数
+	action string // 模式
+	tpl    string // tpl模板文件目录
+	xlsx   string // xlsx文件目录
+	src    string // 解析原文件目录
+	dst    string // 生成go文件目录
+	param  string // action模式参数
 }
 
-func ParseArgs(cwd string) *Args {
-	var action, tpl, src, dst, xlsx, param string
-	flag.StringVar(&action, "action", "", "操作模式")
-	flag.StringVar(&xlsx, "xlsx", "", "xlsx文件目录")
-	flag.StringVar(&param, "param", "", "参数")
-	flag.StringVar(&tpl, "tpl", "", "模板文件目录")
-	flag.StringVar(&src, "src", "", "原文件目录")
-	flag.StringVar(&dst, "dst", "", "生成文件目录")
+func GetArgs(cwd string) *Args {
+	ret := new(Args)
+	flag.StringVar(&ret.action, "action", "", "操作模式")
+	flag.StringVar(&ret.xlsx, "xlsx", "", "xlsx文件目录")
+	flag.StringVar(&ret.param, "param", "", "参数")
+	flag.StringVar(&ret.tpl, "tpl", "", "模板文件目录")
+	flag.StringVar(&ret.src, "src", "", "原文件目录")
+	flag.StringVar(&ret.dst, "dst", "", "生成文件目录")
 	flag.Parse()
-	return &Args{
-		action:   action,
-		param:    param,
-		tplpath:  filepath.Clean(filepath.Join(cwd, tpl)),
-		xlsxpath: filepath.Clean(filepath.Join(cwd, xlsx)),
-		srcpath:  filepath.Clean(filepath.Join(cwd, src)),
-		dstpath:  filepath.Clean(filepath.Join(cwd, dst)),
-	}
+	ret.tpl = filepath.Clean(filepath.Join(cwd, ret.tpl))
+	ret.xlsx = filepath.Clean(filepath.Join(cwd, ret.xlsx))
+	ret.src = filepath.Clean(filepath.Join(cwd, ret.src))
+	ret.dst = filepath.Clean(filepath.Join(cwd, ret.dst))
+	return ret
 }
 
 func (d *Args) Handle() {
 	switch d.action {
-	case "pb":
-		d.handlePb()
-	case "bytes":
-		d.handleBytes()
+	case "proto":
+		d.handleProto()
 	default:
 		d.handleGo()
 	}
 }
 
-func (d *Args) handleBytes() {
-	if !manager.IsAction(d.action) {
-		panic(fmt.Errorf("%s不支持", d.action))
-	}
-	// 加载所有go文件
-	files, err := basic.Glob(d.srcpath, ".*\\.go", "", true)
+func (d *Args) handleProto() {
+	files, err := basic.Glob(d.xlsx, ".*\\.xlsx", "", true)
 	if err != nil {
 		util.Panic(err)
 	}
-	// 解析go文件
-	if err := util.ParseFiles(&parse.Parser{}, files...); err != nil {
-		util.Panic(err)
-	}
-	manager.InitEvals()
+	// 以目的目录设置pkg
+	domain.DefaultPkg = filepath.Base(d.dst)
+	// 解析xlsx文件生成表
+	par := parser.XlsxParser{}
+	util.Panic(par.ParseFiles(files...))
+	// 解析结构
+	util.Panic(par.Parse())
 	// 生成文件
-	xlsxs, err := basic.Glob(d.xlsxpath, ".*\\.xlsx", "enum.xlsx", true)
-	if err != nil {
-		util.Panic(err)
-	}
-	if err := manager.Generator(d.action, d.dstpath, nil, xlsxs...); err != nil {
-		util.Panic(err)
-	}
-}
-
-func (d *Args) handlePb() {
-	if !manager.IsAction(d.action) {
-		panic(fmt.Errorf("%s不支持", d.action))
-	}
-	// 解析枚举类型
-	par := parse.PbParser{}
-	if err := par.ParseEnum(filepath.Join(d.xlsxpath, "enum.xlsx")); err != nil {
-		util.Panic(err)
-	}
-	manager.InitEvals()
-	// 解析配置结构
-	files, err := basic.Glob(d.xlsxpath, ".*\\.xlsx", "enum.xlsx", true)
-	if err != nil {
-		util.Panic(err)
-	}
-	for _, filename := range files {
-		if err := par.ParseConfig(filename); err != nil {
-			util.Panic(err)
-		}
-	}
-	// 生成文件
-	if err := manager.Generator(d.action, d.dstpath, nil); err != nil {
-		util.Panic(err)
-	}
+	util.Panic(manager.Generator(d.action, d.dst, nil))
 }
 
 func (d *Args) handleGo() {
-	if !manager.IsAction(d.action) {
-		panic(fmt.Errorf("%s不支持", d.action))
-	}
 	// 加载模板文件
-	tplFile, err := util.OpenTemplate(d.tplpath, ".*\\.tpl", "", true)
+	tpls, err := util.OpenTemplate(d.tpl, ".*\\.tpl", "", false)
 	if err != nil {
 		util.Panic(err)
 	}
 	// 加载所有go文件
-	files, err := basic.Glob(d.srcpath, ".*\\.go", "", true)
+	files, err := basic.Glob(d.src, ".*\\.go", "", true)
 	if err != nil {
 		util.Panic(err)
 	}
-	// 解析文件
-	if err := util.ParseFiles(&parse.Parser{}, files...); err != nil {
-		util.Panic(err)
-	}
-	// 生成文件
-	if err := manager.Generator(d.action, d.dstpath, tplFile, d.param); err != nil {
-		util.Panic(err)
-	}
+	util.Panic(util.ParseFiles(&parser.Parser{}, files...))
+	// 生成go文件
+	util.Panic(manager.Generator(d.action, d.dst, tpls, d.param))
 }

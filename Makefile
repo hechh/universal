@@ -29,7 +29,7 @@ tool:
 
 proto: 
 #	-rm -rf ${PROTO_PATH}/*.gen.proto ${PB_PATH}/*.pb.go
-	go run ./tools/gomaker_new/main.go -action=proto -xlsx=${TABLE_PATH} -dst=${PROTO_PATH}
+	go run ./tools/gomaker/main.go -action=proto -xlsx=${TABLE_PATH} -dst=${PROTO_PATH}
 #	make protoc
 
 bytes: 

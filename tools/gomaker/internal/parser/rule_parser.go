@@ -3,9 +3,9 @@ package parser
 import (
 	"strings"
 	"universal/framework/uerror"
-	"universal/tools/gomaker_new/domain"
-	"universal/tools/gomaker_new/internal/manager"
-	"universal/tools/gomaker_new/internal/typespec"
+	"universal/tools/gomaker/domain"
+	"universal/tools/gomaker/internal/manager"
+	"universal/tools/gomaker/internal/typespec"
 
 	"github.com/spf13/cast"
 	"github.com/xuri/excelize/v2"
@@ -98,5 +98,5 @@ func addEval(class, doc, val string) {
 
 	ev.Class = class
 	ev.Doc = doc
-	ev.AddValue(ss[3], cast.ToInt32(ss[4]), ss[1])
+	ev.Add(ss[3], cast.ToInt32(ss[4]), ss[1])
 }

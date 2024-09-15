@@ -11,36 +11,81 @@ var (
 	types   = make(map[string]*typespec.Type)
 	alias   = make(map[string]*typespec.Alias)
 	enums   = make(map[string]*typespec.Enum)
-	evals   = make(map[string]*typespec.Value)
 	structs = make(map[string]*typespec.Struct)
 )
 
-func InitEvals() {
-	for _, item := range enums {
-		for _, val := range item.List {
-			evals[val.Doc] = val
-		}
+// 查询类型
+func GetType(k int32, pkg, name string) *typespec.Type {
+	tt := typespec.TYPE(k, pkg, name)
+	key := typespec.GetPkgType(tt)
+	val, ok := types[key]
+	if !ok {
+		types[key] = tt
+		return tt
 	}
+	if tt.Kind > 0 {
+		val.Kind = tt.Kind
+	}
+	return val
 }
 
-func AddEnum(vv *typespec.Enum) error {
-	name := vv.Type.GetPkgType()
-	if _, ok := enums[name]; ok {
-		return uerror.NewUError(2, -1, "枚举类型(%s)已经存在", name)
+func GetTypeReference(tt *typespec.Type) *typespec.Type {
+	key := typespec.GetPkgType(tt)
+	val, ok := types[key]
+	if !ok {
+		types[key] = tt
+		return tt
 	}
-	enums[name] = vv
+	if tt.Kind > 0 {
+		val.Kind = tt.Kind
+	}
+	return val
+}
+
+// ---------------------添加别名------------------------
+func AddAlias(t *typespec.Alias) error {
+	key := typespec.GetPkgType(t.Type)
+	if _, ok := alias[key]; ok {
+		return uerror.NewUError(2, -1, "别名(%s)已经存在", key)
+	}
+	alias[key] = t
 	return nil
 }
 
-func GetEnum(name string) *typespec.Enum {
-	return enums[name]
+// 查询别名
+func GetAlias(key string) *typespec.Alias {
+	return alias[key]
 }
 
-func GetOrNewEnum(tt *typespec.Type) *typespec.Enum {
-	key := tt.GetPkgType()
-	if _, ok := enums[key]; !ok {
-		enums[key] = &typespec.Enum{Type: tt, Values: make(map[string]*typespec.Value)}
+func GetAliasList() (rets []*typespec.Alias) {
+	for _, val := range alias {
+		rets = append(rets, val)
 	}
+	sort.Slice(rets, func(i, j int) bool {
+		return strings.Compare(rets[i].Type.Name, rets[j].Type.Name) < 0
+	})
+	return
+}
+
+// ---------------添加枚举-----------------------
+func AddEnum(vv *typespec.Enum) error {
+	key := typespec.GetPkgType(vv.Type)
+	if _, ok := enums[key]; ok {
+		return uerror.NewUError(2, -1, "枚举类型(%s)已经存在", key)
+	}
+	enums[key] = vv
+	return nil
+}
+
+func LoadEnum(tt *typespec.Type) *typespec.Enum {
+	key := typespec.GetPkgType(tt)
+	if _, ok := enums[key]; !ok {
+		enums[key] = typespec.ENUM(tt, "", "")
+	}
+	return enums[key]
+}
+
+func GetEnum(key string) *typespec.Enum {
 	return enums[key]
 }
 
@@ -54,17 +99,18 @@ func GetEnumList() (rets []*typespec.Enum) {
 	return
 }
 
+// -----------------------struct数据结构----------------------
 func AddStruct(vv *typespec.Struct) error {
-	name := vv.Type.GetPkgType()
-	if _, ok := structs[name]; ok {
-		return uerror.NewUError(2, -1, "结构体(%s)已经存在", name)
+	key := typespec.GetPkgType(vv.Type)
+	if _, ok := structs[key]; ok {
+		return uerror.NewUError(2, -1, "结构体(%s)已经存在", key)
 	}
-	structs[name] = vv
+	structs[key] = vv
 	return nil
 }
 
-func GetStruct(name string) *typespec.Struct {
-	return structs[name]
+func GetStruct(key string) *typespec.Struct {
+	return structs[key]
 }
 
 func GetStructList() (rets []*typespec.Struct) {
@@ -75,42 +121,4 @@ func GetStructList() (rets []*typespec.Struct) {
 		return strings.Compare(rets[i].Type.Name, rets[j].Type.Name) < 0
 	})
 	return
-}
-
-func AddAlias(vv *typespec.Alias) error {
-	name := vv.Type.GetPkgType()
-	if _, ok := alias[name]; ok {
-		return uerror.NewUError(2, -1, "别名(%s)已经存在", name)
-	}
-	alias[name] = vv
-	return nil
-}
-
-func GetAlias(name string) *typespec.Alias {
-	return alias[name]
-}
-
-func GetAliasList() (rets []*typespec.Alias) {
-	for _, val := range alias {
-		rets = append(rets, val)
-	}
-	sort.Slice(rets, func(i, j int) bool {
-		return strings.Compare(rets[i].Type.Name, rets[j].Type.Name) < 0
-	})
-	return
-}
-
-func GetTypeReference(tt *typespec.Type) *typespec.Type {
-	key := tt.GetPkgType()
-	if val, ok := types[key]; !ok {
-		types[key] = tt
-	} else {
-		if len(tt.Doc) > 0 {
-			val.Doc = tt.Doc
-		}
-		if tt.Kind > 0 {
-			val.Kind = tt.Kind
-		}
-	}
-	return types[key]
 }

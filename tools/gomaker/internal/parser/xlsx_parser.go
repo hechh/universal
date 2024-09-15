@@ -3,8 +3,8 @@ package parser
 import (
 	"strings"
 	"universal/framework/uerror"
-	"universal/tools/gomaker_new/domain"
-	"universal/tools/gomaker_new/internal/manager"
+	"universal/tools/gomaker/domain"
+	"universal/tools/gomaker/internal/manager"
 
 	"github.com/xuri/excelize/v2"
 )

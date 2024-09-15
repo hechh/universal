@@ -6,46 +6,52 @@ import (
 	"github.com/spf13/cast"
 )
 
-type ConvInfo struct {
-	TableType string
-	ProtoType string
-	conv      domain.ConvFunc
-}
-
 var (
-	convs = make(map[string]*ConvInfo)
+	convs = make(map[string]domain.ConvFunc) // 配置字段值转型
+	evals = make(map[string]int32)           // 配置枚举值准换
+	pbs   = make(map[string]int32)           // pb类型查询表
 )
 
-func AddConv(typ, proto string, f domain.ConvFunc) {
-	val, ok := convs[typ]
-	if !ok {
-		convs[typ] = &ConvInfo{TableType: typ, ProtoType: proto, conv: f}
-		return
-	}
-	if len(proto) > 0 {
-		val.ProtoType = proto
-	}
-	if f != nil {
-		val.conv = f
+func InitEvals() {
+	for _, item := range enums {
+		pbs[item.Type.Name] = item.Type.Kind
+		for _, val := range item.List {
+			evals[val.Doc] = val.Value
+		}
 	}
 }
 
-func IsValidType(typ string) bool {
-	val, ok := convs[typ]
-	return ok && len(val.ProtoType) > 0
+func InitPbs() {
+	for _, item := range structs {
+		pbs[item.Type.Name] = item.Type.Kind
+	}
+	for _, item := range alias {
+		pbs[item.Type.Name] = item.Type.Kind
+	}
 }
 
-func GetProtoType(typ string) string {
-	return convs[typ].ProtoType
+func GetKindType(name string) (int32, string) {
+	if val, ok := pbs[name]; ok {
+		return val, domain.DefaultPkg
+	}
+	return domain.KindTypeIdent, ""
 }
 
-func ToConvert(typ string, val string) interface{} {
-	return convs[typ].conv(val)
+func AddConv(key string, f domain.ConvFunc) {
+	convs[key] = f
 }
 
-func DefaultEnumConv(str string) interface{} {
+// 默认枚举值转换函数
+func defaultEnumConv(str string) interface{} {
 	if val, ok := evals[str]; ok {
-		return val.Value
+		return val
 	}
 	return cast.ToInt32(str)
+}
+
+func Cast(typ, str string) interface{} {
+	if val, ok := convs[typ]; ok {
+		return val(str)
+	}
+	return defaultEnumConv(str)
 }

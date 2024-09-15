@@ -4,10 +4,10 @@ import (
 	"go/ast"
 	"go/token"
 	"strings"
-	"universal/tools/gomaker_new/domain"
-	"universal/tools/gomaker_new/internal/manager"
-	"universal/tools/gomaker_new/internal/typespec"
-	"universal/tools/gomaker_new/internal/util"
+	"universal/tools/gomaker/domain"
+	"universal/tools/gomaker/internal/manager"
+	"universal/tools/gomaker/internal/typespec"
+	"universal/tools/gomaker/internal/util"
 
 	"github.com/spf13/cast"
 )
