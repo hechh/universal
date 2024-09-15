@@ -18,7 +18,6 @@ const (
 	KindTypeEnum     = 1
 	KindTypeAlias    = 2
 	KindTypeStruct   = 3
-	KindTypeProto    = 4
 	TokenTypeNone    = 0
 	TokenTypePointer = 1
 	TokenTypeArray   = 2

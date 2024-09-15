@@ -30,7 +30,7 @@ tool:
 proto: 
 #	-rm -rf ${PROTO_PATH}/*.gen.proto ${PB_PATH}/*.pb.go
 	go run ./tools/gomaker/main.go -action=proto -xlsx=${TABLE_PATH} -dst=${PROTO_PATH}
-#	make protoc
+	make protoc
 
 bytes: 
 	go run ./tools/gomaker/main.go -action=bytes -src=${PB_PATH} -xlsx=${TABLE_PATH} -dst=${BYTES_PATH} -tpl="./tools/gomaker/templates/"

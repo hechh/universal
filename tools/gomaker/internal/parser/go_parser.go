@@ -54,15 +54,14 @@ func (d *Parser) parseStruct(n *ast.TypeSpec) *typespec.Struct {
 			Doc:   d.parseDoc(field.Comment),
 		})
 	}
-	return typespec.STRUCT(manager.GetType(domain.KindTypeStruct, d.pkg, n.Name.Name), "", d.parseDoc(n.Doc), list...)
+	return typespec.STRUCT(manager.GetType(domain.KindTypeStruct, d.pkg, n.Name.Name, ""), d.parseDoc(n.Doc), list...)
 }
 
 func (d *Parser) parseAlias(n *ast.TypeSpec) *typespec.Alias {
 	tt, tos := d.parseType(0, d.pkg, n.Type)
 	return typespec.ALIAS(
-		manager.GetType(domain.KindTypeAlias, d.pkg, n.Name.Name),
+		manager.GetType(domain.KindTypeAlias, d.pkg, n.Name.Name, ""),
 		tt,
-		"",
 		d.parseDoc(n.Doc),
 		tos...)
 }
@@ -84,11 +83,11 @@ func (d *Parser) parseEnum(n *ast.GenDecl) *typespec.Enum {
 			d.parseDoc(vv.Comment),
 		))
 	}
-	return typespec.ENUM(values[0].Type, "", d.parseDoc(n.Doc), values...)
+	return typespec.ENUM(values[0].Type, d.parseDoc(n.Doc), values...)
 }
 
 func (d *Parser) parseType(k int32, pkg string, n ast.Expr) (*typespec.Type, []int32) {
-	tt := typespec.TYPE(k, pkg, "")
+	tt := typespec.TYPE(k, pkg, "", "")
 	token := []int32{}
 	parseAstType(n, tt, &token)
 	return manager.GetTypeReference(tt), token

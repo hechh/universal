@@ -10,25 +10,25 @@ import (
 )
 
 type Type struct {
-	Kind int32  // 数据类型
-	Pkg  string // 包名
-	Name string // 字段名
+	Kind  int32  // 数据类型
+	Pkg   string // 包名
+	Name  string // 字段名
+	Class string // 分类
 }
 
-func TYPE(k int32, pkg, name string) *Type {
-	return &Type{Kind: k, Pkg: pkg, Name: name}
+func TYPE(k int32, pkg, name, class string) *Type {
+	return &Type{Kind: k, Pkg: pkg, Name: name, Class: class}
 }
 
 type Alias struct {
 	Type      *Type   // 别名类型
 	RealType  *Type   // 引用类型
 	RealToken []int32 // 结构类型
-	Class     string  // 分类
 	Doc       string  // 注释
 }
 
-func ALIAS(t, r *Type, class, doc string, ts ...int32) *Alias {
-	return &Alias{Type: t, RealType: r, Class: class, Doc: doc, RealToken: ts}
+func ALIAS(t, r *Type, doc string, ts ...int32) *Alias {
+	return &Alias{Type: t, RealType: r, Doc: doc, RealToken: ts}
 }
 
 type Value struct {
@@ -46,21 +46,19 @@ type Enum struct {
 	Type   *Type             // 类型
 	Values map[string]*Value // 字段
 	List   []*Value          // 排序队列
-	Class  string            // 分类
 	Doc    string            // 注释
 }
 
-func ENUM(t *Type, class, doc string, vs ...*Value) *Enum {
+func ENUM(t *Type, doc string, vs ...*Value) *Enum {
 	tmp := make(map[string]*Value)
 	for _, v := range vs {
 		tmp[v.Name] = v
 	}
 	sort.Slice(vs, func(i, j int) bool { return vs[i].Value < vs[j].Value })
-	return &Enum{Type: t, Values: tmp, List: vs, Doc: doc, Class: class}
+	return &Enum{Type: t, Values: tmp, List: vs, Doc: doc}
 }
 
-func (d *Enum) Set(class, doc string) *Enum {
-	d.Class = class
+func (d *Enum) Set(doc string) *Enum {
 	d.Doc = doc
 	return d
 }
@@ -93,16 +91,15 @@ type Struct struct {
 	Type   *Type             // 类型
 	Fields map[string]*Field // 字段
 	List   []*Field          // 排序队列
-	Class  string            // 分类
 	Doc    string            // 注释
 }
 
-func STRUCT(t *Type, class, doc string, vs ...*Field) *Struct {
+func STRUCT(t *Type, doc string, vs ...*Field) *Struct {
 	tmp := make(map[string]*Field)
 	for _, val := range vs {
 		tmp[val.Name] = val
 	}
-	return &Struct{Type: t, Fields: tmp, List: vs, Doc: doc, Class: class}
+	return &Struct{Type: t, Fields: tmp, List: vs, Doc: doc}
 }
 
 func (d *Struct) Add(t *Type, name string, index int, tag, doc string, ts ...int32) {

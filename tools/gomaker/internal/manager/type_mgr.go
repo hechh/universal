@@ -15,18 +15,8 @@ var (
 )
 
 // 查询类型
-func GetType(k int32, pkg, name string) *typespec.Type {
-	tt := typespec.TYPE(k, pkg, name)
-	key := typespec.GetPkgType(tt)
-	val, ok := types[key]
-	if !ok {
-		types[key] = tt
-		return tt
-	}
-	if tt.Kind > 0 {
-		val.Kind = tt.Kind
-	}
-	return val
+func GetType(k int32, pkg, name, class string) *typespec.Type {
+	return GetTypeReference(typespec.TYPE(k, pkg, name, class))
 }
 
 func GetTypeReference(tt *typespec.Type) *typespec.Type {
@@ -38,6 +28,9 @@ func GetTypeReference(tt *typespec.Type) *typespec.Type {
 	}
 	if tt.Kind > 0 {
 		val.Kind = tt.Kind
+	}
+	if len(tt.Class) > 0 {
+		val.Class = tt.Class
 	}
 	return val
 }
@@ -80,7 +73,7 @@ func AddEnum(vv *typespec.Enum) error {
 func LoadEnum(tt *typespec.Type) *typespec.Enum {
 	key := typespec.GetPkgType(tt)
 	if _, ok := enums[key]; !ok {
-		enums[key] = typespec.ENUM(tt, "", "")
+		enums[key] = typespec.ENUM(tt, "")
 	}
 	return enums[key]
 }
