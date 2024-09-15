@@ -20,7 +20,7 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// 枚举配置表1
+// 全局枚举配置表
 type ROUTE int32
 
 const (
@@ -67,7 +67,7 @@ func (ROUTE) EnumDescriptor() ([]byte, []int) {
 	return file_enum_gen_proto_rawDescGZIP(), []int{0}
 }
 
-// 枚举配置表2
+// 全局枚举配置表
 type SEND int32
 
 const (
@@ -114,7 +114,7 @@ func (SEND) EnumDescriptor() ([]byte, []int) {
 	return file_enum_gen_proto_rawDescGZIP(), []int{1}
 }
 
-// 枚举配置表2
+// 全局枚举配置表
 type SERVER int32
 
 const (

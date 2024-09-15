@@ -1,7 +1,7 @@
 syntax = "proto3";
 package pb;
+option  go_package = "../../common/pb";
 import "enum.gen.proto";
-option go_package = "../../common/pb";
 
 // 集群信息
 message ServerInfo {

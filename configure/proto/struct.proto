@@ -1,0 +1,16 @@
+syntax = "proto3";
+package pb;
+option  go_package = "../../common/pb";
+import "property.gen.proto";
+
+// 通用奖励（道具）结构
+message Reward {
+    PropertyType    PropID  = 1;  // 道具类型
+    int64           Quality = 2;  // 品质
+    int64           Star    = 3;  // 星级
+    int64           Add     = 4;  // 增加
+    int64           Total   = 5;  // 当前总量
+    int64           Expire  = 6;  // 奖励过期时间
+    repeated Reward Inners  = 7;  // 内置奖励
+    repeated Reward Origins = 8;  // 转换前的奖励
+}

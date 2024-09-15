@@ -105,16 +105,18 @@ func toBytes(pbItem *typespec.Struct, fields map[int]*typespec.Field, values [][
 	}
 	if len(tmps) > 0 {
 		filename := filepath.Join(dst, fmt.Sprintf("%s.bytes", pbItem.Type.Name))
-		return util.SaveFile(filename, jsonToProto(pbItem.Type, tmps))
+		jsbuf, bytes := jsonToProto(pbItem.Type, tmps)
+		util.SaveFile(filepath.Join(dst, fmt.Sprintf("%s.json", pbItem.Type.Name)), jsbuf)
+		return util.SaveFile(filename, bytes)
 	}
 	return nil
 }
 
-func jsonToProto(item *typespec.Type, data interface{}) []byte {
+func jsonToProto(item *typespec.Type, data interface{}) (jsbuf, bytes []byte) {
 	ary := fmt.Sprintf("%sAry", typespec.GetPkgType(item))
-	buf, _ := json.Marshal(map[string]interface{}{"Ary": data})
+	jsbuf, _ = json.Marshal(map[string]interface{}{"Ary": data})
 	pbData := reflect.New(proto.MessageType(ary).Elem()).Interface()
-	json.Unmarshal(buf, pbData)
-	result, _ := proto.Marshal(pbData.(proto.Message))
-	return result
+	json.Unmarshal(jsbuf, pbData)
+	bytes, _ = proto.Marshal(pbData.(proto.Message))
+	return
 }
