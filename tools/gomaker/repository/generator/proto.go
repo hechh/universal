@@ -7,6 +7,7 @@ import (
 	"sort"
 	"strings"
 	"text/template"
+	"universal/tools/gomaker/domain"
 	"universal/tools/gomaker/internal/manager"
 	"universal/tools/gomaker/internal/util"
 )
@@ -70,9 +71,14 @@ func TableGen(dst string, tpls *template.Template, extra ...string) error {
 	}
 	// 生成message信息
 	class := map[string][]string{}
+	refs := map[string]struct{}{}
 	for _, st := range manager.GetStructList() {
 		tmps := []string{}
 		for _, ff := range st.List {
+			// 获取枚举类型分类，用于import
+			if ttt := manager.GetTypeReference(ff.Type); ttt.Kind == domain.KindTypeEnum {
+				refs[ttt.Class] = struct{}{}
+			}
 			if len(ff.Token) > 0 {
 				tmps = append(tmps, fmt.Sprintf("\trepeated %s %s = %d; %s", ff.Type.Name, ff.Name, ff.Index+1, getDoc(ff.Doc, false)))
 			} else {
@@ -90,7 +96,9 @@ func TableGen(dst string, tpls *template.Template, extra ...string) error {
 	for cl, list := range class {
 		buf.Reset()
 		buf.WriteString(protoHeader)
-		buf.WriteString("import \"enum.gen.proto\";\n")
+		for name := range refs {
+			buf.WriteString(fmt.Sprintf("import \"%s.gen.proto\";\n", name))
+		}
 		buf.WriteString("\n\n")
 		buf.WriteString(strings.Join(list, "\n\n"))
 		// 生成文件

@@ -62,11 +62,13 @@ func GetAliasList() (rets []*typespec.Alias) {
 
 // ---------------添加枚举-----------------------
 func AddEnum(vv *typespec.Enum) error {
-	key := typespec.GetPkgType(vv.Type)
-	if _, ok := enums[key]; ok {
-		return uerror.NewUError(2, -1, "枚举类型(%s)已经存在", key)
+	if vv != nil {
+		key := typespec.GetPkgType(vv.Type)
+		if _, ok := enums[key]; ok {
+			return uerror.NewUError(2, -1, "枚举类型(%s)已经存在", key)
+		}
+		enums[key] = vv
 	}
-	enums[key] = vv
 	return nil
 }
 

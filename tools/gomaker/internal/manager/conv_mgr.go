@@ -1,7 +1,9 @@
 package manager
 
 import (
+	"strings"
 	"universal/tools/gomaker/domain"
+	"universal/tools/gomaker/internal/typespec"
 
 	"github.com/spf13/cast"
 )
@@ -48,11 +50,39 @@ func GetConv(typ string) domain.ConvFunc {
 	return defaultEnumConv
 }
 
-func Cast(typ, str string) interface{} {
+func ToCast(typ, str string) interface{} {
 	if val, ok := convs[typ]; ok {
 		return val.conv(str)
 	}
 	return defaultEnumConv(str)
+}
+
+func Cast(ff *typespec.Field, str string) interface{} {
+	ts := []int32{}
+	for _, tt := range ff.Token {
+		if tt == domain.TokenTypeArray {
+			ts = append(ts, tt)
+		}
+	}
+	switch len(ts) {
+	case 1:
+		rets := []interface{}{}
+		for _, val := range strings.Split(str, ",") {
+			rets = append(rets, ToCast(ff.Type.Name, val))
+		}
+		return rets
+	case 2:
+		rets := []interface{}{}
+		for _, vals := range strings.Split(str, "|") {
+			tts := []interface{}{}
+			for _, val := range strings.Split(vals, ",") {
+				tts = append(tts, ToCast(ff.Type.Name, val))
+			}
+			rets = append(rets, tts)
+		}
+		return rets
+	}
+	return ToCast(ff.Type.Name, str)
 }
 
 // 默认枚举值转换函数

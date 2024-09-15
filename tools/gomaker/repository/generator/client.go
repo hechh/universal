@@ -1,5 +1,6 @@
 package generator
 
+/*
 import (
 	"bytes"
 	"fmt"
@@ -69,3 +70,4 @@ func ProtoGenerator(dst string, tpls *template.Template, extra ...string) error 
 	// 生成文件
 	return util.SaveGo(filepath.Join(dst, "json.gen.go"), buf)
 }
+*/

@@ -38,12 +38,12 @@ func NewXlsxParser(files ...string) (*XlsxParser, error) {
 		for _, vals := range values {
 			for _, val := range vals {
 				// 解析E:
-				if value := parseXlsxEnum(domain.DefaultEnumClass, val); value != nil {
+				if value := ParseXlsxEnum(domain.DefaultEnumClass, val); value != nil {
 					manager.LoadEnum(value.Type).AddValue(value)
 					continue
 				}
 				// 解析@gomaker
-				if item := parseXlsxSheet(val, fp); item != nil {
+				if item := ParseXlsxSheet(val, fp); item != nil {
 					switch item.Rule {
 					case domain.RuleTypeBytes:
 						cfgs = append(cfgs, item)
@@ -75,7 +75,7 @@ func (d *XlsxParser) parseEnum() error {
 		}
 		for _, vals := range values {
 			for _, val := range vals {
-				if value := parseXlsxEnum(sh.Class, val); value != nil {
+				if value := ParseXlsxEnum(sh.Class, val); value != nil {
 					manager.LoadEnum(value.Type).Set(sh.Sheet).AddValue(value)
 				}
 			}
@@ -90,33 +90,40 @@ func (d *XlsxParser) parseCfg() error {
 		if err != nil {
 			return uerror.NewUError(1, -1, "读取配置表%s失败: %v", sh.Sheet, err)
 		}
-		// 没有注释的字段设置为空
-		for j := len(values[1]); j < len(values[0]); j++ {
-			values[1] = append(values[1], "")
-		}
 		// 解析结构
-		fs := []*typespec.Field{}
-		for i, val := range values[0] {
-			// 过滤空字段
-			if val = strings.TrimSpace(val); len(val) <= 0 {
-				continue
-			}
-			// 解析字段
-			if ff := parseXlsxField(i, val, values[1][i]); ff != nil {
-				fs = append(fs, ff)
-			}
+		if st := ParseXlsxStruct(sh, values[0], values[1]); st != nil {
+			manager.AddStruct(st)
 		}
-		if len(fs) > 0 {
-			tt := manager.GetType(domain.KindTypeStruct, domain.DefaultPkg, sh.Config, sh.Class)
-			manager.AddStruct(typespec.STRUCT(tt, sh.Sheet, fs...))
+	}
+	return nil
+}
+
+func ParseXlsxStruct(sh *typespec.Sheet, val01, val02 []string) *typespec.Struct {
+	// 没有注释的字段设置为空
+	for j := len(val01); j < len(val01); j++ {
+		val02 = append(val02, "")
+	}
+	// 解析结构
+	fs := []*typespec.Field{}
+	for i, val := range val01 {
+		// 过滤空字段
+		if val = strings.TrimSpace(val); len(val) <= 0 {
+			continue
 		}
+		// 解析字段
+		if ff := ParseXlsxField(i, val, val02[i]); ff != nil {
+			fs = append(fs, ff)
+		}
+	}
+	if len(fs) > 0 {
+		return typespec.STRUCT(manager.GetType(domain.KindTypeStruct, domain.DefaultPkg, sh.Config, sh.Class), sh.Sheet, fs...)
 	}
 	return nil
 }
 
 // xlsx枚举规则解析
 // E:中文注释:枚举类型:枚举成员:枚举值
-func parseXlsxEnum(class, val string) *typespec.Value {
+func ParseXlsxEnum(class, val string) *typespec.Value {
 	if !strings.HasPrefix(val, domain.RuleTypeEnum) {
 		return nil
 	}
@@ -127,7 +134,7 @@ func parseXlsxEnum(class, val string) *typespec.Value {
 
 // 生成表解析
 // @gomaker:类型｜生成文件名｜需要生成的配置名:配置的pb结构名称
-func parseXlsxSheet(val string, fp *excelize.File) *typespec.Sheet {
+func ParseXlsxSheet(val string, fp *excelize.File) *typespec.Sheet {
 	if !strings.HasPrefix(val, domain.RuleTypeGomaker) {
 		return nil
 	}
@@ -147,7 +154,7 @@ func parseXlsxSheet(val string, fp *excelize.File) *typespec.Sheet {
 
 // 解析字段
 // 字段名/[][]配置类型
-func parseXlsxField(pos int, ff string, doc string) *typespec.Field {
+func ParseXlsxField(pos int, ff string, doc string) *typespec.Field {
 	i := strings.Index(ff, "/")
 	if i <= 0 || len(ff[i+1:]) <= 0 {
 		return nil

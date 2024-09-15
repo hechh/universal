@@ -83,7 +83,10 @@ func (d *Parser) parseEnum(n *ast.GenDecl) *typespec.Enum {
 			d.parseDoc(vv.Comment),
 		))
 	}
-	return typespec.ENUM(values[0].Type, d.parseDoc(n.Doc), values...)
+	if len(values) > 0 {
+		return typespec.ENUM(values[0].Type, d.parseDoc(n.Doc), values...)
+	}
+	return nil
 }
 
 func (d *Parser) parseType(k int32, pkg string, n ast.Expr) (*typespec.Type, []int32) {

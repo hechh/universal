@@ -8,6 +8,7 @@ import (
 
 func Init() {
 	manager.Register("proto", "xlsx转pb结构", generator.EnumGen, generator.TableGen)
+	manager.Register("bytes", "xlsx转bytes文件", generator.BytesGen)
 }
 
 func init() {

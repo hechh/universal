@@ -57,9 +57,28 @@ func (d *Args) Handle() {
 	switch d.action {
 	case "proto":
 		d.handleProto()
+	case "bytes":
+		d.handleBytes()
 	default:
 		d.handleGo()
 	}
+}
+
+func (d *Args) handleBytes() {
+	// 加载所有go文件
+	files, err := basic.Glob(d.src, ".*\\.go", "", true)
+	if err != nil {
+		util.Panic(err)
+	}
+	util.Panic(util.ParseFiles(&parser.Parser{}, files...))
+	// 初始化枚举数据
+	manager.InitEvals()
+	// 生成文件
+	xlsxs, err := basic.Glob(d.xlsx, ".*\\.xlsx", "enum.xlsx", true)
+	if err != nil {
+		util.Panic(err)
+	}
+	util.Panic(manager.Generator(d.action, d.dst, nil, xlsxs...))
 }
 
 func (d *Args) handleProto() {
