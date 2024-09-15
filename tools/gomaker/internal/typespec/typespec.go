@@ -5,12 +5,18 @@ import (
 	"sort"
 	"strings"
 	"universal/tools/gomaker/domain"
+
+	"github.com/xuri/excelize/v2"
 )
 
 type Type struct {
 	Kind int32  // 数据类型
 	Pkg  string // 包名
 	Name string // 字段名
+}
+
+func TYPE(k int32, pkg, name string) *Type {
+	return &Type{Kind: k, Pkg: pkg, Name: name}
 }
 
 type Alias struct {
@@ -21,11 +27,19 @@ type Alias struct {
 	Doc       string  // 注释
 }
 
+func ALIAS(t, r *Type, class, doc string, ts ...int32) *Alias {
+	return &Alias{Type: t, RealType: r, Class: class, Doc: doc, RealToken: ts}
+}
+
 type Value struct {
 	Type  *Type  // 字段类型
 	Name  string // 字段名字
 	Value int32  // 字段值
 	Doc   string // 注释
+}
+
+func VALUE(t *Type, name string, v int32, doc string) *Value {
+	return &Value{Type: t, Name: name, Value: v, Doc: doc}
 }
 
 type Enum struct {
@@ -36,10 +50,30 @@ type Enum struct {
 	Doc    string            // 注释
 }
 
+func ENUM(t *Type, class, doc string, vs ...*Value) *Enum {
+	tmp := make(map[string]*Value)
+	for _, v := range vs {
+		tmp[v.Name] = v
+	}
+	sort.Slice(vs, func(i, j int) bool { return vs[i].Value < vs[j].Value })
+	return &Enum{Type: t, Values: tmp, List: vs, Doc: doc, Class: class}
+}
+
+func (d *Enum) Set(class, doc string) *Enum {
+	d.Class = class
+	d.Doc = doc
+	return d
+}
+
 func (d *Enum) Add(name string, val int32, doc string) {
 	item := &Value{Type: d.Type, Name: name, Value: val, Doc: doc}
 	d.List = append(d.List, item)
 	d.Values[name] = item
+}
+
+func (d *Enum) AddValue(item *Value) {
+	d.List = append(d.List, item)
+	d.Values[item.Name] = item
 }
 
 type Field struct {
@@ -51,6 +85,10 @@ type Field struct {
 	Doc   string  // 注释
 }
 
+func FIELD(t *Type, name string, index int, tag, doc string, ts ...int32) *Field {
+	return &Field{Type: t, Name: name, Index: index, Tag: tag, Doc: doc, Token: ts}
+}
+
 type Struct struct {
 	Type   *Type             // 类型
 	Fields map[string]*Field // 字段
@@ -59,10 +97,34 @@ type Struct struct {
 	Doc    string            // 注释
 }
 
+func STRUCT(t *Type, class, doc string, vs ...*Field) *Struct {
+	tmp := make(map[string]*Field)
+	for _, val := range vs {
+		tmp[val.Name] = val
+	}
+	return &Struct{Type: t, Fields: tmp, List: vs, Doc: doc, Class: class}
+}
+
 func (d *Struct) Add(t *Type, name string, index int, tag, doc string, ts ...int32) {
 	val := &Field{Type: t, Name: name, Index: index, Tag: tag, Doc: doc, Token: ts}
 	d.List = append(d.List, val)
 	d.Fields[val.Name] = val
+}
+
+type Sheet struct {
+	Rule   string // 规则
+	Sheet  string // 表明
+	Config string // 表明
+	Class  string // 分类
+	fp     *excelize.File
+}
+
+func (d *Sheet) GetRows() ([][]string, error) {
+	return d.fp.GetRows(d.Sheet)
+}
+
+func SHEET(r, class, sheet, cfg string, fp *excelize.File) *Sheet {
+	return &Sheet{Rule: r, Class: class, Sheet: sheet, Config: cfg, fp: fp}
 }
 
 func GetPkgType(d *Type) string {
@@ -90,37 +152,4 @@ func GetToken(tt *Type, pkg string, ts ...int32) string {
 		}
 	}
 	return fmt.Sprintf("%s%s", strings.Join(ls, ""), GetType(tt, pkg))
-}
-
-func TYPE(k int32, pkg, name string) *Type {
-	return &Type{Kind: k, Pkg: pkg, Name: name}
-}
-
-func ALIAS(t, r *Type, class, doc string, ts ...int32) *Alias {
-	return &Alias{Type: t, RealType: r, Class: class, Doc: doc, RealToken: ts}
-}
-
-func VALUE(t *Type, name string, v int32, doc string) *Value {
-	return &Value{Type: t, Name: name, Value: v, Doc: doc}
-}
-
-func ENUM(t *Type, class, doc string, vs ...*Value) *Enum {
-	tmp := make(map[string]*Value)
-	for _, v := range vs {
-		tmp[v.Name] = v
-	}
-	sort.Slice(vs, func(i, j int) bool { return vs[i].Value < vs[j].Value })
-	return &Enum{Type: t, Values: tmp, List: vs, Doc: doc, Class: class}
-}
-
-func FIELD(t *Type, name string, index int, tag, doc string, ts ...int32) *Field {
-	return &Field{Type: t, Name: name, Index: index, Tag: tag, Doc: doc, Token: ts}
-}
-
-func STRUCT(t *Type, class, doc string, vs ...*Field) *Struct {
-	tmp := make(map[string]*Field)
-	for _, val := range vs {
-		tmp[val.Name] = val
-	}
-	return &Struct{Type: t, Fields: tmp, List: vs, Doc: doc, Class: class}
 }

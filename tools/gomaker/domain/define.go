@@ -5,6 +5,7 @@ import "text/template"
 // 配置表规则
 const (
 	RuleTypeEnum     = "E:"
+	RuleTypeGomaker  = "@gomaker:"
 	RuleTypeProto    = "@gomaker:proto"
 	RuleTypeBytes    = "@gomaker:bytes"
 	GenTable         = "生成表"
@@ -17,6 +18,7 @@ const (
 	KindTypeEnum     = 1
 	KindTypeAlias    = 2
 	KindTypeStruct   = 3
+	KindTypeProto    = 4
 	TokenTypeNone    = 0
 	TokenTypePointer = 1
 	TokenTypeArray   = 2
@@ -32,16 +34,16 @@ type ConvFunc func(string) interface{}
 var (
 	DefaultPkg = "pb"
 	// 基础数据类型, go类型映射到proto类型
-	BasicTypes = map[string]string{
-		"uint32":  "uint32",
-		"uint64":  "uint64",
-		"int":     "int32",
-		"int32":   "int32",
-		"int64":   "int64",
-		"bool":    "bool",
-		"float32": "float",
-		"float64": "double",
-		"string":  "string",
-		"[]byte":  "bytes",
+	BasicTypes = map[string]bool{
+		"uint32":  true,
+		"uint64":  true,
+		"int":     true,
+		"int32":   true,
+		"int64":   true,
+		"bool":    true,
+		"float32": true,
+		"float64": true,
+		"string":  true,
+		"[]byte":  true,
 	}
 )

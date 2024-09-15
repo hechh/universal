@@ -7,38 +7,52 @@ import (
 )
 
 var (
-	convs = make(map[string]domain.ConvFunc) // 配置字段值转型
-	evals = make(map[string]int32)           // 配置枚举值准换
-	pbs   = make(map[string]int32)           // pb类型查询表
+	convs = make(map[string]*typeInfo) // 配置类型转成golang类型
+	evals = make(map[string]int32)     // 配置枚举值准换
 )
+
+type typeInfo struct {
+	cfgType string
+	goType  string
+	pbType  string
+	conv    domain.ConvFunc
+}
 
 func InitEvals() {
 	for _, item := range enums {
-		pbs[item.Type.Name] = item.Type.Kind
 		for _, val := range item.List {
 			evals[val.Doc] = val.Value
 		}
 	}
 }
 
-func InitPbs() {
-	for _, item := range structs {
-		pbs[item.Type.Name] = item.Type.Kind
-	}
-	for _, item := range alias {
-		pbs[item.Type.Name] = item.Type.Kind
-	}
+func AddConv(cfg, g, p string, f domain.ConvFunc) {
+	convs[cfg] = &typeInfo{cfgType: cfg, goType: g, pbType: p, conv: f}
 }
 
-func GetKindType(name string) (int32, string) {
-	if val, ok := pbs[name]; ok {
-		return val, domain.DefaultPkg
+func GetGoType(cfg string) string {
+	if val, ok := convs[cfg]; ok {
+		return val.goType
 	}
-	return domain.KindTypeIdent, ""
+	return cfg
 }
 
-func AddConv(key string, f domain.ConvFunc) {
-	convs[key] = f
+func GetPbType(cfg string) string {
+	return convs[cfg].pbType
+}
+
+func GetConv(typ string) domain.ConvFunc {
+	if val, ok := convs[typ]; ok {
+		return val.conv
+	}
+	return defaultEnumConv
+}
+
+func Cast(typ, str string) interface{} {
+	if val, ok := convs[typ]; ok {
+		return val.conv(str)
+	}
+	return defaultEnumConv(str)
 }
 
 // 默认枚举值转换函数
@@ -47,11 +61,4 @@ func defaultEnumConv(str string) interface{} {
 		return val
 	}
 	return cast.ToInt32(str)
-}
-
-func Cast(typ, str string) interface{} {
-	if val, ok := convs[typ]; ok {
-		return val(str)
-	}
-	return defaultEnumConv(str)
 }

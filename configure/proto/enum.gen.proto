@@ -4,25 +4,25 @@ option go_package = "../../common/pb";
 
 // 错误码配置表
 enum ErrorCode {
-	 Success = 0; // 错误类型-成功
+	 Success = 0;
 }
 
 // 枚举配置表1
 enum ROUTE {
-	 UID = 0; // 路由类型-玩家ID
-	 RegionID = 1; // 路由类型-区服ID
+	 UID = 0;
+	 RegionID = 1;
 }
 
 // 枚举配置表2
 enum SEND {
-	 Point = 0; // 发送类型-点对点
-	 Broadcast = 1; // 发送类型-广播
+	 Point = 0;
+	 Broadcast = 1;
 }
 
 // 枚举配置表2
 enum SERVER {
-	 Gate = 0; // 服务器类型-Gate
-	 Game = 1; // 服务器类型-Game
-	 Db = 2; // 服务器类型-Db
-	 Gm = 3; // 服务器类型-Gm
+	 Gate = 0;
+	 Game = 1;
+	 Db = 2;
+	 Gm = 3;
 }
