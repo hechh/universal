@@ -6,6 +6,8 @@ import (
 	"universal/tools/gomaker/domain"
 	"universal/tools/gomaker/internal/typespec"
 	"universal/tools/gomaker/internal/util"
+
+	"github.com/spf13/cast"
 )
 
 type PbParser struct {
@@ -93,16 +95,19 @@ func (d *PbParser) parseDoc() (str string) {
 		}
 		str = strings.TrimSpace(d.read())
 		d.next(2).refresh()
+	default:
+		d.prev(1)
 	}
 	return
 }
 
 // 解析特殊关键字
 func (d *PbParser) parseWord() string {
+	d.skip(' ', '\t', '\n', '\r')
 	for ; d.char != -1 && (util.IsLetter(d.char) || util.IsNumber(d.char)); d.next(1) {
 	}
 	name := d.read()
-	d.next(1).refresh()
+	d.refresh()
 	return name
 }
 
@@ -160,8 +165,7 @@ loop:
 			case *typespec.Message:
 				fmt.Println("============>", vv)
 			}
-			//goto loop
-			return
+			goto loop
 		case domain.ENUM:
 			return
 		}
@@ -179,10 +183,41 @@ func (d *PbParser) parseMessage(word string) interface{} {
 		return fmt.Errorf("message语法错误")
 	}
 	// 解析field
+	fs := []*typespec.Attribute{}
 	for {
-
+		// 过滤空格
+		typeName := d.parseWord()
+		isRepeated := false
+		if typeName == "repeated" {
+			isRepeated = true
+			typeName = d.parseWord()
+		}
+		ffName := d.parseWord()
+		if times := d.skip('=', ' ', '\r', '\t'); times != 1 {
+			return fmt.Errorf("message语法错误")
+		}
+		index := d.parseWord()
+		if times := d.skip(';', ' ', '\r', '\t', '\n'); times != 1 {
+			return fmt.Errorf("message语法错误")
+		}
+		fs = append(fs, &typespec.Attribute{
+			Type:     typeName,
+			Name:     ffName,
+			IsRepeat: isRepeated,
+			Comment:  d.parseDoc(),
+			Index:    cast.ToInt(index),
+		})
+		if times := d.skip('}', ' ', '\r', '\t', '\n'); times == 1 {
+			break
+		}
 	}
-	return nil
+	item := &typespec.Message{
+		Docs:       d.docs,
+		Name:       stname,
+		Attributes: fs,
+	}
+	d.docs = d.docs[:0]
+	return item
 }
 
 // 解析import

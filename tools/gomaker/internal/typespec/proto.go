@@ -32,15 +32,15 @@ type Import struct {
 type Attribute struct {
 	Type     string
 	Name     string
+	Comment  string
 	IsRepeat bool
 	Index    int
 }
 
 type Message struct {
-	Doc        string
+	Docs       []string
 	Name       string
 	Attributes []*Attribute
-	Comment    string
 }
 
 type MValue struct {
