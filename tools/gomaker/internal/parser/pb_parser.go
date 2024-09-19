@@ -22,61 +22,34 @@ func NewPbParser(buf []byte) *PbParser {
 }
 
 // 移动游标
-func (d *PbParser) next() {
-	d.cursor++
+func (d *PbParser) next(times int) *PbParser {
+	d.cursor += times
 	if d.size <= d.cursor {
 		d.cursor = d.size
 		d.char = -1
 	} else {
 		d.char = rune(d.buf[d.cursor])
 	}
+	return d
 }
 
 // 移动游标
-func (d *PbParser) prev() {
-	d.cursor--
+func (d *PbParser) prev(times int) *PbParser {
+	d.cursor -= times
 	if d.cursor < 0 {
 		d.cursor = 0
 	}
 	d.char = rune(d.buf[d.cursor])
+	return d
 }
 
-func (d *PbParser) forward(vals ...int) {
-	times := 1
-	if len(vals) > 0 && vals[0] > 0 {
-		times = vals[0]
-	}
-	for i := 0; i < times && d.cursor < d.size; i++ {
-		d.next()
-		d.begin = d.cursor
-	}
-}
-
-func (d *PbParser) back(vals ...int) {
-	times := 1
-	if len(vals) > 0 && vals[0] > 0 {
-		times = vals[0]
-	}
-	for i := 0; i < times && d.cursor < d.size; i++ {
-		d.prev()
-		d.begin = d.cursor
-	}
-}
-
-func (d *PbParser) eof() bool {
-	return d.char == -1
+func (d *PbParser) refresh() *PbParser {
+	d.begin = d.cursor
+	return d
 }
 
 func (d *PbParser) read() string {
 	return string(d.buf[d.begin:d.cursor])
-}
-
-func (d *PbParser) reset(vals ...int) {
-	if d.cursor >= d.size {
-		d.begin = d.cursor
-	} else {
-		d.forward(vals...)
-	}
 }
 
 // 过滤指定字符，并统计tt出现次数
@@ -85,7 +58,7 @@ func (d *PbParser) skip(tt rune, chs ...rune) int {
 	for _, ch := range chs {
 		tmps[ch] = 0
 	}
-	for ; true; d.forward() {
+	for ; true; d.next(1).refresh() {
 		if _, ok := tmps[d.char]; ok {
 			tmps[d.char]++
 			continue
@@ -97,50 +70,45 @@ func (d *PbParser) skip(tt rune, chs ...rune) int {
 
 // 解析字符串
 func (d *PbParser) parseString() string {
-	d.skip(' ', '\r', '\t')
-	if d.char != '"' {
-		return ""
+	d.refresh()
+	for d.next(1); d.char != -1 && (d.char != '"' || d.buf[d.cursor-1] == '\\' && d.char == '"'); d.next(1) {
 	}
-	for d.forward(); d.char != '"' || d.buf[d.cursor-1] == '\\' && d.char == '"'; d.next() {
-	}
+	d.next(1)
 	doc := d.read()
-	d.reset()
-	return strings.Trim(doc, "\"")
+	d.refresh().skip(' ', '\t', '\n', '\r')
+	return doc
 }
 
 // 解析注释
 func (d *PbParser) parseDoc() (str string) {
+	d.next(1)
 	switch d.char {
 	case '/':
-		d.next()
-		switch d.char {
-		case '/':
-			for d.forward(); !d.eof() && d.char != '\n'; d.next() {
-			}
-			str = strings.TrimSpace(d.read())
-			d.reset()
-		case '*':
-			for d.forward(); !d.eof() && d.buf[d.cursor+1] != '/' && d.char != '*'; d.next() {
-			}
-			str = strings.TrimSpace(d.read())
-			d.reset()
+		for d.next(1).refresh(); d.char != -1 && d.char != '\n'; d.next(1) {
 		}
+		str = strings.TrimSpace(d.read())
+		d.next(1).refresh()
+	case '*':
+		for d.next(1).refresh(); d.char != -1 && d.buf[d.cursor+1] != '/' && d.char != '*'; d.next(1) {
+		}
+		str = strings.TrimSpace(d.read())
+		d.next(2).refresh()
 	}
 	return
 }
 
 // 解析特殊关键字
 func (d *PbParser) parseWord() string {
-	for ; !d.eof() && (util.IsLetter(d.char) || util.IsNumber(d.char)); d.next() {
+	for ; d.char != -1 && (util.IsLetter(d.char) || util.IsNumber(d.char)); d.next(1) {
 	}
 	name := d.read()
-	d.reset()
+	d.next(1).refresh()
 	return name
 }
 
 func (d *PbParser) Parse() {
 loop:
-	d.skip(' ', '\r', '\t', '\n')
+	d.skip(' ', '\t', '\n', '\r')
 	switch d.char {
 	case '/':
 		if str := d.parseDoc(); len(str) > 0 {
@@ -186,15 +154,13 @@ loop:
 			}
 			goto loop
 		case domain.MESSAGE:
-			/*
-				switch vv := d.parseMessage(name).(type) {
-				case error:
-					fmt.Println("=====err=======>", vv)
-				case *typespec.Message:
-					fmt.Println("============>", vv)
-				}
-				goto loop
-			*/
+			switch vv := d.parseMessage(name).(type) {
+			case error:
+				fmt.Println("=====err=======>", vv)
+			case *typespec.Message:
+				fmt.Println("============>", vv)
+			}
+			//goto loop
 			return
 		case domain.ENUM:
 			return
@@ -209,20 +175,27 @@ func (d *PbParser) parseMessage(word string) interface{} {
 	if len(stname) <= 0 {
 		return fmt.Errorf("message语法错误")
 	}
+	if times := d.skip('{', ' ', '\r', '\t', '\n'); times != 1 {
+		return fmt.Errorf("message语法错误")
+	}
+	// 解析field
+	for {
 
+	}
 	return nil
 }
 
 // 解析import
 func (d *PbParser) parseImport(word string) interface{} {
-	d.skip(' ', '\r', '\t', '\n')
+	d.skip(' ', '\t', '\n', '\r')
 	pkg := d.parseString()
 	// 解析分号
-	if times := d.skip(';', ' ', '\r', '\t', '\n'); times != 1 {
+	if times := d.skip(';', ' ', '\r', '\t'); times != 1 {
 		return fmt.Errorf("import语法错误")
 	}
 	item := &typespec.Import{
 		Docs:    d.docs,
+		Type:    word,
 		File:    pkg,
 		Comment: d.parseDoc(),
 	}
@@ -232,7 +205,7 @@ func (d *PbParser) parseImport(word string) interface{} {
 
 // 解析option
 func (d *PbParser) parseOption(word string) interface{} {
-	d.skip(' ', '\r', '\t', '\n')
+	d.skip(' ', '\t', '\n', '\r')
 	// 解析键
 	opname := d.parseWord()
 	if len(opname) <= 0 {
@@ -250,6 +223,7 @@ func (d *PbParser) parseOption(word string) interface{} {
 	}
 	item := &typespec.Option{
 		Docs:    d.docs,
+		Type:    word,
 		Key:     opname,
 		Value:   val,
 		Comment: d.parseDoc(),
@@ -260,12 +234,12 @@ func (d *PbParser) parseOption(word string) interface{} {
 
 // 解析package
 func (d *PbParser) parsePackage(word string) interface{} {
-	d.skip(' ', '\r', '\t', '\n')
+	d.skip(' ', '\t', '\n', '\r')
 	if !util.IsLetter(d.char) {
 		return fmt.Errorf("package语法错误")
 	}
 	// 解析包名
-	for ; !d.eof() && d.char != ';'; d.next() {
+	for ; d.char != -1 && d.char != ';'; d.next(1) {
 	}
 	pkgname := d.read()
 	if len(pkgname) <= 0 {

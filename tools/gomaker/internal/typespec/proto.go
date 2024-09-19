@@ -16,6 +16,7 @@ type Package struct {
 
 type Option struct {
 	Docs    []string
+	Type    string
 	Key     string
 	Value   string
 	Comment string
@@ -23,6 +24,7 @@ type Option struct {
 
 type Import struct {
 	Docs    []string
+	Type    string
 	File    string
 	Comment string
 }
