@@ -12,6 +12,15 @@ const (
 	DefaultEnumClass = "other"
 )
 
+const (
+	SYNTAX  = "syntax"
+	PACKAGE = "package"
+	OPTION  = "option"
+	IMPORT  = "import"
+	MESSAGE = "message"
+	ENUM    = "enum"
+)
+
 // ast解析类型
 const (
 	KindTypeIdent    = 0

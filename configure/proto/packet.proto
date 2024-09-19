@@ -1,5 +1,5 @@
-syntax = "proto3";
-package pb;
+syntax = "proto3";  // 使用proto3
+package pb;         /* go包名 */
 option  go_package = "../../common/pb";
 import "enum.gen.proto";
 
