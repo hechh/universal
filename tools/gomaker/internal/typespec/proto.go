@@ -30,6 +30,7 @@ type Import struct {
 }
 
 type Attribute struct {
+	Docs     []string
 	Type     string
 	Name     string
 	Comment  string
@@ -39,6 +40,7 @@ type Attribute struct {
 
 type Message struct {
 	Docs       []string
+	Type       string
 	Name       string
 	Attributes []*Attribute
 }

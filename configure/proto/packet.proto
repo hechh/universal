@@ -1,6 +1,5 @@
 syntax = "proto3";  // 使用proto3
-package pb;         /* go包名
-test */
+package pb;         /* go包名test */
 option  go_package = "../../common/pb";
 import "enum.gen.proto";
 
@@ -21,7 +20,7 @@ message RouteTable {
     uint32 Db   = 4;
 }
 
-message Head {
+message Head {                      // asdf
     SEND       SendType      = 1;   // 发送类型
     uint32     SrcServerID   = 2;   // 源集群id
     SERVER     SrcServerType = 3;   // 目标集群类型

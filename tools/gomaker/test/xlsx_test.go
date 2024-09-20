@@ -23,6 +23,6 @@ func TestXlsx(t *testing.T) {
 func TestProto(t *testing.T) {
 	filename := "../../../configure/proto/packet.proto"
 	buf, _ := ioutil.ReadFile(filename)
-	pp := parser.NewPbParser(buf)
-	pp.Parse()
+	pp := &parser.PbParser{}
+	pp.ParseFile(buf)
 }
