@@ -1,28 +1,23 @@
 package global
 
 import (
+	"fmt"
 	"path/filepath"
+	"strings"
 	"universal/common/pb"
 )
 
-const (
-	GAME = "game"
-	GATE = "gate"
-	DB   = "db"
-	GM   = "gm"
-)
-
 var (
-	platform pb.SERVER
-	appId    uint32
-	appName  string
-	cfg      *Config
+	cfg        *Config
+	serverId   uint32
+	serverType pb.SERVER
 )
 
-func Init(typ pb.SERVER, appid uint32, appname string, dir string) error {
+func Init(dir string, typ pb.SERVER, srvid uint32) error {
 	tmpCfg := &Config{}
 	// 加载服务配置
-	if err := LoadFile(filepath.Join(dir, appname+".yaml"), tmpCfg); err != nil {
+	filename := filepath.Join(dir, fmt.Sprintf("%s.yaml", strings.ToLower(typ.String())))
+	if err := LoadFile(filename, tmpCfg); err != nil {
 		return err
 	}
 	// 加载通用配置
@@ -30,18 +25,17 @@ func Init(typ pb.SERVER, appid uint32, appname string, dir string) error {
 		return err
 	}
 	cfg = tmpCfg
-	platform = typ
-	appId = appid
-	appName = appname
+	serverId = srvid
+	serverType = typ
 	return nil
 }
 
-func GetPlatform() pb.SERVER {
-	return platform
+func GetServer() pb.SERVER {
+	return serverType
 }
 
-func GetAppName() string {
-	return appName
+func GetServerName() string {
+	return serverType.String()
 }
 
 func GetConfig() *Config {
@@ -49,7 +43,7 @@ func GetConfig() *Config {
 }
 
 func GetServerCfg() *ServerConfig {
-	return cfg.Server[appId]
+	return cfg.Server[serverId]
 }
 
 func GetMysqlConfig() map[uint32]*DbConfig {
@@ -74,8 +68,4 @@ func GetEtcdConfig() *EtcdConfig {
 
 func GetNatsConfig() *NatsConfig {
 	return cfg.Nats
-}
-
-func GetStub() StubConfig {
-	return cfg.Stub
 }

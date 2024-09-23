@@ -1,0 +1,9 @@
+
+syntax = "proto3";
+package pb;
+option  go_package = "../../common/pb";
+
+// 奖励类型配置表
+enum RewardReason {
+    None = 0;  // 奖励类型-无
+}

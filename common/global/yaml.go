@@ -38,8 +38,6 @@ type NatsConfig struct {
 	Endpoints string `yaml:endpoints`
 }
 
-type StubConfig map[string]uint64
-
 type Config struct {
 	Log     *LogConfig               `yaml:log`
 	Server  map[uint32]*ServerConfig `yaml:server`
@@ -48,7 +46,6 @@ type Config struct {
 	Mongodb map[uint32]*DbConfig     `yaml:mongodb`
 	Etcd    *EtcdConfig              `yaml:etcd`
 	Nats    *NatsConfig              `yaml:nats`
-	Stub    StubConfig               `yaml:stub`
 }
 
 func LoadFile(filename string, cfg *Config) error {
