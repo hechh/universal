@@ -232,6 +232,43 @@ func (d *PbParser) parseMessage(word string) *typespec.Message {
 	return item
 }
 
+func (d *PbParser) parseEnum(word string) *typespec.MEnum {
+	d.skip(' ', '\t', '\n', '\r')      // 过滤空格
+	ttName := d.parseWord()            // 枚举类型
+	d.skip('{', ' ', '\r', '\t', '\n') // 过滤 { 符号
+	// 解析field
+	fs := []*typespec.MValue{}
+	for {
+		// 解析日志
+		item := &typespec.MValue{}
+	inner:
+		if d.getChar() == '/' {
+			if str := d.parseDoc(); len(str) > 0 {
+				item.Docs = append(item.Docs, str)
+			}
+			goto inner
+		}
+		d.skip(' ', '\t', '\n', '\r')          // 过滤空格
+		item.Name = d.parseWord()              // 解析字段类型
+		d.skip('=', ' ', '\t', '\n', '\r')     // 过滤 =
+		item.Value = cast.ToInt(d.parseWord()) // 解析字段名
+		d.skip(';', ' ', '\r', '\t')           // 过滤 ;
+		item.Comment = d.parseDoc()            // 解析注释
+		fs = append(fs, item)
+		if d.skip('}', ' ', '\r', '\t', '\n') == 1 {
+			break
+		}
+	}
+	item := &typespec.MEnum{
+		Docs:   d.docs,
+		Type:   word,
+		Name:   ttName,
+		Values: fs,
+	}
+	d.docs = d.docs[:0]
+	return item
+}
+
 func (d *PbParser) ParseFile(buf []byte) {
 	d.set(buf)
 loop:
@@ -262,6 +299,8 @@ loop:
 			fmt.Println("----->", d.parseMessage(word))
 			goto loop
 		case domain.ENUM:
+			fmt.Println("----->", d.parseEnum(word))
+			goto loop
 		}
 	}
 	return

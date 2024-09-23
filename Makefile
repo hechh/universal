@@ -21,12 +21,6 @@ endif
 
 
 ##########################client工具代码自动生成#######################
-tool: 
-#	go install ./tool/gomaker
-#	go run ./tools/gomaker/main.go -action=client -src="./tools/gomaker/test" -dst="./tools/client/internal/httpkit" -tpl="./tools/gomaker/templates/"
-	go run ./tools/gomaker/main.go -action=pb -src=${TABLE_PATH} -dst=${PROTO_PATH} -tpl="./tools/gomaker/templates/"
-#	go install ./tools/client
-
 proto: 
 #	-rm -rf ${PROTO_PATH}/*.gen.proto ${PB_PATH}/*.pb.go
 	go run ./tools/gomaker/main.go -action=proto -xlsx=${TABLE_PATH} -dst=${PROTO_PATH}

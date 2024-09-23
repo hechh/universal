@@ -46,13 +46,15 @@ type Message struct {
 }
 
 type MValue struct {
+	Docs    []string
 	Name    string
 	Value   int
 	Comment string
 }
 
 type MEnum struct {
-	Doc     string
-	Name    string
-	Comment string
+	Docs   []string
+	Type   string
+	Name   string
+	Values []*MValue
 }
