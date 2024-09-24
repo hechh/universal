@@ -89,12 +89,10 @@ func (d *Args) handleProto() {
 	// 以目的目录设置pkg
 	domain.DefaultPkg = filepath.Base(d.dst)
 	// 解析xlsx文件生成表
-	par, err := parser.NewXlsxParser(files...)
-	if err != nil {
+	par := &parser.XlsxParser{}
+	if err := par.ParseFiles(files...); err != nil {
 		util.Panic(err)
 	}
-	// 解析结构
-	util.Panic(par.Parse())
 	// 生成文件
 	util.Panic(manager.Generator(d.action, d.dst, nil))
 }

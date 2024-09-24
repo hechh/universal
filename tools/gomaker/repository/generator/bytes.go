@@ -5,11 +5,9 @@ import (
 	"fmt"
 	"path/filepath"
 	"reflect"
-	"strings"
 	"text/template"
 	"unicode"
 	"universal/framework/uerror"
-	"universal/tools/gomaker/domain"
 	"universal/tools/gomaker/internal/manager"
 	"universal/tools/gomaker/internal/parser"
 	"universal/tools/gomaker/internal/typespec"
@@ -18,41 +16,18 @@ import (
 	_ "universal/common/pb"
 
 	"github.com/golang/protobuf/proto"
-	"github.com/xuri/excelize/v2"
 )
 
 func BytesGen(dst string, tpls *template.Template, extra ...string) error {
 	for _, filename := range extra {
-		if err := parseXlsx(filename, dst); err != nil {
+		// 解析生成表
+		cfgs := []*typespec.Sheet{}
+		if err := parser.ParseGenTable(filename, nil, &cfgs); err != nil {
 			return err
 		}
-	}
-	return nil
-}
-
-func parseXlsx(filename string, dst string) error {
-	// 打开文件
-	fp, err := excelize.OpenFile(filename)
-	if err != nil {
-		return uerror.NewUError(1, -1, "开打%s失败：%v", filename, err)
-	}
-	defer fp.Close()
-	// 读取生成表
-	values, err := fp.GetRows(domain.GenTable)
-	if _, ok := err.(excelize.ErrSheetNotExist); ok || len(values) <= 0 {
-		return nil
-	}
-	if err != nil {
-		return uerror.NewUError(1, -1, "读取%s配置表%s失败: %v", filename, domain.GenTable, err)
-	}
-	// 解析生成表
-	for _, vals := range values {
-		for _, val := range vals {
-			if !strings.HasPrefix(val, domain.RuleTypeBytes) {
-				continue
-			}
-			// 解析@gomaker
-			if err := parseSheet(parser.ParseXlsxSheet(val, fp), dst); err != nil {
+		// 对游戏配置生成bytes文件
+		for _, sh := range cfgs {
+			if err := parseSheet(sh, dst); err != nil {
 				return err
 			}
 		}

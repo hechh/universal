@@ -16,58 +16,14 @@ type XlsxParser struct {
 	cfgs  []*typespec.Sheet
 }
 
-func NewXlsxParser(files ...string) (*XlsxParser, error) {
-	enums := []*typespec.Sheet{}
-	cfgs := []*typespec.Sheet{}
+func (d *XlsxParser) ParseFiles(files ...string) error {
+	// 解析所有配置的生成表
 	for _, filename := range files {
-		// 打开文件
-		fp, err := excelize.OpenFile(filename)
-		if err != nil {
-			return nil, uerror.NewUError(1, -1, "开打%s失败：%v", filename, err)
-		}
-		// 读取生成表
-		values, err := fp.GetRows(domain.GenTable)
-		if _, ok := err.(excelize.ErrSheetNotExist); ok || len(values) <= 0 {
-			err = nil
-			continue
-		}
-		if err != nil {
-			return nil, uerror.NewUError(1, -1, "读取%s配置表%s失败: %v", filename, domain.GenTable, err)
-		}
-		// 解析生成表
-		for _, vals := range values {
-			for _, val := range vals {
-				// 解析E:
-				if value := ParseXlsxEnum(domain.DefaultEnumClass, val); value != nil {
-					manager.LoadEnum(value.Type).AddValue(value)
-					continue
-				}
-				// 解析@gomaker
-				if item := ParseXlsxSheet(val, fp); item != nil {
-					switch item.Rule {
-					case domain.RuleTypeBytes:
-						cfgs = append(cfgs, item)
-					case domain.RuleTypeProto:
-						enums = append(enums, item)
-					}
-				}
-			}
+		if err := ParseGenTable(filename, &d.enums, &d.cfgs); err != nil {
+			return err
 		}
 	}
-	return &XlsxParser{enums: enums, cfgs: cfgs}, nil
-}
-
-func (d *XlsxParser) Parse() error {
-	// 先解析枚举
-	if err := d.parseEnum(); err != nil {
-		return err
-	}
-	manager.InitEvals()
-	// 后解析结构
-	return d.parseCfg()
-}
-
-func (d *XlsxParser) parseEnum() error {
+	// 解析枚举类型
 	for _, sh := range d.enums {
 		values, err := sh.GetRows()
 		if err != nil {
@@ -81,10 +37,8 @@ func (d *XlsxParser) parseEnum() error {
 			}
 		}
 	}
-	return nil
-}
-
-func (d *XlsxParser) parseCfg() error {
+	manager.InitEvals()
+	// 解析message信息
 	for _, sh := range d.cfgs {
 		values, err := sh.GetRows()
 		if err != nil {
@@ -98,6 +52,7 @@ func (d *XlsxParser) parseCfg() error {
 	return nil
 }
 
+// 解析配置表中的message结构信息
 func ParseXlsxStruct(sh *typespec.Sheet, val01, val02 []string) *typespec.Struct {
 	// 没有注释的字段设置为空
 	for j := len(val01); j < len(val01); j++ {
@@ -117,37 +72,6 @@ func ParseXlsxStruct(sh *typespec.Sheet, val01, val02 []string) *typespec.Struct
 	}
 	if len(fs) > 0 {
 		return typespec.STRUCT(manager.GetType(domain.KindTypeStruct, domain.DefaultPkg, sh.Config, sh.Class), sh.Sheet, fs...)
-	}
-	return nil
-}
-
-// xlsx枚举规则解析
-// E:中文注释:枚举类型:枚举成员:枚举值
-func ParseXlsxEnum(class, val string) *typespec.Value {
-	if !strings.HasPrefix(val, domain.RuleTypeEnum) {
-		return nil
-	}
-	ss := strings.Split(val, ":")
-	tt := manager.GetType(domain.KindTypeEnum, domain.DefaultPkg, ss[2], class)
-	return typespec.VALUE(tt, ss[3], cast.ToInt32(ss[4]), ss[1])
-}
-
-// 生成表解析
-// @gomaker:类型｜生成文件名｜需要生成的配置名:配置的pb结构名称
-func ParseXlsxSheet(val string, fp *excelize.File) *typespec.Sheet {
-	if !strings.HasPrefix(val, domain.RuleTypeGomaker) {
-		return nil
-	}
-	ss := strings.Split(val, "|")
-	switch ss[0] {
-	case domain.RuleTypeProto:
-		return typespec.SHEET(ss[0], ss[1], ss[2], "", fp)
-	case domain.RuleTypeBytes:
-		if pos := strings.Index(ss[2], ":"); pos > 0 {
-			return typespec.SHEET(ss[0], ss[1], ss[2][:pos], ss[2][pos+1:], fp)
-		} else {
-			return typespec.SHEET(ss[0], ss[1], ss[2], ss[2], fp)
-		}
 	}
 	return nil
 }
@@ -176,4 +100,73 @@ func ParseXlsxField(pos int, ff string, doc string) *typespec.Field {
 		ts = append(ts, domain.TokenTypeArray)
 	}
 	return typespec.FIELD(manager.GetType(kind, pkg, goType, ""), fname, pos, cfgType, doc, ts...)
+}
+
+// 生成表解析
+// @gomaker:类型｜out:生成文件名｜sheet:需要生成的配置名:配置的pb结构名称
+func ParseXlsxSheet(val string, fp *excelize.File) *typespec.Sheet {
+	ss := strings.Split(val, "|")
+	result := typespec.NewSheet(ss[0], fp)
+	for _, str := range ss[1:] {
+		vals := strings.Split(str, ":")
+		switch vals[0] {
+		case "out":
+			result.Class = vals[1]
+		case "sheet":
+			vals = append(vals, "")
+			result.Sheet = vals[1]
+			result.Config = vals[2]
+		}
+	}
+	return result
+}
+
+// xlsx枚举规则解析
+// E:中文注释:枚举类型:枚举成员:枚举值
+func ParseXlsxEnum(class, val string) *typespec.Value {
+	if !strings.HasPrefix(val, domain.RuleTypeEnum) {
+		return nil
+	}
+	ss := strings.Split(val, ":")
+	tt := manager.GetType(domain.KindTypeEnum, domain.DefaultPkg, ss[2], class)
+	return typespec.VALUE(tt, ss[3], cast.ToInt32(ss[4]), ss[1])
+}
+
+// 解析生成表
+func ParseGenTable(filename string, enums, cfgs *[]*typespec.Sheet) (err error) {
+	// 打开文件
+	fp, err := excelize.OpenFile(filename)
+	if err != nil {
+		return uerror.NewUError(1, -1, "开打%s失败：%v", filename, err)
+	}
+	// 读取生成表
+	values, err := fp.GetRows(domain.GenTable)
+	if _, ok := err.(excelize.ErrSheetNotExist); ok || len(values) <= 0 {
+		return nil
+	}
+	if err != nil {
+		return uerror.NewUError(1, -1, "读取%s配置表%s失败: %v", filename, domain.GenTable, err)
+	}
+	// 解析规则
+	for _, vals := range values {
+		for _, val := range vals {
+			// 是否为规则
+			if !strings.HasPrefix(val, domain.GomakerTypeHeader) {
+				continue
+			}
+			// 解析@gomaker
+			item := ParseXlsxSheet(val, fp)
+			switch item.Rule {
+			case domain.GomakerTypeMessage:
+				if cfgs != nil {
+					*cfgs = append(*cfgs, item)
+				}
+			case domain.GomakerTypeEnum:
+				if enums != nil {
+					*enums = append(*enums, item)
+				}
+			}
+		}
+	}
+	return
 }

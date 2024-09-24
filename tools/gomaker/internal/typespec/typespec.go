@@ -5,8 +5,6 @@ import (
 	"sort"
 	"strings"
 	"universal/tools/gomaker/domain"
-
-	"github.com/xuri/excelize/v2"
 )
 
 type Type struct {
@@ -106,22 +104,6 @@ func (d *Struct) Add(t *Type, name string, index int, tag, doc string, ts ...int
 	val := &Field{Type: t, Name: name, Index: index, Tag: tag, Doc: doc, Token: ts}
 	d.List = append(d.List, val)
 	d.Fields[val.Name] = val
-}
-
-type Sheet struct {
-	Rule   string // 规则
-	Sheet  string // 表明
-	Config string // 表明
-	Class  string // 分类
-	fp     *excelize.File
-}
-
-func (d *Sheet) GetRows() ([][]string, error) {
-	return d.fp.GetRows(d.Sheet)
-}
-
-func SHEET(r, class, sheet, cfg string, fp *excelize.File) *Sheet {
-	return &Sheet{Rule: r, Class: class, Sheet: sheet, Config: cfg, fp: fp}
 }
 
 func GetPkgType(d *Type) string {

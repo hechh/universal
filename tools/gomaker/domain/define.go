@@ -4,12 +4,12 @@ import "text/template"
 
 // 配置表规则
 const (
-	RuleTypeEnum     = "E:"
-	RuleTypeGomaker  = "@gomaker:"
-	RuleTypeProto    = "@gomaker:proto"
-	RuleTypeBytes    = "@gomaker:bytes"
-	GenTable         = "生成表"
-	DefaultEnumClass = "other"
+	RuleTypeEnum       = "E:"
+	GomakerTypeHeader  = "@gomaker:"
+	GomakerTypeEnum    = "@gomaker:enum"
+	GomakerTypeMessage = "@gomaker:message"
+	GenTable           = "生成表"
+	DefaultEnumClass   = "other"
 )
 
 const (

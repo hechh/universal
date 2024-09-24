@@ -3,8 +3,7 @@ syntax = "proto3";
 package pb;
 option  go_package = "../../common/pb";
 
-
 // 错误码配置表
 enum ErrorCode {
-	Success = 0; // 错误类型-成功
+    Success = 0;  // 错误类型-成功
 }
