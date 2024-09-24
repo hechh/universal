@@ -9,8 +9,6 @@ import (
 	"github.com/golang/protobuf/proto"
 )
 
-const SheetName = "RouteConfig"
-
 var (
 	data atomic.Value
 )
@@ -20,7 +18,7 @@ type RouteCfg struct {
 }
 
 func init() {
-	manager.Register(SheetName, loadRouteConfig)
+	manager.Register("RouteConfig", loadRouteConfig)
 }
 
 func loadRouteConfig(buf []byte) error {

@@ -14,4 +14,5 @@ func TestMain(m *testing.M) {
 
 func TestApi(t *testing.T) {
 	t.Log(route.Get(1))
+	time.Sleep(5 * time.Second)
 }
