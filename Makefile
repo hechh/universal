@@ -23,6 +23,7 @@ endif
 ##########################client工具代码自动生成#######################
 proto: 
 	go run ./tools/gomaker/main.go -action=proto -xlsx=${TABLE_PATH} -dst=${PROTO_PATH}
+	make protoc
 
 bytes: 
 	make protoc

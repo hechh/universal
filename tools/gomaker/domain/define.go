@@ -5,7 +5,6 @@ import "text/template"
 // 配置表规则
 const (
 	RuleTypeEnum       = "E:"
-	GomakerTypeHeader  = "@gomaker:"
 	GomakerTypeEnum    = "@gomaker:enum"
 	GomakerTypeMessage = "@gomaker:message"
 	GenTable           = "生成表"
