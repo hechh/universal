@@ -11,20 +11,17 @@ import (
 	"github.com/xuri/excelize/v2"
 )
 
-type XlsxParser struct {
-	enums []*typespec.Sheet
-	cfgs  []*typespec.Sheet
-}
+type XlsxParser struct{}
 
 func (d *XlsxParser) ParseFiles(files ...string) error {
 	// 解析所有配置的生成表
 	for _, filename := range files {
-		if err := ParseGenTable(filename, &d.enums, &d.cfgs); err != nil {
+		if err := ParseGenTable(filename, manager.GetMEnumsReference(), manager.GetMessageReference()); err != nil {
 			return err
 		}
 	}
 	// 解析枚举类型
-	for _, sh := range d.enums {
+	for _, sh := range manager.GetMEnumList() {
 		values, err := sh.GetRows()
 		if err != nil {
 			return uerror.NewUError(1, -1, "读取配置表%s失败: %v", sh.Sheet, err)
@@ -39,7 +36,7 @@ func (d *XlsxParser) ParseFiles(files ...string) error {
 	}
 	manager.InitEvals()
 	// 解析message信息
-	for _, sh := range d.cfgs {
+	for _, sh := range manager.GetMessageList() {
 		values, err := sh.GetRows()
 		if err != nil {
 			return uerror.NewUError(1, -1, "读取配置表%s失败: %v", sh.Sheet, err)
@@ -49,6 +46,7 @@ func (d *XlsxParser) ParseFiles(files ...string) error {
 			manager.AddStruct(st)
 		}
 	}
+	manager.InitSheet()
 	return nil
 }
 
@@ -96,9 +94,24 @@ func ParseXlsxSheet(ss []string, fp *excelize.File) *typespec.Sheet {
 		case "out":
 			result.Class = vals[1]
 		case "sheet":
-			vals = append(vals, "")
 			result.Sheet = vals[1]
-			result.Config = vals[2]
+			if len(vals) > 2 {
+				result.Config = vals[2]
+			}
+		case "struct":
+			result.IsStruct = true
+		case "list":
+			result.IsList = true
+		case "map", "group":
+			tmps := []*typespec.Field{}
+			for _, param := range strings.Split(vals[1], ",") {
+				tmps = append(tmps, &typespec.Field{Name: param[:strings.Index(param, "@")]})
+			}
+			if vals[0] == "map" {
+				result.Map = append(result.Map, tmps)
+			} else {
+				result.Group = append(result.Group, tmps)
+			}
 		}
 	}
 	return result
@@ -151,6 +164,7 @@ func ParseXlsxField(pos int, ff string, doc string) *typespec.Field {
 	goType := manager.GetGoType(cfgType)
 	pkg, kind := "", int32(domain.KindTypeIdent)
 	if !domain.BasicTypes[goType] {
+		// 枚举类型一定先于struct结构
 		if ttt := manager.GetType(0, domain.DefaultPkg, goType, ""); ttt != nil {
 			pkg, kind = ttt.Pkg, ttt.Kind
 		} else {

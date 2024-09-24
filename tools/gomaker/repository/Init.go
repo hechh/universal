@@ -3,12 +3,13 @@ package repository
 import (
 	"universal/tools/gomaker/internal/manager"
 	"universal/tools/gomaker/repository/convert"
-	"universal/tools/gomaker/repository/generator"
+	"universal/tools/gomaker/repository/xlsx"
 )
 
 func Init() {
-	manager.Register("proto", "xlsx转pb结构", generator.EnumGen, generator.TableGen)
-	manager.Register("bytes", "xlsx转bytes文件", generator.BytesGen)
+	manager.Register("proto", "xlsx转pb结构", xlsx.EnumGen, xlsx.TableGen)
+	manager.Register("bytes", "xlsx转bytes文件", xlsx.BytesGen)
+	manager.Register("config", "xlsx生成config代码", xlsx.ConfigGen)
 }
 
 func init() {

@@ -5,11 +5,15 @@ import (
 )
 
 type Sheet struct {
-	Rule   string // 规则
-	Sheet  string // 表明
-	Config string // 表明
-	Class  string // 分类
-	fp     *excelize.File
+	Rule     string     // 规则
+	Sheet    string     // 表明
+	Config   string     // 表明
+	Class    string     // 分类
+	Group    [][]*Field // 类型数据
+	Map      [][]*Field // 类型数据
+	IsList   bool       // 是否为list数据
+	IsStruct bool       // 是否为单个数据
+	fp       *excelize.File
 }
 
 func (d *Sheet) GetRows() ([][]string, error) {
