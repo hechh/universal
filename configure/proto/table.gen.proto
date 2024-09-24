@@ -11,9 +11,8 @@ message RouteConfig {
 	string Request = 2; // 请求名称
 	string Response = 3; // 应答协议
 	string FuncName = 4; // 函数名称
-	string ActorName = 5; // 模块名称
-	repeated SERVER ServerType = 6; // 服务类型
-	repeated ROUTE RouteType = 7; // 路由类型
+	SERVER ServerType = 5; // 服务类型
+	ROUTE RouteType = 6; // 路由类型
 }
 
 message RouteConfigAry {

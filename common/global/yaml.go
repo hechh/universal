@@ -1,8 +1,11 @@
 package global
 
 import (
+	"fmt"
 	"io/ioutil"
 	"path/filepath"
+	"strings"
+	"universal/common/pb"
 
 	"gopkg.in/yaml.v2"
 )
@@ -56,22 +59,19 @@ func LoadFile(filename string, cfg *Config) error {
 	return yaml.Unmarshal(content, cfg)
 }
 
-// 加载配置
-func Load(dir, appname string) (*Config, error) {
-	// 加载配置文件
-	content1, err := ioutil.ReadFile(filepath.Join(dir, appname+".yaml"))
-	if err != nil {
-		return nil, err
+func Init(dir string, typ pb.SERVER, srvid uint32) error {
+	tmpCfg := &Config{}
+	// 加载服务配置
+	filename := filepath.Join(dir, fmt.Sprintf("%s.yaml", strings.ToLower(typ.String())))
+	if err := LoadFile(filename, tmpCfg); err != nil {
+		return err
 	}
-	content2, err := ioutil.ReadFile(filepath.Join(dir, "common.yaml"))
-	if err != nil {
-		return nil, err
+	// 加载通用配置
+	if err := LoadFile(filepath.Join(dir, "common.yaml"), tmpCfg); err != nil {
+		return err
 	}
-	content1 = append(content1, content2...)
-	// 序列化
-	result := new(Config)
-	if err := yaml.Unmarshal(content1, result); err != nil {
-		return nil, err
-	}
-	return result, nil
+	cfg = tmpCfg
+	serverId = srvid
+	serverType = typ
+	return nil
 }

@@ -1,13 +1,44 @@
 package main
 
 import (
+	"encoding/binary"
 	"flag"
+	"net/http"
+	"os"
 	"universal/common/dao"
 	"universal/common/global"
 	"universal/common/pb"
+	"universal/framework/basic"
 	"universal/framework/cluster"
 	"universal/framework/plog"
+	"universal/framework/socket"
+
+	"golang.org/x/net/websocket"
+	"google.golang.org/protobuf/proto"
 )
+
+type Frame struct{}
+
+func (d *Frame) GetHeadSize() int {
+	return 4
+}
+
+func (d *Frame) GetBodySize(head []byte) int {
+	return int(binary.BigEndian.Uint32(head))
+}
+
+func (d *Frame) Check(head []byte, body []byte) bool {
+	return true
+}
+
+func (d *Frame) Build(frame []byte, body []byte) []byte {
+	// 设置包头
+	binary.BigEndian.PutUint32(frame, uint32(len(body)))
+	// 拷贝
+	headSize := d.GetHeadSize()
+	copy(frame[headSize:], body)
+	return frame
+}
 
 func main() {
 	var id int64
@@ -17,24 +48,71 @@ func main() {
 	flag.Parse()
 
 	// 加载配置
-	if err := global.Init(pb.SERVER_Gate, uint32(id), global.GATE, path); err != nil {
-		panic(err)
-	}
-	// 初始化plog
-	if logCfg := global.GetLogConfig(); logCfg != nil {
-		plog.Init(logCfg.Level, logCfg.Path, global.GetAppName())
-	}
-	// 初始化redis
-	if err := dao.InitRedis(global.GetRedisConfig()); err != nil {
-		panic(err)
-	}
-	// 初始化mysql
-	if err := dao.InitMysql(global.GetMysqlConfig()); err != nil {
-		panic(err)
-	}
-	// 初始化集群
-	if err := cluster.Init(global.GetConfig(), global.GetPlatform(), uint32(id), 600); err != nil {
+	if err := global.Init(path, pb.SERVER_Gate, uint32(id)); err != nil {
 		panic(err)
 	}
 
+	// 初始化plog
+	if logCfg := global.GetLogCfg(); logCfg != nil {
+		plog.Init(logCfg.Level, logCfg.Path, global.GetServerName())
+	}
+
+	// 初始化redis
+	if err := dao.InitRedis(global.GetRedisCfg()); err != nil {
+		panic(err)
+	}
+
+	// 初始化集群
+	if err := cluster.Init(global.GetCfg(), global.GetServerType(), uint32(id), 600); err != nil {
+		panic(err)
+	}
+
+	// 初始化websocket
+	http.Handle("/ws", websocket.Handler(wsHandle))
+	go func() {
+		srvCfg := global.GetServerCfg()
+		if srvCfg == nil {
+			panic("yaml配置加载错误")
+		}
+		if err := http.ListenAndServe(srvCfg.Host, nil); err != nil {
+			panic(err)
+		}
+	}()
+
+	// 等待结束
+	basic.SignalHandle(func(s os.Signal) {
+		plog.Info("gate服务退出")
+		plog.Close()
+	}, os.Interrupt, os.Kill)
+}
+
+// websocket包处理
+func wsHandle(ws *websocket.Conn) {
+	plog.Info("客户端(%s)连接成功！！！", ws.RemoteAddr().String())
+	soc := socket.NewSocket(&Frame{}, ws)
+
+	// 循环接受处理消息
+	basic.SafeGo(plog.Catch, func() {
+		for {
+			// 接受请求
+			buf, err := soc.Read()
+			if err != nil {
+				plog.Error("websocket接受数据失败: %v", err)
+				break
+			}
+
+			// 解析packet
+			pac := new(pb.Packet)
+			if err := proto.Unmarshal(buf, pac); err != nil {
+				plog.Error("协议错误: %v", err)
+				break
+			}
+
+			// 对请求路由
+			if err := cluster.Dispatcher(pac.Head); err != nil {
+				plog.Error("路由错误: %v, error: %v", pac.Head, err)
+				break
+			}
+		}
+	})
 }

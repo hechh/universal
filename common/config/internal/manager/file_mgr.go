@@ -35,7 +35,7 @@ func Init(dir string, ttl time.Duration) error {
 	return nil
 }
 
-func Register(name string, cfgs ...domain.IConfig) {
+func Register(name string, cfgs ...domain.LoadFunc) {
 	val, ok := files[name]
 	if !ok {
 		files[name] = parse.NewParser(name, cfgs...)

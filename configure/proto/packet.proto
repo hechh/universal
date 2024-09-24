@@ -20,7 +20,7 @@ message RouteTable {
     uint32 Db   = 4;
 }
 
-message Head {                      // asdf
+message Head {
     SEND       SendType      = 1;   // 发送类型
     uint32     SrcServerID   = 2;   // 源集群id
     SERVER     SrcServerType = 3;   // 目标集群类型

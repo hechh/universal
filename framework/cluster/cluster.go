@@ -97,7 +97,6 @@ func Dispatcher(head *pb.Head) (err error) {
 		head.Table = table.Get()
 		return
 	}
-
 	// 从路由表中加载
 	clusterId := table.GetServerID(head.DstServerType)
 	if dst := nodes.Get(clusterId); dst != nil {
@@ -105,7 +104,6 @@ func Dispatcher(head *pb.Head) (err error) {
 		head.Table = table.Get()
 		return
 	}
-
 	// 重新路由
 	switch head.RouteType {
 	case 0: // 路由类型-玩家id
@@ -142,8 +140,7 @@ func Broadcast(head *pb.Head, data proto.Message) error {
 
 	// 内部服务转发
 	buf, _ := proto.Marshal(data)
-	inner := &pb.Packet{Head: head, Body: buf}
-	ret, _ := proto.Marshal(inner)
+	ret, _ := proto.Marshal(&pb.Packet{Head: head, Body: buf})
 	return natsCli.Publish(nodes.GetTopicChannel(head.DstServerType), ret)
 }
 
@@ -151,7 +148,6 @@ func Broadcast(head *pb.Head, data proto.Message) error {
 func Query(head *pb.Head, data proto.Message) error {
 	head.SendType = pb.SEND_Broadcast
 	head.SrcServerID = nodes.GetSelf().GetServerID()
-
 	if head.UID <= 0 {
 		return uerror.NewUError(1, -1, "玩家ID为空")
 	}
@@ -163,8 +159,7 @@ func Query(head *pb.Head, data proto.Message) error {
 
 	// 内部服务转发
 	buf, _ := proto.Marshal(data)
-	inner := &pb.Packet{Head: head, Body: buf}
-	ret, _ := proto.Marshal(inner)
+	ret, _ := proto.Marshal(&pb.Packet{Head: head, Body: buf})
 	return natsCli.Publish(nodes.GetTopicChannel(head.DstServerType), ret)
 }
 
@@ -177,7 +172,16 @@ func Send(head *pb.Head, data proto.Message) error {
 
 	// 内部服务转发
 	buf, _ := proto.Marshal(data)
-	inner := &pb.Packet{Head: head, Body: buf}
-	ret, _ := proto.Marshal(inner)
+	ret, _ := proto.Marshal(&pb.Packet{Head: head, Body: buf})
+	return natsCli.Publish(nodes.GetChannel(head.DstServerType, head.DstServerID), ret)
+}
+
+func SendBytes(head *pb.Head, buf []byte) error {
+	// 路由
+	if err := Dispatcher(head); err != nil {
+		return err
+	}
+	// 内部服务转发
+	ret, _ := proto.Marshal(&pb.Packet{Head: head, Body: buf})
 	return natsCli.Publish(nodes.GetChannel(head.DstServerType, head.DstServerID), ret)
 }

@@ -4,7 +4,6 @@ import (
 	"reflect"
 	"strings"
 	"universal/common/pb"
-	"universal/framework/basic"
 
 	"github.com/golang/protobuf/proto"
 )
@@ -20,6 +19,7 @@ type IRspHead interface {
 type Handler func(ctx *Context, req proto.Message, rsp proto.Message) error
 
 type ApiInfo struct {
+	apiID   uint32
 	reqname string
 	rspname string
 	req     reflect.Type
@@ -27,28 +27,21 @@ type ApiInfo struct {
 	fun     Handler
 }
 
-func (d *ApiInfo) GetReqName() string {
-	return d.reqname
+func RegisterApi(apiID uint32, f Handler, req proto.Message, rsp proto.Message) {
+	reqType := reflect.TypeOf(req).Elem()
+	rspType := reflect.TypeOf(rsp).Elem()
+	apis[apiID] = &ApiInfo{
+		apiID:   apiID,
+		reqname: GetProtoName(req),
+		rspname: GetProtoName(rsp),
+		req:     reqType,
+		rsp:     rspType,
+		fun:     f,
+	}
 }
 
-func (d *ApiInfo) GetRspName() string {
-	return d.rspname
-}
-
-func (d *ApiInfo) GetReqCrc() uint32 {
-	return basic.GetCrc(d.reqname)
-}
-
-func (d *ApiInfo) GetRspCrc() uint32 {
-	return basic.GetCrc(d.rspname)
-}
-
-func (d *ApiInfo) NewRequest() proto.Message {
-	return reflect.New(d.req).Interface().(proto.Message)
-}
-
-func (d *ApiInfo) NewResponse() proto.Message {
-	return reflect.New(d.rsp).Interface().(proto.Message)
+func Get(apiID uint32) *ApiInfo {
+	return apis[apiID]
 }
 
 func Walk(f func(api *ApiInfo) bool) {
@@ -82,37 +75,22 @@ func GetProtoName(val proto.Message) string {
 	return sType
 }
 
-func RegisterApi(f Handler, req proto.Message, rsp proto.Message) {
-	reqType := reflect.TypeOf(req).Elem()
-	rspType := reflect.TypeOf(rsp).Elem()
-
-	item := &ApiInfo{
-		reqname: GetProtoName(req),
-		rspname: GetProtoName(rsp),
-		req:     reqType,
-		rsp:     rspType,
-		fun:     f,
-	}
-	apis[item.GetReqCrc()] = item
-	apis[item.GetRspCrc()] = item
+func (d *ApiInfo) GetReqName() string {
+	return d.reqname
 }
 
-func Get(crc uint32) *ApiInfo {
-	return apis[crc]
+func (d *ApiInfo) GetRspName() string {
+	return d.rspname
 }
 
-func GetByName(name string) *ApiInfo {
-	return apis[basic.GetCrc(name)]
+func (d *ApiInfo) GetApiID() uint32 {
+	return d.apiID
 }
 
-func Encode(packet proto.Message) []byte {
-	crc := basic.GetCrc(GetProtoName(packet))
-	buff, _ := proto.Marshal(packet)
-	data := append(basic.IntToBytes(int(crc)), buff...)
-	return data
+func (d *ApiInfo) NewRequest() proto.Message {
+	return reflect.New(d.req).Interface().(proto.Message)
 }
 
-func Decode(buff []byte) (uint32, []byte) {
-	packetId := uint32(basic.BytesToInt(buff[0:4]))
-	return packetId, buff[4:]
+func (d *ApiInfo) NewResponse() proto.Message {
+	return reflect.New(d.rsp).Interface().(proto.Message)
 }

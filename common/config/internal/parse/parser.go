@@ -9,19 +9,19 @@ import (
 )
 
 type Parser struct {
-	sheetName string           // 配置文件名
-	fileInfo  os.FileInfo      // 文件修改时间
-	cfgs      []domain.IConfig // 配置解析器
+	sheetName string            // 配置文件名
+	fileInfo  os.FileInfo       // 文件修改时间
+	cfgs      []domain.LoadFunc // 配置解析器
 }
 
-func NewParser(name string, cfgs ...domain.IConfig) *Parser {
+func NewParser(name string, cfgs ...domain.LoadFunc) *Parser {
 	return &Parser{
 		sheetName: name,
 		cfgs:      cfgs,
 	}
 }
 
-func (d *Parser) Register(cfgs ...domain.IConfig) {
+func (d *Parser) Register(cfgs ...domain.LoadFunc) {
 	d.cfgs = append(d.cfgs, cfgs...)
 }
 
@@ -44,8 +44,8 @@ func (d *Parser) Load(dir string) (err error) {
 		return
 	}
 	// 解析配置文件
-	for _, val := range d.cfgs {
-		if err = val.LoadFile(buf); err != nil {
+	for _, f := range d.cfgs {
+		if err = f(buf); err != nil {
 			return
 		}
 	}
