@@ -20,7 +20,7 @@ func GetType(k int32, pkg, name, class string) *typespec.Type {
 }
 
 func GetTypeReference(tt *typespec.Type) *typespec.Type {
-	key := typespec.GetPkgType(tt)
+	key := tt.GetPkgType()
 	val, ok := types[key]
 	if !ok {
 		types[key] = tt
@@ -37,7 +37,7 @@ func GetTypeReference(tt *typespec.Type) *typespec.Type {
 
 // ---------------------添加别名------------------------
 func AddAlias(t *typespec.Alias) error {
-	key := typespec.GetPkgType(t.Type)
+	key := t.Type.GetPkgType()
 	if _, ok := alias[key]; ok {
 		return uerror.NewUError(2, -1, "别名(%s)已经存在", key)
 	}
@@ -63,7 +63,7 @@ func GetAliasList() (rets []*typespec.Alias) {
 // ---------------添加枚举-----------------------
 func AddEnum(vv *typespec.Enum) error {
 	if vv != nil {
-		key := typespec.GetPkgType(vv.Type)
+		key := vv.Type.GetPkgType()
 		if _, ok := enums[key]; ok {
 			return uerror.NewUError(2, -1, "枚举类型(%s)已经存在", key)
 		}
@@ -73,7 +73,7 @@ func AddEnum(vv *typespec.Enum) error {
 }
 
 func LoadEnum(tt *typespec.Type) *typespec.Enum {
-	key := typespec.GetPkgType(tt)
+	key := tt.GetPkgType()
 	if _, ok := enums[key]; !ok {
 		enums[key] = typespec.ENUM(tt, "")
 	}
@@ -96,7 +96,7 @@ func GetEnumList() (rets []*typespec.Enum) {
 
 // -----------------------struct数据结构----------------------
 func AddStruct(vv *typespec.Struct) error {
-	key := typespec.GetPkgType(vv.Type)
+	key := vv.Type.GetPkgType()
 	if _, ok := structs[key]; ok {
 		return uerror.NewUError(2, -1, "结构体(%s)已经存在", key)
 	}

@@ -5,6 +5,7 @@ import (
 	"os"
 	"path/filepath"
 	"universal/framework/basic"
+	"universal/tools/gomaker/domain"
 	"universal/tools/gomaker/internal/manager"
 	"universal/tools/gomaker/internal/parser"
 	"universal/tools/gomaker/internal/util"
@@ -85,8 +86,6 @@ func (d *Args) handleProto() {
 	if err != nil {
 		util.Panic(err)
 	}
-	// 以目的目录设置pkg
-	//domain.DefaultPkg = filepath.Base(d.dst)
 	// 解析xlsx文件生成表
 	par := &parser.XlsxParser{}
 	if err := par.ParseFiles(files...); err != nil {
@@ -107,6 +106,8 @@ func (d *Args) handleGo() {
 	if err != nil {
 		util.Panic(err)
 	}
+	// 以目的目录设置pkg
+	domain.DefaultPkg = filepath.Base(d.dst)
 	util.Panic(util.ParseFiles(&parser.Parser{}, files...))
 	// 生成go文件
 	util.Panic(manager.Generator(d.action, d.dst, tpls, d.param))

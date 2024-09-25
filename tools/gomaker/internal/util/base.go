@@ -8,6 +8,7 @@ import (
 	"os"
 	"path/filepath"
 	"text/template"
+	"unicode"
 	"universal/framework/basic"
 	"universal/framework/uerror"
 )
@@ -61,4 +62,22 @@ func OpenTemplate(dir string, pattern, filter string, recursive bool) (*template
 		return template.Must(template.ParseFiles(files...)), nil
 	}
 	return nil, nil
+}
+
+// 大小写转成下划线
+func ToUnderline(word string) string {
+	result := []byte{}
+	for i, ch := range word {
+		if !unicode.IsUpper(ch) {
+			result = append(result, byte(ch))
+		} else {
+			if i == 0 {
+				result = append(result, byte(unicode.ToLower(ch)))
+			} else {
+				result = append(result, '_')
+				result = append(result, byte(unicode.ToLower(ch)))
+			}
+		}
+	}
+	return basic.BytesToString(result)
 }

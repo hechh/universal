@@ -46,7 +46,7 @@ func parseSheet(sh *typespec.Sheet, dst string) error {
 		return nil
 	}
 	// 加载从pb.go文件解析的结构信息
-	pbItem := manager.GetStruct(typespec.GetPkgType(st.Type))
+	pbItem := manager.GetStruct(st.Type.GetPkgType())
 	if pbItem == nil {
 		return uerror.NewUError(1, -1, "%s配置表生成的结构被删除", sh.Sheet)
 	}
@@ -88,7 +88,7 @@ func toBytes(pbItem *typespec.Struct, fields map[int]*typespec.Field, values [][
 }
 
 func jsonToProto(item *typespec.Type, data interface{}) (jsbuf, bytes []byte) {
-	ary := fmt.Sprintf("%sAry", typespec.GetPkgType(item))
+	ary := fmt.Sprintf("%sAry", item.GetPkgType())
 	jsbuf, _ = json.Marshal(map[string]interface{}{"Ary": data})
 	pbData := reflect.New(proto.MessageType(ary).Elem()).Interface()
 	json.Unmarshal(jsbuf, pbData)

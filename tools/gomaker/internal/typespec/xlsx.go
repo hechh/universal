@@ -1,6 +1,8 @@
 package typespec
 
 import (
+	"universal/tools/gomaker/internal/util"
+
 	"github.com/xuri/excelize/v2"
 )
 
@@ -9,11 +11,16 @@ type Sheet struct {
 	Sheet    string     // 表明
 	Config   string     // 表明
 	Class    string     // 分类
+	Struct   *Struct    // 结构
 	Group    [][]*Field // 类型数据
 	Map      [][]*Field // 类型数据
 	IsList   bool       // 是否为list数据
 	IsStruct bool       // 是否为单个数据
 	fp       *excelize.File
+}
+
+func (d *Sheet) GetPkg() string {
+	return util.ToUnderline(d.Config)
 }
 
 func (d *Sheet) GetRows() ([][]string, error) {

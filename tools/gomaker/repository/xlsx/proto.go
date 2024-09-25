@@ -12,7 +12,7 @@ import (
 	"universal/tools/gomaker/internal/util"
 )
 
-var (
+const (
 	protoHeader = `
 syntax = "proto3";
 package pb;

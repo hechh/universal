@@ -14,6 +14,20 @@ type Type struct {
 	Class string // 分类
 }
 
+func (d *Type) GetPkgType() string {
+	if len(d.Pkg) <= 0 {
+		return d.Name
+	}
+	return fmt.Sprintf("%s.%s", d.Pkg, d.Name)
+}
+
+func (d *Type) GetType(pkg string) string {
+	if len(d.Pkg) <= 0 || pkg == d.Pkg {
+		return d.Name
+	}
+	return fmt.Sprintf("%s.%s", d.Pkg, d.Name)
+}
+
 func TYPE(k int32, pkg, name, class string) *Type {
 	return &Type{Kind: k, Pkg: pkg, Name: name, Class: class}
 }
@@ -23,6 +37,19 @@ type Alias struct {
 	RealType  *Type   // 引用类型
 	RealToken []int32 // 结构类型
 	Doc       string  // 注释
+}
+
+func (d *Alias) GetToken(pkg string) string {
+	ls := []string{}
+	for _, tname := range d.RealToken {
+		switch tname {
+		case domain.TokenTypePointer:
+			ls = append(ls, "*")
+		case domain.TokenTypeArray:
+			ls = append(ls, "[]")
+		}
+	}
+	return fmt.Sprintf("%s%s", strings.Join(ls, ""), d.Type.GetType(pkg))
 }
 
 func ALIAS(t, r *Type, doc string, ts ...int32) *Alias {
@@ -81,6 +108,19 @@ type Field struct {
 	Doc   string  // 注释
 }
 
+func (d *Field) GetToken(pkg string) string {
+	ls := []string{}
+	for _, tname := range d.Token {
+		switch tname {
+		case domain.TokenTypePointer:
+			ls = append(ls, "*")
+		case domain.TokenTypeArray:
+			ls = append(ls, "[]")
+		}
+	}
+	return fmt.Sprintf("%s%s", strings.Join(ls, ""), d.Type.GetType(pkg))
+}
+
 func FIELD(t *Type, name string, index int, tag, doc string, ts ...int32) *Field {
 	return &Field{Type: t, Name: name, Index: index, Tag: tag, Doc: doc, Token: ts}
 }
@@ -104,31 +144,4 @@ func (d *Struct) Add(t *Type, name string, index int, tag, doc string, ts ...int
 	val := &Field{Type: t, Name: name, Index: index, Tag: tag, Doc: doc, Token: ts}
 	d.List = append(d.List, val)
 	d.Fields[val.Name] = val
-}
-
-func GetPkgType(d *Type) string {
-	if len(d.Pkg) <= 0 {
-		return d.Name
-	}
-	return fmt.Sprintf("%s.%s", d.Pkg, d.Name)
-}
-
-func GetType(d *Type, pkg string) string {
-	if len(d.Pkg) <= 0 || pkg == d.Pkg {
-		return d.Name
-	}
-	return fmt.Sprintf("%s.%s", d.Pkg, d.Name)
-}
-
-func GetToken(tt *Type, pkg string, ts ...int32) string {
-	ls := []string{}
-	for _, tname := range ts {
-		switch tname {
-		case domain.TokenTypePointer:
-			ls = append(ls, "*")
-		case domain.TokenTypeArray:
-			ls = append(ls, "[]")
-		}
-	}
-	return fmt.Sprintf("%s%s", strings.Join(ls, ""), GetType(tt, pkg))
 }
