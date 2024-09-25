@@ -73,10 +73,14 @@ func TableGen(dst string, tpls *template.Template, extra ...string) error {
 	class := map[string][]string{}
 	refs := map[string]struct{}{}
 	for _, st := range manager.GetStructList() {
+		if len(st.Type.Class) <= 0 {
+			continue
+		}
 		tmps := []string{}
 		for _, ff := range st.List {
 			// 获取枚举类型分类，用于import
-			if ttt := manager.GetTypeReference(ff.Type); ttt.Kind == domain.KindTypeEnum {
+			ttt := manager.GetTypeReference(ff.Type)
+			if ttt.Kind != domain.KindTypeIdent {
 				refs[ttt.Class] = struct{}{}
 			}
 			if len(ff.Token) > 0 {

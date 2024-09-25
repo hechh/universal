@@ -1,6 +1,7 @@
 package util
 
 import (
+	"strings"
 	"unicode"
 	"unicode/utf8"
 )
@@ -64,6 +65,14 @@ func (d *Scanner) Read() string {
 	return string(d.buf[d.begin:d.cursor])
 }
 
+func (d *Scanner) Char() rune {
+	return d.char
+}
+
+func (d *Scanner) PrevChar() int {
+	return int(d.buf[d.cursor-1])
+}
+
 func (d *Scanner) GetChar() rune {
 	for ; true; d.Next(1).Refresh() {
 		if d.char == ' ' || d.char == '\r' || d.char == '\t' || d.char == '\n' {
@@ -88,4 +97,42 @@ func (d *Scanner) Skip(tt rune, chs ...rune) int {
 		break
 	}
 	return tmps[tt]
+}
+
+// 解析字符集
+func (d *Scanner) ParseWord() string {
+	for ; d.Char() != -1 && (IsLetter(d.Char()) || IsNumber(d.Char())); d.Next(1) {
+	}
+	val := d.Read()
+	d.Refresh()
+	return val
+}
+
+// 解析注释
+func (d *Scanner) ParseDoc() (str string) {
+	d.Next(1)
+	switch d.Char() {
+	case '/':
+		for d.Next(1).Refresh(); d.Char() != -1 && d.Char() != '\n'; d.Next(1) {
+		}
+		str = strings.TrimSpace(d.Read())
+		d.Next(1).Refresh()
+	case '*':
+		for d.Next(2).Refresh(); d.Char() != -1 && d.PrevChar() != '*' && d.Char() != '/'; d.Next(1) {
+		}
+		str = strings.TrimSpace(d.Read())
+		d.Next(1).Refresh()
+	default:
+		d.Prev(1)
+	}
+	return
+}
+
+// 解析字符串
+func (d *Scanner) ParseString() string {
+	for d.Next(1).Refresh(); d.char != -1 && (d.char != '"' || d.PrevChar() == '\\' && d.char == '"'); d.Next(1) {
+	}
+	name := d.Read()
+	d.Next(1).Refresh()
+	return name
 }

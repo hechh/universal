@@ -82,11 +82,22 @@ func (d *Args) handleBytes() {
 }
 
 func (d *Args) handleProto() {
+	// 解析自定义proto文件
+	protos, err := basic.Glob(d.src, ".*\\.proto", ".*.gen.proto", true)
+	if err != nil {
+		util.Panic(err)
+	}
+	ppar := &parser.PbParser{}
+	for _, filename := range protos {
+		if err := ppar.ParseFile(filename); err != nil {
+			util.Panic(err)
+		}
+	}
+	// 解析xlsx文件生成表
 	files, err := basic.Glob(d.xlsx, ".*\\.xlsx", "", true)
 	if err != nil {
 		util.Panic(err)
 	}
-	// 解析xlsx文件生成表
 	par := &parser.XlsxParser{}
 	if err := par.ParseFiles(files...); err != nil {
 		util.Panic(err)

@@ -6,9 +6,9 @@ import "property.gen.proto";
 // 通用奖励（道具）结构
 message Reward {
     PropertyType PropID     = 1;  // 道具类型
-    uint32       Sn         = 2;  // 道具唯一id
-    int64        Incr       = 3;  // 增加
-    uint32       Profession = 4;  // 职业
-    uint32       Quality    = 5;  // 品质
-    uint32       Star       = 6;  // 星级
+    int64        Incr       = 2;  // 增加
+    uint32       Profession = 3;  // 职业
+    uint32       Quality    = 4;  // 品质
+    uint32       Star       = 5;  // 星级
+    uint32       Sn         = 6;  // 道具唯一id
 }

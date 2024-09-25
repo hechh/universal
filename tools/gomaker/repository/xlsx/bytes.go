@@ -1,5 +1,6 @@
 package xlsx
 
+/*
 import (
 	"encoding/json"
 	"fmt"
@@ -95,3 +96,4 @@ func jsonToProto(item *typespec.Type, data interface{}) (jsbuf, bytes []byte) {
 	bytes, _ = proto.Marshal(pbData.(proto.Message))
 	return
 }
+*/

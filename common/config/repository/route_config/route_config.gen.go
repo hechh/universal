@@ -1,12 +1,11 @@
 package route_config
 
 import (
+	"github.com/golang/protobuf/proto"
 	"sync/atomic"
 	"universal/common/config/internal/manager"
 	"universal/common/pb"
 	"universal/framework/uerror"
-
-	"github.com/golang/protobuf/proto"
 )
 
 var (

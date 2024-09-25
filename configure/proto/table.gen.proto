@@ -2,6 +2,7 @@
 syntax = "proto3";
 package pb;
 option  go_package = "../../common/pb";
+import ".gen.proto";
 import "enum.gen.proto";
 
 
@@ -13,6 +14,7 @@ message RouteConfig {
 	string FuncName = 4; // 函数名称
 	SERVER ServerType = 5; // 服务类型
 	ROUTE RouteType = 6; // 路由类型
+	repeated Reward Reward = 7; // 奖励
 }
 
 message RouteConfigAry {
