@@ -55,7 +55,7 @@ func GetArgs(cwd string) *Args {
 
 func (d *Args) Handle() {
 	switch d.action {
-	case "proto":
+	case "proto", "config":
 		d.handleProto()
 	case "bytes":
 		d.handleBytes()

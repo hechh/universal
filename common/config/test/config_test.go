@@ -4,7 +4,7 @@ import (
 	"testing"
 	"time"
 	"universal/common/config/internal/manager"
-	"universal/common/config/repository/route"
+	"universal/common/config/repository/route_config"
 )
 
 func TestMain(m *testing.M) {
@@ -13,6 +13,6 @@ func TestMain(m *testing.M) {
 }
 
 func TestApi(t *testing.T) {
-	t.Log(route.Get(1))
+	t.Log(route_config.GetByID(1))
 	time.Sleep(5 * time.Second)
 }

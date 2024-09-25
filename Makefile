@@ -4,6 +4,7 @@ GCFLAGS=-gcflags "all=-N -l"
 PROTO_PATH=./configure/proto
 TABLE_PATH=./configure/table
 BYTES_PATH=./configure/bytes
+CONFIG_PATH=./common/config/repository
 PB_PATH=./common/pb
 OUTPUT=./output
 
@@ -24,6 +25,7 @@ endif
 proto: 
 	go run ./tools/gomaker/main.go -action=proto -xlsx=${TABLE_PATH} -dst=${PROTO_PATH}
 	make protoc
+	go run ./tools/gomaker/main.go -action=config -xlsx=${TABLE_PATH} -dst=${CONFIG_PATH}
 
 bytes: 
 	make protoc
