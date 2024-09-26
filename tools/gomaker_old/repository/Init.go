@@ -3,7 +3,14 @@ package repository
 import (
 	"universal/tools/gomaker/internal/manager"
 	"universal/tools/gomaker/repository/convert"
+	"universal/tools/gomaker/repository/xlsx"
 )
+
+func Init() {
+	manager.Register("proto", "xlsx转pb结构和config代码", xlsx.EnumGen, xlsx.TableGen)
+	manager.Register("config", "xlsx生成config代码", xlsx.ConfigGen)
+	//manager.Register("bytes", "xlsx转bytes文件", xlsx.BytesGen)
+}
 
 func init() {
 	manager.AddConv("uint32", "uint32", "uint32", convert.ToUint32)
@@ -19,5 +26,3 @@ func init() {
 	manager.AddConv("second", "int64", "int64", convert.ToUnixSecond)
 	manager.AddConv("millisecond", "int64", "int64", convert.ToUnixMilli)
 }
-
-func Init() {}

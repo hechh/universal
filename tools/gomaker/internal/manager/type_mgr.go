@@ -11,12 +11,13 @@ var (
 	types   = make(map[string]*typespec.Type)
 	alias   = make(map[string]*typespec.Alias)
 	enums   = make(map[string]*typespec.Enum)
+	evals   = make(map[string]*typespec.Value)
 	structs = make(map[string]*typespec.Struct)
 )
 
 // 查询类型
-func GetType(k int32, pkg, name, class string) *typespec.Type {
-	return GetTypeReference(typespec.TYPE(k, pkg, name, class))
+func GetType(kind, source int32, pkg, name, class string) *typespec.Type {
+	return GetTypeReference(typespec.TYPE(kind, source, pkg, name, class))
 }
 
 func GetTypeReference(tt *typespec.Type) *typespec.Type {
@@ -61,6 +62,14 @@ func GetAliasList() (rets []*typespec.Alias) {
 }
 
 // ---------------添加枚举-----------------------
+func InitEvals() {
+	for _, item := range enums {
+		for _, val := range item.List {
+			evals[val.Doc] = val
+		}
+	}
+}
+
 func AddEnum(vv *typespec.Enum) error {
 	if vv != nil {
 		key := vv.Type.GetPkgType()

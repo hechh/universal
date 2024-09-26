@@ -5,9 +5,9 @@ import (
 	"go/token"
 	"strings"
 	"universal/tools/gomaker/domain"
+	"universal/tools/gomaker/internal/base"
 	"universal/tools/gomaker/internal/manager"
 	"universal/tools/gomaker/internal/typespec"
-	"universal/tools/gomaker/internal/util"
 
 	"github.com/spf13/cast"
 )
@@ -28,15 +28,15 @@ func (d *Parser) Visit(node ast.Node) ast.Visitor {
 			return d
 		}
 		if n.Tok == token.CONST && len(n.Specs) > 0 {
-			util.Panic(manager.AddEnum(d.parseEnum(n)))
+			base.Panic(manager.AddEnum(d.parseEnum(n)))
 		}
 		return nil
 	case *ast.TypeSpec:
 		switch n.Type.(type) {
 		case *ast.StructType:
-			util.Panic(manager.AddStruct(d.parseStruct(n)))
+			base.Panic(manager.AddStruct(d.parseStruct(n)))
 		default:
-			util.Panic(manager.AddAlias(d.parseAlias(n)))
+			base.Panic(manager.AddAlias(d.parseAlias(n)))
 		}
 	}
 	return nil
@@ -44,26 +44,18 @@ func (d *Parser) Visit(node ast.Node) ast.Visitor {
 
 func (d *Parser) parseStruct(n *ast.TypeSpec) *typespec.Struct {
 	list := []*typespec.Field{}
-	for _, field := range n.Type.(*ast.StructType).Fields.List {
-		tt, tos := d.parseType(0, d.pkg, field.Type)
-		list = append(list, &typespec.Field{
-			Token: tos,
-			Type:  tt,
-			Name:  field.Names[0].Name,
-			Tag:   d.parseTag(field.Tag),
-			Doc:   d.parseDoc(field.Comment),
-		})
+	for i, field := range n.Type.(*ast.StructType).Fields.List {
+		tt, tos := d.parseType(domain.KindTypeIdent, domain.SourceTypeGo, d.pkg, field.Type)
+		list = append(list, typespec.FIELD(tt, field.Names[0].Name, i+1, d.parseTag(field.Tag), d.parseDoc(field.Comment), tos...))
 	}
-	return typespec.STRUCT(manager.GetType(domain.KindTypeStruct, d.pkg, n.Name.Name, ""), d.parseDoc(n.Doc), list...)
+	ttt := manager.GetType(domain.KindTypeStruct, domain.SourceTypeGo, d.pkg, n.Name.Name, "")
+	return typespec.STRUCT(ttt, d.parseDoc(n.Doc), list...)
 }
 
 func (d *Parser) parseAlias(n *ast.TypeSpec) *typespec.Alias {
-	tt, tos := d.parseType(0, d.pkg, n.Type)
-	return typespec.ALIAS(
-		manager.GetType(domain.KindTypeAlias, d.pkg, n.Name.Name, ""),
-		tt,
-		d.parseDoc(n.Doc),
-		tos...)
+	tt, tos := d.parseType(domain.KindTypeIdent, domain.SourceTypeGo, d.pkg, n.Type)
+	ttt := manager.GetType(domain.KindTypeAlias, domain.SourceTypeGo, d.pkg, n.Name.Name, "")
+	return typespec.ALIAS(ttt, tt, d.parseDoc(n.Doc), tos...)
 }
 
 func (d *Parser) parseEnum(n *ast.GenDecl) *typespec.Enum {
@@ -75,25 +67,14 @@ func (d *Parser) parseEnum(n *ast.GenDecl) *typespec.Enum {
 			continue
 		}
 		// 解析
-		tt, _ := d.parseType(domain.KindTypeEnum, d.pkg, vv.Type)
-		values = append(values, typespec.VALUE(
-			tt,
-			vv.Names[0].Name,
-			cast.ToInt32(vv.Values[0].(*ast.BasicLit).Value),
-			d.parseDoc(vv.Comment),
-		))
+		tt, _ := d.parseType(domain.KindTypeEnum, domain.SourceTypeGo, d.pkg, vv.Type)
+		vall := cast.ToInt32(vv.Values[0].(*ast.BasicLit).Value)
+		values = append(values, typespec.VALUE(tt, vv.Names[0].Name, vall, d.parseDoc(vv.Comment)))
 	}
 	if len(values) > 0 {
 		return typespec.ENUM(values[0].Type, d.parseDoc(n.Doc), values...)
 	}
 	return nil
-}
-
-func (d *Parser) parseType(k int32, pkg string, n ast.Expr) (*typespec.Type, []int32) {
-	tt := typespec.TYPE(k, pkg, "", "")
-	token := []int32{}
-	parseAstType(n, tt, &token)
-	return manager.GetTypeReference(tt), token
 }
 
 func (d *Parser) parseTag(tt *ast.BasicLit) string {
@@ -112,6 +93,13 @@ func (d *Parser) parseDoc(doc *ast.CommentGroup) string {
 		return ""
 	}
 	return strings.TrimSpace(strings.TrimPrefix(doc.List[ll-1].Text, "//"))
+}
+
+func (d *Parser) parseType(kind, source int32, pkg string, n ast.Expr) (*typespec.Type, []rune) {
+	tt := typespec.TYPE(kind, source, pkg, "", "")
+	token := []rune{}
+	parseAstType(n, tt, &token)
+	return manager.GetTypeReference(tt), token
 }
 
 func parseAstType(n ast.Expr, tt *typespec.Type, token *[]int32) {

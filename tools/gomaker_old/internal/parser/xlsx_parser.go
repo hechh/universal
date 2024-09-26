@@ -16,7 +16,7 @@ type XlsxParser struct{}
 func (d *XlsxParser) ParseFiles(files ...string) error {
 	// 解析所有配置的生成表
 	for _, filename := range files {
-		if err := ParseGenTable(filename, manager.GetMEnumsPointer(), manager.GetMessagePointer()); err != nil {
+		if err := ParseGenTable(filename, manager.GetMEnumsReference(), manager.GetMessageReference()); err != nil {
 			return err
 		}
 	}
@@ -102,18 +102,16 @@ func ParseXlsxSheet(ss []string, fp *excelize.File) *typespec.Sheet {
 			result.IsStruct = true
 		case "list":
 			result.IsList = true
-		case "map":
+		case "map", "group":
 			tmps := []*typespec.Field{}
 			for _, param := range strings.Split(vals[1], ",") {
 				tmps = append(tmps, &typespec.Field{Name: param[:strings.Index(param, "@")]})
 			}
-			result.Map = append(result.Map, tmps)
-		case "group":
-			tmps := []*typespec.Field{}
-			for _, param := range strings.Split(vals[1], ",") {
-				tmps = append(tmps, &typespec.Field{Name: param[:strings.Index(param, "@")]})
+			if vals[0] == "map" {
+				result.Map = append(result.Map, tmps)
+			} else {
+				result.Group = append(result.Group, tmps)
 			}
-			result.Group = append(result.Group, tmps)
 		}
 	}
 	return result
@@ -126,7 +124,7 @@ func ParseXlsxEnum(class, val string) *typespec.Value {
 		return nil
 	}
 	ss := strings.Split(val, ":")
-	tt := manager.GetType(domain.KindTypeEnum, domain.SourceTypeXlsx, domain.DefaultPkg, ss[2], class)
+	tt := manager.GetType(domain.KindTypeEnum, domain.DefaultPkg, ss[2], class)
 	return typespec.VALUE(tt, ss[3], cast.ToInt32(ss[4]), ss[1])
 }
 
@@ -149,7 +147,7 @@ func ParseXlsxStruct(sh *typespec.Sheet, val01, val02 []string) *typespec.Struct
 		}
 	}
 	if len(fs) > 0 {
-		return typespec.STRUCT(manager.GetType(domain.KindTypeStruct, domain.SourceTypeXlsx, domain.DefaultPkg, sh.Config, sh.Class), sh.Sheet, fs...)
+		return typespec.STRUCT(manager.GetType(domain.KindTypeStruct, domain.DefaultPkg, sh.Config, sh.Class), sh.Sheet, fs...)
 	}
 	return nil
 }
@@ -161,23 +159,22 @@ func ParseXlsxField(pos int, ff string, doc string) *typespec.Field {
 	if i <= 0 || len(ff[i+1:]) <= 0 {
 		return nil
 	}
-	source := int32(domain.SourceTypeXlsx)
 	fname := ff[:i]
 	cfgType := strings.ReplaceAll(ff[i+1:], "[]", "")
 	goType := manager.GetGoType(cfgType)
 	pkg, kind := "", int32(domain.KindTypeIdent)
 	if !domain.BasicTypes[goType] {
 		// 枚举类型一定先于struct结构
-		if ttt := manager.GetType(0, source, domain.DefaultPkg, goType, ""); ttt != nil {
+		if ttt := manager.GetType(0, domain.DefaultPkg, goType, ""); ttt != nil {
 			pkg, kind = ttt.Pkg, ttt.Kind
 		} else {
 			pkg, kind = domain.DefaultPkg, domain.KindTypeStruct
 		}
 	}
 	// 解析token
-	ts := []rune{}
+	ts := []int32{}
 	for i := 0; i < strings.Count(ff[i+1:], "[]"); i++ {
 		ts = append(ts, domain.TokenTypeArray)
 	}
-	return typespec.FIELD(manager.GetType(kind, int32(source), pkg, goType, ""), fname, pos, cfgType, doc, ts...)
+	return typespec.FIELD(manager.GetType(kind, pkg, goType, ""), fname, pos, cfgType, doc, ts...)
 }

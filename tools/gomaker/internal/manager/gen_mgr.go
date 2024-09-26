@@ -3,7 +3,6 @@ package manager
 import (
 	"flag"
 	"fmt"
-	"text/template"
 	"universal/framework/uerror"
 	"universal/tools/gomaker/domain"
 )
@@ -18,9 +17,9 @@ type GenInfo struct {
 	gens   []domain.GenFunc
 }
 
-func (d *GenInfo) Run(dst string, tpls *template.Template, extra ...string) error {
+func (d *GenInfo) Run(dst string, extra ...string) error {
 	for _, f := range d.gens {
-		if err := f(dst, tpls, extra...); err != nil {
+		if err := f(dst, extra...); err != nil {
 			return err
 		}
 	}
@@ -38,9 +37,9 @@ func Register(action, help string, fs ...domain.GenFunc) {
 	gens[action] = &GenInfo{action: action, help: help, gens: fs}
 }
 
-func Generator(action string, dst string, tpls *template.Template, extra ...string) error {
+func Generator(action string, dst string, extra ...string) error {
 	if val, ok := gens[action]; ok {
-		return val.Run(dst, tpls, extra...)
+		return val.Run(dst, extra...)
 	}
 	return uerror.NewUError(1, -1, "生成模式(%s)不支持", action)
 }
