@@ -100,15 +100,19 @@ func ParseStocks(files ...string) error {
 			}
 			// 过滤无用概念
 			j := -1
+			repeats := map[string]struct{}{}
 			for _, val := range item.Themes {
 				if _, ok := filters[val]; ok {
 					continue
 				}
-				j++
-				if nval, ok := convs[val]; ok {
+				nval, ok := convs[val]
+				if !ok {
+					nval = val
+				}
+				if _, ok := repeats[nval]; !ok {
+					repeats[nval] = struct{}{}
+					j++
 					item.Themes[j] = nval
-				} else {
-					item.Themes[j] = val
 				}
 			}
 			item.Themes = item.Themes[:j+1]
