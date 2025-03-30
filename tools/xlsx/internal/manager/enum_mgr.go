@@ -4,6 +4,10 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
+	"io/ioutil"
+	"os"
+	"path/filepath"
+	"sort"
 	"strings"
 	"universal/framework/basic"
 	"universal/framework/uerror"
@@ -11,65 +15,64 @@ import (
 	"universal/tools/xlsx/internal/base"
 
 	"github.com/spf13/cast"
-	"github.com/xuri/excelize/v2"
 )
 
 var (
 	enumMgr   = make(map[string]*base.Enum)
 	structMgr = make(map[string]*base.Struct)
 	configMgr = make(map[string]*base.Config)
-	tableMgr  = make(map[string]*base.Table)
+	tableMgr  = []*base.Table{}
 )
 
-func AddEnum(str string) {
+func IsStruct(name string) bool {
+	_, ok := structMgr[name]
+	return ok
+}
+
+func IsEnum(name string) bool {
+	_, ok := enumMgr[name]
+	return ok
+}
+
+func GetTableList() []*base.Table {
+	sort.Slice(tableMgr, func(i, j int) bool {
+		return tableMgr[i].Priority > tableMgr[j].Priority
+	})
+	return tableMgr
+}
+
+func AddConfig(item *base.Config) {
+	configMgr[item.Name] = item
+}
+
+func AddStruct(item *base.Struct) {
+	structMgr[item.Name] = item
+}
+
+func AddTable(item *base.Table) {
+	tableMgr = append(tableMgr, item)
+}
+
+func AddEnum(table *base.Table, str string) {
 	strs := strings.Split(str, ":")
 	enumType := strs[2]
 	fieldName := fmt.Sprintf("%s_%s", strs[2], strs[3])
 	data, ok := enumMgr[enumType]
 	if !ok {
 		enumMgr[enumType] = &base.Enum{
-			Name:   enumType,
-			Values: make(map[string]*base.EnumValue),
+			Name:     enumType,
+			Sheet:    table.Sheet,
+			FileName: table.FileName,
+			Values:   make(map[string]*base.EnumValue),
 		}
 		data = enumMgr[enumType]
 	}
-	data.Values[fieldName] = &base.EnumValue{
+
+	data.Values[strs[1]] = &base.EnumValue{
 		Name:  fieldName,
 		Value: cast.ToUint32(strs[4]),
 		Desc:  strs[1],
 	}
-}
-
-func AddTable(fp *excelize.File, str string) error {
-	strs := strings.Split(str, "|")
-	index := strings.Index(strs[2], "@")
-	if _, ok := tableMgr[strs[2][:index]]; ok {
-		return uerror.NewUError(1, -1, "表%s已经存在", strs[2])
-	}
-	switch strs[0] {
-	case "enum":
-		tableMgr[strs[2][:index]] = &base.Table{
-			TypeOf:   domain.TypeOfEnum,
-			Sheet:    strs[2][:index],
-			FileName: strs[2][index+1:],
-			Fp:       fp,
-		}
-	case "struct":
-		tableMgr[strs[2][:index]] = &base.Table{
-			TypeOf:   domain.TypeOfStruct,
-			Sheet:    strs[2][:index],
-			FileName: strs[2][index+1:],
-			Fp:       fp,
-		}
-	case "config":
-		tableMgr[strs[2][:index]] = &base.Table{
-			TypeOf:   domain.TypeOfConfig,
-			Sheet:    strs[2][:index],
-			FileName: strs[2][index+1:],
-			Fp:       fp,
-		}
-	}
-	return nil
 }
 
 func toCast(name string, str string) interface{} {
@@ -185,8 +188,7 @@ func parseRow(st *base.Config, vals ...string) map[string]interface{} {
 	return ret
 }
 
-func ParseRows(name string, rows [][]string, buf *bytes.Buffer) error {
-	st := configMgr[name]
+func ParseRows(st *base.Config, rows [][]string, buf *bytes.Buffer) error {
 	ret := []map[string]interface{}{}
 	for _, row := range rows {
 		ret = append(ret, parseRow(st, row...))
@@ -197,5 +199,19 @@ func ParseRows(name string, rows [][]string, buf *bytes.Buffer) error {
 	}
 	buf.Reset()
 	buf.Write(jsData)
+
+	return SaveFile(fmt.Sprintf("%s.json", st.FileName), buf.Bytes())
+}
+
+func SaveFile(filename string, buf []byte) error {
+	// 创建目录
+	if err := os.MkdirAll(filepath.Dir(filename), os.FileMode(0777)); err != nil {
+		return uerror.NewUError(1, -1, "filename: %s, error: %v", filename, err)
+	}
+
+	// 写入文件
+	if err := ioutil.WriteFile(filename, buf, os.FileMode(0666)); err != nil {
+		return uerror.NewUError(1, -1, "filename: %s, error: %v", filename, err)
+	}
 	return nil
 }

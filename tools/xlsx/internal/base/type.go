@@ -13,8 +13,6 @@ type Field struct {
 	Type     *Type  // 字段类型
 	Desc     string // 字段标签
 	Position int    // 字段索引
-	Sheet    string // 表明
-	FileName string // 文件名
 }
 
 type Struct struct {
@@ -47,9 +45,9 @@ type Config struct {
 }
 
 type Table struct {
-	TypeOf    uint32
-	Sheet     string
-	FileName  string
-	Fp        *excelize.File
-	RefNumber int
+	TypeOf   uint32
+	Sheet    string
+	FileName string
+	Fp       *excelize.File
+	Priority int
 }
