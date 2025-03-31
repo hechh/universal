@@ -1,7 +1,5 @@
 package base
 
-import "github.com/xuri/excelize/v2"
-
 type Type struct {
 	Name    string // 类型名称
 	TypeOf  uint32 // 1表示内置类型，2表示枚举，3表示结构体
@@ -16,38 +14,41 @@ type Field struct {
 }
 
 type Struct struct {
-	Name     string              // 结构体名称
-	List     []*Field            // 字段类型
-	Converts map[string][]*Field // 转换表
-	Sheet    string              // 表明
-	FileName string              // 文件名
+	Name      string              // 结构体名称
+	List      []*Field            // 字段类型
+	Converts  map[string][]*Field // 转换表
+	SheetName string              // 表明
+	FileName  string              // 文件名
 }
 
-type EnumValue struct {
+// 生成表
+type Config struct {
+	Name      string   // 表名称
+	List      []*Field // 表列表
+	SheetName string   // 表明
+	FileName  string   // 文件名
+}
+
+// 枚举类型定义
+type Enum struct {
+	Name      string             // 枚举名称
+	Values    map[string]*EValue // 枚举值
+	SheetName string             // 表明
+	FileName  string             // 文件名
+}
+
+type EValue struct {
 	Name  string // 枚举值名称
 	Value uint32 // 枚举值
 	Desc  string // 枚举值描述
 }
 
-type Enum struct {
-	Name     string                // 枚举名称
-	Values   map[string]*EnumValue // 枚举值
-	Sheet    string                // 表明
-	FileName string                // 文件名
-}
-
-// 生成表
-type Config struct {
-	Name     string   // 表名称
-	List     []*Field // 表列表
-	Sheet    string   // 表明
-	FileName string   // 文件名
-}
-
-type Table struct {
-	TypeOf   uint32
-	Sheet    string
-	FileName string
-	Fp       *excelize.File
-	Priority int
+type Value struct {
+	TypeOf    uint32
+	Type      string // 类型名称
+	Name      string // 枚举值名称
+	Value     uint32 // 枚举值
+	Desc      string // 枚举值描述
+	SheetName string // 表明
+	FileName  string // 文件名
 }
