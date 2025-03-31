@@ -12,7 +12,7 @@ import (
 )
 
 // enum|CST|全局表@Global
-func ParseTable(fp *excelize.File, str string) *base.Table {
+func parseTable(fp *excelize.File, str string) *base.Table {
 	strs := strings.Split(str, "|")
 	index := strings.Index(strs[2], "@")
 	item := &base.Table{
@@ -32,7 +32,7 @@ func ParseTable(fp *excelize.File, str string) *base.Table {
 }
 
 // E:服务类型-game:ServerType:Game:1
-func ParseValue(table *base.Table, str string) *base.Value {
+func parseValue(table *base.Table, str string) *base.Value {
 	strs := strings.Split(str, ":")
 	switch strings.ToLower(strs[0]) {
 	case "e":
@@ -49,7 +49,7 @@ func ParseValue(table *base.Table, str string) *base.Value {
 	return nil
 }
 
-func ParseStruct(table *base.Table, vals [][]string) *base.Struct {
+func parseStruct(table *base.Table, vals [][]string) *base.Struct {
 	ret := &base.Struct{
 		Name:      table.FileName,
 		SheetName: table.SheetName,
@@ -74,7 +74,7 @@ func ParseStruct(table *base.Table, vals [][]string) *base.Struct {
 	return ret
 }
 
-func ParseStructConvert(st *base.Struct, vals ...string) {
+func parseStructConvert(st *base.Struct, vals ...string) {
 	for i, val := range vals {
 		if len(val) <= 0 || cast.ToInt(val) <= 0 {
 			continue
@@ -83,7 +83,7 @@ func ParseStructConvert(st *base.Struct, vals ...string) {
 	}
 }
 
-func ParseConfig(table *base.Table, vals [][]string) *base.Config {
+func parseConfig(table *base.Table, vals [][]string) *base.Config {
 	ret := &base.Config{
 		Name:      table.FileName,
 		SheetName: table.SheetName,

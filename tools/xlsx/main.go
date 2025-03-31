@@ -24,18 +24,18 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-
 	// 解析table结构
 	if err := parser.ParseXlsx(files...); err != nil {
 		panic(err)
 	}
 
+	// 解析结构
 	if err := parser.ParseType(); err != nil {
 		panic(err)
 	}
 
 	// 生成json
-	if err := parser.ParseAndSaveJson(jsonPath, bytes.NewBuffer(nil)); err != nil {
+	if err := parser.SaveJson(jsonPath, bytes.NewBuffer(nil)); err != nil {
 		panic(err)
 	}
 }

@@ -24,7 +24,7 @@ func TestRun(t *testing.T) {
 	}
 
 	// 生成json
-	if err := parser.ParseAndSaveJson("./json_tmp", bytes.NewBuffer(nil)); err != nil {
+	if err := parser.SaveJson("./json_tmp", bytes.NewBuffer(nil)); err != nil {
 		panic(err)
 	}
 }

@@ -27,10 +27,10 @@ func ParseXlsx(files ...string) error {
 		}
 
 		for _, vals := range cols {
-			table := ParseTable(fp, vals[0])
+			table := parseTable(fp, vals[0])
 			manager.AddTable(table)
 			for _, val := range vals[1:] {
-				manager.AddEnum(ParseValue(table, val))
+				manager.AddEnum(parseValue(table, val))
 			}
 		}
 	}
@@ -50,7 +50,7 @@ func ParseType() error {
 				if len(val) <= 0 {
 					continue
 				}
-				manager.AddEnum(ParseValue(table, val))
+				manager.AddEnum(parseValue(table, val))
 			}
 		}
 	}
@@ -60,10 +60,10 @@ func ParseType() error {
 		if err != nil {
 			return uerror.NewUError(1, -1, "获取行失败: %v", err)
 		}
-		st := ParseStruct(table, rows[:3])
+		st := parseStruct(table, rows[:3])
 		manager.AddStruct(st)
 		for _, vals := range rows[3:] {
-			ParseStructConvert(st, vals...)
+			parseStructConvert(st, vals...)
 		}
 	}
 	// 解析所有配置结构
@@ -72,12 +72,14 @@ func ParseType() error {
 		if err != nil {
 			return uerror.NewUError(1, -1, "获取行失败: %v", err)
 		}
-		manager.AddConfig(ParseConfig(table, rows))
+		manager.AddConfig(parseConfig(table, rows))
 	}
+	// 文件分类
+	manager.UpdateFile()
 	return nil
 }
 
-func ParseAndSaveJson(jspath string, buf *bytes.Buffer) error {
+func SaveJson(jspath string, buf *bytes.Buffer) error {
 	for _, table := range manager.GetTables(domain.TYPE_OF_CONFIG) {
 		rows, err := table.GetRows()
 		if err != nil {
@@ -87,10 +89,10 @@ func ParseAndSaveJson(jspath string, buf *bytes.Buffer) error {
 		cfg := manager.GetConfig(table.FileName)
 		rets := []map[string]interface{}{}
 		for _, row := range rows[3:] {
-			rets = append(rets, ConfigConvert(cfg, row...))
+			rets = append(rets, ConvertConfig(cfg, row...))
 		}
 
-		jsData, err := json.Marshal(rets)
+		jsData, err := json.MarshalIndent(rets, "", "  ")
 		if err != nil {
 			return uerror.NewUError(1, -1, "json.Marshal: %v", err)
 		}

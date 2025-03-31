@@ -1,6 +1,7 @@
 package parser
 
 import (
+	"fmt"
 	"strings"
 	"universal/framework/basic"
 	"universal/tools/xlsx/domain"
@@ -10,7 +11,7 @@ import (
 	"github.com/spf13/cast"
 )
 
-func Convert(name string, strs ...string) interface{} {
+func convert(name string, strs ...string) interface{} {
 	rets := []interface{}{}
 	for _, str := range strs {
 		switch name {
@@ -40,7 +41,7 @@ func Convert(name string, strs ...string) interface{} {
 	return rets
 }
 
-func EnumConvert(en *base.Enum, strs ...string) interface{} {
+func convertEnum(en *base.Enum, strs ...string) interface{} {
 	rets := []uint32{}
 	for _, str := range strs {
 		rets = append(rets, en.Values[str].Value)
@@ -51,16 +52,16 @@ func EnumConvert(en *base.Enum, strs ...string) interface{} {
 	return rets
 }
 
-func StructConvert(st *base.Struct, strs ...string) interface{} {
+func convertStruct(st *base.Struct, strs ...string) interface{} {
 	ret := map[string]interface{}{}
 	for i, field := range st.Converts[strs[0]] {
 		switch field.Type.TypeOf {
 		case domain.TYPE_OF_BASE:
 			switch field.Type.ValueOf {
 			case domain.VALUE_OF_IDENT:
-				ret[field.Name] = Convert(field.Type.Name, strs[i])
+				ret[field.Name] = convert(field.Type.Name, strs[i])
 			case domain.VALUE_OF_ARRAY:
-				ret[field.Name] = Convert(field.Type.Name, strings.Split(strs[i], ",")...)
+				ret[field.Name] = convert(field.Type.Name, strings.Split(strs[i], ",")...)
 			case domain.VALUE_OF_MAP:
 				// 暂时不支持
 			case domain.VALUE_OF_GROUP:
@@ -69,9 +70,9 @@ func StructConvert(st *base.Struct, strs ...string) interface{} {
 		case domain.TYPE_OF_ENUM:
 			switch field.Type.ValueOf {
 			case domain.VALUE_OF_IDENT:
-				ret[field.Name] = EnumConvert(manager.GetEnum(field.Type.Name), strs[i])
+				ret[field.Name] = convertEnum(manager.GetEnum(field.Type.Name), strs[i])
 			case domain.VALUE_OF_ARRAY:
-				ret[field.Name] = EnumConvert(manager.GetEnum(field.Type.Name), strings.Split(strs[i], ",")...)
+				ret[field.Name] = convertEnum(manager.GetEnum(field.Type.Name), strings.Split(strs[i], ",")...)
 			case domain.VALUE_OF_MAP:
 				// 暂时不支持
 			case domain.VALUE_OF_GROUP:
@@ -82,16 +83,16 @@ func StructConvert(st *base.Struct, strs ...string) interface{} {
 	return ret
 }
 
-func ConfigConvert(st *base.Config, vals ...string) map[string]interface{} {
+func ConvertConfig(st *base.Config, vals ...string) map[string]interface{} {
 	ret := map[string]interface{}{}
 	for _, field := range st.List {
 		switch field.Type.TypeOf {
 		case domain.TYPE_OF_BASE:
 			switch field.Type.ValueOf {
 			case domain.VALUE_OF_IDENT:
-				ret[field.Name] = Convert(field.Type.Name, vals[field.Position])
+				ret[field.Name] = convert(field.Type.Name, vals[field.Position])
 			case domain.VALUE_OF_ARRAY:
-				ret[field.Name] = Convert(field.Type.Name, strings.Split(vals[field.Position], ",")...)
+				ret[field.Name] = convert(field.Type.Name, strings.Split(vals[field.Position], ",")...)
 			case domain.VALUE_OF_MAP:
 				// todo
 			case domain.VALUE_OF_GROUP:
@@ -100,9 +101,9 @@ func ConfigConvert(st *base.Config, vals ...string) map[string]interface{} {
 		case domain.TYPE_OF_ENUM:
 			switch field.Type.ValueOf {
 			case domain.VALUE_OF_IDENT:
-				ret[field.Name] = EnumConvert(manager.GetEnum(field.Type.Name), vals[field.Position])
+				ret[field.Name] = convertEnum(manager.GetEnum(field.Type.Name), vals[field.Position])
 			case domain.VALUE_OF_ARRAY:
-				ret[field.Name] = EnumConvert(manager.GetEnum(field.Type.Name), strings.Split(vals[field.Position], ",")...)
+				ret[field.Name] = convertEnum(manager.GetEnum(field.Type.Name), strings.Split(vals[field.Position], ",")...)
 			case domain.VALUE_OF_MAP:
 				// todo
 			case domain.VALUE_OF_GROUP:
@@ -111,11 +112,12 @@ func ConfigConvert(st *base.Config, vals ...string) map[string]interface{} {
 		case domain.TYPE_OF_STRUCT:
 			switch field.Type.ValueOf {
 			case domain.VALUE_OF_IDENT:
-				ret[field.Name] = StructConvert(manager.GetStruct(field.Type.Name), strings.Split(vals[field.Position], ",")...)
+				ret[field.Name] = convertStruct(manager.GetStruct(field.Type.Name), strings.Split(vals[field.Position], ",")...)
 			case domain.VALUE_OF_ARRAY:
 				tmps := []interface{}{}
 				for _, str := range strings.Split(vals[field.Position], "|") {
-					tmps = append(tmps, StructConvert(manager.GetStruct(field.Type.Name), strings.Split(str, ",")...))
+					fmt.Println(field, field.Type, str, "-----------", vals[field.Position])
+					tmps = append(tmps, convertStruct(manager.GetStruct(field.Type.Name), strings.Split(str, ",")...))
 				}
 				ret[field.Name] = tmps
 			case domain.VALUE_OF_MAP:

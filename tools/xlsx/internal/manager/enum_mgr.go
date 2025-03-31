@@ -11,7 +11,20 @@ var (
 	configMgr = make(map[string]*base.Config)
 	tableMgr  = make(map[string]*base.Table)
 	tableList = []*base.Table{}
+	fileMgr   = make(map[string][]interface{})
 )
+
+func UpdateFile() {
+	for _, item := range enumMgr {
+		fileMgr[item.FileName] = append(fileMgr[item.FileName], item)
+	}
+	for _, item := range structMgr {
+		fileMgr[item.FileName] = append(fileMgr[item.FileName], item)
+	}
+	for _, item := range configMgr {
+		fileMgr[item.FileName] = append(fileMgr[item.FileName], item)
+	}
+}
 
 func GetEnum(name string) *base.Enum {
 	return enumMgr[name]
