@@ -1,6 +1,7 @@
 package manager
 
 import (
+	"sort"
 	"universal/tools/xlsx/domain"
 	"universal/tools/xlsx/internal/base"
 )
@@ -11,19 +12,20 @@ var (
 	configMgr = make(map[string]*base.Config)
 	tableMgr  = make(map[string]*base.Table)
 	tableList = []*base.Table{}
-	fileMgr   = make(map[string][]interface{})
 )
 
-func UpdateFile() {
+func GetFileInfo() (rets map[string][]interface{}) {
+	rets = make(map[string][]interface{})
 	for _, item := range enumMgr {
-		fileMgr[item.FileName] = append(fileMgr[item.FileName], item)
+		rets[item.FileName] = append(rets[item.FileName], item)
 	}
 	for _, item := range structMgr {
-		fileMgr[item.FileName] = append(fileMgr[item.FileName], item)
+		rets[item.FileName] = append(rets[item.FileName], item)
 	}
 	for _, item := range configMgr {
-		fileMgr[item.FileName] = append(fileMgr[item.FileName], item)
+		rets[item.FileName] = append(rets[item.FileName], item)
 	}
+	return rets
 }
 
 func GetEnum(name string) *base.Enum {
@@ -40,6 +42,14 @@ func GetConfig(name string) *base.Config {
 
 func GetTable(name string) *base.Table {
 	return tableMgr[name]
+}
+
+func GetTableList() (rets []*base.Table) {
+	rets = append(rets, tableList...)
+	sort.Slice(rets, func(i, j int) bool {
+		return rets[i].TypeOf < rets[j].TypeOf
+	})
+	return
 }
 
 func GetTables(typeOf uint32) (rets []*base.Table) {
@@ -68,10 +78,9 @@ func AddEnum(item *base.Value) {
 	enum, ok := enumMgr[item.Type]
 	if !ok {
 		enum = &base.Enum{
-			Name:      item.Type,
-			SheetName: item.SheetName,
-			FileName:  item.FileName,
-			Values:    make(map[string]*base.EValue),
+			Name:     item.Type,
+			FileName: item.FileName,
+			Values:   make(map[string]*base.EValue),
 		}
 		enumMgr[item.Type] = enum
 	}

@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"path"
+	"path/filepath"
 	"universal/framework/uerror"
 	"universal/tools/xlsx/domain"
 	"universal/tools/xlsx/internal/base"
@@ -38,44 +39,49 @@ func ParseXlsx(files ...string) error {
 }
 
 // 解析结构类型
-func ParseType() error {
-	// 解析所有枚举
-	for _, table := range manager.GetTables(domain.TYPE_OF_ENUM) {
-		cols, err := table.GetCols()
-		if err != nil {
-			return uerror.NewUError(1, -1, "获取列失败: %v", err)
-		}
-		for _, vals := range cols {
-			for _, val := range vals {
-				if len(val) <= 0 {
-					continue
+func SaveType(cfgPath string, buf *bytes.Buffer) error {
+	for _, table := range manager.GetTableList() {
+		switch table.TypeOf {
+		case domain.TYPE_OF_ENUM:
+			cols, _ := table.GetCols()
+			for _, vals := range cols {
+				for _, val := range vals {
+					if len(val) <= 0 {
+						continue
+					}
+					manager.AddEnum(parseValue(table, val))
 				}
-				manager.AddEnum(parseValue(table, val))
+			}
+		case domain.TYPE_OF_STRUCT:
+			rows, _ := table.GetRows()
+			st := parseStruct(table, rows[:3])
+			manager.AddStruct(st)
+			for _, vals := range rows[3:] {
+				parseStructConvert(st, vals...)
+			}
+		case domain.TYPE_OF_CONFIG:
+			rows, _ := table.ScanRows(3)
+			manager.AddConfig(parseConfig(table, rows))
+		}
+	}
+	// 保存文件
+	for fileName, vals := range manager.GetFileInfo() {
+		buf.Reset()
+		buf.WriteString(fmt.Sprintf("package %s\n", filepath.Base(cfgPath)))
+		for _, val := range vals {
+			switch item := val.(type) {
+			case *base.Enum:
+				item.Format(buf)
+			case *base.Struct:
+				item.Format(buf)
+			case *base.Config:
+				item.Format(buf)
 			}
 		}
-	}
-	// 解析所有结构
-	for _, table := range manager.GetTables(domain.TYPE_OF_STRUCT) {
-		rows, err := table.GetRows()
-		if err != nil {
-			return uerror.NewUError(1, -1, "获取行失败: %v", err)
-		}
-		st := parseStruct(table, rows[:3])
-		manager.AddStruct(st)
-		for _, vals := range rows[3:] {
-			parseStructConvert(st, vals...)
+		if err := base.SaveGo(path.Join(cfgPath, fmt.Sprintf("%s.go", fileName)), buf); err != nil {
+			return err
 		}
 	}
-	// 解析所有配置结构
-	for _, table := range manager.GetTables(domain.TYPE_OF_CONFIG) {
-		rows, err := table.ScanRows(3)
-		if err != nil {
-			return uerror.NewUError(1, -1, "获取行失败: %v", err)
-		}
-		manager.AddConfig(parseConfig(table, rows))
-	}
-	// 文件分类
-	manager.UpdateFile()
 	return nil
 }
 

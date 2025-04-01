@@ -19,12 +19,13 @@ func TestRun(t *testing.T) {
 		panic(err)
 	}
 
-	if err := parser.ParseType(); err != nil {
+	buf := bytes.NewBuffer(nil)
+	if err := parser.SaveType("./json_tmp", buf); err != nil {
 		panic(err)
 	}
 
 	// 生成json
-	if err := parser.SaveJson("./json_tmp", bytes.NewBuffer(nil)); err != nil {
+	if err := parser.SaveJson("./json_tmp", buf); err != nil {
 		panic(err)
 	}
 }

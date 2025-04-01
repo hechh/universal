@@ -14,27 +14,24 @@ type Field struct {
 }
 
 type Struct struct {
-	Name      string              // 结构体名称
-	List      []*Field            // 字段类型
-	Converts  map[string][]*Field // 转换表
-	SheetName string              // 表明
-	FileName  string              // 文件名
+	Name     string              // 结构体名称
+	List     []*Field            // 字段类型
+	Converts map[string][]*Field // 转换表
+	FileName string              // 文件名
 }
 
 // 生成表
 type Config struct {
-	Name      string   // 表名称
-	List      []*Field // 表列表
-	SheetName string   // 表明
-	FileName  string   // 文件名
+	Name     string   // 表名称
+	List     []*Field // 表列表
+	FileName string   // 文件名
 }
 
 // 枚举类型定义
 type Enum struct {
-	Name      string             // 枚举名称
-	Values    map[string]*EValue // 枚举值
-	SheetName string             // 表明
-	FileName  string             // 文件名
+	Name     string             // 枚举名称
+	Values   map[string]*EValue // 枚举值
+	FileName string             // 文件名
 }
 
 type EValue struct {
@@ -44,11 +41,10 @@ type EValue struct {
 }
 
 type Value struct {
-	TypeOf    uint32
-	Type      string // 类型名称
-	Name      string // 枚举值名称
-	Value     uint32 // 枚举值
-	Desc      string // 枚举值描述
-	SheetName string // 表明
-	FileName  string // 文件名
+	TypeOf   uint32
+	Type     string // 类型名称
+	Name     string // 枚举值名称
+	Value    uint32 // 枚举值
+	Desc     string // 枚举值描述
+	FileName string // 文件名
 }

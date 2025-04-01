@@ -30,12 +30,13 @@ func main() {
 	}
 
 	// 解析结构
-	if err := parser.ParseType(); err != nil {
+	buf := bytes.NewBuffer(nil)
+	if err := parser.SaveType(cfgPath, buf); err != nil {
 		panic(err)
 	}
 
 	// 生成json
-	if err := parser.SaveJson(jsonPath, bytes.NewBuffer(nil)); err != nil {
+	if err := parser.SaveJson(jsonPath, buf); err != nil {
 		panic(err)
 	}
 }

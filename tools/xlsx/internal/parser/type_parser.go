@@ -37,13 +37,12 @@ func parseValue(table *base.Table, str string) *base.Value {
 	switch strings.ToLower(strs[0]) {
 	case "e":
 		return &base.Value{
-			TypeOf:    domain.TYPE_OF_ENUM,
-			Type:      strs[2],
-			Name:      fmt.Sprintf("%s_%s", strs[2], strs[3]),
-			Value:     cast.ToUint32(strs[4]),
-			Desc:      strs[1],
-			SheetName: table.SheetName,
-			FileName:  table.FileName,
+			TypeOf:   domain.TYPE_OF_ENUM,
+			Type:     strs[2],
+			Name:     fmt.Sprintf("%s_%s", strs[2], strs[3]),
+			Value:    cast.ToUint32(strs[4]),
+			Desc:     strs[1],
+			FileName: table.FileName,
 		}
 	}
 	return nil
@@ -51,10 +50,9 @@ func parseValue(table *base.Table, str string) *base.Value {
 
 func parseStruct(table *base.Table, vals [][]string) *base.Struct {
 	ret := &base.Struct{
-		Name:      table.FileName,
-		SheetName: table.SheetName,
-		FileName:  table.FileName,
-		Converts:  map[string][]*base.Field{},
+		Name:     table.FileName,
+		FileName: table.FileName,
+		Converts: map[string][]*base.Field{},
 	}
 	for i, val := range vals[1] {
 		if len(val) <= 0 {
@@ -85,9 +83,8 @@ func parseStructConvert(st *base.Struct, vals ...string) {
 
 func parseConfig(table *base.Table, vals [][]string) *base.Config {
 	ret := &base.Config{
-		Name:      table.FileName,
-		SheetName: table.SheetName,
-		FileName:  table.FileName,
+		Name:     table.FileName,
+		FileName: table.FileName,
 	}
 	for i, val := range vals[1] {
 		if len(val) <= 0 {
