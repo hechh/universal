@@ -3,8 +3,8 @@ SYSTEM=$(shell go env GOOS)
 GCFLAGS=-gcflags "all=-N -l"
 PROTO_PATH=./configure/proto
 TABLE_PATH=./configure/table
-BYTES_PATH=./configure/bytes
-CONFIG_PATH=./common/config/repository
+JSON_PATH=./configure/json
+CFG_PATH=./common/cfg
 PB_PATH=./common/pb
 OUTPUT=./output
 
@@ -24,9 +24,8 @@ endif
 ##########################client工具代码自动生成#######################
 proto: 
 	go run ./tools/gomaker/main.go -action=proto -xlsx=${TABLE_PATH} -dst=${PROTO_PATH} -src=${PROTO_PATH}
-#	go run ./tools/gomaker/main.go -action=config -xlsx=${TABLE_PATH} -dst=${CONFIG_PATH}
 
-bytes: 
-	make protoc
-	go run ./tools/gomaker/main.go -action=bytes -src=${PB_PATH} -xlsx=${TABLE_PATH} -dst=${BYTES_PATH}
+# 配置转换工具
+xlsx:
+	go run ./tools/xlsx/main.go -xlsx=${TABLE_PATH} -json=${JSON_PATH} -cfg=${CFG_PATH}
 

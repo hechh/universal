@@ -1,0 +1,20 @@
+[
+  {
+    "FuncName": "HeartbeatRequest",
+    "ID": 1,
+    "Request": "HeartbeatRequest",
+    "Response": "HeartbeatResponse",
+    "Rewards": [
+      {
+        "Add": 10,
+        "PropType": 1
+      },
+      {
+        "Add": 100,
+        "PropType": 2
+      }
+    ],
+    "RouteType": 1,
+    "ServerType": 1
+  }
+]
