@@ -76,7 +76,7 @@ func parseStruct(table *base.Table, vals [][]string) *base.Struct {
 
 func parseStructConvert(st *base.Struct, vals ...string) {
 	for i, val := range vals {
-		if len(val) <= 0 || cast.ToInt(val) <= 0 {
+		if len(val) <= 0 || val == "0" {
 			continue
 		}
 		st.Converts[vals[0]] = append(st.Converts[vals[0]], st.List[i])

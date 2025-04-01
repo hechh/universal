@@ -1,7 +1,6 @@
 package parser
 
 import (
-	"fmt"
 	"strings"
 	"universal/framework/basic"
 	"universal/tools/xlsx/domain"
@@ -116,7 +115,6 @@ func ConvertConfig(st *base.Config, vals ...string) map[string]interface{} {
 			case domain.VALUE_OF_ARRAY:
 				tmps := []interface{}{}
 				for _, str := range strings.Split(vals[field.Position], "|") {
-					fmt.Println(field, field.Type, str, "-----------", vals[field.Position])
 					tmps = append(tmps, convertStruct(manager.GetStruct(field.Type.Name), strings.Split(str, ",")...))
 				}
 				ret[field.Name] = tmps
