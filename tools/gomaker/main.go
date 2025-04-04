@@ -2,14 +2,14 @@ package main
 
 import (
 	"flag"
+	"hego/framework/basic"
+	"hego/tools/gomaker/domain"
+	"hego/tools/gomaker/internal/base"
+	"hego/tools/gomaker/internal/manager"
+	"hego/tools/gomaker/internal/parser"
+	"hego/tools/gomaker/repository"
 	"os"
 	"path/filepath"
-	"universal/framework/basic"
-	"universal/tools/gomaker/domain"
-	"universal/tools/gomaker/internal/base"
-	"universal/tools/gomaker/internal/manager"
-	"universal/tools/gomaker/internal/parser"
-	"universal/tools/gomaker/repository"
 )
 
 func init() {

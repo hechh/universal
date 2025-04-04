@@ -2,7 +2,7 @@ package manager
 
 import (
 	"fmt"
-	"universal/tools/gomaker/internal/typespec"
+	"hego/tools/gomaker/internal/typespec"
 )
 
 var (

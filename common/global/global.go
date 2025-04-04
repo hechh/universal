@@ -1,7 +1,7 @@
 package global
 
 import (
-	"universal/common/pb"
+	"hego/common/pb"
 )
 
 var (

@@ -2,8 +2,8 @@ package typespec
 
 import (
 	"fmt"
+	"hego/tools/gomaker/internal/util"
 	"strings"
-	"universal/tools/gomaker/internal/util"
 
 	"github.com/xuri/excelize/v2"
 )

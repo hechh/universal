@@ -1,8 +1,8 @@
 package config
 
 import (
+	"hego/common/config/internal/manager"
 	"time"
-	"universal/common/config/internal/manager"
 )
 
 func Init(dir string, ttl time.Duration) error {

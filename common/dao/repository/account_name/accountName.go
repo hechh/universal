@@ -1,8 +1,8 @@
 package account_name
 
 import (
+	"hego/common/dao/internal/manager"
 	"time"
-	"universal/common/dao/internal/manager"
 
 	"github.com/astaxie/beego/orm"
 )

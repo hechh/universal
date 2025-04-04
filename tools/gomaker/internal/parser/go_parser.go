@@ -3,11 +3,11 @@ package parser
 import (
 	"go/ast"
 	"go/token"
+	"hego/tools/gomaker/domain"
+	"hego/tools/gomaker/internal/base"
+	"hego/tools/gomaker/internal/manager"
+	"hego/tools/gomaker/internal/typespec"
 	"strings"
-	"universal/tools/gomaker/domain"
-	"universal/tools/gomaker/internal/base"
-	"universal/tools/gomaker/internal/manager"
-	"universal/tools/gomaker/internal/typespec"
 
 	"github.com/spf13/cast"
 )

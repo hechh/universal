@@ -2,10 +2,10 @@ package test
 
 import (
 	"fmt"
+	"hego/framework/basic"
+	"hego/framework/timer"
 	"testing"
 	"time"
-	"universal/framework/basic"
-	"universal/framework/timer"
 )
 
 func Print() {

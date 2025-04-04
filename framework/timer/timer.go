@@ -1,11 +1,11 @@
 package timer
 
 import (
+	"hego/framework/async"
+	"hego/framework/basic"
+	"hego/framework/plog"
 	"sync/atomic"
 	"time"
-	"universal/framework/async"
-	"universal/framework/basic"
-	"universal/framework/plog"
 )
 
 const (

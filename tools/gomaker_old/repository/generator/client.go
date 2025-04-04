@@ -7,8 +7,8 @@ import (
 	"path/filepath"
 	"strings"
 	"text/template"
-	"universal/tools/gomaker/internal/manager"
-	"universal/tools/gomaker/internal/util"
+	"hego/tools/gomaker/internal/manager"
+	"hego/tools/gomaker/internal/util"
 )
 
 // 生成代码

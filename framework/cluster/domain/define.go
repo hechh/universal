@@ -1,6 +1,6 @@
 package domain
 
-import "universal/common/pb"
+import "hego/common/pb"
 
 const (
 	ROOT_DIR = "server"

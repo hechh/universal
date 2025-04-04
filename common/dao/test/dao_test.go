@@ -3,12 +3,12 @@ package test
 /*
 import (
 	"testing"
-	"universal/common/dao/domain"
-	"universal/common/dao/internal/manager"
-	"universal/common/dao/repository/account"
-	"universal/common/dao/repository/account_name"
-	"universal/common/dao/repository/player_name"
-	"universal/common/global"
+	"hego/common/dao/domain"
+	"hego/common/dao/internal/manager"
+	"hego/common/dao/repository/account"
+	"hego/common/dao/repository/account_name"
+	"hego/common/dao/repository/player_name"
+	"hego/common/global"
 
 	_ "github.com/go-sql-driver/mysql"
 )

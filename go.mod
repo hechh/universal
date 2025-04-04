@@ -1,4 +1,4 @@
-module universal
+module hego
 
 go 1.22.1
 

@@ -1,7 +1,7 @@
 package base
 
 import (
-	"universal/framework/uerror"
+	"hego/framework/uerror"
 
 	"github.com/xuri/excelize/v2"
 )

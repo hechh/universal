@@ -4,8 +4,8 @@ package test
 import (
 	"testing"
 	"time"
-	"universal/common/global"
-	"universal/framework/cluster/internal/discovery"
+	"hego/common/global"
+	"hego/framework/cluster/internal/discovery"
 )
 
 var (

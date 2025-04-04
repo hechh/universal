@@ -1,10 +1,10 @@
 package route
 
 import (
+	"hego/common/config/internal/manager"
+	"hego/common/pb"
+	"hego/framework/uerror"
 	"sync/atomic"
-	"universal/common/config/internal/manager"
-	"universal/common/pb"
-	"universal/framework/uerror"
 
 	"github.com/golang/protobuf/proto"
 )

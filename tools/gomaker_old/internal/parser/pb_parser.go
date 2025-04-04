@@ -1,12 +1,12 @@
 package parser
 
 import (
+	"hego/framework/uerror"
+	"hego/tools/gomaker/domain"
+	"hego/tools/gomaker/internal/manager"
+	"hego/tools/gomaker/internal/typespec"
+	"hego/tools/gomaker/internal/util"
 	"io/ioutil"
-	"universal/framework/uerror"
-	"universal/tools/gomaker/domain"
-	"universal/tools/gomaker/internal/manager"
-	"universal/tools/gomaker/internal/typespec"
-	"universal/tools/gomaker/internal/util"
 
 	"github.com/spf13/cast"
 )

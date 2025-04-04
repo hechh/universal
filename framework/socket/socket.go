@@ -2,10 +2,10 @@ package socket
 
 import (
 	"fmt"
+	"hego/framework/basic"
 	"io"
 	"net"
 	"time"
-	"universal/framework/basic"
 )
 
 type IFrame interface {

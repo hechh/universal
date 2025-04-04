@@ -1,10 +1,10 @@
 package manager
 
 import (
+	"hego/framework/uerror"
+	"hego/tools/gomaker/internal/typespec"
 	"sort"
 	"strings"
-	"universal/framework/uerror"
-	"universal/tools/gomaker/internal/typespec"
 )
 
 var (

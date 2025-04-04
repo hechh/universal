@@ -2,6 +2,7 @@ package plog
 
 import (
 	"fmt"
+	"hego/framework/basic"
 	"path"
 	"runtime"
 	"strconv"
@@ -9,7 +10,6 @@ import (
 	"sync"
 	"sync/atomic"
 	"time"
-	"universal/framework/basic"
 )
 
 var (

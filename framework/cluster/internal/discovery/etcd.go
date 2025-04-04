@@ -2,9 +2,9 @@ package discovery
 
 import (
 	"context"
+	"hego/framework/basic"
+	"hego/framework/plog"
 	"time"
-	"universal/framework/basic"
-	"universal/framework/plog"
 
 	"go.etcd.io/etcd/clientv3"
 )

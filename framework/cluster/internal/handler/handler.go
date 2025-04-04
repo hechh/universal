@@ -1,9 +1,9 @@
 package handler
 
 import (
-	"universal/common/pb"
-	"universal/common/util"
-	"universal/framework/cluster/domain"
+	"hego/common/pb"
+	"hego/common/util"
+	"hego/framework/cluster/domain"
 )
 
 var (

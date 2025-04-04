@@ -3,8 +3,8 @@ package manager
 import (
 	"flag"
 	"fmt"
-	"universal/framework/uerror"
-	"universal/tools/gomaker/domain"
+	"hego/framework/uerror"
+	"hego/tools/gomaker/domain"
 )
 
 var (

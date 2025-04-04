@@ -3,14 +3,14 @@ package main
 import (
 	"flag"
 	"fmt"
+	"hego/common/dao"
+	"hego/common/global"
+	"hego/framework/plog"
+	"hego/tools/client/internal/httpkit"
+	"hego/tools/client/internal/player"
 	"os"
 	"os/signal"
 	"syscall"
-	"universal/common/dao"
-	"universal/common/global"
-	"universal/framework/plog"
-	"universal/tools/client/internal/httpkit"
-	"universal/tools/client/internal/player"
 )
 
 var (

@@ -3,11 +3,11 @@ package plog
 import (
 	"bufio"
 	"fmt"
+	"hego/framework/basic"
 	"os"
 	"path"
 	"sync"
 	"time"
-	"universal/framework/basic"
 )
 
 type MetaData struct {

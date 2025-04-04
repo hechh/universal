@@ -3,9 +3,9 @@ package manager
 import (
 	"flag"
 	"fmt"
+	"hego/framework/uerror"
+	"hego/tools/gomaker/domain"
 	"text/template"
-	"universal/framework/uerror"
-	"universal/tools/gomaker/domain"
 )
 
 var (

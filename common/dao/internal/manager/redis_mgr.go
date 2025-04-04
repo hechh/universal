@@ -3,10 +3,10 @@ package manager
 import (
 	"context"
 	"fmt"
+	"hego/common/dao/domain"
+	"hego/common/dao/internal/redis"
+	"hego/common/global"
 	"time"
-	"universal/common/dao/domain"
-	"universal/common/dao/internal/redis"
-	"universal/common/global"
 
 	goredis "github.com/go-redis/redis/v8"
 )

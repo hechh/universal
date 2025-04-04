@@ -1,9 +1,9 @@
 package test
 
 import (
+	"hego/tools/gomaker/internal/parser"
 	"io/ioutil"
 	"testing"
-	"universal/tools/gomaker/internal/parser"
 
 	"github.com/xuri/excelize/v2"
 )

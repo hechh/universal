@@ -1,9 +1,9 @@
 package repository
 
 import (
-	"universal/tools/gomaker/internal/manager"
-	"universal/tools/gomaker/repository/convert"
-	"universal/tools/gomaker/repository/xlsx"
+	"hego/tools/gomaker/internal/manager"
+	"hego/tools/gomaker/repository/convert"
+	"hego/tools/gomaker/repository/xlsx"
 )
 
 func Init() {

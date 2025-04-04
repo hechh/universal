@@ -1,12 +1,12 @@
 package manager
 
 import (
+	"hego/common/config/domain"
+	"hego/common/config/internal/parse"
+	"hego/framework/basic"
+	"hego/framework/plog"
 	"runtime/debug"
 	"time"
-	"universal/common/config/domain"
-	"universal/common/config/internal/parse"
-	"universal/framework/basic"
-	"universal/framework/plog"
 )
 
 var (

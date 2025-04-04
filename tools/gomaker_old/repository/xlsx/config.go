@@ -4,12 +4,12 @@ import (
 	"bytes"
 	"fmt"
 	"go/format"
+	"hego/framework/uerror"
+	"hego/tools/gomaker/internal/manager"
+	"hego/tools/gomaker/internal/util"
 	"path/filepath"
 	"strings"
 	"text/template"
-	"universal/framework/uerror"
-	"universal/tools/gomaker/internal/manager"
-	"universal/tools/gomaker/internal/util"
 )
 
 func ConfigGen(dst string, tpls *template.Template, extra ...string) error {
@@ -51,9 +51,9 @@ package {{.GetPkg}}
 
 import (
 	"sync/atomic"
-	"universal/common/config/internal/manager"
-	"universal/common/pb"
-	"universal/framework/uerror"
+	"hego/common/config/internal/manager"
+	"hego/common/pb"
+	"hego/framework/uerror"
 	"github.com/golang/protobuf/proto"
 )
 

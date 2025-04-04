@@ -3,8 +3,8 @@ package manager
 import (
 	"database/sql"
 	"fmt"
-	"universal/common/global"
-	"universal/framework/basic"
+	"hego/common/global"
+	"hego/framework/basic"
 
 	"github.com/astaxie/beego/orm"
 )

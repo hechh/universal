@@ -2,10 +2,10 @@ package parser
 
 import (
 	"fmt"
+	"hego/tools/xlsx/domain"
+	"hego/tools/xlsx/internal/base"
+	"hego/tools/xlsx/internal/manager"
 	"strings"
-	"universal/tools/xlsx/domain"
-	"universal/tools/xlsx/internal/base"
-	"universal/tools/xlsx/internal/manager"
 
 	"github.com/spf13/cast"
 	"github.com/xuri/excelize/v2"

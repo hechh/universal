@@ -3,7 +3,7 @@ package test
 /*
 import (
 	"testing"
-	"universal/framework/plog"
+	"hego/framework/plog"
 )
 
 func TestError(t *testing.T) {

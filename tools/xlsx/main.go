@@ -3,8 +3,8 @@ package main
 import (
 	"bytes"
 	"flag"
-	"universal/framework/basic"
-	"universal/tools/xlsx/internal/parser"
+	"hego/framework/basic"
+	"hego/tools/xlsx/internal/parser"
 )
 
 var (

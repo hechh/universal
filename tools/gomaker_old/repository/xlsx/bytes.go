@@ -8,13 +8,13 @@ import (
 	"reflect"
 	"text/template"
 	"unicode"
-	"universal/framework/uerror"
-	"universal/tools/gomaker/internal/manager"
-	"universal/tools/gomaker/internal/parser"
-	"universal/tools/gomaker/internal/typespec"
-	"universal/tools/gomaker/internal/util"
+	"hego/framework/uerror"
+	"hego/tools/gomaker/internal/manager"
+	"hego/tools/gomaker/internal/parser"
+	"hego/tools/gomaker/internal/typespec"
+	"hego/tools/gomaker/internal/util"
 
-	_ "universal/common/pb"
+	_ "hego/common/pb"
 
 	"github.com/golang/protobuf/proto"
 )

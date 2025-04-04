@@ -1,8 +1,8 @@
 package test
 
 import (
+	"hego/common/global"
 	"testing"
-	"universal/common/global"
 )
 
 func TestConfig(t *testing.T) {

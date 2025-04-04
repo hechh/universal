@@ -1,10 +1,10 @@
 package profiler
 
 import (
+	"hego/framework/plog"
+	"hego/framework/uerror"
 	"net/http"
 	"net/http/pprof"
-	"universal/framework/plog"
-	"universal/framework/uerror"
 
 	"github.com/google/gops/agent"
 )

@@ -1,12 +1,12 @@
 package test
 
 import (
+	"hego/common/pb"
+	"hego/framework/basic"
 	"math/rand"
 	"os"
 	"path/filepath"
 	"testing"
-	"universal/common/pb"
-	"universal/framework/basic"
 
 	"github.com/golang/protobuf/proto"
 )

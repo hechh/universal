@@ -2,10 +2,10 @@ package parse
 
 import (
 	"fmt"
+	"hego/common/config/domain"
 	"io/ioutil"
 	"os"
 	"path/filepath"
-	"universal/common/config/domain"
 )
 
 type Parser struct {
