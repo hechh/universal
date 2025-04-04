@@ -1,13 +1,3 @@
-package cfg
-
-type QualityType uint32
-
-const (
-	QualityType_None  QualityType = 0 // 品质类型-空
-	QualityType_White QualityType = 1 // 品质类型-白
-	QualityType_Blue  QualityType = 2 // 品质类型-蓝
-)
-
 type RouteType uint32
 
 const (
@@ -26,11 +16,18 @@ const (
 	ServerType_Gm   ServerType = 3 // 服务类型-Gm
 )
 
-type PropertyType uint32
-
-const (
-	PropertyType_Empty   PropertyType = 0 // 道具类型-空
-	PropertyType_Coin    PropertyType = 1 // 道具类型-金币
-	PropertyType_Diamond PropertyType = 2 // 道具类型-钻石
-	PropertyType_Sword   PropertyType = 3 // 装备类型-剑
-)
+type Reward struct {
+	PropType PropertyType // 道具类型
+	Quality  QualityType  // 品质
+	Star     uint32       // 星级
+	Add      int64        // 道具数量
+}
+type RouteConfig struct {
+	ID         uint32     // 唯一ID
+	Request    string     // 请求名称
+	Response   string     // 应答协议
+	FuncName   string     // 函数名称
+	ServerType ServerType // 服务类型
+	RouteType  RouteType  // 路由类型
+	Rewards    []*Reward  // 奖励
+}

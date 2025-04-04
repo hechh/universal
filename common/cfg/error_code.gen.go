@@ -1,5 +1,3 @@
-package cfg
-
 type ErrorCode uint32
 
 const (

@@ -1,113 +1,204 @@
 package parser
 
 import (
-	"bytes"
-	"encoding/json"
 	"fmt"
-	"hego/framework/uerror"
+	"hego/Library/basic"
+	"hego/Library/uerror"
 	"hego/tools/xlsx/domain"
 	"hego/tools/xlsx/internal/base"
 	"hego/tools/xlsx/internal/manager"
-	"path"
 	"path/filepath"
+	"strings"
 
+	"github.com/spf13/cast"
 	"github.com/xuri/excelize/v2"
 )
 
-// 解析xlsx文件
-func ParseXlsx(files ...string) error {
-	for _, fileName := range files {
-		fp, err := excelize.OpenFile(fileName)
-		if err != nil {
-			return uerror.NewUError(1, -1, "打开文件%s失败: %v", fileName, err)
-		}
-
-		cols, err := fp.GetCols(domain.GENERATE_TABLE)
-		if err != nil {
-			return uerror.NewUError(1, -1, "获取列失败: %v", err)
-		}
-
-		for _, vals := range cols {
-			table := parseTable(fp, vals[0])
-			manager.AddTable(table)
-			for _, val := range vals[1:] {
-				manager.AddEnum(parseValue(table, val))
-			}
-		}
+func ParseXlsx(filename string) error {
+	fp, err := excelize.OpenFile(filename)
+	if err != nil {
+		return uerror.New(1, -1, "打开文件%s失败: %v", filename, err)
 	}
-	return nil
-}
 
-// 解析结构类型
-func SaveType(cfgPath string, buf *bytes.Buffer) error {
-	for _, table := range manager.GetTableList() {
-		switch table.TypeOf {
-		case domain.TYPE_OF_ENUM:
-			cols, _ := table.GetCols()
-			for _, vals := range cols {
-				for _, val := range vals {
-					if len(val) <= 0 {
-						continue
-					}
-					manager.AddEnum(parseValue(table, val))
-				}
-			}
-		case domain.TYPE_OF_STRUCT:
-			rows, _ := table.GetRows()
-			st := parseStruct(table, rows[:3])
-			manager.AddStruct(st)
-			for _, vals := range rows[3:] {
-				parseStructConvert(st, vals...)
-			}
-		case domain.TYPE_OF_CONFIG:
-			rows, _ := table.ScanRows(3)
-			manager.AddConfig(parseConfig(table, rows))
-		}
+	cols, err := fp.GetCols("生成表")
+	if err != nil {
+		return uerror.New(1, -1, "获取列失败: %v", err)
 	}
-	// 保存文件
-	for fileName, vals := range manager.GetFileInfo() {
-		buf.Reset()
-		buf.WriteString(fmt.Sprintf("package %s\n", filepath.Base(cfgPath)))
+
+	fileName := strings.TrimSuffix(filepath.Base(filename), filepath.Ext(filename))
+	for _, vals := range cols {
 		for _, val := range vals {
-			switch item := val.(type) {
-			case *base.Enum:
-				item.Format(buf)
-			case *base.Struct:
-				item.Format(buf)
-			case *base.Config:
-				item.Format(buf)
+			if len(val) <= 0 {
+				continue
 			}
-		}
-		if err := base.SaveGo(path.Join(cfgPath, fmt.Sprintf("%s.go", fileName)), buf); err != nil {
-			return err
+			strs := strings.Split(val, "|")
+			pos := strings.Index(strs[1], "@")
+			switch strings.ToLower(strs[0]) {
+			case "enum":
+				manager.AddTable(&base.Table{
+					TypeOf:    domain.TYPE_OF_ENUM,
+					SheetName: basic.Ifelse(pos > 0, basic.GetPrefix(strs[1], pos), strs[1]),
+					FileName:  basic.Ifelse(pos > 0, basic.GetSuffix(strs[1], pos+1), fileName),
+					Fp:        fp,
+				})
+			case "struct":
+				manager.AddTable(&base.Table{
+					TypeOf:    domain.TYPE_OF_STRUCT,
+					SheetName: strs[1][:pos],
+					TypeName:  strs[1][pos+1:],
+					FileName:  fileName,
+					Fp:        fp,
+				})
+			case "config":
+				manager.AddTable(&base.Table{
+					TypeOf:    domain.TYPE_OF_CONFIG,
+					SheetName: strs[1][:pos],
+					TypeName:  strs[1][pos+1:],
+					FileName:  fileName,
+					Rules:     basic.Suffix(strs, 2),
+					Fp:        fp,
+				})
+			case "e":
+				manager.AddEnum(&base.Value{
+					TypeOf:   domain.TYPE_OF_ENUM,
+					Type:     strs[2],
+					Name:     fmt.Sprintf("%s_%s", strs[2], strs[3]),
+					Value:    cast.ToUint32(strs[4]),
+					Desc:     strs[1],
+					FileName: fileName,
+				})
+			}
 		}
 	}
 	return nil
 }
 
-func SaveJson(jspath string, buf *bytes.Buffer) error {
-	for _, table := range manager.GetTables(domain.TYPE_OF_CONFIG) {
-		rows, err := table.GetRows()
-		if err != nil {
-			return uerror.NewUError(1, -1, "获取行失败: %v", err)
-		}
+func ParseEnum(tab *base.Table) error {
+	cols, err := tab.Fp.GetCols(tab.SheetName)
+	if err != nil {
+		return uerror.New(1, -1, "获取列失败: %v", err)
+	}
+	for _, vals := range cols {
+		for _, val := range vals {
+			if len(val) <= 0 {
+				continue
+			}
 
-		cfg := manager.GetConfig(table.FileName)
-		rets := []map[string]interface{}{}
-		for _, row := range rows[3:] {
-			rets = append(rets, ConvertConfig(cfg, row...))
-		}
-
-		jsData, err := json.MarshalIndent(rets, "", "  ")
-		if err != nil {
-			return uerror.NewUError(1, -1, "json.Marshal: %v", err)
-		}
-		buf.Reset()
-		buf.Write(jsData)
-
-		if err := base.SaveFile(path.Join(jspath, fmt.Sprintf("%s.json", table.FileName)), buf.Bytes()); err != nil {
-			return uerror.NewUError(1, -1, "保存文件失败: %v", err)
+			strs := strings.Split(val, "|")
+			manager.AddEnum(&base.Value{
+				TypeOf:   domain.TYPE_OF_ENUM,
+				Type:     strs[2],
+				Name:     fmt.Sprintf("%s_%s", strs[2], strs[3]),
+				Value:    cast.ToUint32(strs[4]),
+				Desc:     strs[1],
+				FileName: tab.FileName,
+			})
 		}
 	}
 	return nil
+}
+
+func ParseStruct(tab *base.Table) error {
+	rows, err := tab.Fp.GetRows(tab.SheetName)
+	if err != nil {
+		return uerror.New(1, -1, "获取行失败: %v", err)
+	}
+
+	item := &base.Struct{
+		Name:     tab.TypeName,
+		FileName: tab.FileName,
+		Converts: map[string][]*base.Field{},
+	}
+	manager.AddStruct(item)
+
+	for i, val := range rows[1] {
+		if len(val) <= 0 {
+			continue
+		}
+		item.List = append(item.List, &base.Field{
+			Type: &base.Type{
+				Name:    val,
+				TypeOf:  manager.GetTypeOf(val),
+				ValueOf: domain.VALUE_OF_IDENT,
+			},
+			Name:     rows[0][i],
+			Desc:     rows[2][i],
+			Position: i,
+		})
+	}
+	for _, vals := range rows[3:] {
+		for i, val := range vals {
+			if len(val) <= 0 || val == "0" {
+				continue
+			}
+			item.Converts[vals[0]] = append(item.Converts[vals[0]], item.List[i])
+		}
+	}
+	return nil
+}
+
+func ParseConfig(tab *base.Table) error {
+	rows, err := tab.ScanRows(3)
+	if err != nil {
+		return err
+	}
+	item := &base.Config{
+		Name:     tab.TypeName,
+		FileName: tab.FileName,
+	}
+	manager.AddConfig(item)
+
+	tmps := map[string]*base.Field{}
+	for i, val := range rows[1] {
+		if len(val) <= 0 {
+			continue
+		}
+		valueOf := uint32(domain.VALUE_OF_IDENT)
+		if strings.HasPrefix(val, "[]") {
+			valueOf = domain.VALUE_OF_ARRAY
+			val = strings.TrimPrefix(val, "[]")
+		}
+		tmps[rows[0][i]] = &base.Field{
+			Type: &base.Type{
+				Name:    val,
+				TypeOf:  manager.GetTypeOf(val),
+				ValueOf: valueOf,
+			},
+			Name:     rows[0][i],
+			Desc:     rows[2][i],
+			Position: i,
+		}
+		item.List = append(item.List, tmps[rows[0][i]])
+	}
+
+	for _, val := range tab.Rules {
+		strs := strings.Split(val, ":")
+		switch strings.ToLower(strs[0]) {
+		case "map":
+			for _, field := range strings.Split(strs[1], ",") {
+				item.Map = append(item.Map, tmps[field])
+			}
+		case "group":
+			for _, field := range strings.Split(strs[1], ",") {
+				item.Group = append(item.Group, tmps[field])
+			}
+		}
+	}
+	return nil
+}
+
+func ParseData(tab *base.Table) (rets []interface{}, err error) {
+	rows, err := tab.Fp.GetRows(tab.SheetName)
+	if err != nil {
+		return nil, uerror.New(1, -1, "获取行失败: %v", err)
+	}
+
+	cfg := manager.GetConfig(tab.TypeName)
+	for _, row := range rows[3:] {
+		if len(row) <= 0 {
+			continue
+		}
+		rets = append(rets, ConvertConfig(cfg, row...))
+	}
+	return
 }
