@@ -6,12 +6,14 @@ import (
 	"hego/Library/file"
 	"hego/tools/xlsx/domain"
 	"hego/tools/xlsx/internal/base"
+	"path/filepath"
 	"strings"
 )
 
 func Generate(codePath string, cfg *base.Config, buf *bytes.Buffer) error {
 	dataName := fmt.Sprintf("%sData", cfg.Name)
 	cfgName := fmt.Sprintf("%s.%sConfig", domain.PkgName, cfg.Name)
+	dir := filepath.Join(codePath, dataName)
 
 	// 包
 	buf.WriteString(fmt.Sprintf(pack, dataName))
@@ -50,15 +52,21 @@ func Generate(codePath string, cfg *base.Config, buf *bytes.Buffer) error {
 	}
 	buf.WriteString(fmt.Sprintf(parse, cfgName, strings.Join(makes, "\n"), strings.Join(sets, "\n"), dataName, strings.Join(inits, "\n")))
 
-	return file.SaveGo(codePath, fmt.Sprintf("%s.gen.go", cfg.FileName), buf.Bytes())
+	buf.WriteString(fmt.Sprintf(`
+func init(){
+	manager.Register("%s", Parse)
+}	
+	`, cfg.FileName))
+
+	return file.SaveGo(dir, fmt.Sprintf("%s.gen.go", dataName), buf.Bytes())
 }
 
 const (
 	parse = `
-func Parse(buf []byte) {
+func Parse(buf []byte) error {
 	ary := []*%s{}
 	if err := json.Unmarshal(buf, &ary); err != nil {
-		panic(err)
+		return uerror.New(1, -1, err.Error())
 	}
 	%s
 	for _, item := range ary {
@@ -67,6 +75,7 @@ func Parse(buf []byte) {
 	obj.Store(&%s{
 		%s
 	})
+	return nil
 }
 	`
 	pack = `
@@ -74,7 +83,9 @@ package %s
 
 import (
 	"encoding/json"
-	"hego/common/cfg"
+	"hego/Library/uerror"
+	"hego/common/config/cfg"
+	"hego/common/config/internal/manager"
 	"sync/atomic"
 )
 

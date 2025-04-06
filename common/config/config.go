@@ -5,6 +5,6 @@ import (
 	"time"
 )
 
-func Init(dir string, ttl time.Duration) error {
-	return manager.Init(dir, ttl)
+func Init(dir, ext string, ttl time.Duration) error {
+	return manager.Init(dir, ext, ttl)
 }

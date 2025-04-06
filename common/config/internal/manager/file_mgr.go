@@ -1,60 +1,54 @@
 package manager
 
 import (
-	"hego/common/config/domain"
 	"hego/common/config/internal/parse"
-	"hego/framework/basic"
 	"hego/framework/plog"
-	"runtime/debug"
 	"time"
 )
 
 var (
-	path  string                           // 配置文件路径
-	files = make(map[string]*parse.Parser) // 所有配置解析器
+	configPath string                           // 配置文件路径
+	fileExt    string                           // 配置文件后缀
+	files      = make(map[string]*parse.Parser) // 所有配置解析器
 )
 
-func Init(dir string, ttl time.Duration) error {
-	path = dir
+func Register(name string, f func([]byte) error) {
+	if _, ok := files[name]; ok {
+		panic("配置文件名重复: " + name)
+	}
+	files[name] = parse.NewParser(name, f)
+}
+
+func Init(dir, ext string, ttl time.Duration) error {
+	configPath = dir
+	fileExt = ext
 	// 加载所有配置
 	for _, par := range files {
-		if err := par.Load(dir); err != nil {
+		if err := par.Load(dir, ext); err != nil {
 			return err
 		}
 	}
+
 	// 定时检查
-	tt := time.NewTicker(ttl)
-	basic.SafeGo(func(err interface{}) {
-		plog.Fatal("error: %v, stack: %s", err, string(debug.Stack()))
-	}, func() {
-		for {
-			<-tt.C
-			check()
-		}
-	})
+	go check(ttl)
 	return nil
 }
 
-func Register(name string, cfgs ...domain.LoadFunc) {
-	val, ok := files[name]
-	if !ok {
-		files[name] = parse.NewParser(name, cfgs...)
-		return
-	}
-	val.Register(cfgs...)
-}
+func check(ttl time.Duration) {
+	tt := time.NewTicker(ttl)
+	defer tt.Stop()
 
-// 定时检测配置变更协程
-func check() {
-	// 检测变更
-	for name, par := range files {
-		if !par.Check(path) {
-			continue
-		}
+	for {
+		<-tt.C
+		for name, par := range files {
+			if !par.IsChange(configPath, fileExt) {
+				continue
+			}
 
-		// 重新加载配置
-		if err := par.Load(path); err != nil {
-			plog.Fatal("%s/%s.bytes加载失败", path, name)
+			// 重新加载配置
+			if err := par.Load(configPath, fileExt); err != nil {
+				plog.Fatal("%s/%s.%s加载失败", configPath, name, fileExt)
+			}
 		}
 	}
 }

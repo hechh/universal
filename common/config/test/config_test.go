@@ -2,17 +2,16 @@ package test
 
 import (
 	"hego/common/config/internal/manager"
-	"hego/common/config/repository/route_config"
+	"hego/common/config/repository/RouteData"
 	"testing"
 	"time"
 )
 
 func TestMain(m *testing.M) {
-	manager.Init("../../../configure/bytes/", 1*time.Second)
+	manager.Init("../../../configure/json/", "json", 1*time.Second)
 	m.Run()
 }
 
 func TestApi(t *testing.T) {
-	t.Log(route_config.GetByID(1))
-	time.Sleep(5 * time.Second)
+	t.Log(RouteData.SGet())
 }

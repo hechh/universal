@@ -4,8 +4,8 @@ GCFLAGS=-gcflags "all=-N -l"
 PROTO_PATH=./configure/proto
 TABLE_PATH=./configure/table
 JSON_PATH=./configure/json
-CFG_PATH=./common/cfg
-CODE_PATH=./common/code
+CFG_PATH=./common/config/cfg
+CODE_PATH=./common/config/repository
 PB_PATH=./common/pb
 OUTPUT=./output
 

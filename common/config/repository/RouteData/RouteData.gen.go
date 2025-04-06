@@ -2,7 +2,9 @@ package RouteData
 
 import (
 	"encoding/json"
-	"hego/common/cfg"
+	"hego/Library/uerror"
+	"hego/common/config/cfg"
+	"hego/common/config/internal/manager"
 	"sync/atomic"
 )
 
@@ -55,10 +57,10 @@ func GGetServerTypeRouteType(ServerType cfg.ServerType, RouteType cfg.RouteType)
 	return
 }
 
-func Parse(buf []byte) {
+func Parse(buf []byte) error {
 	ary := []*cfg.RouteConfig{}
 	if err := json.Unmarshal(buf, &ary); err != nil {
-		panic(err)
+		return uerror.New(1, -1, err.Error())
 	}
 	_ID := make(map[uint32]*cfg.RouteConfig)
 	_ServerTypeRouteType := make(map[ServerTypeRouteType][]*cfg.RouteConfig)
@@ -71,4 +73,9 @@ func Parse(buf []byte) {
 		_ID:                  _ID,
 		_ServerTypeRouteType: _ServerTypeRouteType,
 	})
+	return nil
+}
+
+func init() {
+	manager.Register("route", Parse)
 }
