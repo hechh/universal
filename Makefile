@@ -5,6 +5,7 @@ PROTO_PATH=./configure/proto
 TABLE_PATH=./configure/table
 JSON_PATH=./configure/json
 CFG_PATH=./common/cfg
+CODE_PATH=./common/code
 PB_PATH=./common/pb
 OUTPUT=./output
 
@@ -27,5 +28,5 @@ proto:
 
 # 配置转换工具
 xlsx:
-	go run ./tools/xlsx/main.go -xlsx=${TABLE_PATH} -json=${JSON_PATH} -cfg=${CFG_PATH}
+	go run ./tools/xlsx/main.go -xlsx=${TABLE_PATH} -json=${JSON_PATH} -cfg=${CFG_PATH} -code=${CODE_PATH}
 

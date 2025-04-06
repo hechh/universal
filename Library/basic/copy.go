@@ -17,10 +17,3 @@ func Filter(pattern string, vals ...string) (rets []string, err error) {
 	}
 	return
 }
-
-func Ifelse[T any](flag bool, a, b T) T {
-	if flag {
-		return a
-	}
-	return b
-}

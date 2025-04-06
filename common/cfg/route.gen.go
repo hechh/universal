@@ -1,3 +1,5 @@
+package cfg
+
 type RouteType uint32
 
 const (

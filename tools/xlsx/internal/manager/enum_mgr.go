@@ -28,6 +28,14 @@ func GetFileInfo() (rets map[string][]interface{}) {
 	return rets
 }
 
+func WalkConfig(f func(*base.Config) bool) {
+	for _, item := range configMgr {
+		if !f(item) {
+			return
+		}
+	}
+}
+
 func GetEnum(name string) *base.Enum {
 	return enumMgr[name]
 }

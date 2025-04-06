@@ -1,3 +1,5 @@
+package cfg
+
 type PropertyType uint32
 
 const (

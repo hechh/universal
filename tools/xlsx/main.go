@@ -9,26 +9,22 @@ import (
 	"hego/Library/file"
 	"hego/tools/xlsx/domain"
 	"hego/tools/xlsx/internal/base"
+	"hego/tools/xlsx/internal/generate"
 	"hego/tools/xlsx/internal/manager"
 	"hego/tools/xlsx/internal/parser"
-)
-
-var (
-	jsonPath string
-	cfgPath  string
-	codePath string
-	xlsx     string
+	"path/filepath"
 )
 
 func main() {
+	var jsonPath, cfgPath, codePath, xlsxPath string
 	flag.StringVar(&jsonPath, "json", "", "json文件目录")
 	flag.StringVar(&cfgPath, "cfg", "", "配置文件目录")
 	flag.StringVar(&codePath, "code", "", "代码文件目录")
-	flag.StringVar(&xlsx, "xlsx", "", "xlsx文件目录")
+	flag.StringVar(&xlsxPath, "xlsx", "", "xlsx文件目录")
 	flag.Parse()
 
 	// 读取文件
-	files, err := basic.Glob(xlsx, ".*\\.xlsx", "", true)
+	files, err := basic.Glob(xlsxPath, ".*\\.xlsx", "", true)
 	if err != nil {
 		panic(err)
 	}
@@ -41,6 +37,15 @@ func main() {
 	}
 
 	// 解析结构
+	parseType()
+	// 保存结构
+	saveType(cfgPath)
+	saveCode(codePath)
+	// 解析数据，并且保存
+	saveJson(jsonPath)
+}
+
+func parseType() {
 	for _, table := range manager.GetTableList() {
 		switch table.TypeOf {
 		case domain.TYPE_OF_ENUM:
@@ -57,10 +62,12 @@ func main() {
 			}
 		}
 	}
+}
 
-	// 保存结构
+func saveType(cfgPath string) {
 	buf := bytes.NewBuffer(nil)
 	for fileName, items := range manager.GetFileInfo() {
+		buf.WriteString(fmt.Sprintf("package %s\n", filepath.Base(cfgPath)))
 		for _, item := range items {
 			switch val := item.(type) {
 			case *base.Enum:
@@ -76,8 +83,20 @@ func main() {
 		}
 		buf.Reset()
 	}
+}
 
-	// 解析数据，并且保存
+func saveCode(codePath string) {
+	buf := bytes.NewBuffer(nil)
+	manager.WalkConfig(func(cfg *base.Config) bool {
+		if err := generate.Generate(codePath, cfg, buf); err != nil {
+			panic(err)
+		}
+		buf.Reset()
+		return true
+	})
+}
+
+func saveJson(jsonPath string) {
 	for _, table := range manager.GetTables(domain.TYPE_OF_CONFIG) {
 		data, err := parser.ParseData(table)
 		if err != nil {
