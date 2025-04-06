@@ -36,14 +36,14 @@ func ParseXlsx(filename string) error {
 			switch strings.ToLower(strs[0]) {
 			case "enum":
 				manager.AddTable(&base.Table{
-					TypeOf:    domain.TYPE_OF_ENUM,
+					TypeOf:    domain.TypeOfEnum,
 					SheetName: util.Ifelse(pos > 0, util.GetPrefix(strs[1], pos), strs[1]),
 					FileName:  util.Ifelse(pos > 0, util.GetSuffix(strs[1], pos+1), fileName),
 					Fp:        fp,
 				})
 			case "struct":
 				manager.AddTable(&base.Table{
-					TypeOf:    domain.TYPE_OF_STRUCT,
+					TypeOf:    domain.TypeOfStruct,
 					SheetName: strs[1][:pos],
 					TypeName:  strs[1][pos+1:],
 					FileName:  fileName,
@@ -51,7 +51,7 @@ func ParseXlsx(filename string) error {
 				})
 			case "config":
 				manager.AddTable(&base.Table{
-					TypeOf:    domain.TYPE_OF_CONFIG,
+					TypeOf:    domain.TypeOfConfig,
 					SheetName: strs[1][:pos],
 					TypeName:  strs[1][pos+1:],
 					FileName:  fileName,
@@ -60,7 +60,7 @@ func ParseXlsx(filename string) error {
 				})
 			case "e":
 				manager.AddEnum(&base.Value{
-					TypeOf:   domain.TYPE_OF_ENUM,
+					TypeOf:   domain.TypeOfEnum,
 					Type:     strs[2],
 					Name:     fmt.Sprintf("%s_%s", strs[2], strs[3]),
 					Value:    cast.ToUint32(strs[4]),

@@ -42,8 +42,13 @@ type Config struct {
 	Name      string   // 表名称
 	List      []*Field // 表列表
 	FileName  string   // 文件名
-	MapList   [][]*Field
-	GroupList [][]*Field
+	IndexList []*Index // 索引列表
+}
+
+type Index struct {
+	Name string
+	Type *Type
+	List []*Field
 }
 
 type Table struct {

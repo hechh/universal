@@ -22,6 +22,7 @@ func main() {
 	flag.StringVar(&codePath, "code", "", "代码文件目录")
 	flag.StringVar(&xlsxPath, "xlsx", "", "xlsx文件目录")
 	flag.Parse()
+	domain.PkgName = filepath.Base(cfgPath)
 
 	// 读取文件
 	files, err := basic.Glob(xlsxPath, ".*\\.xlsx", "", true)
@@ -48,15 +49,15 @@ func main() {
 func parseType() {
 	for _, table := range manager.GetTableList() {
 		switch table.TypeOf {
-		case domain.TYPE_OF_ENUM:
+		case domain.TypeOfEnum:
 			if err := parser.ParseEnum(table); err != nil {
 				panic(err)
 			}
-		case domain.TYPE_OF_STRUCT:
+		case domain.TypeOfStruct:
 			if err := parser.ParseStruct(table); err != nil {
 				panic(err)
 			}
-		case domain.TYPE_OF_CONFIG:
+		case domain.TypeOfConfig:
 			if err := parser.ParseConfig(table); err != nil {
 				panic(err)
 			}
@@ -97,7 +98,7 @@ func saveCode(codePath string) {
 }
 
 func saveJson(jsonPath string) {
-	for _, table := range manager.GetTables(domain.TYPE_OF_CONFIG) {
+	for _, table := range manager.GetTables(domain.TypeOfConfig) {
 		data, err := parser.ParseData(table)
 		if err != nil {
 			panic(err)

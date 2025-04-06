@@ -59,34 +59,34 @@ func (d *Config) Format(buf *bytes.Buffer) {
 // 获取类型字符串
 func (d *Type) GetType(pkgName string) string {
 	switch d.TypeOf {
-	case domain.TYPE_OF_BASE:
+	case domain.TypeOfBase:
 		switch d.ValueOf {
-		case domain.VALUE_OF_IDENT:
+		case domain.ValueOfBase:
 			return d.Name
-		case domain.VALUE_OF_ARRAY:
+		case domain.ValueOfList:
 			return fmt.Sprintf("[]%s", d.Name)
 		}
-	case domain.TYPE_OF_ENUM:
+	case domain.TypeOfEnum:
 		switch d.ValueOf {
-		case domain.VALUE_OF_IDENT:
+		case domain.ValueOfBase:
 			if len(pkgName) > 0 {
 				return fmt.Sprintf("%s.%s", pkgName, d.Name)
 			}
 			return d.Name
-		case domain.VALUE_OF_ARRAY:
+		case domain.ValueOfList:
 			if len(pkgName) > 0 {
 				return fmt.Sprintf("[]%s.%s", pkgName, d.Name)
 			}
 			return fmt.Sprintf("[]%s", d.Name)
 		}
-	case domain.TYPE_OF_STRUCT, domain.TYPE_OF_CONFIG:
+	case domain.TypeOfStruct, domain.TypeOfConfig:
 		switch d.ValueOf {
-		case domain.VALUE_OF_IDENT:
+		case domain.ValueOfBase:
 			if len(pkgName) > 0 {
 				return fmt.Sprintf("*%s.%s", pkgName, d.Name)
 			}
 			return fmt.Sprintf("*%s", d.Name)
-		case domain.VALUE_OF_ARRAY:
+		case domain.ValueOfList:
 			if len(pkgName) > 0 {
 				return fmt.Sprintf("[]*%s.%s", pkgName, d.Name)
 			}
@@ -94,4 +94,44 @@ func (d *Type) GetType(pkgName string) string {
 		}
 	}
 	return ""
+}
+
+func (d *Index) Value(ref, split string) string {
+	strs := []string{}
+	for _, field := range d.List {
+		if len(ref) > 0 {
+			strs = append(strs, fmt.Sprintf("%s.%s", ref, field.Name))
+		} else {
+			strs = append(strs, field.Name)
+		}
+	}
+	return strings.Join(strs, split)
+}
+
+func (d *Index) Arg(pkg, split string) string {
+	strs := []string{}
+	for _, field := range d.List {
+		strs = append(strs, fmt.Sprintf("%s %s", field.Name, field.Type.GetType(pkg)))
+	}
+	return strings.Join(strs, split)
+}
+
+func (d *Index) IndexValue(val string) string {
+	switch d.Type.TypeOf {
+	case domain.TypeOfBase:
+		return val
+	case domain.TypeOfStruct:
+		return fmt.Sprintf("%s{%s}", d.Name, val)
+	}
+	return ""
+}
+
+func (d *Index) GetType(cfg string) string {
+	switch d.Type.ValueOf {
+	case domain.ValueOfMap:
+		return fmt.Sprintf("map[%s]*%s", d.Type.Name, cfg)
+	case domain.ValueOfGroup:
+		return fmt.Sprintf("map[%s][]*%s", d.Type.Name, cfg)
+	}
+	return fmt.Sprintf("[]*%s", cfg)
 }

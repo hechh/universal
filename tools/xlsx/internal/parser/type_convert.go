@@ -55,26 +55,26 @@ func convertStruct(st *base.Struct, strs ...string) interface{} {
 	ret := map[string]interface{}{}
 	for i, field := range st.Converts[strs[0]] {
 		switch field.Type.TypeOf {
-		case domain.TYPE_OF_BASE:
+		case domain.TypeOfBase:
 			switch field.Type.ValueOf {
-			case domain.VALUE_OF_IDENT:
+			case domain.ValueOfBase:
 				ret[field.Name] = convert(field.Type.Name, strs[i])
-			case domain.VALUE_OF_ARRAY:
+			case domain.ValueOfList:
 				ret[field.Name] = convert(field.Type.Name, strings.Split(strs[i], ",")...)
-			case domain.VALUE_OF_MAP:
+			case domain.ValueOfMap:
 				// 暂时不支持
-			case domain.VALUE_OF_GROUP:
+			case domain.ValueOfGroup:
 				// 暂时不支持
 			}
-		case domain.TYPE_OF_ENUM:
+		case domain.TypeOfEnum:
 			switch field.Type.ValueOf {
-			case domain.VALUE_OF_IDENT:
+			case domain.ValueOfBase:
 				ret[field.Name] = convertEnum(manager.GetEnum(field.Type.Name), strs[i])
-			case domain.VALUE_OF_ARRAY:
+			case domain.ValueOfList:
 				ret[field.Name] = convertEnum(manager.GetEnum(field.Type.Name), strings.Split(strs[i], ",")...)
-			case domain.VALUE_OF_MAP:
+			case domain.ValueOfMap:
 				// 暂时不支持
-			case domain.VALUE_OF_GROUP:
+			case domain.ValueOfGroup:
 				// 暂时不支持
 			}
 		}
@@ -86,41 +86,41 @@ func ConvertConfig(st *base.Config, vals ...string) map[string]interface{} {
 	ret := map[string]interface{}{}
 	for _, field := range st.List {
 		switch field.Type.TypeOf {
-		case domain.TYPE_OF_BASE:
+		case domain.TypeOfBase:
 			switch field.Type.ValueOf {
-			case domain.VALUE_OF_IDENT:
+			case domain.ValueOfBase:
 				ret[field.Name] = convert(field.Type.Name, vals[field.Position])
-			case domain.VALUE_OF_ARRAY:
+			case domain.ValueOfList:
 				ret[field.Name] = convert(field.Type.Name, strings.Split(vals[field.Position], ",")...)
-			case domain.VALUE_OF_MAP:
+			case domain.ValueOfMap:
 				// todo
-			case domain.VALUE_OF_GROUP:
+			case domain.ValueOfGroup:
 				// todo
 			}
-		case domain.TYPE_OF_ENUM:
+		case domain.TypeOfEnum:
 			switch field.Type.ValueOf {
-			case domain.VALUE_OF_IDENT:
+			case domain.ValueOfBase:
 				ret[field.Name] = convertEnum(manager.GetEnum(field.Type.Name), vals[field.Position])
-			case domain.VALUE_OF_ARRAY:
+			case domain.ValueOfList:
 				ret[field.Name] = convertEnum(manager.GetEnum(field.Type.Name), strings.Split(vals[field.Position], ",")...)
-			case domain.VALUE_OF_MAP:
+			case domain.ValueOfMap:
 				// todo
-			case domain.VALUE_OF_GROUP:
+			case domain.ValueOfGroup:
 				// todo
 			}
-		case domain.TYPE_OF_STRUCT:
+		case domain.TypeOfStruct:
 			switch field.Type.ValueOf {
-			case domain.VALUE_OF_IDENT:
+			case domain.ValueOfBase:
 				ret[field.Name] = convertStruct(manager.GetStruct(field.Type.Name), strings.Split(vals[field.Position], ",")...)
-			case domain.VALUE_OF_ARRAY:
+			case domain.ValueOfList:
 				tmps := []interface{}{}
 				for _, str := range strings.Split(vals[field.Position], "|") {
 					tmps = append(tmps, convertStruct(manager.GetStruct(field.Type.Name), strings.Split(str, ",")...))
 				}
 				ret[field.Name] = tmps
-			case domain.VALUE_OF_MAP:
+			case domain.ValueOfMap:
 				// todo
-			case domain.VALUE_OF_GROUP:
+			case domain.ValueOfGroup:
 				// todo
 			}
 		}

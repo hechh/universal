@@ -1,5 +1,9 @@
 package util
 
+import (
+	"unicode"
+)
+
 func Ifelse[T any](flag bool, a, b T) T {
 	if flag {
 		return a
@@ -33,4 +37,10 @@ func Suffix[T any](str []T, pos int) []T {
 		return nil
 	}
 	return str[pos:]
+}
+
+func ToLowerFirst(str string) string {
+	rr := []rune(str)
+	rr[0] = unicode.SimpleFold(rr[0])
+	return string(rr)
 }

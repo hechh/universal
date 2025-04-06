@@ -28,7 +28,7 @@ func ParseStruct(tab *base.Table) error {
 			Type: &base.Type{
 				Name:    val,
 				TypeOf:  manager.GetTypeOf(val),
-				ValueOf: domain.VALUE_OF_IDENT,
+				ValueOf: domain.ValueOfBase,
 			},
 			Name:     rows[0][i],
 			Desc:     rows[2][i],

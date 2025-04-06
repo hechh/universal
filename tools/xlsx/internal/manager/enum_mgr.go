@@ -101,13 +101,13 @@ func AddEnum(item *base.Value) {
 
 func GetTypeOf(name string) uint32 {
 	if _, ok := enumMgr[name]; ok {
-		return domain.TYPE_OF_ENUM
+		return domain.TypeOfEnum
 	}
 	if _, ok := structMgr[name]; ok {
-		return domain.TYPE_OF_STRUCT
+		return domain.TypeOfStruct
 	}
 	if _, ok := configMgr[name]; ok {
-		return domain.TYPE_OF_CONFIG
+		return domain.TypeOfConfig
 	}
-	return domain.TYPE_OF_BASE
+	return domain.TypeOfBase
 }

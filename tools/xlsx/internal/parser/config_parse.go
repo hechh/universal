@@ -15,6 +15,14 @@ func ParseConfig(tab *base.Table) error {
 	item := &base.Config{
 		Name:     tab.TypeName,
 		FileName: tab.FileName,
+		IndexList: []*base.Index{
+			{Name: "list",
+				Type: &base.Type{
+					TypeOf:  domain.TypeOfBase,
+					ValueOf: domain.ValueOfList,
+				},
+			},
+		},
 	}
 	manager.AddConfig(item)
 
@@ -23,9 +31,9 @@ func ParseConfig(tab *base.Table) error {
 		if len(val) <= 0 {
 			continue
 		}
-		valueOf := uint32(domain.VALUE_OF_IDENT)
+		valueOf := uint32(domain.ValueOfBase)
 		if strings.HasPrefix(val, "[]") {
-			valueOf = domain.VALUE_OF_ARRAY
+			valueOf = domain.ValueOfList
 			val = strings.TrimPrefix(val, "[]")
 		}
 		tmps[rows[0][i]] = &base.Field{
@@ -41,21 +49,45 @@ func ParseConfig(tab *base.Table) error {
 		item.List = append(item.List, tmps[rows[0][i]])
 	}
 
+	parseIndex(tab, item, tmps)
+	return nil
+}
+
+func parseIndex(tab *base.Table, item *base.Config, tmps map[string]*base.Field) {
 	for _, val := range tab.Rules {
 		strs := strings.Split(val, ":")
+
 		keys := []*base.Field{}
+		fields := []string{}
 		for _, field := range strings.Split(strs[1], ",") {
 			keys = append(keys, tmps[field])
+			fields = append(fields, field)
 		}
 
-		if len(keys) > 0 {
-			switch strings.ToLower(strs[0]) {
-			case "map":
-				item.MapList = append(item.MapList, keys)
-			case "group":
-				item.GroupList = append(item.GroupList, keys)
-			}
+		name := strings.Join(fields, "")
+		if len(strs) > 2 {
+			name = strs[2]
 		}
+
+		typeOf := uint32(domain.TypeOfStruct)
+		tname := strings.Join(fields, "")
+		if len(keys) == 1 {
+			tname = keys[0].Type.GetType(tab.SheetName)
+			typeOf = domain.TypeOfBase
+		}
+		valueOf := uint32(domain.ValueOfGroup)
+		if strings.ToLower(strs[0]) == "map" {
+			valueOf = domain.ValueOfMap
+		}
+
+		item.IndexList = append(item.IndexList, &base.Index{
+			Name: name,
+			Type: &base.Type{
+				Name:    tname,
+				TypeOf:  typeOf,
+				ValueOf: valueOf,
+			},
+			List: keys,
+		})
 	}
-	return nil
 }

@@ -25,7 +25,7 @@ func ParseEnum(tab *base.Table) error {
 
 			strs := strings.Split(val, "|")
 			manager.AddEnum(&base.Value{
-				TypeOf:   domain.TYPE_OF_ENUM,
+				TypeOf:   domain.TypeOfEnum,
 				Type:     strs[2],
 				Name:     fmt.Sprintf("%s_%s", strs[2], strs[3]),
 				Value:    cast.ToUint32(strs[4]),
