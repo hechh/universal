@@ -1,9 +1,9 @@
 package timer
 
 import (
+	"hego/Library/ulog"
 	"hego/framework/async"
 	"hego/framework/basic"
-	"hego/framework/plog"
 	"sync/atomic"
 	"time"
 )
@@ -157,7 +157,7 @@ func (d *Timer) Stop() {
 
 func (d *Timer) Start() {
 	d.handle.Start()
-	basic.SafeGo(plog.Catch, func() {
+	basic.SafeGo(ulog.Catch, func() {
 		for {
 			select {
 			case <-d.timer.C:

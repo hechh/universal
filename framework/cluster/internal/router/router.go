@@ -3,9 +3,9 @@ package router
 import (
 	"encoding/json"
 	"fmt"
+	"hego/Library/ulog"
 	"hego/common/pb"
 	"hego/framework/basic"
-	"hego/framework/plog"
 	"sync"
 	"sync/atomic"
 	"time"
@@ -37,7 +37,7 @@ func Init(expire int64) {
 				// 判断路由信息是否过期
 				if atomic.LoadInt64(&val.updateTime)+expire <= basic.GetNowUnixSecond() {
 					routes.Delete(key)
-					plog.Info("clear route success: %v", val)
+					ulog.Info("clear route success: %v", val)
 				}
 				return true
 			})

@@ -3,10 +3,10 @@ package player
 import (
 	"encoding/json"
 	"fmt"
+	"hego/Library/ulog"
 	"hego/common/global"
 	"hego/common/pb"
 	"hego/framework/handler"
-	"hego/framework/plog"
 	"hego/tools/client/domain"
 	"strings"
 	"sync"
@@ -45,7 +45,7 @@ func Init(cfg map[uint32]*global.ServerConfig, plat uint64, srvs string) {
 	go func() {
 		for uid := range closes {
 			DelPlayer(uid)
-			plog.Info("客户端关闭, uid: %d", uid)
+			ulog.Info("客户端关闭, uid: %d", uid)
 		}
 	}()
 }

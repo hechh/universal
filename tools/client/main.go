@@ -3,9 +3,9 @@ package main
 import (
 	"flag"
 	"fmt"
+	"hego/Library/ulog"
 	"hego/common/dao"
 	"hego/common/global"
-	"hego/framework/plog"
 	"hego/tools/client/internal/httpkit"
 	"hego/tools/client/internal/player"
 	"os"
@@ -24,7 +24,7 @@ func main() {
 	flag.StringVar(&path, "cfg", "配置文件目录", "yaml配置文件")
 	flag.StringVar(&sid, "gate", "1", "websocket连接的gate服务节点列表")
 	flag.Uint64Var(&plat, "plat", 0, "0: 本地服务， 1: 内网服务, 2:改时间专服")
-	flag.Uint64Var(&level, "log", plog.LOG_DEFAULT, "plog输出日志等级")
+	flag.Uint64Var(&level, "log", ulog.LOG_DEFAULT, "plog输出日志等级")
 	flag.Parse()
 
 	// 加载配置
@@ -35,7 +35,7 @@ func main() {
 	cfg = tmpcfg
 
 	// 初始化日志
-	plog.Init(uint32(level), "./log", "client")
+	ulog.Init(uint32(level), "./log", "client")
 
 	// 初始化redis
 	if err := dao.InitRedis(cfg.Redis); err != nil {

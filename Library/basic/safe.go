@@ -24,7 +24,7 @@ func SafeGo(cb func(interface{}), f func()) {
 				if cb != nil {
 					cb(err)
 				}
-				//plog.Fatal("error: %v, stack: %s", err, string(debug.Stack()))
+				//ulog.Fatal("error: %v, stack: %s", err, string(debug.Stack()))
 			}
 		}()
 		f()

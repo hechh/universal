@@ -1,7 +1,7 @@
 package profiler
 
 import (
-	"hego/framework/plog"
+	"hego/Library/ulog"
 	"hego/framework/uerror"
 	"net/http"
 	"net/http/pprof"
@@ -34,7 +34,7 @@ func InitPprof(addr string) {
 	go func() {
 		server := &http.Server{Addr: addr, Handler: local}
 		if err := server.ListenAndServe(); err != nil {
-			plog.ErrorSkip(1, "pprof start failed, error: ", err)
+			ulog.ErrorSkip(1, "pprof start failed, error: ", err)
 		}
 	}()
 }

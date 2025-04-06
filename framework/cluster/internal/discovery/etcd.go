@@ -2,8 +2,8 @@ package discovery
 
 import (
 	"context"
+	"hego/Library/ulog"
 	"hego/framework/basic"
-	"hego/framework/plog"
 	"time"
 
 	"go.etcd.io/etcd/clientv3"
@@ -59,7 +59,7 @@ func (d *EtcdClient) Watch(path string, add, del func(string, string)) error {
 	}
 	// 监听最新变更
 	rsp := d.client.Watch(context.Background(), path, clientv3.WithPrefix())
-	basic.SafeGo(plog.Catch, func() {
+	basic.SafeGo(ulog.Catch, func() {
 		select {
 		case <-d.exit:
 			select {
@@ -93,7 +93,7 @@ func (d *EtcdClient) KeepAlive(key, value string, ttl int64) error {
 	}
 	// 定时器执行
 	tt := time.NewTicker(time.Duration(ttl/2) * time.Second)
-	basic.SafeGo(plog.Catch, func() {
+	basic.SafeGo(ulog.Catch, func() {
 		for {
 			select {
 			case <-d.exit:
@@ -105,7 +105,7 @@ func (d *EtcdClient) KeepAlive(key, value string, ttl int64) error {
 			case <-tt.C:
 				_, err := d.client.Lease.KeepAliveOnce(context.Background(), lease)
 				if err != nil {
-					plog.Error("Etcd租赁续约保活失败: %v", err)
+					ulog.Error("Etcd租赁续约保活失败: %v", err)
 					return
 				}
 			}

@@ -1,4 +1,4 @@
-package plog
+package ulog
 
 import "runtime/debug"
 
@@ -18,7 +18,7 @@ var (
 )
 
 func init() {
-	logger = NewLogger(LOG_ALL, "plog", NewWriter("./log", "output"))
+	logger = NewLogger(LOG_ALL, "ulog", NewWriter("./log", "output"))
 }
 
 func Close() {

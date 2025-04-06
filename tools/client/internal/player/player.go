@@ -3,13 +3,13 @@ package player
 import (
 	"encoding/binary"
 	"fmt"
+	"hego/Library/ulog"
 	"hego/common/dao/repository/token"
 	"hego/common/pb"
 	"hego/framework/basic/async"
 	"hego/framework/basic/socket"
 	"hego/framework/basic/util"
 	"hego/framework/handler"
-	"hego/framework/plog"
 	"hego/tools/client/domain"
 	"sync/atomic"
 	"time"
@@ -94,19 +94,19 @@ func (d *Player) loopRead() {
 		// 接受请求
 		buf, err := d.conn.Read()
 		if err != nil {
-			plog.Error("数据接受失败, uid: %d, error: %v", d.uid, err)
+			ulog.Error("数据接受失败, uid: %d, error: %v", d.uid, err)
 			return
 		}
 		// 解包
 		id, buf := uint32(binary.BigEndian.Uint32(buf[:4])), buf[4:]
 		pac := handler.Get(id)
 		if pac == nil {
-			plog.Error("协议不支持, uid: %d, protoID: %D", d.uid, id)
+			ulog.Error("协议不支持, uid: %d, protoID: %D", d.uid, id)
 			return
 		}
 		rsp := pac.NewResponse()
 		if err := proto.Unmarshal(buf, rsp); err != nil {
-			plog.Error("协议解析错误, uid: %d, error: %v", d.uid, err)
+			ulog.Error("协议解析错误, uid: %d, error: %v", d.uid, err)
 			return
 		}
 		// 应答处理

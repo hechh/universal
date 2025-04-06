@@ -1,9 +1,9 @@
 package nodes
 
 import (
+	"hego/Library/ulog"
 	"hego/common/pb"
 	"hego/framework/basic"
-	"hego/framework/plog"
 	"math/rand"
 	"path/filepath"
 	"sort"
@@ -63,7 +63,7 @@ func AddNotify(key, value string) {
 // 添加节点
 func Insert(item *pb.ServerInfo) {
 	infos.Store(item.ServerID, item)
-	plog.Info("新增服务节点: %v", item)
+	ulog.Info("新增服务节点: %v", item)
 }
 
 // 查询节点

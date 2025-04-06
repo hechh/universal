@@ -1,6 +1,7 @@
 package cluster
 
 import (
+	"hego/Library/ulog"
 	"hego/common/global"
 	"hego/common/pb"
 	"hego/framework/basic"
@@ -9,7 +10,6 @@ import (
 	"hego/framework/cluster/internal/handler"
 	"hego/framework/cluster/internal/nodes"
 	"hego/framework/cluster/internal/router"
-	"hego/framework/plog"
 	"hego/framework/uerror"
 	"net"
 	"runtime/debug"
@@ -40,7 +40,7 @@ func Init(cfg *global.Config, typ pb.SERVER, serverId uint32, expire int64) (err
 	}
 	// 订阅
 	fatal := func(err interface{}) {
-		plog.Fatal("%v\nstack: %s", err, string(debug.Stack()))
+		ulog.Fatal("%v\nstack: %s", err, string(debug.Stack()))
 	}
 	natsCli.Subscribe(nodes.GetSelfChannel(), func(msg *nats.Msg) {
 		inner := &pb.Packet{}

@@ -3,12 +3,12 @@ package main
 import (
 	"encoding/binary"
 	"flag"
+	"hego/Library/ulog"
 	"hego/common/dao"
 	"hego/common/global"
 	"hego/common/pb"
 	"hego/framework/basic"
 	"hego/framework/cluster"
-	"hego/framework/plog"
 	"hego/framework/socket"
 	"net/http"
 	"os"
@@ -54,7 +54,7 @@ func main() {
 
 	// 初始化plog
 	if logCfg := global.GetLogCfg(); logCfg != nil {
-		plog.Init(logCfg.Level, logCfg.Path, global.GetServerName())
+		ulog.Init(logCfg.Level, logCfg.Path, global.GetServerName())
 	}
 
 	// 初始化redis
@@ -81,36 +81,36 @@ func main() {
 
 	// 等待结束
 	basic.SignalHandle(func(s os.Signal) {
-		plog.Info("gate服务退出")
-		plog.Close()
+		ulog.Info("gate服务退出")
+		ulog.Close()
 	}, os.Interrupt, os.Kill)
 }
 
 // websocket包处理
 func wsHandle(ws *websocket.Conn) {
-	plog.Info("客户端(%s)连接成功！！！", ws.RemoteAddr().String())
+	ulog.Info("客户端(%s)连接成功！！！", ws.RemoteAddr().String())
 	soc := socket.NewSocket(&Frame{}, ws)
 
 	// 循环接受处理消息
-	basic.SafeGo(plog.Catch, func() {
+	basic.SafeGo(ulog.Catch, func() {
 		for {
 			// 接受请求
 			buf, err := soc.Read()
 			if err != nil {
-				plog.Error("websocket接受数据失败: %v", err)
+				ulog.Error("websocket接受数据失败: %v", err)
 				break
 			}
 
 			// 解析packet
 			pac := new(pb.Packet)
 			if err := proto.Unmarshal(buf, pac); err != nil {
-				plog.Error("协议错误: %v", err)
+				ulog.Error("协议错误: %v", err)
 				break
 			}
 
 			// 对请求路由
 			if err := cluster.Dispatcher(pac.Head); err != nil {
-				plog.Error("路由错误: %v, error: %v", pac.Head, err)
+				ulog.Error("路由错误: %v, error: %v", pac.Head, err)
 				break
 			}
 		}
