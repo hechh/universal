@@ -9,7 +9,7 @@ import (
 )
 
 func (d *Table) ScanRows(count int) (rets [][]string, err error) {
-	rows, err := d.Fp.Rows(d.SheetName)
+	rows, err := d.Fp.Rows(d.Sheet)
 	if err != nil {
 		return nil, err
 	}
@@ -94,44 +94,4 @@ func (d *Type) GetType(pkgName string) string {
 		}
 	}
 	return ""
-}
-
-func (d *Index) Value(ref, split string) string {
-	strs := []string{}
-	for _, field := range d.List {
-		if len(ref) > 0 {
-			strs = append(strs, fmt.Sprintf("%s.%s", ref, field.Name))
-		} else {
-			strs = append(strs, field.Name)
-		}
-	}
-	return strings.Join(strs, split)
-}
-
-func (d *Index) Arg(pkg, split string) string {
-	strs := []string{}
-	for _, field := range d.List {
-		strs = append(strs, fmt.Sprintf("%s %s", field.Name, field.Type.GetType(pkg)))
-	}
-	return strings.Join(strs, split)
-}
-
-func (d *Index) IndexValue(val string) string {
-	switch d.Type.TypeOf {
-	case domain.TypeOfBase:
-		return val
-	case domain.TypeOfStruct:
-		return fmt.Sprintf("%s{%s}", d.Name, val)
-	}
-	return ""
-}
-
-func (d *Index) GetType(cfg string) string {
-	switch d.Type.ValueOf {
-	case domain.ValueOfMap:
-		return fmt.Sprintf("map[%s]*%s", d.Type.Name, cfg)
-	case domain.ValueOfGroup:
-		return fmt.Sprintf("map[%s][]*%s", d.Type.Name, cfg)
-	}
-	return fmt.Sprintf("[]*%s", cfg)
 }

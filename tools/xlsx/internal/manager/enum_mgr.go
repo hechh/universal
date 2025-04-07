@@ -99,7 +99,7 @@ func AddEnum(item *base.Value) {
 	}
 }
 
-func GetTypeOf(name string) uint32 {
+func GetTypeOf(name string) int {
 	if _, ok := enumMgr[name]; ok {
 		return domain.TypeOfEnum
 	}

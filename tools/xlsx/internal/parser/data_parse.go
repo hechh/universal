@@ -7,12 +7,12 @@ import (
 )
 
 func ParseData(tab *base.Table) (rets []interface{}, err error) {
-	rows, err := tab.Fp.GetRows(tab.SheetName)
+	rows, err := tab.Fp.GetRows(tab.Sheet)
 	if err != nil {
 		return nil, uerror.New(1, -1, "获取行失败: %v", err)
 	}
 
-	cfg := manager.GetConfig(tab.TypeName)
+	cfg := manager.GetConfig(tab.Type)
 	for _, row := range rows[3:] {
 		if len(row) <= 0 {
 			continue

@@ -17,3 +17,10 @@ const (
 var (
 	PkgName = ""
 )
+
+/*
+@config|sheet:结构名|map:字段名[,字段名]:别名|group:字段名[,字段名]:别名
+@struct|sheet:结构名
+@enum|sheet
+E|道具类型-金币|PropertType|Coin|1
+*/

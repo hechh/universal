@@ -13,7 +13,7 @@ func ParseConfig(tab *base.Table) error {
 		return err
 	}
 	item := &base.Config{
-		Name:     tab.TypeName,
+		Name:     tab.Type,
 		FileName: tab.FileName,
 		IndexList: []*base.Index{
 			{Name: "list",
@@ -31,7 +31,7 @@ func ParseConfig(tab *base.Table) error {
 		if len(val) <= 0 {
 			continue
 		}
-		valueOf := uint32(domain.ValueOfBase)
+		valueOf := domain.ValueOfBase
 		if strings.HasPrefix(val, "[]") {
 			valueOf = domain.ValueOfList
 			val = strings.TrimPrefix(val, "[]")
@@ -69,13 +69,13 @@ func parseIndex(tab *base.Table, item *base.Config, tmps map[string]*base.Field)
 			name = strs[2]
 		}
 
-		typeOf := uint32(domain.TypeOfStruct)
+		typeOf := domain.TypeOfStruct
 		tname := strings.Join(fields, "")
 		if len(keys) == 1 {
-			tname = keys[0].Type.GetType(tab.SheetName)
+			tname = keys[0].Type.GetType(tab.Sheet)
 			typeOf = domain.TypeOfBase
 		}
-		valueOf := uint32(domain.ValueOfGroup)
+		valueOf := domain.ValueOfGroup
 		if strings.ToLower(strs[0]) == "map" {
 			valueOf = domain.ValueOfMap
 		}

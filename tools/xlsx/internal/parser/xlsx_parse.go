@@ -32,31 +32,31 @@ func ParseXlsx(filename string) error {
 				continue
 			}
 			strs := strings.Split(val, "|")
-			pos := strings.Index(strs[1], "@")
+			pos := strings.Index(strs[1], ":")
 			switch strings.ToLower(strs[0]) {
-			case "enum":
+			case "@enum":
 				manager.AddTable(&base.Table{
-					TypeOf:    domain.TypeOfEnum,
-					SheetName: util.Ifelse(pos > 0, util.GetPrefix(strs[1], pos), strs[1]),
-					FileName:  util.Ifelse(pos > 0, util.GetSuffix(strs[1], pos+1), fileName),
-					Fp:        fp,
+					TypeOf:   domain.TypeOfEnum,
+					Sheet:    strs[1],
+					FileName: fileName,
+					Fp:       fp,
 				})
-			case "struct":
+			case "@struct":
 				manager.AddTable(&base.Table{
-					TypeOf:    domain.TypeOfStruct,
-					SheetName: strs[1][:pos],
-					TypeName:  strs[1][pos+1:],
-					FileName:  fileName,
-					Fp:        fp,
+					TypeOf:   domain.TypeOfStruct,
+					Sheet:    strs[1][:pos],
+					Type:     strs[1][pos+1:],
+					FileName: fileName,
+					Fp:       fp,
 				})
-			case "config":
+			case "@config":
 				manager.AddTable(&base.Table{
-					TypeOf:    domain.TypeOfConfig,
-					SheetName: strs[1][:pos],
-					TypeName:  strs[1][pos+1:],
-					FileName:  fileName,
-					Rules:     util.Suffix(strs, 2),
-					Fp:        fp,
+					TypeOf:   domain.TypeOfConfig,
+					Sheet:    strs[1][:pos],
+					Type:     strs[1][pos+1:],
+					FileName: fileName,
+					Rules:    util.Suffix(strs, 2),
+					Fp:       fp,
 				})
 			case "e":
 				manager.AddEnum(&base.Value{

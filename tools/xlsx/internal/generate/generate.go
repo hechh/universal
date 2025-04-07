@@ -21,7 +21,7 @@ func Generate(codePath string, cfg *base.Config, buf *bytes.Buffer) error {
 	// 结构
 	var members, makes, inits, sets []string
 	for _, item := range cfg.IndexList {
-		members = append(members, fmt.Sprintf("_%s %s", item.Name, item.GetType(cfgName)))
+		members = append(members, fmt.Sprintf("_%s %s", item.Name, item.GetType(domain.PkgName, cfgName)))
 		if len(item.List) > 1 {
 			buf.WriteString(fmt.Sprintf("\ntype %s struct {%s}\n", item.Name, item.Arg(domain.PkgName, ";")))
 		}
@@ -40,12 +40,12 @@ func Generate(codePath string, cfg *base.Config, buf *bytes.Buffer) error {
 			buf.WriteString(fmt.Sprintf(lget, cfgName, dataName, cfgName, item.Name, item.Name))
 		case domain.ValueOfMap:
 			sets = append(sets, fmt.Sprintf("_%s[%s] = item", item.Name, ref))
-			makes = append(makes, fmt.Sprintf("_%s:= make(%s)", item.Name, item.GetType(cfgName)))
+			makes = append(makes, fmt.Sprintf("_%s:= make(%s)", item.Name, item.GetType(domain.PkgName, cfgName)))
 			inits = append(inits, fmt.Sprintf("_%s: _%s,", item.Name, item.Name))
 			buf.WriteString(fmt.Sprintf(mget, item.Name, arg, cfgName, dataName, item.Name, val))
 		case domain.ValueOfGroup:
 			sets = append(sets, fmt.Sprintf("_%s[%s] = append(_%s[%s], item)", item.Name, ref, item.Name, ref))
-			makes = append(makes, fmt.Sprintf("_%s:= make(%s)", item.Name, item.GetType(cfgName)))
+			makes = append(makes, fmt.Sprintf("_%s:= make(%s)", item.Name, item.GetType(domain.PkgName, cfgName)))
 			inits = append(inits, fmt.Sprintf("_%s: _%s,", item.Name, item.Name))
 			buf.WriteString(fmt.Sprintf(gget, item.Name, arg, cfgName, dataName, item.Name, val, cfgName))
 		}

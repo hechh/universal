@@ -12,7 +12,7 @@ import (
 )
 
 func ParseEnum(tab *base.Table) error {
-	cols, err := tab.Fp.GetCols(tab.SheetName)
+	cols, err := tab.Fp.GetCols(tab.Sheet)
 	if err != nil {
 		return uerror.New(1, -1, "获取列失败: %v", err)
 	}

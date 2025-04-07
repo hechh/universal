@@ -8,13 +8,13 @@ import (
 )
 
 func ParseStruct(tab *base.Table) error {
-	rows, err := tab.Fp.GetRows(tab.SheetName)
+	rows, err := tab.Fp.GetRows(tab.Sheet)
 	if err != nil {
 		return uerror.New(1, -1, "获取行失败: %v", err)
 	}
 
 	item := &base.Struct{
-		Name:     tab.TypeName,
+		Name:     tab.Type,
 		FileName: tab.FileName,
 		Converts: map[string][]*base.Field{},
 	}
