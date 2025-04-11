@@ -4,6 +4,7 @@ GCFLAGS=-gcflags "all=-N -l"
 PROTO_PATH=./configure/proto
 TABLE_PATH=./configure/table
 JSON_PATH=./configure/json
+PROTO_PATH=./configure/proto
 CFG_PATH=./common/config/cfg
 CODE_PATH=./common/config/repository
 PB_PATH=./common/pb
@@ -28,5 +29,5 @@ proto:
 
 # 配置转换工具
 xlsx:
-	go run ./tools/xlsx/main.go -xlsx=${TABLE_PATH} -json=${JSON_PATH} -cfg=${CFG_PATH} -code=${CODE_PATH}
+	go run ./tools/cfgtool/main.go -xlsx=${TABLE_PATH} -data=${JSON_PATH} -pb=${CFG_PATH} -code=${CODE_PATH} -proto=${PROTO_PATH}
 
