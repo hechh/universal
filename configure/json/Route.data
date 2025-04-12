@@ -1,1 +1,22 @@
-{"Ary":[{"ID":1,"Request":"HeartbeatRequest","Response":"HeartbeatResponse","FuncName":"HeartbeatRequest","ServerType":"ServerType_Game","RouteType":"RouteType_Uid","Rewards":[{"PropType":"PropertyType_Coin","Add":"10"},{"PropType":"PropertyType_Diamond","Add":"100"}]}]}
+{
+  "Ary": [
+    {
+      "ID": 1,
+      "Request": "HeartbeatRequest",
+      "Response": "HeartbeatResponse",
+      "FuncName": "HeartbeatRequest",
+      "ServerType": "ServerType_Game",
+      "RouteType": "RouteType_Uid",
+      "Rewards": [
+        {
+          "PropType": "PropertyType_Coin",
+          "Add": "10"
+        },
+        {
+          "PropType": "PropertyType_Diamond",
+          "Add": "100"
+        }
+      ]
+    }
+  ]
+}

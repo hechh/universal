@@ -7,8 +7,7 @@ syntax = "proto3";
 
 package proto;
 
-option go_package = "./pb";
-
+option go_package = "./cfg";
 
 
 enum PropertyType {
@@ -23,9 +22,4 @@ enum QualityType {
 	QualityType_White = 1; // 品质类型-白
 	QualityType_Blue = 2; // 品质类型-蓝
 }
-
-
-
-
-
 

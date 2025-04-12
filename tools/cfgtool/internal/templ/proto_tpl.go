@@ -20,16 +20,15 @@ option go_package = "./{{.GoPkg}}";
 import "{{$item}}.proto";
 {{end}}
 
-{{range $item := .EnumList -}}
+{{- range $item := .EnumList}}
 enum {{$item.Name}} {
 	{{- range $field := $item.ValueList}}
 	{{$field.Name}} = {{$field.Value}}; // {{$field.Desc}}
 	{{- end}}
 }
-
 {{end}}
 
-{{range $item := .StructList -}}
+{{- range $item := .StructList}}
 message {{$item.Name}} {
 	{{- range $pos, $field := $item.FieldList}}
 		{{- if eq $field.Type.ValueOf 1}}
@@ -39,10 +38,9 @@ message {{$item.Name}} {
 		{{- end}} 
 {{- end}}
 }
-
 {{end}}
 
-{{range $item := .ConfigList -}}
+{{- range $item := .ConfigList}}
 message {{$item.Name}} {
 	{{- range $pos, $field := $item.FieldList}}
 		{{- if eq $field.Type.ValueOf 1}}

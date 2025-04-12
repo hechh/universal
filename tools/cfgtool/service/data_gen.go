@@ -21,42 +21,15 @@ func GenData(dataPath string, buf *bytes.Buffer) error {
 		// 加载xlsx数据
 		tab := manager.GetTable(cfg.FileName, cfg.Sheet)
 		for _, vals := range tab.Rows[3:] {
-			// 反射new一个对象
-			item := manager.NewProto(cfg.FileName, cfg.Name)
-			if item == nil {
-				return uerror.New(1, -1, "new %s is nil", cfg.Name)
-			}
-
-			for i, field := range cfg.FieldList {
-				if field.Position >= len(vals) {
-					break
-				}
-
-				switch field.Type.TypeOf {
-				case domain.TypeOfBase, domain.TypeOfEnum:
-					item.SetFieldByName(field.Name, fieldValue(field, vals[i]))
-				case domain.TypeOfStruct:
-					st := manager.GetStruct(field.Type.Name)
-					rets, err := structValue(st, strings.Split(vals[i], "|")...)
-					if err != nil {
-						return err
-					}
-
-					switch field.Type.ValueOf {
-					case domain.ValueOfBase:
-						if len(rets) > 0 {
-							item.SetFieldByName(field.Name, rets[0])
-						}
-					case domain.ValueOfList:
-						item.SetFieldByName(field.Name, rets)
-					}
-				}
+			item, err := configValue(cfg, vals...)
+			if err != nil {
+				return err
 			}
 			ary.AddRepeatedFieldByName("Ary", item)
 		}
 
 		// 保存数据
-		buf, err := ary.MarshalJSON()
+		buf, err := ary.MarshalJSONIndent()
 		if err != nil {
 			return err
 		}
@@ -65,6 +38,42 @@ func GenData(dataPath string, buf *bytes.Buffer) error {
 		}
 	}
 	return nil
+}
+
+func configValue(f *base.Config, vals ...string) (interface{}, error) {
+	// 反射new一个对象
+	item := manager.NewProto(f.FileName, f.Name)
+	if item == nil {
+		return nil, uerror.New(1, -1, "new %s is nil", f.Name)
+	}
+
+	for i, field := range f.FieldList {
+		if field.Position >= len(vals) {
+			break
+		}
+
+		switch field.Type.TypeOf {
+		case domain.TypeOfBase, domain.TypeOfEnum:
+			item.SetFieldByName(field.Name, fieldValue(field, vals[i]))
+
+		case domain.TypeOfStruct:
+			st := manager.GetStruct(field.Type.Name)
+			rets, err := structValue(st, strings.Split(vals[i], "|")...)
+			if err != nil {
+				return nil, err
+			}
+
+			switch field.Type.ValueOf {
+			case domain.ValueOfBase:
+				if len(rets) > 0 {
+					item.SetFieldByName(field.Name, rets[0])
+				}
+			case domain.ValueOfList:
+				item.SetFieldByName(field.Name, rets)
+			}
+		}
+	}
+	return item, nil
 }
 
 func structValue(f *base.Struct, vals ...string) (rets []interface{}, err error) {
