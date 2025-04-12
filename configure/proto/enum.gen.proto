@@ -1,25 +1,23 @@
 
+/*
+ * 本代码由xlsx工具生成，请勿手动修改
+ */
+
 syntax = "proto3";
-package pb;
-option  go_package = "../../common/pb";
 
+package proto;
 
-// 全局枚举配置表
-enum ROUTE {
-	UID = 0; // 路由类型-玩家ID
-	RegionID = 1; // 路由类型-区服ID
+option go_package = "./cfg";
+
+enum PropertyType {
+  Empty = 0;   // 道具类型-空
+  Coin = 1;    // 道具类型-金币
+  Diamond = 2; // 道具类型-钻石
+  Sword = 3;   // 装备类型-剑
 }
 
-// 全局枚举配置表
-enum SEND {
-	Point = 0; // 发送类型-点对点
-	Broadcast = 1; // 发送类型-广播
-}
-
-// 全局枚举配置表
-enum SERVER {
-	Gate = 0; // 服务器类型-Gate
-	Game = 1; // 服务器类型-Game
-	Db = 2; // 服务器类型-Db
-	Gm = 3; // 服务器类型-Gm
+enum QualityType {
+  None = 0;  // 品质类型-空
+  White = 1; // 品质类型-白
+  Blue = 2;  // 品质类型-蓝
 }

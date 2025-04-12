@@ -8,22 +8,6 @@ import (
 	"github.com/spf13/cast"
 )
 
-type FieldList []*Field
-
-func (d FieldList) GetIndexName() string {
-	if len(d) == 1 {
-		return d[0].GetType()
-	}
-	strs := []string{}
-	for _, val := range d {
-		strs = append(strs, val.GetType())
-	}
-	if len(domain.PkgName) > 0 {
-		return fmt.Sprintf("%s.Index%d[%s]", domain.PkgName, len(d), strings.Join(strs, ","))
-	}
-	return fmt.Sprintf("Index%d[%s]", len(d), strings.Join(strs, ","))
-}
-
 // E|道具类型-金币|PropertyType|Coin|1
 func (d *Enum) AddValue(strs ...string) {
 	val := &EValue{
@@ -46,7 +30,7 @@ func (d *Config) AddField(f *Field) {
 }
 
 func (d *Config) AddIndex(ind *Index) {
-	d.Indexs[ind.ValueOf] = append(d.Indexs[ind.ValueOf], ind)
+	d.Indexs[ind.Type.ValueOf] = append(d.Indexs[ind.Type.ValueOf], ind)
 	d.IndexList = append(d.IndexList, ind)
 }
 
@@ -54,7 +38,7 @@ func (d *Config) AddIndex(ind *Index) {
 func (d *Index) Arg(split string) string {
 	strs := []string{}
 	for _, val := range d.List {
-		strs = append(strs, val.Name+" "+val.GetType())
+		strs = append(strs, val.Name+" "+val.Type.GetType())
 	}
 	return strings.Join(strs, split)
 }
@@ -116,4 +100,20 @@ func (d *Field) Convert(vals ...string) (rets []interface{}) {
 		rets = append(rets, d.ConvFunc(val))
 	}
 	return
+}
+
+type FieldList []*Field
+
+func (d FieldList) GetIndexName() string {
+	if len(d) == 1 {
+		return d[0].Type.GetType()
+	}
+	strs := []string{}
+	for _, val := range d {
+		strs = append(strs, val.Type.GetType())
+	}
+	if len(domain.PkgName) > 0 {
+		return fmt.Sprintf("%s.Index%d[%s]", domain.PkgName, len(d), strings.Join(strs, ","))
+	}
+	return fmt.Sprintf("Index%d[%s]", len(d), strings.Join(strs, ","))
 }

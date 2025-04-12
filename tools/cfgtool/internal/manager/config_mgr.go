@@ -37,3 +37,10 @@ func GetConfigList() (rets []*base.Config) {
 func GetConfigMap() map[string]*base.Config {
 	return configMgr
 }
+
+func GetConfig(name string) *base.Config {
+	if val, ok := configMgr[name]; ok {
+		return val
+	}
+	return nil
+}

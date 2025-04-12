@@ -2,6 +2,7 @@ package service
 
 import (
 	"bytes"
+	"hego/Library/file"
 	"hego/Library/uerror"
 	"hego/tools/cfgtool/domain"
 	"hego/tools/cfgtool/internal/base"
@@ -54,6 +55,15 @@ func GenProto(protoPath string, buf *bytes.Buffer) error {
 			return uerror.New(1, -1, "gen proto file error: %s", err.Error())
 		}
 		manager.AddProto(fileName, buf)
+	}
+	return nil
+}
+
+func SaveProto(protoPath string) error {
+	for fileName, data := range manager.GetProtoMap() {
+		if err := file.Save(protoPath, fileName+".gen.proto", []byte(data)); err != nil {
+			return err
+		}
 	}
 	return nil
 }

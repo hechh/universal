@@ -22,6 +22,7 @@ enum {{$item.Name}} {
 	{{$field.Name}} = {{$field.Value}}; // {{$field.Desc}}
 	{{- end}}
 }
+
 {{end}}
 
 {{range $item := .StructList -}}
@@ -34,6 +35,7 @@ message {{$item.Name}} {
 		{{- end}} 
 {{- end}}
 }
+
 {{end}}
 
 {{range $item := .ConfigList -}}

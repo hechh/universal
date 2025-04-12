@@ -14,6 +14,7 @@ var (
 func AddTable(file, sheet string, typeOf int, t string, rows [][]string, rules []string) {
 	key := file + ":" + sheet
 	val := &base.Table{
+		Type:     t,
 		TypeOf:   typeOf,
 		Sheet:    sheet,
 		FileName: file,

@@ -34,6 +34,13 @@ func GetStructList() (rets []*base.Struct) {
 	return
 }
 
+func GetStruct(name string) *base.Struct {
+	if val, ok := structMgr[name]; ok {
+		return val
+	}
+	return nil
+}
+
 func GetStructMap() map[string]*base.Struct {
 	return structMgr
 }
