@@ -15,6 +15,7 @@ import (
 type ProtoInfo struct {
 	Pkg        string
 	GoPkg      string
+	RefList    []string
 	EnumList   []*base.Enum
 	StructList []*base.Struct
 	ConfigList []*base.Config
@@ -51,6 +52,7 @@ func GenProto(protoPath string, buf *bytes.Buffer) error {
 	// 生成proto文件
 	for fileName, data := range tmps {
 		buf.Reset()
+		data.RefList = manager.GetRefList(fileName)
 		if err := templ.ProtoTpl.Execute(buf, data); err != nil {
 			return uerror.New(1, -1, "gen proto file error: %s", err.Error())
 		}

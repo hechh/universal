@@ -28,6 +28,7 @@ func ParseFiles(files ...string) error {
 	for _, item := range manager.GetTableList(domain.TypeOfConfig) {
 		parseConfig(item)
 	}
+	parseReference()
 	return nil
 }
 

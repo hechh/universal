@@ -1,14 +1,22 @@
 
 /*
- * 本代码由xlsx工具生成，请勿手动修改
- */
+* 本代码由xlsx工具生成，请勿手动修改
+*/
 
 syntax = "proto3";
 
 package proto;
 
-option go_package = "./cfg";
+option go_package = "./pb";
+
+
 
 enum ErrorCode {
-  Success = 0; // 错误类型-成功
+	ErrorCode_Success = 0; // 错误类型-成功
 }
+
+
+
+
+
+

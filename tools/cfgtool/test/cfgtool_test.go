@@ -7,13 +7,16 @@ import (
 	"hego/tools/cfgtool/internal/manager"
 	"hego/tools/cfgtool/internal/parser"
 	"hego/tools/cfgtool/service"
+	"path/filepath"
 	"testing"
 )
 
 func TestCfg(t *testing.T) {
 	domain.XlsxPath = "../../../configure/table"
 	domain.DataPath = "../../../configure/json"
+	domain.ProtoPath = "../../../configure/proto"
 	domain.PbPath = "../../../common/pb"
+	domain.PkgName = filepath.Base(domain.PbPath)
 
 	// 加载所有配置
 	files, err := basic.Glob(domain.XlsxPath, ".*\\.xlsx", "", true)
@@ -25,7 +28,6 @@ func TestCfg(t *testing.T) {
 	if err := parser.ParseFiles(files...); err != nil {
 		panic(err)
 	}
-
 	// 生成proto文件数据
 	buf := bytes.NewBuffer(nil)
 	if err := service.GenProto(domain.ProtoPath, buf); err != nil {

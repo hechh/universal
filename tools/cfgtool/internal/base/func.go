@@ -11,7 +11,7 @@ import (
 // E|道具类型-金币|PropertyType|Coin|1
 func (d *Enum) AddValue(strs ...string) {
 	val := &EValue{
-		Name:  strs[3],
+		Name:  strs[2] + "_" + strs[3],
 		Desc:  strs[1],
 		Value: cast.ToInt32(strs[4]),
 	}

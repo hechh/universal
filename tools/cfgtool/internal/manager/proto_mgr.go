@@ -11,10 +11,21 @@ import (
 )
 
 var (
-	protoMgr  = make(map[string]string)
-	protoList = []string{}
-	descMap   = make(map[string]*desc.FileDescriptor)
+	referenceMgr = make(map[string][]string)
+	protoMgr     = make(map[string]string)
+	protoList    = []string{}
+	descMap      = make(map[string]*desc.FileDescriptor)
 )
+
+func AddRef(filename string, reference map[string]struct{}) {
+	for ke := range reference {
+		referenceMgr[filename] = append(referenceMgr[filename], ke)
+	}
+}
+
+func GetRefList(file string) []string {
+	return referenceMgr[file]
+}
 
 func AddProto(filename string, buf *bytes.Buffer) {
 	protoMgr[filename] = buf.String()
