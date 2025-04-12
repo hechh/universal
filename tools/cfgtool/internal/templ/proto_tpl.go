@@ -17,7 +17,7 @@ package {{.Pkg}};
 option go_package = "./{{.GoPkg}}";
 
 {{range $item := .RefList -}}
-import "{{$item}}.gen.proto";
+import "{{$item}}.proto";
 {{end}}
 
 {{range $item := .EnumList -}}

@@ -23,7 +23,7 @@ func main() {
 	if len(domain.XlsxPath) <= 0 {
 		panic("配置文件目录不能为空")
 	}
-
+	domain.ProtoPkgName = filepath.Base(domain.ProtoPath)
 	if len(domain.PbPath) > 0 {
 		domain.PkgName = filepath.Base(domain.PbPath)
 	}

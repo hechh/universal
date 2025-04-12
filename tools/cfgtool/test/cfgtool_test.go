@@ -17,6 +17,7 @@ func TestCfg(t *testing.T) {
 	domain.ProtoPath = "../../../configure/proto"
 	domain.PbPath = "../../../common/pb"
 	domain.PkgName = filepath.Base(domain.PbPath)
+	domain.ProtoPkgName = filepath.Base(domain.ProtoPath)
 
 	// 加载所有配置
 	files, err := basic.Glob(domain.XlsxPath, ".*\\.xlsx", "", true)

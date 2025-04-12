@@ -26,11 +26,37 @@ func GenData(dataPath string, buf *bytes.Buffer) error {
 			if item == nil {
 				return uerror.New(1, -1, "new %s is nil", cfg.Name)
 			}
-			ary.AddRepeatedFieldByName("Ary", configValue(cfg, vals))
+
+			for i, field := range cfg.FieldList {
+				if field.Position >= len(vals) {
+					break
+				}
+
+				switch field.Type.TypeOf {
+				case domain.TypeOfBase, domain.TypeOfEnum:
+					item.SetFieldByName(field.Name, fieldValue(field, vals[i]))
+				case domain.TypeOfStruct:
+					st := manager.GetStruct(field.Type.Name)
+					rets, err := structValue(st, strings.Split(vals[i], "|")...)
+					if err != nil {
+						return err
+					}
+
+					switch field.Type.ValueOf {
+					case domain.ValueOfBase:
+						if len(rets) > 0 {
+							item.SetFieldByName(field.Name, rets[0])
+						}
+					case domain.ValueOfList:
+						item.SetFieldByName(field.Name, rets)
+					}
+				}
+			}
+			ary.AddRepeatedFieldByName("Ary", item)
 		}
 
 		// 保存数据
-		buf, err := ary.Marshal()
+		buf, err := ary.MarshalJSON()
 		if err != nil {
 			return err
 		}
@@ -41,36 +67,24 @@ func GenData(dataPath string, buf *bytes.Buffer) error {
 	return nil
 }
 
-func configValue(f *base.Config, vals []string) interface{} {
-	item := manager.NewProto(f.FileName, f.Name)
-	for i, field := range f.FieldList {
-		if field.Position >= len(vals) {
-			item.SetFieldByName(field.Name, nil)
-			continue
+func structValue(f *base.Struct, vals ...string) (rets []interface{}, err error) {
+	for _, val := range vals {
+		item := manager.NewProto(f.FileName, f.Name)
+		if item == nil {
+			return nil, uerror.New(1, -1, "new %s is nil", f.Name)
 		}
 
-		switch field.Type.TypeOf {
-		case domain.TypeOfBase, domain.TypeOfEnum:
-			item.SetFieldByName(field.Name, fieldValue(field, vals[i]))
-		case domain.TypeOfStruct:
-			st := manager.GetStruct(field.Type.Name)
-			item.SetFieldByName(field.Name, structValue(st, vals[i]))
+		strs := strings.Split(val, ":")
+		if len(strs) < len(f.Converts[strs[0]]) {
+			return nil, uerror.New(1, -1, "%s:%s配置错误: %s", f.FileName, f.Sheet, val)
 		}
-	}
-	return nil
-}
 
-func structValue(f *base.Struct, val string) interface{} {
-	strs := strings.Split(val, "|")
-	if len(f.Converts[strs[0]]) >= len(strs) {
-		return uerror.New(1, -1, "struct %s field %s not enough", f.Name, strs[0])
+		for i, field := range f.Converts[strs[0]] {
+			item.SetFieldByName(field.Name, fieldValue(field, strs[i]))
+		}
+		rets = append(rets, item)
 	}
-
-	item := manager.NewProto(f.FileName, f.Name)
-	for i, field := range f.Converts[strs[0]] {
-		item.SetFieldByName(field.Name, fieldValue(field, strs[i]))
-	}
-	return item
+	return
 }
 
 func fieldValue(f *base.Field, val string) interface{} {

@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"hego/Library/uerror"
 	"hego/tools/cfgtool/domain"
+	"hego/tools/cfgtool/internal/base"
 
 	"github.com/jhump/protoreflect/desc"
 	"github.com/jhump/protoreflect/desc/protoparse"
@@ -27,7 +28,8 @@ func GetRefList(file string) []string {
 	return referenceMgr[file]
 }
 
-func AddProto(filename string, buf *bytes.Buffer) {
+func AddProto(file string, buf *bytes.Buffer) {
+	filename := base.GetProtoName(file)
 	protoMgr[filename] = buf.String()
 	protoList = append(protoList, filename)
 }
@@ -53,11 +55,11 @@ func ParseProto() error {
 }
 
 func NewProto(fileName, name string) *dynamic.Message {
-	val, ok := descMap[fileName]
+	val, ok := descMap[base.GetProtoName(fileName)]
 	if !ok {
 		return nil
 	}
-	typeOf := val.FindMessage(domain.PkgName + "." + name)
+	typeOf := val.FindMessage(domain.ProtoPkgName + "." + name)
 	if typeOf == nil {
 		return nil
 	}

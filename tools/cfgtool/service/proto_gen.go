@@ -63,7 +63,7 @@ func GenProto(protoPath string, buf *bytes.Buffer) error {
 
 func SaveProto(protoPath string) error {
 	for fileName, data := range manager.GetProtoMap() {
-		if err := file.Save(protoPath, fileName+".gen.proto", []byte(data)); err != nil {
+		if err := file.Save(protoPath, fileName, []byte(data)); err != nil {
 			return err
 		}
 	}
