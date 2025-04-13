@@ -1,7 +1,7 @@
 
 /*
- * 本代码由xlsx工具生成，请勿手动修改
- */
+* 本代码由xlsx工具生成，请勿手动修改
+*/
 
 syntax = "proto3";
 
@@ -9,15 +9,17 @@ package proto;
 
 option go_package = "./cfg";
 
+
 enum PropertyType {
-  PropertyType_Empty = 0;   // 道具类型-空
-  PropertyType_Coin = 1;    // 道具类型-金币
-  PropertyType_Diamond = 2; // 道具类型-钻石
-  PropertyType_Sword = 3;   // 装备类型-剑
+	PropertyType_Empty = 0; // 道具类型-空
+	PropertyType_Coin = 1; // 道具类型-金币
+	PropertyType_Diamond = 2; // 道具类型-钻石
+	PropertyType_Sword = 3; // 装备类型-剑
 }
 
 enum QualityType {
-  QualityType_None = 0;  // 品质类型-空
-  QualityType_White = 1; // 品质类型-白
-  QualityType_Blue = 2;  // 品质类型-蓝
+	QualityType_None = 0; // 品质类型-空
+	QualityType_White = 1; // 品质类型-白
+	QualityType_Blue = 2; // 品质类型-蓝
 }
+

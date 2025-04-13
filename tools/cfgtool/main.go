@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"flag"
 	"fmt"
-	"hego/Library/basic"
+	"hego/Library/file"
 	"hego/tools/cfgtool/domain"
 	"hego/tools/cfgtool/internal/manager"
 	"hego/tools/cfgtool/internal/parser"
@@ -30,7 +30,7 @@ func main() {
 		domain.PkgName = filepath.Base(domain.PbPath)
 	}
 	// 加载所有配置
-	files, err := basic.Glob(domain.XlsxPath, ".*\\.xlsx", "", true)
+	files, err := file.Glob(domain.XlsxPath, ".*\\.xlsx", true)
 	if err != nil {
 		panic(err)
 	}

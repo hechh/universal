@@ -1,4 +1,4 @@
-package basic
+package file
 
 import (
 	"os"
@@ -7,7 +7,7 @@ import (
 )
 
 // 遍历目录所有文件
-func Glob(dir, pattern, filter string, recursive bool) (rets []string, err error) {
+func Glob(dir, pattern string, recursive bool) (rets []string, err error) {
 	pre, err := regexp.Compile(pattern)
 	if err != nil {
 		return nil, err
@@ -27,21 +27,5 @@ func Glob(dir, pattern, filter string, recursive bool) (rets []string, err error
 		}
 		return nil
 	})
-	// 过滤无用
-	if len(filter) > 0 {
-		fre, err := regexp.Compile(filter)
-		if err != nil {
-			return nil, err
-		}
-		j := -1
-		for _, val := range rets {
-			if fre.MatchString(val) {
-				continue
-			}
-			j++
-			rets[j] = val
-		}
-		rets = rets[:j+1]
-	}
 	return
 }
