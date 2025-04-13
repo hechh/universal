@@ -1,7 +1,7 @@
 
 /*
-* 本代码由xlsx工具生成，请勿手动修改
-*/
+ * 本代码由xlsx工具生成，请勿手动修改
+ */
 
 syntax = "proto3";
 
@@ -12,35 +12,34 @@ option go_package = "./cfg";
 import "enum.proto";
 
 enum RouteType {
-	RouteType_None = 0; // 路由类型-空
-	RouteType_Uid = 1; // 路由类型-UID
-	RouteType_Random = 2; // 路由类型-随机
-	RouteType_RegionId = 3; // 路由类型-地区
+  RouteType_None = 0;     // 路由类型-空
+  RouteType_Uid = 1;      // 路由类型-UID
+  RouteType_Random = 2;   // 路由类型-随机
+  RouteType_RegionId = 3; // 路由类型-地区
 }
 
 enum ServerType {
-	ServerType_Gate = 0; // 服务类型-Gate
-	ServerType_Game = 1; // 服务类型-Game
-	ServerType_Db = 2; // 服务类型-Db
-	ServerType_Gm = 3; // 服务类型-Gm
+  ServerType_Gate = 0; // 服务类型-Gate
+  ServerType_Game = 1; // 服务类型-Game
+  ServerType_Db = 2;   // 服务类型-Db
+  ServerType_Gm = 3;   // 服务类型-Gm
 }
 
 message Reward {
-	PropertyType PropType = 1; // 道具类型
-	QualityType Quality = 2; // 品质
-	uint32 Star = 3; // 星级
-	int64 Add = 4; // 道具数量
+  PropertyType PropType = 1; // 道具类型
+  QualityType Quality = 2;   // 品质
+  uint32 Star = 3;           // 星级
+  int64 Add = 4;             // 道具数量
 }
 
 message Route {
-	uint32 ID = 1; // 唯一ID
-	string Request = 2; // 请求名称
-	string Response = 3; // 应答协议
-	string FuncName = 4; // 函数名称
-	ServerType ServerType = 5; // 服务类型
-	RouteType RouteType = 6; // 路由类型 
-	repeated Reward Rewards = 7; // 奖励
+  uint32 ID = 1;               // 唯一ID
+  string Request = 2;          // 请求名称
+  string Response = 3;         // 应答协议
+  string FuncName = 4;         // 函数名称
+  ServerType ServerType = 5;   // 服务类型
+  RouteType RouteType = 6;     // 路由类型
+  repeated Reward Rewards = 7; // 奖励
 }
 
 message RouteAry { repeated Route Ary = 1; }
-

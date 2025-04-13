@@ -1,8 +1,8 @@
 package parser
 
 import (
+	"hego/tools/cfgtool/domain"
 	"hego/tools/cfgtool/internal/manager"
-	"hego/tools/xlsx/domain"
 )
 
 func parseReference() {

@@ -86,6 +86,7 @@ func (d *Logger) output(skip int, level uint32, msg string) {
 	funcName := path.Base(runtime.FuncForPC(pc).Name())
 	tt := basic.GetNowTime()
 	builder := builders.Get().(*strings.Builder)
+	defer builders.Put(builder)
 	builder.Reset()
 	// 格式化输出
 	builder.WriteString("[")
@@ -107,7 +108,6 @@ func (d *Logger) output(skip int, level uint32, msg string) {
 	builder.WriteString("\n")
 	// 写入数据
 	d.w.Write(tt, builder.String())
-	builders.Put(builder)
 }
 
 func levelToString(level uint32) string {

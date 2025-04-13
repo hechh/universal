@@ -3,9 +3,10 @@ package parser
 import (
 	"fmt"
 	"hego/Library/uerror"
+	"hego/Library/util"
+	"hego/tools/cfgtool/domain"
 	"hego/tools/cfgtool/internal/base"
 	"hego/tools/cfgtool/internal/manager"
-	"hego/tools/xlsx/domain"
 	"path/filepath"
 	"strings"
 
@@ -87,7 +88,7 @@ func parseTable(fileName string) error {
 				if err != nil {
 					return uerror.New(1, -1, "%s配置表不存在%s  %v", fileName, strs[0], err.Error())
 				}
-				manager.AddTable(file, strs[1], domain.TypeOfConfig, strs[1][pos+1:], data, base.Suffix(strs, 2))
+				manager.AddTable(file, strs[1], domain.TypeOfConfig, strs[1][pos+1:], data, util.Suffix(strs, 2))
 			}
 		}
 	}
@@ -178,8 +179,8 @@ func parseConfig(tab *base.Table) {
 				Name: strings.ReplaceAll(strs[1], ",", ""),
 				Type: &base.Type{
 					Name:    base.FieldList(keys).GetIndexName(),
-					TypeOf:  base.Ifelse(len(keys) > 1, int(domain.TypeOfStruct), int(domain.TypeOfBase)),
-					ValueOf: base.Ifelse(strings.ToLower(strs[0]) == "map", int(domain.ValueOfMap), int(domain.ValueOfBase)),
+					TypeOf:  util.Ifelse(len(keys) > 1, int(domain.TypeOfStruct), int(domain.TypeOfBase)),
+					ValueOf: util.Ifelse(strings.ToLower(strs[0]) == "map", int(domain.ValueOfMap), int(domain.ValueOfBase)),
 				},
 				List: keys,
 			})
@@ -188,8 +189,8 @@ func parseConfig(tab *base.Table) {
 				Name: strs[2],
 				Type: &base.Type{
 					Name:    base.FieldList(keys).GetIndexName(),
-					TypeOf:  base.Ifelse(len(keys) > 1, int(domain.TypeOfStruct), int(domain.TypeOfBase)),
-					ValueOf: base.Ifelse(strings.ToLower(strs[0]) == "map", int(domain.ValueOfMap), int(domain.ValueOfBase)),
+					TypeOf:  util.Ifelse(len(keys) > 1, int(domain.TypeOfStruct), int(domain.TypeOfBase)),
+					ValueOf: util.Ifelse(strings.ToLower(strs[0]) == "map", int(domain.ValueOfMap), int(domain.ValueOfBase)),
 				},
 				List: keys,
 			})
