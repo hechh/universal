@@ -1,7 +1,6 @@
 package service
 
 import (
-	"bytes"
 	"hego/Library/file"
 	"hego/Library/uerror"
 	"hego/tools/cfgtool/domain"
@@ -10,14 +9,17 @@ import (
 	"strings"
 )
 
-func GenData(buf *bytes.Buffer) error {
+func GenData() error {
+	if len(domain.JsonPath) <= 0 && len(domain.BytesPath) <= 0 {
+		return nil
+	}
+
 	for _, cfg := range manager.GetConfigMap() {
 		// 反射new一个对象
 		ary := manager.NewProto(cfg.FileName, cfg.Name+"Ary")
 		if ary == nil {
 			return uerror.New(1, -1, "new %sAry is nil", cfg.Name)
 		}
-
 		// 加载xlsx数据
 		tab := manager.GetTable(cfg.FileName, cfg.Sheet)
 		for _, vals := range tab.Rows[3:] {
@@ -27,7 +29,6 @@ func GenData(buf *bytes.Buffer) error {
 			}
 			ary.AddRepeatedFieldByName("Ary", item)
 		}
-
 		// 保存数据
 		if len(domain.JsonPath) > 0 {
 			buf, err := ary.MarshalJSONIndent()
@@ -48,6 +49,7 @@ func GenData(buf *bytes.Buffer) error {
 			}
 		}
 	}
+	manager.Clear()
 	return nil
 }
 

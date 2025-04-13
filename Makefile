@@ -29,5 +29,5 @@ proto:
 
 # 配置转换工具
 xlsx:
-	go run ./tools/cfgtool/main.go -xlsx=${TABLE_PATH} -data=${JSON_PATH} -pb=${CFG_PATH} -code=${CODE_PATH} -proto=${PROTO_PATH}
+	go run ./tools/cfgtool/main.go -xlsx=${TABLE_PATH} -json=${JSON_PATH} -pb=${CFG_PATH} -code=${CODE_PATH} -proto=${PROTO_PATH}
 

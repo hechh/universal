@@ -6,6 +6,7 @@ require (
 	github.com/astaxie/beego v1.12.3
 	github.com/go-redis/redis/v8 v8.11.5
 	github.com/google/gops v0.3.28
+	github.com/iancoleman/strcase v0.3.0
 	github.com/jhump/protoreflect v1.17.0
 	github.com/nats-io/nats.go v1.37.0
 	github.com/rs/zerolog v1.34.0

@@ -18,6 +18,13 @@ var (
 	descMap      = make(map[string]*desc.FileDescriptor)
 )
 
+func Clear() {
+	referenceMgr = nil
+	protoMgr = nil
+	protoList = nil
+	descMap = nil
+}
+
 func AddRef(filename string, reference map[string]struct{}) {
 	for ke := range reference {
 		referenceMgr[filename] = append(referenceMgr[filename], ke)

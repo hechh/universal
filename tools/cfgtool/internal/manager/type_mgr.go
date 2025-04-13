@@ -12,6 +12,20 @@ var (
 	enumMgr   = make(map[string]*base.Enum)
 )
 
+func GetIndexMap() (rets []int) {
+	tmps := map[int]struct{}{}
+	for _, item := range configMgr {
+		for _, st := range item.IndexList {
+			count := len(st.List)
+			if _, ok := tmps[count]; count > 1 && !ok {
+				rets = append(rets, count)
+			}
+			tmps[len(st.List)] = struct{}{}
+		}
+	}
+	return
+}
+
 // -----config-------
 func GetOrNewConfig(file, sheet, name string) *base.Config {
 	if val, ok := configMgr[name]; ok {

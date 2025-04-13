@@ -3,6 +3,7 @@ package main
 import (
 	"bytes"
 	"flag"
+	"fmt"
 	"hego/Library/basic"
 	"hego/tools/cfgtool/domain"
 	"hego/tools/cfgtool/internal/manager"
@@ -28,18 +29,15 @@ func main() {
 	if len(domain.PbPath) > 0 {
 		domain.PkgName = filepath.Base(domain.PbPath)
 	}
-
 	// 加载所有配置
 	files, err := basic.Glob(domain.XlsxPath, ".*\\.xlsx", "", true)
 	if err != nil {
 		panic(err)
 	}
-
 	// 解析所有文件
 	if err := parser.ParseFiles(files...); err != nil {
 		panic(err)
 	}
-
 	// 生成proto文件数据
 	buf := bytes.NewBuffer(nil)
 	if err := service.GenProto(buf); err != nil {
@@ -48,13 +46,29 @@ func main() {
 	if err := service.SaveProto(); err != nil {
 		panic(err)
 	}
-
 	// 解析proto文件
 	if err := manager.ParseProto(); err != nil {
 		panic(err)
 	}
-
-	if err := service.GenData(buf); err != nil {
+	if err := service.GenData(); err != nil {
 		panic(err)
+	}
+	if err := service.GenCode(buf); err != nil {
+		panic(err)
+	}
+}
+
+func init() {
+	flag.Usage = func() {
+		flag.PrintDefaults()
+		fmt.Fprint(flag.CommandLine.Output(), fmt.Sprintf(`
+枚举类型说明：
+E|道具类型-金币|PropertType|Coin|1	
+
+配置规则说明：
+@config|sheet@结构名|map:字段名[,字段名]:别名|group:字段名[,字段名]:别名
+@struct|sheet@结构名
+@enum|sheet
+		`))
 	}
 }
