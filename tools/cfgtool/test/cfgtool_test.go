@@ -13,7 +13,7 @@ import (
 
 func TestCfg(t *testing.T) {
 	domain.XlsxPath = "../../../configure/table"
-	domain.DataPath = "../../../configure/json"
+	domain.JsonPath = "../../../configure/json"
 	domain.ProtoPath = "../../../configure/proto"
 	domain.PbPath = "../../../common/pb"
 	domain.PkgName = filepath.Base(domain.PbPath)
@@ -31,10 +31,10 @@ func TestCfg(t *testing.T) {
 	}
 	// 生成proto文件数据
 	buf := bytes.NewBuffer(nil)
-	if err := service.GenProto(domain.ProtoPath, buf); err != nil {
+	if err := service.GenProto(buf); err != nil {
 		panic(err)
 	}
-	if err := service.SaveProto(domain.ProtoPath); err != nil {
+	if err := service.SaveProto(); err != nil {
 		panic(err)
 	}
 
@@ -43,7 +43,7 @@ func TestCfg(t *testing.T) {
 		panic(err)
 	}
 
-	if err := service.GenData(domain.DataPath, buf); err != nil {
+	if err := service.GenData(buf); err != nil {
 		panic(err)
 	}
 

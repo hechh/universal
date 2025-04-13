@@ -13,7 +13,8 @@ import (
 
 func main() {
 	flag.StringVar(&domain.XlsxPath, "xlsx", ".", "cfg文件目录")
-	flag.StringVar(&domain.DataPath, "data", "", "数据文件目录")
+	flag.StringVar(&domain.JsonPath, "json", "", "数据文件目录")
+	flag.StringVar(&domain.BytesPath, "bytes", "", "数据文件目录")
 	flag.StringVar(&domain.ProtoPath, "proto", "./cfg_protocol", "proto文件目录")
 	flag.StringVar(&domain.CodePath, "code", "", "go代码文件目录")
 	flag.StringVar(&domain.Module, "module", "", "项目目录")
@@ -41,10 +42,10 @@ func main() {
 
 	// 生成proto文件数据
 	buf := bytes.NewBuffer(nil)
-	if err := service.GenProto(domain.ProtoPath, buf); err != nil {
+	if err := service.GenProto(buf); err != nil {
 		panic(err)
 	}
-	if err := service.SaveProto(domain.ProtoPath); err != nil {
+	if err := service.SaveProto(); err != nil {
 		panic(err)
 	}
 
@@ -53,7 +54,7 @@ func main() {
 		panic(err)
 	}
 
-	if err := service.GenData(domain.DataPath, buf); err != nil {
+	if err := service.GenData(buf); err != nil {
 		panic(err)
 	}
 }

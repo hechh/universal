@@ -21,8 +21,8 @@ type ProtoInfo struct {
 	ConfigList []*base.Config
 }
 
-func GenProto(protoPath string, buf *bytes.Buffer) error {
-	pkg := filepath.Base(protoPath)
+func GenProto(buf *bytes.Buffer) error {
+	pkg := filepath.Base(domain.ProtoPath)
 	// 根据文件分类
 	tmps := map[string]*ProtoInfo{}
 	for _, val := range manager.GetEnumList() {
@@ -61,9 +61,9 @@ func GenProto(protoPath string, buf *bytes.Buffer) error {
 	return nil
 }
 
-func SaveProto(protoPath string) error {
+func SaveProto() error {
 	for fileName, data := range manager.GetProtoMap() {
-		if err := file.Save(protoPath, fileName, []byte(data)); err != nil {
+		if err := file.Save(domain.ProtoPath, fileName, []byte(data)); err != nil {
 			return err
 		}
 	}

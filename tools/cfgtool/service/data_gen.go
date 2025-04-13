@@ -10,7 +10,7 @@ import (
 	"strings"
 )
 
-func GenData(dataPath string, buf *bytes.Buffer) error {
+func GenData(buf *bytes.Buffer) error {
 	for _, cfg := range manager.GetConfigMap() {
 		// 反射new一个对象
 		ary := manager.NewProto(cfg.FileName, cfg.Name+"Ary")
@@ -29,12 +29,23 @@ func GenData(dataPath string, buf *bytes.Buffer) error {
 		}
 
 		// 保存数据
-		buf, err := ary.MarshalJSONIndent()
-		if err != nil {
-			return err
+		if len(domain.JsonPath) > 0 {
+			buf, err := ary.MarshalJSONIndent()
+			if err != nil {
+				return err
+			}
+			if err := file.Save(domain.JsonPath, cfg.Name+".json", buf); err != nil {
+				return err
+			}
 		}
-		if err := file.Save(dataPath, cfg.Name+".data", buf); err != nil {
-			return err
+		if len(domain.BytesPath) > 0 {
+			buf, err := ary.Marshal()
+			if err != nil {
+				return err
+			}
+			if err := file.Save(domain.BytesPath, cfg.Name+".bytes", buf); err != nil {
+				return err
+			}
 		}
 	}
 	return nil

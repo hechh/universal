@@ -19,8 +19,9 @@ var (
 	PkgName      = "" // 包名
 	Module       = "" // 项目目录
 	XlsxPath     = "" // 解析文件路径
-	DataPath     = "" // 数据文件路径
 	ProtoPath    = "" // proto文件路径
 	PbPath       = "" // proto生成路径
 	CodePath     = "" // 代码生成路径
+	JsonPath     = "" // 数据文件路径
+	BytesPath    = "" // 数据文件路径
 )
