@@ -11,7 +11,7 @@ type Task struct {
 	next   *Task
 }
 
-func (t *Task) Do(now int64, cb func(interface{})) *Task {
+func (t *Task) Do(now int64, cb func(string, ...interface{})) *Task {
 	if *t.taskId > 0 {
 		// 执行定时任务
 		safe.SafeGo(cb, t.task)

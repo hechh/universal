@@ -1,7 +1,5 @@
 package timer
 
-import "universal/library/baselib/uerror"
-
 type Wheel struct {
 	mask    int64
 	shift   int64   // 时间刻度偏移量
@@ -38,7 +36,7 @@ func (d *Wheel) Get(now int64) *Task {
 }
 
 // 添加定时任务
-func (d *Wheel) Add(task *Task, cb func(interface{})) bool {
+func (d *Wheel) Add(task *Task, cb func(string, ...interface{})) bool {
 	// 已经过期
 	expire := task.expire >> d.shift
 	cursor := d.cursor >> d.shift
@@ -48,8 +46,7 @@ func (d *Wheel) Add(task *Task, cb func(interface{})) bool {
 	// 超出了该定时器能够存储的范围
 	if expire >= cursor+d.mask+1 {
 		// todo
-		err := uerror.New(1, -1, "不支持定时时长超出定时器最大范围: %d", task.ttl)
-		cb(err)
+		cb("不支持定时时长超出定时器最大范围: %d", task.ttl)
 		return true
 	}
 	// 插入
