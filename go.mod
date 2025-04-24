@@ -1,4 +1,4 @@
-module hego
+module universal
 
 go 1.22.1
 
@@ -9,8 +9,6 @@ require (
 	github.com/iancoleman/strcase v0.3.0
 	github.com/jhump/protoreflect v1.17.0
 	github.com/nats-io/nats.go v1.37.0
-	github.com/rs/zerolog v1.34.0
-	github.com/sirupsen/logrus v1.8.1
 	github.com/spf13/cast v1.6.0
 	github.com/xuri/excelize/v2 v2.8.1
 	go.etcd.io/etcd v3.3.17+incompatible
@@ -37,7 +35,7 @@ require (
 	github.com/tmc/grpc-websocket-proxy v0.0.0-20220101234140-673ab2c3ae75 // indirect
 	github.com/xiang90/probing v0.0.0-20221125231312-a49e3df8f510 // indirect
 	go.uber.org/multierr v1.10.0 // indirect
-	go.uber.org/zap v1.27.0
+	go.uber.org/zap v1.27.0 // indirect
 	golang.org/x/text v0.15.0 // indirect
 	golang.org/x/time v0.5.0 // indirect
 	sigs.k8s.io/yaml v1.4.0 // indirect
@@ -53,8 +51,6 @@ require (
 	github.com/gogo/protobuf v1.3.2 // indirect
 	github.com/hashicorp/golang-lru v0.5.4 // indirect
 	github.com/klauspost/compress v1.17.2 // indirect
-	github.com/mattn/go-colorable v0.1.13 // indirect
-	github.com/mattn/go-isatty v0.0.19 // indirect
 	github.com/mohae/deepcopy v0.0.0-20170929034955-c48cc78d4826 // indirect
 	github.com/nats-io/nkeys v0.4.7 // indirect
 	github.com/nats-io/nuid v1.0.1 // indirect

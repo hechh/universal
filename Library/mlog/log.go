@@ -1,32 +1,16 @@
-package ulog
-
-import "runtime/debug"
-
-const (
-	LOG_FATAL   = 0x01
-	LOG_ERROR   = 0x02
-	LOG_INFO    = 0x04
-	LOG_WARN    = 0x08
-	LOG_TRACE   = 0x10
-	LOG_DEBUG   = 0x20
-	LOG_ALL     = 0xff
-	LOG_DEFAULT = LOG_INFO | LOG_ERROR | LOG_FATAL
-)
+package mlog
 
 var (
-	logger *Logger
+	logger = NewLogger(LOG_DEBUG, NewFormat, &StdWriter{})
 )
 
-func init() {
-	logger = NewLogger(LOG_ALL, "ulog", NewWriter("./log", "output"))
+func Init(logPath, logName string, level uint32) {
+	w := NewWriter(logPath, logName, 1024)
+	logger = NewLogger(level, NewFormat, w)
 }
 
-func Close() {
-	logger.Close()
-}
-
-func Init(level uint32, path, name string) {
-	logger = NewLogger(level, name, NewWriter(path, name))
+func Close() error {
+	return logger.Close()
 }
 
 func Trace(format string, args ...interface{}) {
@@ -75,8 +59,4 @@ func ErrorSkip(skip int, format string, args ...interface{}) {
 
 func FatalSkip(skip int, format string, args ...interface{}) {
 	logger.Fatal(skip+1, format, args...)
-}
-
-func Catch(err interface{}) {
-	logger.Fatal(1, "%v\nstack: %v", err, string(debug.Stack()))
 }

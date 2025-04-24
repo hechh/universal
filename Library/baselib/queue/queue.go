@@ -1,4 +1,4 @@
-package async
+package queue
 
 import (
 	"sync/atomic"

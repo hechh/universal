@@ -1,5 +1,7 @@
 package util
 
+import "sync"
+
 func Ifelse[T any](flag bool, a, b T) T {
 	if flag {
 		return a
@@ -19,4 +21,8 @@ func Suffix[T any](vals []T, pos int) []T {
 		return nil
 	}
 	return vals[pos:]
+}
+
+func NewSyncPool[T any]() *sync.Pool {
+	return &sync.Pool{New: func() interface{} { return new(T) }}
 }
