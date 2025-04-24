@@ -13,17 +13,31 @@ import (
 	"go.etcd.io/etcd/clientv3"
 )
 
+type ParseFunc func([]byte, []byte) define.IServer
+
 type Etcd struct {
 	root   string
-	parse  func([]byte, []byte) define.IServer
+	parse  ParseFunc
 	client *clientv3.Client
+}
+
+func NewEtcd(root string, parse ParseFunc, endpoints ...string) (*Etcd, error) {
+	cli, err := clientv3.New(clientv3.Config{Endpoints: endpoints})
+	if err != nil {
+		return nil, err
+	}
+	return &Etcd{
+		root:   root,
+		parse:  parse,
+		client: cli,
+	}, nil
 }
 
 func (e *Etcd) getKey(node define.IServer) string {
 	return path.Join(
 		e.root,
-		strconv.Itoa(node.GetServerType()),
-		strconv.Itoa(node.GetServerId()),
+		strconv.Itoa(int(node.GetServerType())),
+		strconv.Itoa(int(node.GetServerId())),
 	)
 }
 
