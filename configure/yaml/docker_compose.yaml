@@ -1,0 +1,122 @@
+services:
+  mysql:
+    image: mysql:8.4.3
+    restart: always
+    container_name: mysql
+    environment:
+      MYSQL_DATABASE: universal
+      MYSQL_ROOT_USER: root
+      MYSQL_ROOT_PASSWORD: 123456
+    ports:
+      - "3306:3306"
+    networks:
+      universal_network:
+
+
+  redis:
+    image: redis:7.4.0
+    restart: always
+    container_name: redis
+    environment:
+      REDIS_USER: root
+      REDIS_PASSWORD: 123456
+    ports:
+      - "6379:6379"
+    networks:
+      universal_network:
+
+
+  mongodb:
+    image: mongo:6.0
+    restart: always
+    container_name: mongodb
+    environment:
+      MONGO_INITDB_DATABASE: universal
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: 123456
+    ports:
+      - "27017:27017"
+    networks:
+      universal_network:
+
+
+  etcd1:
+    image: bitnami/etcd:3.5
+    restart: always
+    environment:
+      ETCD_NAME: etcd1
+      ALLOW_NONE_AUTHENTICATION: "no"
+      ETCD_ROOT_PASSWORD: 123456
+      ETCD_INITIAL_CLUSTER: etcd-1=http://etcd1:2380,etcd2=http://etcd2:2380,etcd3=http://etcd3:2380
+      ETCD_INITIAL_CLUSTER_STATE: new
+    ports:
+      - "33601:2379"
+      - "33602:2380"
+    networks:
+      universal_network:
+
+
+  etcd2:
+    image: bitnami/etcd:3.5
+    restart: always
+    environment:
+      ETCD_NAME: etcd2
+      ALLOW_NONE_AUTHENTICATION: "no"
+      ETCD_ROOT_PASSWORD: 123456
+      ETCD_INITIAL_CLUSTER: etcd1=http://etcd1:2380,etcd2=http://etcd2:2380,etcd3=http://etcd3:2380
+      ETCD_INITIAL_CLUSTER_STATE: new
+    ports:
+      - "33611:2379"
+      - "33612:2380"
+    networks:
+      universal_network:
+
+
+  etcd3:
+    image: bitnami/etcd:3.5
+    restart: always
+    environment:
+      ETCD_NAME: etcd3
+      ALLOW_NONE_AUTHENTICATION: "no"
+      ETCD_ROOT_PASSWORD: 123456
+      ETCD_INITIAL_CLUSTER: etcd1=http://etcd1:2380,etcd2=http://etcd2:2380,etcd3=http://etcd3:2380
+      ETCD_INITIAL_CLUSTER_STATE: new
+    ports:
+      - "33621:2379"
+      - "33622:2380"
+    networks:
+      universal_network:
+
+
+  zookeeper:
+    image: ubuntu/zookeeper
+    restart: always
+    container_name: zookeeper
+    ports:
+      - "2181:2181"
+    environment:
+      ZOO_MY_ID: 1
+      ZOO_SERVERS: server.1=zookeeper:2888:3888
+    networks:
+      universal_network:
+
+
+  rabbitmq:
+    image: rabbitmq:3.13.6-management-alpine
+    restart: always
+    container_name: rabbitmq
+    hostname: bt-rabbitmq
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+      RABBITMQ_LOOPBACK_USERS: "none" # 允许 guest 远程访问
+    ports:
+      - "5672:5672" # 映射 RabbitMQ 的 AMQP 端口
+      - "15672:15672" # 映射 RabbitMQ 的管理界面端口
+    networks:
+      universal_network:
+
+
+networks:
+  universal_network:
+    driver: bridge

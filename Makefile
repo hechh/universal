@@ -31,3 +31,10 @@ proto:
 xlsx:
 	go run ./tools/cfgtool/main.go -xlsx=${TABLE_PATH} -json=${JSON_PATH} -pb=${CFG_PATH} -code=${CODE_PATH} -proto=${PROTO_PATH}
 
+docker_stop:
+	@echo "停止docker环境"
+	docker-compose -f ./configure/yaml/docker_compose.yaml down
+
+docker_run:
+	@echo "启动docker环境"
+	docker-compose -f ./configure/yaml/docker_compose.yaml up -d

@@ -4,6 +4,9 @@ import (
 	"context"
 )
 
+type IHeadler interface {
+}
+
 // 服务节点
 type IServer interface {
 	GetServerType() int32 // 服务类型
@@ -32,4 +35,10 @@ type INode interface {
 	Insert(IServer) error                          // 添加节点
 	Delete(serverType int32, serverId int32) error // 删除节点
 	Random(serverType int32, seed uint64) IServer  // 随机节点
+}
+
+// 转发消息
+type ISend interface {
+	Send(ctx context.Context, head IHeadler, data []byte) error      // 发送消息
+	Broadcast(ctx context.Context, head IHeadler, data []byte) error // 广播消息
 }
