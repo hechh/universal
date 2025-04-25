@@ -14,29 +14,33 @@ type IHeader interface {
 	GetUid() uint64
 }
 
+type ParseNodeFunc func([]byte) INode
+
 // 服务节点
 type INode interface {
-	Unique() string     // 唯一标识
-	GetName() string    // 服务名称
-	GetType() int32     // 服务类型
-	GetId() int32       // 服务id
-	GetAddress() string // 服务地址
+	Unique() string  // 唯一标识
+	GetName() string // 服务名称
+	GetType() int32  // 服务类型
+	GetId() int32    // 服务id
+	GetAddr() string // 服务地址
+	ToBytes() []byte // 转换为字节数组
 }
 
 // 服务集群
 type ICluster interface {
-	Get(nodeType int32, nodeId int32) INode    // 获取节点
-	Insert(INode) error                        // 添加节点
-	Delete(nodeType int32, nodeId int32) error // 删除节点
-	Random(nodeType int32, seed uint64) INode  // 随机节点
+	Get(nodeType int32, nodeId int32) INode   // 获取节点
+	Put(INode) error                          // 添加节点
+	Del(nodeType int32, nodeId int32) error   // 删除节点
+	Random(nodeType int32, seed uint64) INode // 随机节点
 }
 
 // 服务发现
 type IDiscovery interface {
-	Put(ctx context.Context, srv INode) error                  // 注册服务
-	Delete(ctx context.Context, srv INode) error               // 删除服务
-	Watch(ctx context.Context, cluster ICluster) error         // 服务发现
-	KeepAlive(ctx context.Context, srv INode, ttl int64) error // 心跳
+	Put(srv INode) error                  // 注册服务
+	Del(srv INode) error                  // 删除服务
+	Watch(cluster ICluster) error         // 服务发现
+	KeepAlive(srv INode, ttl int64) error // 心跳
+	Close() error                         // 删除
 }
 
 // 路由表
