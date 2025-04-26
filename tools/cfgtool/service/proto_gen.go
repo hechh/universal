@@ -5,7 +5,7 @@ import (
 	"path/filepath"
 	"sort"
 	"universal/library/baselib/uerror"
-	"universal/library/file"
+	"universal/library/baselib/util"
 	"universal/tools/cfgtool/domain"
 	"universal/tools/cfgtool/internal/base"
 	"universal/tools/cfgtool/internal/manager"
@@ -63,7 +63,7 @@ func GenProto(buf *bytes.Buffer) error {
 
 func SaveProto() error {
 	for fileName, data := range manager.GetProtoMap() {
-		if err := file.Save(domain.ProtoPath, fileName, []byte(data)); err != nil {
+		if err := util.SaveFile(domain.ProtoPath, fileName, []byte(data)); err != nil {
 			return err
 		}
 	}

@@ -3,7 +3,7 @@ package service
 import (
 	"strings"
 	"universal/library/baselib/uerror"
-	"universal/library/file"
+	"universal/library/baselib/util"
 	"universal/tools/cfgtool/domain"
 	"universal/tools/cfgtool/internal/base"
 	"universal/tools/cfgtool/internal/manager"
@@ -35,7 +35,7 @@ func GenData() error {
 			if err != nil {
 				return err
 			}
-			if err := file.Save(domain.JsonPath, cfg.Name+".json", buf); err != nil {
+			if err := util.SaveFile(domain.JsonPath, cfg.Name+".json", buf); err != nil {
 				return err
 			}
 		}
@@ -44,7 +44,7 @@ func GenData() error {
 			if err != nil {
 				return err
 			}
-			if err := file.Save(domain.BytesPath, cfg.Name+".bytes", buf); err != nil {
+			if err := util.SaveFile(domain.BytesPath, cfg.Name+".bytes", buf); err != nil {
 				return err
 			}
 		}

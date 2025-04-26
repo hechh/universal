@@ -5,7 +5,7 @@ import (
 	"path/filepath"
 	"strings"
 	"universal/library/baselib/uerror"
-	"universal/library/util"
+	"universal/library/baselib/util"
 	"universal/tools/cfgtool/domain"
 	"universal/tools/cfgtool/internal/base"
 	"universal/tools/cfgtool/internal/manager"

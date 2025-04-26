@@ -5,7 +5,7 @@ import (
 	"flag"
 	"fmt"
 	"path/filepath"
-	"universal/library/file"
+	"universal/library/baselib/util"
 	"universal/tools/cfgtool/domain"
 	"universal/tools/cfgtool/internal/manager"
 	"universal/tools/cfgtool/internal/parser"
@@ -30,7 +30,7 @@ func main() {
 		domain.PkgName = filepath.Base(domain.PbPath)
 	}
 	// 加载所有配置
-	files, err := file.Glob(domain.XlsxPath, ".*\\.xlsx", true)
+	files, err := util.Glob(domain.XlsxPath, ".*\\.xlsx", true)
 	if err != nil {
 		panic(err)
 	}
