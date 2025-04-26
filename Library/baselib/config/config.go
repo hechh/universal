@@ -37,12 +37,27 @@ type NatsConfig struct {
 	Endpoints string `yaml:endpoints`
 }
 
+type NodeConfig struct {
+	Name string `yaml:name`
+	Addr string `yaml:addr`
+}
+
+type GateConfig struct {
+	LogLevel  string                `yaml:log_level`
+	LogPath   string                `yaml:log_path`
+	LogPrefix string                `yaml:log_prefix`
+	NodeType  int32                 `yaml:node_type`
+	RouteType int32                 `yaml:route_type`
+	Nodes     map[int32]*NodeConfig `yaml:nodes`
+}
+
 type Config struct {
 	Mysql   map[uint32]*MysqlConfig   `yaml:mysql`
 	Redis   map[uint32]*RedisConfig   `yaml:redis`
 	Mongodb map[uint32]*MongodbConfig `yaml:mongodb`
 	Etcd    *EtcdConfig               `yaml:etcd`
 	Nats    *NatsConfig               `yaml:nats`
+	Gate    *GateConfig               `yaml:gate`
 }
 
 func (c *Config) Unmarshal(buf []byte) error {
