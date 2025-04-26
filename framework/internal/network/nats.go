@@ -26,19 +26,12 @@ func NewNats(url string, opts ...OpOption) (*Nats, error) {
 	return &Nats{options: vals, client: client}, nil
 }
 
-func (n *Nats) getChannel() string {
-	node := n.options.cluster.GetSelf()
-	return fmt.Sprintf("%s/%d/%d", n.options.root, node.GetType(), node.GetId())
-}
-
-func (n *Nats) getTopChannel() string {
-	node := n.options.cluster.GetSelf()
-	return fmt.Sprintf("%s/%d", n.options.root, node.GetType())
-}
-
+// 接受请求
 func (n *Nats) Receive(f func(define.IHeader, []byte)) error {
 	// 单播
-	_, err := n.client.Subscribe(n.getChannel(), func(msg *nats.Msg) {
+	node := n.options.cluster.GetSelf()
+	sendChannel := fmt.Sprintf("%s/%d/%d", n.options.root, node.GetType(), node.GetId())
+	_, err := n.client.Subscribe(sendChannel, func(msg *nats.Msg) {
 		pack := n.options.parse(msg.Data)
 		safe.SafeRecover(mlog.Fatal, func() {
 			f(pack.GetHeader(), pack.GetBody())
@@ -48,7 +41,8 @@ func (n *Nats) Receive(f func(define.IHeader, []byte)) error {
 		return err
 	}
 	// 广播
-	_, err = n.client.Subscribe(n.getTopChannel(), func(msg *nats.Msg) {
+	topChannel := fmt.Sprintf("%s/%d", n.options.root, node.GetType())
+	_, err = n.client.Subscribe(topChannel, func(msg *nats.Msg) {
 		pack := n.options.parse(msg.Data)
 		safe.SafeRecover(mlog.Fatal, func() {
 			f(pack.GetHeader(), pack.GetBody())
@@ -57,7 +51,16 @@ func (n *Nats) Receive(f func(define.IHeader, []byte)) error {
 	return err
 }
 
+// 发送消息
 func (n *Nats) Send(header define.IHeader, data []byte) error {
+	node := n.options.cluster.GetSelf()
+	mgr := n.options.routerMgr
+	id := header.GetRouteId(header.GetDstType())
+
+	// 从路由表中加载
+	nodeId := mgr.Get(id, node.GetType())
 
 	return nil
 }
+
+// 发送广播

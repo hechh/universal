@@ -15,13 +15,16 @@ type IRouterMgr interface {
 }
 
 type IHeader interface {
-	GetSendType() uint32
-	GetSrcType() uint32
-	GetSrcId() uint32
-	GetDstType() uint32
-	GetDstId() uint32
-	GetCmd() uint32
-	GetUid() uint64
+	GetSendType() int32               // 获取发送类型
+	GetSrcType() int32                // 获取源服务类型
+	GetSrcId() int32                  // 获取源服务id
+	GetDstType() int32                // 获取目的服务类型
+	GetDstId() int32                  // 获取目的服务id
+	GetCmd() uint32                   // 获取命令
+	GetUid() uint64                   // 获取用户id
+	GetRouteId(nodeType int32) uint64 // 获取路由id
+	SetSrc(int32, int32)              // 设置源
+	SetDst(int32, int32)              //
 }
 
 type ParseNodeFunc func([]byte) INode
