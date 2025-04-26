@@ -7,9 +7,9 @@ import (
 
 type Node struct {
 	Name string `json:"name"` // 节点名称
+	Addr string `json:"addr"` // 节点地址
 	Type int32  `json:"type"` // 节点类型
 	Id   int32  `json:"id"`   // 节点ID
-	Addr string `json:"addr"` // 节点地址
 }
 
 func NewNode(buf []byte) define.INode {

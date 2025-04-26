@@ -1,8 +1,10 @@
 package define
 
-import (
-	"context"
-)
+// 路由服务
+type IRouter interface {
+	Get(id uint64, nodeType int32) int32      // 获取节点id
+	Update(id uint64, nodeType, nodeId int32) // 更新节点id
+}
 
 type IHeader interface {
 	GetSendType() uint32
@@ -31,6 +33,8 @@ type ICluster interface {
 	Put(INode) error                          // 添加节点
 	Del(nodeType int32, nodeId int32) error   // 删除节点
 	Random(nodeType int32, seed uint64) INode // 随机节点
+	GetSelf() INode                           // 获取当前节点
+	GetRouteType(nodeType int32) int32        // 获取节点路由方式
 }
 
 // 服务发现
@@ -43,36 +47,17 @@ type IDiscovery interface {
 	Close() error                         // 删除
 }
 
-// 路由表
-type IRouter interface {
-	Get(uint64) ICluster
-	Update(uint64, ICluster) error
+// 转发消息
+type INetwork interface {
+	Send(IHeader, []byte) error          // 发送消息
+	Receive(func(IHeader, []byte)) error // 接收消息
+	Broadcast(IHeader, []byte) error     // 广播消息
 }
+
+type ParsePacketFunc func([]byte) IPacket
 
 // 内网消息协议
 type IPacket interface {
 	GetHeader() IHeader
 	GetBody() []byte
-}
-
-// 转发消息
-type ISend interface {
-	Send(ctx context.Context, pack IPacket) error      // 发送消息
-	Broadcast(ctx context.Context, pack IPacket) error // 广播消息
-}
-
-type Header struct {
-	Sequence       uint32
-	Cmd            uint32
-	Uid            uint64
-	SendType       uint32
-	SrcClusterType uint32
-	SrcClusterId   uint32
-	DstClusterType uint32
-	DstClusterId   uint32
-}
-
-type Packet struct {
-	Header *Header
-	Body   []byte
 }

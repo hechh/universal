@@ -27,3 +27,14 @@ etcd:
 nats:
   endpoints: 192.168.3.5:33701,192.168.3.5:33702,192.168.3.5:33703
 
+gate:
+  log_level: debug
+  log_path: ./log
+  log_prefix: gate
+  node_type: 1
+  route_type: 1
+  nodes:
+    1:
+      name: gate1
+      addr: 192.168.3.5:40001
+

@@ -8,20 +8,32 @@ import (
 )
 
 type NodePool struct {
-	mutex *sync.RWMutex
-	nodes []define.INode
+	routeType int32 // 路由方式
+	mutex     *sync.RWMutex
+	nodes     []define.INode // 节点
 }
 
 type Cluster struct {
+	self  define.INode
 	pools map[int32]*NodePool
 }
 
-func NewCluster(nodeTypes ...int32) *Cluster {
+func NewCluster(self define.INode, types map[int32]int32) *Cluster {
 	pools := make(map[int32]*NodePool)
-	for _, tt := range nodeTypes {
-		pools[tt] = &NodePool{mutex: new(sync.RWMutex)}
+	for tt, val := range types {
+		pools[tt] = &NodePool{mutex: new(sync.RWMutex), routeType: val}
 	}
-	return &Cluster{pools: pools}
+	return &Cluster{self: self, pools: pools}
+}
+
+// 获取自身节点
+func (c *Cluster) GetSelf() define.INode {
+	return c.self
+}
+
+// 获取路由方式
+func (c *Cluster) GetRouteType(nodeType int32) int32 {
+	return c.pools[nodeType].routeType
 }
 
 // 随机获取节点
@@ -90,7 +102,7 @@ func (c *NodePool) rand(id uint64) define.INode {
 	}
 	c.mutex.RLock()
 	defer c.mutex.RUnlock()
-	if id < 0 {
+	if id <= 0 {
 		return c.nodes[random.Int32n(int32(lnodes))]
 	}
 	return c.nodes[id%uint64(lnodes)]
