@@ -1,17 +1,5 @@
 package define
 
-type IHeader interface {
-	GetSendType() int32               // 获取发送类型
-	GetSrcType() int32                // 获取源服务类型
-	GetSrcId() int32                  // 获取源服务id
-	GetDstType() int32                // 获取目的服务类型
-	GetDstId() int32                  // 获取目的服务id
-	GetCmd() uint32                   // 获取命令
-	GetUid() uint64                   // 获取用户id
-	GetRouteId(nodeType int32) uint64 // 获取路由id
-}
-
-type NewRouterFunc func(uint64) IRouter
 type ParseNodeFunc func([]byte) INode
 
 // 服务节点
@@ -23,28 +11,21 @@ type INode interface {
 	ToBytes() []byte // 转换为字节数组
 }
 
-// 玩家路由
-type IRouter interface {
-	GetId() uint64                      // 唯一id
-	Get(nodeType int32) INode           // 获取节点id
-	Update(node INode)                  // 更新节点
-	IsExpire(now int64, ttl int64) bool // 是否过期
-}
-
 // 路由表
-type ITable interface {
-	Get(id uint64) IRouter // 获取路由信息
-	Expire(ttl int64)      // 设置存活时间
+type IRouter interface {
+	Get(id uint64, nodeType int32) INode // 获取路由信息
+	Update(id uint64, node INode)        // 更新路由信息
+	Expire(ttl int64)                    // 设置存活时间
 }
 
 // 服务集群
 type ICluster interface {
+	GetSelf() INode                           // 获取当前节点
+	GetRouteType(nodeType int32) int32        // 获取节点路由方式
 	Get(nodeType int32, nodeId int32) INode   // 获取节点
 	Put(node INode) error                     // 添加节点
 	Del(nodeType int32, nodeId int32) error   // 删除节点
 	Random(nodeType int32, seed uint64) INode // 随机节点
-	GetSelf() INode                           // 获取当前节点
-	GetRouteType(nodeType int32) int32        // 获取节点路由方式
 }
 
 // 服务发现
@@ -59,9 +40,9 @@ type IDiscovery interface {
 
 // 转发消息
 type INetwork interface {
-	Send(IHeader, []byte) error          // 发送消息
-	Receive(func(IHeader, []byte)) error // 接收消息
-	Broadcast(IHeader, []byte) error     // 广播消息
+	Read(INode, func([]byte)) error // 接收消息
+	Send(INode, []byte) error       // 发送消息
+	Broadcast(INode, []byte) error  // 广播消息
 }
 
 type ParsePacketFunc func([]byte) IPacket
@@ -70,4 +51,15 @@ type ParsePacketFunc func([]byte) IPacket
 type IPacket interface {
 	GetHeader() IHeader
 	GetBody() []byte
+}
+
+type IHeader interface {
+	GetSendType() int32               // 获取发送类型
+	GetSrcType() int32                // 获取源服务类型
+	GetSrcId() int32                  // 获取源服务id
+	GetDstType() int32                // 获取目的服务类型
+	GetDstId() int32                  // 获取目的服务id
+	GetCmd() uint32                   // 获取命令
+	GetUid() uint64                   // 获取用户id
+	GetRouteId(nodeType int32) uint64 // 获取路由id
 }

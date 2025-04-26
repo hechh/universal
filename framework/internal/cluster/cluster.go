@@ -8,9 +8,9 @@ import (
 )
 
 type NodePool struct {
-	routeType int32 // 路由方式
 	mutex     *sync.RWMutex
 	nodes     []define.INode // 节点
+	routeType int32          // 路由方式
 }
 
 type Cluster struct {

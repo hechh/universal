@@ -46,7 +46,6 @@ type GateConfig struct {
 	LogLevel  string                `yaml:log_level`
 	LogPath   string                `yaml:log_path`
 	LogPrefix string                `yaml:log_prefix`
-	NodeType  int32                 `yaml:node_type`
 	RouteType int32                 `yaml:route_type`
 	Nodes     map[int32]*NodeConfig `yaml:nodes`
 }

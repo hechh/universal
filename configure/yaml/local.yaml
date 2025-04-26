@@ -31,7 +31,6 @@ gate:
   log_level: debug
   log_path: ./log
   log_prefix: gate
-  node_type: 1
   route_type: 1
   nodes:
     1:
