@@ -2,8 +2,8 @@ package base
 
 import (
 	"fmt"
-	"hego/tools/cfgtool/domain"
 	"strings"
+	"universal/tools/cfgtool/domain"
 
 	"github.com/spf13/cast"
 )

@@ -2,9 +2,9 @@ package dao
 
 import (
 	"fmt"
-	"hego/common/dao/internal/manager"
-	"hego/common/global"
 	"time"
+	"universal/common/dao/internal/manager"
+	"universal/common/global"
 
 	"github.com/go-redis/redis/v8"
 )

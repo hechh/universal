@@ -2,8 +2,8 @@ package token
 
 import (
 	"fmt"
-	"hego/common/dao/domain"
-	"hego/common/dao/internal/manager"
+	"universal/common/dao/domain"
+	"universal/common/dao/internal/manager"
 )
 
 func GetLoginToken(uid uint64) (key string, err error) {

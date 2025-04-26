@@ -18,7 +18,6 @@ type ParseNodeFunc func([]byte) INode
 
 // 服务节点
 type INode interface {
-	Unique() string  // 唯一标识
 	GetName() string // 服务名称
 	GetType() int32  // 服务类型
 	GetId() int32    // 服务id
@@ -36,6 +35,7 @@ type ICluster interface {
 
 // 服务发现
 type IDiscovery interface {
+	Get() ([]INode, error)                // 获取服务列表
 	Put(srv INode) error                  // 注册服务
 	Del(srv INode) error                  // 删除服务
 	Watch(cluster ICluster) error         // 服务发现

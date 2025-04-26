@@ -12,7 +12,6 @@ services:
     networks:
       universal_network:
 
-
   redis:
     image: redis:7.4.0
     restart: always
@@ -40,53 +39,40 @@ services:
       universal_network:
 
 
-  etcd1:
+  etcd:
     image: bitnami/etcd:3.5
     restart: always
     environment:
-      ETCD_NAME: etcd1
-      ALLOW_NONE_AUTHENTICATION: "no"
-      ETCD_ROOT_PASSWORD: 123456
-      ETCD_INITIAL_CLUSTER: etcd-1=http://etcd1:2380,etcd2=http://etcd2:2380,etcd3=http://etcd3:2380
-      ETCD_INITIAL_CLUSTER_STATE: new
+      # 允许无认证访问（生产环境不建议）
+      - ALLOW_NONE_AUTHENTICATION=yes  
+      - ETCD_ADVERTISE_CLIENT_URLS=http://etcd:2379
+      - ETCD_LISTEN_CLIENT_URLS=http://0.0.0.0:2379
+      # 集群模式需要
+      # - ETCD_INITIAL_CLUSTER=etcd=http://etcd:2380  
+      # 集群模式需要
+      # - ETCD_INITIAL_ADVERTISE_PEER_URLS=http://etcd:2380  
+      # 节点名称（集群模式需要）
+      # - ETCD_NAME=etcd  
     ports:
       - "33601:2379"
       - "33602:2380"
     networks:
       universal_network:
 
-
-  etcd2:
-    image: bitnami/etcd:3.5
-    restart: always
-    environment:
-      ETCD_NAME: etcd2
-      ALLOW_NONE_AUTHENTICATION: "no"
-      ETCD_ROOT_PASSWORD: 123456
-      ETCD_INITIAL_CLUSTER: etcd1=http://etcd1:2380,etcd2=http://etcd2:2380,etcd3=http://etcd3:2380
-      ETCD_INITIAL_CLUSTER_STATE: new
-    ports:
-      - "33611:2379"
-      - "33612:2380"
-    networks:
-      universal_network:
-
-
-  etcd3:
-    image: bitnami/etcd:3.5
-    restart: always
-    environment:
-      ETCD_NAME: etcd3
-      ALLOW_NONE_AUTHENTICATION: "no"
-      ETCD_ROOT_PASSWORD: 123456
-      ETCD_INITIAL_CLUSTER: etcd1=http://etcd1:2380,etcd2=http://etcd2:2380,etcd3=http://etcd3:2380
-      ETCD_INITIAL_CLUSTER_STATE: new
-    ports:
-      - "33621:2379"
-      - "33622:2380"
-    networks:
-      universal_network:
-
+#  etcd2:
+#    image: bitnami/etcd:3.5
+#    restart: always
+#    environment:
+#      ETCD_NAME: etcd2
+#      ALLOW_NONE_AUTHENTICATION: "no"
+#      ETCD_ROOT_PASSWORD: 123456
+#      ETCD_INITIAL_CLUSTER: etcd1=http://etcd1:2380,etcd2=http://etcd2:2380,etcd3=http://etcd3:2380
+#      ETCD_INITIAL_CLUSTER_STATE: new
+#    ports:
+#      - "33611:2379"
+#      - "33612:2380"
+#    networks:
+#      universal_network:
 
   zookeeper:
     image: ubuntu/zookeeper
@@ -116,6 +102,17 @@ services:
     networks:
       universal_network:
 
+  consul:
+    image: hashicorp/consul:latest
+    container_name: consul-server
+    ports:
+      - "8500:8500"  # HTTP API 和 UI 端口
+      - "8600:8600/udp"  # DNS 端口
+    environment:
+      - CONSUL_ALLOW_PRIVILEGED_PORTS=true
+    command: agent -server -bootstrap-expect=1 -ui -client=0.0.0.0
+    networks:
+      universal_network:
 
 networks:
   universal_network:

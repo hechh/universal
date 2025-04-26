@@ -2,9 +2,9 @@ package manager
 
 import (
 	"bytes"
-	"hego/Library/uerror"
-	"hego/tools/cfgtool/domain"
-	"hego/tools/cfgtool/internal/base"
+	"universal/library/baselib/uerror"
+	"universal/tools/cfgtool/domain"
+	"universal/tools/cfgtool/internal/base"
 
 	"github.com/jhump/protoreflect/desc"
 	"github.com/jhump/protoreflect/desc/protoparse"

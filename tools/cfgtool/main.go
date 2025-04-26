@@ -4,12 +4,12 @@ import (
 	"bytes"
 	"flag"
 	"fmt"
-	"hego/Library/file"
-	"hego/tools/cfgtool/domain"
-	"hego/tools/cfgtool/internal/manager"
-	"hego/tools/cfgtool/internal/parser"
-	"hego/tools/cfgtool/service"
 	"path/filepath"
+	"universal/Library/file"
+	"universal/tools/cfgtool/domain"
+	"universal/tools/cfgtool/internal/manager"
+	"universal/tools/cfgtool/internal/parser"
+	"universal/tools/cfgtool/service"
 )
 
 func main() {

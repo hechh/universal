@@ -1,12 +1,12 @@
 package service
 
 import (
-	"hego/Library/file"
-	"hego/Library/uerror"
-	"hego/tools/cfgtool/domain"
-	"hego/tools/cfgtool/internal/base"
-	"hego/tools/cfgtool/internal/manager"
 	"strings"
+	"universal/Library/file"
+	"universal/library/baselib/uerror"
+	"universal/tools/cfgtool/domain"
+	"universal/tools/cfgtool/internal/base"
+	"universal/tools/cfgtool/internal/manager"
 )
 
 func GenData() error {

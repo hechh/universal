@@ -14,19 +14,19 @@ import (
 )
 
 type Consul struct {
-	options *options
+	options *Op
 	client  *api.Client
 	session *api.Session
 	keys    map[string]struct{}
 	exit    chan struct{}
 }
 
-func NewConsul(endpoints string, opts ...Option) (*Consul, error) {
+func NewConsul(endpoints string, opts ...OpOption) (*Consul, error) {
 	client, err := api.NewClient(&api.Config{Address: endpoints})
 	if err != nil {
 		return nil, err
 	}
-	vals := new(options)
+	vals := new(Op)
 	for _, opt := range opts {
 		opt(vals)
 	}
@@ -47,6 +47,17 @@ func (c *Consul) Close() error {
 	return nil
 }
 
+func (c *Consul) Get() (rets []define.INode, err error) {
+	kvs, _, err := c.client.KV().List(c.options.root, nil)
+	if err != nil {
+		return nil, err
+	}
+	for _, kv := range kvs {
+		rets = append(rets, c.options.parse(kv.Value))
+	}
+	return
+}
+
 // 添加 key-value
 func (c *Consul) Put(srv define.INode) error {
 	_, err := c.client.KV().Put(&api.KVPair{Key: c.getKey(srv), Value: srv.ToBytes()}, nil)
@@ -60,8 +71,7 @@ func (c *Consul) Del(srv define.INode) error {
 
 func (c *Consul) Watch(cluster define.ICluster) error {
 	// 先获取在线服务
-	kv := c.client.KV()
-	kvs, _, err := kv.List(c.options.root, nil)
+	kvs, _, err := c.client.KV().List(c.options.root, nil)
 	if err != nil {
 		return err
 	}
@@ -114,22 +124,21 @@ func (c *Consul) Watch(cluster define.ICluster) error {
 
 func (c *Consul) KeepAlive(srv define.INode, ttl int64) error {
 	// 设置租约
-	entry := &api.SessionEntry{
+	leaseID, _, err := c.session.Create(&api.SessionEntry{
 		TTL:      fmt.Sprintf("%ds", ttl),
 		Behavior: "delete",
-	}
-	leaseID, _, err := c.session.Create(entry, nil)
+	}, nil)
 	if err != nil {
 		return err
 	}
 
 	// 设置 key-value
-	kv := &api.KVPair{
+	_, err = c.client.KV().Put(&api.KVPair{
 		Key:     c.getKey(srv),
 		Value:   srv.ToBytes(),
 		Session: leaseID,
-	}
-	if _, err := c.client.KV().Put(kv, nil); err != nil {
+	}, nil)
+	if err != nil {
 		return err
 	}
 

@@ -2,10 +2,10 @@ package global
 
 import (
 	"fmt"
-	"hego/common/pb"
 	"io/ioutil"
 	"path/filepath"
 	"strings"
+	"universal/common/pb"
 
 	"gopkg.in/yaml.v2"
 )

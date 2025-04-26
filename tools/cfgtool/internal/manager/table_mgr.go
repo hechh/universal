@@ -1,9 +1,9 @@
 package manager
 
 import (
-	"hego/tools/cfgtool/domain"
-	"hego/tools/cfgtool/internal/base"
 	"strings"
+	"universal/tools/cfgtool/domain"
+	"universal/tools/cfgtool/internal/base"
 )
 
 var (

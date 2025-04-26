@@ -2,10 +2,10 @@ package RouteData
 
 import (
 	"encoding/json"
-	"hego/Library/uerror"
-	"hego/common/config/cfg"
-	"hego/common/config/internal/manager"
 	"sync/atomic"
+	"universal/common/config/cfg"
+	"universal/common/config/internal/manager"
+	"universal/library/baselib/uerror"
 )
 
 var obj = atomic.Value{}

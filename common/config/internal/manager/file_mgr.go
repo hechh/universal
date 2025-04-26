@@ -1,9 +1,9 @@
 package manager
 
 import (
-	"hego/Library/ulog"
-	"hego/common/config/internal/parse"
 	"time"
+	"universal/common/config/internal/parse"
+	"universal/library/mlog"
 )
 
 var (
@@ -47,7 +47,7 @@ func check(ttl time.Duration) {
 
 			// 重新加载配置
 			if err := par.Load(configPath, fileExt); err != nil {
-				ulog.Fatal("%s/%s.%s加载失败", configPath, name, fileExt)
+				mlog.Fatal("%s/%s.%s加载失败", configPath, name, fileExt)
 			}
 		}
 	}

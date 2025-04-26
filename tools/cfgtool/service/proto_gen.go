@@ -2,14 +2,14 @@ package service
 
 import (
 	"bytes"
-	"hego/Library/file"
-	"hego/Library/uerror"
-	"hego/tools/cfgtool/domain"
-	"hego/tools/cfgtool/internal/base"
-	"hego/tools/cfgtool/internal/manager"
-	"hego/tools/cfgtool/internal/templ"
 	"path/filepath"
 	"sort"
+	"universal/Library/file"
+	"universal/library/baselib/uerror"
+	"universal/tools/cfgtool/domain"
+	"universal/tools/cfgtool/internal/base"
+	"universal/tools/cfgtool/internal/manager"
+	"universal/tools/cfgtool/internal/templ"
 )
 
 type ProtoInfo struct {

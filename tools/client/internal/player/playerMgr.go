@@ -3,13 +3,13 @@ package player
 import (
 	"encoding/json"
 	"fmt"
-	"hego/Library/ulog"
-	"hego/common/global"
-	"hego/common/pb"
-	"hego/framework/handler"
-	"hego/tools/client/domain"
 	"strings"
 	"sync"
+	"universal/common/global"
+	"universal/common/pb"
+	"universal/framework/handler"
+	"universal/library/mlog"
+	"universal/tools/client/domain"
 
 	"github.com/spf13/cast"
 )
@@ -45,7 +45,7 @@ func Init(cfg map[uint32]*global.ServerConfig, plat uint64, srvs string) {
 	go func() {
 		for uid := range closes {
 			DelPlayer(uid)
-			ulog.Info("客户端关闭, uid: %d", uid)
+			mlog.Info("客户端关闭, uid: %d", uid)
 		}
 	}()
 }

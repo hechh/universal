@@ -4,12 +4,12 @@ import (
 	"go/ast"
 	"go/parser"
 	"go/token"
-	"hego/framework/basic"
-	"hego/framework/uerror"
 	"io/ioutil"
 	"os"
 	"path/filepath"
 	"unicode"
+	"universal/framework/basic"
+	"universal/framework/uerror"
 )
 
 func Panic(err interface{}) {

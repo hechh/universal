@@ -1,7 +1,7 @@
 package convert
 
 import (
-	"hego/framework/basic"
+	"universal/framework/basic"
 
 	"github.com/spf13/cast"
 )

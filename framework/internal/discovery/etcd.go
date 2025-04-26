@@ -4,39 +4,51 @@ import (
 	"context"
 	"fmt"
 	"path"
+	"sync/atomic"
 	"time"
 	"universal/framework/define"
 	"universal/library/baselib/safe"
 	"universal/library/mlog"
 
 	"github.com/spf13/cast"
-	"go.etcd.io/etcd/clientv3"
+	clientv3 "go.etcd.io/etcd/client/v3"
 )
 
 type Etcd struct {
-	options *options
+	options *Op
 	client  *clientv3.Client
 	exit    chan struct{}
 }
 
-func NewEtcd(endpoints []string, opts ...Option) (*Etcd, error) {
+func NewEtcd(endpoints []string, opts ...OpOption) (*Etcd, error) {
 	cli, err := clientv3.New(clientv3.Config{Endpoints: endpoints})
 	if err != nil {
 		return nil, err
 	}
-	vals := new(options)
+	vals := new(Op)
 	for _, opt := range opts {
 		opt(vals)
 	}
 	return &Etcd{
 		options: vals,
 		client:  cli,
-		exit:    make(chan struct{}, 0),
+		exit:    make(chan struct{}),
 	}, nil
 }
 
 func (e *Etcd) getKey(node define.INode) string {
 	return path.Join(e.options.root, cast.ToString(node.GetType()), cast.ToString(node.GetId()))
+}
+
+func (e *Etcd) Get() (rets []define.INode, err error) {
+	rsp, err := e.client.Get(context.Background(), e.options.root, clientv3.WithPrefix())
+	if err != nil {
+		return nil, err
+	}
+	for _, kv := range rsp.Kvs {
+		rets = append(rets, e.options.parse(kv.Value))
+	}
+	return
 }
 
 // 添加 key-value
@@ -53,13 +65,17 @@ func (e *Etcd) Del(info define.INode) error {
 
 // 监听 kv 变化
 func (e *Etcd) Watch(cluster define.ICluster) error {
-	// 先获取在线服务
+	// 获取在线服务
 	rsp, err := e.client.Get(context.Background(), e.options.root, clientv3.WithPrefix())
 	if err != nil {
 		return err
 	}
 	for _, kv := range rsp.Kvs {
-		cluster.Put(e.options.parse(kv.Value))
+		node := e.options.parse(kv.Value)
+		if err := cluster.Put(node); err != nil {
+			mlog.Error("Etcd获取在线服务失败: %v, node: %v", err, node)
+			return err
+		}
 	}
 
 	// 监听服务
@@ -107,6 +123,7 @@ func (e *Etcd) KeepAlive(srv define.INode, ttl int64) error {
 		}
 		return fmt.Errorf("Etcd 租赁续约失败，且超过最大重试次数")
 	}
+	atomic.AddInt32(&e.options.status, 1)
 	// 定时检测
 	tt := time.NewTicker(time.Duration(ttl/2) * time.Second)
 	defer tt.Stop()
@@ -127,6 +144,8 @@ func (e *Etcd) KeepAlive(srv define.INode, ttl int64) error {
 }
 
 func (e *Etcd) Close() error {
-	e.exit <- struct{}{}
+	if atomic.LoadInt32(&e.options.status) > 0 {
+		e.exit <- struct{}{}
+	}
 	return e.client.Close()
 }

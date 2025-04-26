@@ -1,10 +1,10 @@
 package test
 
 import (
-	"hego/common/config/internal/manager"
-	"hego/common/config/repository/RouteData"
 	"testing"
 	"time"
+	"universal/common/config/internal/manager"
+	"universal/common/config/repository/RouteData"
 )
 
 func TestMain(m *testing.M) {

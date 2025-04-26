@@ -2,10 +2,10 @@ package parse
 
 import (
 	"fmt"
-	"hego/Library/uerror"
 	"io/ioutil"
 	"os"
 	"path/filepath"
+	"universal/library/baselib/uerror"
 )
 
 type Parser struct {

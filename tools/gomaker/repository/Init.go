@@ -1,8 +1,8 @@
 package repository
 
 import (
-	"hego/tools/gomaker/internal/manager"
-	"hego/tools/gomaker/repository/convert"
+	"universal/tools/gomaker/internal/manager"
+	"universal/tools/gomaker/repository/convert"
 )
 
 func init() {
