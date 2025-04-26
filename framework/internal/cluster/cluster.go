@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"sync"
 	"universal/framework/define"
+	"universal/library/mlog"
 	"universal/library/random"
 )
 
@@ -42,8 +43,11 @@ func (c *Cluster) Get(nodeType, nodeId int32) define.INode {
 }
 
 // 添加节点
-func (c *Cluster) Put(node define.INode) error {
-	return c.pools[node.GetType()].put(node)
+func (c *Cluster) Put(node define.INode) (err error) {
+	if err = c.pools[node.GetType()].put(node); err == nil {
+		mlog.Debug("添加服务节点：%s", string(node.ToBytes()))
+	}
+	return
 }
 
 // 删除节点
@@ -86,6 +90,7 @@ func (c *NodePool) del(id int32) error {
 	j := -1
 	for _, val := range c.nodes {
 		if val.GetId() == id {
+			mlog.Debug("删除服务节点：%s", string(val.ToBytes()))
 			continue
 		}
 		j++

@@ -2,12 +2,17 @@ package test
 
 import (
 	"testing"
+	"time"
 	"universal/common/config"
+	"universal/framework/define"
 	"universal/framework/internal/cluster"
 	"universal/framework/internal/discovery"
 )
 
-var cfg *config.Config
+var (
+	cfg  *config.Config
+	etcd define.IDiscovery
+)
 
 func TestMain(m *testing.M) {
 	var err error
@@ -15,30 +20,35 @@ func TestMain(m *testing.M) {
 	if err != nil {
 		panic(err)
 	}
-	m.Run()
-}
-
-func TestEtcdPut(t *testing.T) {
-	etcd, err := discovery.NewEtcd(
+	dis, err := discovery.NewEtcd(
 		cfg.Etcd.Endpoints,
 		discovery.WithPath("/hch/etcd_test/"),
 		discovery.WithParse(cluster.NewNode),
 	)
 	if err != nil {
+		panic(err)
+	}
+	etcd = dis
+	m.Run()
+}
+
+func TestEtcdPut(t *testing.T) {
+	// 监视
+	self := &cluster.Node{Name: "test1", Type: 1, Id: 1, Addr: "192.168.1.1:22345"}
+	types := map[int32]int32{1: 1, 2: 2, 3: 3, 4: 4}
+	cls := cluster.NewCluster(self, types)
+	if err := etcd.Watch(cls); err != nil {
 		t.Fatal(err)
 	}
-	defer etcd.Close()
 
-	if err := etcd.Put(&cluster.Node{
-		Name: "test",
-		Type: 1,
-		Id:   12,
-		Addr: "192.168.1.1:22345",
-	}); err != nil {
+	// 添加服务
+	nnode := &cluster.Node{Name: "test1", Type: 2, Id: 2, Addr: "192.168.1.1:22345"}
+	if err := etcd.Put(nnode); err != nil {
 		t.Log(err)
 		return
 	}
 
+	// 查询
 	list, err := etcd.Get()
 	if err != nil {
 		t.Log(err)
@@ -47,4 +57,8 @@ func TestEtcdPut(t *testing.T) {
 	for _, item := range list {
 		t.Log("--->", item)
 	}
+
+	// 删除节点
+	etcd.Del(nnode)
+	time.Sleep(3 * time.Second)
 }
