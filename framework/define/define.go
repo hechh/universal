@@ -1,19 +1,5 @@
 package define
 
-type NewRouterFunc func() IRouter
-
-type IRouter interface {
-	Get(nodeType int32) int32      // 获取节点id
-	Update(nodeType, nodeId int32) // 更新节点
-}
-
-// 路由服务
-type IRouterMgr interface {
-	Get(id uint64, nodeType int32) int32      // 获取节点id
-	Update(id uint64, nodeType, nodeId int32) // 更新节点id
-	Expire(ttl int64)                         // 设置存活时间
-}
-
 type IHeader interface {
 	GetSendType() int32               // 获取发送类型
 	GetSrcType() int32                // 获取源服务类型
@@ -23,10 +9,9 @@ type IHeader interface {
 	GetCmd() uint32                   // 获取命令
 	GetUid() uint64                   // 获取用户id
 	GetRouteId(nodeType int32) uint64 // 获取路由id
-	SetSrc(int32, int32)              // 设置源
-	SetDst(int32, int32)              //
 }
 
+type NewRouterFunc func(uint64) IRouter
 type ParseNodeFunc func([]byte) INode
 
 // 服务节点
@@ -38,10 +23,24 @@ type INode interface {
 	ToBytes() []byte // 转换为字节数组
 }
 
+// 玩家路由
+type IRouter interface {
+	GetId() uint64                      // 唯一id
+	Get(nodeType int32) INode           // 获取节点id
+	Update(node INode)                  // 更新节点
+	IsExpire(now int64, ttl int64) bool // 是否过期
+}
+
+// 路由表
+type ITable interface {
+	Get(id uint64) IRouter // 获取路由信息
+	Expire(ttl int64)      // 设置存活时间
+}
+
 // 服务集群
 type ICluster interface {
 	Get(nodeType int32, nodeId int32) INode   // 获取节点
-	Put(INode) error                          // 添加节点
+	Put(node INode) error                     // 添加节点
 	Del(nodeType int32, nodeId int32) error   // 删除节点
 	Random(nodeType int32, seed uint64) INode // 随机节点
 	GetSelf() INode                           // 获取当前节点

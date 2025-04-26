@@ -5,10 +5,10 @@ import "universal/framework/define"
 type OpOption func(*Op)
 
 type Op struct {
-	root      string
-	parse     define.ParsePacketFunc
-	cluster   define.ICluster
-	routerMgr define.IRouterMgr
+	root    string
+	parse   define.ParsePacketFunc
+	cluster define.ICluster
+	table   define.ITable
 }
 
 func WithPath(p string) OpOption {
@@ -29,8 +29,8 @@ func WithCluster(cls define.ICluster) OpOption {
 	}
 }
 
-func WithRouterMgr(r define.IRouterMgr) OpOption {
+func WithTable(r define.ITable) OpOption {
 	return func(o *Op) {
-		o.routerMgr = r
+		o.table = r
 	}
 }

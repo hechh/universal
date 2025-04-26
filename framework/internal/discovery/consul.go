@@ -14,11 +14,12 @@ import (
 )
 
 type Consul struct {
-	options *Op
-	client  *api.Client
-	session *api.Session
-	keys    map[string]struct{}
-	exit    chan struct{}
+	root     string
+	parseFun define.ParseNodeFunc
+	client   *api.Client
+	session  *api.Session
+	keys     map[string]struct{}
+	exit     chan struct{}
 }
 
 func NewConsul(endpoints string, opts ...OpOption) (*Consul, error) {
@@ -31,16 +32,17 @@ func NewConsul(endpoints string, opts ...OpOption) (*Consul, error) {
 		opt(vals)
 	}
 	return &Consul{
-		options: vals,
-		client:  client,
-		session: client.Session(),
-		keys:    make(map[string]struct{}),
-		exit:    make(chan struct{}),
+		root:     vals.root,
+		parseFun: vals.parse,
+		client:   client,
+		session:  client.Session(),
+		keys:     make(map[string]struct{}),
+		exit:     make(chan struct{}),
 	}, nil
 }
 
 func (c *Consul) getKey(node define.INode) string {
-	return fmt.Sprintf("%s/%d/%d", c.options.root, node.GetType(), node.GetId())
+	return fmt.Sprintf("%s/%d/%d", c.root, node.GetType(), node.GetId())
 }
 
 func (c *Consul) Close() error {
@@ -48,12 +50,12 @@ func (c *Consul) Close() error {
 }
 
 func (c *Consul) Get() (rets []define.INode, err error) {
-	kvs, _, err := c.client.KV().List(c.options.root, nil)
+	kvs, _, err := c.client.KV().List(c.root, nil)
 	if err != nil {
 		return nil, err
 	}
 	for _, kv := range kvs {
-		rets = append(rets, c.options.parse(kv.Value))
+		rets = append(rets, c.parseFun(kv.Value))
 	}
 	return
 }
@@ -71,19 +73,19 @@ func (c *Consul) Del(srv define.INode) error {
 
 func (c *Consul) Watch(cluster define.ICluster) error {
 	// 先获取在线服务
-	kvs, _, err := c.client.KV().List(c.options.root, nil)
+	kvs, _, err := c.client.KV().List(c.root, nil)
 	if err != nil {
 		return err
 	}
 	for _, kv := range kvs {
 		c.keys[kv.Key] = struct{}{}
-		cluster.Put(c.options.parse(kv.Value))
+		cluster.Put(c.parseFun(kv.Value))
 	}
 
 	// 监听服务
 	w, err := watch.Parse(map[string]interface{}{
 		"type":   "keyprefix",
-		"prefix": c.options.root,
+		"prefix": c.root,
 	})
 	if err != nil {
 		return err
@@ -95,7 +97,7 @@ func (c *Consul) Watch(cluster define.ICluster) error {
 		// 添加服务
 		for _, kv := range kvs {
 			tmps[kv.Key] = struct{}{}
-			if err := cluster.Put(c.options.parse(kv.Value)); err != nil {
+			if err := cluster.Put(c.parseFun(kv.Value)); err != nil {
 				mlog.Error("consul发现新服务，新服务添加失败: %v", err)
 			}
 		}

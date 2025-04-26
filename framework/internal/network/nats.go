@@ -10,8 +10,11 @@ import (
 )
 
 type Nats struct {
-	options *Op        // 选项
-	client  *nats.Conn // nats连接
+	root     string
+	parseFun define.ParsePacketFunc
+	cluster  define.ICluster
+	table    define.ITable
+	client   *nats.Conn // nats连接
 }
 
 func NewNats(url string, opts ...OpOption) (*Nats, error) {
@@ -23,16 +26,22 @@ func NewNats(url string, opts ...OpOption) (*Nats, error) {
 	for _, opt := range opts {
 		opt(vals)
 	}
-	return &Nats{options: vals, client: client}, nil
+	return &Nats{
+		root:     vals.root,
+		parseFun: vals.parse,
+		cluster:  vals.cluster,
+		table:    vals.table,
+		client:   client,
+	}, nil
 }
 
 // 接受请求
 func (n *Nats) Receive(f func(define.IHeader, []byte)) error {
 	// 单播
-	node := n.options.cluster.GetSelf()
-	sendChannel := fmt.Sprintf("%s/%d/%d", n.options.root, node.GetType(), node.GetId())
+	node := n.cluster.GetSelf()
+	sendChannel := fmt.Sprintf("%s/%d/%d", n.root, node.GetType(), node.GetId())
 	_, err := n.client.Subscribe(sendChannel, func(msg *nats.Msg) {
-		pack := n.options.parse(msg.Data)
+		pack := n.parseFun(msg.Data)
 		safe.SafeRecover(mlog.Fatal, func() {
 			f(pack.GetHeader(), pack.GetBody())
 		})
@@ -41,9 +50,9 @@ func (n *Nats) Receive(f func(define.IHeader, []byte)) error {
 		return err
 	}
 	// 广播
-	topChannel := fmt.Sprintf("%s/%d", n.options.root, node.GetType())
+	topChannel := fmt.Sprintf("%s/%d", n.root, node.GetType())
 	_, err = n.client.Subscribe(topChannel, func(msg *nats.Msg) {
-		pack := n.options.parse(msg.Data)
+		pack := n.parseFun(msg.Data)
 		safe.SafeRecover(mlog.Fatal, func() {
 			f(pack.GetHeader(), pack.GetBody())
 		})
@@ -53,13 +62,17 @@ func (n *Nats) Receive(f func(define.IHeader, []byte)) error {
 
 // 发送消息
 func (n *Nats) Send(header define.IHeader, data []byte) error {
-	node := n.options.cluster.GetSelf()
-	mgr := n.options.routerMgr
-	id := header.GetRouteId(header.GetDstType())
+	/*
+		node := n.cluster.GetSelf()
+		id := header.GetRouteId(header.GetDstType())
+		dstNode := n.table.Get(id)
 
-	// 从路由表中加载
-	nodeId := mgr.Get(id, node.GetType())
+		// 从路由表中加载
+		if nodeId := n.table.Get(id); nodeId > 0 {
 
+			return nil
+		}
+	*/
 	return nil
 }
 

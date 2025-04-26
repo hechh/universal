@@ -15,9 +15,11 @@ import (
 )
 
 type Etcd struct {
-	options *Op
-	client  *clientv3.Client
-	exit    chan struct{}
+	status   int32
+	root     string
+	parseFun define.ParseNodeFunc
+	client   *clientv3.Client
+	exit     chan struct{}
 }
 
 func NewEtcd(endpoints []string, opts ...OpOption) (*Etcd, error) {
@@ -30,23 +32,25 @@ func NewEtcd(endpoints []string, opts ...OpOption) (*Etcd, error) {
 		opt(vals)
 	}
 	return &Etcd{
-		options: vals,
-		client:  cli,
-		exit:    make(chan struct{}),
+		status:   vals.status,
+		root:     vals.root,
+		parseFun: vals.parse,
+		client:   cli,
+		exit:     make(chan struct{}),
 	}, nil
 }
 
 func (e *Etcd) getKey(node define.INode) string {
-	return path.Join(e.options.root, cast.ToString(node.GetType()), cast.ToString(node.GetId()))
+	return path.Join(e.root, cast.ToString(node.GetType()), cast.ToString(node.GetId()))
 }
 
 func (e *Etcd) Get() (rets []define.INode, err error) {
-	rsp, err := e.client.Get(context.Background(), e.options.root, clientv3.WithPrefix())
+	rsp, err := e.client.Get(context.Background(), e.root, clientv3.WithPrefix())
 	if err != nil {
 		return nil, err
 	}
 	for _, kv := range rsp.Kvs {
-		rets = append(rets, e.options.parse(kv.Value))
+		rets = append(rets, e.parseFun(kv.Value))
 	}
 	return
 }
@@ -66,26 +70,25 @@ func (e *Etcd) Del(info define.INode) error {
 // 监听 kv 变化
 func (e *Etcd) Watch(cluster define.ICluster) error {
 	// 获取在线服务
-	rsp, err := e.client.Get(context.Background(), e.options.root, clientv3.WithPrefix())
+	rsp, err := e.client.Get(context.Background(), e.root, clientv3.WithPrefix())
 	if err != nil {
 		return err
 	}
 	for _, kv := range rsp.Kvs {
-		node := e.options.parse(kv.Value)
+		node := e.parseFun(kv.Value)
 		if err := cluster.Put(node); err != nil {
 			mlog.Error("Etcd获取在线服务失败: %v, node: %v", err, node)
 			return err
 		}
 	}
-
 	// 监听服务
-	listens := e.client.Watch(context.Background(), e.options.root, clientv3.WithPrefix())
+	listens := e.client.Watch(context.Background(), e.root, clientv3.WithPrefix())
 	safe.SafeGo(mlog.Error, func() {
 		for listen := range listens {
 			for _, event := range listen.Events {
 				switch event.Type {
 				case clientv3.EventTypePut:
-					if err := cluster.Put(e.options.parse(event.Kv.Value)); err != nil {
+					if err := cluster.Put(e.parseFun(event.Kv.Value)); err != nil {
 						mlog.Error("Etcd发现新服务，新服务添加失败: %v", err)
 					}
 				case clientv3.EventTypeDelete:
@@ -123,7 +126,7 @@ func (e *Etcd) KeepAlive(srv define.INode, ttl int64) error {
 		}
 		return fmt.Errorf("Etcd 租赁续约失败，且超过最大重试次数")
 	}
-	atomic.AddInt32(&e.options.status, 1)
+	atomic.AddInt32(&e.status, 1)
 	// 定时检测
 	tt := time.NewTicker(time.Duration(ttl/2) * time.Second)
 	defer tt.Stop()
@@ -144,7 +147,7 @@ func (e *Etcd) KeepAlive(srv define.INode, ttl int64) error {
 }
 
 func (e *Etcd) Close() error {
-	if atomic.LoadInt32(&e.options.status) > 0 {
+	if atomic.LoadInt32(&e.status) > 0 {
 		e.exit <- struct{}{}
 	}
 	return e.client.Close()
