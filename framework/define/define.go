@@ -1,9 +1,17 @@
 package define
 
-// 路由服务
+type NewRouterFunc func() IRouter
+
 type IRouter interface {
+	Get(nodeType int32) int32      // 获取节点id
+	Update(nodeType, nodeId int32) // 更新节点
+}
+
+// 路由服务
+type IRouterMgr interface {
 	Get(id uint64, nodeType int32) int32      // 获取节点id
 	Update(id uint64, nodeType, nodeId int32) // 更新节点id
+	Expire(ttl int64)                         // 设置存活时间
 }
 
 type IHeader interface {
