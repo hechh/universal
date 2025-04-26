@@ -7,6 +7,7 @@ import (
 	"universal/framework/define"
 	"universal/framework/internal/cluster"
 	"universal/framework/internal/discovery"
+	"universal/framework/internal/router"
 )
 
 var (
@@ -61,4 +62,25 @@ func TestEtcdPut(t *testing.T) {
 	// 删除节点
 	etcd.Del(nnode)
 	time.Sleep(3 * time.Second)
+}
+
+func BenchmarkCluster(b *testing.B) {
+	self := &cluster.Node{Name: "test1", Type: 1, Id: 1, Addr: "192.168.1.1:22345"}
+	types := map[int32]int32{0: 1, 1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8}
+	cls := cluster.NewCluster(self, types)
+	rtr := router.NewRouter()
+
+	for i := 0; i < 60; i++ {
+		cls.Put(&cluster.Node{Name: "test1", Type: int32(i % 5), Id: int32(i), Addr: "192.168.1.1:22345"})
+	}
+	for i := 0; i < b.N; i++ {
+		node := cls.Get(int32(i%5), int32(i))
+		if node != nil {
+			rtr.Update(uint64(node.GetId()), node)
+		}
+		if node != nil && node.GetId() == 0 {
+			cls.Del(node.GetType(), node.GetId())
+		}
+	}
+	b.Log(b.N)
 }
