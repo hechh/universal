@@ -5,9 +5,9 @@ import (
 	"fmt"
 	"log"
 	"testing"
+	"universal/common/config"
 	"universal/framework/internal/cluster"
 	"universal/framework/internal/discovery"
-	"universal/library/baselib/config"
 
 	clientv3 "go.etcd.io/etcd/client/v3"
 )
