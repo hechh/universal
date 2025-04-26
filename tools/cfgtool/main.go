@@ -5,7 +5,7 @@ import (
 	"flag"
 	"fmt"
 	"path/filepath"
-	"universal/Library/file"
+	"universal/library/file"
 	"universal/tools/cfgtool/domain"
 	"universal/tools/cfgtool/internal/manager"
 	"universal/tools/cfgtool/internal/parser"
