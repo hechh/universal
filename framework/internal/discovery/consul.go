@@ -90,6 +90,7 @@ func (c *Consul) Watch(cluster define.ICluster) error {
 	if err != nil {
 		return err
 	}
+
 	// 设置监听回调
 	w.Handler = func(idx uint64, data interface{}) {
 		kvs := data.(api.KVPairs)
@@ -115,6 +116,7 @@ func (c *Consul) Watch(cluster define.ICluster) error {
 			}
 		}
 	}
+
 	safe.SafeGo(mlog.Fatal, func() {
 		if err := w.RunWithClientAndHclog(c.client, nil); err != nil {
 			mlog.Error("consul 监听报错: %v", err)

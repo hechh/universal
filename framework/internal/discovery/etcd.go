@@ -109,12 +109,14 @@ func (e *Etcd) KeepAlive(srv define.INode, ttl int64) error {
 	if err != nil {
 		return err
 	}
+
 	// 设置租赁时间
 	lease := clientv3.LeaseID(rsp.ID)
 	_, err = e.client.Put(context.Background(), e.getKey(srv), string(srv.ToBytes()), clientv3.WithLease(lease))
 	if err != nil {
 		return err
 	}
+
 	// 多次重试
 	keepAlive := func(lease clientv3.LeaseID) error {
 		for i := 0; i < 3; i++ {
@@ -126,11 +128,13 @@ func (e *Etcd) KeepAlive(srv define.INode, ttl int64) error {
 		}
 		return fmt.Errorf("Etcd 租赁续约失败，且超过最大重试次数")
 	}
-	atomic.AddInt32(&e.status, 1)
-	// 定时检测
-	tt := time.NewTicker(time.Duration(ttl/2) * time.Second)
-	defer tt.Stop()
+
+	// 定时续约保活
 	safe.SafeGo(mlog.Error, func() {
+		atomic.AddInt32(&e.status, 1)
+		tt := time.NewTicker(time.Duration(ttl/2) * time.Second)
+		defer tt.Stop()
+
 		for {
 			select {
 			case <-e.exit:

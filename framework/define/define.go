@@ -40,17 +40,19 @@ type IDiscovery interface {
 
 // 转发消息
 type INetwork interface {
-	Read(INode, func([]byte)) error // 接收消息
-	Send(INode, []byte) error       // 发送消息
-	Broadcast(INode, []byte) error  // 广播消息
+	Read(node INode, listen func(IHeader, []byte)) error   // 接收消息
+	Send(node INode, head IHeader, body []byte) error      // 发送消息
+	Broadcast(node INode, head IHeader, body []byte) error // 广播消息
 }
 
-type ParsePacketFunc func([]byte) IPacket
+type ParsePacketFunc func([]byte) (IPacket, error)
+type NewPacketFunc func(IHeader, []byte) IPacket
 
 // 内网消息协议
 type IPacket interface {
 	GetHeader() IHeader
 	GetBody() []byte
+	ToBytes() []byte
 }
 
 type IHeader interface {
@@ -63,3 +65,14 @@ type IHeader interface {
 	GetUid() uint64                   // 获取用户id
 	GetRouteId(nodeType int32) uint64 // 获取路由id
 }
+
+// cmd 请求接口
+type IProto interface {
+	String() string
+	Marshal() ([]byte, error)
+	Unmarshal([]byte) error
+}
+
+type IContext interface {
+}
+type HandleFunc func(IContext, IProto, IProto) error
