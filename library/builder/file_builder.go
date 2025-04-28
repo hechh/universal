@@ -2,8 +2,8 @@ package builder
 
 import (
 	"os"
-	"universal/library/basiclib/uerror"
-	"universal/library/basiclib/util"
+	"universal/library/baselib/uerror"
+	"universal/library/baselib/util"
 )
 
 type FileBuilder struct {

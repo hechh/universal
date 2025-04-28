@@ -9,16 +9,16 @@ import (
 )
 
 type Timer struct {
-	tick    int64             // 最小时间间隔
-	now     int64             // 当前时间
-	tasks   *queue.Queue      // 待插入定时任务队列
-	wheels  []*Wheel          // 时间轮
-	notify  chan struct{}     // 插入通知
-	exit    chan struct{}     // 定时器退出通知
-	errorCb func(interface{}) // 错误通知
+	tick    int64                        // 最小时间间隔
+	now     int64                        // 当前时间
+	tasks   *queue.Queue                 // 待插入定时任务队列
+	wheels  []*Wheel                     // 时间轮
+	notify  chan struct{}                // 插入通知
+	exit    chan struct{}                // 定时器退出通知
+	errorCb func(string, ...interface{}) // 错误通知
 }
 
-func NewTimer(count, shift, tick int64, cb func(interface{})) *Timer {
+func NewTimer(count, shift, tick int64, cb func(string, ...interface{})) *Timer {
 	now := time.Now().UnixMilli()
 	tt := &Timer{
 		tick:    1 << tick,

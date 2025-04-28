@@ -89,6 +89,7 @@ func (l *Writer) do() {
 		if !ok || item == nil {
 			continue
 		}
+
 		tt := item.GetTime()
 		filename := fmt.Sprintf("%s_%04d%02d%02d_%02d.log", l.logName, tt.Year(), tt.Month(), tt.Day(), tt.Hour())
 		l.w.SetWriter(path.Join(l.logPath, filename))
