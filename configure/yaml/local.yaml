@@ -39,13 +39,12 @@ middle:
   discovery: etcd
   network: nats
 
-gate:
-  log_level: debug
-  log_path: ./log
-  log_prefix: gate
-  node_name: gate
-  node_type: 1
-  route_type: 1
-  nodes:
-    1: 192.168.3.5:40001
+cluster:
+  gate:
+    log_level: debug
+    log_path: ./log
+    log_prefix: gate
+    nodes:
+      1: 192.168.3.5:40001
+
 

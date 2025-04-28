@@ -47,13 +47,10 @@ type MiddleConfig struct {
 	Network   string `yaml:network`
 }
 
-type ServerConfig struct {
+type NodeConfig struct {
 	LogLevel  string           `yaml:log_level`
 	LogPath   string           `yaml:log_path`
 	LogPrefix string           `yaml:log_prefix`
-	NodeName  string           `yaml:node_name`
-	NodeType  int32            `yaml:node_type`
-	RouteType int32            `yaml:route_type`
 	Nodes     map[int32]string `yaml:nodes`
 }
 
@@ -65,7 +62,7 @@ type Config struct {
 	Consul  *ConsulConfig             `yaml:consul`
 	Nats    *NatsConfig               `yaml:nats`
 	Middle  *MiddleConfig             `yaml:middle`
-	Gate    *ServerConfig             `yaml:gate`
+	Cluster map[string]*NodeConfig    `yaml:cluster`
 }
 
 func (c *Config) Unmarshal(buf []byte) error {

@@ -6,6 +6,19 @@ import (
 	"universal/framework/define"
 	"universal/framework/internal/cluster"
 	"universal/framework/internal/discovery"
+	"universal/framework/internal/router"
+	"universal/library/baselib/uerror"
+)
+
+var (
+	routes = map[int32]int32{
+		int32(define.NodeTypeGate):  int32(define.RouteTypeHash),
+		int32(define.NodeTypeDb):    int32(define.RouteTypeRandom),
+		int32(define.NodeTypeLogin): int32(define.RouteTypeHash),
+		int32(define.NodeTypeGame):  int32(define.RouteTypeHash),
+		int32(define.NodeTypeTool):  int32(define.RouteTypeHash),
+		int32(define.NodeTypeRank):  int32(define.RouteTypeHash),
+	}
 )
 
 type Framework struct {
@@ -16,9 +29,20 @@ type Framework struct {
 }
 
 // Init 初始化框架
-func (f *Framework) Init(appid int32, srv *config.ServerConfig, cfg *config.Config) (err error) {
+func (f *Framework) Init(cfg *config.Config, nodeType define.NodeType, appid int32) (err error) {
+	f.router = router.NewRouter()
 	// 节点配置
-	node := &cluster.Node{Name: srv.NodeName, Addr: srv.Nodes[appid], Type: srv.NodeType, Id: appid}
+	nodeName := define.NodeType_name[int32(nodeType)]
+	nodeCfg, ok := cfg.Cluster[nodeName]
+	if !ok || nodeCfg == nil {
+		return uerror.New(1, -1, "服务节点配置不存在：%s", define.NodeType_name[int32(nodeType)])
+	}
+	f.cls = cluster.NewCluster(&cluster.Node{
+		Name: nodeName,
+		Addr: nodeCfg.Nodes[appid],
+		Type: int32(nodeType),
+		Id:   appid,
+	}, routes)
 
 	// 服务发现与注册
 	switch strings.ToLower(cfg.Middle.Discovery) {
