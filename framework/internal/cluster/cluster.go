@@ -7,12 +7,6 @@ import (
 	"universal/library/random"
 )
 
-type NodePool struct {
-	mutex     *sync.RWMutex
-	nodes     []define.INode // 节点
-	routeType int32          // 路由方式
-}
-
 type Cluster struct {
 	self  define.INode
 	pools map[int32]*NodePool
@@ -57,6 +51,12 @@ func (c *Cluster) Del(nodeType, nodeId int32) error {
 // 随机获取节点
 func (c *Cluster) Random(nodeType int32, seed uint64) define.INode {
 	return c.pools[nodeType].rand(seed)
+}
+
+type NodePool struct {
+	mutex     *sync.RWMutex
+	nodes     []define.INode // 节点
+	routeType int32          // 路由方式
 }
 
 func (c *NodePool) get(id int32) define.INode {

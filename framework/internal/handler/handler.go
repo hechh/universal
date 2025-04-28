@@ -49,7 +49,7 @@ func Register(cmd uint32, f define.HandleFunc, req define.IProto, rsp define.IPr
 	return nil
 }
 
-func GetHeader(cmd uint32) *Handler {
+func GetHandler(cmd uint32) *Handler {
 	if h, ok := cmds[cmd]; ok {
 		return h
 	}

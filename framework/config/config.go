@@ -33,21 +33,28 @@ type EtcdConfig struct {
 	Endpoints []string `yaml:endpoints`
 }
 
+type ConsulConfig struct {
+	Endpoints string `yaml:endpoints`
+}
+
 type NatsConfig struct {
 	Endpoints string `yaml:endpoints`
 }
 
-type NodeConfig struct {
-	Name string `yaml:name`
-	Addr string `yaml:addr`
+type MiddleConfig struct {
+	Path      string `yaml:path`
+	Discovery string `yaml:discovery`
+	Network   string `yaml:network`
 }
 
-type GateConfig struct {
-	LogLevel  string                `yaml:log_level`
-	LogPath   string                `yaml:log_path`
-	LogPrefix string                `yaml:log_prefix`
-	RouteType int32                 `yaml:route_type`
-	Nodes     map[int32]*NodeConfig `yaml:nodes`
+type ServerConfig struct {
+	LogLevel  string           `yaml:log_level`
+	LogPath   string           `yaml:log_path`
+	LogPrefix string           `yaml:log_prefix`
+	NodeName  string           `yaml:node_name`
+	NodeType  int32            `yaml:node_type`
+	RouteType int32            `yaml:route_type`
+	Nodes     map[int32]string `yaml:nodes`
 }
 
 type Config struct {
@@ -55,8 +62,10 @@ type Config struct {
 	Redis   map[uint32]*RedisConfig   `yaml:redis`
 	Mongodb map[uint32]*MongodbConfig `yaml:mongodb`
 	Etcd    *EtcdConfig               `yaml:etcd`
+	Consul  *ConsulConfig             `yaml:consul`
 	Nats    *NatsConfig               `yaml:nats`
-	Gate    *GateConfig               `yaml:gate`
+	Middle  *MiddleConfig             `yaml:middle`
+	Gate    *ServerConfig             `yaml:gate`
 }
 
 func (c *Config) Unmarshal(buf []byte) error {

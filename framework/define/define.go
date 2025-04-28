@@ -68,7 +68,6 @@ type IHeader interface {
 
 // cmd 请求接口
 type IProto interface {
-	String() string
 	Marshal() ([]byte, error)
 	Unmarshal([]byte) error
 }
