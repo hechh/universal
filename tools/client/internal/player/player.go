@@ -3,16 +3,16 @@ package player
 import (
 	"encoding/binary"
 	"fmt"
-	"hego/Library/ulog"
-	"hego/common/dao/repository/token"
-	"hego/common/pb"
-	"hego/framework/basic/async"
-	"hego/framework/basic/socket"
-	"hego/framework/basic/util"
-	"hego/framework/handler"
-	"hego/tools/client/domain"
 	"sync/atomic"
 	"time"
+	"universal/common/dao/repository/token"
+	"universal/common/pb"
+	"universal/framework/basic/async"
+	"universal/framework/basic/socket"
+	"universal/framework/basic/util"
+	"universal/framework/handler"
+	"universal/library/mlog"
+	"universal/tools/client/domain"
 
 	"github.com/golang/protobuf/proto"
 	"golang.org/x/net/websocket"
@@ -94,19 +94,19 @@ func (d *Player) loopRead() {
 		// 接受请求
 		buf, err := d.conn.Read()
 		if err != nil {
-			ulog.Error("数据接受失败, uid: %d, error: %v", d.uid, err)
+			mlog.Error("数据接受失败, uid: %d, error: %v", d.uid, err)
 			return
 		}
 		// 解包
 		id, buf := uint32(binary.BigEndian.Uint32(buf[:4])), buf[4:]
 		pac := handler.Get(id)
 		if pac == nil {
-			ulog.Error("协议不支持, uid: %d, protoID: %D", d.uid, id)
+			mlog.Error("协议不支持, uid: %d, protoID: %D", d.uid, id)
 			return
 		}
 		rsp := pac.NewResponse()
 		if err := proto.Unmarshal(buf, rsp); err != nil {
-			ulog.Error("协议解析错误, uid: %d, error: %v", d.uid, err)
+			mlog.Error("协议解析错误, uid: %d, error: %v", d.uid, err)
 			return
 		}
 		// 应答处理

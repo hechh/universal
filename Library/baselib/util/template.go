@@ -26,3 +26,29 @@ func Suffix[T any](vals []T, pos int) []T {
 func NewSyncPool[T any]() *sync.Pool {
 	return &sync.Pool{New: func() interface{} { return new(T) }}
 }
+
+type TWO[T1, T2 any] struct {
+	T1 T1
+	T2 T2
+}
+
+type THREE[T1, T2, T3 any] struct {
+	T1 T1
+	T2 T2
+	T3 T3
+}
+
+type FOUR[T1, T2, T3, T4 any] struct {
+	T1 T1
+	T2 T2
+	T3 T3
+	T4 T4
+}
+
+type FIVE[T1, T2, T3, T4, T5 any] struct {
+	T1 T1
+	T2 T2
+	T3 T3
+	T4 T4
+	T5 T5
+}

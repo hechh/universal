@@ -2,9 +2,9 @@ package player_data
 
 /*
 import (
-	"hego/common/dao/internal/manager"
-	"hego/common/pb"
-	"hego/framework/basic/util"
+	"universal/common/dao/internal/manager"
+	"universal/common/pb"
+	"universal/framework/basic/util"
 
 	"github.com/astaxie/beego/orm"
 

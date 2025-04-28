@@ -2,15 +2,15 @@ package service
 
 import (
 	"bytes"
-	"hego/Library/file"
-	"hego/Library/uerror"
-	"hego/tools/cfgtool/domain"
-	"hego/tools/cfgtool/internal/base"
-	"hego/tools/cfgtool/internal/manager"
-	"hego/tools/cfgtool/internal/templ"
 	"path/filepath"
 	"sort"
 	"strings"
+	"universal/library/baselib/uerror"
+	"universal/library/baselib/util"
+	"universal/tools/cfgtool/domain"
+	"universal/tools/cfgtool/internal/base"
+	"universal/tools/cfgtool/internal/manager"
+	"universal/tools/cfgtool/internal/templ"
 
 	"github.com/iancoleman/strcase"
 )
@@ -55,7 +55,7 @@ func GenCode(buf *bytes.Buffer) error {
 			return err
 		}
 		// 保存代码
-		if err := file.SaveGo(filepath.Join(domain.CodePath, name), dataName+"Data.gen.go", buf.Bytes()); err != nil {
+		if err := util.SaveFile(filepath.Join(domain.CodePath, name), dataName+"Data.gen.go", buf.Bytes()); err != nil {
 			return err
 		}
 	}
@@ -77,7 +77,7 @@ func genIndex(buf *bytes.Buffer) error {
 		if err := templ.IndexTpl.Execute(buf, indexs); err != nil {
 			return uerror.New(1, -1, "gen index file error: %s", err.Error())
 		}
-		return file.SaveGo(domain.PbPath, "index.gen.go", buf.Bytes())
+		return util.SaveFile(domain.PbPath, "index.gen.go", buf.Bytes())
 	}
 	return nil
 }

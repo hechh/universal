@@ -1,8 +1,8 @@
 package dao
 
 import (
-	"hego/common/dao/internal/manager"
-	"hego/common/global"
+	"universal/common/dao/internal/manager"
+	"universal/common/global"
 
 	"github.com/astaxie/beego/orm"
 )

@@ -1,6 +1,6 @@
 package util
 
-import "hego/common/pb"
+import "universal/common/pb"
 
 func CopyHead(head *pb.Head) *pb.Head {
 	new := *head

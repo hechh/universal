@@ -2,8 +2,8 @@ package manager
 
 import (
 	"fmt"
-	"hego/tools/gomaker/domain"
-	"hego/tools/gomaker/internal/typespec"
+	"universal/tools/gomaker/domain"
+	"universal/tools/gomaker/internal/typespec"
 )
 
 var (

@@ -1,9 +1,9 @@
 package manager
 
 import (
-	"hego/tools/cfgtool/internal/base"
 	"sort"
 	"strings"
+	"universal/tools/cfgtool/internal/base"
 )
 
 var (

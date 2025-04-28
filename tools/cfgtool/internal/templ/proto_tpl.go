@@ -1,8 +1,8 @@
 package templ
 
 import (
-	"hego/tools/cfgtool/internal/base"
 	"text/template"
+	"universal/tools/cfgtool/internal/base"
 )
 
 const protoTpl = `

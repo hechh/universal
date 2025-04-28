@@ -1,0 +1,119 @@
+services:
+  mysql:
+    image: mysql:8.4.3
+    restart: always
+    container_name: mysql
+    environment:
+      MYSQL_DATABASE: universal
+      MYSQL_ROOT_USER: root
+      MYSQL_ROOT_PASSWORD: 123456
+    ports:
+      - "3306:3306"
+    networks:
+      universal_network:
+
+  redis:
+    image: redis:7.4.0
+    restart: always
+    container_name: redis
+    environment:
+      REDIS_USER: root
+      REDIS_PASSWORD: 123456
+    ports:
+      - "6379:6379"
+    networks:
+      universal_network:
+
+
+  mongodb:
+    image: mongo:6.0
+    restart: always
+    container_name: mongodb
+    environment:
+      MONGO_INITDB_DATABASE: universal
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: 123456
+    ports:
+      - "27017:27017"
+    networks:
+      universal_network:
+
+
+  etcd:
+    image: bitnami/etcd:3.5
+    restart: always
+    environment:
+      # 允许无认证访问（生产环境不建议）
+      - ALLOW_NONE_AUTHENTICATION=yes  
+      - ETCD_ADVERTISE_CLIENT_URLS=http://etcd:2379
+      - ETCD_LISTEN_CLIENT_URLS=http://0.0.0.0:2379
+      # 集群模式需要
+      # - ETCD_INITIAL_CLUSTER=etcd=http://etcd:2380  
+      # 集群模式需要
+      # - ETCD_INITIAL_ADVERTISE_PEER_URLS=http://etcd:2380  
+      # 节点名称（集群模式需要）
+      # - ETCD_NAME=etcd  
+    ports:
+      - "33601:2379"
+      - "33602:2380"
+    networks:
+      universal_network:
+
+#  etcd2:
+#    image: bitnami/etcd:3.5
+#    restart: always
+#    environment:
+#      ETCD_NAME: etcd2
+#      ALLOW_NONE_AUTHENTICATION: "no"
+#      ETCD_ROOT_PASSWORD: 123456
+#      ETCD_INITIAL_CLUSTER: etcd1=http://etcd1:2380,etcd2=http://etcd2:2380,etcd3=http://etcd3:2380
+#      ETCD_INITIAL_CLUSTER_STATE: new
+#    ports:
+#      - "33611:2379"
+#      - "33612:2380"
+#    networks:
+#      universal_network:
+
+  zookeeper:
+    image: ubuntu/zookeeper
+    restart: always
+    container_name: zookeeper
+    ports:
+      - "2181:2181"
+    environment:
+      ZOO_MY_ID: 1
+      ZOO_SERVERS: server.1=zookeeper:2888:3888
+    networks:
+      universal_network:
+
+
+  rabbitmq:
+    image: rabbitmq:3.13.6-management-alpine
+    restart: always
+    container_name: rabbitmq
+    hostname: bt-rabbitmq
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+      RABBITMQ_LOOPBACK_USERS: "none" # 允许 guest 远程访问
+    ports:
+      - "5672:5672" # 映射 RabbitMQ 的 AMQP 端口
+      - "15672:15672" # 映射 RabbitMQ 的管理界面端口
+    networks:
+      universal_network:
+
+  consul:
+    image: hashicorp/consul:latest
+    container_name: consul-server
+    ports:
+      - "8500:8500"  # HTTP API 和 UI 端口
+      - "8600:8600/udp"  # DNS 端口
+    environment:
+      - CONSUL_ALLOW_PRIVILEGED_PORTS=true
+    command: agent -server -bootstrap-expect=1 -ui -client=0.0.0.0
+    networks:
+      universal_network:
+
+networks:
+  universal_network:
+    driver: bridge

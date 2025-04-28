@@ -2,13 +2,13 @@ package parser
 
 import (
 	"fmt"
-	"hego/Library/uerror"
-	"hego/Library/util"
-	"hego/tools/cfgtool/domain"
-	"hego/tools/cfgtool/internal/base"
-	"hego/tools/cfgtool/internal/manager"
 	"path/filepath"
 	"strings"
+	"universal/library/baselib/uerror"
+	"universal/library/baselib/util"
+	"universal/tools/cfgtool/domain"
+	"universal/tools/cfgtool/internal/base"
+	"universal/tools/cfgtool/internal/manager"
 
 	"github.com/xuri/excelize/v2"
 )

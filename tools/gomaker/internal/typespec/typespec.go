@@ -2,9 +2,9 @@ package typespec
 
 import (
 	"fmt"
-	"hego/tools/gomaker/domain"
 	"sort"
 	"strings"
+	"universal/tools/gomaker/domain"
 )
 
 type Type struct {

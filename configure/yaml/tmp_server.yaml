@@ -1,0 +1,87 @@
+mysql:
+  1:
+    dbname: universal
+    user: root
+    password: link123!
+    host: 172.16.126.208:3306
+
+redis:
+  1:
+    dbname:
+    user: root
+    password: link123!
+    host: 172.16.126.208:6379
+
+mongodb:
+  1:
+    dbname: corps
+    user:
+    password:
+    host: 172.16.126.208:27017
+    slave: #从设备
+      1: 172.16.126.208:27017
+      2: 172.16.126.208:27017
+
+etcd:
+  endpoints:
+    - http://172.16.126.208:33601
+    - http://172.16.126.208:33611
+    - http://172.16.126.208:33621
+
+nats:
+  endpoints: 172.16.126.208:33701,172.16.126.208:33702,172.16.126.208:33703
+
+rabbitmq:
+  1:
+    host: 172.16.126.208
+    port: 5672
+    user: admin
+    password: link123!
+    management_port: 15672  # Web管理界面端口
+    vhost: /  # 默认虚拟主机
+
+kafka:
+  1:
+    host: 172.16.126.208
+    port: 9092
+    zookeeper_connect: 172.16.126.208:2181  # Kafka依赖的ZK地址
+    topics:  # 可选预设主题
+      - name: test_topic
+        partitions: 3
+        replication: 1
+
+rocketmq:
+  1:
+    namesrv_addr: 172.16.126.208:9876  # NameServer地址
+    broker_host: 172.16.126.208
+    broker_port: 10911
+    broker_cluster_name: DefaultCluster
+    topics:
+      - name: TEST_TOPIC
+        read_queue_nums: 4
+        write_queue_nums: 4
+
+zookeeper:
+  1:
+    host: 172.16.126.208
+    port: 2181
+    data_dir: /data/zk  # 数据存储目录
+    tick_time: 2000  # 基础时间单元(ms)
+    init_limit: 10  # 初始化连接超时
+    sync_limit: 5   # 心跳超时
+
+consul:
+  1:
+    host: 172.16.126.208
+    port: 8500
+    data_center: dc1
+    bootstrap: true  # 是否自举节点
+    ui: true         # 启用Web界面
+    config:
+      service_check_interval: 10s  # 服务健康检查间隔
+
+gate:
+  1:
+    log_level: debug
+    log_path: ./log
+    log_prefix: gate

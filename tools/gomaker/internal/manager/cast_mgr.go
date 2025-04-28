@@ -1,9 +1,9 @@
 package manager
 
 import (
-	"hego/tools/gomaker/domain"
-	"hego/tools/gomaker/internal/typespec"
 	"strings"
+	"universal/tools/gomaker/domain"
+	"universal/tools/gomaker/internal/typespec"
 
 	"github.com/spf13/cast"
 )

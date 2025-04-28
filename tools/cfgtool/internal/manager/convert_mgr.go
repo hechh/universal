@@ -1,7 +1,7 @@
 package manager
 
 import (
-	"hego/tools/cfgtool/internal/base"
+	"universal/tools/cfgtool/internal/base"
 
 	"github.com/spf13/cast"
 )

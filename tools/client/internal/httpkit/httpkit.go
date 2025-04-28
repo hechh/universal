@@ -3,12 +3,6 @@ package httpkit
 import (
 	"encoding/json"
 	"fmt"
-	"hego/Library/ulog"
-	"hego/framework/async"
-	"hego/framework/basic"
-	"hego/framework/handler"
-	"hego/tools/client/domain"
-	"hego/tools/client/internal/player"
 	"html/template"
 	"net/http"
 	_ "net/http/pprof"
@@ -19,6 +13,12 @@ import (
 	"strings"
 	"sync"
 	"time"
+	"universal/framework/async"
+	"universal/framework/basic"
+	"universal/framework/handler"
+	"universal/library/mlog"
+	"universal/tools/client/domain"
+	"universal/tools/client/internal/player"
 
 	"github.com/golang/protobuf/proto"
 	"github.com/spf13/cast"
@@ -34,7 +34,7 @@ const (
 
 var (
 	fatalNotify = func(err interface{}) {
-		ulog.Fatal("error: %v, stack: %s", err, string(debug.Stack()))
+		mlog.Fatal("error: %v, stack: %s", err, string(debug.Stack()))
 	}
 	jsons = make(map[string]string)
 )
@@ -55,9 +55,9 @@ func Init() {
 
 	basic.SafeGo(fatalNotify, func() {
 		if err := http.ListenAndServe("localhost:22345", nil); err != nil {
-			ulog.Info("start http server is failed, error: %v", err)
+			mlog.Info("start http server is failed, error: %v", err)
 		}
-		ulog.Info("start http server is success")
+		mlog.Info("start http server is success")
 	})
 }
 

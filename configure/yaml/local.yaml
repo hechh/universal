@@ -1,0 +1,39 @@
+mysql:
+  1:
+    dbname: universal
+    user: root
+    password: 123456
+    host: 192.168.3.5:3306
+redis:
+  1:
+    dbname: universal
+    user: root
+    password: 123456
+    host: 192.168.3.5:6379
+mongodb:
+  1:
+    dbname: universal
+    user: root
+    password: 123456
+    host: 192.168.3.5:27017
+    slave: #从设备
+      1: 192.168.3.5:27017
+      2: 192.168.3.5:27017
+etcd:
+  endpoints:
+    - http://192.168.3.5:33601
+    - http://192.168.3.5:33611
+    - http://192.168.3.5:33621
+nats:
+  endpoints: 192.168.3.5:33701,192.168.3.5:33702,192.168.3.5:33703
+
+gate:
+  log_level: debug
+  log_path: ./log
+  log_prefix: gate
+  route_type: 1
+  nodes:
+    1:
+      name: gate1
+      addr: 192.168.3.5:40001
+
