@@ -21,7 +21,6 @@ type IRouter interface {
 // 服务集群
 type ICluster interface {
 	GetSelf() INode                           // 获取当前节点
-	GetRouteType(nodeType int32) int32        // 获取节点路由方式
 	Get(nodeType int32, nodeId int32) INode   // 获取节点
 	Put(node INode) error                     // 添加节点
 	Del(nodeType int32, nodeId int32) error   // 删除节点

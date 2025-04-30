@@ -16,7 +16,7 @@ type index struct {
 
 type RouteInfo struct {
 	updateTime int64
-	node       atomic.Pointer[define.INode] // 节点
+	node       define.INode // 节点
 }
 
 type Router struct {
@@ -33,15 +33,17 @@ func NewRouter() *Router {
 
 func (r *Router) get(id uint64, nodeType int32) *RouteInfo {
 	r.mutex.RLock()
-	defer r.mutex.RUnlock()
-	if val, ok := r.routers[index{id, nodeType}]; ok {
+	val, ok := r.routers[index{id, nodeType}]
+	r.mutex.RUnlock()
+
+	if ok {
 		return val
 	}
 	return nil
 }
 func (r *Router) Get(id uint64, nodeType int32) define.INode {
 	if val := r.get(id, nodeType); val != nil {
-		return *val.node.Load()
+		return val.node
 	}
 	return nil
 }
@@ -49,12 +51,15 @@ func (r *Router) Get(id uint64, nodeType int32) define.INode {
 func (r *Router) Update(id uint64, node define.INode) {
 	if val := r.get(id, node.GetType()); val != nil {
 		atomic.StoreInt64(&val.updateTime, time.Now().Unix())
-		val.node.Store(&node)
+		val.node = node
 		return
 	}
 
-	item := &RouteInfo{updateTime: time.Now().Unix()}
-	item.node.Store(&node)
+	item := &RouteInfo{
+		updateTime: time.Now().Unix(),
+		node:       node,
+	}
+
 	// 更新路由
 	r.mutex.Lock()
 	r.routers[index{id, node.GetType()}] = item

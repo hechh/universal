@@ -13,18 +13,18 @@ const (
 type NodeType int32
 
 const (
-	NodeTypeNone  NodeType = 0 // 未知
+	NodeTypeBegin NodeType = 1 // 未知
 	NodeTypeGate  NodeType = 1 // 网关
 	NodeTypeDb    NodeType = 2 // 数据服务
 	NodeTypeLogin NodeType = 3 // 登录服务
 	NodeTypeGame  NodeType = 4 // 游戏服务
 	NodeTypeTool  NodeType = 5 // 工具服务
 	NodeTypeRank  NodeType = 6 // 排行服务
+	NodeTypeMax   NodeType = 6 // 最大节点类型
 )
 
 var (
 	NodeType_name = map[int32]string{
-		int32(NodeTypeNone):  "node",
 		int32(NodeTypeGate):  "gate",
 		int32(NodeTypeDb):    "db",
 		int32(NodeTypeLogin): "login",

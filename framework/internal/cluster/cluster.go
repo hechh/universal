@@ -7,15 +7,20 @@ import (
 	"universal/library/random"
 )
 
+type NodePool struct {
+	mutex *sync.RWMutex
+	nodes []define.INode // 节点
+}
+
 type Cluster struct {
 	self  define.INode
 	pools map[int32]*NodePool
 }
 
-func NewCluster(self define.INode, types map[int32]int32) *Cluster {
+func NewCluster(self define.INode) *Cluster {
 	pools := make(map[int32]*NodePool)
-	for tt, val := range types {
-		pools[tt] = &NodePool{mutex: new(sync.RWMutex), routeType: val}
+	for i := define.NodeTypeBegin; i <= define.NodeTypeMax; i++ {
+		pools[int32(i)] = &NodePool{mutex: new(sync.RWMutex)}
 	}
 	return &Cluster{self: self, pools: pools}
 }
@@ -23,11 +28,6 @@ func NewCluster(self define.INode, types map[int32]int32) *Cluster {
 // 获取自身节点
 func (c *Cluster) GetSelf() define.INode {
 	return c.self
-}
-
-// 获取路由方式
-func (c *Cluster) GetRouteType(nodeType int32) int32 {
-	return c.pools[nodeType].routeType
 }
 
 // 随机获取节点
@@ -53,12 +53,6 @@ func (c *Cluster) Random(nodeType int32, seed uint64) define.INode {
 	return c.pools[nodeType].rand(seed)
 }
 
-type NodePool struct {
-	mutex     *sync.RWMutex
-	nodes     []define.INode // 节点
-	routeType int32          // 路由方式
-}
-
 func (c *NodePool) get(id int32) define.INode {
 	c.mutex.RLock()
 	defer c.mutex.RUnlock()
@@ -75,8 +69,8 @@ func (c *NodePool) put(val define.INode) error {
 		return fmt.Errorf("服务节点已经存在: %v", val)
 	}
 	c.mutex.Lock()
-	defer c.mutex.Unlock()
 	c.nodes = append(c.nodes, val)
+	c.mutex.Unlock()
 	return nil
 }
 

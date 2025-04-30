@@ -41,12 +41,6 @@ type NatsConfig struct {
 	Endpoints string `yaml:endpoints`
 }
 
-type MiddleConfig struct {
-	Path      string `yaml:path`
-	Discovery string `yaml:discovery`
-	Network   string `yaml:network`
-}
-
 type NodeConfig struct {
 	LogLevel  string           `yaml:log_level`
 	LogPath   string           `yaml:log_path`
@@ -61,7 +55,6 @@ type Config struct {
 	Etcd    *EtcdConfig               `yaml:etcd`
 	Consul  *ConsulConfig             `yaml:consul`
 	Nats    *NatsConfig               `yaml:nats`
-	Middle  *MiddleConfig             `yaml:middle`
 	Cluster map[string]*NodeConfig    `yaml:cluster`
 }
 
