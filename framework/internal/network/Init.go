@@ -15,5 +15,13 @@ func Init(cfg *config.Config, opts ...OpOption) (define.INetwork, error) {
 		return dd, nil
 	}
 
+	if cfg.Nsq != nil {
+		dd, err := NewNsq(cfg.Nsq.Nsqd, opts...)
+		if err != nil {
+			return nil, err
+		}
+		return dd, nil
+	}
+
 	return nil, uerror.New(1, -1, " 消息中间件配置错误")
 }

@@ -19,7 +19,7 @@ type Cluster struct {
 
 func NewCluster(self define.INode) *Cluster {
 	pools := make(map[int32]*NodePool)
-	for i := define.NodeTypeBegin; i <= define.NodeTypeMax; i++ {
+	for i := define.NodeTypeBegin + 1; i < define.NodeTypeMax; i++ {
 		pools[int32(i)] = &NodePool{mutex: new(sync.RWMutex)}
 	}
 	return &Cluster{self: self, pools: pools}

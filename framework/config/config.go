@@ -41,6 +41,11 @@ type NatsConfig struct {
 	Endpoints string `yaml:endpoints`
 }
 
+type NsqConfig struct {
+	Nsqd       string `yaml:nsqd`
+	NsqLookupd string `yaml:nsqlookupd`
+}
+
 type NodeConfig struct {
 	LogLevel  string           `yaml:log_level`
 	LogPath   string           `yaml:log_path`
@@ -55,6 +60,7 @@ type Config struct {
 	Etcd    *EtcdConfig               `yaml:etcd`
 	Consul  *ConsulConfig             `yaml:consul`
 	Nats    *NatsConfig               `yaml:nats`
+	Nsq     *NsqConfig                `yaml:nsq`
 	Cluster map[string]*NodeConfig    `yaml:cluster`
 }
 

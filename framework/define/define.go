@@ -55,14 +55,13 @@ type IPacket interface {
 }
 
 type IHeader interface {
-	GetSendType() int32               // 获取发送类型
-	GetSrcType() int32                // 获取源服务类型
-	GetSrcId() int32                  // 获取源服务id
-	GetDstType() int32                // 获取目的服务类型
-	GetDstId() int32                  // 获取目的服务id
-	GetCmd() uint32                   // 获取命令
-	GetUid() uint64                   // 获取用户id
-	GetRouteId(nodeType int32) uint64 // 获取路由id
+	GetSrcNodeType() uint32 // 获取源服务类型
+	GetSrcNodeId() uint32   // 获取源服务id
+	GetDstNodeType() uint32 // 获取目的服务类型
+	GetDstNodeId() uint32   // 获取目的服务id
+	GetCmd() uint32         // 获取命令
+	GetUid() uint64         // 获取用户id
+	GetRouteId() uint64     // 获取路由id
 }
 
 // cmd 请求接口

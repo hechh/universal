@@ -5,15 +5,17 @@ import (
 	"universal/framework/define"
 	"universal/framework/internal/cluster"
 	"universal/framework/internal/discovery"
+	"universal/framework/internal/network"
+	"universal/framework/internal/packet"
 	"universal/framework/internal/router"
 	"universal/library/baselib/uerror"
 )
 
 type Framework struct {
-	router   define.IRouter    // 路由表
-	cls      define.ICluster   // 服务集群
-	dis      define.IDiscovery // 服务发现
-	innernet define.INetwork   // 消息中间件
+	router define.IRouter    // 路由表
+	cls    define.ICluster   // 服务集群
+	dis    define.IDiscovery // 服务发现
+	net    define.INetwork   // 消息中间件
 }
 
 // Init 初始化框架
@@ -42,6 +44,21 @@ func (f *Framework) Init(cfg *config.Config, nodeType define.NodeType, appid int
 		return err
 	}
 
+	// 监听服务
+	if err := f.dis.Watch(f.cls); err != nil {
+		return err
+	}
+
+	// 注册服务
+	if err := f.dis.KeepAlive(f.cls.GetSelf(), 15); err != nil {
+		return err
+	}
+
 	// 消息中间件
+	f.net, err = network.Init(cfg, network.WithTopic("universal/network"), network.WithParse(packet.ParsePacket), network.WithNew(packet.NewPacket))
+	if err != nil {
+		return err
+	}
+
 	return
 }

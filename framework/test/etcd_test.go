@@ -3,7 +3,7 @@ package test
 import (
 	"testing"
 	"time"
-	"universal/common/config"
+	"universal/framework/config"
 	"universal/framework/define"
 	"universal/framework/internal/cluster"
 	"universal/framework/internal/discovery"
@@ -36,8 +36,7 @@ func TestMain(m *testing.M) {
 func TestEtcdPut(t *testing.T) {
 	// 监视
 	self := &cluster.Node{Name: "test1", Type: 1, Id: 1, Addr: "192.168.1.1:22345"}
-	types := map[int32]int32{1: 1, 2: 2, 3: 3, 4: 4}
-	cls := cluster.NewCluster(self, types)
+	cls := cluster.NewCluster(self)
 	if err := etcd.Watch(cls); err != nil {
 		t.Fatal(err)
 	}
@@ -66,8 +65,7 @@ func TestEtcdPut(t *testing.T) {
 
 func BenchmarkCluster(b *testing.B) {
 	self := &cluster.Node{Name: "test1", Type: 1, Id: 1, Addr: "192.168.1.1:22345"}
-	types := map[int32]int32{0: 1, 1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8}
-	cls := cluster.NewCluster(self, types)
+	cls := cluster.NewCluster(self)
 	rtr := router.NewRouter()
 
 	for i := 0; i < 60; i++ {
