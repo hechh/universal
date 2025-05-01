@@ -42,8 +42,8 @@ type NatsConfig struct {
 }
 
 type NsqConfig struct {
-	Nsqd       string `yaml:nsqd`
-	NsqLookupd string `yaml:nsqlookupd`
+	Nsqd string `yaml:nsqd`
+	// NsqLookupd string `yaml:nsqlookupd`
 }
 
 type NodeConfig struct {

@@ -8,7 +8,7 @@ import (
 )
 
 type NodePool struct {
-	mutex *sync.RWMutex
+	mutex sync.RWMutex
 	nodes []define.INode // 节点
 }
 
@@ -20,7 +20,7 @@ type Cluster struct {
 func NewCluster(self define.INode) *Cluster {
 	pools := make(map[int32]*NodePool)
 	for i := define.NodeTypeBegin + 1; i < define.NodeTypeMax; i++ {
-		pools[int32(i)] = &NodePool{mutex: new(sync.RWMutex)}
+		pools[int32(i)] = new(NodePool)
 	}
 	return &Cluster{self: self, pools: pools}
 }

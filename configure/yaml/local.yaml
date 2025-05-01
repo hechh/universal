@@ -36,8 +36,8 @@ nats:
 
 nsq:
   nsqd: 192.169.3.5:4150
-  nsqlookupd:
-    - 192.168.3.5:4161
+#  nsqlookupd:
+#    - 192.168.3.5:4161
 
 cluster:
   gate:
