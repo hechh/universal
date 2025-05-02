@@ -2,6 +2,7 @@ package test
 
 import (
 	"testing"
+	"time"
 	"universal/framework/config"
 	"universal/framework/internal/cluster"
 	"universal/framework/internal/discovery"
@@ -20,7 +21,7 @@ func TestMain(m *testing.M) {
 	m.Run()
 }
 
-func TestEtcdPut(t *testing.T) {
+func TestEtcd(t *testing.T) {
 	etcd, err := discovery.NewEtcd(
 		cfg.Etcd.Endpoints,
 		discovery.WithPath("/hch/etcd_test/"),
@@ -59,4 +60,29 @@ func TestEtcdPut(t *testing.T) {
 	if err := etcd.Close(); err != nil {
 		t.Log(err)
 	}
+}
+
+func TestEtcdKeepAlive(t *testing.T) {
+	etcd, err := discovery.NewEtcd(
+		cfg.Etcd.Endpoints,
+		discovery.WithPath("/hch/etcd_test/"),
+		discovery.WithParse(cluster.NewNode),
+	)
+	if err != nil {
+		t.Log(err)
+		return
+	}
+
+	// 监视
+	self := &cluster.Node{Name: "test1", Type: 1, Id: 1, Addr: "192.168.1.1:22345"}
+	cls := cluster.NewCluster(self)
+	if err := etcd.Watch(cls); err != nil {
+		t.Fatal(err)
+	}
+
+	if err := etcd.KeepAlive(self, 6); err != nil {
+		t.Fatal(err)
+	}
+
+	time.Sleep(20 * time.Second)
 }

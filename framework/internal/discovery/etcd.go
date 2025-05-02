@@ -142,7 +142,6 @@ func (e *Etcd) KeepAlive(srv define.INode, ttl int64) error {
 			case <-tt.C:
 				if err := keepAlive(lease); err != nil {
 					mlog.Error("Etcd租赁续约保活失败: %v", err)
-					return
 				}
 			}
 		}
