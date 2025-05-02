@@ -42,11 +42,11 @@ func NewNsq(nsqdAddr string, opts ...OpOption) (*Nsq, error) {
 }
 
 func (n *Nsq) broadcastTopic(node define.INode) string {
-	return fmt.Sprintf("%s/%d", n.topic, node.GetType())
+	return fmt.Sprintf("%s_%d", n.topic, node.GetType())
 }
 
 func (n *Nsq) sendTopic(node define.INode) string {
-	return fmt.Sprintf("%s/%d/%d", n.topic, node.GetType(), node.GetId())
+	return fmt.Sprintf("%s_%d_%d", n.topic, node.GetType(), node.GetId())
 }
 
 type handler struct {
@@ -76,7 +76,7 @@ func (n *Nsq) Read(node define.INode, listen func(define.IHeader, []byte)) error
 	if err != nil {
 		return err
 	}
-	consumer.AddHandler(&handler{listener: listen})
+	consumer.AddHandler(&handler{listener: listen, nsq: n})
 	if err := consumer.ConnectToNSQD(n.addr); err != nil {
 		return err
 	}

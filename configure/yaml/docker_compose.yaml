@@ -82,7 +82,6 @@ services:
 
   consul:
     image: hashicorp/consul:1.12.3
-    #image: hashicorp/consul:latest
     restart: always
     container_name: consul
     ports:
@@ -91,6 +90,65 @@ services:
     environment:
       - CONSUL_ALLOW_PRIVILEGED_PORTS=true
     command: agent -server -bootstrap-expect=1 -ui -client=0.0.0.0
+    networks:
+      universal_network:
+  
+
+  nats:
+    image: nats:2.9-alpine
+    container_name: nats
+    ports:
+      - "4222:4222"  # 客户端端口
+      - "8222:8222"  # 监控端口
+    command: >
+      --cluster nats://0.0.0.0:6222
+      --routes nats://nats2:6222,nats://nats3:6222
+      --cluster_name NATS_CLUSTER
+      --debug
+      --trace
+    networks:
+      universal_network:
+
+  # NSQ 服务发现组件
+  nsqlookupd:
+    image: nsqio/nsq:v1.2.1
+    container_name: nsqlookupd
+    command: /nsqlookupd
+    ports:
+      - "4160:4160"  # TCP 端口，供 nsqd 注册
+      - "4161:4161"  # HTTP 端口，供客户端查询
+    networks:
+      universal_network:
+    
+  nsqd:
+    image: nsqio/nsq:v1.2.1
+    container_name: nsqd
+    depends_on:
+      - nsqlookupd
+    command: >
+      /nsqd
+      --lookupd-tcp-address=nsqlookupd:4160
+      --broadcast-address=192.168.3.5
+      --tcp-address=0.0.0.0:4150
+      --http-address=0.0.0.0:4151
+    ports:
+      - "4150:4150"  # 生产者/消费者连接端口
+      - "4151:4151"  # HTTP 管理端口
+    networks:
+      universal_network:
+  
+  nsqadmin:
+    image: nsqio/nsq:v1.2.1
+    container_name: nsqadmin
+    depends_on:
+      - nsqlookupd
+      - nsqd
+    command: >
+      /nsqadmin
+      --lookupd-http-address=nsqlookupd:4161
+      --http-address=0.0.0.0:4171
+    ports:
+      - "4171:4171"  # 管理界面端口    
     networks:
       universal_network:
 

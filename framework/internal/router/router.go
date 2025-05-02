@@ -35,7 +35,6 @@ func (r *Router) get(id uint64, nodeType int32) *RouteInfo {
 	r.mutex.RLock()
 	val, ok := r.routers[index{id, nodeType}]
 	r.mutex.RUnlock()
-
 	if ok {
 		return val
 	}
@@ -55,12 +54,8 @@ func (r *Router) Update(id uint64, node define.INode) {
 		return
 	}
 
-	item := &RouteInfo{
-		updateTime: time.Now().Unix(),
-		node:       node,
-	}
-
 	// 更新路由
+	item := &RouteInfo{updateTime: time.Now().Unix(), node: node}
 	r.mutex.Lock()
 	r.routers[index{id, node.GetType()}] = item
 	r.mutex.Unlock()
