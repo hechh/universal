@@ -31,6 +31,7 @@ func NewConsul(endpoints string, opts ...OpOption) (*Consul, error) {
 	for _, opt := range opts {
 		opt(vals)
 	}
+	// 返回
 	return &Consul{
 		root:     vals.root,
 		parseFun: vals.parse,
@@ -42,7 +43,7 @@ func NewConsul(endpoints string, opts ...OpOption) (*Consul, error) {
 }
 
 func (c *Consul) getKey(node define.INode) string {
-	return fmt.Sprintf("%s/%d/%d", c.root, node.GetType(), node.GetId())
+	return path.Join(c.root, cast.ToString(node.GetType()), cast.ToString(node.GetId()))
 }
 
 func (c *Consul) Close() error {
@@ -62,7 +63,11 @@ func (c *Consul) Get() (rets []define.INode, err error) {
 
 // 添加 key-value
 func (c *Consul) Put(srv define.INode) error {
-	_, err := c.client.KV().Put(&api.KVPair{Key: c.getKey(srv), Value: srv.ToBytes()}, nil)
+	kv := &api.KVPair{
+		Key:   c.getKey(srv),
+		Value: srv.ToBytes(),
+	}
+	_, err := c.client.KV().Put(kv, nil)
 	return err
 }
 

@@ -43,14 +43,12 @@ func (f *Framework) Init(cfg *config.Config, nodeType define.NodeType, appid int
 	if err != nil {
 		return err
 	}
-
-	// 监听服务
-	if err := f.dis.Watch(f.cls); err != nil {
-		return err
-	}
-
 	// 注册服务
 	if err := f.dis.KeepAlive(f.cls.GetSelf(), 15); err != nil {
+		return err
+	}
+	// 监听服务
+	if err := f.dis.Watch(f.cls); err != nil {
 		return err
 	}
 
