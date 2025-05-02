@@ -41,15 +41,13 @@ func TestEtcdPut(t *testing.T) {
 	// 添加服务
 	nnode := &cluster.Node{Name: "test1", Type: 2, Id: 2, Addr: "192.168.1.1:22345"}
 	if err := etcd.Put(nnode); err != nil {
-		t.Log(err)
-		return
+		t.Fatal(err)
 	}
 
 	// 查询
 	list, err := etcd.Get()
 	if err != nil {
-		t.Log(err)
-		return
+		t.Fatal(err)
 	}
 	for _, item := range list {
 		t.Log("--->", item)

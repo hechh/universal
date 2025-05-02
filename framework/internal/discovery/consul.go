@@ -3,6 +3,7 @@ package discovery
 import (
 	"fmt"
 	"path"
+	"sync/atomic"
 	"time"
 	"universal/framework/define"
 	"universal/library/baselib/safe"
@@ -14,6 +15,7 @@ import (
 )
 
 type Consul struct {
+	status   int32
 	root     string
 	parseFun define.ParseNodeFunc
 	client   *api.Client
@@ -42,11 +44,11 @@ func NewConsul(endpoints string, opts ...OpOption) (*Consul, error) {
 	}, nil
 }
 
-func (c *Consul) getKey(node define.INode) string {
-	return path.Join(c.root, cast.ToString(node.GetType()), cast.ToString(node.GetId()))
-}
-
 func (c *Consul) Close() error {
+	if atomic.LoadInt32(&c.status) > 0 {
+		c.exit <- struct{}{}
+	}
+	time.Sleep(1 * time.Second)
 	return nil
 }
 
@@ -59,6 +61,10 @@ func (c *Consul) Get() (rets []define.INode, err error) {
 		rets = append(rets, c.parseFun(kv.Value))
 	}
 	return
+}
+
+func (c *Consul) getKey(node define.INode) string {
+	return path.Join(c.root, cast.ToString(node.GetType()), cast.ToString(node.GetId()))
 }
 
 // 添加 key-value
@@ -76,15 +82,43 @@ func (c *Consul) Del(srv define.INode) error {
 	return err
 }
 
-func (c *Consul) Watch(cluster define.ICluster) error {
-	// 先获取在线服务
+func (c *Consul) update(cluster define.ICluster) error {
+	// 获取全部节点
 	kvs, _, err := c.client.KV().List(c.root, nil)
 	if err != nil {
 		return err
 	}
+
+	// 添加服务
+	tmps := map[string]struct{}{}
 	for _, kv := range kvs {
+		tmps[kv.Key] = struct{}{}
 		c.keys[kv.Key] = struct{}{}
-		cluster.Put(c.parseFun(kv.Value))
+		if err := cluster.Put(c.parseFun(kv.Value)); err != nil {
+			mlog.Error("consul发现新服务，新服务添加失败: %s, %v", kv.Value, err)
+		}
+	}
+
+	// 删除服务
+	for k := range c.keys {
+		if _, ok := tmps[k]; ok {
+			continue
+		}
+		id := cast.ToInt32(path.Base(k))
+		typ := cast.ToInt32(path.Base(path.Dir(k)))
+		if err := cluster.Del(typ, id); err != nil {
+			mlog.Error("consul发现服务下线，删除服务失败: %s, %v", k, err)
+		} else {
+			delete(c.keys, k)
+		}
+	}
+	return nil
+}
+
+func (c *Consul) Watch(cluster define.ICluster) error {
+	// 先获取在线服务
+	if err := c.update(cluster); err != nil {
+		return err
 	}
 
 	// 监听服务
@@ -98,30 +132,10 @@ func (c *Consul) Watch(cluster define.ICluster) error {
 
 	// 设置监听回调
 	w.Handler = func(idx uint64, data interface{}) {
-		kvs := data.(api.KVPairs)
-		tmps := map[string]struct{}{}
-		// 添加服务
-		for _, kv := range kvs {
-			tmps[kv.Key] = struct{}{}
-			if err := cluster.Put(c.parseFun(kv.Value)); err != nil {
-				mlog.Error("consul发现新服务，新服务添加失败: %v", err)
-			}
-		}
-		// 删除服务
-		for k := range c.keys {
-			if _, ok := tmps[k]; ok {
-				continue
-			}
-			id := cast.ToInt32(path.Base(k))
-			typ := cast.ToInt32(path.Base(path.Dir(k)))
-			if err := cluster.Del(typ, id); err != nil {
-				mlog.Error("consul发现服务下线，删除服务失败: %v", err)
-			} else {
-				delete(c.keys, k)
-			}
+		if err := c.update(cluster); err != nil {
+			mlog.Error("consul 监听服务更新失败: %v", err)
 		}
 	}
-
 	safe.SafeGo(mlog.Fatal, func() {
 		if err := w.RunWithClientAndHclog(c.client, nil); err != nil {
 			mlog.Error("consul 监听报错: %v", err)
@@ -152,9 +166,11 @@ func (c *Consul) KeepAlive(srv define.INode, ttl int64) error {
 	}
 
 	// 定时检测
-	tt := time.NewTicker(time.Duration(ttl/2) * time.Second)
-	defer tt.Stop()
 	safe.SafeGo(mlog.Error, func() {
+		tt := time.NewTicker(time.Duration(ttl/2) * time.Second)
+		defer tt.Stop()
+		atomic.AddInt32(&c.status, 1)
+
 		for {
 			select {
 			case <-c.exit:
