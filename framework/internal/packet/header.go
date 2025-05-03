@@ -5,9 +5,11 @@ type Header struct {
 	SrcNodeId   uint32
 	DstNodeType uint32
 	DstNodeId   uint32
-	Cmd         uint32
 	Uid         uint64
 	RouteId     uint64
+	Cmd         uint32
+	ActorName   string
+	FuncName    string
 }
 
 func (h *Header) GetSrcNodeType() uint32 {
@@ -36,4 +38,12 @@ func (h *Header) GetUid() uint64 {
 
 func (h *Header) GetRouteId() uint64 {
 	return h.RouteId
+}
+
+func (h *Header) GetActorName() string {
+	return h.ActorName
+}
+
+func (h *Header) GetFuncName() string {
+	return h.FuncName
 }

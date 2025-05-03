@@ -1,5 +1,7 @@
 package define
 
+import "reflect"
+
 type ParseNodeFunc func([]byte) INode
 
 // 服务节点
@@ -16,6 +18,7 @@ type IRouter interface {
 	Get(id uint64, nodeType int32) INode // 获取路由信息
 	Update(id uint64, node INode)        // 更新路由信息
 	Expire(ttl int64)                    // 设置存活时间
+	Close() error                        // 关闭路由
 }
 
 // 服务集群
@@ -42,6 +45,7 @@ type INetwork interface {
 	Read(node INode, listen func(IHeader, []byte)) error   // 接收消息
 	Send(node INode, head IHeader, body []byte) error      // 发送消息
 	Broadcast(node INode, head IHeader, body []byte) error // 广播消息
+	Close() error                                          // 关闭
 }
 
 type ParsePacketFunc func([]byte) (IPacket, error)
@@ -72,4 +76,13 @@ type IProto interface {
 
 type IContext interface {
 }
+
 type HandleFunc func(IContext, IProto, IProto) error
+
+type IActor interface {
+	Start()                                          // 启动 actor 协程
+	Stop()                                           // 停止 actor 协程
+	GetValue() reflect.Value                         // 获取对象
+	RegisterValue(interface{})                       // 注册类型
+	Send(IHeader, fname string, args ...interface{}) // 发送请求
+}

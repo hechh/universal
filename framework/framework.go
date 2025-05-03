@@ -18,17 +18,31 @@ type Framework struct {
 	net    define.INetwork   // 消息中间件
 }
 
+func (f *Framework) Close() error {
+	if err := f.router.Close(); err != nil {
+		return err
+	}
+	if err := f.dis.Close(); err != nil {
+		return err
+	}
+	if err := f.net.Close(); err != nil {
+		return err
+	}
+	return nil
+}
+
 // Init 初始化框架
 func (f *Framework) Init(cfg *config.Config, nodeType define.NodeType, appid int32) (err error) {
-	// 路由表初始化
-	f.router = router.NewRouter()
-
 	// 节点配置
 	nodeName := define.NodeType_name[int32(nodeType)]
 	nodeCfg, ok := cfg.Cluster[nodeName]
 	if !ok || nodeCfg == nil {
 		return uerror.New(1, -1, "服务节点配置不存在：%s", define.NodeType_name[int32(nodeType)])
 	}
+
+	// 路由表初始化
+	f.router = router.NewRouter()
+	f.router.Expire(nodeCfg.RouterTTL)
 
 	// 集群初始化
 	f.cls = cluster.NewCluster(&cluster.Node{
@@ -57,6 +71,5 @@ func (f *Framework) Init(cfg *config.Config, nodeType define.NodeType, appid int
 	if err != nil {
 		return err
 	}
-
 	return
 }

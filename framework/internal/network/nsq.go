@@ -41,6 +41,19 @@ func NewNsq(nsqdAddr string, opts ...OpOption) (*Nsq, error) {
 	}, nil
 }
 
+func (n *Nsq) Close() error {
+	if n.consumer != nil {
+		n.consumer.Stop()
+	}
+	if n.broadcast != nil {
+		n.broadcast.Stop()
+	}
+	if n.producer != nil {
+		n.producer.Stop()
+	}
+	return nil
+}
+
 func (n *Nsq) broadcastTopic(node define.INode) string {
 	return fmt.Sprintf("%s_%d", n.topic, node.GetType())
 }

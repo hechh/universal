@@ -49,7 +49,7 @@ type NsqConfig struct {
 type NodeConfig struct {
 	LogLevel  string           `yaml:log_level`
 	LogPath   string           `yaml:log_path`
-	LogPrefix string           `yaml:log_prefix`
+	RouterTTL int64            `yaml:router_ttl`
 	Nodes     map[int32]string `yaml:nodes`
 }
 

@@ -21,12 +21,14 @@ type RouteInfo struct {
 
 type Router struct {
 	mutex   *sync.RWMutex        // 互斥锁
+	exit    chan struct{}        // 退出信号
 	routers map[index]*RouteInfo // 路由信息
 }
 
 func NewRouter() *Router {
 	return &Router{
 		mutex:   new(sync.RWMutex),
+		exit:    make(chan struct{}),
 		routers: make(map[index]*RouteInfo),
 	}
 }
@@ -61,29 +63,38 @@ func (r *Router) Update(id uint64, node define.INode) {
 	r.mutex.Unlock()
 }
 
+func (r *Router) Close() error {
+	r.exit <- struct{}{}
+	return nil
+}
+
 func (r *Router) Expire(ttl int64) {
-	tt := time.NewTicker(time.Duration(ttl/2) * time.Second)
-	defer tt.Stop()
-	// 定时清理
 	safe.SafeGo(mlog.Fatal, func() {
+		tt := time.NewTicker(time.Duration(ttl) * time.Second)
+		defer tt.Stop()
+		// 定时清理
 		for {
-			<-tt.C
-			now := time.Now().Unix()
-			// 获取过期节点
-			kks := []index{}
-			r.mutex.RLock()
-			for kk, vv := range r.routers {
-				if now >= vv.updateTime+ttl {
-					kks = append(kks, kk)
+			select {
+			case <-r.exit:
+				return
+			case <-tt.C:
+				now := time.Now().Unix()
+				// 获取过期节点
+				kks := []index{}
+				r.mutex.RLock()
+				for kk, vv := range r.routers {
+					if now >= vv.updateTime+ttl {
+						kks = append(kks, kk)
+					}
 				}
+				r.mutex.RUnlock()
+				// 删除节点
+				r.mutex.Lock()
+				for _, val := range kks {
+					delete(r.routers, val)
+				}
+				r.mutex.Unlock()
 			}
-			r.mutex.RUnlock()
-			// 删除节点
-			r.mutex.Lock()
-			for _, val := range kks {
-				delete(r.routers, val)
-			}
-			r.mutex.Unlock()
 		}
 	})
 }

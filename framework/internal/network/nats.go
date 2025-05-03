@@ -41,6 +41,13 @@ func (n *Nats) sendTopic(node define.INode) string {
 	return fmt.Sprintf("%s/%d/%d", n.topic, node.GetType(), node.GetId())
 }
 
+func (n *Nats) Close() error {
+	if n.client != nil {
+		n.client.Close()
+	}
+	return nil
+}
+
 // 接受请求
 func (n *Nats) Read(node define.INode, f func(define.IHeader, []byte)) error {
 	// 单播
