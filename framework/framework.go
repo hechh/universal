@@ -11,6 +11,7 @@ import (
 	"universal/framework/internal/packet"
 	"universal/framework/internal/router"
 	"universal/library/baselib/uerror"
+	"universal/library/mlog"
 )
 
 type Actor struct{ actor.Actor }
@@ -85,5 +86,24 @@ func (f *Framework) Init(cfg *config.Config, nodeType define.NodeType, appid int
 	if err != nil {
 		return err
 	}
+
+	// 监听
+	err = f.net.Read(f.cls.GetSelf(), func(head define.IHeader, body []byte) {
+		act, ok := f.actors[head.GetActorName()]
+		if !ok {
+			mlog.Error("Actor不存在: %v", head)
+			return
+		}
+		if err := act.SendFrom(head, body); err != nil {
+			mlog.Error("Actor发送失败: %v", err)
+		}
+	})
+	if err != nil {
+		return err
+	}
 	return
+}
+
+func (f *Framework) Dispatcher(uid uint64, routeId uint64, nodeType uint32) (define.IHeader, error) {
+	return nil, nil
 }

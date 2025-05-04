@@ -11,7 +11,7 @@ import (
 
 type index struct {
 	Id       uint64
-	NodeType int32
+	NodeType uint32
 }
 
 type RouteInfo struct {
@@ -33,7 +33,7 @@ func NewRouter() *Router {
 	}
 }
 
-func (r *Router) get(id uint64, nodeType int32) *RouteInfo {
+func (r *Router) get(id uint64, nodeType uint32) *RouteInfo {
 	r.mutex.RLock()
 	val, ok := r.routers[index{id, nodeType}]
 	r.mutex.RUnlock()
@@ -42,7 +42,7 @@ func (r *Router) get(id uint64, nodeType int32) *RouteInfo {
 	}
 	return nil
 }
-func (r *Router) Get(id uint64, nodeType int32) define.INode {
+func (r *Router) Get(id uint64, nodeType uint32) define.INode {
 	if val := r.get(id, nodeType); val != nil {
 		return val.node
 	}

@@ -104,8 +104,8 @@ func (c *Consul) update(cluster define.ICluster) error {
 		if _, ok := tmps[k]; ok {
 			continue
 		}
-		id := cast.ToInt32(path.Base(k))
-		typ := cast.ToInt32(path.Base(path.Dir(k)))
+		id := cast.ToUint32(path.Base(k))
+		typ := cast.ToUint32(path.Base(path.Dir(k)))
 		if err := cluster.Del(typ, id); err != nil {
 			mlog.Error("consul发现服务下线，删除服务失败: %s, %v", k, err)
 		} else {

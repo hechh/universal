@@ -14,13 +14,13 @@ type NodePool struct {
 
 type Cluster struct {
 	self  define.INode
-	pools map[int32]*NodePool
+	pools map[uint32]*NodePool
 }
 
 func NewCluster(self define.INode) *Cluster {
-	pools := make(map[int32]*NodePool)
+	pools := make(map[uint32]*NodePool)
 	for i := define.NodeTypeBegin + 1; i < define.NodeTypeMax; i++ {
-		pools[int32(i)] = new(NodePool)
+		pools[uint32(i)] = new(NodePool)
 	}
 	return &Cluster{self: self, pools: pools}
 }
@@ -31,7 +31,7 @@ func (c *Cluster) GetSelf() define.INode {
 }
 
 // 随机获取节点
-func (c *Cluster) Get(nodeType, nodeId int32) define.INode {
+func (c *Cluster) Get(nodeType, nodeId uint32) define.INode {
 	return c.pools[nodeType].get(nodeId)
 }
 
@@ -44,16 +44,16 @@ func (c *Cluster) Put(node define.INode) (err error) {
 }
 
 // 删除节点
-func (c *Cluster) Del(nodeType, nodeId int32) error {
+func (c *Cluster) Del(nodeType, nodeId uint32) error {
 	return c.pools[nodeType].del(nodeId)
 }
 
 // 随机获取节点
-func (c *Cluster) Random(nodeType int32, seed uint64) define.INode {
+func (c *Cluster) Random(nodeType uint32, seed uint64) define.INode {
 	return c.pools[nodeType].rand(seed)
 }
 
-func (c *NodePool) get(id int32) define.INode {
+func (c *NodePool) get(id uint32) define.INode {
 	c.mutex.RLock()
 	defer c.mutex.RUnlock()
 	for _, val := range c.nodes {
@@ -77,7 +77,7 @@ func (c *NodePool) put(val define.INode) error {
 	return nil
 }
 
-func (c *NodePool) del(id int32) error {
+func (c *NodePool) del(id uint32) error {
 	c.mutex.Lock()
 	defer c.mutex.Unlock()
 	j := -1

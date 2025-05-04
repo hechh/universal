@@ -92,8 +92,8 @@ func (e *Etcd) Watch(cluster define.ICluster) error {
 						mlog.Error("Etcd发现新服务，新服务添加失败: %v", err)
 					}
 				case clientv3.EventTypeDelete:
-					id := cast.ToInt32(path.Base(string(event.Kv.Key)))
-					typ := cast.ToInt32(path.Base(path.Dir(string(event.Kv.Key))))
+					id := cast.ToUint32(path.Base(string(event.Kv.Key)))
+					typ := cast.ToUint32(path.Base(path.Dir(string(event.Kv.Key))))
 					if err := cluster.Del(typ, id); err != nil {
 						mlog.Error("Etcd发现服务下线，删除服务失败: %v", err)
 					}
