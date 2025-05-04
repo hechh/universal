@@ -2,7 +2,6 @@ package actor
 
 import (
 	"reflect"
-	"strings"
 	"sync"
 	"universal/framework/define"
 	"universal/library/baselib/uerror"
@@ -10,7 +9,7 @@ import (
 
 type ActorGroup struct {
 	name    string
-	methods map[string]reflect.Method
+	methods map[string]*MethodInfo
 	mutex   sync.RWMutex
 	actors  map[uint64]define.IActor
 }
@@ -43,32 +42,20 @@ func (d *ActorGroup) GetName() string {
 	return d.name
 }
 
-func (d *ActorGroup) Init(ac define.IActor) {
-	rType := reflect.TypeOf(ac)
-	name := rType.String()
-	if index := strings.Index(name, "."); index != -1 {
-		name = name[index+1:]
+func (d *ActorGroup) Register(ac define.IActor, rr interface{}) error {
+	if ac != nil {
+		rType := reflect.TypeOf(ac)
+		d.name = parseName(rType)
+		d.actors = make(map[uint64]define.IActor)
 	}
 
-	// 初始化
-	d.name = name
-	d.actors = make(map[uint64]define.IActor)
-}
-
-func (d *ActorGroup) Register(ac define.IActor, _ interface{}) error {
-	rType := reflect.TypeOf(ac)
-	name := rType.String()
-	if index := strings.Index(name, "."); index != -1 {
-		name = name[index+1:]
-	}
-
-	d.name = name
-	d.methods = make(map[string]reflect.Method)
-	d.actors = make(map[uint64]define.IActor)
-
-	for i := 0; i < rType.NumMethod(); i++ {
-		methond := rType.Method(i)
-		d.methods[methond.Name] = methond
+	switch vv := rr.(type) {
+	case map[string]*MethodInfo:
+		d.methods = vv
+	case reflect.Type:
+		d.methods = parseMethod(vv)
+	default:
+		return uerror.New(1, -1, "传入必须是Actor的 reflect.Type或方法列表")
 	}
 	return nil
 }
@@ -83,4 +70,14 @@ func (d *ActorGroup) Send(header define.IHeader, args ...interface{}) error {
 		return act.Send(header, args...)
 	}
 	return uerror.New(1, -1, "Actor不存在: %d", header.GetRouteId())
+}
+
+func (d *ActorGroup) SendFrom(head define.IHeader, buf []byte) error {
+	if _, ok := d.methods[head.GetFuncName()]; !ok {
+		return uerror.New(1, -1, "方法不存在: %s.%s", head.GetActorName(), head.GetFuncName())
+	}
+	if act := d.GetActor(head.GetRouteId()); act != nil {
+		return act.SendFrom(head, buf)
+	}
+	return uerror.New(1, -1, "Actor不存在: %d", head.GetRouteId())
 }

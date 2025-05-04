@@ -68,14 +68,9 @@ type IHeader interface {
 	GetFuncName() string    // 获取函数名称
 }
 
-// cmd 请求接口
-type IProto interface {
-	Marshal() ([]byte, error)
-	Unmarshal([]byte) error
-}
-
 type IActor interface {
 	GetName() string                              // 获取名称
 	Register(IActor, interface{}) error           // 注册方法
 	Send(head IHeader, args ...interface{}) error // 发送请求
+	SendFrom(head IHeader, buf []byte) error      // 发送请求
 }

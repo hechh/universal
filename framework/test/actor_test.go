@@ -1,7 +1,6 @@
 package test
 
 import (
-	"fmt"
 	"reflect"
 	"testing"
 	"universal/framework"
@@ -18,7 +17,7 @@ type PlayerMgr struct {
 }
 
 func (d *Player) Print() {
-	fmt.Println("-----------------")
+	//fmt.Println("-----------------")
 	d.count++
 }
 
