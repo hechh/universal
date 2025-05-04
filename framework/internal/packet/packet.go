@@ -73,10 +73,14 @@ func ParsePacket(data []byte) (define.IPacket, error) {
 	pos += 8
 	pack.header.Cmd = binary.BigEndian.Uint32(data[pos:])
 	pos += 4
-	lmethod := int(binary.BigEndian.Uint32(data[pos:]))
+	lactor := int(binary.BigEndian.Uint32(data[pos:]))
 	pos += 4
-	pack.header.Methond = string(data[pos : pos+lmethod])
-	pos += lmethod
+	pack.header.ActorName = string(data[pos : pos+lactor])
+	pos += lactor
+	lfunc := int(binary.BigEndian.Uint32(data[pos:]))
+	pos += 4
+	pack.header.FuncName = string(data[pos : pos+lfunc])
+	pos += lfunc
 	pack.body = make([]byte, len(data)-pos)
 	copy(pack.body, data[pos:])
 	return pack, nil

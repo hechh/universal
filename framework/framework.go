@@ -1,8 +1,10 @@
 package framework
 
 import (
+	"fmt"
 	"universal/framework/config"
 	"universal/framework/define"
+	"universal/framework/internal/actor"
 	"universal/framework/internal/cluster"
 	"universal/framework/internal/discovery"
 	"universal/framework/internal/network"
@@ -11,11 +13,23 @@ import (
 	"universal/library/baselib/uerror"
 )
 
+type Actor struct{ actor.Actor }
+type ActorGroup struct{ actor.ActorGroup }
+
 type Framework struct {
-	router define.IRouter    // 路由表
-	cls    define.ICluster   // 服务集群
-	dis    define.IDiscovery // 服务发现
-	net    define.INetwork   // 消息中间件
+	router define.IRouter           // 路由表
+	cls    define.ICluster          // 服务集群
+	dis    define.IDiscovery        // 服务发现
+	net    define.INetwork          // 消息中间件
+	actors map[string]define.IActor // Actor列表
+}
+
+func (f *Framework) RegisterActor(st define.IActor) {
+	name := st.GetName()
+	if _, ok := f.actors[name]; ok {
+		panic(fmt.Sprintf("Actor已存在: %s", name))
+	}
+	f.actors[name] = st
 }
 
 func (f *Framework) Close() error {

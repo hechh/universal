@@ -1,7 +1,5 @@
 package define
 
-import "reflect"
-
 type ParseNodeFunc func([]byte) INode
 
 // 服务节点
@@ -66,6 +64,8 @@ type IHeader interface {
 	GetCmd() uint32         // 获取命令
 	GetUid() uint64         // 获取用户id
 	GetRouteId() uint64     // 获取路由id
+	GetActorName() string   // 获取服务名称
+	GetFuncName() string    // 获取函数名称
 }
 
 // cmd 请求接口
@@ -74,15 +74,8 @@ type IProto interface {
 	Unmarshal([]byte) error
 }
 
-type IContext interface {
-}
-
-type HandleFunc func(IContext, IProto, IProto) error
-
 type IActor interface {
-	Start()                                          // 启动 actor 协程
-	Stop()                                           // 停止 actor 协程
-	GetValue() reflect.Value                         // 获取对象
-	RegisterValue(interface{})                       // 注册类型
-	Send(IHeader, fname string, args ...interface{}) // 发送请求
+	GetName() string                              // 获取名称
+	Register(IActor, interface{}) error           // 注册方法
+	Send(head IHeader, args ...interface{}) error // 发送请求
 }
