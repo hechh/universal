@@ -29,7 +29,7 @@ func BenchmarkGob(b *testing.B) {
 	wg.Add(1)
 	go func() {
 		for i := 0; i < b.N; i++ {
-			buf := encode.Encode(i, i)
+			buf := encode.Encode(uint32(i), uint32(i))
 			if _, err := encode.Decode(buf, m); err != nil {
 				b.Fatal(err)
 				return
@@ -39,7 +39,7 @@ func BenchmarkGob(b *testing.B) {
 		wg.Done()
 	}()
 	for i := 0; i < b.N; i++ {
-		buf := encode.Encode(i, i)
+		buf := encode.Encode(uint32(i), uint32(i))
 		if _, err := encode.Decode(buf, m); err != nil {
 			b.Fatal(err)
 			return

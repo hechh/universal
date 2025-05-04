@@ -24,12 +24,12 @@ const (
 )
 
 var (
-	NodeType_name = map[int32]string{
-		int32(NodeTypeGate):  "gate",
-		int32(NodeTypeDb):    "db",
-		int32(NodeTypeLogin): "login",
-		int32(NodeTypeGame):  "game",
-		int32(NodeTypeTool):  "tool",
-		int32(NodeTypeRank):  "rank",
+	NodeType_name = map[uint32]string{
+		uint32(NodeTypeGate):  "gate",
+		uint32(NodeTypeDb):    "db",
+		uint32(NodeTypeLogin): "login",
+		uint32(NodeTypeGame):  "game",
+		uint32(NodeTypeTool):  "tool",
+		uint32(NodeTypeRank):  "rank",
 	}
 )

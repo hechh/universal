@@ -47,12 +47,12 @@ func (f *Framework) Close() error {
 }
 
 // Init 初始化框架
-func (f *Framework) Init(cfg *config.Config, nodeType define.NodeType, appid int32) (err error) {
+func (f *Framework) Init(cfg *config.Config, nodeType define.NodeType, appid uint32) (err error) {
 	// 节点配置
-	nodeName := define.NodeType_name[int32(nodeType)]
+	nodeName := define.NodeType_name[uint32(nodeType)]
 	nodeCfg, ok := cfg.Cluster[nodeName]
 	if !ok || nodeCfg == nil {
-		return uerror.New(1, -1, "服务节点配置不存在：%s", define.NodeType_name[int32(nodeType)])
+		return uerror.New(1, -1, "服务节点配置不存在：%s", define.NodeType_name[uint32(nodeType)])
 	}
 
 	// 路由表初始化
@@ -63,7 +63,7 @@ func (f *Framework) Init(cfg *config.Config, nodeType define.NodeType, appid int
 	f.cls = cluster.NewCluster(&cluster.Node{
 		Name: nodeName,
 		Addr: nodeCfg.Nodes[appid],
-		Type: int32(nodeType),
+		Type: uint32(nodeType),
 		Id:   appid,
 	})
 

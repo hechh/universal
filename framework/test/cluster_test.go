@@ -13,14 +13,14 @@ func BenchmarkCluster(b *testing.B) {
 	rtr := router.NewRouter()
 
 	for i := 0; i < 60; i++ {
-		err := cls.Put(&cluster.Node{Name: "test1", Type: int32(i%int(define.NodeTypeMax-1)) + 1, Id: int32(i) + 1, Addr: "192.168.1.1:22345"})
+		err := cls.Put(&cluster.Node{Name: "test1", Type: uint32(i%int(define.NodeTypeMax-1)) + 1, Id: uint32(i) + 1, Addr: "192.168.1.1:22345"})
 		if err != nil {
 			b.Log(err)
 			return
 		}
 	}
 	for i := 0; i < b.N; i++ {
-		node := cls.Get(int32(i%int(define.NodeTypeMax-1))+1, int32(i))
+		node := cls.Get(uint32(i%int(define.NodeTypeMax-1))+1, uint32(i))
 		if node != nil {
 			rtr.Update(uint64(node.GetId()), node)
 		}
