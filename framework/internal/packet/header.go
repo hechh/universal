@@ -15,11 +15,11 @@ type Header struct {
 	RouteId     uint64
 	ActorName   string
 	FuncName    string
-	Table       *define.RouteInfo
+	Table       define.ITable
 }
 
-func NewHeader() define.IHeader {
-	return &Header{Table: &define.RouteInfo{}}
+func NewHeader(tab define.ITable) define.IHeader {
+	return &Header{Table: tab}
 }
 
 func (h *Header) GetSrcNodeType() uint32 {
@@ -58,15 +58,15 @@ func (h *Header) GetFuncName() string {
 	return h.FuncName
 }
 
-func (h *Header) GetTable() *define.RouteInfo {
+func (h *Header) GetTable() define.ITable {
 	return h.Table
 }
 
 func (h *Header) GetSize() int {
-	return 44 + len(h.ActorName) + len(h.FuncName) + 20
+	return 44 + len(h.ActorName) + len(h.FuncName) + h.Table.GetSize()
 }
 
-func (h *Header) ToBytes(buf []byte) []byte {
+func (h *Header) ToBytes(buf []byte) {
 	pos := 0
 	binary.BigEndian.PutUint32(buf[pos:], uint32(h.SrcNodeType))
 	pos += 4
@@ -92,19 +92,7 @@ func (h *Header) ToBytes(buf []byte) []byte {
 	pos += 4
 	copy(buf[pos:], []byte(h.FuncName))
 	pos += lfunc
-	if h.Table == nil {
-		h.Table = &define.RouteInfo{}
-	}
-	binary.BigEndian.PutUint32(buf[pos:], h.Table.Gate)
-	pos += 4
-	binary.BigEndian.PutUint32(buf[pos:], h.Table.Db)
-	pos += 4
-	binary.BigEndian.PutUint32(buf[pos:], h.Table.Game)
-	pos += 4
-	binary.BigEndian.PutUint32(buf[pos:], h.Table.Tool)
-	pos += 4
-	binary.BigEndian.PutUint32(buf[pos:], h.Table.Rank)
-	return buf
+	h.Table.ToBytes(buf[pos:])
 }
 
 func (h *Header) Parse(buf []byte) define.IHeader {
@@ -131,16 +119,7 @@ func (h *Header) Parse(buf []byte) define.IHeader {
 	pos += 4
 	h.FuncName = string(buf[pos : pos+lfunc])
 	pos += lfunc
-	h.Table = &define.RouteInfo{}
-	h.Table.Gate = binary.BigEndian.Uint32(buf[pos:])
-	pos += 4
-	h.Table.Db = binary.BigEndian.Uint32(buf[pos:])
-	pos += 4
-	h.Table.Game = binary.BigEndian.Uint32(buf[pos:])
-	pos += 4
-	h.Table.Tool = binary.BigEndian.Uint32(buf[pos:])
-	pos += 4
-	h.Table.Rank = binary.BigEndian.Uint32(buf[pos:])
+	h.Table.Parse(buf[pos:])
 	return h
 }
 
@@ -159,15 +138,23 @@ func (h *Header) SetRouteId(routeId uint64) define.IHeader {
 	return h
 }
 
-func (d *Header) SetSrcNode(node define.INode) define.IHeader {
-	d.SrcNodeType = node.GetType()
-	d.SrcNodeId = node.GetId()
+func (d *Header) SetSrcNodeType(nodeType uint32) define.IHeader {
+	d.SrcNodeType = nodeType
 	return d
 }
 
-func (h *Header) SetDstNode(node define.INode) define.IHeader {
-	h.DstNodeType = node.GetType()
-	h.DstNodeId = node.GetId()
+func (d *Header) SetSrcNodeId(nodeId uint32) define.IHeader {
+	d.SrcNodeId = nodeId
+	return d
+}
+
+func (h *Header) SetDstNodeType(nodeType uint32) define.IHeader {
+	h.DstNodeType = nodeType
+	return h
+}
+
+func (h *Header) SetDstNodeId(nodeId uint32) define.IHeader {
+	h.DstNodeId = nodeId
 	return h
 }
 
@@ -181,7 +168,7 @@ func (h *Header) SetFuncName(name string) define.IHeader {
 	return h
 }
 
-func (h *Header) SetTable(tab *define.RouteInfo) define.IHeader {
+func (h *Header) SetTable(tab define.ITable) define.IHeader {
 	h.Table = tab
 	return h
 }

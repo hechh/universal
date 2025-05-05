@@ -10,8 +10,9 @@ type OpOption func(*Op)
 
 type Op struct {
 	topic     string
+	newTable  func() define.ITable
+	newHeader func(define.ITable) define.IHeader
 	newPacket func() define.IPacket
-	newHeader func() define.IHeader
 }
 
 func NewOp(opts ...OpOption) *Op {
@@ -34,9 +35,15 @@ func WithPacket(p func() define.IPacket) OpOption {
 	}
 }
 
-func WithHeader(f func() define.IHeader) OpOption {
+func WithHeader(f func(define.ITable) define.IHeader) OpOption {
 	return func(o *Op) {
 		o.newHeader = f
+	}
+}
+
+func WithTable(f func() define.ITable) OpOption {
+	return func(o *Op) {
+		o.newTable = f
 	}
 }
 

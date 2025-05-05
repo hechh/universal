@@ -8,10 +8,11 @@ import (
 )
 
 type Nats struct {
-	client    *nats.Conn            // nats连接
-	topic     string                // 订阅话题
-	newPacket func() define.IPacket // 解析函数
-	newHeader func() define.IHeader // 创建函数
+	client    *nats.Conn                         // nats连接
+	topic     string                             // 订阅话题
+	newPacket func() define.IPacket              // 解析函数
+	newHeader func(define.ITable) define.IHeader // 创建函数
+	newTable  func() define.ITable               // 创建函数
 }
 
 func NewNats(url string, opts ...OpOption) (*Nats, error) {
@@ -23,6 +24,7 @@ func NewNats(url string, opts ...OpOption) (*Nats, error) {
 	return &Nats{
 		client:    client,
 		topic:     vals.topic,
+		newTable:  vals.newTable,
 		newPacket: vals.newPacket,
 		newHeader: vals.newHeader,
 	}, nil
@@ -39,16 +41,17 @@ func (n *Nats) sendTopic(t uint32, id uint32) string {
 func (n *Nats) Read(node define.INode, f func(define.IHeader, []byte)) error {
 	_, err := n.client.Subscribe(n.sendTopic(node.GetType(), node.GetId()), func(msg *nats.Msg) {
 		pack := n.newPacket()
-		pack.SetHeader(n.newHeader())
+		pack.SetHeader(n.newHeader(n.newTable()))
 		pack.Parse(msg.Data)
 		f(pack.GetHeader(), pack.GetBody())
 	})
 	if err != nil {
 		return err
 	}
+
 	_, err = n.client.Subscribe(n.broadTopic(node.GetType()), func(msg *nats.Msg) {
 		pack := n.newPacket()
-		pack.SetHeader(n.newHeader())
+		pack.SetHeader(n.newHeader(n.newTable()))
 		pack.Parse(msg.Data)
 		f(pack.GetHeader(), pack.GetBody())
 	})

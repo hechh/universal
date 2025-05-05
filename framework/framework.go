@@ -21,11 +21,14 @@ type Actor struct{ actor.Actor }
 type ActorGroup struct{ actor.ActorGroup }
 
 type Framework struct {
-	router define.IRouter           // 路由表
-	cls    define.ICluster          // 服务集群
-	dis    define.IDiscovery        // 服务发现
-	net    define.INetwork          // 消息中间件
-	actors map[string]define.IActor // Actor列表
+	router    define.IRouter           // 路由表
+	cls       define.ICluster          // 服务集群
+	dis       define.IDiscovery        // 服务发现
+	net       define.INetwork          // 消息中间件
+	actors    map[string]define.IActor // Actor列表
+	newNode   func() define.INode      // new 函数
+	newHeader func() define.IHeader    // new 函数
+	newPacket func() define.IPacket    // new 函数
 }
 
 func (f *Framework) RegisterActor(st define.IActor) {
@@ -59,16 +62,12 @@ func (f *Framework) Init(cfg *config.Config, nodeType define.NodeType, appid uin
 	}
 
 	// 路由表初始化
-	f.router = router.NewRouter()
+	f.router = router.NewRouter(router.NewTable)
 	f.router.Expire(nodeCfg.RouterTTL)
 
 	// 集群初始化
-	f.cls = cluster.NewCluster(&cluster.Node{
-		Name: nodeName,
-		Addr: nodeCfg.Nodes[appid],
-		Type: uint32(nodeType),
-		Id:   appid,
-	})
+	self := f.newNode().SetName(nodeName).SetAddr(nodeCfg.Nodes[appid]).SetType(uint32(nodeType)).SetId(appid)
+	f.cls = cluster.NewCluster(self)
 
 	// 服务发现与注册
 	if err := f.initDiscovery(cfg); err != nil {
@@ -94,7 +93,8 @@ func (f *Framework) initDiscovery(cfg *config.Config) error {
 }
 
 func (f *Framework) initNetwork(cfg *config.Config) error {
-	net, err := network.Init(cfg, network.WithTopic("universal/network"), network.WithPacket(packet.NewPacket), network.WithHeader(packet.NewHeader))
+	net, err := network.Init(cfg, network.WithTopic("universal/network"),
+		network.WithPacket(packet.NewPacket), network.WithHeader(packet.NewHeader), network.WithTable(router.NewTable))
 	if err != nil {
 		return err
 	}
@@ -132,8 +132,19 @@ func (f *Framework) SendTo(head define.IHeader, args ...interface{}) error {
 }
 
 // 夸服务路由
-func (f *Framework) dispatcher(uid, routeId uint64, nodeType uint32) define.IHeader {
-	//node := f.cls.GetSelf()
+func (f *Framework) dispatcher(head define.IHeader) error {
+	routeId := head.GetRouteId()
+	if routeId <= 0 {
+		return uerror.New(1, -1, "路由ID为空")
+	}
 
-	return &packet.Header{}
+	head.SetSrcNode(f.cls.GetSelf())
+
+	routeInfo := f.router.Get(routeId)
+	if routeInfo == nil {
+		node := f.cls.Random(nodeType, routeId)
+
+	}
+
+	return nil
 }

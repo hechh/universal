@@ -24,7 +24,7 @@ func (p *Packet) GetBody() []byte {
 func (p *Packet) ToBytes() (rets []byte) {
 	llen := p.header.GetSize()
 	rets = make([]byte, len(p.body)+llen)
-	rets = p.header.ToBytes(rets)
+	p.header.ToBytes(rets)
 	copy(rets[llen:], p.body)
 	return
 }

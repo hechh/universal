@@ -12,13 +12,14 @@ import (
 
 // Nsq 结构体实现 INetwork 接口
 type Nsq struct {
-	addr      string                // nsqd 地址
-	topic     string                // 订阅话题
-	producer  *nsq.Producer         // 生产者
-	consumer  *nsq.Consumer         // 消费者
-	broadcast *nsq.Consumer         // 广播消费者
-	newPacket func() define.IPacket // 解析函数
-	newHeader func() define.IHeader // 创建函数
+	addr      string                             // nsqd 地址
+	topic     string                             // 订阅话题
+	producer  *nsq.Producer                      // 生产者
+	consumer  *nsq.Consumer                      // 消费者
+	broadcast *nsq.Consumer                      // 广播消费者
+	newPacket func() define.IPacket              // 解析函数
+	newHeader func(define.ITable) define.IHeader // 创建函数
+	newTable  func() define.ITable               // 创建函数
 }
 
 // NewNSQNetwork 创建一个新的 Nsq 实例
@@ -32,6 +33,7 @@ func NewNsq(nsqdAddr string, opts ...OpOption) (*Nsq, error) {
 		addr:      nsqdAddr,
 		topic:     vals.topic,
 		producer:  producer,
+		newTable:  vals.newTable,
 		newPacket: vals.newPacket,
 		newHeader: vals.newHeader,
 	}, nil
@@ -52,7 +54,7 @@ type handler struct {
 
 func (h *handler) HandleMessage(m *nsq.Message) error {
 	safe.SafeRecover(mlog.Fatal, func() {
-		pack := h.nsq.newPacket().SetHeader(h.nsq.newHeader()).Parse(m.Body)
+		pack := h.nsq.newPacket().SetHeader(h.nsq.newHeader(h.nsq.newTable())).Parse(m.Body)
 		h.listener(pack.GetHeader(), pack.GetBody())
 	})
 	return nil
@@ -86,13 +88,13 @@ func (n *Nsq) Read(node define.INode, listen func(define.IHeader, []byte)) error
 }
 
 func (n *Nsq) Send(head define.IHeader, body []byte) error {
-	buf := n.newPacket().SetHeader(n.newHeader()).SetBody(body).ToBytes()
+	buf := n.newPacket().SetHeader(n.newHeader(n.newTable())).SetBody(body).ToBytes()
 	topic := n.sendTopic(head.GetDstNodeType(), head.GetDstNodeId())
 	return n.producer.Publish(topic, buf)
 }
 
 func (n *Nsq) Broadcast(head define.IHeader, body []byte) error {
-	buf := n.newPacket().SetHeader(n.newHeader()).SetBody(body).ToBytes()
+	buf := n.newPacket().SetHeader(n.newHeader(n.newTable())).SetBody(body).ToBytes()
 	topic := n.broadTopic(head.GetDstNodeType())
 	return n.producer.Publish(topic, buf)
 }

@@ -10,53 +10,45 @@ import (
 )
 
 type RouteInfo struct {
-	timestamp int64             // 更新时间
-	table     *define.RouteInfo // 节点
+	define.ITable
+	timestamp int64 // 更新时间
 }
 
 type Router struct {
-	mutex   *sync.RWMutex         // 互斥锁
-	exit    chan struct{}         // 退出信号
-	routers map[uint64]*RouteInfo // 路由信息
+	mutex    *sync.RWMutex         // 互斥锁
+	exit     chan struct{}         // 退出信号
+	newTable func() define.ITable  // 创建路由表
+	routers  map[uint64]*RouteInfo // 路由信息
 }
 
-func NewRouter() *Router {
+func NewRouter(f func() define.ITable) *Router {
 	return &Router{
-		mutex:   new(sync.RWMutex),
-		exit:    make(chan struct{}),
-		routers: make(map[uint64]*RouteInfo),
+		mutex:    new(sync.RWMutex),
+		exit:     make(chan struct{}),
+		newTable: f,
+		routers:  make(map[uint64]*RouteInfo),
 	}
 }
 
-func (r *Router) Get(id uint64) *define.RouteInfo {
+func (r *Router) Get(id uint64) define.ITable {
 	r.mutex.RLock()
 	val, ok := r.routers[id]
 	r.mutex.RUnlock()
 	if !ok {
-		val = &RouteInfo{timestamp: time.Now().Unix(), table: &define.RouteInfo{}}
 		r.mutex.Lock()
+		val = &RouteInfo{timestamp: time.Now().Unix(), ITable: r.newTable()}
 		r.routers[id] = val
 		r.mutex.Unlock()
 	}
-	return val.table
+	return val.ITable
 }
 
-func (r *Router) Update(id uint64, tab *define.RouteInfo) {
+func (r *Router) Update(id uint64, tab define.ITable) {
 	val := r.Get(id)
-	if tab.Gate > 0 {
-		atomic.StoreUint32(&val.Gate, tab.Gate)
-	}
-	if tab.Db > 0 {
-		atomic.StoreUint32(&val.Db, tab.Db)
-	}
-	if tab.Game > 0 {
-		atomic.StoreUint32(&val.Game, tab.Game)
-	}
-	if tab.Tool > 0 {
-		atomic.StoreUint32(&val.Tool, tab.Tool)
-	}
-	if tab.Rank > 0 {
-		atomic.StoreUint32(&val.Rank, tab.Rank)
+	for i := uint32(define.NodeTypeBegin) + 1; i < uint32(define.NodeTypeMax); i++ {
+		if tab.Get(i) > 0 && val.Get(i) != tab.Get(i) {
+			val.Set(i, tab.Get(i))
+		}
 	}
 }
 

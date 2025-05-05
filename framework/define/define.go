@@ -1,19 +1,19 @@
 package define
 
-type RouteInfo struct {
-	Gate uint32
-	Db   uint32
-	Game uint32
-	Tool uint32
-	Rank uint32
+type ITable interface {
+	Get(nodeType uint32) uint32
+	Set(nodeType, nodeId uint32)
+	GetSize() int
+	ToBytes([]byte)
+	Parse([]byte) ITable
 }
 
 // 路由表
 type IRouter interface {
-	Get(uint64) *RouteInfo     // 获取路由信息
-	Update(uint64, *RouteInfo) // 更新路由信息
-	Expire(int64)              // 设置存活时间
-	Close() error              // 关闭路由
+	Get(uint64) ITable     // 获取路由id
+	Update(uint64, ITable) // 添加路由
+	Expire(int64)          // 设置存活时间
+	Close() error          // 关闭路由
 }
 
 // 服务节点
@@ -68,27 +68,29 @@ type IPacket interface {
 }
 
 type IHeader interface {
-	GetSrcNodeType() uint32      // 获取源服务类型
-	GetSrcNodeId() uint32        // 获取源服务id
-	GetDstNodeType() uint32      // 获取目的服务类型
-	GetDstNodeId() uint32        // 获取目的服务id
-	GetCmd() uint32              // 获取命令
-	GetUid() uint64              // 获取用户id
-	GetRouteId() uint64          // 获取路由id
-	GetActorName() string        // 获取服务名称
-	GetFuncName() string         // 获取函数名称
-	GetTable() *RouteInfo        // 获取路由表
-	GetSize() int                // 获取头部大小
-	ToBytes([]byte) []byte       // 转换为字节数组
-	Parse([]byte) IHeader        // 解析头部
-	SetCmd(uint32) IHeader       // 设置命令
-	SetUid(uint64) IHeader       // 设置用户id
-	SetRouteId(uint64) IHeader   // 设置路由id
-	SetSrcNode(INode) IHeader    // 设置源服务
-	SetDstNode(INode) IHeader    // 设置目的服务
-	SetActorName(string) IHeader // 设置服务名称
-	SetFuncName(string) IHeader  // 设置函数名称
-	SetTable(*RouteInfo) IHeader // 设置路由表
+	GetSrcNodeType() uint32        // 获取源服务类型
+	GetSrcNodeId() uint32          // 获取源服务id
+	GetDstNodeType() uint32        // 获取目的服务类型
+	GetDstNodeId() uint32          // 获取目的服务id
+	GetCmd() uint32                // 获取命令
+	GetUid() uint64                // 获取用户id
+	GetRouteId() uint64            // 获取路由id
+	GetActorName() string          // 获取服务名称
+	GetFuncName() string           // 获取函数名称
+	GetTable() ITable              // 获取路由表
+	GetSize() int                  // 获取头部大小
+	ToBytes([]byte)                // 转换为字节数组
+	Parse([]byte) IHeader          // 解析头部
+	SetCmd(uint32) IHeader         // 设置命令
+	SetUid(uint64) IHeader         // 设置用户id
+	SetRouteId(uint64) IHeader     // 设置路由id
+	SetSrcNodeType(uint32) IHeader // 设置源服务
+	SetSrcNodeId(uint32) IHeader   // 设置源服务
+	SetDstNodeType(uint32) IHeader // 设置目的服务
+	SetDstNodeId(uint32) IHeader   // 设置目的服务
+	SetActorName(string) IHeader   // 设置服务名称
+	SetFuncName(string) IHeader    // 设置函数名称
+	SetTable(ITable) IHeader       // 设置路由表
 
 }
 
