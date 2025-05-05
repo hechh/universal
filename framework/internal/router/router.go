@@ -9,57 +9,47 @@ import (
 	"universal/library/mlog"
 )
 
-type index struct {
-	Id       uint64
-	NodeType uint32
-}
-
 type RouteInfo struct {
-	updateTime int64
-	node       define.INode // 节点
+	timestamp int64             // 更新时间
+	table     *define.RouteInfo // 节点
 }
 
 type Router struct {
-	mutex   *sync.RWMutex        // 互斥锁
-	exit    chan struct{}        // 退出信号
-	routers map[index]*RouteInfo // 路由信息
+	mutex   *sync.RWMutex         // 互斥锁
+	exit    chan struct{}         // 退出信号
+	routers map[uint64]*RouteInfo // 路由信息
 }
 
 func NewRouter() *Router {
 	return &Router{
 		mutex:   new(sync.RWMutex),
 		exit:    make(chan struct{}),
-		routers: make(map[index]*RouteInfo),
+		routers: make(map[uint64]*RouteInfo),
 	}
 }
 
-func (r *Router) get(id uint64, nodeType uint32) *RouteInfo {
+func (r *Router) Get(id uint64) *define.RouteInfo {
 	r.mutex.RLock()
-	val, ok := r.routers[index{id, nodeType}]
+	val, ok := r.routers[id]
 	r.mutex.RUnlock()
 	if ok {
-		return val
-	}
-	return nil
-}
-func (r *Router) Get(id uint64, nodeType uint32) define.INode {
-	if val := r.get(id, nodeType); val != nil {
-		return val.node
+		return val.table
 	}
 	return nil
 }
 
-func (r *Router) Update(id uint64, node define.INode) {
-	if val := r.get(id, node.GetType()); val != nil {
-		atomic.StoreInt64(&val.updateTime, time.Now().Unix())
-		val.node = node
+func (r *Router) Update(id uint64, tab *define.RouteInfo) {
+	if val := r.Get(id); val != nil {
+		atomic.StoreUint32(&val.Gate, tab.Gate)
+		atomic.StoreUint32(&val.Db, tab.Db)
+		atomic.StoreUint32(&val.Game, tab.Game)
+		atomic.StoreUint32(&val.Tool, tab.Tool)
+		atomic.StoreUint32(&val.Rank, tab.Rank)
 		return
 	}
-
 	// 更新路由
-	item := &RouteInfo{updateTime: time.Now().Unix(), node: node}
 	r.mutex.Lock()
-	r.routers[index{id, node.GetType()}] = item
+	r.routers[id] = &RouteInfo{timestamp: time.Now().Unix(), table: tab}
 	r.mutex.Unlock()
 }
 
@@ -80,17 +70,17 @@ func (r *Router) Expire(ttl int64) {
 			case <-tt.C:
 				now := time.Now().Unix()
 				// 获取过期节点
-				kks := []index{}
+				ids := []uint64{}
 				r.mutex.RLock()
 				for kk, vv := range r.routers {
-					if now >= vv.updateTime+ttl {
-						kks = append(kks, kk)
+					if now >= atomic.LoadInt64(&vv.timestamp)+ttl {
+						ids = append(ids, kk)
 					}
 				}
 				r.mutex.RUnlock()
 				// 删除节点
 				r.mutex.Lock()
-				for _, val := range kks {
+				for _, val := range ids {
 					delete(r.routers, val)
 				}
 				r.mutex.Unlock()

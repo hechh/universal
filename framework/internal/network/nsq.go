@@ -23,8 +23,7 @@ type Nsq struct {
 
 // NewNSQNetwork 创建一个新的 Nsq 实例
 func NewNsq(nsqdAddr string, opts ...OpOption) (*Nsq, error) {
-	config := nsq.NewConfig()
-	producer, err := nsq.NewProducer(nsqdAddr, config)
+	producer, err := nsq.NewProducer(nsqdAddr, nsq.NewConfig())
 	if err != nil {
 		return nil, err
 	}
@@ -80,34 +79,41 @@ func (n *Nsq) Read(node define.INode, listen func(define.IHeader, []byte)) error
 	cfg := nsq.NewConfig()
 	cfg.MaxInFlight = 5
 	cfg.MsgTimeout = 5 * time.Second
-
-	// 单播
 	consumer, err := nsq.NewConsumer(n.sendTopic(node), node.GetName(), cfg)
 	if err != nil {
 		return err
 	}
+
 	consumer.AddHandler(&handler{listener: listen, nsq: n})
 	if err := consumer.ConnectToNSQD(n.addr); err != nil {
 		return err
 	}
 	n.consumer = consumer
 
-	// 广播
-	bro, err := nsq.NewConsumer(n.broadcastTopic(node), node.GetName(), cfg)
-	if err != nil {
-		return err
-	}
-	bro.AddHandler(&handler{listener: listen})
-	if err := bro.ConnectToNSQD(n.addr); err != nil {
-		return err
-	}
-	n.broadcast = bro
 	return nil
 }
 
 func (n *Nsq) Send(node define.INode, head define.IHeader, body []byte) error {
 	pack := n.newFun(head, body)
 	return n.producer.Publish(n.sendTopic(node), pack.ToBytes())
+}
+
+func (n *Nsq) Listen(node define.INode, listen func(define.IHeader, []byte)) error {
+	cfg := nsq.NewConfig()
+	cfg.MaxInFlight = 5
+	cfg.MsgTimeout = 5 * time.Second
+	bro, err := nsq.NewConsumer(n.broadcastTopic(node), node.GetName(), cfg)
+	if err != nil {
+		return err
+	}
+
+	bro.AddHandler(&handler{listener: listen})
+	if err := bro.ConnectToNSQD(n.addr); err != nil {
+		return err
+	}
+	n.broadcast = bro
+
+	return nil
 }
 
 func (n *Nsq) Broadcast(node define.INode, head define.IHeader, body []byte) error {

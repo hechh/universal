@@ -1,14 +1,9 @@
 package packet
 
-import "encoding/binary"
-
-type RouteInfo struct {
-	Gate uint32
-	Db   uint32
-	Game uint32
-	Tool uint32
-	Rank uint32
-}
+import (
+	"encoding/binary"
+	"universal/framework/define"
+)
 
 type Header struct {
 	SrcNodeType uint32
@@ -20,7 +15,7 @@ type Header struct {
 	RouteId     uint64
 	ActorName   string
 	FuncName    string
-	Table       *RouteInfo
+	Table       *define.RouteInfo
 }
 
 func (h *Header) GetSize() int {
@@ -63,7 +58,7 @@ func (h *Header) GetFuncName() string {
 	return h.FuncName
 }
 
-func (h *Header) GetTable() *RouteInfo {
+func (h *Header) GetTable() *define.RouteInfo {
 	return h.Table
 }
 
@@ -91,7 +86,7 @@ func (h *Header) Parse(buf []byte) {
 	pos += 4
 	h.FuncName = string(buf[pos : pos+lfunc])
 	pos += lfunc
-	h.Table = &RouteInfo{}
+	h.Table = &define.RouteInfo{}
 	h.Table.Gate = binary.BigEndian.Uint32(buf[pos:])
 	pos += 4
 	h.Table.Db = binary.BigEndian.Uint32(buf[pos:])
@@ -127,9 +122,6 @@ func (h *Header) ToBytes(buf []byte) []byte {
 	pos += 4
 	copy(buf[pos:], []byte(h.FuncName))
 	pos += lfunc
-	if h.Table == nil {
-		h.Table = &RouteInfo{}
-	}
 	binary.BigEndian.PutUint32(buf[pos:], h.Table.Gate)
 	pos += 4
 	binary.BigEndian.PutUint32(buf[pos:], h.Table.Db)

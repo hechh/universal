@@ -22,7 +22,7 @@ func BenchmarkCluster(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		node := cls.Get(uint32(i%int(define.NodeTypeMax-1))+1, uint32(i))
 		if node != nil {
-			rtr.Update(uint64(node.GetId()), node)
+			rtr.Update(uint64(node.GetId()), &define.RouteInfo{})
 		}
 		if node != nil && node.GetId() == 0 {
 			cls.Del(node.GetType(), node.GetId())

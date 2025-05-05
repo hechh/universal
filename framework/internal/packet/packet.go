@@ -19,7 +19,7 @@ func NewPacket(header define.IHeader, body []byte) define.IPacket {
 func ParsePacket(data []byte) define.IPacket {
 	pack := &Packet{
 		header: &Header{
-			Table: &RouteInfo{},
+			Table: &define.RouteInfo{},
 		},
 	}
 	pack.header.Parse(data)

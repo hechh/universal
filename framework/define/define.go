@@ -13,10 +13,10 @@ type INode interface {
 
 // 路由表
 type IRouter interface {
-	Get(id uint64, nodeType uint32) INode // 获取路由信息
-	Update(id uint64, node INode)         // 更新路由信息
-	Expire(ttl int64)                     // 设置存活时间
-	Close() error                         // 关闭路由
+	Get(uint64) *RouteInfo     // 获取路由信息
+	Update(uint64, *RouteInfo) // 更新路由信息
+	Expire(int64)              // 设置存活时间
+	Close() error              // 关闭路由
 }
 
 // 服务集群
@@ -42,7 +42,8 @@ type IDiscovery interface {
 type INetwork interface {
 	Read(node INode, listen func(IHeader, []byte)) error   // 接收消息
 	Send(node INode, head IHeader, body []byte) error      // 发送消息
-	Broadcast(node INode, head IHeader, body []byte) error // 广播消息
+	Listen(node INode, listen func(IHeader, []byte)) error // 接受广播
+	Broadcast(node INode, head IHeader, body []byte) error // 发送广播
 	Close() error                                          // 关闭
 }
 
@@ -66,6 +67,7 @@ type IHeader interface {
 	GetRouteId() uint64     // 获取路由id
 	GetActorName() string   // 获取服务名称
 	GetFuncName() string    // 获取函数名称
+	GetTable() *RouteInfo   // 获取路由表
 	GetSize() int           // 获取头部大小
 	Parse([]byte)           // 解析头部
 	ToBytes([]byte) []byte  // 转换为字节数组
@@ -80,4 +82,12 @@ type IActor interface {
 	Register(IActor, interface{}) error           // 注册方法
 	Send(ctx IContext, args ...interface{}) error // 发送请求
 	SendFrom(ctx IContext, buf []byte) error      // 发送请求
+}
+
+type RouteInfo struct {
+	Gate uint32
+	Db   uint32
+	Game uint32
+	Tool uint32
+	Rank uint32
 }

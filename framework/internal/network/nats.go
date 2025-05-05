@@ -41,27 +41,9 @@ func (n *Nats) sendTopic(node define.INode) string {
 	return fmt.Sprintf("%s/%d/%d", n.topic, node.GetType(), node.GetId())
 }
 
-func (n *Nats) Close() error {
-	if n.client != nil {
-		n.client.Close()
-	}
-	return nil
-}
-
 // 接受请求
 func (n *Nats) Read(node define.INode, f func(define.IHeader, []byte)) error {
-	// 单播
 	_, err := n.client.Subscribe(n.sendTopic(node), func(msg *nats.Msg) {
-		safe.SafeRecover(mlog.Fatal, func() {
-			pack := n.parseFun(msg.Data)
-			f(pack.GetHeader(), pack.GetBody())
-		})
-	})
-	if err != nil {
-		return err
-	}
-	// 广播
-	_, err = n.client.Subscribe(n.broadcastTopic(node), func(msg *nats.Msg) {
 		safe.SafeRecover(mlog.Fatal, func() {
 			pack := n.parseFun(msg.Data)
 			f(pack.GetHeader(), pack.GetBody())
@@ -76,8 +58,26 @@ func (n *Nats) Send(node define.INode, head define.IHeader, data []byte) error {
 	return n.client.Publish(n.sendTopic(node), pack.ToBytes())
 }
 
+// 接受广播
+func (n *Nats) Listen(node define.INode, f func(define.IHeader, []byte)) error {
+	_, err := n.client.Subscribe(n.broadcastTopic(node), func(msg *nats.Msg) {
+		safe.SafeRecover(mlog.Fatal, func() {
+			pack := n.parseFun(msg.Data)
+			f(pack.GetHeader(), pack.GetBody())
+		})
+	})
+	return err
+}
+
 // 发送广播
 func (n *Nats) Broadcast(node define.INode, head define.IHeader, data []byte) error {
 	pack := n.newFun(head, data)
 	return n.client.Publish(n.broadcastTopic(node), pack.ToBytes())
+}
+
+func (n *Nats) Close() error {
+	if n.client != nil {
+		n.client.Close()
+	}
+	return nil
 }

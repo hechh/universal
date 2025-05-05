@@ -22,11 +22,7 @@ func TestPacket(t *testing.T) {
 	pack := packet.NewPacket(head, body)
 	buf := pack.ToBytes()
 
-	pack2, err := packet.ParsePacket(buf)
-	if err != nil {
-		t.Log(err)
-		return
-	}
+	pack2 := packet.ParsePacket(buf)
 	t.Log(pack2.GetHeader())
 }
 
@@ -46,10 +42,7 @@ func BenchmarkPacket(b *testing.B) {
 		body := []byte("test_body")
 		pack := packet.NewPacket(head, body)
 		buf := pack.ToBytes()
-		if _, err := packet.ParsePacket(buf); err != nil {
-			b.Fatal(err)
-			return
-		}
+		packet.ParsePacket(buf)
 	}
 	b.Log(b.N)
 }
