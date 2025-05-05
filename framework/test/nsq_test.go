@@ -36,7 +36,8 @@ func TestNsq(t *testing.T) {
 		Uid:         1,
 	}
 	for i := 0; i < 5; i++ {
-		if err := cli.Send(head.SetDstNode(self), []byte("hello world")); err != nil {
+		head.SetSrcNodeType(self.GetType()).SetSrcNodeId(self.GetId())
+		if err := cli.Send(head, []byte("hello world")); err != nil {
 			t.Fatal(err)
 			return
 		}

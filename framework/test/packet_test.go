@@ -2,8 +2,8 @@ package test
 
 import (
 	"testing"
-	"universal/framework/define"
 	"universal/framework/internal/packet"
+	"universal/framework/internal/router"
 )
 
 func TestPacket(t *testing.T) {
@@ -17,13 +17,13 @@ func TestPacket(t *testing.T) {
 		Cmd:         7,
 		ActorName:   "test_actor",
 		FuncName:    "test_func",
-		Table:       &define.RouteInfo{},
+		Table:       router.NewTable(),
 	}
 	body := []byte("test_body")
 
 	buf := packet.NewPacket().SetHeader(head).SetBody(body).ToBytes()
 
-	pack2 := packet.NewPacket().SetHeader(packet.NewHeader()).Parse(buf)
+	pack2 := packet.NewPacket().SetHeader(packet.NewHeader(router.NewTable())).Parse(buf)
 
 	t.Log(pack2.GetHeader())
 }
@@ -40,11 +40,11 @@ func BenchmarkPacket(b *testing.B) {
 			Cmd:         uint32(i),
 			ActorName:   "test_actor",
 			FuncName:    "test_func",
-			Table:       &define.RouteInfo{},
+			Table:       router.NewTable(),
 		}
 		body := []byte("test_body")
 		buf := packet.NewPacket().SetHeader(head).SetBody(body).ToBytes()
-		packet.NewPacket().SetHeader(packet.NewHeader()).Parse(buf)
+		packet.NewPacket().SetHeader(packet.NewHeader(router.NewTable())).Parse(buf)
 	}
 	b.Log(b.N)
 }

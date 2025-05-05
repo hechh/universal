@@ -37,7 +37,7 @@ func TestPlayerMgr(t *testing.T) {
 		ActorName: "Player",
 		FuncName:  "Print",
 	}
-	if err := mgr.Send(packet.NewContext(head, router.NewRouter()), nil); err != nil {
+	if err := mgr.Send(packet.NewContext(head, router.NewRouter(router.NewTable)), nil); err != nil {
 		t.Log("=====>", err)
 	}
 	usr.Stop()
@@ -51,7 +51,7 @@ func TestActor(t *testing.T) {
 		ActorName: "Player",
 		FuncName:  "Print",
 	}
-	if err := usr.Send(packet.NewContext(head, router.NewRouter()), nil); err != nil {
+	if err := usr.Send(packet.NewContext(head, router.NewRouter(router.NewTable)), nil); err != nil {
 		t.Log("=====>", err)
 	}
 	usr.Stop()
@@ -66,7 +66,7 @@ func BenchmarkActor(b *testing.B) {
 			ActorName: "Player",
 			FuncName:  "Print",
 		}
-		if err := usr.Send(packet.NewContext(head, router.NewRouter()), nil); err != nil {
+		if err := usr.Send(packet.NewContext(head, router.NewRouter(router.NewTable)), nil); err != nil {
 			b.Log("=====>", err)
 		}
 	}

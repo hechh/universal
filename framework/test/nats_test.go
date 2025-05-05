@@ -36,7 +36,8 @@ func TestNats(t *testing.T) {
 		Uid:         1,
 	}
 	for i := 0; i < 5; i++ {
-		cli.Send(head.SetDstNode(self), []byte("hello world"))
+		head.SetSrcNodeType(self.GetType()).SetSrcNodeId(self.GetId())
+		cli.Send(head, []byte("hello world"))
 	}
 	time.Sleep(1 * time.Second)
 }
