@@ -15,13 +15,13 @@ import (
 )
 
 type Consul struct {
-	status   int32
-	root     string
-	parseFun define.ParseNodeFunc
-	client   *api.Client
-	session  *api.Session
-	keys     map[string]struct{}
-	exit     chan struct{}
+	status  int32
+	topic   string
+	newNode func() define.INode
+	client  *api.Client
+	session *api.Session
+	keys    map[string]struct{}
+	exit    chan struct{}
 }
 
 func NewConsul(endpoints string, opts ...OpOption) (*Consul, error) {
@@ -35,36 +35,28 @@ func NewConsul(endpoints string, opts ...OpOption) (*Consul, error) {
 	}
 	// 返回
 	return &Consul{
-		root:     vals.root,
-		parseFun: vals.parse,
-		client:   client,
-		session:  client.Session(),
-		keys:     make(map[string]struct{}),
-		exit:     make(chan struct{}),
+		topic:   vals.topic,
+		newNode: vals.newNode,
+		client:  client,
+		session: client.Session(),
+		keys:    make(map[string]struct{}),
+		exit:    make(chan struct{}),
 	}, nil
 }
 
-func (c *Consul) Close() error {
-	if atomic.LoadInt32(&c.status) > 0 {
-		c.exit <- struct{}{}
-	}
-	time.Sleep(1 * time.Second)
-	return nil
+func (c *Consul) getKey(node define.INode) string {
+	return path.Join(c.topic, cast.ToString(node.GetType()), cast.ToString(node.GetId()))
 }
 
 func (c *Consul) Get() (rets []define.INode, err error) {
-	kvs, _, err := c.client.KV().List(c.root, nil)
+	kvs, _, err := c.client.KV().List(c.topic, nil)
 	if err != nil {
 		return nil, err
 	}
 	for _, kv := range kvs {
-		rets = append(rets, c.parseFun(kv.Value))
+		rets = append(rets, c.newNode().Parse(kv.Value))
 	}
 	return
-}
-
-func (c *Consul) getKey(node define.INode) string {
-	return path.Join(c.root, cast.ToString(node.GetType()), cast.ToString(node.GetId()))
 }
 
 // 添加 key-value
@@ -84,21 +76,19 @@ func (c *Consul) Del(srv define.INode) error {
 
 func (c *Consul) update(cluster define.ICluster) error {
 	// 获取全部节点
-	kvs, _, err := c.client.KV().List(c.root, nil)
+	kvs, _, err := c.client.KV().List(c.topic, nil)
 	if err != nil {
 		return err
 	}
-
 	// 添加服务
 	tmps := map[string]struct{}{}
 	for _, kv := range kvs {
 		tmps[kv.Key] = struct{}{}
 		c.keys[kv.Key] = struct{}{}
-		if err := cluster.Put(c.parseFun(kv.Value)); err != nil {
-			mlog.Error("consul发现新服务，新服务添加失败: %s, %v", kv.Value, err)
-		}
+		nn := c.newNode().Parse(kv.Value)
+		cluster.Put(nn)
+		mlog.Info(" 添加服务节点: %v", nn)
 	}
-
 	// 删除服务
 	for k := range c.keys {
 		if _, ok := tmps[k]; ok {
@@ -106,11 +96,9 @@ func (c *Consul) update(cluster define.ICluster) error {
 		}
 		id := cast.ToUint32(path.Base(k))
 		typ := cast.ToUint32(path.Base(path.Dir(k)))
-		if err := cluster.Del(typ, id); err != nil {
-			mlog.Error("consul发现服务下线，删除服务失败: %s, %v", k, err)
-		} else {
-			delete(c.keys, k)
-		}
+		cluster.Del(typ, id)
+		mlog.Info(" 删除服务节点: %s", k)
+		delete(c.keys, k)
 	}
 	return nil
 }
@@ -124,7 +112,7 @@ func (c *Consul) Watch(cluster define.ICluster) error {
 	// 监听服务
 	w, err := watch.Parse(map[string]interface{}{
 		"type":   "keyprefix",
-		"prefix": c.root,
+		"prefix": c.topic,
 	})
 	if err != nil {
 		return err
@@ -184,5 +172,13 @@ func (c *Consul) KeepAlive(srv define.INode, ttl int64) error {
 			}
 		}
 	})
+	return nil
+}
+
+func (c *Consul) Close() error {
+	if atomic.LoadInt32(&c.status) > 0 {
+		c.exit <- struct{}{}
+	}
+	time.Sleep(1 * time.Second)
 	return nil
 }

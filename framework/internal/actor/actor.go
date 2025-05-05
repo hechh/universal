@@ -89,6 +89,9 @@ func (d *Actor) SendFrom(head define.IContext, buf []byte) error {
 		return uerror.New(1, -1, "方法不存在: %s.%s", head.GetActorName(), head.GetFuncName())
 	}
 	d.Push(func() {
+		router := head.GetRouter()
+		router.Update(head.GetRouteId(), head.GetTable())
+
 		if m.hasContext {
 			if m.isHandler {
 				ins := make([]reflect.Value, m.method.Type.NumIn())

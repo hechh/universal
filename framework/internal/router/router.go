@@ -32,25 +32,32 @@ func (r *Router) Get(id uint64) *define.RouteInfo {
 	r.mutex.RLock()
 	val, ok := r.routers[id]
 	r.mutex.RUnlock()
-	if ok {
-		return val.table
+	if !ok {
+		val = &RouteInfo{timestamp: time.Now().Unix(), table: &define.RouteInfo{}}
+		r.mutex.Lock()
+		r.routers[id] = val
+		r.mutex.Unlock()
 	}
-	return nil
+	return val.table
 }
 
 func (r *Router) Update(id uint64, tab *define.RouteInfo) {
-	if val := r.Get(id); val != nil {
+	val := r.Get(id)
+	if tab.Gate > 0 {
 		atomic.StoreUint32(&val.Gate, tab.Gate)
-		atomic.StoreUint32(&val.Db, tab.Db)
-		atomic.StoreUint32(&val.Game, tab.Game)
-		atomic.StoreUint32(&val.Tool, tab.Tool)
-		atomic.StoreUint32(&val.Rank, tab.Rank)
-		return
 	}
-	// 更新路由
-	r.mutex.Lock()
-	r.routers[id] = &RouteInfo{timestamp: time.Now().Unix(), table: tab}
-	r.mutex.Unlock()
+	if tab.Db > 0 {
+		atomic.StoreUint32(&val.Db, tab.Db)
+	}
+	if tab.Game > 0 {
+		atomic.StoreUint32(&val.Game, tab.Game)
+	}
+	if tab.Tool > 0 {
+		atomic.StoreUint32(&val.Tool, tab.Tool)
+	}
+	if tab.Rank > 0 {
+		atomic.StoreUint32(&val.Rank, tab.Rank)
+	}
 }
 
 func (r *Router) Close() error {

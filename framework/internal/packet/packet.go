@@ -9,23 +9,8 @@ type Packet struct {
 	body   []byte
 }
 
-func NewPacket(header define.IHeader, body []byte) define.IPacket {
-	return &Packet{
-		header: header.(*Header),
-		body:   body,
-	}
-}
-
-func ParsePacket(data []byte) define.IPacket {
-	pack := &Packet{
-		header: &Header{
-			Table: &define.RouteInfo{},
-		},
-	}
-	pack.header.Parse(data)
-	llen := pack.header.GetSize()
-	copy(pack.body, data[llen:])
-	return pack
+func NewPacket() define.IPacket {
+	return &Packet{}
 }
 
 func (p *Packet) GetHeader() define.IHeader {
@@ -42,4 +27,21 @@ func (p *Packet) ToBytes() (rets []byte) {
 	rets = p.header.ToBytes(rets)
 	copy(rets[llen:], p.body)
 	return
+}
+
+func (p *Packet) Parse(data []byte) define.IPacket {
+	p.header.Parse(data)
+	llen := p.header.GetSize()
+	copy(p.body, data[llen:])
+	return p
+}
+
+func (p *Packet) SetHeader(h define.IHeader) define.IPacket {
+	p.header = h
+	return p
+}
+
+func (p *Packet) SetBody(buf []byte) define.IPacket {
+	p.body = buf
+	return p
 }

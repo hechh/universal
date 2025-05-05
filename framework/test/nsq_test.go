@@ -10,8 +10,7 @@ import (
 )
 
 func TestNsq(t *testing.T) {
-	cli, err := network.NewNsq(cfg.Nsq.Nsqd, network.WithTopic("hch_test"),
-		network.WithParse(packet.ParsePacket), network.WithNew(packet.NewPacket))
+	cli, err := network.NewNsq(cfg.Nsq.Nsqd, network.WithTopic("hch_test"), network.WithPacket(packet.NewPacket), network.WithHeader(packet.NewHeader))
 	if err != nil {
 		t.Fatalf("nats connect err: %v", err)
 		return
@@ -37,7 +36,7 @@ func TestNsq(t *testing.T) {
 		Uid:         1,
 	}
 	for i := 0; i < 5; i++ {
-		if err := cli.Send(self, head, []byte("hello world")); err != nil {
+		if err := cli.Send(head.SetDstNode(self), []byte("hello world")); err != nil {
 			t.Fatal(err)
 			return
 		}

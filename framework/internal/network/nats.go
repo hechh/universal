@@ -3,17 +3,15 @@ package network
 import (
 	"fmt"
 	"universal/framework/define"
-	"universal/library/baselib/safe"
-	"universal/library/mlog"
 
 	"github.com/nats-io/nats.go"
 )
 
 type Nats struct {
-	topic    string                 // 订阅话题
-	client   *nats.Conn             // nats连接
-	parseFun define.ParsePacketFunc // 解析函数
-	newFun   define.NewPacketFunc   // 创建函数
+	client    *nats.Conn            // nats连接
+	topic     string                // 订阅话题
+	newPacket func() define.IPacket // 解析函数
+	newHeader func() define.IHeader // 创建函数
 }
 
 func NewNats(url string, opts ...OpOption) (*Nats, error) {
@@ -21,58 +19,54 @@ func NewNats(url string, opts ...OpOption) (*Nats, error) {
 	if err != nil {
 		return nil, err
 	}
-	vals := new(Op)
-	for _, opt := range opts {
-		opt(vals)
-	}
+	vals := NewOp(opts...)
 	return &Nats{
-		topic:    vals.topic,
-		parseFun: vals.parse,
-		newFun:   vals.newFun,
-		client:   client,
+		client:    client,
+		topic:     vals.topic,
+		newPacket: vals.newPacket,
+		newHeader: vals.newHeader,
 	}, nil
 }
 
-func (n *Nats) broadcastTopic(node define.INode) string {
-	return fmt.Sprintf("%s/%d", n.topic, node.GetType())
+func (n *Nats) broadTopic(t uint32) string {
+	return fmt.Sprintf("%s/%d", n.topic, t)
 }
 
-func (n *Nats) sendTopic(node define.INode) string {
-	return fmt.Sprintf("%s/%d/%d", n.topic, node.GetType(), node.GetId())
+func (n *Nats) sendTopic(t uint32, id uint32) string {
+	return fmt.Sprintf("%s/%d/%d", n.topic, t, id)
 }
 
-// 接受请求
 func (n *Nats) Read(node define.INode, f func(define.IHeader, []byte)) error {
-	_, err := n.client.Subscribe(n.sendTopic(node), func(msg *nats.Msg) {
-		safe.SafeRecover(mlog.Fatal, func() {
-			pack := n.parseFun(msg.Data)
-			f(pack.GetHeader(), pack.GetBody())
-		})
+	_, err := n.client.Subscribe(n.sendTopic(node.GetType(), node.GetId()), func(msg *nats.Msg) {
+		pack := n.newPacket()
+		pack.SetHeader(n.newHeader())
+		pack.Parse(msg.Data)
+		f(pack.GetHeader(), pack.GetBody())
+	})
+	if err != nil {
+		return err
+	}
+	_, err = n.client.Subscribe(n.broadTopic(node.GetType()), func(msg *nats.Msg) {
+		pack := n.newPacket()
+		pack.SetHeader(n.newHeader())
+		pack.Parse(msg.Data)
+		f(pack.GetHeader(), pack.GetBody())
 	})
 	return err
 }
 
 // 发送消息
-func (n *Nats) Send(node define.INode, head define.IHeader, data []byte) error {
-	pack := n.newFun(head, data)
-	return n.client.Publish(n.sendTopic(node), pack.ToBytes())
-}
-
-// 接受广播
-func (n *Nats) Listen(node define.INode, f func(define.IHeader, []byte)) error {
-	_, err := n.client.Subscribe(n.broadcastTopic(node), func(msg *nats.Msg) {
-		safe.SafeRecover(mlog.Fatal, func() {
-			pack := n.parseFun(msg.Data)
-			f(pack.GetHeader(), pack.GetBody())
-		})
-	})
-	return err
+func (n *Nats) Send(head define.IHeader, data []byte) error {
+	buf := n.newPacket().SetHeader(head).SetBody(data).ToBytes()
+	topic := n.sendTopic(head.GetDstNodeType(), head.GetDstNodeId())
+	return n.client.Publish(topic, buf)
 }
 
 // 发送广播
-func (n *Nats) Broadcast(node define.INode, head define.IHeader, data []byte) error {
-	pack := n.newFun(head, data)
-	return n.client.Publish(n.broadcastTopic(node), pack.ToBytes())
+func (n *Nats) Broadcast(head define.IHeader, data []byte) error {
+	buf := n.newPacket().SetHeader(head).SetBody(data).ToBytes()
+	topic := n.broadTopic(head.GetDstNodeType())
+	return n.client.Publish(topic, buf)
 }
 
 func (n *Nats) Close() error {

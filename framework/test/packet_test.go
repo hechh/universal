@@ -19,10 +19,10 @@ func TestPacket(t *testing.T) {
 	}
 	body := []byte("test_body")
 
-	pack := packet.NewPacket(head, body)
+	pack := packet.NewPacket().SetHeader(head).SetBody(body)
 	buf := pack.ToBytes()
 
-	pack2 := packet.ParsePacket(buf)
+	pack2 := packet.NewPacket().Parse(buf)
 	t.Log(pack2.GetHeader())
 }
 
@@ -40,9 +40,8 @@ func BenchmarkPacket(b *testing.B) {
 			FuncName:    "test_func",
 		}
 		body := []byte("test_body")
-		pack := packet.NewPacket(head, body)
-		buf := pack.ToBytes()
-		packet.ParsePacket(buf)
+		buf := packet.NewPacket().SetHeader(head).SetBody(body).ToBytes()
+		packet.NewPacket().SetHeader(packet.NewHeader()).Parse(buf)
 	}
 	b.Log(b.N)
 }

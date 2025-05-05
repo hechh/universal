@@ -60,11 +60,10 @@ func (d *ActorGroup) Register(ac define.IActor, rr interface{}) error {
 	return nil
 }
 
-func (d *ActorGroup) Send(header define.IHeader, args ...interface{}) error {
+func (d *ActorGroup) Send(header define.IContext, args ...interface{}) error {
 	if _, ok := d.methods[header.GetFuncName()]; !ok {
 		return uerror.New(1, -1, "方法不存在: %s.%s", header.GetActorName(), header.GetFuncName())
 	}
-
 	// 获取Actor
 	if act := d.GetActor(header.GetRouteId()); act != nil {
 		return act.Send(header, args...)
@@ -72,10 +71,11 @@ func (d *ActorGroup) Send(header define.IHeader, args ...interface{}) error {
 	return uerror.New(1, -1, "Actor不存在: %d", header.GetRouteId())
 }
 
-func (d *ActorGroup) SendFrom(head define.IHeader, buf []byte) error {
+func (d *ActorGroup) SendFrom(head define.IContext, buf []byte) error {
 	if _, ok := d.methods[head.GetFuncName()]; !ok {
 		return uerror.New(1, -1, "方法不存在: %s.%s", head.GetActorName(), head.GetFuncName())
 	}
+
 	if act := d.GetActor(head.GetRouteId()); act != nil {
 		return act.SendFrom(head, buf)
 	}

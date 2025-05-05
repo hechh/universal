@@ -24,8 +24,8 @@ func TestMain(m *testing.M) {
 func TestEtcd(t *testing.T) {
 	etcd, err := discovery.NewEtcd(
 		cfg.Etcd.Endpoints,
-		discovery.WithPath("/hch/etcd_test/"),
-		discovery.WithParse(cluster.NewNode),
+		discovery.WithTopic("/hch/etcd_test/"),
+		discovery.WithNode(cluster.NewNode),
 	)
 	if err != nil {
 		t.Log(err)
@@ -65,8 +65,8 @@ func TestEtcd(t *testing.T) {
 func TestEtcdKeepAlive(t *testing.T) {
 	etcd, err := discovery.NewEtcd(
 		cfg.Etcd.Endpoints,
-		discovery.WithPath("/hch/etcd_test/"),
-		discovery.WithParse(cluster.NewNode),
+		discovery.WithTopic("/hch/etcd_test/"),
+		discovery.WithNode(cluster.NewNode),
 	)
 	if err != nil {
 		t.Log(err)

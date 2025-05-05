@@ -12,10 +12,8 @@ type Node struct {
 	Id   uint32 `json:"id"`   // 节点ID
 }
 
-func NewNode(buf []byte) define.INode {
-	node := new(Node)
-	json.Unmarshal(buf, node)
-	return node
+func NewNode() define.INode {
+	return &Node{}
 }
 
 func (n *Node) GetName() string {
@@ -37,4 +35,29 @@ func (n *Node) GetAddr() string {
 func (n *Node) ToBytes() []byte {
 	buf, _ := json.Marshal(n)
 	return buf
+}
+
+func (n *Node) Parse(buf []byte) define.INode {
+	json.Unmarshal(buf, n)
+	return n
+}
+
+func (n *Node) SetName(name string) define.INode {
+	n.Name = name
+	return n
+}
+
+func (n *Node) SetAddr(addr string) define.INode {
+	n.Addr = addr
+	return n
+}
+
+func (n *Node) SetType(t uint32) define.INode {
+	n.Type = t
+	return n
+}
+
+func (n *Node) SetId(id uint32) define.INode {
+	n.Id = id
+	return n
 }

@@ -71,40 +71,44 @@ func (f *Framework) Init(cfg *config.Config, nodeType define.NodeType, appid uin
 	})
 
 	// 服务发现与注册
-	f.dis, err = discovery.Init(cfg, discovery.WithPath("universal/discovery"), discovery.WithParse(cluster.NewNode))
-	if err != nil {
+	if err := f.initDiscovery(cfg); err != nil {
 		return err
 	}
-	// 注册服务
-	if err := f.dis.KeepAlive(f.cls.GetSelf(), 15); err != nil {
-		return err
-	}
-	// 监听服务
-	if err := f.dis.Watch(f.cls); err != nil {
-		return err
-	}
-
 	// 消息中间件
-	f.net, err = network.Init(cfg, network.WithTopic("universal/network"), network.WithParse(packet.ParsePacket), network.WithNew(packet.NewPacket))
+	if err = f.initNetwork(cfg); err != nil {
+		return err
+	}
+	return
+}
+
+func (f *Framework) initDiscovery(cfg *config.Config) error {
+	dis, err := discovery.Init(cfg, discovery.WithTopic("universal/discovery"), discovery.WithNode(cluster.NewNode))
 	if err != nil {
 		return err
 	}
+	f.dis = dis
+	if err := dis.KeepAlive(f.cls.GetSelf(), 15); err != nil {
+		return err
+	}
+	return dis.Watch(f.cls)
+}
 
-	// 监听
-	err = f.net.Read(f.cls.GetSelf(), func(head define.IHeader, body []byte) {
+func (f *Framework) initNetwork(cfg *config.Config) error {
+	net, err := network.Init(cfg, network.WithTopic("universal/network"), network.WithPacket(packet.NewPacket), network.WithHeader(packet.NewHeader))
+	if err != nil {
+		return err
+	}
+	f.net = net
+	return net.Read(f.cls.GetSelf(), func(head define.IHeader, body []byte) {
 		act, ok := f.actors[head.GetActorName()]
 		if !ok {
 			mlog.Error("Actor不存在: %v", head)
 			return
 		}
-		if err := act.SendFrom(head, body); err != nil {
+		if err := act.SendFrom(packet.NewContext(head, f.router), body); err != nil {
 			mlog.Error("Actor发送失败: %v", err)
 		}
 	})
-	if err != nil {
-		return err
-	}
-	return
 }
 
 // 服务内调用
@@ -113,21 +117,23 @@ func (f *Framework) Send(head define.IHeader, args ...interface{}) error {
 	if !ok {
 		return uerror.New(1, -1, "Actor不存在: %v", head)
 	}
-	return act.Send(head, args...)
+	return act.Send(packet.NewContext(head, f.router), args...)
 }
 
 // 夸服务调用
-func (f *Framework) SendTo(node define.INode, head define.IHeader, args ...interface{}) error {
+func (f *Framework) SendTo(head define.IHeader, args ...interface{}) error {
 	if len(args) == 1 {
 		if msg, ok := args[0].(proto.Message); ok {
 			buf, _ := proto.Marshal(msg)
-			return f.net.Send(node, head, buf)
+			return f.net.Send(head, buf)
 		}
 	}
-	return f.net.Send(node, head, encode.Encode(args...))
+	return f.net.Send(head, encode.Encode(args...))
 }
 
 // 夸服务路由
-func (f *Framework) GetRouter(routeId uint64, nodeType uint32) define.INode {
-	return nil
+func (f *Framework) dispatcher(uid, routeId uint64, nodeType uint32) define.IHeader {
+	//node := f.cls.GetSelf()
+
+	return &packet.Header{}
 }

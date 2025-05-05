@@ -10,8 +10,7 @@ import (
 )
 
 func TestNats(t *testing.T) {
-	cli, err := network.NewNats(cfg.Nats.Endpoints, network.WithTopic("hch_test"),
-		network.WithParse(packet.ParsePacket), network.WithNew(packet.NewPacket))
+	cli, err := network.NewNats(cfg.Nats.Endpoints, network.WithTopic("hch_test"), network.WithPacket(packet.NewPacket), network.WithHeader(packet.NewHeader))
 	if err != nil {
 		t.Fatalf("nats connect err: %v", err)
 		return
@@ -37,7 +36,7 @@ func TestNats(t *testing.T) {
 		Uid:         1,
 	}
 	for i := 0; i < 5; i++ {
-		cli.Send(self, head, []byte("hello world"))
+		cli.Send(head.SetDstNode(self), []byte("hello world"))
 	}
 	time.Sleep(1 * time.Second)
 }

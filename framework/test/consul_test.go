@@ -10,8 +10,8 @@ import (
 func TestConsul(t *testing.T) {
 	consul, err := discovery.NewConsul(
 		cfg.Consul.Endpoints,
-		discovery.WithPath("hch/consul_test"),
-		discovery.WithParse(cluster.NewNode),
+		discovery.WithTopic("hch/consul_test"),
+		discovery.WithNode(cluster.NewNode),
 	)
 	if err != nil {
 		t.Log(err)
@@ -44,8 +44,8 @@ func TestConsul(t *testing.T) {
 func TestConsulKeepAlive(t *testing.T) {
 	consul, err := discovery.NewConsul(
 		cfg.Consul.Endpoints,
-		discovery.WithPath("hch/consul_test"),
-		discovery.WithParse(cluster.NewNode),
+		discovery.WithTopic("hch/consul_test"),
+		discovery.WithNode(cluster.NewNode),
 	)
 	if err != nil {
 		t.Log(err)

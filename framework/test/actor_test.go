@@ -5,6 +5,7 @@ import (
 	"testing"
 	"universal/framework"
 	"universal/framework/internal/packet"
+	"universal/framework/internal/router"
 )
 
 type Player struct {
@@ -36,7 +37,7 @@ func TestPlayerMgr(t *testing.T) {
 		ActorName: "Player",
 		FuncName:  "Print",
 	}
-	if err := mgr.Send(head, nil); err != nil {
+	if err := mgr.Send(packet.NewContext(head, router.NewRouter()), nil); err != nil {
 		t.Log("=====>", err)
 	}
 	usr.Stop()
@@ -50,7 +51,7 @@ func TestActor(t *testing.T) {
 		ActorName: "Player",
 		FuncName:  "Print",
 	}
-	if err := usr.Send(head, nil); err != nil {
+	if err := usr.Send(packet.NewContext(head, router.NewRouter()), nil); err != nil {
 		t.Log("=====>", err)
 	}
 	usr.Stop()
@@ -65,7 +66,7 @@ func BenchmarkActor(b *testing.B) {
 			ActorName: "Player",
 			FuncName:  "Print",
 		}
-		if err := usr.Send(head, nil); err != nil {
+		if err := usr.Send(packet.NewContext(head, router.NewRouter()), nil); err != nil {
 			b.Log("=====>", err)
 		}
 	}

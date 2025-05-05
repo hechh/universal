@@ -32,76 +32,60 @@ func (c *Cluster) GetSelf() define.INode {
 
 // 随机获取节点
 func (c *Cluster) Get(nodeType, nodeId uint32) define.INode {
-	return c.pools[nodeType].get(nodeId)
-}
-
-// 添加节点
-func (c *Cluster) Put(node define.INode) (err error) {
-	if err = c.pools[node.GetType()].put(node); err == nil {
-		mlog.Debug("添加服务节点：%s", string(node.ToBytes()))
-	}
-	return
-}
-
-// 删除节点
-func (c *Cluster) Del(nodeType, nodeId uint32) error {
-	return c.pools[nodeType].del(nodeId)
-}
-
-// 随机获取节点
-func (c *Cluster) Random(nodeType uint32, seed uint64) define.INode {
-	return c.pools[nodeType].rand(seed)
-}
-
-func (c *NodePool) get(id uint32) define.INode {
-	c.mutex.RLock()
-	defer c.mutex.RUnlock()
-	for _, val := range c.nodes {
-		if val.GetId() == id {
+	nn := c.pools[nodeType]
+	nn.mutex.RLock()
+	defer nn.mutex.RUnlock()
+	for _, val := range nn.nodes {
+		if val.GetId() == nodeId {
 			return val
 		}
 	}
 	return nil
 }
 
-func (c *NodePool) put(val define.INode) error {
-	c.mutex.Lock()
-	defer c.mutex.Unlock()
-	for i, node := range c.nodes {
-		if node.GetId() == val.GetId() {
-			c.nodes[i] = val
-			return nil
+// 添加节点
+func (c *Cluster) Put(node define.INode) {
+	nn := c.pools[node.GetType()]
+	nn.mutex.Lock()
+	defer nn.mutex.Unlock()
+	for i, item := range nn.nodes {
+		if item.GetId() == node.GetId() {
+			nn.nodes[i] = node
+			return
 		}
 	}
-	c.nodes = append(c.nodes, val)
-	return nil
+	nn.nodes = append(nn.nodes, node)
 }
 
-func (c *NodePool) del(id uint32) error {
-	c.mutex.Lock()
-	defer c.mutex.Unlock()
+// 删除节点
+func (c *Cluster) Del(nodeType, nodeId uint32) {
+	nn := c.pools[nodeType]
+	nn.mutex.Lock()
+	defer nn.mutex.Unlock()
 	j := -1
-	for _, val := range c.nodes {
-		if val.GetId() == id {
+	for _, val := range nn.nodes {
+		if val.GetId() == nodeId {
 			mlog.Debug("删除服务节点：%s", string(val.ToBytes()))
 			continue
 		}
 		j++
-		c.nodes[j] = val
+		nn.nodes[j] = val
 	}
-	c.nodes = c.nodes[:j+1]
-	return nil
+	nn.nodes = nn.nodes[:j+1]
 }
 
-func (c *NodePool) rand(id uint64) define.INode {
-	lnodes := len(c.nodes)
-	if lnodes <= 0 {
+// 随机获取节点
+func (c *Cluster) Random(nodeType uint32, seed uint64) define.INode {
+	nn := c.pools[nodeType]
+	llen := len(nn.nodes)
+	if llen <= 0 {
 		return nil
 	}
-	c.mutex.RLock()
-	defer c.mutex.RUnlock()
-	if id <= 0 {
-		return c.nodes[random.Int32n(int32(lnodes))]
+
+	nn.mutex.RLock()
+	defer nn.mutex.RUnlock()
+	if seed <= 0 {
+		return nn.nodes[random.Int32n(int32(llen))]
 	}
-	return c.nodes[id%uint64(lnodes)]
+	return nn.nodes[seed%uint64(llen)]
 }

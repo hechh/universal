@@ -18,8 +18,8 @@ type Header struct {
 	Table       *define.RouteInfo
 }
 
-func (h *Header) GetSize() int {
-	return 44 + len(h.ActorName) + len(h.FuncName) + 20
+func NewHeader() define.IHeader {
+	return &Header{Table: &define.RouteInfo{}}
 }
 
 func (h *Header) GetSrcNodeType() uint32 {
@@ -62,38 +62,8 @@ func (h *Header) GetTable() *define.RouteInfo {
 	return h.Table
 }
 
-func (h *Header) Parse(buf []byte) {
-	pos := 0
-	h.SrcNodeType = binary.BigEndian.Uint32(buf[pos:])
-	pos += 4
-	h.SrcNodeId = binary.BigEndian.Uint32(buf[pos:])
-	pos += 4
-	h.DstNodeType = binary.BigEndian.Uint32(buf[pos:])
-	pos += 4
-	h.DstNodeId = binary.BigEndian.Uint32(buf[pos:])
-	pos += 4
-	h.Cmd = binary.BigEndian.Uint32(buf[pos:])
-	pos += 4
-	h.Uid = binary.BigEndian.Uint64(buf[pos:])
-	pos += 8
-	h.RouteId = binary.BigEndian.Uint64(buf[pos:])
-	pos += 8
-	lactor := int(binary.BigEndian.Uint32(buf[pos:]))
-	pos += 4
-	h.ActorName = string(buf[pos : pos+lactor])
-	pos += lactor
-	lfunc := int(binary.BigEndian.Uint32(buf[pos:]))
-	pos += 4
-	h.FuncName = string(buf[pos : pos+lfunc])
-	pos += lfunc
-	h.Table = &define.RouteInfo{}
-	h.Table.Gate = binary.BigEndian.Uint32(buf[pos:])
-	pos += 4
-	h.Table.Db = binary.BigEndian.Uint32(buf[pos:])
-	pos += 4
-	h.Table.Game = binary.BigEndian.Uint32(buf[pos:])
-	pos += 4
-	h.Table.Tool = binary.BigEndian.Uint32(buf[pos:])
+func (h *Header) GetSize() int {
+	return 44 + len(h.ActorName) + len(h.FuncName) + 20
 }
 
 func (h *Header) ToBytes(buf []byte) []byte {
@@ -132,4 +102,83 @@ func (h *Header) ToBytes(buf []byte) []byte {
 	pos += 4
 	binary.BigEndian.PutUint32(buf[pos:], h.Table.Rank)
 	return buf
+}
+
+func (h *Header) Parse(buf []byte) define.IHeader {
+	pos := 0
+	h.SrcNodeType = binary.BigEndian.Uint32(buf[pos:])
+	pos += 4
+	h.SrcNodeId = binary.BigEndian.Uint32(buf[pos:])
+	pos += 4
+	h.DstNodeType = binary.BigEndian.Uint32(buf[pos:])
+	pos += 4
+	h.DstNodeId = binary.BigEndian.Uint32(buf[pos:])
+	pos += 4
+	h.Cmd = binary.BigEndian.Uint32(buf[pos:])
+	pos += 4
+	h.Uid = binary.BigEndian.Uint64(buf[pos:])
+	pos += 8
+	h.RouteId = binary.BigEndian.Uint64(buf[pos:])
+	pos += 8
+	lactor := int(binary.BigEndian.Uint32(buf[pos:]))
+	pos += 4
+	h.ActorName = string(buf[pos : pos+lactor])
+	pos += lactor
+	lfunc := int(binary.BigEndian.Uint32(buf[pos:]))
+	pos += 4
+	h.FuncName = string(buf[pos : pos+lfunc])
+	pos += lfunc
+	h.Table = &define.RouteInfo{}
+	h.Table.Gate = binary.BigEndian.Uint32(buf[pos:])
+	pos += 4
+	h.Table.Db = binary.BigEndian.Uint32(buf[pos:])
+	pos += 4
+	h.Table.Game = binary.BigEndian.Uint32(buf[pos:])
+	pos += 4
+	h.Table.Tool = binary.BigEndian.Uint32(buf[pos:])
+	pos += 4
+	h.Table.Rank = binary.BigEndian.Uint32(buf[pos:])
+	return h
+}
+
+func (h *Header) SetCmd(cmd uint32) define.IHeader {
+	h.Cmd = cmd
+	return h
+}
+
+func (h *Header) SetUid(uid uint64) define.IHeader {
+	h.Uid = uid
+	return h
+}
+
+func (h *Header) SetRouteId(routeId uint64) define.IHeader {
+	h.RouteId = routeId
+	return h
+}
+
+func (d *Header) SetSrcNode(node define.INode) define.IHeader {
+	d.SrcNodeType = node.GetType()
+	d.SrcNodeId = node.GetId()
+	return d
+}
+
+func (h *Header) SetDstNode(node define.INode) define.IHeader {
+	h.DstNodeType = node.GetType()
+	h.DstNodeId = node.GetId()
+	return h
+}
+
+func (h *Header) SetActorName(name string) define.IHeader {
+	h.ActorName = name
+	return h
+}
+
+func (h *Header) SetFuncName(name string) define.IHeader {
+	h.FuncName = name
+	return h
+}
+
+func (h *Header) SetTable(tab *define.RouteInfo) define.IHeader {
+	h.Table = tab
+	return h
 }

@@ -15,11 +15,11 @@ import (
 )
 
 type Etcd struct {
-	status   int32
-	root     string
-	parseFun define.ParseNodeFunc
-	client   *clientv3.Client
-	exit     chan struct{}
+	client  *clientv3.Client
+	status  int32
+	topic   string
+	newNode func() define.INode
+	exit    chan struct{}
 }
 
 func NewEtcd(endpoints []string, opts ...OpOption) (*Etcd, error) {
@@ -27,30 +27,27 @@ func NewEtcd(endpoints []string, opts ...OpOption) (*Etcd, error) {
 	if err != nil {
 		return nil, err
 	}
-	vals := new(Op)
-	for _, opt := range opts {
-		opt(vals)
-	}
+	vals := NewOp(opts...)
 	return &Etcd{
-		status:   vals.status,
-		root:     vals.root,
-		parseFun: vals.parse,
-		client:   cli,
-		exit:     make(chan struct{}),
+		client:  cli,
+		status:  vals.status,
+		topic:   vals.topic,
+		newNode: vals.newNode,
+		exit:    make(chan struct{}),
 	}, nil
 }
 
 func (e *Etcd) getKey(node define.INode) string {
-	return path.Join(e.root, cast.ToString(node.GetType()), cast.ToString(node.GetId()))
+	return path.Join(e.topic, cast.ToString(node.GetType()), cast.ToString(node.GetId()))
 }
 
 func (e *Etcd) Get() (rets []define.INode, err error) {
-	rsp, err := e.client.Get(context.Background(), e.root, clientv3.WithPrefix())
+	rsp, err := e.client.Get(context.Background(), e.topic, clientv3.WithPrefix())
 	if err != nil {
 		return nil, err
 	}
 	for _, kv := range rsp.Kvs {
-		rets = append(rets, e.parseFun(kv.Value))
+		rets = append(rets, e.newNode().Parse(kv.Value))
 	}
 	return
 }
@@ -70,33 +67,31 @@ func (e *Etcd) Del(info define.INode) error {
 // 监听 kv 变化
 func (e *Etcd) Watch(cluster define.ICluster) error {
 	// 获取在线服务
-	rsp, err := e.client.Get(context.Background(), e.root, clientv3.WithPrefix())
+	rsp, err := e.client.Get(context.Background(), e.topic, clientv3.WithPrefix())
 	if err != nil {
 		return err
 	}
 	for _, kv := range rsp.Kvs {
-		node := e.parseFun(kv.Value)
-		if err := cluster.Put(node); err != nil {
-			mlog.Error("Etcd获取在线服务失败: %v, node: %v", err, node)
-			return err
-		}
+		node := e.newNode().Parse(kv.Value)
+		cluster.Put(node)
+		mlog.Info(" 添加服务节点: %v", node)
 	}
 	// 监听服务
-	listens := e.client.Watch(context.Background(), e.root, clientv3.WithPrefix())
+	listens := e.client.Watch(context.Background(), e.topic, clientv3.WithPrefix())
 	safe.SafeGo(mlog.Error, func() {
 		for listen := range listens {
 			for _, event := range listen.Events {
 				switch event.Type {
 				case clientv3.EventTypePut:
-					if err := cluster.Put(e.parseFun(event.Kv.Value)); err != nil {
-						mlog.Error("Etcd发现新服务，新服务添加失败: %v", err)
-					}
+					node := e.newNode().Parse(event.Kv.Value)
+					cluster.Put(node)
+					mlog.Info(" 添加服务节点: %v", node)
+
 				case clientv3.EventTypeDelete:
 					id := cast.ToUint32(path.Base(string(event.Kv.Key)))
 					typ := cast.ToUint32(path.Base(path.Dir(string(event.Kv.Key))))
-					if err := cluster.Del(typ, id); err != nil {
-						mlog.Error("Etcd发现服务下线，删除服务失败: %v", err)
-					}
+					cluster.Del(typ, id)
+					mlog.Info(" 删除服务节点: %s", event.Kv.Key)
 				}
 			}
 		}
