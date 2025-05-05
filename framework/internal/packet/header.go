@@ -92,6 +92,9 @@ func (h *Header) ToBytes(buf []byte) []byte {
 	pos += 4
 	copy(buf[pos:], []byte(h.FuncName))
 	pos += lfunc
+	if h.Table == nil {
+		h.Table = &define.RouteInfo{}
+	}
 	binary.BigEndian.PutUint32(buf[pos:], h.Table.Gate)
 	pos += 4
 	binary.BigEndian.PutUint32(buf[pos:], h.Table.Db)

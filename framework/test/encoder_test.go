@@ -17,7 +17,7 @@ func TestGob(t *testing.T) {
 	rType := reflect.TypeOf(&cluster.Cluster{})
 	m, _ := rType.MethodByName("Del")
 
-	for i := int32(1); i < 100; i++ {
+	for i := uint32(1); i < 100; i++ {
 		buf := encode.Encode(i, i)
 		rets, err := encode.Decode(buf, m, 1)
 		t.Log(err, "===>", rets[1].Interface(), rets[2].Interface())
