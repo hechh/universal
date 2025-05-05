@@ -69,10 +69,7 @@ type handler struct {
 
 func (h *handler) HandleMessage(m *nsq.Message) error {
 	safe.SafeRecover(mlog.Fatal, func() {
-		pack, err := h.nsq.parseFun(m.Body)
-		if err != nil {
-			panic(err)
-		}
+		pack := h.nsq.parseFun(m.Body)
 		h.listener(pack.GetHeader(), pack.GetBody())
 	})
 	return nil

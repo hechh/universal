@@ -46,7 +46,7 @@ type INetwork interface {
 	Close() error                                          // 关闭
 }
 
-type ParsePacketFunc func([]byte) (IPacket, error)
+type ParsePacketFunc func([]byte) IPacket
 type NewPacketFunc func(IHeader, []byte) IPacket
 
 // 内网消息协议
@@ -66,11 +66,18 @@ type IHeader interface {
 	GetRouteId() uint64     // 获取路由id
 	GetActorName() string   // 获取服务名称
 	GetFuncName() string    // 获取函数名称
+	GetSize() int           // 获取头部大小
+	Parse([]byte)           // 解析头部
+	ToBytes([]byte) []byte  // 转换为字节数组
+}
+
+type IContext interface {
+	IHeader
 }
 
 type IActor interface {
 	GetName() string                              // 获取名称
 	Register(IActor, interface{}) error           // 注册方法
-	Send(head IHeader, args ...interface{}) error // 发送请求
-	SendFrom(head IHeader, buf []byte) error      // 发送请求
+	Send(ctx IContext, args ...interface{}) error // 发送请求
+	SendFrom(ctx IContext, buf []byte) error      // 发送请求
 }

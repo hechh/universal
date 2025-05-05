@@ -15,11 +15,13 @@ import (
 var (
 	messageType = reflect.TypeOf((*proto.Message)(nil)).Elem()
 	errorType   = reflect.TypeOf((*error)(nil)).Elem()
+	ctxType     = reflect.TypeOf((*define.IContext)(nil)).Elem()
 )
 
 type MethodInfo struct {
-	method    reflect.Method
-	isHandler bool
+	method     reflect.Method
+	hasContext bool
+	isHandler  bool
 }
 
 type Actor struct {
@@ -53,94 +55,86 @@ func (d *Actor) Register(ac define.IActor, tt interface{}) error {
 	return nil
 }
 
-func (d *Actor) Send(header define.IHeader, args ...interface{}) error {
-	m, ok := d.methods[header.GetFuncName()]
+func (d *Actor) Send(ctx define.IContext, args ...interface{}) error {
+	m, ok := d.methods[ctx.GetFuncName()]
 	if !ok {
-		return uerror.New(1, -1, "方法不存在: %s.%s", header.GetActorName(), header.GetFuncName())
+		return uerror.New(1, -1, "方法不存在: %s.%s", ctx.GetActorName(), ctx.GetFuncName())
 	}
 	d.Push(func() {
-		ins := make([]reflect.Value, m.method.Type.NumIn())
-		ins[0] = d.rValue
-		for i := 1; i < m.method.Type.NumIn(); i++ {
-			ins[i] = reflect.ValueOf(args[i-1])
-		}
-
-		// 无返回值
-		if !m.isHandler {
+		if m.hasContext {
+			ins := make([]reflect.Value, m.method.Type.NumIn())
+			ins[0] = d.rValue
+			ins[1] = reflect.ValueOf(ctx)
+			for i := 2; i < m.method.Type.NumIn(); i++ {
+				ins[i] = reflect.ValueOf(args[i-2])
+			}
+			// 无返回值
 			m.method.Func.Call(ins)
 		} else {
-			result := m.method.Func.Call(ins)
-			switch val := result[0].Interface().(type) {
-			case error:
-				mlog.Error("接口调用失败，head:%v, error:%v", header, val)
-			default:
-				mlog.Error("接口调用成功")
+			ins := make([]reflect.Value, m.method.Type.NumIn())
+			ins[0] = d.rValue
+			for i := 1; i < m.method.Type.NumIn(); i++ {
+				ins[i] = reflect.ValueOf(args[i-1])
 			}
+			// 无返回值
+			m.method.Func.Call(ins)
 		}
 	})
 	return nil
 }
 
-func (d *Actor) SendFrom(head define.IHeader, buf []byte) error {
+func (d *Actor) SendFrom(head define.IContext, buf []byte) error {
 	m, ok := d.methods[head.GetFuncName()]
 	if !ok {
 		return uerror.New(1, -1, "方法不存在: %s.%s", head.GetActorName(), head.GetFuncName())
 	}
-	if !m.isHandler {
-		d.Push(otherFunc(m.method, d.rValue, head, buf))
-	} else {
-		d.Push(handleFunc(m.method, d.rValue, head, buf))
-	}
+	d.Push(func() {
+		if m.hasContext {
+			if m.isHandler {
+				ins := make([]reflect.Value, m.method.Type.NumIn())
+				ins[0] = d.rValue
+				ins[1] = reflect.ValueOf(head)
+				ins[2] = reflect.New(m.method.Type.In(2))
+				ins[3] = reflect.New(m.method.Type.In(3))
+				m.method.Func.Call(ins)
+			} else {
+				ins, err := encode.Decode(buf, m.method, 2)
+				if err != nil {
+					mlog.Error("参数解析输错: head:%v, error:%v", head, err)
+					return
+				}
+				ins[0] = d.rValue
+				ins[1] = reflect.ValueOf(head)
+				m.method.Func.Call(ins)
+			}
+		} else {
+			ins, err := encode.Decode(buf, m.method, 1)
+			if err != nil {
+				mlog.Error("参数解析输错: head:%v, error:%v", head, err)
+				return
+			}
+			ins[0] = d.rValue
+			m.method.Func.Call(ins)
+		}
+	})
 	return nil
-}
-
-func otherFunc(m reflect.Method, rValue reflect.Value, head define.IHeader, buf []byte) func() {
-	return func() {
-		ins, err := encode.Decode(buf, m)
-		if err != nil {
-			mlog.Error("参数解析输错: head:%v, error:%v", head, err)
-			return
-		}
-		ins[0] = rValue
-
-		m.Func.Call(ins)
-	}
-}
-
-func handleFunc(m reflect.Method, rValue reflect.Value, head define.IHeader, buf []byte) func() {
-	return func() {
-		ins := make([]reflect.Value, m.Type.NumIn())
-		ins[0] = rValue
-		ins[1] = reflect.New(m.Type.In(1))
-		ins[2] = reflect.New(m.Type.In(2))
-
-		// 解析参数
-		if err := proto.Unmarshal(buf, ins[1].Interface().(proto.Message)); err != nil {
-			mlog.Error("head:%v, error: %v", head, err)
-		}
-
-		// 调用接口
-		result := m.Func.Call(ins)
-		switch val := result[0].Interface().(type) {
-		case error:
-			mlog.Error("接口调用失败，head:%v, error:%v", head, val)
-		default:
-			mlog.Error("接口调用成功")
-		}
-	}
 }
 
 func parseMethod(m reflect.Type) (ret map[string]*MethodInfo) {
 	ret = make(map[string]*MethodInfo)
 	for i := 0; i < m.NumMethod(); i++ {
 		mm := m.Method(i)
-		if mm.Type.NumIn() == 3 && mm.Type.NumOut() == 1 &&
-			mm.Type.In(1).Implements(messageType) &&
+		hasContext := false
+		if mm.Type.NumIn() > 1 {
+			hasContext = mm.Type.In(1).Implements(ctxType)
+		}
+		if mm.Type.NumIn() == 4 && mm.Type.NumOut() == 0 &&
+			mm.Type.In(1).Implements(ctxType) &&
 			mm.Type.In(2).Implements(messageType) &&
-			mm.Type.Out(0).Implements(errorType) {
-			ret[mm.Name] = &MethodInfo{method: mm, isHandler: true}
+			mm.Type.In(3).Implements(messageType) {
+			ret[mm.Name] = &MethodInfo{method: mm, isHandler: true, hasContext: hasContext}
 		} else {
-			ret[mm.Name] = &MethodInfo{method: mm, isHandler: false}
+			ret[mm.Name] = &MethodInfo{method: mm, isHandler: false, hasContext: hasContext}
 		}
 	}
 	return

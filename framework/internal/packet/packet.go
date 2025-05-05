@@ -1,12 +1,11 @@
 package packet
 
 import (
-	"encoding/binary"
 	"universal/framework/define"
 )
 
 type Packet struct {
-	header *Header
+	header define.IHeader
 	body   []byte
 }
 
@@ -15,6 +14,18 @@ func NewPacket(header define.IHeader, body []byte) define.IPacket {
 		header: header.(*Header),
 		body:   body,
 	}
+}
+
+func ParsePacket(data []byte) define.IPacket {
+	pack := &Packet{
+		header: &Header{
+			Table: &RouteInfo{},
+		},
+	}
+	pack.header.Parse(data)
+	llen := pack.header.GetSize()
+	copy(pack.body, data[llen:])
+	return pack
 }
 
 func (p *Packet) GetHeader() define.IHeader {
@@ -26,62 +37,9 @@ func (p *Packet) GetBody() []byte {
 }
 
 func (p *Packet) ToBytes() (rets []byte) {
-	rets = make([]byte, 44+len(p.body)+len(p.header.ActorName)+len(p.header.FuncName))
-	pos := 0
-	binary.BigEndian.PutUint32(rets[pos:], uint32(p.header.SrcNodeType))
-	pos += 4
-	binary.BigEndian.PutUint32(rets[pos:], uint32(p.header.SrcNodeId))
-	pos += 4
-	binary.BigEndian.PutUint32(rets[pos:], uint32(p.header.DstNodeType))
-	pos += 4
-	binary.BigEndian.PutUint32(rets[pos:], uint32(p.header.DstNodeId))
-	pos += 4
-	binary.BigEndian.PutUint64(rets[pos:], p.header.Uid)
-	pos += 8
-	binary.BigEndian.PutUint64(rets[pos:], p.header.RouteId)
-	pos += 8
-	binary.BigEndian.PutUint32(rets[pos:], p.header.Cmd)
-	pos += 4
-	lactor := len(p.header.ActorName)
-	binary.BigEndian.PutUint32(rets[pos:], uint32(lactor))
-	pos += 4
-	copy(rets[pos:], []byte(p.header.ActorName))
-	pos += lactor
-	lfunc := len(p.header.FuncName)
-	binary.BigEndian.PutUint32(rets[pos:], uint32(lfunc))
-	pos += 4
-	copy(rets[pos:], []byte(p.header.FuncName))
-	pos += lfunc
-	copy(rets[pos:], p.body)
+	llen := p.header.GetSize()
+	rets = make([]byte, len(p.body)+llen)
+	rets = p.header.ToBytes(rets)
+	copy(rets[llen:], p.body)
 	return
-}
-
-func ParsePacket(data []byte) (define.IPacket, error) {
-	pack := &Packet{header: &Header{}}
-	pos := 0
-	pack.header.SrcNodeType = binary.BigEndian.Uint32(data[pos:])
-	pos += 4
-	pack.header.SrcNodeId = binary.BigEndian.Uint32(data[pos:])
-	pos += 4
-	pack.header.DstNodeType = binary.BigEndian.Uint32(data[pos:])
-	pos += 4
-	pack.header.DstNodeId = binary.BigEndian.Uint32(data[pos:])
-	pos += 4
-	pack.header.Uid = binary.BigEndian.Uint64(data[pos:])
-	pos += 8
-	pack.header.RouteId = binary.BigEndian.Uint64(data[pos:])
-	pos += 8
-	pack.header.Cmd = binary.BigEndian.Uint32(data[pos:])
-	pos += 4
-	lactor := int(binary.BigEndian.Uint32(data[pos:]))
-	pos += 4
-	pack.header.ActorName = string(data[pos : pos+lactor])
-	pos += lactor
-	lfunc := int(binary.BigEndian.Uint32(data[pos:]))
-	pos += 4
-	pack.header.FuncName = string(data[pos : pos+lfunc])
-	pos += lfunc
-	pack.body = make([]byte, len(data)-pos)
-	copy(pack.body, data[pos:])
-	return pack, nil
 }

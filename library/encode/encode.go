@@ -47,14 +47,14 @@ func Encode(args ...interface{}) []byte {
 }
 
 // 解码
-func Decode(data []byte, mfun reflect.Method) (rets []reflect.Value, err error) {
+func Decode(data []byte, mfun reflect.Method, pos int) (rets []reflect.Value, err error) {
 	item := decPool.Get().(*GobDecoder)
 	defer decPool.Put(item)
 	item.buf.Reset()
 	item.buf.Write(data)
 
 	rets = make([]reflect.Value, mfun.Type.NumIn())
-	for i := 1; i < mfun.Type.NumIn(); i++ {
+	for i := pos; i < mfun.Type.NumIn(); i++ {
 		val := reflect.New(mfun.Type.In(i))
 		if err = item.dec.DecodeValue(val); err != nil {
 			return nil, err

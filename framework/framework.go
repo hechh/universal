@@ -11,7 +11,10 @@ import (
 	"universal/framework/internal/packet"
 	"universal/framework/internal/router"
 	"universal/library/baselib/uerror"
+	"universal/library/encode"
 	"universal/library/mlog"
+
+	"google.golang.org/protobuf/proto"
 )
 
 type Actor struct{ actor.Actor }
@@ -104,6 +107,27 @@ func (f *Framework) Init(cfg *config.Config, nodeType define.NodeType, appid uin
 	return
 }
 
-func (f *Framework) Dispatcher(uid uint64, routeId uint64, nodeType uint32) (define.IHeader, error) {
-	return nil, nil
+// 服务内调用
+func (f *Framework) Send(head define.IHeader, args ...interface{}) error {
+	act, ok := f.actors[head.GetActorName()]
+	if !ok {
+		return uerror.New(1, -1, "Actor不存在: %v", head)
+	}
+	return act.Send(head, args...)
+}
+
+// 夸服务调用
+func (f *Framework) SendTo(node define.INode, head define.IHeader, args ...interface{}) error {
+	if len(args) == 1 {
+		if msg, ok := args[0].(proto.Message); ok {
+			buf, _ := proto.Marshal(msg)
+			return f.net.Send(node, head, buf)
+		}
+	}
+	return f.net.Send(node, head, encode.Encode(args...))
+}
+
+// 夸服务路由
+func (f *Framework) GetRouter(routeId uint64, nodeType uint32) define.INode {
+	return nil
 }

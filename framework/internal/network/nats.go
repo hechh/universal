@@ -53,11 +53,7 @@ func (n *Nats) Read(node define.INode, f func(define.IHeader, []byte)) error {
 	// 单播
 	_, err := n.client.Subscribe(n.sendTopic(node), func(msg *nats.Msg) {
 		safe.SafeRecover(mlog.Fatal, func() {
-			pack, err := n.parseFun(msg.Data)
-			if err != nil {
-				panic(err)
-			}
-
+			pack := n.parseFun(msg.Data)
 			f(pack.GetHeader(), pack.GetBody())
 		})
 	})
@@ -67,11 +63,7 @@ func (n *Nats) Read(node define.INode, f func(define.IHeader, []byte)) error {
 	// 广播
 	_, err = n.client.Subscribe(n.broadcastTopic(node), func(msg *nats.Msg) {
 		safe.SafeRecover(mlog.Fatal, func() {
-			pack, err := n.parseFun(msg.Data)
-			if err != nil {
-				panic(err)
-			}
-
+			pack := n.parseFun(msg.Data)
 			f(pack.GetHeader(), pack.GetBody())
 		})
 	})
