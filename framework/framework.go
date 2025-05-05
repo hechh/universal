@@ -122,6 +122,10 @@ func (f *Framework) Send(head define.IHeader, args ...interface{}) error {
 
 // 夸服务调用
 func (f *Framework) SendTo(head define.IHeader, args ...interface{}) error {
+	if err := f.dispatcher(head); err != nil {
+		return err
+	}
+
 	if len(args) == 1 {
 		if msg, ok := args[0].(proto.Message); ok {
 			buf, _ := proto.Marshal(msg)
@@ -137,14 +141,20 @@ func (f *Framework) dispatcher(head define.IHeader) error {
 	if routeId <= 0 {
 		return uerror.New(1, -1, "路由ID为空")
 	}
-
-	head.SetSrcNode(f.cls.GetSelf())
-
-	routeInfo := f.router.Get(routeId)
-	if routeInfo == nil {
+	// 设置源
+	self := f.cls.GetSelf()
+	head.SetSrcNodeType(self.GetType()).SetSrcNodeId(self.GetId())
+	// 设置路由表
+	table := f.router.Get(routeId)
+	head.SetTable(table)
+	// 设置目的
+	nodeType := head.GetDstNodeType()
+	nodeId := table.Get(nodeType)
+	if nodeId <= 0 {
 		node := f.cls.Random(nodeType, routeId)
-
+		nodeId = node.GetId()
+		table.Set(nodeType, nodeId)
 	}
-
+	head.SetDstNodeId(nodeId)
 	return nil
 }

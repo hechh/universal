@@ -17,37 +17,6 @@ func NewTable() define.ITable {
 	return &Table{}
 }
 
-func (r *Table) GetSize() int {
-	return 20
-}
-
-func (r *Table) ToBytes(buf []byte) {
-	pos := 0
-	binary.BigEndian.PutUint32(buf[pos:], r.Gate)
-	pos += 4
-	binary.BigEndian.PutUint32(buf[pos:], r.Db)
-	pos += 4
-	binary.BigEndian.PutUint32(buf[pos:], r.Game)
-	pos += 4
-	binary.BigEndian.PutUint32(buf[pos:], r.Tool)
-	pos += 4
-	binary.BigEndian.PutUint32(buf[pos:], r.Rank)
-}
-
-func (r *Table) Parse(buf []byte) define.ITable {
-	pos := 0
-	r.Gate = binary.BigEndian.Uint32(buf[pos:])
-	pos += 4
-	r.Db = binary.BigEndian.Uint32(buf[pos:])
-	pos += 4
-	r.Game = binary.BigEndian.Uint32(buf[pos:])
-	pos += 4
-	r.Tool = binary.BigEndian.Uint32(buf[pos:])
-	pos += 4
-	r.Rank = binary.BigEndian.Uint32(buf[pos:])
-	return r
-}
-
 func (r *Table) Get(nodeType uint32) uint32 {
 	switch nodeType {
 	case uint32(define.NodeTypeGate):
@@ -77,4 +46,35 @@ func (r *Table) Set(nodeType, nodeId uint32) {
 	case uint32(define.NodeTypeRank):
 		r.Rank = nodeId
 	}
+}
+
+func (r *Table) GetSize() int {
+	return 20
+}
+
+func (r *Table) ToBytes(buf []byte) {
+	pos := 0
+	binary.BigEndian.PutUint32(buf[pos:], r.Gate)
+	pos += 4
+	binary.BigEndian.PutUint32(buf[pos:], r.Db)
+	pos += 4
+	binary.BigEndian.PutUint32(buf[pos:], r.Game)
+	pos += 4
+	binary.BigEndian.PutUint32(buf[pos:], r.Tool)
+	pos += 4
+	binary.BigEndian.PutUint32(buf[pos:], r.Rank)
+}
+
+func (r *Table) Parse(buf []byte) define.ITable {
+	pos := 0
+	r.Gate = binary.BigEndian.Uint32(buf[pos:])
+	pos += 4
+	r.Db = binary.BigEndian.Uint32(buf[pos:])
+	pos += 4
+	r.Game = binary.BigEndian.Uint32(buf[pos:])
+	pos += 4
+	r.Tool = binary.BigEndian.Uint32(buf[pos:])
+	pos += 4
+	r.Rank = binary.BigEndian.Uint32(buf[pos:])
+	return r
 }
