@@ -13,6 +13,16 @@ const (
 	NodeTypeMax   NodeType = 6 // 最大节点类型
 )
 
+var (
+	NodeType_name = map[int32]string{
+		int32(NodeTypeGate):  "gate",
+		int32(NodeTypeGame):  "game",
+		int32(NodeTypeDb):    "db",
+		int32(NodeTypeRoom):  "room",
+		int32(NodeTypeMatch): "match",
+	}
+)
+
 type IBytes interface {
 	GetSize() int          // 获取协议头大小
 	WriteTo([]byte) error  // 写入数据
