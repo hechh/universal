@@ -2,16 +2,15 @@ package discovery
 
 import (
 	"universal/framework/config"
-	"universal/framework/define"
+	"universal/framework/domain"
 	"universal/library/baselib/uerror"
 )
 
 type OpOption func(*Op)
 
 type Op struct {
-	status  int32
 	topic   string
-	newNode func() define.INode
+	newNode func() domain.INode
 }
 
 func NewOp(opts ...OpOption) *Op {
@@ -28,13 +27,13 @@ func WithTopic(p string) OpOption {
 	}
 }
 
-func WithNode(p func() define.INode) OpOption {
+func WithNode(p func() domain.INode) OpOption {
 	return func(o *Op) {
 		o.newNode = p
 	}
 }
 
-func Init(cfg *config.Config, opts ...OpOption) (define.IDiscovery, error) {
+func Init(cfg *config.Config, opts ...OpOption) (domain.IDiscovery, error) {
 	if cfg.Etcd != nil {
 		dis, err := NewEtcd(cfg.Etcd.Endpoints, opts...)
 		if err != nil {

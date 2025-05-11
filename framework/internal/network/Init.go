@@ -2,7 +2,7 @@ package network
 
 import (
 	"universal/framework/config"
-	"universal/framework/define"
+	"universal/framework/domain"
 	"universal/library/baselib/uerror"
 )
 
@@ -10,9 +10,10 @@ type OpOption func(*Op)
 
 type Op struct {
 	topic     string
-	newTable  func() define.ITable
-	newHeader func(define.ITable) define.IHeader
-	newPacket func() define.IPacket
+	routeMgr  domain.IRouteMgr
+	newRoute  func() domain.IRoute
+	newHeader func() domain.IHead
+	newPacket func() domain.IPacket
 }
 
 func NewOp(opts ...OpOption) *Op {
@@ -29,25 +30,31 @@ func WithTopic(p string) OpOption {
 	}
 }
 
-func WithPacket(p func() define.IPacket) OpOption {
+func WithPacket(p func() domain.IPacket) OpOption {
 	return func(o *Op) {
 		o.newPacket = p
 	}
 }
 
-func WithHeader(f func(define.ITable) define.IHeader) OpOption {
+func WithHead(f func() domain.IHead) OpOption {
 	return func(o *Op) {
 		o.newHeader = f
 	}
 }
 
-func WithTable(f func() define.ITable) OpOption {
+func WithRoute(f func() domain.IRoute) OpOption {
 	return func(o *Op) {
-		o.newTable = f
+		o.newRoute = f
 	}
 }
 
-func Init(cfg *config.Config, opts ...OpOption) (define.INetwork, error) {
+func WithRouteMgr(rr domain.IRouteMgr) OpOption {
+	return func(o *Op) {
+		o.routeMgr = rr
+	}
+}
+
+func Init(cfg *config.Config, opts ...OpOption) (domain.INetwork, error) {
 	if cfg.Nats != nil {
 		dd, err := NewNats(cfg.Nats.Endpoints, opts...)
 		if err != nil {

@@ -1,47 +1,68 @@
 package packet
 
-import (
-	"universal/framework/define"
-)
+import "universal/framework/domain"
 
 type Packet struct {
-	header define.IHeader
-	body   []byte
+	head  domain.IHead  // 包头
+	route domain.IRoute // 路由
+	body  []byte        // 包体
 }
 
-func NewPacket() define.IPacket {
-	return &Packet{}
+func (d *Packet) GetHead() domain.IHead {
+	return d.head
 }
 
-func (p *Packet) GetHeader() define.IHeader {
-	return p.header
+func (d *Packet) GetRoute() domain.IRoute {
+	return d.route
 }
 
-func (p *Packet) GetBody() []byte {
-	return p.body
+func (d *Packet) GetBody() []byte {
+	return d.body
 }
 
-func (p *Packet) ToBytes() (rets []byte) {
-	llen := p.header.GetSize()
-	rets = make([]byte, len(p.body)+llen)
-	p.header.ToBytes(rets)
-	copy(rets[llen:], p.body)
-	return
+func (d *Packet) SetHead(head domain.IHead) domain.IPacket {
+	d.head = head
+	return d
 }
 
-func (p *Packet) Parse(data []byte) define.IPacket {
-	p.header.Parse(data)
-	llen := p.header.GetSize()
-	copy(p.body, data[llen:])
-	return p
+func (d *Packet) SetRoute(route domain.IRoute) domain.IPacket {
+	d.route = route
+	return d
 }
 
-func (p *Packet) SetHeader(h define.IHeader) define.IPacket {
-	p.header = h
-	return p
+func (d *Packet) SetBody(body []byte) domain.IPacket {
+	d.body = body
+	return d
 }
 
-func (p *Packet) SetBody(buf []byte) define.IPacket {
-	p.body = buf
-	return p
+func (d *Packet) GetSize() int {
+	return d.head.GetSize() + d.route.GetSize() + len(d.body)
+}
+
+func (d *Packet) WriteTo(buf []byte) error {
+	pos := 0
+	if err := d.head.WriteTo(buf); err != nil {
+		return err
+	}
+	pos += d.head.GetSize()
+	if err := d.route.WriteTo(buf[pos:]); err != nil {
+		return err
+	}
+	pos += d.route.GetSize()
+	copy(buf[pos:], d.body)
+	return nil
+}
+
+func (d *Packet) ReadFrom(buf []byte) error {
+	pos := 0
+	if err := d.head.ReadFrom(buf); err != nil {
+		return err
+	}
+	pos += d.head.GetSize()
+	if err := d.route.ReadFrom(buf[pos:]); err != nil {
+		return err
+	}
+	pos += d.route.GetSize()
+	d.body = buf[pos:]
+	return nil
 }

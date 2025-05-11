@@ -3,7 +3,7 @@ package network
 import (
 	"fmt"
 	"time"
-	"universal/framework/define"
+	"universal/framework/domain"
 	"universal/library/baselib/safe"
 	"universal/library/mlog"
 
@@ -12,14 +12,15 @@ import (
 
 // Nsq 结构体实现 INetwork 接口
 type Nsq struct {
-	addr      string                             // nsqd 地址
-	topic     string                             // 订阅话题
-	producer  *nsq.Producer                      // 生产者
-	consumer  *nsq.Consumer                      // 消费者
-	broadcast *nsq.Consumer                      // 广播消费者
-	newPacket func() define.IPacket              // 解析函数
-	newHeader func(define.ITable) define.IHeader // 创建函数
-	newTable  func() define.ITable               // 创建函数
+	addr      string                // nsqd 地址
+	topic     string                // 订阅话题
+	producer  *nsq.Producer         // 生产者
+	consumer  *nsq.Consumer         // 消费者
+	broadcast *nsq.Consumer         // 广播消费者
+	routeMgr  domain.IRouteMgr      // 路由表
+	newPacket func() domain.IPacket // 解析函数
+	newHeader func() domain.IHead   // 创建函数
+	newRoute  func() domain.IRoute  // 创建函数
 }
 
 // NewNSQNetwork 创建一个新的 Nsq 实例
@@ -33,53 +34,65 @@ func NewNsq(nsqdAddr string, opts ...OpOption) (*Nsq, error) {
 		addr:      nsqdAddr,
 		topic:     vals.topic,
 		producer:  producer,
-		newTable:  vals.newTable,
+		routeMgr:  vals.routeMgr,
+		newRoute:  vals.newRoute,
 		newPacket: vals.newPacket,
 		newHeader: vals.newHeader,
 	}, nil
 }
 
-func (n *Nsq) broadTopic(t uint32) string {
+func (n *Nsq) broadTopic(t int32) string {
 	return fmt.Sprintf("%s_%d", n.topic, t)
 }
 
-func (n *Nsq) sendTopic(t, id uint32) string {
+func (n *Nsq) sendTopic(t, id int32) string {
 	return fmt.Sprintf("%s_%d_%d", n.topic, t, id)
 }
 
 type handler struct {
-	nsq      *Nsq
-	listener func(define.IHeader, []byte)
+	nsq *Nsq
+	act domain.IActor
 }
 
 func (h *handler) HandleMessage(m *nsq.Message) error {
 	safe.SafeRecover(mlog.Fatal, func() {
-		pack := h.nsq.newPacket().SetHeader(h.nsq.newHeader(h.nsq.newTable())).Parse(m.Body)
-		h.listener(pack.GetHeader(), pack.GetBody())
+		// 解析包
+		pack := h.nsq.newPacket()
+		if err := pack.ReadFrom(m.Body); err != nil {
+			mlog.Error("详细解析失败: %v", err)
+			return
+		}
+		// 更新路由表
+		h.nsq.routeMgr.Set(pack.GetHead().GetRouteId(), pack.GetRoute())
+		// 消息转发
+		if err := h.act.SendRpc(pack.GetHead(), pack.GetBody()); err != nil {
+			mlog.Error("请求的 Actor 不存在: %v", err)
+		}
 	})
 	return nil
 }
 
 // Read 实现接收消息的功能
-func (n *Nsq) Read(node define.INode, listen func(define.IHeader, []byte)) error {
+func (n *Nsq) Receive(node domain.INode, act domain.IActor) error {
 	cfg := nsq.NewConfig()
 	cfg.MaxInFlight = 5
 	cfg.MsgTimeout = 5 * time.Second
-	consumer, err := nsq.NewConsumer(n.sendTopic(node.GetType(), node.GetId()), node.GetName(), cfg)
+	// 单播
+	consumer, err := nsq.NewConsumer(n.sendTopic(node.GetType(), node.GetId()), node.GetAddr(), cfg)
 	if err != nil {
 		return err
 	}
-	consumer.AddHandler(&handler{listener: listen, nsq: n})
+	consumer.AddHandler(&handler{act: act, nsq: n})
 	if err := consumer.ConnectToNSQD(n.addr); err != nil {
 		return err
 	}
 	n.consumer = consumer
-
-	bro, err := nsq.NewConsumer(n.broadTopic(node.GetType()), node.GetName(), cfg)
+	// 广播
+	bro, err := nsq.NewConsumer(n.broadTopic(node.GetType()), node.GetAddr(), cfg)
 	if err != nil {
 		return err
 	}
-	bro.AddHandler(&handler{listener: listen, nsq: n})
+	bro.AddHandler(&handler{act: act, nsq: n})
 	if err := bro.ConnectToNSQD(n.addr); err != nil {
 		return err
 	}
@@ -87,14 +100,26 @@ func (n *Nsq) Read(node define.INode, listen func(define.IHeader, []byte)) error
 	return nil
 }
 
-func (n *Nsq) Send(head define.IHeader, body []byte) error {
-	buf := n.newPacket().SetHeader(n.newHeader(n.newTable())).SetBody(body).ToBytes()
+func (n *Nsq) Send(head domain.IHead, data []byte) error {
+	// 封装消息
+	pack := n.newPacket().SetHead(head).SetBody(data)
+	buf := make([]byte, pack.GetSize())
+	if err := pack.WriteTo(buf); err != nil {
+		return err
+	}
+	// 发送消息
 	topic := n.sendTopic(head.GetDstNodeType(), head.GetDstNodeId())
 	return n.producer.Publish(topic, buf)
 }
 
-func (n *Nsq) Broadcast(head define.IHeader, body []byte) error {
-	buf := n.newPacket().SetHeader(n.newHeader(n.newTable())).SetBody(body).ToBytes()
+func (n *Nsq) Broadcast(head domain.IHead, data []byte) error {
+	// 封装消息
+	pack := n.newPacket().SetHead(head).SetBody(data)
+	buf := make([]byte, pack.GetSize())
+	if err := pack.WriteTo(buf); err != nil {
+		return err
+	}
+	// 发送消息
 	topic := n.broadTopic(head.GetDstNodeType())
 	return n.producer.Publish(topic, buf)
 }

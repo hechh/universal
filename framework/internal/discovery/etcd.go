@@ -4,10 +4,10 @@ import (
 	"context"
 	"fmt"
 	"path"
-	"sync/atomic"
 	"time"
-	"universal/framework/define"
+	"universal/framework/domain"
 	"universal/library/baselib/safe"
+	"universal/library/baselib/uerror"
 	"universal/library/mlog"
 
 	"github.com/spf13/cast"
@@ -16,9 +16,8 @@ import (
 
 type Etcd struct {
 	client  *clientv3.Client
-	status  int32
+	newNode func() domain.INode
 	topic   string
-	newNode func() define.INode
 	exit    chan struct{}
 }
 
@@ -30,52 +29,29 @@ func NewEtcd(endpoints []string, opts ...OpOption) (*Etcd, error) {
 	vals := NewOp(opts...)
 	return &Etcd{
 		client:  cli,
-		status:  vals.status,
-		topic:   vals.topic,
 		newNode: vals.newNode,
+		topic:   vals.topic,
 		exit:    make(chan struct{}),
 	}, nil
 }
 
-func (e *Etcd) getKey(node define.INode) string {
-	return path.Join(e.topic, cast.ToString(node.GetType()), cast.ToString(node.GetId()))
-}
-
-func (e *Etcd) Get() (rets []define.INode, err error) {
-	rsp, err := e.client.Get(context.Background(), e.topic, clientv3.WithPrefix())
-	if err != nil {
-		return nil, err
-	}
-	for _, kv := range rsp.Kvs {
-		rets = append(rets, e.newNode().Parse(kv.Value))
-	}
-	return
-}
-
-// 添加 key-value
-func (e *Etcd) Put(node define.INode) error {
-	_, err := e.client.Put(context.Background(), e.getKey(node), string(node.ToBytes()))
-	return err
-}
-
-// 删除 key-value
-func (e *Etcd) Del(info define.INode) error {
-	_, err := e.client.Delete(context.Background(), e.getKey(info), clientv3.WithPrefix())
-	return err
-}
-
 // 监听 kv 变化
-func (e *Etcd) Watch(cluster define.ICluster) error {
+func (e *Etcd) Watch(cls domain.ICluster) error {
 	// 获取在线服务
 	rsp, err := e.client.Get(context.Background(), e.topic, clientv3.WithPrefix())
 	if err != nil {
 		return err
 	}
 	for _, kv := range rsp.Kvs {
-		node := e.newNode().Parse(kv.Value)
-		cluster.Put(node)
-		mlog.Info(" 添加服务节点: %v", node)
+		node := e.newNode()
+		if err := node.ReadFrom(kv.Value); err != nil {
+			return uerror.New(1, -1, "解析服务节点失败: %v", err)
+		} else {
+			cls.Add(node)
+			mlog.Info(" 添加服务节点: %s", node.String())
+		}
 	}
+
 	// 监听服务
 	listens := e.client.Watch(context.Background(), e.topic, clientv3.WithPrefix())
 	safe.SafeGo(mlog.Error, func() {
@@ -83,14 +59,18 @@ func (e *Etcd) Watch(cluster define.ICluster) error {
 			for _, event := range listen.Events {
 				switch event.Type {
 				case clientv3.EventTypePut:
-					node := e.newNode().Parse(event.Kv.Value)
-					cluster.Put(node)
-					mlog.Info(" 添加服务节点: %v", node)
-
+					node := e.newNode()
+					if err := node.ReadFrom(event.Kv.Value); err != nil {
+						mlog.Error("解析服务节点失败: %v", err)
+						continue
+					} else {
+						cls.Add(node)
+						mlog.Info(" 添加服务节点: %v", node)
+					}
 				case clientv3.EventTypeDelete:
-					id := cast.ToUint32(path.Base(string(event.Kv.Key)))
-					typ := cast.ToUint32(path.Base(path.Dir(string(event.Kv.Key))))
-					cluster.Del(typ, id)
+					id := cast.ToInt32(path.Base(string(event.Kv.Key)))
+					typ := cast.ToInt32(path.Base(path.Dir(string(event.Kv.Key))))
+					cls.Del(typ, id)
 					mlog.Info(" 删除服务节点: %s", event.Kv.Key)
 				}
 			}
@@ -99,54 +79,59 @@ func (e *Etcd) Watch(cluster define.ICluster) error {
 	return nil
 }
 
-func (e *Etcd) KeepAlive(srv define.INode, ttl int64) error {
-	rsp, err := e.client.Grant(context.Background(), ttl)
+// 注册服务节点
+func (d *Etcd) Register(node domain.INode, ttl int64) error {
+	// 1. 创建租约
+	rsp, err := d.client.Grant(context.Background(), ttl)
 	if err != nil {
-		return err
+		return uerror.New(1, -1, "租约创建失败: %v", err)
 	}
-
-	// 设置租赁时间
 	lease := clientv3.LeaseID(rsp.ID)
-	_, err = e.client.Put(context.Background(), e.getKey(srv), string(srv.ToBytes()), clientv3.WithLease(lease))
-	if err != nil {
+	defer d.client.Revoke(context.Background(), lease)
+
+	// 2. 序列化节点数据
+	topic := path.Join(d.topic, cast.ToString(node.GetType()), cast.ToString(node.GetId()))
+	buf := make([]byte, node.GetSize())
+	if err := node.WriteTo(buf); err != nil {
 		return err
 	}
 
-	// 多次重试
-	keepAlive := func(lease clientv3.LeaseID) error {
-		for i := 0; i < 3; i++ {
-			if _, err := e.client.Lease.KeepAliveOnce(context.Background(), lease); err == nil {
-				return nil
-			}
-			mlog.Error("Etcd租赁续约保活失败: %v", err)
-			time.Sleep(1 * time.Second)
-		}
-		return fmt.Errorf("Etcd 租赁续约失败，且超过最大重试次数")
+	// 3. 保存节点
+	if _, err := d.client.Put(context.Background(),
+		topic, string(buf),
+		clientv3.WithLease(lease),
+	); err != nil {
+		return uerror.New(1, -1, "Etcd注册服务节点失败: %v", err)
 	}
 
 	// 定时续约保活
-	safe.SafeGo(mlog.Error, func() {
-		atomic.AddInt32(&e.status, 1)
+	go func() {
 		tt := time.NewTicker(time.Duration(ttl/2) * time.Second)
 		defer tt.Stop()
 
 		for {
 			select {
-			case <-e.exit:
-				return
 			case <-tt.C:
-				if err := keepAlive(lease); err != nil {
-					mlog.Error("Etcd租赁续约保活失败: %v", err)
+				i := 0
+				for ; i < 3; i++ {
+					if _, err := d.client.KeepAliveOnce(context.Background(), lease); err != nil {
+						mlog.Error("Etcd租赁续约保活失败: node:%s, error:%v", node.String(), err)
+						time.Sleep(1 * time.Second)
+						continue
+					}
+					break
 				}
+				if i >= 3 {
+					panic(fmt.Sprintf("Etcd租赁续约失败，且超过最大重试次数: %s", node.String()))
+				}
+			case <-d.exit:
+				return
 			}
 		}
-	})
+	}()
 	return nil
 }
 
-func (e *Etcd) Close() error {
-	if atomic.LoadInt32(&e.status) > 0 {
-		e.exit <- struct{}{}
-	}
-	return e.client.Close()
+func (d *Etcd) Close() error {
+	return d.client.Close()
 }

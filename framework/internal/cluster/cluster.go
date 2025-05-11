@@ -2,36 +2,30 @@ package cluster
 
 import (
 	"sync"
-	"universal/framework/define"
+	"universal/framework/domain"
 	"universal/library/mlog"
 	"universal/library/random"
 )
 
-type NodePool struct {
+type pool struct {
 	mutex sync.RWMutex
-	nodes []define.INode // 节点
+	nodes []domain.INode // 节点
 }
 
 type Cluster struct {
-	self  define.INode
-	pools map[uint32]*NodePool
+	pools map[int32]*pool
 }
 
-func NewCluster(self define.INode) *Cluster {
-	pools := make(map[uint32]*NodePool)
-	for i := define.NodeTypeBegin + 1; i < define.NodeTypeMax; i++ {
-		pools[uint32(i)] = new(NodePool)
+func NewCluster() *Cluster {
+	pools := make(map[int32]*pool)
+	for i := domain.NodeTypeBegin + 1; i < domain.NodeTypeMax; i++ {
+		pools[int32(i)] = new(pool)
 	}
-	return &Cluster{self: self, pools: pools}
-}
-
-// 获取自身节点
-func (c *Cluster) GetSelf() define.INode {
-	return c.self
+	return &Cluster{pools: pools}
 }
 
 // 随机获取节点
-func (c *Cluster) Get(nodeType, nodeId uint32) define.INode {
+func (c *Cluster) Get(nodeType, nodeId int32) domain.INode {
 	nn := c.pools[nodeType]
 	nn.mutex.RLock()
 	defer nn.mutex.RUnlock()
@@ -43,8 +37,25 @@ func (c *Cluster) Get(nodeType, nodeId uint32) define.INode {
 	return nil
 }
 
+// 删除节点
+func (c *Cluster) Del(nodeType, nodeId int32) {
+	nn := c.pools[nodeType]
+	nn.mutex.Lock()
+	defer nn.mutex.Unlock()
+	j := -1
+	for _, val := range nn.nodes {
+		if val.GetId() == nodeId {
+			mlog.Debug("删除服务节点：%s", val.String())
+			continue
+		}
+		j++
+		nn.nodes[j] = val
+	}
+	nn.nodes = nn.nodes[:j+1]
+}
+
 // 添加节点
-func (c *Cluster) Put(node define.INode) {
+func (c *Cluster) Add(node domain.INode) {
 	nn := c.pools[node.GetType()]
 	nn.mutex.Lock()
 	defer nn.mutex.Unlock()
@@ -57,25 +68,8 @@ func (c *Cluster) Put(node define.INode) {
 	nn.nodes = append(nn.nodes, node)
 }
 
-// 删除节点
-func (c *Cluster) Del(nodeType, nodeId uint32) {
-	nn := c.pools[nodeType]
-	nn.mutex.Lock()
-	defer nn.mutex.Unlock()
-	j := -1
-	for _, val := range nn.nodes {
-		if val.GetId() == nodeId {
-			mlog.Debug("删除服务节点：%s", string(val.ToBytes()))
-			continue
-		}
-		j++
-		nn.nodes[j] = val
-	}
-	nn.nodes = nn.nodes[:j+1]
-}
-
 // 随机获取节点
-func (c *Cluster) Random(nodeType uint32, seed uint64) define.INode {
+func (c *Cluster) Random(nodeType int32, seed uint64) domain.INode {
 	nn := c.pools[nodeType]
 	llen := len(nn.nodes)
 	if llen <= 0 {

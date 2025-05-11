@@ -3,8 +3,7 @@ package actor
 import (
 	"reflect"
 	"strings"
-	"universal/framework/define"
-	"universal/library/async"
+	"universal/framework/domain"
 	"universal/library/baselib/uerror"
 	"universal/library/encode"
 	"universal/library/mlog"
@@ -12,141 +11,192 @@ import (
 	"github.com/golang/protobuf/proto"
 )
 
-var (
-	messageType = reflect.TypeOf((*proto.Message)(nil)).Elem()
-	errorType   = reflect.TypeOf((*error)(nil)).Elem()
-	ctxType     = reflect.TypeOf((*define.IContext)(nil)).Elem()
-)
-
-type MethodInfo struct {
-	method     reflect.Method
-	hasContext bool
-	isHandler  bool
-}
-
 type Actor struct {
-	*async.Async
-	name    string
-	rValue  reflect.Value
-	methods map[string]*MethodInfo
+	*Async
+	name  string
+	rval  reflect.Value
+	funcs map[string]*FuncInfo
 }
 
-func (d *Actor) GetName() string {
-	return d.name
+func (a *Actor) GetActorName() string {
+	return a.name
 }
 
-func (d *Actor) Register(ac define.IActor, tt interface{}) error {
-	// 初始化
-	if ac != nil {
-		vv := reflect.ValueOf(ac)
-		d.Async = async.NewAsync()
-		d.name = parseName(vv.Elem().Type())
-		d.rValue = vv
-	}
-	// 注册方法
-	switch vv := tt.(type) {
-	case map[string]*MethodInfo:
-		d.methods = vv
-	case reflect.Type:
-		d.methods = parseMethod(vv)
-	default:
-		return uerror.New(1, -1, "传入必须是Actor的 reflect.Type或方法列表")
-	}
-	return nil
-}
-
-func (d *Actor) Send(ctx define.IContext, args ...interface{}) error {
-	m, ok := d.methods[ctx.GetFuncName()]
-	if !ok {
-		return uerror.New(1, -1, "方法不存在: %s.%s", ctx.GetActorName(), ctx.GetFuncName())
-	}
-	d.Push(func() {
-		if m.hasContext {
-			ins := make([]reflect.Value, m.method.Type.NumIn())
-			ins[0] = d.rValue
-			ins[1] = reflect.ValueOf(ctx)
-			for i := 2; i < m.method.Type.NumIn(); i++ {
-				ins[i] = reflect.ValueOf(args[i-2])
-			}
-			// 无返回值
-			m.method.Func.Call(ins)
-		} else {
-			ins := make([]reflect.Value, m.method.Type.NumIn())
-			ins[0] = d.rValue
-			for i := 1; i < m.method.Type.NumIn(); i++ {
-				ins[i] = reflect.ValueOf(args[i-1])
-			}
-			// 无返回值
-			m.method.Func.Call(ins)
-		}
-	})
-	return nil
-}
-
-func (d *Actor) SendFrom(head define.IContext, buf []byte) error {
-	m, ok := d.methods[head.GetFuncName()]
-	if !ok {
-		return uerror.New(1, -1, "方法不存在: %s.%s", head.GetActorName(), head.GetFuncName())
-	}
-	d.Push(func() {
-		router := head.GetRouter()
-		router.Update(head.GetRouteId(), head.GetTable())
-
-		if m.hasContext {
-			if m.isHandler {
-				ins := make([]reflect.Value, m.method.Type.NumIn())
-				ins[0] = d.rValue
-				ins[1] = reflect.ValueOf(head)
-				ins[2] = reflect.New(m.method.Type.In(2))
-				ins[3] = reflect.New(m.method.Type.In(3))
-				m.method.Func.Call(ins)
-			} else {
-				ins, err := encode.Decode(buf, m.method, 2)
-				if err != nil {
-					mlog.Error("参数解析输错: head:%v, error:%v", head, err)
-					return
-				}
-				ins[0] = d.rValue
-				ins[1] = reflect.ValueOf(head)
-				m.method.Func.Call(ins)
-			}
-		} else {
-			ins, err := encode.Decode(buf, m.method, 1)
-			if err != nil {
-				mlog.Error("参数解析输错: head:%v, error:%v", head, err)
-				return
-			}
-			ins[0] = d.rValue
-			m.method.Func.Call(ins)
-		}
-	})
-	return nil
-}
-
-func parseMethod(m reflect.Type) (ret map[string]*MethodInfo) {
-	ret = make(map[string]*MethodInfo)
-	for i := 0; i < m.NumMethod(); i++ {
-		mm := m.Method(i)
-		hasContext := false
-		if mm.Type.NumIn() > 1 {
-			hasContext = mm.Type.In(1).Implements(ctxType)
-		}
-		if mm.Type.NumIn() == 4 && mm.Type.NumOut() == 0 &&
-			mm.Type.In(1).Implements(ctxType) &&
-			mm.Type.In(2).Implements(messageType) &&
-			mm.Type.In(3).Implements(messageType) {
-			ret[mm.Name] = &MethodInfo{method: mm, isHandler: true, hasContext: hasContext}
-		} else {
-			ret[mm.Name] = &MethodInfo{method: mm, isHandler: false, hasContext: hasContext}
-		}
-	}
-	return
-}
-
-func parseName(rr reflect.Type) string {
-	name := rr.String()
+func (a *Actor) Register(ac domain.IActor) {
+	a.Async = NewAsync()
+	a.rval = reflect.ValueOf(ac)
+	name := a.rval.Elem().Type().Name()
 	if index := strings.Index(name, "."); index > -1 {
 		name = name[index+1:]
 	}
-	return name
+	a.name = name
+}
+
+func (d *Actor) ParseFunc(tt interface{}) {
+	switch vv := tt.(type) {
+	case map[string]*FuncInfo:
+		d.funcs = vv
+	case reflect.Type:
+		d.funcs = parseFuncs(vv)
+	default:
+		panic("注册参数错误，必须是方法列表或reflect.Type")
+	}
+}
+
+func (d *Actor) Send(h domain.IHead, args ...interface{}) error {
+	mm, ok := d.funcs[h.GetFuncName()]
+	if !ok {
+		return uerror.New(1, -1, "%s.%s未实现", h.GetActorName(), h.GetFuncName())
+	}
+	if mm.isVariadic {
+		d.Push(handleVariadic(d.rval, mm, h, args...))
+	} else {
+		d.Push(handle(d.rval, mm, h, args...))
+	}
+	return nil
+}
+
+func (d *Actor) SendRpc(h domain.IHead, buf []byte) error {
+	mm, ok := d.funcs[h.GetFuncName()]
+	if !ok {
+		return uerror.New(1, -1, "%s.%s未实现", h.GetActorName(), h.GetFuncName())
+	}
+	// 发送事件
+	if mm.isProto {
+		d.Push(handRpcProto(d.rval, mm, h, buf))
+	} else {
+		d.Push(handRpcGob(d.rval, mm, h, buf))
+	}
+	return nil
+}
+
+func handle(rval reflect.Value, mm *FuncInfo, head domain.IHead, args ...interface{}) func() {
+	return func() {
+		in := make([]reflect.Value, mm.Type.NumIn())
+		// 设置 this
+		in[0] = rval
+		// 设置 head
+		pos := 1
+		if mm.hasHead {
+			in[1] = reflect.ValueOf(head)
+			pos++
+		}
+		// 设置参数
+		for i := pos; i < mm.Type.NumIn(); i++ {
+			in[i] = reflect.ValueOf(args[i-pos])
+		}
+		// 调用函数
+		result := mm.Func.Call(in)
+		// 处理返回值
+		if mm.hasError {
+			if result[0].IsNil() {
+				return
+			}
+			mlog.Error("调用%s.%s报错：%v", head.GetActorName(), head.GetFuncName(), result[0].Interface())
+		}
+	}
+}
+
+// 可变参数
+func handleVariadic(rval reflect.Value, mm *FuncInfo, head domain.IHead, args ...interface{}) func() {
+	return func() {
+		in := make([]reflect.Value, mm.Type.NumIn())
+		// 设置 this
+		in[0] = rval
+		// 设置 head
+		pos := 1
+		if mm.hasHead {
+			in[1] = reflect.ValueOf(head)
+			pos++
+		}
+		// 设置参数
+		for i := pos; i < mm.Type.NumIn()-1; i++ {
+			in[i] = reflect.ValueOf(args[i-pos])
+		}
+		// 设置可变参数
+		args = args[mm.Type.NumIn()-pos-1:]
+		if len(args) > 0 {
+			arr := make([]reflect.Value, len(args))
+			for i, item := range args {
+				arr[i] = reflect.ValueOf(item)
+			}
+			in[mm.Type.NumIn()-1] = reflect.ValueOf(arr)
+		}
+		// 调用函数
+		result := mm.Func.CallSlice(in)
+		// 处理返回值
+		if mm.hasError {
+			if result[0].IsNil() {
+				return
+			}
+			mlog.Error("调用%s.%s报错：%v", head.GetActorName(), head.GetFuncName(), result[0].Interface())
+		}
+	}
+}
+
+func handRpcProto(rval reflect.Value, mm *FuncInfo, head domain.IHead, buf []byte) func() {
+	return func() {
+		in := make([]reflect.Value, mm.Type.NumIn())
+		// 设置 this
+		in[0] = rval
+		// 设置 head
+		pos := 1
+		if mm.hasHead {
+			in[1] = reflect.ValueOf(head)
+			pos++
+		}
+		// 解析参数
+		for i := pos; i < mm.Type.NumIn(); i++ {
+			req := reflect.New(mm.Type.In(i).Elem())
+			if i == pos {
+				if err := proto.Unmarshal(buf, req.Interface().(proto.Message)); err != nil {
+					mlog.Error("%s.%s参数解析报错: %v", head.GetActorName(), head.GetFuncName(), err)
+					return
+				}
+			}
+			in[i] = reflect.ValueOf(req)
+		}
+		// 调用函数
+		result := mm.Func.Call(in)
+		if mm.hasError {
+			if result[0].IsNil() {
+				return
+			}
+			mlog.Error("调用%s.%s报错：%v", head.GetActorName(), head.GetFuncName(), result[0].Interface())
+		}
+	}
+}
+
+func handRpcGob(rval reflect.Value, mm *FuncInfo, head domain.IHead, buf []byte) func() {
+	return func() {
+		pos := 1
+		if mm.hasHead {
+			pos++
+		}
+		// 解析参数参数
+		in, err := encode.Decode(buf, mm.Method, pos)
+		if err != nil {
+			mlog.Error("%s.%s参数解析错误: %v", head.GetActorName(), head.GetFuncName(), err)
+		}
+		// 设置 this
+		in[0] = rval
+		// 设置 head
+		if mm.hasHead {
+			in[1] = reflect.ValueOf(head)
+		}
+		// 调用函数
+		var result []reflect.Value
+		if mm.isVariadic {
+			result = mm.Func.CallSlice(in)
+		} else {
+			result = mm.Func.Call(in)
+		}
+		// 处理返回值
+		if mm.hasError {
+			if result[0].IsNil() {
+				return
+			}
+			mlog.Error("调用%s.%s报错：%v", head.GetActorName(), head.GetFuncName(), result[0].Interface())
+		}
+	}
 }
