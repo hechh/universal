@@ -16,6 +16,10 @@ type Head struct {
 	funcName    string
 }
 
+func NewHeader() domain.IHead {
+	return &Head{}
+}
+
 func (d *Head) GetSrcNodeType() int32 {
 	return d.srcNodeType
 }

@@ -7,9 +7,14 @@ import (
 )
 
 type Node struct {
+	Name string `json:"name"` // 节点名称
 	Addr string `json:"addr"` // 节点地址
 	Type int32  `json:"type"` // 节点类型
 	Id   int32  `json:"id"`   // 节点ID
+}
+
+func NewNode() domain.INode {
+	return &Node{}
 }
 
 func (n *Node) GetAddr() string {
@@ -22,6 +27,15 @@ func (n *Node) GetType() int32 {
 
 func (n *Node) GetId() int32 {
 	return n.Id
+}
+
+func (n *Node) GetName() string {
+	return n.Name
+}
+
+func (n *Node) SetName(name string) domain.INode {
+	n.Name = name
+	return n
 }
 
 func (n *Node) SetAddr(addr string) domain.INode {

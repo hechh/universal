@@ -8,6 +8,10 @@ type Packet struct {
 	body  []byte        // 包体
 }
 
+func NewPacket() domain.IPacket {
+	return &Packet{}
+}
+
 func (d *Packet) GetHead() domain.IHead {
 	return d.head
 }

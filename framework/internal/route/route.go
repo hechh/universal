@@ -1,4 +1,4 @@
-package packet
+package route
 
 import "universal/framework/domain"
 
@@ -8,6 +8,10 @@ type Route struct {
 	db    int32 // 数据服
 	room  int32 // 房间服
 	match int32 // 匹配服
+}
+
+func NewRoute() domain.IRoute {
+	return &Route{}
 }
 
 func (d *Route) GetSize() int {

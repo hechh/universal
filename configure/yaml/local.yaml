@@ -43,7 +43,7 @@ cluster:
   gate:
     log_level: debug
     log_path: ./log
-    router_ttl: 5
+    route_ttl: 5
     nodes:
       1: 192.168.3.5:40001
 

@@ -1,4 +1,4 @@
-package router
+package route
 
 import (
 	"sync"
@@ -18,7 +18,19 @@ type RouterMgr struct {
 	mutex    sync.RWMutex
 	exit     chan struct{}
 	newRoute func() domain.IRoute
+	expire   int64
 	routes   map[uint64]*RouteInfo
+}
+
+func NewRouterMgr(newRoute func() domain.IRoute, ttl int64) *RouterMgr {
+	mgr := &RouterMgr{
+		exit:     make(chan struct{}),
+		newRoute: newRoute,
+		expire:   ttl,
+		routes:   make(map[uint64]*RouteInfo),
+	}
+	safe.SafeGo(mlog.Fatal, mgr.run)
+	return mgr
 }
 
 func (d *RouterMgr) Get(routeId uint64) domain.IRoute {
@@ -62,29 +74,28 @@ func (d *RouterMgr) getExpireRouteIds() (rets []uint64) {
 	return
 }
 
-func (r *RouterMgr) Expire(ttl int64) {
-	safe.SafeGo(mlog.Fatal, func() {
-		tt := time.NewTicker(time.Duration(ttl) * time.Second)
-		defer tt.Stop()
-		// 定时清理
-		for {
-			select {
-			case <-tt.C:
-				// 获取过期节点
-				rets := r.getExpireRouteIds()
-				if len(rets) > 0 {
-					// 删除节点
-					r.mutex.Lock()
-					for _, val := range rets {
-						delete(r.routes, val)
-					}
-					r.mutex.Unlock()
+func (r *RouterMgr) run() {
+	tt := time.NewTicker(time.Duration(r.expire) * time.Second)
+	defer tt.Stop()
+
+	// 定时清理
+	for {
+		select {
+		case <-tt.C:
+			// 获取过期节点
+			rets := r.getExpireRouteIds()
+			if len(rets) > 0 {
+				// 删除节点
+				r.mutex.Lock()
+				for _, val := range rets {
+					delete(r.routes, val)
 				}
-			case <-r.exit:
-				return
+				r.mutex.Unlock()
 			}
+		case <-r.exit:
+			return
 		}
-	})
+	}
 }
 
 func (r *RouterMgr) Close() {

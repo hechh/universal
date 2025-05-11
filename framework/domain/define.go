@@ -72,7 +72,6 @@ type IRoute interface {
 type IRouteMgr interface {
 	Get(uint64) IRoute  // 获取路由信息
 	Set(uint64, IRoute) // 设置路由信息
-	Expire(int64)       // 设置路由信息过期时间
 	Close()             // 关闭路由管理
 }
 
@@ -88,9 +87,11 @@ type IActor interface {
 // 服务节点接口
 type INode interface {
 	IBytes
+	GetName() string      // 获取节点名称
 	GetType() int32       // 获取节点类型
 	GetId() int32         // 获取节点ID
 	GetAddr() string      // 获取节点地址
+	SetName(string) INode // 设置节点名称
 	SetType(int32) INode  // 设置节点类型
 	SetId(int32) INode    // 设置节点ID
 	SetAddr(string) INode // 设置节点地址
