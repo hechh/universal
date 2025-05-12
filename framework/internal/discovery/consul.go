@@ -5,8 +5,8 @@ import (
 	"path"
 	"time"
 	"universal/framework/domain"
-	"universal/library/baselib/uerror"
-	"universal/library/mlog"
+	"universal/framework/library/mlog"
+	"universal/framework/library/uerror"
 
 	"github.com/hashicorp/consul/api"
 	"github.com/hashicorp/consul/api/watch"

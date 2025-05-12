@@ -3,15 +3,15 @@ package network
 import (
 	"universal/framework/config"
 	"universal/framework/domain"
-	"universal/library/baselib/uerror"
+	"universal/framework/library/uerror"
 )
 
 type OpOption func(*Op)
 
 type Op struct {
 	topic     string
-	routeMgr  domain.IRouteMgr
-	newRoute  func() domain.IRoute
+	routeMgr  domain.IRouterMgr
+	newRoute  func() domain.IRouter
 	newHeader func() domain.IHead
 	newPacket func() domain.IPacket
 }
@@ -42,13 +42,13 @@ func WithHead(f func() domain.IHead) OpOption {
 	}
 }
 
-func WithRoute(f func() domain.IRoute) OpOption {
+func WithRoute(f func() domain.IRouter) OpOption {
 	return func(o *Op) {
 		o.newRoute = f
 	}
 }
 
-func WithRouteMgr(rr domain.IRouteMgr) OpOption {
+func WithRouteMgr(rr domain.IRouterMgr) OpOption {
 	return func(o *Op) {
 		o.routeMgr = rr
 	}

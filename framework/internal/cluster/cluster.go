@@ -3,8 +3,8 @@ package cluster
 import (
 	"sync"
 	"universal/framework/domain"
-	"universal/library/mlog"
-	"universal/library/random"
+	"universal/framework/library/mlog"
+	"universal/framework/library/random"
 )
 
 type pool struct {

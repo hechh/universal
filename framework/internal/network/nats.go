@@ -3,7 +3,7 @@ package network
 import (
 	"fmt"
 	"universal/framework/domain"
-	"universal/library/mlog"
+	"universal/framework/library/mlog"
 
 	"github.com/nats-io/nats.go"
 )
@@ -11,10 +11,10 @@ import (
 type Nats struct {
 	client    *nats.Conn            // nats连接
 	topic     string                // 订阅话题
-	routeMgr  domain.IRouteMgr      // 路由表
+	routeMgr  domain.IRouterMgr     // 路由表
 	newPacket func() domain.IPacket // 解析函数
 	newHeader func() domain.IHead   // 创建函数
-	newRoute  func() domain.IRoute  // 创建函数
+	newRoute  func() domain.IRouter // 创建函数
 }
 
 func NewNats(url string, opts ...OpOption) (*Nats, error) {
@@ -40,7 +40,7 @@ func (n *Nats) sendTopic(t, id int32) string {
 	return fmt.Sprintf("%s/%d/%d", n.topic, t, id)
 }
 
-func (n *Nats) Receive(node domain.INode, act domain.IActor) error {
+func (n *Nats) Receive(node domain.INode, act domain.IActorMgr) error {
 	if _, err := n.client.Subscribe(n.sendTopic(node.GetType(), node.GetId()), func(msg *nats.Msg) {
 		// 解析包
 		pack := n.newPacket()
@@ -78,7 +78,7 @@ func (n *Nats) Receive(node domain.INode, act domain.IActor) error {
 // 发送消息
 func (n *Nats) Send(head domain.IHead, data []byte) error {
 	// 封装消息
-	pack := n.newPacket().SetHead(head).SetBody(data)
+	pack := n.newPacket().SetHead(head).SetBody(data).SetRoute(n.routeMgr.Get(head.GetRouteId()))
 	buf := make([]byte, pack.GetSize())
 	if err := pack.WriteTo(buf); err != nil {
 		return err
@@ -91,7 +91,7 @@ func (n *Nats) Send(head domain.IHead, data []byte) error {
 // 发送广播
 func (n *Nats) Broadcast(head domain.IHead, data []byte) error {
 	// 封装消息
-	pack := n.newPacket().SetHead(head).SetBody(data)
+	pack := n.newPacket().SetHead(head).SetBody(data).SetRoute(n.routeMgr.Get(head.GetRouteId()))
 	buf := make([]byte, pack.GetSize())
 	if err := pack.WriteTo(buf); err != nil {
 		return err

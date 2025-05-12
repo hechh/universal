@@ -4,15 +4,16 @@ import (
 	"reflect"
 	"strings"
 	"universal/framework/domain"
-	"universal/library/baselib/uerror"
-	"universal/library/encode"
-	"universal/library/mlog"
+	"universal/framework/library/async"
+	"universal/framework/library/encode"
+	"universal/framework/library/mlog"
+	"universal/framework/library/uerror"
 
 	"github.com/golang/protobuf/proto"
 )
 
 type Actor struct {
-	*Async
+	*async.Async
 	name  string
 	rval  reflect.Value
 	funcs map[string]*FuncInfo
@@ -23,7 +24,7 @@ func (a *Actor) GetActorName() string {
 }
 
 func (a *Actor) Register(ac domain.IActor) {
-	a.Async = NewAsync()
+	a.Async = async.NewAsync()
 	a.rval = reflect.ValueOf(ac)
 	name := a.rval.Elem().Type().Name()
 	if index := strings.Index(name, "."); index > -1 {

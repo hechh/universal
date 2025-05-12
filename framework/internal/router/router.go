@@ -1,4 +1,4 @@
-package route
+package router
 
 import "universal/framework/domain"
 
@@ -10,7 +10,7 @@ type Route struct {
 	match int32 // 匹配服
 }
 
-func NewRoute() domain.IRoute {
+func NewRouter() domain.IRouter {
 	return &Route{}
 }
 

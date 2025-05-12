@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"time"
 	"universal/framework/domain"
-	"universal/library/baselib/safe"
-	"universal/library/mlog"
+	"universal/framework/library/async"
+	"universal/framework/library/mlog"
 
 	"github.com/nsqio/go-nsq"
 )
@@ -17,10 +17,10 @@ type Nsq struct {
 	producer  *nsq.Producer         // 生产者
 	consumer  *nsq.Consumer         // 消费者
 	broadcast *nsq.Consumer         // 广播消费者
-	routeMgr  domain.IRouteMgr      // 路由表
+	routeMgr  domain.IRouterMgr     // 路由表
 	newPacket func() domain.IPacket // 解析函数
 	newHeader func() domain.IHead   // 创建函数
-	newRoute  func() domain.IRoute  // 创建函数
+	newRoute  func() domain.IRouter // 创建函数
 }
 
 // NewNSQNetwork 创建一个新的 Nsq 实例
@@ -51,11 +51,11 @@ func (n *Nsq) sendTopic(t, id int32) string {
 
 type handler struct {
 	nsq *Nsq
-	act domain.IActor
+	act domain.IActorMgr
 }
 
 func (h *handler) HandleMessage(m *nsq.Message) error {
-	safe.SafeRecover(mlog.Fatal, func() {
+	async.SafeRecover(mlog.Fatal, func() {
 		// 解析包
 		pack := h.nsq.newPacket()
 		if err := pack.ReadFrom(m.Body); err != nil {
@@ -73,7 +73,7 @@ func (h *handler) HandleMessage(m *nsq.Message) error {
 }
 
 // Read 实现接收消息的功能
-func (n *Nsq) Receive(node domain.INode, act domain.IActor) error {
+func (n *Nsq) Receive(node domain.INode, act domain.IActorMgr) error {
 	cfg := nsq.NewConfig()
 	cfg.MaxInFlight = 5
 	cfg.MsgTimeout = 5 * time.Second
@@ -102,7 +102,7 @@ func (n *Nsq) Receive(node domain.INode, act domain.IActor) error {
 
 func (n *Nsq) Send(head domain.IHead, data []byte) error {
 	// 封装消息
-	pack := n.newPacket().SetHead(head).SetBody(data)
+	pack := n.newPacket().SetHead(head).SetBody(data).SetRoute(n.routeMgr.Get(head.GetRouteId()))
 	buf := make([]byte, pack.GetSize())
 	if err := pack.WriteTo(buf); err != nil {
 		return err
@@ -114,7 +114,7 @@ func (n *Nsq) Send(head domain.IHead, data []byte) error {
 
 func (n *Nsq) Broadcast(head domain.IHead, data []byte) error {
 	// 封装消息
-	pack := n.newPacket().SetHead(head).SetBody(data)
+	pack := n.newPacket().SetHead(head).SetBody(data).SetRoute(n.routeMgr.Get(head.GetRouteId()))
 	buf := make([]byte, pack.GetSize())
 	if err := pack.WriteTo(buf); err != nil {
 		return err

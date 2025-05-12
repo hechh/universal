@@ -3,9 +3,9 @@ package packet
 import "universal/framework/domain"
 
 type Packet struct {
-	head  domain.IHead  // 包头
-	route domain.IRoute // 路由
-	body  []byte        // 包体
+	head  domain.IHead   // 包头
+	route domain.IRouter // 路由
+	body  []byte         // 包体
 }
 
 func NewPacket() domain.IPacket {
@@ -16,7 +16,7 @@ func (d *Packet) GetHead() domain.IHead {
 	return d.head
 }
 
-func (d *Packet) GetRoute() domain.IRoute {
+func (d *Packet) GetRoute() domain.IRouter {
 	return d.route
 }
 
@@ -29,7 +29,7 @@ func (d *Packet) SetHead(head domain.IHead) domain.IPacket {
 	return d
 }
 
-func (d *Packet) SetRoute(route domain.IRoute) domain.IPacket {
+func (d *Packet) SetRoute(route domain.IRouter) domain.IPacket {
 	d.route = route
 	return d
 }

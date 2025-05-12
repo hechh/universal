@@ -1,4 +1,4 @@
-package actor
+package async
 
 import (
 	"sync/atomic"

@@ -8,37 +8,38 @@ import (
 	"universal/framework/internal/discovery"
 	"universal/framework/internal/network"
 	"universal/framework/internal/packet"
-	"universal/framework/internal/route"
+	"universal/framework/internal/router"
 )
 
 type Actor struct{ actor.Actor }
-type ActorMgr struct{ actor.ActorMgr }
+
+type ActorGroup struct{ actor.ActorGroup }
 
 type Framework struct {
 	self     domain.INode
-	rmgr     domain.IRouteMgr
+	routeMgr domain.IRouterMgr
+	actMgr   domain.IActorMgr
 	cls      domain.ICluster
 	dis      domain.IDiscovery
 	net      domain.INetwork
-	actors   map[string]domain.IActor
 	newNode  func() domain.INode
 	newHead  func() domain.IHead
-	newRoute func() domain.IRoute
+	newRoute func() domain.IRouter
 	newPack  func() domain.IPacket
 }
 
 func (f *Framework) Init(node domain.INode, cfg *config.Config) (err error) {
 	f.newNode = cluster.NewNode
 	f.newHead = packet.NewHeader
-	f.newRoute = route.NewRoute
+	f.newRoute = router.NewRouter
 	f.newPack = packet.NewPacket
-	f.actors = make(map[string]domain.IActor)
 	f.self = node
 	f.cls = cluster.NewCluster()
+	f.actMgr = actor.NewActorMgr()
 
 	// 初始化路由管理
 	clsCfg := cfg.Cluster[node.GetName()]
-	f.rmgr = route.NewRouterMgr(f.newRoute, clsCfg.RouteTTL)
+	f.routeMgr = router.NewRouterMgr(f.newRoute, clsCfg.RouteTTL)
 
 	// 服务注册与发现
 	if f.dis, err = discovery.Init(cfg,
@@ -60,10 +61,12 @@ func (f *Framework) Init(node domain.INode, cfg *config.Config) (err error) {
 		network.WithPacket(f.newPack),
 		network.WithHead(f.newHead),
 		network.WithRoute(f.newRoute),
-		network.WithRouteMgr(f.rmgr),
+		network.WithRouteMgr(f.routeMgr),
 	); err != nil {
 		return err
 	}
-
+	if err := f.net.Receive(f.self, f.actMgr); err != nil {
+		return err
+	}
 	return nil
 }

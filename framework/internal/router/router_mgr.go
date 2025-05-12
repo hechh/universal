@@ -1,49 +1,49 @@
-package route
+package router
 
 import (
 	"sync"
 	"sync/atomic"
 	"time"
 	"universal/framework/domain"
-	"universal/library/baselib/safe"
-	"universal/library/mlog"
+	"universal/framework/library/async"
+	"universal/framework/library/mlog"
 )
 
 type RouteInfo struct {
-	domain.IRoute
+	domain.IRouter
 	updateTime int64
 }
 
 type RouterMgr struct {
 	mutex    sync.RWMutex
 	exit     chan struct{}
-	newRoute func() domain.IRoute
+	newRoute func() domain.IRouter
 	expire   int64
 	routes   map[uint64]*RouteInfo
 }
 
-func NewRouterMgr(newRoute func() domain.IRoute, ttl int64) *RouterMgr {
+func NewRouterMgr(newRoute func() domain.IRouter, ttl int64) *RouterMgr {
 	mgr := &RouterMgr{
 		exit:     make(chan struct{}),
 		newRoute: newRoute,
 		expire:   ttl,
 		routes:   make(map[uint64]*RouteInfo),
 	}
-	safe.SafeGo(mlog.Fatal, mgr.run)
+	async.SafeGo(mlog.Fatal, mgr.run)
 	return mgr
 }
 
-func (d *RouterMgr) Get(routeId uint64) domain.IRoute {
+func (d *RouterMgr) Get(routeId uint64) domain.IRouter {
 	d.mutex.RLock()
 	route, ok := d.routes[routeId]
 	d.mutex.RUnlock()
 	if ok {
-		return route.IRoute
+		return route.IRouter
 	}
 	// 创建新的路由节点
 	val := &RouteInfo{
 		updateTime: time.Now().Unix(),
-		IRoute:     d.newRoute(),
+		IRouter:    d.newRoute(),
 	}
 	d.mutex.Lock()
 	d.routes[routeId] = val
@@ -51,7 +51,7 @@ func (d *RouterMgr) Get(routeId uint64) domain.IRoute {
 	return val
 }
 
-func (d *RouterMgr) Set(routeId uint64, info domain.IRoute) {
+func (d *RouterMgr) Set(routeId uint64, info domain.IRouter) {
 	route := d.Get(routeId).(*RouteInfo)
 	now := time.Now().Unix()
 	for i := int32(domain.NodeTypeBegin) + 1; i < int32(domain.NodeTypeMax); i++ {

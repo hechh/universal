@@ -1,7 +1,9 @@
-package actor
+package async
 
 import (
+	"sync"
 	"sync/atomic"
+	"universal/library/baselib/queue"
 )
 
 const (
@@ -10,8 +12,9 @@ const (
 )
 
 type Async struct {
+	sync.WaitGroup
 	status int32         // actor运行状态
-	tasks  *Queue        // 任务队列
+	tasks  *queue.Queue  // 任务队列
 	pushCh chan struct{} // 消耗通知
 	exitCh chan struct{} // 退出
 }
@@ -19,9 +22,9 @@ type Async struct {
 func NewAsync() *Async {
 	return &Async{
 		status: STATUS_STOP,
-		tasks:  NewQueue(),
+		tasks:  queue.NewQueue(),
 		pushCh: make(chan struct{}, 1),
-		exitCh: make(chan struct{}, 1),
+		exitCh: make(chan struct{}, 0),
 	}
 }
 
@@ -43,6 +46,7 @@ func (d *Async) Start() {
 		return
 	}
 	atomic.StoreInt32(&d.status, STATUS_RUN)
+	d.Add(1)
 	go d.run()
 }
 
@@ -54,6 +58,7 @@ func (d *Async) Stop() {
 	atomic.StoreInt32(&d.status, STATUS_STOP)
 	// 等待停止
 	d.exitCh <- struct{}{}
+	d.Wait()
 }
 
 func (d *Async) run() {
@@ -61,6 +66,7 @@ func (d *Async) run() {
 		for data := d.tasks.Pop(); data != nil; data = d.tasks.Pop() {
 			(data.(func()))()
 		}
+		d.Done()
 	}()
 	for {
 		select {

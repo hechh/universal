@@ -3,7 +3,7 @@ package discovery
 import (
 	"universal/framework/config"
 	"universal/framework/domain"
-	"universal/library/baselib/uerror"
+	"universal/framework/library/uerror"
 )
 
 type OpOption func(*Op)

@@ -6,9 +6,9 @@ import (
 	"path"
 	"time"
 	"universal/framework/domain"
-	"universal/library/baselib/safe"
-	"universal/library/baselib/uerror"
-	"universal/library/mlog"
+	"universal/framework/library/async"
+	"universal/framework/library/mlog"
+	"universal/framework/library/uerror"
 
 	"github.com/spf13/cast"
 	clientv3 "go.etcd.io/etcd/client/v3"
@@ -54,7 +54,7 @@ func (e *Etcd) Watch(cls domain.ICluster) error {
 
 	// 监听服务
 	listens := e.client.Watch(context.Background(), e.topic, clientv3.WithPrefix())
-	safe.SafeGo(mlog.Error, func() {
+	async.SafeGo(mlog.Error, func() {
 		for listen := range listens {
 			for _, event := range listen.Events {
 				switch event.Type {

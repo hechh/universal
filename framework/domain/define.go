@@ -32,12 +32,12 @@ type IBytes interface {
 // 内网协议包接口
 type IPacket interface {
 	IBytes
-	GetHead() IHead          // 获取协议头
-	GetRoute() IRoute        // 获取路由信息
-	GetBody() []byte         // 获取协议体
-	SetHead(IHead) IPacket   // 设置协议头
-	SetRoute(IRoute) IPacket // 设置路由信息
-	SetBody([]byte) IPacket  // 设置协议体
+	GetHead() IHead           // 获取协议头
+	GetRoute() IRouter        // 获取路由信息
+	GetBody() []byte          // 获取协议体
+	SetHead(IHead) IPacket    // 设置协议头
+	SetRoute(IRouter) IPacket // 设置路由信息
+	SetBody([]byte) IPacket   // 设置协议体
 }
 
 // 协议头接口
@@ -62,17 +62,17 @@ type IHead interface {
 }
 
 // 路由信息接口
-type IRoute interface {
+type IRouter interface {
 	IBytes
 	Get(nodeType int32) int32   // 获取路由信息
 	Set(nodeType, nodeId int32) // 设置路由信息
 }
 
 // 路由管理接口
-type IRouteMgr interface {
-	Get(uint64) IRoute  // 获取路由信息
-	Set(uint64, IRoute) // 设置路由信息
-	Close()             // 关闭路由管理
+type IRouterMgr interface {
+	Get(uint64) IRouter  // 获取路由信息
+	Set(uint64, IRouter) // 设置路由信息
+	Close()              // 关闭路由管理
 }
 
 // Actor接口定义
@@ -80,6 +80,14 @@ type IActor interface {
 	GetActorName() string             // 获取Actor名称
 	Register(self IActor)             // 注册Actor
 	ParseFunc(interface{})            // 解析方法列表
+	Send(IHead, ...interface{}) error // 发送消息
+	SendRpc(IHead, []byte) error      // 发送远程调用
+}
+
+// Actor管理接口
+type IActorMgr interface {
+	Register(IActor)                  // 注册Actor
+	Get(string) IActor                // 获取Actor
 	Send(IHead, ...interface{}) error // 发送消息
 	SendRpc(IHead, []byte) error      // 发送远程调用
 }
@@ -115,7 +123,7 @@ type IDiscovery interface {
 
 // 网络接口
 type INetwork interface {
-	Receive(node INode, actor IActor) error  // 监听消息
+	Receive(node INode, mgr IActorMgr) error // 监听消息
 	Send(head IHead, data []byte) error      // 发送消息
 	Broadcast(head IHead, data []byte) error // 广播消息
 	Close() error                            // 关闭网络
