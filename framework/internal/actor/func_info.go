@@ -2,7 +2,7 @@ package actor
 
 import (
 	"reflect"
-	"universal/framework/domain"
+	"universal/common/pb"
 	"universal/framework/library/encode"
 	"universal/framework/library/mlog"
 
@@ -10,7 +10,7 @@ import (
 )
 
 var (
-	headType  = reflect.TypeOf((*domain.IHead)(nil)).Elem()
+	headType  = reflect.TypeOf((**pb.Head)(nil)).Elem()
 	errorType = reflect.TypeOf((*error)(nil)).Elem()
 	protoType = reflect.TypeOf((*proto.Message)(nil)).Elem()
 )
@@ -52,7 +52,7 @@ func NewFuncInfo(m reflect.Method) *FuncInfo {
 }
 
 // 非可变参数调用
-func (f *FuncInfo) handle(rval reflect.Value, head domain.IHead, args ...interface{}) func() {
+func (f *FuncInfo) handle(rval reflect.Value, head *pb.Head, args ...interface{}) func() {
 	return func() {
 		in := make([]reflect.Value, f.Type.NumIn())
 		in[0] = rval
@@ -70,13 +70,13 @@ func (f *FuncInfo) handle(rval reflect.Value, head domain.IHead, args ...interfa
 			if result[0].IsNil() {
 				return
 			}
-			mlog.Error("调用%s.%s报错：%v", head.GetActorName(), head.GetFuncName(), result[0].Interface())
+			mlog.Error("调用%s.%s报错：%v", head.ActorName, head.FuncName, result[0].Interface())
 		}
 	}
 }
 
 // 可变参数调用
-func (f *FuncInfo) handleVariadic(rval reflect.Value, head domain.IHead, args ...interface{}) func() {
+func (f *FuncInfo) handleVariadic(rval reflect.Value, head *pb.Head, args ...interface{}) func() {
 	return func() {
 		in := make([]reflect.Value, f.Type.NumIn())
 		in[0] = rval
@@ -101,13 +101,13 @@ func (f *FuncInfo) handleVariadic(rval reflect.Value, head domain.IHead, args ..
 			if result[0].IsNil() {
 				return
 			}
-			mlog.Error("调用%s.%s报错：%v", head.GetActorName(), head.GetFuncName(), result[0].Interface())
+			mlog.Error("调用%s.%s报错：%v", head.ActorName, head.FuncName, result[0].Interface())
 		}
 	}
 }
 
 // 远程调用
-func (f *FuncInfo) handleRpcProto(rval reflect.Value, head domain.IHead, buf []byte) func() {
+func (f *FuncInfo) handleRpcProto(rval reflect.Value, head *pb.Head, buf []byte) func() {
 	return func() {
 		in := make([]reflect.Value, f.Type.NumIn())
 		in[0] = rval
@@ -120,7 +120,7 @@ func (f *FuncInfo) handleRpcProto(rval reflect.Value, head domain.IHead, buf []b
 			req := reflect.New(f.Type.In(i).Elem())
 			if i == pos {
 				if err := proto.Unmarshal(buf, req.Interface().(proto.Message)); err != nil {
-					mlog.Error("%s.%s参数解析报错: %v", head.GetActorName(), head.GetFuncName(), err)
+					mlog.Error("%s.%s参数解析报错: %v", head.ActorName, head.FuncName, err)
 					return
 				}
 			}
@@ -132,12 +132,12 @@ func (f *FuncInfo) handleRpcProto(rval reflect.Value, head domain.IHead, buf []b
 			if result[0].IsNil() {
 				return
 			}
-			mlog.Error("调用%s.%s报错：%v", head.GetActorName(), head.GetFuncName(), result[0].Interface())
+			mlog.Error("调用%s.%s报错：%v", head.ActorName, head.FuncName, result[0].Interface())
 		}
 	}
 }
 
-func (f *FuncInfo) handRpcGob(rval reflect.Value, head domain.IHead, buf []byte) func() {
+func (f *FuncInfo) handleRpcGob(rval reflect.Value, head *pb.Head, buf []byte) func() {
 	return func() {
 		pos := 1
 		if f.hasHead {
@@ -146,11 +146,11 @@ func (f *FuncInfo) handRpcGob(rval reflect.Value, head domain.IHead, buf []byte)
 		// 解析参数参数
 		in, err := encode.Decode(buf, f.Method, pos)
 		if err != nil {
-			mlog.Error("%s.%s参数解析错误: %v", head.GetActorName(), head.GetFuncName(), err)
+			mlog.Error("%s.%s参数解析错误: %v", head.ActorName, head.FuncName, err)
+			return
 		}
 		// 设置 this
 		in[0] = rval
-		// 设置 head
 		if f.hasHead {
 			in[1] = reflect.ValueOf(head)
 		}
@@ -166,7 +166,7 @@ func (f *FuncInfo) handRpcGob(rval reflect.Value, head domain.IHead, buf []byte)
 			if result[0].IsNil() {
 				return
 			}
-			mlog.Error("调用%s.%s报错：%v", head.GetActorName(), head.GetFuncName(), result[0].Interface())
+			mlog.Error("调用%s.%s报错：%v", head.ActorName, head.FuncName, result[0].Interface())
 		}
 	}
 }

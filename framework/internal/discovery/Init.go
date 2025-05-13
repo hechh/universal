@@ -1,6 +1,7 @@
 package discovery
 
 import (
+	"universal/common/pb"
 	"universal/framework/domain"
 	"universal/framework/global"
 	"universal/framework/library/uerror"
@@ -10,7 +11,7 @@ type OpOption func(*Op)
 
 type Op struct {
 	topic   string
-	newNode func() domain.INode
+	newNode func() *pb.Node
 }
 
 func NewOp(opts ...OpOption) *Op {
@@ -27,7 +28,7 @@ func WithTopic(p string) OpOption {
 	}
 }
 
-func WithNode(p func() domain.INode) OpOption {
+func WithNode(p func() *pb.Node) OpOption {
 	return func(o *Op) {
 		o.newNode = p
 	}
@@ -42,12 +43,14 @@ func Init(cfg *global.Config, opts ...OpOption) (domain.IDiscovery, error) {
 		return dis, nil
 	}
 
-	if cfg.Consul != nil {
-		dis, err := NewConsul(cfg.Consul.Endpoints, opts...)
-		if err != nil {
-			return nil, err
+	/*
+		if cfg.Consul != nil {
+			dis, err := NewConsul(cfg.Consul.Endpoints, opts...)
+			if err != nil {
+				return nil, err
+			}
+			return dis, nil
 		}
-		return dis, nil
-	}
+	*/
 	return nil, uerror.New(1, -1, "服务注册与发现配置错误")
 }

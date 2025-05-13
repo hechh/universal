@@ -1,108 +1,54 @@
 package domain
 
-type IBytes interface {
-	GetSize() int          // 获取协议头大小
-	WriteTo([]byte) error  // 写入数据
-	ReadFrom([]byte) error // 读取数据
-}
+import "universal/common/pb"
 
-// 内网协议包接口
-type IPacket interface {
-	IBytes
-	GetHead() IHead           // 获取协议头
-	GetRoute() IRouter        // 获取路由信息
-	GetBody() []byte          // 获取协议体
-	SetHead(IHead) IPacket    // 设置协议头
-	SetRoute(IRouter) IPacket // 设置路由信息
-	SetBody([]byte) IPacket   // 设置协议体
-}
-
-// 协议头接口
-type IHead interface {
-	IBytes
-	GetSrcNodeType() int32      // 消息来源类型
-	GetSrcNodeId() int32        // 消息来源ID
-	GetDstNodeType() int32      // 消息目的类型
-	GetDstNodeId() int32        // 消息目的ID
-	GetRouteId() uint64         // 消息路由ID
-	GetUid() uint64             // 消息用户ID
-	GetActorName() string       // 消息Actor名称
-	GetFuncName() string        // 消息函数名称
-	SetSrcNodeType(int32) IHead // 设置消息来源类型
-	SetSrcNodeId(int32) IHead   // 设置消息来源ID
-	SetDstNodeType(int32) IHead // 设置消息目的类型
-	SetDstNodeId(int32) IHead   // 设置消息目的ID
-	SetRouteId(uint64) IHead    // 设置消息路由ID
-	SetUid(uint64) IHead        // 设置消息用户ID
-	SetActorName(string) IHead  // 设置消息Actor名称
-	SetFuncName(string) IHead   // 设置消息函数名称
-}
-
-// 路由信息接口
-type IRouter interface {
-	IBytes
-	Get(nodeType int32) int32   // 获取路由信息
-	Set(nodeType, nodeId int32) // 设置路由信息
-}
-
-// 路由管理接口
-type IRouterMgr interface {
-	Get(uint64) IRouter  // 获取路由信息
-	Set(uint64, IRouter) // 设置路由信息
-	Close()              // 关闭路由管理
-}
-
+// -----------------actor核心接口-------------------
 // Actor接口定义
 type IActor interface {
-	GetActorName() string             // 获取Actor名称
-	Register(self IActor)             // 注册Actor
-	ParseFunc(interface{})            // 解析方法列表
-	Send(IHead, ...interface{}) error // 发送消息
-	SendRpc(IHead, []byte) error      // 发送远程调用
+	GetActorName() string                // 获取Actor名称
+	Register(IActor, ...int)             // 注册Actor
+	ParseFunc(interface{})               // 解析方法列表
+	Send(*pb.Head, ...interface{}) error // 发送消息
+	SendRpc(*pb.Head, []byte) error      // 发送远程调用
 }
 
 // Actor管理接口
 type IActorMgr interface {
-	Register(IActor)                  // 注册Actor
-	Get(string) IActor                // 获取Actor
-	Send(IHead, ...interface{}) error // 发送消息
-	SendRpc(IHead, []byte) error      // 发送远程调用
+	Register(IActor)                     // 注册Actor
+	Get(string) IActor                   // 获取Actor
+	Send(*pb.Head, ...interface{}) error // 发送消息
+	SendRpc(*pb.Head, []byte) error      // 发送远程调用
 }
 
-// 服务节点接口
-type INode interface {
-	IBytes
-	GetName() string      // 获取节点名称
-	GetType() int32       // 获取节点类型
-	GetId() int32         // 获取节点ID
-	GetAddr() string      // 获取节点地址
-	SetName(string) INode // 设置节点名称
-	SetType(int32) INode  // 设置节点类型
-	SetId(int32) INode    // 设置节点ID
-	SetAddr(string) INode // 设置节点地址
-	String() string       // 获取节点字符串
+// 路由管理接口
+type IRouterMgr interface {
+	Get(uint64) *pb.Router  // 获取路由信息
+	Set(uint64, *pb.Router) // 设置路由信息
+	Close()                 // 关闭路由管理
 }
 
+// -----------------------服务发现接口-------------------
 // 服务集群接口
 type ICluster interface {
-	Get(nodeType, nodeId int32) INode           // 获取节点
-	Del(NodeType, nodeId int32)                 // 删除节点
-	Add(node INode)                             // 添加节点
-	Random(nodeType int32, hashId uint64) INode // 随机节点
+	Get(pb.NodeType, int32) *pb.Node     // 获取节点
+	Del(pb.NodeType, int32)              // 删除节点
+	Add(*pb.Node)                        // 添加节点
+	List(pb.NodeType) []*pb.Node         // 获取节点列表
+	Random(pb.NodeType, uint64) *pb.Node // 随机节点
 }
 
-// 服务发现接口
+// --------------------服务注册与发现接口---------------------
 type IDiscovery interface {
-	Register(self INode, ttl int64) error // 注册服务
-	Watch(cls ICluster) error             // 监听服务
-	Close() error                         // 关闭服务发现
+	Register(node *pb.Node, ttl int64) error // 注册服务
+	Watch(ICluster) error                    // 监听服务
+	Close() error                            // 关闭服务发现
 }
 
-// 网络接口
-type INetwork interface {
-	Listen(node INode, mgr IActorMgr) error  // 监听消息
-	Send(head IHead, data []byte) error      // 发送消息
-	Broadcast(head IHead, data []byte) error // 广播消息
-	Close() error                            // 关闭网络
-	//	Request(head IHead, data []byte) error   // 请求消息
+// ------------------------消息总线接口-----------------------
+type IBus interface {
+	Listen(*pb.Node, IActorMgr) error // 监听消息
+	Send(*pb.Head, []byte) error      // 发送消息
+	Broadcast(*pb.Head, []byte) error // 广播消息
+	Close() error                     // 关闭网络
+	//	Request(head *pb.Head, data []byte) error   // 请求消息
 }

@@ -5,18 +5,20 @@ import (
 	"fmt"
 	"path"
 	"time"
+	"universal/common/pb"
 	"universal/framework/domain"
 	"universal/framework/library/async"
 	"universal/framework/library/mlog"
 	"universal/framework/library/uerror"
 
+	"github.com/golang/protobuf/proto"
 	"github.com/spf13/cast"
 	clientv3 "go.etcd.io/etcd/client/v3"
 )
 
 type Etcd struct {
 	client  *clientv3.Client
-	newNode func() domain.INode
+	newNode func() *pb.Node
 	topic   string
 	exit    chan struct{}
 }
@@ -43,8 +45,8 @@ func (e *Etcd) Watch(cls domain.ICluster) error {
 		return err
 	}
 	for _, kv := range rsp.Kvs {
-		node := e.newNode()
-		if err := node.ReadFrom(kv.Value); err != nil {
+		node := &pb.Node{}
+		if err := proto.Unmarshal(kv.Value, node); err != nil {
 			return uerror.New(1, -1, "解析服务节点失败: %v", err)
 		} else {
 			cls.Add(node)
@@ -59,18 +61,18 @@ func (e *Etcd) Watch(cls domain.ICluster) error {
 			for _, event := range listen.Events {
 				switch event.Type {
 				case clientv3.EventTypePut:
-					node := e.newNode()
-					if err := node.ReadFrom(event.Kv.Value); err != nil {
+					node := &pb.Node{}
+					if err := proto.Unmarshal(event.Kv.Value, node); err != nil {
 						mlog.Error("解析服务节点失败: %v", err)
-						continue
 					} else {
 						cls.Add(node)
-						mlog.Info(" 添加服务节点: %v", node)
+						mlog.Info(" 添加服务节点: %v", node.String())
 					}
+
 				case clientv3.EventTypeDelete:
 					id := cast.ToInt32(path.Base(string(event.Kv.Key)))
 					typ := cast.ToInt32(path.Base(path.Dir(string(event.Kv.Key))))
-					cls.Del(typ, id)
+					cls.Del(pb.NodeType(typ), id)
 					mlog.Info(" 删除服务节点: %s", event.Kv.Key)
 				}
 			}
@@ -80,7 +82,7 @@ func (e *Etcd) Watch(cls domain.ICluster) error {
 }
 
 // 注册服务节点
-func (d *Etcd) Register(node domain.INode, ttl int64) error {
+func (d *Etcd) Register(node *pb.Node, ttl int64) error {
 	// 1. 创建租约
 	rsp, err := d.client.Grant(context.Background(), ttl)
 	if err != nil {
@@ -90,11 +92,11 @@ func (d *Etcd) Register(node domain.INode, ttl int64) error {
 	defer d.client.Revoke(context.Background(), lease)
 
 	// 2. 序列化节点数据
-	topic := path.Join(d.topic, cast.ToString(node.GetType()), cast.ToString(node.GetId()))
-	buf := make([]byte, node.GetSize())
-	if err := node.WriteTo(buf); err != nil {
-		return err
+	buf, err := proto.Marshal(node)
+	if err != nil {
+		return uerror.New(1, -1, "序列化服务节点失败: %v", err)
 	}
+	topic := path.Join(d.topic, cast.ToString(node.GetType()), cast.ToString(node.GetId()))
 
 	// 3. 保存节点
 	if _, err := d.client.Put(context.Background(),

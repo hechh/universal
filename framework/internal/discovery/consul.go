@@ -1,5 +1,6 @@
 package discovery
 
+/*
 import (
 	"fmt"
 	"path"
@@ -160,3 +161,4 @@ func (d *Consul) Register(node domain.INode, ttl int64) error {
 func (d *Consul) Close() error {
 	return nil
 }
+*/

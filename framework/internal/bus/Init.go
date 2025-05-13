@@ -9,11 +9,8 @@ import (
 type OpOption func(*Op)
 
 type Op struct {
-	topic     string
-	routeMgr  domain.IRouterMgr
-	newRoute  func() domain.IRouter
-	newHeader func() domain.IHead
-	newPacket func() domain.IPacket
+	topic    string
+	routeMgr domain.IRouterMgr
 }
 
 func NewOp(opts ...OpOption) *Op {
@@ -27,18 +24,6 @@ func NewOp(opts ...OpOption) *Op {
 func WithTopic(p string) OpOption {
 	return func(o *Op) {
 		o.topic = p
-	}
-}
-
-func WithPacket(p func() domain.IPacket) OpOption {
-	return func(o *Op) {
-		o.newPacket = p
-	}
-}
-
-func WithHead(f func() domain.IHead) OpOption {
-	return func(o *Op) {
-		o.newHeader = f
 	}
 }
 

@@ -1,6 +1,7 @@
 package framework
 
 import (
+	"universal/common/pb"
 	"universal/framework/config"
 	"universal/framework/domain"
 	"universal/framework/internal/actor"
@@ -16,19 +17,19 @@ type Actor struct{ actor.Actor }
 type ActorGroup struct{ actor.ActorGroup }
 
 type Framework struct {
-	self     domain.INode
+	self     *pb.Node
 	routeMgr domain.IRouterMgr
 	actMgr   domain.IActorMgr
 	cls      domain.ICluster
 	dis      domain.IDiscovery
 	net      domain.INetwork
-	newNode  func() domain.INode
-	newHead  func() domain.IHead
+	newNode  func() *pb.Node
+	newHead  func() *pb.Head
 	newRoute func() domain.IRouter
 	newPack  func() domain.IPacket
 }
 
-func (f *Framework) Init(node domain.INode, cfg *config.Config) (err error) {
+func (f *Framework) Init(node *pb.Node, cfg *config.Config) (err error) {
 	f.newNode = cluster.NewNode
 	f.newHead = packet.NewHeader
 	f.newRoute = router.NewRouter

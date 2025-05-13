@@ -1,8 +1,10 @@
 package network
 
+/*
 import (
 	"fmt"
 	"time"
+	"universal/common/pb"
 	"universal/framework/domain"
 	"universal/framework/library/async"
 	"universal/framework/library/mlog"
@@ -19,7 +21,7 @@ type Nsq struct {
 	broadcast *nsq.Consumer         // 广播消费者
 	routeMgr  domain.IRouterMgr     // 路由表
 	newPacket func() domain.IPacket // 解析函数
-	newHeader func() domain.IHead   // 创建函数
+	newHeader func() *pb.Head       // 创建函数
 	newRoute  func() domain.IRouter // 创建函数
 }
 
@@ -73,7 +75,7 @@ func (h *handler) HandleMessage(m *nsq.Message) error {
 }
 
 // Read 实现接收消息的功能
-func (n *Nsq) Listen(node domain.INode, act domain.IActorMgr) error {
+func (n *Nsq) Listen(node *pb.Node, act domain.IActorMgr) error {
 	cfg := nsq.NewConfig()
 	cfg.MaxInFlight = 5
 	cfg.MsgTimeout = 5 * time.Second
@@ -100,7 +102,7 @@ func (n *Nsq) Listen(node domain.INode, act domain.IActorMgr) error {
 	return nil
 }
 
-func (n *Nsq) Send(head domain.IHead, data []byte) error {
+func (n *Nsq) Send(head *pb.Head, data []byte) error {
 	// 封装消息
 	pack := n.newPacket().SetHead(head).SetBody(data).SetRoute(n.routeMgr.Get(head.GetRouteId()))
 	buf := make([]byte, pack.GetSize())
@@ -112,7 +114,7 @@ func (n *Nsq) Send(head domain.IHead, data []byte) error {
 	return n.producer.Publish(topic, buf)
 }
 
-func (n *Nsq) Broadcast(head domain.IHead, data []byte) error {
+func (n *Nsq) Broadcast(head *pb.Head, data []byte) error {
 	// 封装消息
 	pack := n.newPacket().SetHead(head).SetBody(data).SetRoute(n.routeMgr.Get(head.GetRouteId()))
 	buf := make([]byte, pack.GetSize())
@@ -136,3 +138,4 @@ func (n *Nsq) Close() error {
 	}
 	return nil
 }
+*/

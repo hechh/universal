@@ -1,6 +1,7 @@
 package actor
 
 import (
+	"universal/common/pb"
 	"universal/framework/domain"
 	"universal/framework/library/uerror"
 )
@@ -26,16 +27,16 @@ func (mgr *ActorMgr) Get(name string) domain.IActor {
 	return nil
 }
 
-func (mgr *ActorMgr) Send(head domain.IHead, args ...interface{}) error {
-	if ac, ok := mgr.actors[head.GetActorName()]; ok {
+func (mgr *ActorMgr) Send(head *pb.Head, args ...interface{}) error {
+	if ac, ok := mgr.actors[head.ActorName]; ok {
 		return ac.Send(head, args...)
 	}
-	return uerror.New(1, -1, "%s.%s未实现", head.GetActorName(), head.GetFuncName())
+	return uerror.New(1, -1, "%s.%s未实现", head.ActorName, head.FuncName)
 }
 
-func (mgr *ActorMgr) SendRpc(head domain.IHead, data []byte) error {
-	if ac, ok := mgr.actors[head.GetActorName()]; ok {
+func (mgr *ActorMgr) SendRpc(head *pb.Head, data []byte) error {
+	if ac, ok := mgr.actors[head.ActorName]; ok {
 		return ac.SendRpc(head, data)
 	}
-	return uerror.New(1, -1, "%s.%s未实现", head.GetActorName(), head.GetFuncName())
+	return uerror.New(1, -1, "%s.%s未实现", head.ActorName, head.FuncName)
 }

@@ -4,6 +4,7 @@ import (
 	"reflect"
 	"strings"
 	"sync"
+	"universal/common/pb"
 	"universal/framework/domain"
 	"universal/framework/library/uerror"
 )
@@ -42,7 +43,7 @@ func (d *ActorGroup) GetActorName() string {
 	return d.name
 }
 
-func (d *ActorGroup) Register(ac domain.IActor) {
+func (d *ActorGroup) Register(ac domain.IActor, _ ...int) {
 	rtype := reflect.TypeOf(ac)
 	d.name = parseName(rtype)
 	d.actors = make(map[uint64]domain.IActor)
@@ -59,9 +60,9 @@ func (d *ActorGroup) ParseFunc(rr interface{}) {
 	}
 }
 
-func (d *ActorGroup) Send(h domain.IHead, args ...interface{}) error {
-	if _, ok := d.funcs[h.GetFuncName()]; !ok {
-		return uerror.New(1, -1, "%s.%s未实现", h.GetActorName(), h.GetFuncName())
+func (d *ActorGroup) Send(h *pb.Head, args ...interface{}) error {
+	if _, ok := d.funcs[h.FuncName]; !ok {
+		return uerror.New(1, -1, "%s.%s未实现", h.ActorName, h.FuncName)
 	}
 	if act := d.GetActor(h.GetRouteId()); act != nil {
 		return act.Send(h, args...)
@@ -69,9 +70,9 @@ func (d *ActorGroup) Send(h domain.IHead, args ...interface{}) error {
 	return uerror.New(1, -1, "Actor不存在: %d", h.GetRouteId())
 }
 
-func (d *ActorGroup) SendRpc(h domain.IHead, buf []byte) error {
-	if _, ok := d.funcs[h.GetFuncName()]; !ok {
-		return uerror.New(1, -1, "%s.%s未实现", h.GetActorName(), h.GetFuncName())
+func (d *ActorGroup) SendRpc(h *pb.Head, buf []byte) error {
+	if _, ok := d.funcs[h.FuncName]; !ok {
+		return uerror.New(1, -1, "%s.%s未实现", h.ActorName, h.FuncName)
 	}
 	if act := d.GetActor(h.GetRouteId()); act != nil {
 		return act.SendRpc(h, buf)

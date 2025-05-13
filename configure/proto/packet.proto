@@ -1,0 +1,49 @@
+syntax = "proto3";
+package packet;
+
+option go_package = "./pb";
+
+message Head {
+  int32 SrcNodeType = 1;
+  int32 SrcNodeId = 2;
+  int32 DstNodeType = 3;
+  int32 DstNodeId = 4;
+  uint64 RouteId = 5;
+  uint64 Id = 6;
+  string ActorName = 7;
+  string FuncName = 8;
+  string Reply = 9;
+}
+
+message Router {
+  int32 Gate = 1;
+  int32 Game = 2;
+  int32 Gm = 3;
+  int32 Db = 4;
+  int32 Room = 5;
+  int32 Match = 6;
+}
+
+message Packet {
+  Head Head = 1;
+  Router Router = 2;
+  bytes Body = 3;
+}
+
+enum NodeType {
+  Begin = 0;
+  Gate = 1;
+  Game = 2;
+  Gm = 3;
+  Db = 4;
+  Room = 5;
+  Match = 6;
+  End = 7;
+}
+
+message Node {
+  string Name = 1;
+  string Addr = 2;
+  int32 Type = 3;
+  int32 Id = 4;
+}
