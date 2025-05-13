@@ -1,6 +1,9 @@
 package router
 
-import "universal/framework/domain"
+import (
+	"universal/framework/domain"
+	"universal/framework/global"
+)
 
 type Route struct {
 	gate  int32 // 网关
@@ -48,15 +51,15 @@ func (d *Route) ReadFrom(buf []byte) error {
 
 func (d *Route) Get(nodeType int32) int32 {
 	switch nodeType {
-	case int32(domain.NodeTypeGate):
+	case int32(global.NodeTypeGate):
 		return d.gate
-	case int32(domain.NodeTypeGame):
+	case int32(global.NodeTypeGame):
 		return d.game
-	case int32(domain.NodeTypeDb):
+	case int32(global.NodeTypeDb):
 		return d.db
-	case int32(domain.NodeTypeRoom):
+	case int32(global.NodeTypeRoom):
 		return d.room
-	case int32(domain.NodeTypeMatch):
+	case int32(global.NodeTypeMatch):
 		return d.match
 	}
 	return d.gate
@@ -64,15 +67,15 @@ func (d *Route) Get(nodeType int32) int32 {
 
 func (d *Route) Set(nodeType, nodeId int32) {
 	switch nodeType {
-	case int32(domain.NodeTypeGate):
+	case int32(global.NodeTypeGate):
 		d.gate = nodeId
-	case int32(domain.NodeTypeGame):
+	case int32(global.NodeTypeGame):
 		d.game = nodeId
-	case int32(domain.NodeTypeDb):
+	case int32(global.NodeTypeDb):
 		d.db = nodeId
-	case int32(domain.NodeTypeRoom):
+	case int32(global.NodeTypeRoom):
 		d.room = nodeId
-	case int32(domain.NodeTypeMatch):
+	case int32(global.NodeTypeMatch):
 		d.match = nodeId
 	}
 }

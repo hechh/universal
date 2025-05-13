@@ -5,6 +5,7 @@ import (
 	"sync/atomic"
 	"time"
 	"universal/framework/domain"
+	"universal/framework/global"
 	"universal/framework/library/async"
 	"universal/framework/library/mlog"
 )
@@ -54,7 +55,7 @@ func (d *RouterMgr) Get(routeId uint64) domain.IRouter {
 func (d *RouterMgr) Set(routeId uint64, info domain.IRouter) {
 	route := d.Get(routeId).(*RouteInfo)
 	now := time.Now().Unix()
-	for i := int32(domain.NodeTypeBegin) + 1; i < int32(domain.NodeTypeMax); i++ {
+	for i := int32(global.NodeTypeBegin) + 1; i < int32(global.NodeTypeMax); i++ {
 		if info.Get(i) > 0 && route.Get(i) != info.Get(i) {
 			route.Set(i, info.Get(i))
 			atomic.StoreInt64(&route.updateTime, now)

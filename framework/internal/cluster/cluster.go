@@ -3,6 +3,7 @@ package cluster
 import (
 	"sync"
 	"universal/framework/domain"
+	"universal/framework/global"
 	"universal/framework/library/mlog"
 	"universal/framework/library/random"
 )
@@ -18,7 +19,7 @@ type Cluster struct {
 
 func NewCluster() *Cluster {
 	pools := make(map[int32]*pool)
-	for i := domain.NodeTypeBegin + 1; i < domain.NodeTypeMax; i++ {
+	for i := global.NodeTypeBegin + 1; i < global.NodeTypeMax; i++ {
 		pools[int32(i)] = new(pool)
 	}
 	return &Cluster{pools: pools}

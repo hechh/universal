@@ -6,23 +6,7 @@ import (
 	"sync"
 	"universal/framework/domain"
 	"universal/framework/library/uerror"
-
-	"github.com/golang/protobuf/proto"
 )
-
-var (
-	headType  = reflect.TypeOf((*domain.IHead)(nil)).Elem()
-	errorType = reflect.TypeOf((*error)(nil)).Elem()
-	protoType = reflect.TypeOf((*proto.Message)(nil)).Elem()
-)
-
-type FuncInfo struct {
-	reflect.Method
-	hasHead    bool
-	hasError   bool
-	isVariadic bool
-	isProto    bool
-}
 
 type ActorGroup struct {
 	name   string

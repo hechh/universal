@@ -1,28 +1,5 @@
 package domain
 
-// 节点类型
-type NodeType int32
-
-const (
-	NodeTypeBegin NodeType = 0 // 未知
-	NodeTypeGate  NodeType = 1 // 网关
-	NodeTypeGame  NodeType = 2 // 游戏服务
-	NodeTypeDb    NodeType = 3 // 数据服务
-	NodeTypeRoom  NodeType = 4 // 房间服务
-	NodeTypeMatch NodeType = 5 // 匹配服务
-	NodeTypeMax   NodeType = 6 // 最大节点类型
-)
-
-var (
-	NodeType_name = map[int32]string{
-		int32(NodeTypeGate):  "gate",
-		int32(NodeTypeGame):  "game",
-		int32(NodeTypeDb):    "db",
-		int32(NodeTypeRoom):  "room",
-		int32(NodeTypeMatch): "match",
-	}
-)
-
 type IBytes interface {
 	GetSize() int          // 获取协议头大小
 	WriteTo([]byte) error  // 写入数据
@@ -123,8 +100,9 @@ type IDiscovery interface {
 
 // 网络接口
 type INetwork interface {
-	Receive(node INode, mgr IActorMgr) error // 监听消息
+	Listen(node INode, mgr IActorMgr) error  // 监听消息
 	Send(head IHead, data []byte) error      // 发送消息
 	Broadcast(head IHead, data []byte) error // 广播消息
 	Close() error                            // 关闭网络
+	//	Request(head IHead, data []byte) error   // 请求消息
 }

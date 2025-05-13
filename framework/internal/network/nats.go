@@ -40,7 +40,7 @@ func (n *Nats) sendTopic(t, id int32) string {
 	return fmt.Sprintf("%s/%d/%d", n.topic, t, id)
 }
 
-func (n *Nats) Receive(node domain.INode, act domain.IActorMgr) error {
+func (n *Nats) Listen(node domain.INode, act domain.IActorMgr) error {
 	if _, err := n.client.Subscribe(n.sendTopic(node.GetType(), node.GetId()), func(msg *nats.Msg) {
 		// 解析包
 		pack := n.newPacket()

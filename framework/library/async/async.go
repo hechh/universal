@@ -3,7 +3,6 @@ package async
 import (
 	"sync"
 	"sync/atomic"
-	"universal/library/baselib/queue"
 )
 
 const (
@@ -14,7 +13,7 @@ const (
 type Async struct {
 	sync.WaitGroup
 	status int32         // actor运行状态
-	tasks  *queue.Queue  // 任务队列
+	tasks  *Queue        // 任务队列
 	pushCh chan struct{} // 消耗通知
 	exitCh chan struct{} // 退出
 }
@@ -22,7 +21,7 @@ type Async struct {
 func NewAsync() *Async {
 	return &Async{
 		status: STATUS_STOP,
-		tasks:  queue.NewQueue(),
+		tasks:  NewQueue(),
 		pushCh: make(chan struct{}, 1),
 		exitCh: make(chan struct{}, 0),
 	}

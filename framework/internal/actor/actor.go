@@ -2,7 +2,6 @@ package actor
 
 import (
 	"reflect"
-	"strings"
 	"universal/framework/domain"
 	"universal/framework/library/async"
 	"universal/framework/library/encode"
@@ -26,11 +25,7 @@ func (a *Actor) GetActorName() string {
 func (a *Actor) Register(ac domain.IActor) {
 	a.Async = async.NewAsync()
 	a.rval = reflect.ValueOf(ac)
-	name := a.rval.Elem().Type().Name()
-	if index := strings.Index(name, "."); index > -1 {
-		name = name[index+1:]
-	}
-	a.name = name
+	a.name = parseName(a.rval.Elem().Type())
 }
 
 func (d *Actor) ParseFunc(tt interface{}) {

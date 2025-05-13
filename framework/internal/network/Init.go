@@ -1,8 +1,8 @@
 package network
 
 import (
-	"universal/framework/config"
 	"universal/framework/domain"
+	"universal/framework/global"
 	"universal/framework/library/uerror"
 )
 
@@ -54,7 +54,7 @@ func WithRouteMgr(rr domain.IRouterMgr) OpOption {
 	}
 }
 
-func Init(cfg *config.Config, opts ...OpOption) (domain.INetwork, error) {
+func Init(cfg *global.Config, opts ...OpOption) (domain.INetwork, error) {
 	if cfg.Nats != nil {
 		dd, err := NewNats(cfg.Nats.Endpoints, opts...)
 		if err != nil {

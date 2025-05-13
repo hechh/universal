@@ -1,8 +1,8 @@
 package discovery
 
 import (
-	"universal/framework/config"
 	"universal/framework/domain"
+	"universal/framework/global"
 	"universal/framework/library/uerror"
 )
 
@@ -33,7 +33,7 @@ func WithNode(p func() domain.INode) OpOption {
 	}
 }
 
-func Init(cfg *config.Config, opts ...OpOption) (domain.IDiscovery, error) {
+func Init(cfg *global.Config, opts ...OpOption) (domain.IDiscovery, error) {
 	if cfg.Etcd != nil {
 		dis, err := NewEtcd(cfg.Etcd.Endpoints, opts...)
 		if err != nil {

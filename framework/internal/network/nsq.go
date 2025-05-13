@@ -73,7 +73,7 @@ func (h *handler) HandleMessage(m *nsq.Message) error {
 }
 
 // Read 实现接收消息的功能
-func (n *Nsq) Receive(node domain.INode, act domain.IActorMgr) error {
+func (n *Nsq) Listen(node domain.INode, act domain.IActorMgr) error {
 	cfg := nsq.NewConfig()
 	cfg.MaxInFlight = 5
 	cfg.MsgTimeout = 5 * time.Second
