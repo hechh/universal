@@ -2,99 +2,57 @@ package main
 
 import (
 	"flag"
-	"os"
 	"path/filepath"
-	"universal/framework/basic"
-	"universal/tools/gomaker/domain"
-	"universal/tools/gomaker/internal/base"
-	"universal/tools/gomaker/internal/manager"
-	"universal/tools/gomaker/internal/parser"
-	"universal/tools/gomaker/repository"
+
+	"forevernine.com/planet/server/tool/gomaker/internal/manager"
+
+	"forevernine.com/planet/server/tool/gomaker/repository/dbsrv"
+	"forevernine.com/planet/server/tool/gomaker/repository/module"
+	"forevernine.com/planet/server/tool/gomaker/repository/redis"
+	"forevernine.com/planet/server/tool/gomaker/repository/reward"
+	"forevernine.com/planet/server/tool/gomaker/repository/secure"
+	"forevernine.com/planet/server/tool/gomaker/repository/xerror"
+	"forevernine.com/planet/server/tool/gomaker/repository/xlsx"
+
+	"forevernine.com/planet/server/tool/gomaker/internal/base"
+	"forevernine.com/planet/server/tool/gomaker/internal/service"
 )
 
 func init() {
-	flag.Usage = func() {
-		flag.PrintDefaults()
-		manager.Help()
-	}
-	repository.Init()
+	redis.Init()
+	xlsx.Init()
+	dbsrv.Init()
+	reward.Init()
+	xerror.Init()
+	module.Init()
+	secure.Init()
 }
 
 func main() {
-	cwd, err := os.Getwd()
-	if err != nil {
-		base.Panic(err)
-	}
-	GetArgs(cwd).Handle()
-}
-
-type Args struct {
-	action string // 模式
-	xlsx   string // xlsx文件目录
-	src    string // 解析原文件目录
-	dst    string // 生成go文件目录
-	param  string // action模式参数
-}
-
-func GetArgs(cwd string) *Args {
-	ret := new(Args)
-	flag.StringVar(&ret.action, "action", "", "操作模式")
-	flag.StringVar(&ret.xlsx, "xlsx", "", "xlsx文件目录")
-	flag.StringVar(&ret.param, "param", "", "参数")
-	flag.StringVar(&ret.src, "src", "", "原文件目录")
-	flag.StringVar(&ret.dst, "dst", "", "生成文件目录")
+	// 解析命令行
+	var action, name, rule, path string
+	flag.StringVar(&action, "a", "", "规则类型")
+	flag.StringVar(&path, "p", "", "生成代码路径")
+	flag.StringVar(&name, "n", "", "名字(例如pbname,xlsx文件名等)")
+	flag.StringVar(&rule, "r", "", "规则(例如gomaker:xxx:aa|xxx|...)")
 	flag.Parse()
-	ret.xlsx = filepath.Clean(filepath.Join(cwd, ret.xlsx))
-	ret.src = filepath.Clean(filepath.Join(cwd, ret.src))
-	ret.dst = filepath.Clean(filepath.Join(cwd, ret.dst))
-	return ret
-}
-
-func (d *Args) Handle() {
-	switch d.action {
-	case "proto", "config":
-		d.handleXlsx()
-	default:
-		d.handleGo()
+	// 生成路径
+	if len(path) > 0 {
+		path = filepath.Join(base.ROOT, path)
 	}
-}
-
-func (d *Args) handleXlsx() {
-	// 解析自定义proto文件
-	/*
-		protos, err := basic.Glob(d.src, ".*\\.proto", ".*.gen.proto", true)
-		if err != nil {
-			base.Panic(err)
-		}
-		ppar := &parser.PbParser{}
-		for _, filename := range protos {
-			if err := ppar.ParseFile(filename); err != nil {
-				base.Panic(err)
-			}
-		}
-	*/
-	// 解析xlsx文件生成表
-	files, err := basic.Glob(d.xlsx, ".*\\.xlsx", "", true)
+	// 添加规则
+	if len(rule) > 0 {
+		manager.ParseRule(name, "//@"+rule)
+	}
+	// 需要解析的文件
+	files, err := filepath.Glob(filepath.Join(base.ROOT, "common/pbclass/*.pb.go"))
 	if err != nil {
-		base.Panic(err)
+		panic(err)
 	}
-	par := &parser.XlsxParser{}
-	if err := par.ParseFiles(files...); err != nil {
-		base.Panic(err)
-	}
-	// 生成文件
-	base.Panic(manager.Generator(d.action, d.dst))
-}
+	files = append(files, filepath.Join(base.ROOT, "/srv/dbsrv/internal/biz/proc/internal/const.go"))
 
-func (d *Args) handleGo() {
-	// 加载所有go文件
-	files, err := basic.Glob(d.src, ".*\\.pb\\.go", "", true)
-	if err != nil {
-		base.Panic(err)
-	}
-	// 以目的目录设置pkg
-	domain.DefaultPkg = filepath.Base(d.dst)
-	base.Panic(base.ParseFiles(&parser.Parser{}, files...))
-	// 生成go文件
-	base.Panic(manager.Generator(d.action, d.dst, d.param))
+	// 解析文件
+	service.ParseFiles(files...)
+	// 生成代码
+	service.GenCode(path, action)
 }

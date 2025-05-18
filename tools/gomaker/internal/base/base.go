@@ -1,84 +1,182 @@
 package base
 
 import (
-	"go/ast"
-	"go/parser"
-	"go/token"
+	"bytes"
+	"go/format"
 	"io/ioutil"
 	"os"
+	"path"
 	"path/filepath"
+	"runtime"
+	"strings"
 	"unicode"
-	"universal/framework/basic"
-	"universal/framework/uerror"
 )
 
-func Panic(err interface{}) {
-	switch vv := err.(type) {
-	case nil:
-	case *uerror.UError:
-		panic(vv.String())
-	default:
+var ROOT = AbsPath("../../../../")
+
+// 获取绝对路径
+func AbsPath(file string) string {
+	_, filename, _, _ := runtime.Caller(1)
+	datapath := filepath.Join(path.Dir(filename), file)
+	abs, _ := filepath.Abs(datapath)
+	return abs
+}
+
+func Must(err error) {
+	if err != nil {
 		panic(err)
 	}
 }
 
-// 解析go文件
-func ParseFiles(v ast.Visitor, files ...string) error {
-	fset := token.NewFileSet()
-	for _, filename := range files {
-		// 解析语法树
-		fs, err := parser.ParseFile(fset, filename, nil, parser.ParseComments)
-		if err != nil {
-			return uerror.NewUError(1, -1, "filename: %v, error: %v", filename, err)
+func StringIndex(str string, ch byte) (result []int) {
+	result = []int{-1}
+	for i := 0; i < len(str); i++ {
+		if str[i] == ch {
+			result = append(result, i)
 		}
-
-		// 遍历语法树
-		ast.Walk(v, fs)
 	}
-	return nil
+	result = append(result, len(str))
+	return
 }
 
-func SaveFile(filename string, buf []byte) error {
-	// 创建目录
-	if err := os.MkdirAll(filepath.Dir(filename), os.FileMode(0777)); err != nil {
-		return uerror.NewUError(1, -1, "filename: %s, error: %v", filename, err)
+func StringSplit(str string, ch byte, f func(str string)) {
+	j := -1
+	for i := 0; i <= len(str); i++ {
+		if i == len(str) || ch == str[i] {
+			f(str[j+1 : i])
+			j = i
+		}
 	}
-
-	// 写入文件
-	if err := ioutil.WriteFile(filename, buf, os.FileMode(0666)); err != nil {
-		return uerror.NewUError(1, -1, "filename: %s, error: %v", filename, err)
-	}
-	return nil
 }
 
-/*
-// 打开所有tpl模板文件
-func OpenTemplate(dir string, pattern, filter string, recursive bool) (*template.Template, error) {
-	files, err := basic.Glob(dir, pattern, filter, recursive)
+func RuleSplit(str string) (index []int, rule, desc string) {
+	if pos := strings.LastIndex(str, "|#"); pos > 0 {
+		desc = str[pos+2:]
+		str = str[:pos]
+	}
+	index = StringIndex(str, '|')
+	rule = str
+	return
+}
+
+// 将驼峰命名分割
+func splitWord(pbname []byte, data *[]string) {
+	var index int
+	// 连续大写匹配
+	for ; index < len(pbname) && unicode.IsUpper(rune(pbname[index])); index++ {
+	}
+	// 连续小写匹配
+	if index <= 1 {
+		for ; index < len(pbname) && !unicode.IsUpper(rune(pbname[index])); index++ {
+		}
+	} else if index+1 < len(pbname) {
+		index--
+	}
+	*data = append(*data, strings.ToLower(string(pbname[:index])))
+	if index < len(pbname) {
+		splitWord(pbname[index:], data)
+	}
+}
+
+func ToCmd(x string) string {
+	tmp := []string{}
+	if !strings.Contains(strings.ToLower(x), "cmd") {
+		tmp = append(tmp, "CMD")
+	}
+	splitWord([]byte(x), &tmp)
+	return strings.ToUpper(strings.Join(tmp, "_"))
+}
+
+func ToEvent(x string) string {
+	tmp := []string{}
+	splitWord([]byte(x), &tmp)
+	return strings.ToUpper(strings.Join(tmp, "_"))
+}
+
+func FirstToBig(x string) string {
+	if len(x) <= 0 {
+		return x
+	}
+	ret := []byte(x)
+	ret[0] = byte(unicode.ToUpper(rune(x[0])))
+	return string(ret)
+}
+
+func FirstToLow(x string) string {
+	if len(x) <= 0 {
+		return x
+	}
+	ret := []byte(x)
+	ret[0] = byte(unicode.ToLower(rune(x[0])))
+	return string(ret)
+}
+
+// 小写 + 下划线 格式
+func ToUnderline(pbname string) string {
+	buf := []string{}
+	splitWord([]byte(pbname), &buf)
+	return strings.Join(buf, "_")
+}
+
+func ToBigHump(name string) string {
+	if len(name) <= 0 {
+		return ""
+	}
+	result := []byte(strings.ToLower(name))
+	result[0] = byte(unicode.ToUpper(rune(name[0])))
+	return string(result)
+}
+
+func isFile(filename string) bool {
+	_, err := os.Lstat(filename)
+	return !os.IsNotExist(err)
+}
+
+func GenProto(buf *bytes.Buffer, gfile string, flag bool) {
+	if !flag && isFile(gfile) {
+		return
+	}
+	// 生成文档
+	if err := os.MkdirAll(filepath.Dir(gfile), os.FileMode(0777)); err != nil {
+		panic(err)
+		return
+	}
+	if err := ioutil.WriteFile(gfile, buf.Bytes(), os.FileMode(0666)); err != nil {
+		panic(err)
+	}
+}
+
+func GenGo(buf *bytes.Buffer, gfile string, flag bool) {
+	if !flag && isFile(gfile) {
+		return
+	}
+	// 格式化
+	result, err := format.Source(buf.Bytes())
 	if err != nil {
-		return nil, uerror.NewUError(1, -1, "%v", err)
+		ioutil.WriteFile("./gen.go", buf.Bytes(), os.FileMode(0644))
+		panic(err)
+		return
 	}
-	if len(files) > 0 {
-		return template.Must(template.ParseFiles(files...)), nil
+	// 生成文档
+	if err := os.MkdirAll(filepath.Dir(gfile), os.FileMode(0777)); err != nil {
+		panic(err)
+		return
 	}
-	return nil, nil
+	if err := ioutil.WriteFile(gfile, result, os.FileMode(0666)); err != nil {
+		panic(err)
+	}
 }
-*/
 
-// 大小写转成下划线
-func ToUnderline(word string) string {
-	result := []byte{}
-	for i, ch := range word {
-		if !unicode.IsUpper(ch) {
-			result = append(result, byte(ch))
-		} else {
-			if i == 0 {
-				result = append(result, byte(unicode.ToLower(ch)))
-			} else {
-				result = append(result, '_')
-				result = append(result, byte(unicode.ToLower(ch)))
-			}
+func TrimSpace(str string) string {
+	j := -1
+	buf := []byte(str)
+	for _, val := range buf {
+		if val == ' ' {
+			continue
 		}
+		j++
+		buf[j] = val
 	}
-	return basic.BytesToString(result)
+	buf = buf[:j+1]
+	return string(buf)
 }

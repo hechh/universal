@@ -1,50 +1,102 @@
 package domain
 
-var (
-	DefaultPkg = "pb"
-	// 基础数据类型, go类型映射到proto类型
-	BasicTypes = map[string]bool{
-		"uint32":  true,
-		"uint64":  true,
-		"int":     true,
-		"int32":   true,
-		"int64":   true,
-		"bool":    true,
-		"float32": true,
-		"float64": true,
-		"string":  true,
-		"[]byte":  true,
-	}
-)
-
-// 配置表规则
 const (
-	RuleTypeEnum       = "E:"
-	GomakerTypeEnum    = "@gomaker:enum"
-	GomakerTypeMessage = "@gomaker:message"
-	GenTable           = "生成表"
-	DefaultEnumClass   = "other"
-	SYNTAX             = "syntax"
-	PACKAGE            = "package"
-	OPTION             = "option"
-	IMPORT             = "import"
-	MESSAGE            = "message"
-	ENUM               = "enum"
-	KindTypeIdent      = 0
-	KindTypeEnum       = 1
-	KindTypeAlias      = 2
-	KindTypeStruct     = 3
-	TokenTypeNone      = 0
-	TokenTypePointer   = 1
-	TokenTypeArray     = 2
-	TokenTypeMap       = 3
-	SourceTypeXlsx     = 1
-	SourceTypeProto    = 2
-	SourceTypeGo       = 3
+	INIT    = 0
+	BASE    = 0x01 // 基础类型
+	ENUM    = 0x02 // 枚举类型
+	STRUCT  = 0x04 // 自定义类型
+	POINTER = 0x08 // 指针类型
+	ARRAY   = 0x10 // 数据类型
 )
 
-// 代码生成
-type GenFunc func(dst string, extra ...string) error
+type AstType struct {
+	Token int32
+	Name  string
+}
 
-// xlsx转bytes
-type ConvFunc func(string) interface{}
+type AstField struct {
+	Type *AstType
+	Name string
+}
+
+type AstMapField struct {
+	KType *AstType
+	VType *AstType
+	Name  string
+}
+
+type AstValue struct {
+	Type   *AstType
+	Name   string
+	Value  int32
+	StrVal string
+}
+
+type AstEnum struct {
+	Type   *AstType
+	Values map[string]*AstValue // field = value
+}
+
+type AstStruct struct {
+	Type   *AstType
+	Idents []*AstField
+	Arrays []*AstField
+	Maps   []*AstMapField
+}
+
+func (d *AstType) IsPointer() bool {
+	return d.Token&POINTER > 0
+}
+func (d *AstType) IsBase() bool {
+	return d.Token&BASE > 0
+}
+func (d *AstType) IsEnum() bool {
+	return d.Token&ENUM > 0
+}
+func (d *AstType) IsStruct() bool {
+	return d.Token&STRUCT > 0
+}
+func (d *AstType) IsArray() bool {
+	return d.Token&ARRAY > 0
+}
+
+func (d *AstType) GetType() string {
+	ret := ""
+	if d.Token&ARRAY > 0 {
+		ret += "[]"
+	}
+	if d.Token&POINTER > 0 {
+		ret += "*"
+	}
+	if d.Token&ENUM > 0 || d.Token&STRUCT > 0 {
+		ret += "pb."
+	}
+	return ret + d.Name
+}
+
+func (d *AstType) IsReward() bool {
+	return (d.Name == "Reward") && (d.Token&STRUCT > 0)
+}
+
+// ----- safe -----
+func (d *AstField) GetNameS() string {
+	return "_" + d.Name
+}
+
+func (d *AstMapField) GetNameS() string {
+	return "_" + d.Name
+}
+
+func (d *AstType) GetTypeS() string {
+	ret := ""
+	if d.Token&ARRAY > 0 {
+		ret += "[]"
+	}
+	if d.Token&POINTER > 0 {
+		ret += "*"
+	}
+	if d.Token&STRUCT > 0 {
+		return ret + d.Name + "S"
+	}
+	return ret + d.Name
+}
