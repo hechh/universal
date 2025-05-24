@@ -4,29 +4,30 @@ import (
 	"context"
 	"fmt"
 	"time"
-	"universal/common/dao/domain"
 	"universal/common/dao/internal/redis"
-	"universal/common/global"
+	"universal/common/yaml"
 
 	goredis "github.com/go-redis/redis/v8"
 )
 
 var (
-	redisPool = make(map[uint32]*redis.RedisClient)
+	redisPool = make(map[string]*redis.RedisClient)
 )
 
-func InitRedis(cfgs map[uint32]*global.DbConfig) error {
+func InitRedis(cfgs map[int32]*yaml.RedisConfig) error {
 	if len(cfgs) <= 0 {
 		return fmt.Errorf("redis配置为空")
 	}
-	for dbid, cfg := range cfgs {
+	for _, cfg := range cfgs {
 		// 建立redis连接
 		cli := goredis.NewClient(&goredis.Options{
 			IdleTimeout:  1 * time.Minute,
 			MinIdleConns: 100,
+			DB:           cfg.Db,
 			ReadTimeout:  -1,
 			WriteTimeout: -1,
 			Addr:         cfg.Host,
+			Username:     cfg.User,
 			Password:     cfg.Password,
 			OnConnect:    func(ctx context.Context, cn *goredis.Conn) error { return nil },
 		})
@@ -34,15 +35,11 @@ func InitRedis(cfgs map[uint32]*global.DbConfig) error {
 		if _, err := cli.Ping(context.Background()).Result(); err != nil {
 			return fmt.Errorf("Redis connecting is failed, error: %v, cfg: %v", err, cfg)
 		}
-		redisPool[dbid] = redis.NewRedisClient(cli, cfg.DbName)
+		redisPool[cfg.DbName] = redis.NewRedisClient(cli, cfg.DbName)
 	}
 	return nil
 }
 
-func GetRedis(dbid uint32) *redis.RedisClient {
+func GetRedis(dbid string) *redis.RedisClient {
 	return redisPool[dbid]
-}
-
-func GetRedisByUID(uid uint64) *redis.RedisClient {
-	return GetRedis(uint32(uid&domain.MIN_ACCOUNT_ID/domain.MAX_GROUP_ACCOUNT) + 1)
 }

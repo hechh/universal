@@ -2,136 +2,133 @@ package parse
 
 import (
 	"go/ast"
+	"go/parser"
 	"go/token"
 	"strings"
-	"universal/library/baselib/uerror"
+	"universal/library/uerror"
 	"universal/tools/pbtool/domain"
+	"universal/tools/pbtool/internal/base"
 	"universal/tools/pbtool/internal/manager"
-	"universal/tools/pbtool/internal/typespec"
 
-	"github.com/spf13/cast"
+	"github.com/iancoleman/strcase"
 )
 
 type Parser struct {
-	pkg string
-	doc *ast.CommentGroup
+	rule string
+}
+
+// 解析go文件
+func ParseFiles(v ast.Visitor, files ...string) error {
+	fset := token.NewFileSet()
+	for _, filename := range files {
+		// 解析语法树
+		fs, err := parser.ParseFile(fset, filename, nil, parser.ParseComments)
+		if err != nil {
+			return uerror.New(1, -1, "filename: %v, error: %v", filename, err)
+		}
+		// 遍历语法树
+		ast.Walk(v, fs)
+	}
+	return nil
 }
 
 func (d *Parser) Visit(node ast.Node) ast.Visitor {
 	switch n := node.(type) {
 	case *ast.File:
-		d.pkg = n.Name.Name
 		return d
 	case *ast.GenDecl:
-		d.doc = n.Doc
-		if n.Tok == token.TYPE {
-			return d
+		d.rule = ""
+		if n.Doc == nil || len(n.Doc.List) <= 0 || n.Tok != token.TYPE {
+			return nil
 		}
-		if n.Tok == token.CONST && len(n.Specs) > 0 {
-			Panic(manager.AddEnum(d.parseEnum(n)))
+		for _, str := range n.Doc.List {
+			rule := strings.TrimPrefix(str.Text, "//")
+			rule = strings.TrimSpace(rule)
+			if strings.HasPrefix(rule, domain.RULE_HEAD) {
+				rule = strings.TrimPrefix(rule, domain.RULE_HEAD)
+				d.rule = rule
+			}
 		}
-		return nil
+		if len(d.rule) <= 0 {
+			return nil
+		}
+		return d
 	case *ast.TypeSpec:
-		switch n.Type.(type) {
+		switch vv := n.Type.(type) {
 		case *ast.StructType:
-			Panic(manager.AddStruct(d.parseStruct(n)))
+			strs := strings.Split(d.rule, "|")
+			switch strings.ToLower(strs[0]) {
+			case domain.STRING:
+				if item := parseString(n.Name.Name, vv, strs...); item != nil {
+					manager.AddString(item)
+				}
+			case domain.HASH:
+				if item := parseHash(n.Name.Name, vv, strs...); item != nil {
+					manager.AddHash(item)
+				}
+			}
+		}
+	}
+	return nil
+}
+
+func parseHash(name string, vv *ast.StructType, strs ...string) *base.Hash {
+	desc := ""
+	if len(strs) > 4 {
+		desc = strs[4]
+	}
+	kfmt, keys := parseKey(strs[2])
+	ffmt, fields := parseKey(strs[3])
+	return &base.Hash{
+		Pkg:     strcase.ToSnake(name),
+		Name:    name,
+		DbName:  strs[1],
+		Desc:    desc,
+		KFormat: kfmt,
+		Keys:    keys,
+		FFormat: ffmt,
+		Fields:  fields,
+	}
+}
+
+func parseString(name string, vv *ast.StructType, strs ...string) *base.String {
+	desc := ""
+	if len(strs) > 3 {
+		desc = strs[3]
+	}
+	format, keys := parseKey(strs[2])
+
+	// 初始化
+	return &base.String{
+		Pkg:    strcase.ToSnake(name),
+		Name:   name,
+		DbName: strs[1],
+		Desc:   desc,
+		Format: format,
+		Keys:   keys,
+	}
+}
+
+func parseKey(str string) (format string, ffs []*base.Field) {
+	ffmts := []string{}
+	var keys []string
+	if index := strings.Index(str, ":"); index > 0 {
+		ffmts = strings.Split(str[:index], ",")
+		keys = strings.Split(str[index+1:], ",")
+	} else {
+		keys = strings.Split(str, ",")
+	}
+	// 解析key类型
+	for _, key := range keys {
+		lls := strings.Split(key, "@")
+		switch strings.ToLower(lls[1]) {
+		case "string":
+			ffmts = append(ffmts, "%s")
 		default:
-			Panic(manager.AddAlias(d.parseAlias(n)))
+			ffmts = append(ffmts, "%d")
 		}
+		ffs = append(ffs, &base.Field{Name: lls[0], Type: lls[1]})
 	}
-	return nil
-}
-
-func (d *Parser) parseStruct(n *ast.TypeSpec) *typespec.Struct {
-	list := []*typespec.Field{}
-	for i, field := range n.Type.(*ast.StructType).Fields.List {
-		tt, tos := d.parseType(domain.KindTypeIdent, domain.SourceTypeGo, d.pkg, field.Type)
-		list = append(list, typespec.FIELD(tt, field.Names[0].Name, i+1, d.parseTag(field.Tag), d.parseDoc(field.Comment), tos...))
-	}
-	ttt := manager.GetType(domain.KindTypeStruct, domain.SourceTypeGo, d.pkg, n.Name.Name, "")
-	return typespec.STRUCT(ttt, d.parseDoc(n.Doc), list...)
-}
-
-func (d *Parser) parseAlias(n *ast.TypeSpec) *typespec.Alias {
-	tt, tos := d.parseType(domain.KindTypeIdent, domain.SourceTypeGo, d.pkg, n.Type)
-	ttt := manager.GetType(domain.KindTypeAlias, domain.SourceTypeGo, d.pkg, n.Name.Name, "")
-	return typespec.ALIAS(ttt, tt, d.parseDoc(n.Doc), tos...)
-}
-
-func (d *Parser) parseEnum(n *ast.GenDecl) *typespec.Enum {
-	values := []*typespec.Value{}
-	for _, spec := range n.Specs {
-		vv, ok := spec.(*ast.ValueSpec)
-		// 过滤非枚举的常量定义
-		if !ok || vv == nil || vv.Type == nil {
-			continue
-		}
-		// 解析
-		tt, _ := d.parseType(domain.KindTypeEnum, domain.SourceTypeGo, d.pkg, vv.Type)
-		vall := cast.ToInt32(vv.Values[0].(*ast.BasicLit).Value)
-		values = append(values, typespec.VALUE(tt, vv.Names[0].Name, vall, d.parseDoc(vv.Comment)))
-	}
-	if len(values) > 0 {
-		return typespec.ENUM(values[0].Type, d.parseDoc(n.Doc), values...)
-	}
-	return nil
-}
-
-func (d *Parser) parseTag(tt *ast.BasicLit) string {
-	if tt != nil {
-		return tt.Value
-	}
-	return ""
-}
-
-func (d *Parser) parseDoc(doc *ast.CommentGroup) string {
-	if doc == nil {
-		return ""
-	}
-	ll := len(doc.List)
-	if ll <= 0 {
-		return ""
-	}
-	return strings.TrimSpace(strings.TrimPrefix(doc.List[ll-1].Text, "//"))
-}
-
-func (d *Parser) parseType(kind, source int32, pkg string, n ast.Expr) (*typespec.Type, []rune) {
-	tt := typespec.TYPE(kind, source, pkg, "", "")
-	token := []rune{}
-	parseAstType(n, tt, &token)
-	return manager.GetTypeReference(tt), token
-}
-
-func parseAstType(n ast.Expr, tt *typespec.Type, token *[]int32) {
-	switch vv := n.(type) {
-	case *ast.Ident:
-		tt.Name = vv.Name
-		if _, ok := domain.BasicTypes[vv.Name]; ok {
-			tt.Pkg = ""
-			tt.Kind = domain.KindTypeIdent
-		}
-	case *ast.SelectorExpr:
-		tt.Pkg = vv.X.(*ast.Ident).Name
-		tt.Name = vv.Sel.Name
-	case *ast.ArrayType:
-		if token != nil {
-			*token = append(*token, domain.TokenTypeArray)
-		}
-		parseAstType(vv.Elt, tt, token)
-	case *ast.StarExpr:
-		if token != nil {
-			*token = append(*token, domain.TokenTypePointer)
-		}
-		parseAstType(vv.X, tt, token)
-	}
-}
-
-func Panic(err interface{}) {
-	switch vv := err.(type) {
-	case nil:
-	case *uerror.UError:
-		panic(vv.Error())
-	default:
-		panic(err)
-	}
+	format = strings.Join(ffmts, ":")
+	return
 }

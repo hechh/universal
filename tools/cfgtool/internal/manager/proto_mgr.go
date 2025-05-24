@@ -2,7 +2,7 @@ package manager
 
 import (
 	"bytes"
-	"universal/library/baselib/uerror"
+	"universal/library/uerror"
 	"universal/tools/cfgtool/domain"
 	"universal/tools/cfgtool/internal/base"
 
@@ -12,7 +12,7 @@ import (
 )
 
 var (
-	referenceMgr = make(map[string][]string)
+	referenceMgr = make(map[string]map[string]struct{})
 	protoMgr     = make(map[string]string)
 	protoList    = []string{}
 	descMap      = make(map[string]*desc.FileDescriptor)
@@ -26,13 +26,21 @@ func Clear() {
 }
 
 func AddRef(filename string, reference map[string]struct{}) {
+	val, ok := referenceMgr[filename]
+	if !ok {
+		val = make(map[string]struct{})
+		referenceMgr[filename] = val
+	}
 	for ke := range reference {
-		referenceMgr[filename] = append(referenceMgr[filename], ke)
+		val[ke] = struct{}{}
 	}
 }
 
-func GetRefList(file string) []string {
-	return referenceMgr[file]
+func GetRefList(file string) (rets []string) {
+	for key := range referenceMgr[file] {
+		rets = append(rets, key)
+	}
+	return
 }
 
 func AddProto(file string, buf *bytes.Buffer) {
@@ -53,7 +61,7 @@ func ParseProto() error {
 	paser := protoparse.Parser{Accessor: protoparse.FileContentsFromMap(protoMgr)}
 	descs, err := paser.ParseFiles(protoList...)
 	if err != nil {
-		return uerror.New(1, -1, "parse proto file error: %s", err.Error())
+		return uerror.New(1, -1, "parse proto file error: %v", err)
 	}
 	for i := range protoList {
 		descMap[protoList[i]] = descs[i]

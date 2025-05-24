@@ -2,23 +2,20 @@ package service
 
 import (
 	"strings"
-	"universal/library/baselib/uerror"
-	"universal/library/baselib/util"
+	"universal/library/uerror"
 	"universal/tools/cfgtool/domain"
 	"universal/tools/cfgtool/internal/base"
 	"universal/tools/cfgtool/internal/manager"
+
+	"github.com/golang/protobuf/jsonpb"
 )
 
 func GenData() error {
-	if len(domain.JsonPath) <= 0 && len(domain.BytesPath) <= 0 {
-		return nil
-	}
-
 	for _, cfg := range manager.GetConfigMap() {
 		// 反射new一个对象
 		ary := manager.NewProto(cfg.FileName, cfg.Name+"Ary")
 		if ary == nil {
-			return uerror.New(1, -1, "new %sAry is nil", cfg.Name)
+			return uerror.New(1, -1, "new %sAry is nil, %s", cfg.Name, cfg.FileName)
 		}
 		// 加载xlsx数据
 		tab := manager.GetTable(cfg.FileName, cfg.Sheet)
@@ -31,11 +28,11 @@ func GenData() error {
 		}
 		// 保存数据
 		if len(domain.JsonPath) > 0 {
-			buf, err := ary.MarshalJSONIndent()
+			buf, err := ary.MarshalJSONPB(&jsonpb.Marshaler{EnumsAsInts: true})
 			if err != nil {
 				return err
 			}
-			if err := util.SaveFile(domain.JsonPath, cfg.Name+".json", buf); err != nil {
+			if err := base.Save(domain.JsonPath, cfg.Name+".json", buf); err != nil {
 				return err
 			}
 		}
@@ -44,7 +41,16 @@ func GenData() error {
 			if err != nil {
 				return err
 			}
-			if err := util.SaveFile(domain.BytesPath, cfg.Name+".bytes", buf); err != nil {
+			if err := base.Save(domain.BytesPath, cfg.Name+".bytes", buf); err != nil {
+				return err
+			}
+		}
+		if len(domain.TextPath) > 0 {
+			buf, err := ary.MarshalTextIndent()
+			if err != nil {
+				return err
+			}
+			if err := base.Save(domain.TextPath, cfg.Name+".conf", buf); err != nil {
 				return err
 			}
 		}

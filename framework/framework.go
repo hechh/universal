@@ -2,72 +2,89 @@ package framework
 
 import (
 	"universal/common/pb"
-	"universal/framework/config"
-	"universal/framework/domain"
-	"universal/framework/internal/actor"
-	"universal/framework/internal/cluster"
-	"universal/framework/internal/discovery"
-	"universal/framework/internal/network"
-	"universal/framework/internal/packet"
-	"universal/framework/internal/router"
+	"universal/common/yaml"
+	"universal/framework/actor"
+	"universal/framework/internal/service"
+	"universal/library/mlog"
+
+	"github.com/golang/protobuf/proto"
 )
 
-type Actor struct{ actor.Actor }
+var (
+	core *service.Service
+)
 
-type ActorGroup struct{ actor.ActorGroup }
+func Init(node *pb.Node, cfg *yaml.Config) (err error) {
+	core, err = service.NewService(node, cfg)
+	if err != nil {
+		return
+	}
 
-type Framework struct {
-	self     *pb.Node
-	routeMgr domain.IRouterMgr
-	actMgr   domain.IActorMgr
-	cls      domain.ICluster
-	dis      domain.IDiscovery
-	net      domain.INetwork
-	newNode  func() *pb.Node
-	newHead  func() *pb.Head
-	newRoute func() domain.IRouter
-	newPack  func() domain.IPacket
+	actor.SetSend(core.SendToClient)
+	actor.SetResponse(core.Response)
+	return
 }
 
-func (f *Framework) Init(node *pb.Node, cfg *config.Config) (err error) {
-	f.newNode = cluster.NewNode
-	f.newHead = packet.NewHeader
-	f.newRoute = router.NewRouter
-	f.newPack = packet.NewPacket
-	f.self = node
-	f.cls = cluster.NewCluster()
-	f.actMgr = actor.NewActorMgr()
+// 跨服务发消息
+func Send(head *pb.Head, args ...interface{}) error {
+	return core.Send(head, args...)
+}
 
-	// 初始化路由管理
-	clsCfg := cfg.Cluster[node.GetName()]
-	f.routeMgr = router.NewRouterMgr(f.newRoute, clsCfg.RouteTTL)
+// 跨服务类型广播
+func Broadcast(head *pb.Head, args ...interface{}) error {
+	return core.Broadcast(head, args...)
+}
 
-	// 服务注册与发现
-	if f.dis, err = discovery.Init(cfg,
-		discovery.WithTopic("universl/discovery"),
-		discovery.WithNode(f.newNode),
-	); err != nil {
-		return err
-	}
-	if err := f.dis.Register(f.self, 15); err != nil {
-		return err
-	}
-	if err := f.dis.Watch(f.cls); err != nil {
-		return err
-	}
+// 同步请求
+func Request(head *pb.Head, msg proto.Message, reply proto.Message) error {
+	return core.Request(head, msg, reply)
+}
 
-	// 初始化网络
-	if f.net, err = network.Init(cfg,
-		network.WithTopic("universl/network"),
-		network.WithPacket(f.newPack),
-		network.WithHead(f.newHead),
-		network.WithRoute(f.newRoute),
-		network.WithRouteMgr(f.routeMgr),
-	); err != nil {
-		return err
+// 发送到客户端
+func SendToClient(head *pb.Head, msg proto.Message) error {
+	return core.SendToClient(head, msg)
+}
+
+// 通知客户端
+func NotifyToClient(uids []uint64, head *pb.Head, msg proto.Message) {
+	core.NotifyToClient(uids, head, msg)
+}
+
+// 注册消息处理函数
+func RegisterBroadcastHandler(f func(*pb.Head, []byte)) {
+	core.RegisterBroadcastHandler(f)
+}
+
+// 注册消息处理函数
+func RegisterSendHandler(f func(*pb.Head, []byte)) {
+	core.RegisterSendHandler(f)
+}
+
+// 注册消息处理函数
+func RegisterReplyHandler(f func(*pb.Head, []byte)) {
+	core.RegisterReplyHandler(f)
+}
+
+// 默认内网消息处理器
+func defaultSendHandler(head *pb.Head, buf []byte) {
+	mlog.Debugf("send调用: %v", head)
+	if err := actor.Send(head, buf); err != nil {
+		mlog.Errorf("跨服务调用错误: %v", err)
 	}
-	if err := f.net.Receive(f.self, f.actMgr); err != nil {
-		return err
+}
+
+// 默认内网消息处理器
+func defaultReplyHandler(head *pb.Head, buf []byte) {
+	mlog.Debugf("rpc调用: %v", head)
+	if err := actor.Send(head, buf); err != nil {
+		mlog.Errorf("跨服务调用错误: %v", err)
 	}
-	return nil
+}
+
+// 默认内网广播消息处理器
+func defaultBroadcastHandler(head *pb.Head, buf []byte) {
+	mlog.Debugf("broadcast调用: %v", head)
+	if err := actor.Send(head, buf); err != nil {
+		mlog.Errorf("跨服务调用错误: %v", err)
+	}
 }

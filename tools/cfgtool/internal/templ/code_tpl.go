@@ -8,15 +8,16 @@ const codeTpl = `
 {{$pkg := .PbPkg}}
 
 /*
-* 本代码由xlsx工具生成，请勿手动修改
+* 本代码由cfgtool工具生成，请勿手动修改
 */
 
 package {{.Pkg}}
 
 import (
+	"universal/common/config"
+	"universal/common/pb"
 	"sync/atomic"
-	
-    "{{.PbImport}}"
+
 	"github.com/golang/protobuf/proto"
 )
 
@@ -36,7 +37,7 @@ type {{$type}}Data struct {
 
 // 注册函数
 func init() {
-    // Register("{{$type}}", parse)
+    config.Register("{{$type}}", parse)
 }
 
 func parse(buf string) error {
@@ -57,16 +58,20 @@ func parse(buf string) error {
 {{- range $index := $indexs -}} 
     {{$key := $index.Value "item" ","}}
     {{- if eq $index.Type.ValueOf 3 -}}    {{/*ValueOfMap*/}}
+        // map数据
         {{- if or (eq $index.Type.TypeOf 1) (eq $index.Type.TypeOf 2) -}} {{/*TypeOfBase*/}}
             _{{$index.Name}}[{{$key}}] = item
         {{- else if eq $index.Type.TypeOf 3 -}} {{/*TypeOfStruct*/}}
-            _{{$index.Name}}[{{$index.Type.Name}}{ {{$key}} }] = item
+            key{{$index.Name}} := {{$index.Type.Name}}{ {{$key}} }
+            _{{$index.Name}}[key{{$index.Name}}] = item
         {{- end -}}
     {{- else if eq $index.Type.ValueOf 4 -}}    {{/*ValueOfGroup*/}}
+        // goup数据
         {{- if or (eq $index.Type.TypeOf 1) (eq $index.Type.TypeOf 2) -}} {{/*TypeOfBase*/}}
             _{{$index.Name}}[{{$key}}] = append(_{{$index.Name}}[{{$key}}], item)
         {{- else if eq $index.Type.TypeOf 3 -}} {{/*TypeOfStruct*/}}
-            _{{$index.Name}}[{{$index.Type.Name}}{ {{$key}} }] = append(_{{$index.Name}}[{{$index.Type.Name}}{ {{$key}} }], item)
+            key{{$index.Name}} := {{$index.Type.Name}}{ {{$key}} }
+            _{{$index.Name}}[key{{$index.Name}}] = append(_{{$index.Name}}[key{{$index.Name}}], item)
         {{- end -}}
     {{- end -}}  
 {{- end -}}
@@ -103,14 +108,25 @@ func LGet() (rets []*{{$pkg}}.{{$type}}) {
     copy(rets, obj._{{$index.Name}})
     return
 }
-{{- end}}
 
+func Walk(f func(*{{$pkg}}.{{$type}})bool) {
+    obj, ok := obj.Load().(*{{$type}}Data)
+    if !ok {
+        return
+    }
+    for _, item := range obj._{{$index.Name}} {
+        if !f(item) {
+            return
+        }
+    }
+}
+{{- end}}
 
 {{- range $index := $indexs -}} 
     {{$arg := $index.Arg ","}}
     {{$key := $index.Value "" ","}}
     {{- if eq $index.Type.ValueOf 3 -}}    {{/*ValueOfMap*/}}
-func MGetBy{{$index.Name}}({{$arg}}) *{{$pkg}}.{{$type}} {
+func MGet{{$index.Name}}({{$arg}}) *{{$pkg}}.{{$type}} {
     obj, ok := obj.Load().(*{{$type}}Data)
     if !ok {
         return nil
@@ -125,7 +141,7 @@ func MGetBy{{$index.Name}}({{$arg}}) *{{$pkg}}.{{$type}} {
     return nil
 }
     {{- else if eq $index.Type.ValueOf 4 -}}    {{/*ValueOfGroup*/}}
-func GGetBy{{$index.Name}}({{$arg}}) (rets []*{{$pkg}}.{{$type}}) {
+func GGet{{$index.Name}}({{$arg}}) (rets []*{{$pkg}}.{{$type}}) {
     obj, ok := obj.Load().(*{{$type}}Data)
     if !ok {
         return

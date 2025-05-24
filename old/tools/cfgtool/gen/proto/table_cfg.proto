@@ -1,0 +1,56 @@
+
+/*
+* 本代码由cfgtool工具生成，请勿手动修改
+*/
+
+syntax = "proto3";
+
+package poker;
+
+option go_package = "./pb";
+
+import "enum_cfg.proto";
+
+message MachineConfig {
+	GameType GameType = 1; // 游戏类型
+	uint32 StartDuration = 2; // 开始时长(秒)
+	uint32 PreFlopDuration = 3; // 翻牌前时长
+	uint32 FlopDuration = 4; // 翻牌下注轮时长
+	uint32 TurnDuration = 5; // 转牌下注轮时长
+	uint32 RiverDuration = 6; // 河牌下注轮时长
+	uint32 EndDuration = 7; // 结算时长
+	uint32 DefaultDuration = 8; // 默认时长
+}
+
+message MachineConfigAry { repeated MachineConfig Ary = 1; }
+
+message RouteConfig {
+	uint32 Cmd = 1; // 消息唯一ID（一定是偶数）
+	ServerType ServerType = 2; // 服务类型
+	string ActorName = 3; // Actor名称
+	string FuncName = 4; // 请求方法名称
+	string Request = 5; // 请求协议名
+	string Response = 6; // 应答协议名
+}
+
+message RouteConfigAry { repeated RouteConfig Ary = 1; }
+
+message TexasConfig {
+	GameType GameType = 1; // 游戏类型
+	RoomType RoomType = 2; // 房间类型
+	CoinType CoinType = 3; // 货币类型
+	uint32 RoomKeepLive = 4; // 房间存在时长(分钟)
+	uint32 SmallBlind = 5; // 小盲注
+	uint32 BigBlind = 6; // 大盲注
+	int32 MinBuyIn = 7; // 最小买入筹码
+	int32 MaxBuyIn = 8; // 最大买入筹码
+	uint32 RakeRate = 9; // 每局抽水万分比
+	int32 MinPlayerCount = 10; // 最低开始游戏玩家人数
+	int32 MaxPlayerCount = 11; // 最大玩家人数 
+	repeated uint32 RakeUpLimit = 12; // 每局多少人的抽水上限，2人，3人等抽水
+	uint32 MaxRoomCount = 13; // 最大房间人数
+	bool IsNoFlopNoDrop = 14; // 是否开启
+}
+
+message TexasConfigAry { repeated TexasConfig Ary = 1; }
+

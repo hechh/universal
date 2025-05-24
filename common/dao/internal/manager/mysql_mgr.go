@@ -1,65 +1,88 @@
 package manager
 
 import (
-	"database/sql"
-	"fmt"
-	"universal/common/global"
-	"universal/framework/basic"
-
-	"github.com/astaxie/beego/orm"
-)
-
-const (
-	DriverName = "mysql"
+	"sync"
+	"time"
+	"universal/common/dao/internal/mysql"
+	"universal/common/yaml"
+	"universal/library/async"
+	"universal/library/mlog"
+	"universal/library/uerror"
 )
 
 var (
-	mysqlPool = make(map[string]*MysqlConn)
+	mysqlPool = &MysqlPool{
+		pool:   make(map[string]*mysql.OrmSql),
+		tables: make(map[string][]interface{}),
+	}
 )
 
-type MysqlConn struct {
-	conn       *sql.DB
-	driverName string
-	dbName     string
-	alias      string
+type MysqlPool struct {
+	mutex  sync.RWMutex
+	pool   map[string]*mysql.OrmSql
+	tables map[string][]interface{}
 }
 
-func InitMysql(cfgs map[uint32]*global.DbConfig) (err error) {
-	if len(cfgs) <= 0 {
-		return fmt.Errorf("mysql配置为空")
-	}
-	if err = orm.RegisterDriver(DriverName, orm.DRMySQL); err != nil {
+// 注册数据库表
+func RegisterTable(dbname string, tables ...interface{}) {
+	if len(tables) <= 0 {
 		return
 	}
-	// 建立连接
-	for _, cfg := range cfgs {
-		// 建立连接
-		alias := basic.GetString(cfg.Alias, cfg.DbName)
-		str := fmt.Sprintf("%s:%s@tcp(%s)/%s?charset=utf8", cfg.User, cfg.Password, cfg.Host, cfg.DbName)
-		if err = orm.RegisterDataBase(alias, DriverName, str); err != nil {
-			return
-		}
-		// 获取*sql.DB
-		var db *sql.DB
-		if db, err = orm.GetDB(alias); err != nil {
-			return
-		}
-		// 测试联通
-		if err = db.Ping(); err != nil {
-			return
-		}
-		mysqlPool[cfg.DbName] = &MysqlConn{conn: db, driverName: DriverName, dbName: cfg.DbName, alias: alias}
-	}
-	return
+	mysqlPool.tables[dbname] = append(mysqlPool.tables[dbname], tables...)
 }
 
-func NewOrmer(dbname string) (orm.Ormer, error) {
-	if val, ok := mysqlPool[dbname]; ok {
-		o, err := orm.NewOrmWithDB(DriverName, val.alias, val.conn)
-		if err != nil {
-			return nil, err
-		}
-		return o, nil
+func InitMysql(cfgs map[int32]*yaml.MysqlConfig) error {
+	if len(cfgs) <= 0 {
+		return uerror.New(1, -1, "mysql配置为空")
 	}
-	return nil, fmt.Errorf("数据库(%s)不存在", dbname)
+	// 初始化
+	for _, cfg := range cfgs {
+		client := mysql.NewOrmSql(cfg)
+		if err := client.Connect(mysqlPool.tables[cfg.DbName]...); err != nil {
+			return uerror.New(1, -1, "mysql连接失败, cfg:%v, error:%v", cfg, err)
+		}
+		mysqlPool.pool[cfg.DbName] = client
+	}
+
+	async.SafeGo(mlog.Fatalf, checkMysql)
+	return nil
+}
+
+func GetMysql(dbname string) *mysql.OrmSql {
+	mysqlPool.mutex.RLock()
+	client, ok := mysqlPool.pool[dbname]
+	mysqlPool.mutex.RUnlock()
+	if ok && client.IsAlive() {
+		return client
+	}
+	return nil
+}
+
+func checkMysql() {
+	tt := time.NewTicker(30 * time.Second)
+	defer tt.Stop()
+
+	for {
+		<-tt.C
+		// 获取所有连接
+		tmps := []*mysql.OrmSql{}
+		mysqlPool.mutex.RLock()
+		for _, client := range mysqlPool.pool {
+			tmps = append(tmps, client)
+		}
+		mysqlPool.mutex.RUnlock()
+
+		// 检测连通信
+		for _, client := range tmps {
+			if err := client.Ping(); err == nil {
+				continue
+			} else {
+				mlog.Errorf("mysql连接异常断开: %v", err)
+			}
+			// 重新连接
+			if err := client.Connect(); err != nil {
+				mlog.Errorf("mysql重新连接失败, error:%v", err)
+			}
+		}
+	}
 }

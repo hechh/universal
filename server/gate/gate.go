@@ -1,120 +1,85 @@
-package main
+package gate
 
-/*
 import (
-	"encoding/binary"
 	"flag"
-	"universal/library/mlog"
+	"fmt"
+	"strings"
 	"universal/common/dao"
-	"universal/common/global"
 	"universal/common/pb"
-	"universal/framework/basic"
-	"universal/framework/cluster"
-	"universal/framework/socket"
-	"net/http"
-	"os"
-
-	"golang.org/x/net/websocket"
-	"google.golang.org/protobuf/proto"
+	"universal/common/yaml"
+	"universal/framework"
+	"universal/library/mlog"
+	"universal/library/signal"
 )
 
-type Frame struct{}
-
-func (d *Frame) GetHeadSize() int {
-	return 4
-}
-
-func (d *Frame) GetBodySize(head []byte) int {
-	return int(binary.BigEndian.Uint32(head))
-}
-
-func (d *Frame) Check(head []byte, body []byte) bool {
-	return true
-}
-
-func (d *Frame) Build(frame []byte, body []byte) []byte {
-	// 设置包头
-	binary.BigEndian.PutUint32(frame, uint32(len(body)))
-	// 拷贝
-	headSize := d.GetHeadSize()
-	copy(frame[headSize:], body)
-	return frame
-}
-
 func main() {
-	var id int64
-	var path string
-	flag.Int64Var(&id, "id", 1, "服务节点ID")
-	flag.StringVar(&path, "cfg", "./", "yaml配置文件路径")
+	var filename string
+	var id int
+	flag.StringVar(&filename, "config", "config.yaml", "游戏配置")
+	flag.IntVar(&id, "id", 1, " 节点id")
 	flag.Parse()
 
-	// 加载配置
-	if err := global.Init(path, pb.SERVER_Gate, uint32(id)); err != nil {
-		panic(err)
+	// 加载游戏配置
+	node := &pb.Node{
+		Name: strings.ToLower(pb.NodeType_Gate.String()),
+		Type: pb.NodeType_Gate,
+		Id:   int32(id),
+	}
+	cfg, err := yaml.LoadConfig(filename, node)
+	if err != nil {
+		panic(fmt.Sprintf("游戏配置加载失败: %v", err))
 	}
 
-	// 初始化plog
-	if logCfg := global.GetLogCfg(); logCfg != nil {
-		mlog.Init(logCfg.Level, logCfg.Path, global.GetServerName())
+	// 初始化日志库
+	if err := mlog.Init(cfg.Cluster[node.Name]); err != nil {
+		panic(fmt.Sprintf("日志库初始化失败: %v", err))
 	}
 
 	// 初始化redis
-	if err := dao.InitRedis(global.GetRedisCfg()); err != nil {
-		panic(err)
+	mlog.Infof("初始化redis配置")
+	if err := dao.InitRedis(cfg.Redis); err != nil {
+		panic(fmt.Sprintf("redis初始化失败: %v", err))
 	}
 
-	// 初始化集群
-	if err := cluster.Init(global.GetCfg(), global.GetServerType(), uint32(id), 600); err != nil {
-		panic(err)
+	// 初始化框架服务
+	mlog.Infof("初始化redis配置")
+	if err := framework.Init(node, cfg); err != nil {
+		panic(fmt.Sprintf("框架初始化失败：%v", err))
 	}
 
-	// 初始化websocket
-	http.Handle("/ws", websocket.Handler(wsHandle))
-	go func() {
-		srvCfg := global.GetServerCfg()
-		if srvCfg == nil {
-			panic("yaml配置加载错误")
-		}
-		if err := http.ListenAndServe(srvCfg.Host, nil); err != nil {
-			panic(err)
-		}
-	}()
-
-	// 等待结束
-	basic.SignalHandle(func(s os.Signal) {
-		mlog.Info("gate服务退出")
-		mlog.Close()
-	}, os.Interrupt, os.Kill)
+	// 服务退出
+	signal.SignalNotify(func() {
+		// todo
+	})
 }
 
-// websocket包处理
-func wsHandle(ws *websocket.Conn) {
-	mlog.Info("客户端(%s)连接成功！！！", ws.RemoteAddr().String())
-	soc := socket.NewSocket(&Frame{}, ws)
+/*
+// 处理返回客户端的消息
+func sendHandler(head *pb.Head, body []byte) {
+	// 发送到客户端
+	mlog.Debugf("receive send msg head:%v", head)
+	if len(head.ActorName) <= 0 || len(head.FuncName) <= 0 {
+		playerMgr.SendToClient(head, body)
+		return
+	}
+	// 发送到指定Actor
+	if err := playerMgr.Send(head, body); err != nil {
+		mlog.Errorf("Actor消息转发失败: %v", err)
+	}
+}
 
-	// 循环接受处理消息
-	basic.SafeGo(mlog.Catch, func() {
-		for {
-			// 接受请求
-			buf, err := soc.Read()
-			if err != nil {
-				mlog.Error("websocket接受数据失败: %v", err)
-				break
-			}
+// 处理返回客户端的消息
+func broadcastHandler(head *pb.Head, body []byte) {
+	// 发送到客户端
+	mlog.Debugf("receive broadcast msg head:%v", head)
+	if len(head.ActorName) <= 0 || len(head.FuncName) <= 0 {
+		playerMgr.BroadcastToClient(head, body)
+		return
+	}
 
-			// 解析packet
-			pac := new(pb.Packet)
-			if err := proto.Unmarshal(buf, pac); err != nil {
-				mlog.Error("协议错误: %v", err)
-				break
-			}
-
-			// 对请求路由
-			if err := cluster.Dispatcher(pac.Head); err != nil {
-				mlog.Error("路由错误: %v, error: %v", pac.Head, err)
-				break
-			}
-		}
-	})
+	// 广播到所有Actor
+	if err := playerMgr.Send(head, body); err != nil {
+		mlog.Errorf("Actor消息转发失败: %v", err)
+	}
 }
 */

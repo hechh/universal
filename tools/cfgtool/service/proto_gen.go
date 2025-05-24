@@ -2,10 +2,8 @@ package service
 
 import (
 	"bytes"
-	"path/filepath"
 	"sort"
-	"universal/library/baselib/uerror"
-	"universal/library/baselib/util"
+	"universal/library/uerror"
 	"universal/tools/cfgtool/domain"
 	"universal/tools/cfgtool/internal/base"
 	"universal/tools/cfgtool/internal/manager"
@@ -13,8 +11,6 @@ import (
 )
 
 type ProtoInfo struct {
-	Pkg        string
-	GoPkg      string
 	RefList    []string
 	EnumList   []*base.Enum
 	StructList []*base.Struct
@@ -22,7 +18,6 @@ type ProtoInfo struct {
 }
 
 func GenProto(buf *bytes.Buffer) error {
-	pkg := filepath.Base(domain.ProtoPath)
 	// 根据文件分类
 	tmps := map[string]*ProtoInfo{}
 	for _, val := range manager.GetEnumList() {
@@ -30,21 +25,21 @@ func GenProto(buf *bytes.Buffer) error {
 			return val.ValueList[i].Value < val.ValueList[j].Value
 		})
 		if _, ok := tmps[val.FileName]; !ok {
-			tmps[val.FileName] = &ProtoInfo{Pkg: pkg, GoPkg: domain.PkgName}
+			tmps[val.FileName] = &ProtoInfo{}
 		}
 		tmps[val.FileName].EnumList = append(tmps[val.FileName].EnumList, val)
 	}
 
 	for _, val := range manager.GetStructList() {
 		if _, ok := tmps[val.FileName]; !ok {
-			tmps[val.FileName] = &ProtoInfo{Pkg: pkg, GoPkg: domain.PkgName}
+			tmps[val.FileName] = &ProtoInfo{}
 		}
 		tmps[val.FileName].StructList = append(tmps[val.FileName].StructList, val)
 	}
 
 	for _, val := range manager.GetConfigList() {
 		if _, ok := tmps[val.FileName]; !ok {
-			tmps[val.FileName] = &ProtoInfo{Pkg: pkg, GoPkg: domain.PkgName}
+			tmps[val.FileName] = &ProtoInfo{}
 		}
 		tmps[val.FileName].ConfigList = append(tmps[val.FileName].ConfigList, val)
 	}
@@ -62,10 +57,19 @@ func GenProto(buf *bytes.Buffer) error {
 }
 
 func SaveProto() error {
+	if len(domain.ProtoPath) <= 0 {
+		return nil
+	}
+
 	for fileName, data := range manager.GetProtoMap() {
-		if err := util.SaveFile(domain.ProtoPath, fileName, []byte(data)); err != nil {
+		if err := base.Save(domain.ProtoPath, fileName, []byte(data)); err != nil {
 			return err
 		}
 	}
+	return nil
+}
+
+// 客户端专用
+func GenCmdProto() error {
 	return nil
 }

@@ -7,14 +7,14 @@ import (
 
 const protoTpl = `
 /*
-* 本代码由xlsx工具生成，请勿手动修改
+* 本代码由cfgtool工具生成，请勿手动修改
 */
 
 syntax = "proto3";
 
-package {{.Pkg}};
+package universal;
 
-option go_package = "./{{.GoPkg}}";
+option go_package = "universal/common/pb";
 
 {{range $item := .RefList -}}
 import "{{$item}}.proto";

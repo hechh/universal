@@ -17,8 +17,31 @@ func NewRedisClient(cli *goredis.Client, key string) *RedisClient {
 	return &RedisClient{client: cli, preKey: key}
 }
 
+func (d *RedisClient) GetClient() *goredis.Client {
+	return d.client
+}
+
 func (d *RedisClient) getKey(key string) string {
-	return fmt.Sprintf("%s_%s", d.preKey, key)
+	if len(d.preKey) > 0 {
+		return fmt.Sprintf("%s_%s", d.preKey, key)
+	}
+	return key
+}
+
+func (d *RedisClient) Del(key string) error {
+	_, err := d.client.Del(context.Background(), d.getKey(key)).Result()
+	if err == goredis.Nil {
+		err = nil
+	}
+	return err
+}
+
+func (d *RedisClient) Incr(key string) (ret int64, err error) {
+	ret, err = d.client.Incr(context.Background(), d.getKey(key)).Result()
+	if err == goredis.Nil {
+		err = nil
+	}
+	return
 }
 
 func (d *RedisClient) IncrBy(key string, val int64) (ret int64, err error) {

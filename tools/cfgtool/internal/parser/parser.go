@@ -2,10 +2,9 @@ package parser
 
 import (
 	"fmt"
-	"path/filepath"
+	"path"
 	"strings"
-	"universal/library/baselib/uerror"
-	"universal/library/baselib/util"
+	"universal/library/uerror"
 	"universal/tools/cfgtool/domain"
 	"universal/tools/cfgtool/internal/base"
 	"universal/tools/cfgtool/internal/manager"
@@ -15,6 +14,7 @@ import (
 
 func ParseFiles(files ...string) error {
 	for _, file := range files {
+		fmt.Printf("解析文件: %s\n", path.Base(file))
 		if err := parseTable(file); err != nil {
 			return err
 		}
@@ -28,6 +28,11 @@ func ParseFiles(files ...string) error {
 	}
 	for _, item := range manager.GetTableList(domain.TypeOfConfig) {
 		parseConfig(item)
+		/*
+			if item.Sheet == "网关接口路由表" {
+				parseCmd(item)
+			}
+		*/
 	}
 	parseReference()
 	return nil
@@ -44,12 +49,14 @@ func parseTable(fileName string) error {
 	rows, err := fp.GetRows("生成表")
 	if err != nil {
 		if _, ok := err.(excelize.ErrSheetNotExist); ok {
-			fmt.Println("%s没有定义生成表", fileName)
+			fmt.Printf("%s没有定义生成表\n", fileName)
 			return nil
 		}
+		fmt.Printf("获取生成表失败:%s\n", err.Error())
 		return uerror.New(1, -1, "获取生成表失败:%s", err.Error())
 	}
-	file := strings.TrimSuffix(filepath.Base(fileName), filepath.Ext(fileName))
+	file := strings.TrimSuffix(path.Base(fileName), path.Ext(fileName))
+	defaultFile := path.Base(file)
 
 	// 解析生成表
 	for _, items := range rows {
@@ -57,17 +64,30 @@ func parseTable(fileName string) error {
 			if len(val) <= 0 {
 				continue
 			}
+
 			strs := strings.Split(val, "|")
+			rule := strs[0]
+			if strings.HasPrefix(strs[0], "E|") || strings.HasPrefix(strs[0], "e|") {
+				file = defaultFile
+			} else if strings.HasPrefix(strs[0], "@") {
+				if pos := strings.Index(strs[0], ":"); pos > 0 {
+					file = strs[0][pos+1:]
+					rule = strs[0][:pos]
+				}
+			} else {
+				continue
+			}
+
 			/*
-			   @config|sheet:结构名|map:字段名[,字段名]:别名|group:字段名[,字段名]:别名
-			   @struct|sheet:结构名
-			   @enum|sheet
+			   @config[:filename]|sheet:结构名|map:字段名[,字段名]:别名|group:字段名[,字段名]:别名
+			   @struct[:filename]|sheet:结构名
+			   @enum[:filename]|sheet
 			   E|道具类型-金币|PropertType|Coin|1
 			*/
-			switch strings.ToLower(strs[0]) {
+			switch strings.ToLower(rule) {
 			case "e":
 				enum := manager.GetOrNewEnum(strs[2])
-				enum.FileName = file
+				enum.FileName = defaultFile
 				enum.AddValue(strs...)
 			case "@enum":
 				data, err := fp.GetRows(strs[1])
@@ -81,14 +101,14 @@ func parseTable(fileName string) error {
 				if err != nil {
 					return uerror.New(1, -1, "%s配置表不存在%s  %v", fileName, strs[0], err.Error())
 				}
-				manager.AddTable(file, strs[1], domain.TypeOfStruct, strs[1][pos+1:], data, nil)
+				manager.AddTable(file, strs[1][:pos], domain.TypeOfStruct, strs[1][pos+1:], data, nil)
 			case "@config":
 				pos := strings.Index(strs[1], ":")
 				data, err := fp.GetRows(strs[1][:pos])
 				if err != nil {
 					return uerror.New(1, -1, "%s配置表不存在%s  %v", fileName, strs[0], err.Error())
 				}
-				manager.AddTable(file, strs[1], domain.TypeOfConfig, strs[1][pos+1:], data, util.Suffix(strs, 2))
+				manager.AddTable(file, strs[1][:pos], domain.TypeOfConfig, strs[1][pos+1:], data, base.Suffix(strs, 2))
 			}
 		}
 	}
@@ -166,31 +186,44 @@ func parseConfig(tab *base.Table) {
 		Name: "List",
 		Type: &base.Type{TypeOf: domain.TypeOfBase, ValueOf: domain.ValueOfList},
 	})
+
 	// 解析索引   map:字段名[,字段名]:别名|group:字段名[,字段名]:别名
 	for _, val := range tab.Rules {
 		strs := strings.Split(val, ":")
+		// 解析key
 		keys := []*base.Field{}
 		for _, field := range strings.Split(strs[1], ",") {
+			if cfg.Fields[field] == nil {
+				panic(fmt.Sprintf("索引字段不存在:%s %s", val, field))
+			}
 			keys = append(keys, cfg.Fields[field])
 		}
-		switch len(strs) {
-		case 2:
+
+		// 获取别名
+		name := strings.ReplaceAll(strs[1], ",", "")
+		if len(strs) > 2 {
+			name = strs[2]
+		}
+
+		// 生成索引
+		switch strings.ToLower(strs[0]) {
+		case "map":
 			cfg.AddIndex(&base.Index{
-				Name: strings.ReplaceAll(strs[1], ",", ""),
+				Name: name,
 				Type: &base.Type{
 					Name:    base.FieldList(keys).GetIndexName(),
-					TypeOf:  util.Ifelse(len(keys) > 1, int(domain.TypeOfStruct), int(domain.TypeOfBase)),
-					ValueOf: util.Ifelse(strings.ToLower(strs[0]) == "map", int(domain.ValueOfMap), int(domain.ValueOfBase)),
+					TypeOf:  base.Ifelse(len(keys) > 1, int(domain.TypeOfStruct), int(domain.TypeOfBase)),
+					ValueOf: domain.ValueOfMap,
 				},
 				List: keys,
 			})
-		case 3:
+		case "group":
 			cfg.AddIndex(&base.Index{
-				Name: strs[2],
+				Name: name,
 				Type: &base.Type{
 					Name:    base.FieldList(keys).GetIndexName(),
-					TypeOf:  util.Ifelse(len(keys) > 1, int(domain.TypeOfStruct), int(domain.TypeOfBase)),
-					ValueOf: util.Ifelse(strings.ToLower(strs[0]) == "map", int(domain.ValueOfMap), int(domain.ValueOfBase)),
+					TypeOf:  base.Ifelse(len(keys) > 1, int(domain.TypeOfStruct), int(domain.TypeOfBase)),
+					ValueOf: domain.ValueOfGroup,
 				},
 				List: keys,
 			})

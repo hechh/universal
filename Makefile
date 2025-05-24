@@ -1,40 +1,43 @@
 
 SYSTEM=$(shell go env GOOS)
-GCFLAGS=-gcflags "all=-N -l"
+XLSX_PATH=./configure/xlsx
 PROTO_PATH=./configure/proto
-TABLE_PATH=./configure/table
-JSON_PATH=./configure/json
-PROTO_PATH=./configure/proto
-CFG_PATH=./common/config/cfg
-CODE_PATH=./common/config/repository
-PB_PATH=./common/pb
+DATA_PATH=./configure/data
+CFG_GO_PATH=./common/config/repository/
+REDIS_GO_PATH=./common/dao/repository/redis
+PB_GO_PATH=./common/pb
 OUTPUT=./output
 
 
-.PHONY: protoc tool proto
+.PHONY: config pb pbtool docker_stop docker_run
 
 ############################生成代码选项##############################
-protoc:
-	-mkdir -p ${PB_PATH} && rm -rf ${PB_PATH}/*
+config:
+	@echo "gen config code..."
+	@rm -rf ${CFG_GO_PATH}
+	@go run ./tools/cfgtool/main.go -xlsx=${XLSX_PATH} -proto=${PROTO_PATH} -code=${CFG_GO_PATH} -text=${DATA_PATH} -pb=${PB_GO_PATH}
+	make pb
+	make pbtool
+
+pb:
+	@echo "Building pb"
+	-rm -rf ${PB_GO_PATH}/*.pb.go && mkdir -p ${PB_GO_PATH}
 ifeq (${SYSTEM}, windows)
-	protoc.exe -I${PROTO_PATH} ${PROTO_PATH}/*.proto --go_opt paths=source_relative --go_out=${PB_PATH}
+	protoc.exe -I${PROTO_PATH} ${PROTO_PATH}/*.proto --go_out=..
 else # linux darwin(mac)
-	protoc -I${PROTO_PATH} ${PROTO_PATH}/*.proto --go_opt paths=source_relative --go_out=${PB_PATH}
+	protoc -I${PROTO_PATH} ${PROTO_PATH}/*.proto --go_out=..
 endif 
 
+pbtool:
+	@echo "gen redis code..."
+	@go run ./tools/pbtool/main.go -pb=${PB_GO_PATH} -redis=${REDIS_GO_PATH}
 
-##########################client工具代码自动生成#######################
-proto: 
-	go run ./tools/gomaker/main.go -action=proto -xlsx=${TABLE_PATH} -dst=${PROTO_PATH} -src=${PROTO_PATH}
 
-# 配置转换工具
-xlsx:
-	go run ./tools/cfgtool/main.go -xlsx=${TABLE_PATH} -json=${JSON_PATH} -pb=${CFG_PATH} -code=${CODE_PATH} -proto=${PROTO_PATH}
 
 docker_stop:
 	@echo "停止docker环境"
-	docker-compose -f ./configure/yaml/docker_compose.yaml down
+	docker-compose -f ./configure/env/local/docker_compose.yaml down
 
 docker_run:
 	@echo "启动docker环境"
-	docker-compose -f ./configure/yaml/docker_compose.yaml up -d
+	docker-compose -f ./configure/env/local/docker_compose.yaml up -d
