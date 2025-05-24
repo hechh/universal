@@ -51,18 +51,18 @@ func NotifyToClient(uids []uint64, head *pb.Head, msg proto.Message) {
 }
 
 // 注册消息处理函数
-func RegisterBroadcastHandler(f func(*pb.Head, []byte)) {
-	core.RegisterBroadcastHandler(f)
+func RegisterBroadcastHandler(f func(*pb.Head, []byte)) error {
+	return core.RegisterBroadcastHandler(f)
 }
 
 // 注册消息处理函数
-func RegisterSendHandler(f func(*pb.Head, []byte)) {
-	core.RegisterSendHandler(f)
+func RegisterSendHandler(f func(*pb.Head, []byte)) error {
+	return core.RegisterSendHandler(f)
 }
 
 // 注册消息处理函数
-func RegisterReplyHandler(f func(*pb.Head, []byte)) {
-	core.RegisterReplyHandler(f)
+func RegisterReplyHandler(f func(*pb.Head, []byte)) error {
+	return core.RegisterReplyHandler(f)
 }
 
 // 默认内网消息处理器

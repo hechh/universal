@@ -8,6 +8,7 @@ import (
 	"universal/framework/domain"
 	"universal/framework/network"
 	"universal/library/mlog"
+	"universal/library/uerror"
 
 	"github.com/golang/protobuf/proto"
 	"github.com/gorilla/websocket"
@@ -91,7 +92,7 @@ func (p *Player) HeartRequest(head *pb.Head, req *pb.HeartRequest, rsp *pb.Heart
 			Code: int32(pb.ErrorCode_TIMEOUT),
 			Msg:  "连接超时断开",
 		}
-		p.SendMsg(head, rsp)
+		p.SendToClient(head, rsp)
 
 		// 踢掉用户
 		return actor.SendMsg(framework.CopyHead(head, "PlayerMgr", "Kick"))
@@ -103,7 +104,16 @@ func (p *Player) HeartRequest(head *pb.Head, req *pb.HeartRequest, rsp *pb.Heart
 	return p.SendToClient(head, rsp)
 }
 
-func (p *Player) SendToClient(head *pb.Head, msg proto.Message) error {
-	buf, _ := proto.Marshal(msg)
-	return p.inet.Write(&pb.Packet{Head: head, Body: buf})
+func (p *Player) SendToClient(head *pb.Head, msg interface{}) error {
+	switch vv := msg.(type) {
+	case []byte:
+		return p.inet.Write(&pb.Packet{Head: head, Body: vv})
+	case proto.Message:
+		buf, err := proto.Marshal(vv)
+		if err != nil {
+			return uerror.New(1, -1, "序列化失败: %v", err)
+		}
+		return p.inet.Write(&pb.Packet{Head: head, Body: buf})
+	}
+	return uerror.New(1, -1, "消息类型错误: %v", msg)
 }

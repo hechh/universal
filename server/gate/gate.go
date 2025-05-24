@@ -10,6 +10,11 @@ import (
 	"universal/framework"
 	"universal/library/mlog"
 	"universal/library/signal"
+	"universal/server/gate/internal"
+)
+
+var (
+	playerMgr = new(internal.PlayerMgr)
 )
 
 func main() {
@@ -41,11 +46,19 @@ func main() {
 		panic(fmt.Sprintf("redis初始化失败: %v", err))
 	}
 
+	// 启动 websocket 服务
+	if err := playerMgr.Init(cfg.Cluster[node.Name].Nodes[int32(id)].Host); err != nil {
+		panic(err)
+	}
+
 	// 初始化框架服务
 	mlog.Infof("初始化redis配置")
 	if err := framework.Init(node, cfg); err != nil {
 		panic(fmt.Sprintf("框架初始化失败：%v", err))
 	}
+	framework.RegisterSendHandler(sendHandler)
+	framework.RegisterReplyHandler(sendHandler)
+	framework.RegisterBroadcastHandler(broadcastHandler)
 
 	// 服务退出
 	signal.SignalNotify(func() {
@@ -53,7 +66,6 @@ func main() {
 	})
 }
 
-/*
 // 处理返回客户端的消息
 func sendHandler(head *pb.Head, body []byte) {
 	// 发送到客户端
@@ -82,4 +94,3 @@ func broadcastHandler(head *pb.Head, body []byte) {
 		mlog.Errorf("Actor消息转发失败: %v", err)
 	}
 }
-*/

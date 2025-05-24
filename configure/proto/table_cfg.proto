@@ -1,7 +1,7 @@
 
 /*
-* 本代码由cfgtool工具生成，请勿手动修改
-*/
+ * 本代码由cfgtool工具生成，请勿手动修改
+ */
 
 syntax = "proto3";
 
@@ -12,13 +12,14 @@ option go_package = "universal/common/pb";
 import "enum_cfg.proto";
 
 message RouteConfig {
-	uint32 Cmd = 1; // 消息唯一ID（一定是偶数）
-	ServerType ServerType = 2; // 服务类型
-	string ActorName = 3; // Actor名称
-	string FuncName = 4; // 请求方法名称
-	string Request = 5; // 请求协议名
-	string Response = 6; // 应答协议名
+    uint32     Cmd        = 1;  // 消息唯一ID（一定是偶数）
+    ServerType ServerType = 2;  // 服务类型
+    string     ActorName  = 3;  // Actor名称
+    string     FuncName   = 4;  // 请求方法名称
+    string     Request    = 5;  // 请求协议名
+    string     Response   = 6;  // 应答协议名
 }
 
-message RouteConfigAry { repeated RouteConfig Ary = 1; }
-
+message RouteConfigAry {
+    repeated RouteConfig Ary = 1;
+}
