@@ -7,11 +7,44 @@ CFG_GO_PATH=./common/config/repository/
 REDIS_GO_PATH=./common/dao/repository/redis
 PB_GO_PATH=./common/pb
 OUTPUT=./output
+SERVER_PATH=./server
 
 
-.PHONY: config pb pbtool docker_stop docker_run
+## 需要编译的服务
+TARGET=gate 
+LINUX=$(TARGET:%=%_linux)
+BUILD=$(TARGET:%=%_build)
+START=$(TARGET:%=%_start)
+STOP=$(TARGET:%=%_stop)
 
-############################生成代码选项##############################
+
+.PHONY: ${TARGET} config pb pbtool docker_stop docker_run
+
+
+all: clean
+	make ${BUILD}
+
+linux: clean
+	make ${LINUX}
+
+build: clean ${BUILD}
+
+clean:	
+	-rm -rf ${OUTPUT}
+	@mkdir -p ${OUTPUT}/log
+
+# 交叉编译(编译linux执行文件)
+$(LINUX): %_linux: %
+	@echo "Building $*"
+	CGO_ENABLE=0 GOOS=linux GOARCH=amd64 go build ${GCFLAGS} -o ${OUTPUT}/ ${SERVER_PATH}/$*
+
+# 随系统编译(编译当前系统执行文件)
+$(BUILD): %_build: % 
+	@echo "Building $*"
+	go build ${GCFLAGS} -o ${OUTPUT}/$* ${SERVER_PATH}/$*
+
+
+#------------------------生成代码选项-----------------------------
 config:
 	@echo "gen config code..."
 	@rm -rf ${CFG_GO_PATH}
@@ -33,7 +66,7 @@ pbtool:
 	@go run ./tools/pbtool/main.go -pb=${PB_GO_PATH} -redis=${REDIS_GO_PATH}
 
 
-
+#------------------------docker环境选项-----------------------------
 docker_stop:
 	@echo "停止docker环境"
 	docker-compose -f ./configure/env/local/docker_compose.yaml down

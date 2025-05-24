@@ -25,7 +25,6 @@ type Service struct {
 
 func NewService(node *pb.Node, cfg *yaml.Config) (*Service, error) {
 	nodeCfg := cfg.Cluster[node.Name]
-
 	clusterObj := cluster.New()
 	tableObj := router.New()
 	tableObj.SetExpire(nodeCfg.RouterExpire)
@@ -71,7 +70,7 @@ func (d *Service) RegisterReplyHandler(f func(*pb.Head, []byte)) error {
 	return d.busObj.SetReplyHandler(d.node, f)
 }
 
-func (d *Service) Send(head *pb.Head, args ...interface{}) (err error) {
+func (d *Service) Send(head *pb.Head, args ...interface{}) error {
 	// 检测参数
 	if head.RouteId <= 0 || head.Id <= 0 {
 		return uerror.New(1, -1, "唯一ID为空: %v", head)
@@ -95,22 +94,14 @@ func (d *Service) Send(head *pb.Head, args ...interface{}) (err error) {
 	}
 
 	// 解析参数
-	var buf []byte
-	if len(args) <= 0 {
-	} else if msg, ok := args[0].(proto.Message); len(args) == 1 && ok {
-		buf, err = proto.Marshal(msg)
-		if err != nil {
-			return uerror.New(1, -1, "序列化失败：%v", err)
-		}
-	} else {
-		buf = encode.Encode(args...)
+	buf, err := parseArgs(args...)
+	if err != nil {
+		return err
 	}
-
-	// 发送请求
 	return d.busObj.Send(head, buf)
 }
 
-func (d *Service) Broadcast(head *pb.Head, args ...interface{}) (err error) {
+func (d *Service) Broadcast(head *pb.Head, args ...interface{}) error {
 	// 检测参数
 	if head.DstNodeType >= pb.NodeType_End || head.DstNodeType <= pb.NodeType_Begin {
 		return uerror.New(1, -1, "服务类型不支持: %v", head)
@@ -131,22 +122,14 @@ func (d *Service) Broadcast(head *pb.Head, args ...interface{}) (err error) {
 	}
 
 	// 解析参数
-	var buf []byte
-	if len(args) <= 0 {
-	} else if msg, ok := args[0].(proto.Message); len(args) == 1 && ok {
-		buf, err = proto.Marshal(msg)
-		if err != nil {
-			return uerror.New(1, -1, "序列化失败：%v", err)
-		}
-	} else {
-		buf = encode.Encode(args...)
+	buf, err := parseArgs(args...)
+	if err != nil {
+		return err
 	}
-
-	// 发送请求
 	return d.busObj.Broadcast(head, buf)
 }
 
-func (d *Service) Request(head *pb.Head, msg proto.Message, reply proto.Message) error {
+func (d *Service) Request(head *pb.Head, msg interface{}, reply proto.Message) error {
 	// 检测参数
 	if head.RouteId <= 0 || head.Id <= 0 {
 		return uerror.New(1, -1, "唯一ID为空: %v", head)
@@ -170,28 +153,24 @@ func (d *Service) Request(head *pb.Head, msg proto.Message, reply proto.Message)
 	}
 
 	// 解析参数
-	buf, err := proto.Marshal(msg)
+	buf, err := parseArgs(msg)
 	if err != nil {
-		return uerror.New(1, -1, "序列化失败：%v", err)
+		return err
 	}
-
-	// 发送请求
 	return d.busObj.Request(head, buf, reply)
 }
 
-func (d *Service) Response(head *pb.Head, msg proto.Message) error {
+func (d *Service) Response(head *pb.Head, msg interface{}) error {
 	if len(head.Reply) <= 0 {
 		return nil
 	}
 	head.SendType = pb.SendType_RPC
 
 	// 解析参数
-	buf, err := proto.Marshal(msg)
+	buf, err := parseArgs(msg)
 	if err != nil {
-		return uerror.New(1, -1, "序列化失败：%v", err)
+		return err
 	}
-
-	// 发送请求
 	return d.busObj.Response(head, buf)
 }
 
@@ -284,4 +263,20 @@ func (d *Service) NotifyToClient(uids []uint64, head *pb.Head, msg proto.Message
 			mlog.Errorf("通知玩家失败：%v, error:%v", head, err)
 		}
 	}
+}
+
+func parseArgs(args ...interface{}) ([]byte, error) {
+	if len(args) == 1 {
+		switch vv := args[0].(type) {
+		case []byte:
+			return vv, nil
+		case proto.Message:
+			buf, err := proto.Marshal(vv)
+			if err != nil {
+				return nil, uerror.New(1, -1, "序列化失败：%v", err)
+			}
+			return buf, nil
+		}
+	}
+	return encode.Encode(args...), nil
 }

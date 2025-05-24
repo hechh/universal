@@ -2,6 +2,7 @@ package player
 
 import (
 	"encoding/binary"
+	"universal/common/config/repository/route_config"
 	"universal/common/pb"
 	"universal/library/uerror"
 )

@@ -9,12 +9,12 @@ import (
 )
 
 var (
-	responseFunc func(*pb.Head, proto.Message) error
+	responseFunc func(*pb.Head, interface{}) error
 	sendFunc     func(*pb.Head, proto.Message) error
 	actors       = make(map[string]domain.IActor)
 )
 
-func SetResponse(f func(*pb.Head, proto.Message) error) {
+func SetResponse(f func(*pb.Head, interface{}) error) {
 	responseFunc = f
 }
 

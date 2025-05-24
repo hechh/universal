@@ -88,3 +88,19 @@ func defaultBroadcastHandler(head *pb.Head, buf []byte) {
 		mlog.Errorf("跨服务调用错误: %v", err)
 	}
 }
+
+func CopyHead(h *pb.Head, a, f string) *pb.Head {
+	return &pb.Head{
+		SendType:    h.SendType,
+		SrcNodeType: h.SrcNodeType,
+		SrcNodeId:   h.SrcNodeId,
+		DstNodeType: h.DstNodeType,
+		DstNodeId:   h.DstNodeId,
+		Id:          h.Id,
+		RouteId:     h.RouteId,
+		Cmd:         h.Cmd,
+		ActorName:   a,
+		FuncName:    f,
+		Reply:       h.Reply,
+	}
+}
