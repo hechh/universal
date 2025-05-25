@@ -19,10 +19,11 @@ START=$(TARGET:%=%_start)
 STOP=$(TARGET:%=%_stop)
 
 
-.PHONY: ${TARGET} config pb pbtool docker_stop docker_run
+.PHONY: ${TARGET} config pb pbtool startall stopall docker_stop docker_run
 
 
 all: clean
+	@cp -rf ./configure/env/local/* ./configure/data ${OUTPUT}
 	make ${BUILD}
 
 linux: clean
@@ -68,6 +69,18 @@ pbtool:
 
 
 #------------------------docker环境选项-----------------------------
+startall: ${START}
+
+stopall: $(STOP) 
+
+$(START): %_start: %
+	@echo "running $*"
+	-cd ./output && nohup ./$* -config=./local.yaml -id=1 >./log/$*_monitor.log 2>&1 &
+
+$(STOP): %_stop: %
+	@echo "stopping $*"
+	-kill -9 $$(ps -ef | grep $* | grep -v grep | awk '{print $$2}')
+
 docker_stop:
 	@echo "停止docker环境"
 	docker-compose -f ./configure/env/local/docker_compose.yaml down

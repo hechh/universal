@@ -20,9 +20,9 @@ func main() {
 	var filename string
 	var id, port int
 	var begin, end int64
-	flag.StringVar(&filename, "config", "config.yaml", "游戏配置")
+	flag.StringVar(&filename, "config", "local.yaml", "游戏配置")
 	flag.IntVar(&id, "id", 1, " 节点id")
-	flag.IntVar(&port, "port", 0, " 节点端口")
+	flag.IntVar(&port, "port", 22345, " 节点端口")
 	flag.Int64Var(&begin, "begin", 100000, "起始uid")
 	flag.Int64Var(&end, "end", 100000, "终止uid")
 	flag.Parse()
@@ -49,7 +49,7 @@ func main() {
 
 func handle(w http.ResponseWriter, r *http.Request) {
 	// 1. 只允许POST方法
-	if r.Method != http.MethodPost {
+	if r.Method != http.MethodGet {
 		http.Error(w, "只支持post方法", http.StatusMethodNotAllowed)
 		return
 	}
@@ -62,4 +62,7 @@ func handle(w http.ResponseWriter, r *http.Request) {
 	}
 	val := query.Get("value")
 	playerMgr.SendCmd(cast.ToUint32(cmd), val)
+
+	w.Header().Set("Content-Type", "application/json")
+	w.WriteHeader(http.StatusOK)
 }
