@@ -1,10 +1,11 @@
-package gate
+package main
 
 import (
 	"flag"
 	"fmt"
 	"path"
 	"strings"
+	"universal/common/config"
 	"universal/common/dao"
 	"universal/common/pb"
 	"universal/common/yaml"
@@ -40,6 +41,11 @@ func main() {
 	// 初始化日志库
 	if err := mlog.Init(cfg.Common.Env, nodeCfg.LogLevel, path.Join(nodeCfg.LogPath, node.Name+".log")); err != nil {
 		panic(fmt.Sprintf("日志库初始化失败: %v", err))
+	}
+
+	// 配置初始化
+	if err := config.Init(cfg.Common); err != nil {
+		panic(fmt.Sprintf("配置初始化失败: %v", err))
 	}
 
 	// 初始化redis

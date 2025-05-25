@@ -20,7 +20,7 @@ func Register(sheet string, f func(string) error) {
 	fileMgr[sheet] = f
 }
 
-func InitLocal(cfg *yaml.CommonConfig) error {
+func Init(cfg *yaml.CommonConfig) error {
 	configureDir = cfg.ConfigurePath
 	for sheet, f := range fileMgr {
 		fileName := sheet + ".conf"

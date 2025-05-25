@@ -4,9 +4,12 @@ import (
 	"flag"
 	"fmt"
 	"net/http"
+	"path"
 	"strings"
+	"universal/common/config"
 	"universal/common/pb"
 	"universal/common/yaml"
+	"universal/library/mlog"
 	"universal/server/client/manager"
 
 	"github.com/spf13/cast"
@@ -38,8 +41,19 @@ func main() {
 		panic(fmt.Sprintf("游戏配置加载失败: %v", err))
 	}
 	nodeCfg := cfg.Gate[node.Id]
-	playerMgr = manager.NewPlayerMgr(node, nodeCfg)
 
+	// 初始化日志库
+	if err := mlog.Init(cfg.Common.Env, nodeCfg.LogLevel, path.Join(nodeCfg.LogPath, "client.log")); err != nil {
+		panic(fmt.Sprintf("日志库初始化失败: %v", err))
+	}
+
+	// 配置初始化
+	if err := config.Init(cfg.Common); err != nil {
+		panic(fmt.Sprintf("配置初始化失败: %v", err))
+	}
+
+	// 初始化PlayerMgr
+	playerMgr = manager.NewPlayerMgr(node, nodeCfg)
 	playerMgr.Login(uint64(begin), uint64(end))
 
 	// 请求 http 服务，接受请求

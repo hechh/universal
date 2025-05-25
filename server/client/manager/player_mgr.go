@@ -1,6 +1,7 @@
 package manager
 
 import (
+	"encoding/json"
 	"reflect"
 	"universal/common/pb"
 	"universal/common/yaml"
@@ -62,7 +63,7 @@ func (p *PlayerMgr) SendCmd(cmd uint32, msg string) {
 		return
 	}
 	req := f()
-	if err := proto.Unmarshal([]byte(msg), req); err != nil {
+	if err := json.Unmarshal([]byte(msg), req); err != nil {
 		mlog.Errorf("unmarshal error: %v", err)
 		return
 	}
