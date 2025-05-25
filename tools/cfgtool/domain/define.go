@@ -24,4 +24,5 @@ var (
 	JsonPath     = ""          // 数据文件路径
 	BytesPath    = ""          // 数据文件路径
 	TextPath     = ""          // 数据文件路径
+	ClientPath   = ""          // 客户端代码生成路径
 )

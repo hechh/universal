@@ -24,6 +24,7 @@ func main() {
 	flag.StringVar(&domain.BytesPath, "bytes", "", "数据文件目录")
 	flag.StringVar(&domain.CodePath, "code", "", "go代码文件目录")
 	flag.StringVar(&domain.PbPath, "pb", "", "proto生成路径")
+	flag.StringVar(&domain.ClientPath, "client", "", "客户端代码文件目录")
 	flag.Parse()
 
 	if len(domain.XlsxPath) <= 0 {
@@ -57,6 +58,9 @@ func main() {
 		panic(err)
 	}
 	if err := service.GenCode(buf); err != nil {
+		panic(err)
+	}
+	if err := service.GenHttpKit(buf); err != nil {
 		panic(err)
 	}
 }

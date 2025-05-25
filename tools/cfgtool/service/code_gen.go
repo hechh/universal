@@ -3,6 +3,8 @@ package service
 import (
 	"bytes"
 	"path"
+	"sort"
+	"universal/library/uerror"
 	"universal/tools/cfgtool/domain"
 	"universal/tools/cfgtool/internal/base"
 	"universal/tools/cfgtool/internal/manager"
@@ -12,6 +14,11 @@ import (
 
 	"github.com/iancoleman/strcase"
 )
+
+type IndexInfo struct {
+	Pkg       string
+	IndexList []int
+}
 
 type ConfigInfo struct {
 	PbPkg string
@@ -45,6 +52,26 @@ func GenCode(buf *bytes.Buffer) error {
 		if err := base.SaveGo(path.Join(domain.CodePath, name), dataName+"Data.gen.go", buf.Bytes()); err != nil {
 			return err
 		}
+	}
+	return nil
+}
+
+func genIndex(buf *bytes.Buffer) error {
+	indexs := &IndexInfo{
+		Pkg:       "pb",
+		IndexList: manager.GetIndexMap(),
+	}
+
+	if len(indexs.IndexList) > 0 {
+		sort.Slice(indexs.IndexList, func(i, j int) bool {
+			return indexs.IndexList[i] < indexs.IndexList[j]
+		})
+
+		buf.Reset()
+		if err := templ.IndexTpl.Execute(buf, indexs); err != nil {
+			return uerror.New(1, -1, "gen index file error: %s", err.Error())
+		}
+		return base.SaveGo(domain.PbPath, "index.gen.go", buf.Bytes())
 	}
 	return nil
 }

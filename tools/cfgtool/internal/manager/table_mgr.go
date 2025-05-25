@@ -7,9 +7,18 @@ import (
 )
 
 var (
+	cmdMgr   = make(map[uint32]string)
 	tableMgr = make(map[string]*base.Table)
 	groupMgr = make(map[int][]*base.Table)
 )
+
+func AddCmd(cmd uint32, val string) {
+	cmdMgr[cmd] = val
+}
+
+func GetCmdMap() map[uint32]string {
+	return cmdMgr
+}
 
 func AddTable(file, sheet string, typeOf int, t string, rows [][]string, rules []string) {
 	key := file + ":" + sheet

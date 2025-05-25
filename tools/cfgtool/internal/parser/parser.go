@@ -28,11 +28,9 @@ func ParseFiles(files ...string) error {
 	}
 	for _, item := range manager.GetTableList(domain.TypeOfConfig) {
 		parseConfig(item)
-		/*
-			if item.Sheet == "网关接口路由表" {
-				parseCmd(item)
-			}
-		*/
+		if item.Sheet == "网关接口路由表" {
+			parseCmd(item)
+		}
 	}
 	parseReference()
 	return nil

@@ -6,12 +6,13 @@ DATA_PATH=./configure/data
 CFG_GO_PATH=./common/config/repository/
 REDIS_GO_PATH=./common/dao/repository/redis
 PB_GO_PATH=./common/pb
+HTTP_KIT_GO_PATH=./server/client/httpkit
 OUTPUT=./output
 SERVER_PATH=./server
 
 
 ## 需要编译的服务
-TARGET=gate 
+TARGET=client gate
 LINUX=$(TARGET:%=%_linux)
 BUILD=$(TARGET:%=%_build)
 START=$(TARGET:%=%_start)
@@ -48,7 +49,7 @@ $(BUILD): %_build: %
 config:
 	@echo "gen config code..."
 	@rm -rf ${CFG_GO_PATH}
-	@go run ./tools/cfgtool/main.go -xlsx=${XLSX_PATH} -proto=${PROTO_PATH} -code=${CFG_GO_PATH} -text=${DATA_PATH} -pb=${PB_GO_PATH}
+	@go run ./tools/cfgtool/main.go -xlsx=${XLSX_PATH} -proto=${PROTO_PATH} -code=${CFG_GO_PATH} -text=${DATA_PATH} -pb=${PB_GO_PATH} -client=${HTTP_KIT_GO_PATH}
 	make pb
 	make pbtool
 

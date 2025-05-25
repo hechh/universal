@@ -13,11 +13,9 @@ import (
 func parseCmd(tab *base.Table) {
 	cfg := manager.GetConfig(tab.Type)
 	cmdEnum := manager.GetOrNewEnum("CMD")
-	cmdClientEnum := manager.GetOrNewEnum("CMD_CLIENT")
 	cmdEnum.FileName = "cmd"
-	cmdClientEnum.FileName = "cmd/cmd"
 	cmdEnum.AddValueByCmd("CMD_EMPTY", "空参数", 0)
-	cmdClientEnum.AddValueByCmd("CMD_CLIENT_EMPTY", "空参数", 0)
+
 	for i, row := range tab.Rows[3:] {
 		lfields := len(cfg.Fields)
 		if len(row) < lfields {
@@ -37,13 +35,13 @@ func parseCmd(tab *base.Table) {
 		}
 		// 通知一定只有req
 		if reqVal := row[cfg.Fields["Request"].Position]; len(reqVal) > 0 {
-			cmdClientEnum.AddValueByCmd(reqVal, desc, cast.ToInt32(cmdVal))
+			manager.AddCmd(cast.ToUint32(cmdVal), reqVal)
 			reqVal = strings.ToUpper(strcase.ToSnake(reqVal))
 			cmdEnum.AddValueByCmd(reqVal, desc, cast.ToInt32(cmdVal))
 		}
 		// 非notify一定有rsp
 		if rspVal := row[cfg.Fields["Response"].Position]; len(rspVal) > 0 {
-			cmdClientEnum.AddValueByCmd(rspVal, desc, cast.ToInt32(cmdVal)+1)
+			manager.AddCmd(cast.ToUint32(cmdVal)+1, rspVal)
 			rspVal = strings.ToUpper(strcase.ToSnake(rspVal))
 			cmdEnum.AddValueByCmd(rspVal, desc, cast.ToInt32(cmdVal)+1)
 		}

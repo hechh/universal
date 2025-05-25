@@ -68,8 +68,3 @@ func SaveProto() error {
 	}
 	return nil
 }
-
-// 客户端专用
-func GenCmdProto() error {
-	return nil
-}

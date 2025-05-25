@@ -56,9 +56,10 @@ message {{$item.Name}}Ary { repeated {{$item.Name}} Ary = 1; }
 `
 
 var (
-	ProtoTpl *template.Template
-	CodeTpl  *template.Template
-	IndexTpl *template.Template
+	ProtoTpl   *template.Template
+	CodeTpl    *template.Template
+	IndexTpl   *template.Template
+	HttpKitTpl *template.Template
 )
 
 func init() {
@@ -69,4 +70,5 @@ func init() {
 	ProtoTpl = template.Must(template.New("ProtoTpl").Funcs(funcs).Parse(protoTpl))
 	IndexTpl = template.Must(template.New("IndexTpl").Funcs(funcs).Parse(indexTpl))
 	CodeTpl = template.Must(template.New("CodeTpl").Funcs(funcs).Parse(codeTpl))
+	HttpKitTpl = template.Must(template.New("HttpKitTpl").Funcs(funcs).Parse(httpKitTpl))
 }

@@ -1,0 +1,61 @@
+mysql:
+  1:
+    dbname: universal
+    user: root
+    password: 123456
+    host: localhost:3306
+    slave:
+
+redis:
+  1:
+    dbname: universal
+    db: 1
+    user: default
+    password: 123456
+    host: localhost:6379
+    slave:
+  
+mongodb:
+  1:
+    dbname: universal
+    user: root
+    password: 123456
+    host: localhost:27017
+    slave: #从设备
+      1: 
+        dbname: universal 
+        user: root
+        password: 123456
+        host: localhost:27017
+    
+etcd:
+  topic: universal/etcd
+  endpoints:
+    - http://localhost:2379
+
+nats:
+  topic: universal/nats
+  endpoints: localhost:4222
+
+common:
+  env: develop  # develop, beta, release 
+  configure_path: ./data
+  router_expire: 900
+  discovery_expire: 20
+  secret_key: gH7%kL9!qW2#sD4*FpV6&nZ8@xJ0^yT1
+
+gate:
+  1: 
+    log_level: debug # info, debug, warn, error, fatal
+    log_path: ./log
+    ip: localhost
+    port: 10001
+    http_port: 10002
+db:
+  1:
+    log_level: debug # info, debug, warn, error, fatal
+    log_path: ./log
+    ip: localhost
+    port: 10201
+
+
