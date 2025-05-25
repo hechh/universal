@@ -50,9 +50,9 @@ func (p *PlayerMgr) Remove(uid uint64) {
 
 func (p *PlayerMgr) Login(begin, end uint64) {
 	for i := begin; i <= end; i++ {
-		pl := player.NewPlayer(p.node, p.cfg, i)
+		pl := player.NewPlayer(p.node, p.cfg, i, cmds)
 		p.mgr.AddActor(pl)
-		pl.SendMsg(&pb.Head{FuncName: "Login"}, cmds)
+		pl.SendMsg(&pb.Head{FuncName: "Login"})
 	}
 }
 

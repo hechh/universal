@@ -25,11 +25,12 @@ type Player struct {
 	uid  uint64
 }
 
-func NewPlayer(node *pb.Node, cfg *yaml.ServerConfig, uid uint64) *Player {
+func NewPlayer(node *pb.Node, cfg *yaml.ServerConfig, uid uint64, cmds map[uint32]func() proto.Message) *Player {
 	ret := &Player{
 		node: node,
 		cfg:  cfg,
 		uid:  uid,
+		cmds: cmds,
 	}
 	ret.SetId(uid)
 	ret.Actor.Register(ret)
@@ -49,9 +50,8 @@ func (p *Player) SendCmd(cmd uint32, buf []byte) error {
 	return p.conn.Write(&pb.Packet{Head: head, Body: buf})
 }
 
-func (p *Player) Login(cmds map[uint32]func() proto.Message) error {
+func (p *Player) Login() error {
 	head := &pb.Head{ActorName: "PlayerMgr", FuncName: "Remove", IdType: pb.IdType_UID, Id: p.uid}
-	p.cmds = cmds
 
 	// 建立连接
 	ws, _, err := websocket.DefaultDialer.Dial(fmt.Sprintf("ws://%s:%d/ws", p.cfg.Ip, p.cfg.Port), nil)
