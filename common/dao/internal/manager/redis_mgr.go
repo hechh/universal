@@ -14,7 +14,7 @@ var (
 	redisPool = make(map[string]*redis.RedisClient)
 )
 
-func InitRedis(cfgs map[int32]*yaml.RedisConfig) error {
+func InitRedis(cfgs map[int32]*yaml.DbConfig) error {
 	if len(cfgs) <= 0 {
 		return fmt.Errorf("redis配置为空")
 	}

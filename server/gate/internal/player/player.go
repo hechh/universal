@@ -7,6 +7,7 @@ import (
 	"universal/framework/actor"
 	"universal/framework/domain"
 	"universal/framework/network"
+	"universal/framework/token"
 	"universal/library/mlog"
 	"universal/library/uerror"
 
@@ -42,7 +43,7 @@ func (p *Player) Login() error {
 		return err
 	}
 	// 解析token
-	tt, err := ParseToken(req.Token)
+	tt, err := token.ParseToken(req.Token)
 	if err != nil {
 		return err
 	}

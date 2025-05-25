@@ -8,9 +8,8 @@ option go_package = "universal/common/pb";
 enum NodeType {
     Begin = 0;  // 节点类型-Begin
     Gate  = 1;  // 节点类型-Gate
-    Room  = 2;  // 节点类型-Room
-    Match = 3;  // 节点类型-Match
-    End   = 4;  // 节点类型-End
+    Db    = 2;  // 节点类型-Db
+    End   = 3;  // 节点类型-End
 }
 
 // 发送类型
@@ -22,8 +21,7 @@ enum SendType {
 
 // id类型
 enum IdType {
-    UID     = 0;
-    ROOM_ID = 1;
+    UID = 0;
 }
 
 // 节点信息
@@ -60,9 +58,8 @@ message Head {
 
 // 玩家路由信息
 message Router {
-    int32 Gate  = 1;  // 网关服务
-    int32 Room  = 2;  // 房间服务
-    int32 Match = 3;  // 匹配服务
+    int32 Gate = 1;  // 网关服务
+    int32 Db   = 2;  // 数据库服务
 }
 
 // 应答协议头

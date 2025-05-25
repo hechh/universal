@@ -38,7 +38,7 @@ func NewEtcd(cfg *yaml.EtcdConfig) (*Etcd, error) {
 	}
 	return &Etcd{
 		client: cli,
-		topic:  cfg.Channel,
+		topic:  cfg.Topic,
 		exit:   make(chan struct{}),
 	}, nil
 }

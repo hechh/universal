@@ -1,8 +1,7 @@
-package player
+package token
 
 import (
 	"time"
-	"universal/common/yaml"
 	"universal/library/uerror"
 
 	"github.com/golang-jwt/jwt/v5"
@@ -12,13 +11,8 @@ var (
 	secretKey = make([]byte, 32)
 )
 
-func SetSecretKey(keys string) {
+func Init(keys string) {
 	secretKey = []byte(keys)
-}
-
-func Init(cfg *yaml.HttpConfig) error {
-	secretKey = []byte(cfg.Scretekey)
-	return nil
 }
 
 type Token struct {

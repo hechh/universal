@@ -16,7 +16,7 @@ type OrmSql struct {
 	isAlive int32             // 连接是否正常
 }
 
-func NewOrmSql(cfg *yaml.MysqlConfig, tables ...interface{}) *OrmSql {
+func NewOrmSql(cfg *yaml.DbConfig, tables ...interface{}) *OrmSql {
 	dsn := []string{}
 	// 主节点
 	dsn = append(dsn, fmt.Sprintf("%s:%s@tcp(%s)/%s?timeout=3s&parseTime=true&loc=Local&charset=utf8",

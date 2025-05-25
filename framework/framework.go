@@ -14,8 +14,8 @@ var (
 	core *service.Service
 )
 
-func Init(node *pb.Node, cfg *yaml.Config) (err error) {
-	core, err = service.NewService(node, cfg)
+func Init(node *pb.Node, server *yaml.ServerConfig, cfg *yaml.Config) (err error) {
+	core, err = service.NewService(node, server, cfg)
 	if err != nil {
 		return
 	}
@@ -66,7 +66,7 @@ func RegisterReplyHandler(f func(*pb.Head, []byte)) error {
 }
 
 // 默认内网消息处理器
-func defaultSendHandler(head *pb.Head, buf []byte) {
+func DefaultSendHandler(head *pb.Head, buf []byte) {
 	mlog.Debugf("send调用: %v", head)
 	if err := actor.Send(head, buf); err != nil {
 		mlog.Errorf("跨服务调用错误: %v", err)
@@ -74,7 +74,7 @@ func defaultSendHandler(head *pb.Head, buf []byte) {
 }
 
 // 默认内网消息处理器
-func defaultReplyHandler(head *pb.Head, buf []byte) {
+func DefaultReplyHandler(head *pb.Head, buf []byte) {
 	mlog.Debugf("rpc调用: %v", head)
 	if err := actor.Send(head, buf); err != nil {
 		mlog.Errorf("跨服务调用错误: %v", err)
@@ -82,7 +82,7 @@ func defaultReplyHandler(head *pb.Head, buf []byte) {
 }
 
 // 默认内网广播消息处理器
-func defaultBroadcastHandler(head *pb.Head, buf []byte) {
+func DefaultBroadcastHandler(head *pb.Head, buf []byte) {
 	mlog.Debugf("broadcast调用: %v", head)
 	if err := actor.Send(head, buf); err != nil {
 		mlog.Errorf("跨服务调用错误: %v", err)

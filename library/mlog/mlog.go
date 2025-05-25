@@ -2,7 +2,6 @@ package mlog
 
 import (
 	"fmt"
-	"universal/common/yaml"
 	"universal/library/mlog/zap"
 )
 
@@ -34,11 +33,7 @@ type ILog interface {
 }
 
 func InitDefault() {
-	val := zap.NewLogger(str2Level["debug"], &yaml.ServerConfig{
-		Env:      "develop",
-		LogLevel: "debug",
-		LogFile:  "./default.log",
-	})
+	val := zap.NewLogger("develop", 0, "./default.log")
 	switch vv := val.(type) {
 	case error:
 		panic(fmt.Sprintf("日志库初始化失败: %v", vv))
@@ -47,8 +42,8 @@ func InitDefault() {
 	}
 }
 
-func Init(cfg *yaml.ServerConfig) error {
-	switch vv := zap.NewLogger(str2Level[cfg.LogLevel], cfg).(type) {
+func Init(env string, level string, logfile string) error {
+	switch vv := zap.NewLogger(env, str2Level[level], logfile).(type) {
 	case error:
 		return vv
 	case ILog:

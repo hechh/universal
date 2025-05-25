@@ -10,7 +10,7 @@ import (
 	"github.com/go-redis/redis/v8"
 )
 
-func InitRedis(cfgs map[int32]*yaml.RedisConfig) error {
+func InitRedis(cfgs map[int32]*yaml.DbConfig) error {
 	return manager.InitRedis(cfgs)
 }
 

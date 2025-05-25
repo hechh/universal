@@ -3,6 +3,7 @@ package gate
 import (
 	"flag"
 	"fmt"
+	"path"
 	"strings"
 	"universal/common/dao"
 	"universal/common/pb"
@@ -34,9 +35,10 @@ func main() {
 	if err != nil {
 		panic(fmt.Sprintf("游戏配置加载失败: %v", err))
 	}
+	nodeCfg := cfg.Gate[node.Id]
 
 	// 初始化日志库
-	if err := mlog.Init(cfg.Cluster[node.Name]); err != nil {
+	if err := mlog.Init(cfg.Common.Env, nodeCfg.LogLevel, path.Join(nodeCfg.LogPath, node.Name+".log")); err != nil {
 		panic(fmt.Sprintf("日志库初始化失败: %v", err))
 	}
 
@@ -47,17 +49,16 @@ func main() {
 	}
 
 	// 启动 websocket 服务
-	if err := playerMgr.Init(cfg.Cluster[node.Name].Nodes[int32(id)].Host); err != nil {
+	if err := playerMgr.Init(nodeCfg); err != nil {
 		panic(err)
 	}
 
 	// 初始化框架服务
 	mlog.Infof("初始化redis配置")
-	if err := framework.Init(node, cfg); err != nil {
+	if err := framework.Init(node, nodeCfg, cfg); err != nil {
 		panic(fmt.Sprintf("框架初始化失败：%v", err))
 	}
 	framework.RegisterSendHandler(sendHandler)
-	framework.RegisterReplyHandler(sendHandler)
 	framework.RegisterBroadcastHandler(broadcastHandler)
 
 	// 服务退出

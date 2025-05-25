@@ -1,7 +1,7 @@
 
 /*
- * 本代码由cfgtool工具生成，请勿手动修改
- */
+* 本代码由cfgtool工具生成，请勿手动修改
+*/
 
 syntax = "proto3";
 
@@ -9,10 +9,12 @@ package universal;
 
 option go_package = "universal/common/pb";
 
+
 enum ServerType {
-    STBegin = 0;  // 服务类型-Begin
-    STGate  = 1;  // 服务类型-Gate
-    STRoom  = 2;  // 服务类型-Room
-    STMatch = 3;  // 服务类型-Match
-    STEnd   = 4;  // 服务类型-End
+	STBegin = 0; // 服务类型-Begin
+	STGate = 1; // 服务类型-Gate
+	STRoom = 2; // 服务类型-Room
+	STMatch = 3; // 服务类型-Match
+	STEnd = 4; // 服务类型-End
 }
+

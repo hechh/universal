@@ -4,7 +4,6 @@ import (
 	"net/url"
 	"os"
 	"sync/atomic"
-	"universal/common/yaml"
 
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
@@ -23,9 +22,9 @@ func init() {
 	})
 }
 
-func NewLogger(level int32, cfg *yaml.ServerConfig) interface{} {
+func NewLogger(env string, level int32, logfile string) interface{} {
 	var config zap.Config
-	switch cfg.Env {
+	switch env {
 	case "release":
 		config = zap.NewProductionConfig()
 	default:
@@ -44,8 +43,8 @@ func NewLogger(level int32, cfg *yaml.ServerConfig) interface{} {
 		EncodeDuration: zapcore.SecondsDurationEncoder,
 		EncodeCaller:   zapcore.ShortCallerEncoder,
 	}
-	config.OutputPaths = []string{"stdout", cfg.LogFile}
-	config.ErrorOutputPaths = []string{"stderr", cfg.LogFile}
+	config.OutputPaths = []string{"stdout", logfile}
+	config.ErrorOutputPaths = []string{"stderr", logfile}
 	// 创建日志
 	logger, err := config.Build(zap.AddCaller(), zap.AddCallerSkip(2))
 	if err != nil {

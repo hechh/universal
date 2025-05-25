@@ -20,8 +20,8 @@ func Register(sheet string, f func(string) error) {
 	fileMgr[sheet] = f
 }
 
-func InitLocal(cfg *yaml.ConfigureConfig) error {
-	configureDir = cfg.LocalPath
+func InitLocal(cfg *yaml.CommonConfig) error {
+	configureDir = cfg.ConfigurePath
 	for sheet, f := range fileMgr {
 		fileName := sheet + ".conf"
 		// 加载整个文件

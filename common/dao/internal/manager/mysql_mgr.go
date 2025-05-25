@@ -31,7 +31,7 @@ func RegisterTable(dbname string, tables ...interface{}) {
 	mysqlPool.tables[dbname] = append(mysqlPool.tables[dbname], tables...)
 }
 
-func InitMysql(cfgs map[int32]*yaml.MysqlConfig) error {
+func InitMysql(cfgs map[int32]*yaml.DbConfig) error {
 	if len(cfgs) <= 0 {
 		return uerror.New(1, -1, "mysql配置为空")
 	}

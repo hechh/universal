@@ -10,7 +10,7 @@ func RegisterMysqlTable(dbname string, tables ...interface{}) {
 	manager.RegisterTable(dbname, tables...)
 }
 
-func InitMysql(cfgs map[int32]*yaml.MysqlConfig) error {
+func InitMysql(cfgs map[int32]*yaml.DbConfig) error {
 	return manager.InitMysql(cfgs)
 }
 

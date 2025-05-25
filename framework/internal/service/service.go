@@ -23,11 +23,10 @@ type Service struct {
 	busObj       domain.IBus       // 消息总线
 }
 
-func NewService(node *pb.Node, cfg *yaml.Config) (*Service, error) {
-	nodeCfg := cfg.Cluster[node.Name]
+func NewService(node *pb.Node, server *yaml.ServerConfig, cfg *yaml.Config) (*Service, error) {
 	clusterObj := cluster.New()
 	tableObj := router.New()
-	tableObj.SetExpire(nodeCfg.RouterExpire)
+	tableObj.SetExpire(cfg.Common.RouterExpire)
 
 	// 服务发现
 	dis, err := discovery.NewEtcd(cfg.Etcd)
@@ -37,7 +36,7 @@ func NewService(node *pb.Node, cfg *yaml.Config) (*Service, error) {
 	if err := dis.Watch(clusterObj); err != nil {
 		return nil, err
 	}
-	if err := dis.Register(node, nodeCfg.DicoveryExpire); err != nil {
+	if err := dis.Register(node, cfg.Common.DicoveryExpire); err != nil {
 		return nil, err
 	}
 	// 消息中间件

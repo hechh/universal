@@ -23,10 +23,8 @@ func (d *Router) Get(nodeType pb.NodeType) int32 {
 	switch nodeType {
 	case pb.NodeType_Gate:
 		return atomic.LoadInt32(&d.Gate)
-	case pb.NodeType_Room:
-		return atomic.LoadInt32(&d.Room)
-	case pb.NodeType_Match:
-		return atomic.LoadInt32(&d.Match)
+	case pb.NodeType_Db:
+		return atomic.LoadInt32(&d.Db)
 	}
 	return d.Gate
 }
@@ -39,14 +37,9 @@ func (d *Router) Set(nodeType pb.NodeType, nodeId int32) {
 			atomic.StoreInt32(&d.Gate, nodeId)
 			flag = true
 		}
-	case pb.NodeType_Room:
-		if !atomic.CompareAndSwapInt32(&d.Room, nodeId, nodeId) {
-			atomic.StoreInt32(&d.Room, nodeId)
-			flag = true
-		}
-	case pb.NodeType_Match:
-		if !atomic.CompareAndSwapInt32(&d.Match, nodeId, nodeId) {
-			atomic.StoreInt32(&d.Match, nodeId)
+	case pb.NodeType_Db:
+		if !atomic.CompareAndSwapInt32(&d.Db, nodeId, nodeId) {
+			atomic.StoreInt32(&d.Db, nodeId)
 			flag = true
 		}
 	}

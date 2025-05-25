@@ -2,10 +2,10 @@ package internal
 
 import (
 	"fmt"
-	"net"
 	"net/http"
 	"reflect"
 	"universal/common/pb"
+	"universal/common/yaml"
 	"universal/framework/actor"
 	"universal/library/async"
 	"universal/library/mlog"
@@ -28,11 +28,7 @@ var upgrader = websocket.Upgrader{
 }
 
 // 初始化ws
-func (d *PlayerMgr) Init(addr string) error {
-	host, err := net.ResolveTCPAddr("tcp", addr)
-	if err != nil {
-		return err
-	}
+func (d *PlayerMgr) Init(cfg *yaml.ServerConfig) error {
 	// 初始化ActorMgr
 	d.mgr = new(actor.ActorMgr)
 	player := &player.Player{}
@@ -56,8 +52,8 @@ func (d *PlayerMgr) Init(addr string) error {
 		d.accept(conn)
 	})
 	async.SafeGo(mlog.Fatalf, func() {
-		mlog.Infof("启动WebSocket服务, 地址: %s", addr)
-		if err := http.ListenAndServe(fmt.Sprintf(":%d", host.Port), nil); err != nil {
+		mlog.Infof("启动WebSocket服务, 地址: %s:%d", cfg.Ip, cfg.Port)
+		if err := http.ListenAndServe(fmt.Sprintf(":%d", cfg.Port), nil); err != nil {
 			mlog.Errorf("WebSocket服务启动失败:%v", err)
 		}
 	})
