@@ -2,7 +2,7 @@
 * 本代码由cfgtool工具生成，请勿手动修改
  */
 
-package httpkit
+package manager
 
 import (
 	"universal/common/pb"

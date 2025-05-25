@@ -51,6 +51,7 @@ gate:
     ip: localhost
     port: 10001
     http_port: 10002
+
 db:
   1:
     log_level: debug # info, debug, warn, error, fatal

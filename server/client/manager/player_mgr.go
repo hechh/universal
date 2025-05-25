@@ -8,6 +8,8 @@ import (
 	"universal/library/async"
 	"universal/library/mlog"
 	"universal/server/client/player"
+
+	"github.com/golang/protobuf/proto"
 )
 
 type PlayerMgr struct {
@@ -49,6 +51,25 @@ func (p *PlayerMgr) Login(begin, end uint64) {
 	for i := begin; i <= end; i++ {
 		pl := player.NewPlayer(p.node, p.cfg, i)
 		p.mgr.AddActor(pl)
-		pl.SendMsg(&pb.Head{FuncName: "Login"})
+		pl.SendMsg(&pb.Head{FuncName: "Login"}, cmds)
 	}
+}
+
+func (p *PlayerMgr) SendCmd(cmd uint32, msg string) {
+	f, ok := cmds[cmd]
+	if !ok {
+		mlog.Errorf("cmd %d not found", cmd)
+		return
+	}
+	req := f()
+	if err := proto.Unmarshal([]byte(msg), req); err != nil {
+		mlog.Errorf("unmarshal error: %v", err)
+		return
+	}
+	buf, err := proto.Marshal(req)
+	if err != nil {
+		mlog.Errorf("marshal error: %v", err)
+		return
+	}
+	p.SendMsg(&pb.Head{ActorName: "Player", FuncName: "SendCmd", SendType: pb.SendType_BROADCAST}, cmd, buf)
 }

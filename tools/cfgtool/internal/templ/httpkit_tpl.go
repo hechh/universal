@@ -5,7 +5,7 @@ const httpKitTpl = `
 * 本代码由cfgtool工具生成，请勿手动修改
  */
 
-package httpkit
+package {{.Pkg}}
 
 import (
 	"universal/common/pb"

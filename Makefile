@@ -6,7 +6,7 @@ DATA_PATH=./configure/data
 CFG_GO_PATH=./common/config/repository/
 REDIS_GO_PATH=./common/dao/repository/redis
 PB_GO_PATH=./common/pb
-HTTP_KIT_GO_PATH=./server/client/httpkit
+HTTP_KIT_GO_PATH=./server/client/manager
 OUTPUT=./output
 SERVER_PATH=./server
 

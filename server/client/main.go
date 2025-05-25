@@ -3,11 +3,13 @@ package main
 import (
 	"flag"
 	"fmt"
+	"net/http"
 	"strings"
 	"universal/common/pb"
 	"universal/common/yaml"
-	"universal/library/signal"
 	"universal/server/client/manager"
+
+	"github.com/spf13/cast"
 )
 
 var (
@@ -16,10 +18,11 @@ var (
 
 func main() {
 	var filename string
-	var id int
+	var id, port int
 	var begin, end int64
 	flag.StringVar(&filename, "config", "config.yaml", "游戏配置")
 	flag.IntVar(&id, "id", 1, " 节点id")
+	flag.IntVar(&port, "port", 0, " 节点端口")
 	flag.Int64Var(&begin, "begin", 100000, "起始uid")
 	flag.Int64Var(&end, "end", 100000, "终止uid")
 	flag.Parse()
@@ -39,8 +42,24 @@ func main() {
 
 	playerMgr.Login(uint64(begin), uint64(end))
 
-	// 服务退出
-	signal.SignalNotify(func() {
-		// todo
-	})
+	// 请求 http 服务，接受请求
+	http.HandleFunc("/api", handle)
+	http.ListenAndServe(fmt.Sprintf(":%d", port), nil)
+}
+
+func handle(w http.ResponseWriter, r *http.Request) {
+	// 1. 只允许POST方法
+	if r.Method != http.MethodPost {
+		http.Error(w, "只支持post方法", http.StatusMethodNotAllowed)
+		return
+	}
+	// 2. 解析URL参数
+	query := r.URL.Query()
+	cmd := query.Get("cmd")
+	if len(cmd) <= 0 {
+		http.Error(w, "cmd不能为空", http.StatusBadRequest)
+		return
+	}
+	val := query.Get("value")
+	playerMgr.SendCmd(cast.ToUint32(cmd), val)
 }
