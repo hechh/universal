@@ -68,7 +68,6 @@ func (d *Etcd) Watch(cls domain.ICluster) error {
 			}
 
 			for _, event := range resp.Events {
-				mlog.Infof("Etcd监听服务事件: %s ---> %s", event.Kv.Key, string(event.Kv.Value))
 				switch event.Type {
 				case clientv3.EventTypePut:
 					node := &pb.Node{}
@@ -135,6 +134,7 @@ func (d *Etcd) Register(nn *pb.Node, ttl int64) error {
 					panic(uerror.New(1, -1, "Etcd续约失败: ndoe:%v, error:%v", nn, err))
 				}
 			case <-d.exit:
+				d.client.Revoke(context.Background(), d.lease)
 				return
 			}
 		}
