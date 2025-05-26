@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"path"
 	"sort"
+	"universal/library/fileutil"
 	"universal/library/uerror"
 	"universal/tools/cfgtool/domain"
 	"universal/tools/cfgtool/internal/base"
@@ -49,7 +50,7 @@ func GenCode(buf *bytes.Buffer) error {
 			return err
 		}
 		// 保存代码
-		if err := base.SaveGo(path.Join(domain.CodePath, name), dataName+"Data.gen.go", buf.Bytes()); err != nil {
+		if err := fileutil.SaveGo(path.Join(domain.CodePath, name), dataName+"Data.gen.go", buf.Bytes()); err != nil {
 			return err
 		}
 	}
@@ -71,7 +72,7 @@ func genIndex(buf *bytes.Buffer) error {
 		if err := templ.IndexTpl.Execute(buf, indexs); err != nil {
 			return uerror.New(1, -1, "gen index file error: %s", err.Error())
 		}
-		return base.SaveGo(domain.PbPath, "index.gen.go", buf.Bytes())
+		return fileutil.SaveGo(domain.PbPath, "index.gen.go", buf.Bytes())
 	}
 	return nil
 }

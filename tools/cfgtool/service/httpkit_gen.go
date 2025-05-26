@@ -3,8 +3,8 @@ package service
 import (
 	"bytes"
 	"path/filepath"
+	"universal/library/fileutil"
 	"universal/tools/cfgtool/domain"
-	"universal/tools/cfgtool/internal/base"
 	"universal/tools/cfgtool/internal/manager"
 	"universal/tools/cfgtool/internal/templ"
 )
@@ -29,7 +29,7 @@ func GenHttpKit(buf *bytes.Buffer) error {
 		return err
 	}
 	// 保存代码
-	if err := base.SaveGo(domain.ClientPath, "Init.gen.go", buf.Bytes()); err != nil {
+	if err := fileutil.SaveGo(domain.ClientPath, "Init.gen.go", buf.Bytes()); err != nil {
 		return err
 	}
 	return nil

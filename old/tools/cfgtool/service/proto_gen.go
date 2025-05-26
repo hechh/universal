@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"sort"
 	"universal/framework/library/uerror"
+	"universal/library/fileutil"
 	"universal/tools/cfgtool/domain"
 	"universal/tools/cfgtool/internal/base"
 	"universal/tools/cfgtool/internal/manager"
@@ -62,7 +63,7 @@ func SaveProto() error {
 	}
 
 	for fileName, data := range manager.GetProtoMap() {
-		if err := base.Save(domain.ProtoPath, fileName, []byte(data)); err != nil {
+		if err := fileutil.Save(domain.ProtoPath, fileName, []byte(data)); err != nil {
 			return err
 		}
 	}

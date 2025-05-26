@@ -3,6 +3,7 @@ package service
 import (
 	"bytes"
 	"path"
+	"universal/library/fileutil"
 	"universal/tools/cfgtool/domain"
 	"universal/tools/cfgtool/internal/base"
 	"universal/tools/cfgtool/internal/manager"
@@ -42,7 +43,7 @@ func GenCode(buf *bytes.Buffer) error {
 			return err
 		}
 		// 保存代码
-		if err := base.SaveGo(path.Join(domain.CodePath, name), dataName+"Data.gen.go", buf.Bytes()); err != nil {
+		if err := fileutil.SaveGo(path.Join(domain.CodePath, name), dataName+"Data.gen.go", buf.Bytes()); err != nil {
 			return err
 		}
 	}

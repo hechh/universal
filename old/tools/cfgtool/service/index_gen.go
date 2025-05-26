@@ -3,8 +3,8 @@ package service
 import (
 	"bytes"
 	"universal/framework/library/uerror"
+	"universal/library/fileutil"
 	"universal/tools/cfgtool/domain"
-	"universal/tools/cfgtool/internal/base"
 	"universal/tools/cfgtool/internal/manager"
 	"universal/tools/cfgtool/internal/templ"
 
@@ -31,7 +31,7 @@ func genIndex(buf *bytes.Buffer) error {
 		if err := templ.IndexTpl.Execute(buf, indexs); err != nil {
 			return uerror.New(1, -1, "gen index file error: %s", err.Error())
 		}
-		return base.SaveGo(domain.PbPath, "index.gen.go", buf.Bytes())
+		return fileutil.SaveGo(domain.PbPath, "index.gen.go", buf.Bytes())
 	}
 	return nil
 }
