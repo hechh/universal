@@ -47,7 +47,7 @@ type CommonConfig struct {
 
 type ServerConfig struct {
 	LogLevel string `yaml:"log_level"`
-	LogPath  string `yaml:"log_path"`
+	LogFile  string `yaml:"log_file"`
 	Ip       string `yaml:"ip"`
 	Port     int    `yaml:"port"`
 	HttpPort int    `yaml:"http_port"`

@@ -47,7 +47,7 @@ common:
 gate:
   1: 
     log_level: debug # info, debug, warn, error, fatal
-    log_path: ./log
+    log_file: ./log/gate1.log
     ip: localhost
     port: 10001
     http_port: 10002
@@ -55,7 +55,7 @@ gate:
 db:
   1:
     log_level: debug # info, debug, warn, error, fatal
-    log_path: ./log
+    log_file: ./log/db1.log
     ip: localhost
     port: 10201
 

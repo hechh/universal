@@ -25,6 +25,10 @@ func Init(node *pb.Node, server *yaml.ServerConfig, cfg *yaml.Config) (err error
 	return
 }
 
+func GetSelf() *pb.Node {
+	return core.GetNode()
+}
+
 // 跨服务发消息
 func Send(head *pb.Head, args ...interface{}) error {
 	return core.Send(head, args...)
@@ -40,14 +44,19 @@ func Request(head *pb.Head, msg proto.Message, reply proto.Message) error {
 	return core.Request(head, msg, reply)
 }
 
+func Response(head *pb.Head, msg interface{}) error {
+	return core.Response(head, msg)
+}
+
 // 发送到客户端
 func SendToClient(head *pb.Head, msg proto.Message) error {
 	return core.SendToClient(head, msg)
 }
 
 // 通知客户端
-func NotifyToClient(uids []uint64, head *pb.Head, msg proto.Message) {
+func NotifyToClient(uids []uint64, head *pb.Head, msg proto.Message) error {
 	core.NotifyToClient(uids, head, msg)
+	return nil
 }
 
 // 注册消息处理函数
@@ -67,7 +76,7 @@ func RegisterReplyHandler(f func(*pb.Head, []byte)) error {
 
 // 默认内网消息处理器
 func DefaultSendHandler(head *pb.Head, buf []byte) {
-	mlog.Debugf("send调用: %v", head)
+	mlog.Debugf("收到Nats send数据包 head:%v, body:%d", head, len(buf))
 	if err := actor.Send(head, buf); err != nil {
 		mlog.Errorf("跨服务调用错误: %v", err)
 	}
@@ -75,7 +84,7 @@ func DefaultSendHandler(head *pb.Head, buf []byte) {
 
 // 默认内网消息处理器
 func DefaultReplyHandler(head *pb.Head, buf []byte) {
-	mlog.Debugf("rpc调用: %v", head)
+	mlog.Debugf("收到Nats rpc数据包 head:%v, body:%d", head, len(buf))
 	if err := actor.Send(head, buf); err != nil {
 		mlog.Errorf("跨服务调用错误: %v", err)
 	}
@@ -83,7 +92,7 @@ func DefaultReplyHandler(head *pb.Head, buf []byte) {
 
 // 默认内网广播消息处理器
 func DefaultBroadcastHandler(head *pb.Head, buf []byte) {
-	mlog.Debugf("broadcast调用: %v", head)
+	mlog.Debugf("收到Nats broadcast数据包 head:%v, body:%d", head, len(buf))
 	if err := actor.Send(head, buf); err != nil {
 		mlog.Errorf("跨服务调用错误: %v", err)
 	}

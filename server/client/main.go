@@ -4,7 +4,6 @@ import (
 	"flag"
 	"fmt"
 	"net/http"
-	"path"
 	"strings"
 	"universal/common/config"
 	"universal/common/pb"
@@ -43,7 +42,7 @@ func main() {
 	nodeCfg := cfg.Gate[node.Id]
 
 	// 初始化日志库
-	if err := mlog.Init(cfg.Common.Env, nodeCfg.LogLevel, path.Join(nodeCfg.LogPath, "client.log")); err != nil {
+	if err := mlog.Init(cfg.Common.Env, nodeCfg.LogLevel, nodeCfg.LogFile); err != nil {
 		panic(fmt.Sprintf("日志库初始化失败: %v", err))
 	}
 

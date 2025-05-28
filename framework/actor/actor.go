@@ -53,7 +53,7 @@ func (d *Actor) ParseFunc(tt interface{}) {
 func (d *Actor) SendMsg(h *pb.Head, args ...interface{}) error {
 	mm, ok := d.funcs[h.FuncName]
 	if !ok {
-		return uerror.New(1, -1, "%s.%s未实现", h.ActorName, h.FuncName)
+		return uerror.New(1, -1, "%s.%s未实现, head:%v", h.ActorName, h.FuncName, h)
 	}
 	d.Push(mm.handle(d.rval, h, args...))
 	return nil
@@ -62,7 +62,7 @@ func (d *Actor) SendMsg(h *pb.Head, args ...interface{}) error {
 func (d *Actor) Send(h *pb.Head, buf []byte) error {
 	mm, ok := d.funcs[h.FuncName]
 	if !ok {
-		return uerror.New(1, -1, "%s.%s未实现", h.ActorName, h.FuncName)
+		return uerror.New(1, -1, "%s.%s未实现, head:%v", h.ActorName, h.FuncName, h)
 	}
 	// 发送事件
 	if mm.isProto {

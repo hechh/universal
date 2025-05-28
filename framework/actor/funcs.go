@@ -55,6 +55,7 @@ func parseFuncInfo(m reflect.Method) *FuncInfo {
 
 func (f *FuncInfo) handle(rval reflect.Value, head *pb.Head, args ...interface{}) func() {
 	return func() {
+			mlog.Debugf("Actor(%s.%s) head:%v, args:%v", head.ActorName, head.FuncName, head, args)
 		size := f.Type.NumIn()
 		in := get(size)
 		defer put(in)
@@ -68,15 +69,17 @@ func (f *FuncInfo) handle(rval reflect.Value, head *pb.Head, args ...interface{}
 			in[i] = reflect.ValueOf(args[i-pos])
 		}
 		// 可变参数
-		if !f.Type.IsVariadic() {
-			in[size-1] = reflect.ValueOf(args[size-pos-1])
-		} else {
-			if args2 := args[size-pos-1:]; len(args2) > 0 {
-				arr := make([]reflect.Value, len(args2))
-				for i, item := range args2 {
-					arr[i] = reflect.ValueOf(item)
+		if size > pos {
+			if !f.Type.IsVariadic() {
+				in[size-1] = reflect.ValueOf(args[size-pos-1])
+			} else {
+				if args2 := args[size-pos-1:]; len(args2) > 0 {
+					arr := make([]reflect.Value, len(args2))
+					for i, item := range args2 {
+						arr[i] = reflect.ValueOf(item)
+					}
+					in[size-1] = reflect.ValueOf(arr)
 				}
-				in[size-1] = reflect.ValueOf(arr)
 			}
 		}
 		// 调用函数
@@ -141,8 +144,8 @@ func (f *FuncInfo) handleRpcGob(rval reflect.Value, head *pb.Head, buf []byte) f
 }
 
 func response(m reflect.Method, head *pb.Head, result []reflect.Value) {
-	if m.Type.NumOut() > 0 {
-		mlog.Debugf("Actor(%s.%s) head:%v", head.ActorName, head.FuncName, head)
+	if m.Type.NumOut() <= 0 {
+			mlog.Debugf("Actor(%s.%s) head:%v", head.ActorName, head.FuncName, head)
 		return
 	}
 

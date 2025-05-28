@@ -2,6 +2,8 @@ package mlog
 
 import (
 	"fmt"
+	"os"
+	"path"
 	"universal/library/mlog/zap"
 )
 
@@ -43,6 +45,7 @@ func InitDefault() {
 }
 
 func Init(env string, level string, logfile string) error {
+	os.MkdirAll(path.Dir(logfile), os.FileMode(0777))
 	switch vv := zap.NewLogger(env, str2Level[level], logfile).(type) {
 	case error:
 		return vv

@@ -29,6 +29,10 @@ func (d *ActorMgr) SetActorIdFunc(f func(*pb.Head) uint64) {
 	d.actorIdFunc = f
 }
 
+func (d *ActorMgr) GetCount() int {
+	return len(d.actors)
+}
+
 func (d *ActorMgr) GetId() uint64 {
 	return d.id
 }

@@ -3,7 +3,6 @@ package main
 import (
 	"flag"
 	"fmt"
-	"path"
 	"strings"
 	"universal/common/config"
 	"universal/common/dao"
@@ -39,7 +38,7 @@ func main() {
 	nodeCfg := cfg.Gate[node.Id]
 
 	// 初始化日志库
-	if err := mlog.Init(cfg.Common.Env, nodeCfg.LogLevel, path.Join(nodeCfg.LogPath, node.Name+".log")); err != nil {
+	if err := mlog.Init(cfg.Common.Env, nodeCfg.LogLevel, nodeCfg.LogFile); err != nil {
 		panic(fmt.Sprintf("日志库初始化失败: %v", err))
 	}
 
