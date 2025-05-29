@@ -139,6 +139,7 @@ func (d *Timer) run() {
 		d.sync(news)
 	}()
 
+	//tickMask := d.tick - 1
 	for {
 		select {
 		case <-tt.C:
@@ -147,6 +148,19 @@ func (d *Timer) run() {
 			news = d.refresh(news)
 			news = d.sync(news)
 			d.insert(news)
+			/*
+				pos := time.Now().UnixMilli() | tickMask
+				for cur := atomic.AddInt64(&d.now, d.tick); cur|tickMask <= pos; cur = atomic.AddInt64(&d.now, d.tick) {
+					news = news[:0]
+					news = d.refresh(news)
+					news = d.sync(news)
+					d.insert(news)
+
+					if (cur+d.tick)|tickMask > pos {
+						break
+					}
+				}
+			*/
 		case <-d.notify:
 			news = news[:0]
 			news = d.sync(news)
@@ -194,7 +208,8 @@ func (d *Timer) handle(tt *Task) *Task {
 	if *tt.taskId <= 0 || tt.times == 0 {
 		return nil
 	}
-	async.SafeRecover(mlog.Fatalf, tt.task)
+	tt.task()
+	//async.SafeRecover(mlog.Fatalf, tt.task)
 	if tt.times > 0 {
 		tt.times--
 	}

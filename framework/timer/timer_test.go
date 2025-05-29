@@ -6,23 +6,16 @@ import (
 	"time"
 )
 
-func Print() {
-	fmt.Println("hello world")
-}
-
 func TestTimer(t *testing.T) {
 	timer := NewTimer(4, 7, 4)
 
 	taskId := uint64(123)
-	if err := timer.Register(&taskId, Print, 17*time.Millisecond, 2); err != nil {
-		t.Fatalf("Register failed: %v", err)
-		return
+	for i := 0; i < 10000; i++ {
+		if err := timer.Register(&taskId, func() { fmt.Println("-->", i) }, 1*time.Second, -1); err != nil {
+			t.Fatalf("Register failed: %v", err)
+			return
+		}
 	}
-	time.Sleep(100 * time.Millisecond)
+	time.Sleep(4 * time.Second)
+	//select {}
 }
-
-// 1748483395234   109,280,212,202
-// 				   109,280,212,201
-
-// 197 19BB 4EAF
-// 197 19BB 4E9F
