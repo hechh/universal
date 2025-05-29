@@ -45,6 +45,7 @@ func NewTimer(count, shift, tick int64) *Timer {
 		startTime: now,
 		size:      int(count),
 		wheels:    newWheels(count, shift, tick, now),
+		tasks:     async.NewQueue[*Task](),
 		notify:    make(chan struct{}, 1),
 		exit:      make(chan struct{}),
 	}
@@ -68,7 +69,7 @@ func newWheels(count, shift, tick, now int64) (rets []*Wheel) {
 
 // 任务是否过期
 func (d *Wheel) IsExpire(tt *Task) bool {
-	return tt.expire <= d.cursor || tt.expire|d.mask <= d.cursor|d.mask
+	return tt.expire <= d.cursor || tt.expire|d.smask <= d.cursor|d.smask
 }
 
 // 添加任务
@@ -86,7 +87,7 @@ func (d *Wheel) Add(task *Task) bool {
 
 // 获取过期任务
 func (d *Wheel) Get(now int64) *Task {
-	if now <= d.cursor || now|d.mask <= d.cursor|d.mask {
+	if now <= d.cursor || now|d.smask <= d.cursor|d.smask {
 		return nil
 	}
 
@@ -113,8 +114,8 @@ func (d *Timer) Register(taskId *uint64, f func(), ttl time.Duration, times int3
 	return d.add(&Task{
 		taskId: taskId,
 		task:   f,
-		ttl:    int64(ttl),
-		expire: atomic.LoadInt64(&d.now) + int64(ttl),
+		ttl:    tt,
+		expire: atomic.LoadInt64(&d.now) + tt,
 		times:  times,
 	})
 }
@@ -130,7 +131,7 @@ func (d *Timer) add(task *Task) error {
 
 func (d *Timer) run() {
 	news := []*Task{}
-	tt := time.NewTimer(time.Duration(d.tick) * time.Millisecond)
+	tt := time.NewTicker(time.Duration(d.tick) * time.Millisecond)
 	defer func() {
 		tt.Stop()
 		news = news[:0]
@@ -141,8 +142,8 @@ func (d *Timer) run() {
 	for {
 		select {
 		case <-tt.C:
-			news = news[:0]
 			atomic.AddInt64(&d.now, d.tick)
+			news = news[:0]
 			news = d.refresh(news)
 			news = d.sync(news)
 			d.insert(news)
@@ -165,7 +166,7 @@ func (d *Timer) refresh(news []*Task) []*Task {
 			tt.next = nil
 			if min.IsExpire(tt) {
 				if newTask := d.handle(tt); newTask != nil {
-					news = append(news, tt)
+					news = append(news, newTask)
 				}
 			} else {
 				d.dispatcher(i+1, tt)
@@ -180,7 +181,7 @@ func (d *Timer) sync(news []*Task) []*Task {
 	for item := d.tasks.Pop(); item != nil; item = d.tasks.Pop() {
 		if min.IsExpire(item) {
 			if newTask := d.handle(item); newTask != nil {
-				news = append(news, item)
+				news = append(news, newTask)
 			}
 		} else {
 			news = append(news, item)

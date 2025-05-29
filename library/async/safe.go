@@ -15,7 +15,7 @@ func SafeRecover(cb func(string, ...interface{}), f func()) {
 		if err := recover(); err != nil {
 			if cb != nil {
 				cb("%v stack: %v", err, string(debug.Stack()))
-			} else {
+			} else if catch != nil {
 				catch("%v stack: %v", err, string(debug.Stack()))
 			}
 		}
@@ -29,7 +29,7 @@ func SafeGo(cb func(string, ...interface{}), f func()) {
 			if err := recover(); err != nil {
 				if cb != nil {
 					cb("%v stack: %v", err, string(debug.Stack()))
-				} else {
+				} else if catch != nil {
 					catch("%v stack: %v", err, string(debug.Stack()))
 				}
 			}
