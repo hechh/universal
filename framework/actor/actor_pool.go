@@ -74,7 +74,7 @@ func (d *ActorPool) SendMsg(h *pb.Head, args ...interface{}) error {
 	if !ok {
 		return uerror.New(1, -1, "%s.%s未实现", h.ActorName, h.FuncName)
 	}
-	pos := h.Id % uint64(d.poolSize)
+	pos := getActorId(h) % uint64(d.poolSize)
 	d.pool[pos].Push(mm.handle(d.rval, h, args...))
 	return nil
 }
@@ -84,7 +84,7 @@ func (d *ActorPool) Send(h *pb.Head, buf []byte) error {
 	if !ok {
 		return uerror.New(1, -1, "%s.%s未实现", h.ActorName, h.FuncName)
 	}
-	pos := h.Id % uint64(d.poolSize)
+	pos := getActorId(h) % uint64(d.poolSize)
 	if mm.isProto {
 		d.pool[pos].Push(mm.handleRpc(d.rval, h, buf))
 	} else if mm.isBytes {

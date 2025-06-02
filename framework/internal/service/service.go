@@ -27,7 +27,6 @@ func NewService(node *pb.Node, server *yaml.ServerConfig, cfg *yaml.Config) (*Se
 	clusterObj := cluster.New()
 	tableObj := router.New()
 	tableObj.SetExpire(cfg.Common.RouterExpire)
-
 	// 服务发现
 	dis, err := discovery.NewEtcd(cfg.Etcd)
 	if err != nil {
@@ -71,7 +70,7 @@ func (d *Service) RegisterReplyHandler(f func(*pb.Head, []byte)) error {
 
 func (d *Service) Send(head *pb.Head, args ...interface{}) error {
 	// 检测参数
-	if head.RouteId <= 0 || head.Id <= 0 {
+	if head.DstId <= 0 || head.DstIdType <= 0 {
 		return uerror.New(1, -1, "唯一ID为空: %v", head)
 	}
 	if head.DstNodeType >= pb.NodeType_End || head.DstNodeType <= pb.NodeType_Begin {
@@ -102,6 +101,9 @@ func (d *Service) Send(head *pb.Head, args ...interface{}) error {
 
 func (d *Service) Broadcast(head *pb.Head, args ...interface{}) error {
 	// 检测参数
+	if head.SrcId <= 0 || head.SrcIdType <= 0 {
+		return uerror.New(1, -1, "唯一ID为空: %v", head)
+	}
 	if head.DstNodeType >= pb.NodeType_End || head.DstNodeType <= pb.NodeType_Begin {
 		return uerror.New(1, -1, "服务类型不支持: %v", head)
 	}
@@ -114,12 +116,6 @@ func (d *Service) Broadcast(head *pb.Head, args ...interface{}) error {
 	head.SrcNodeType = d.node.Type
 	head.SrcNodeId = d.node.Id
 
-	// 更新路由
-	if head.Id > 0 {
-		router := d.tableObj.Get(head.IdType, head.Id)
-		router.Set(d.node.Type, d.node.Id)
-	}
-
 	// 解析参数
 	buf, err := parseArgs(args...)
 	if err != nil {
@@ -130,7 +126,7 @@ func (d *Service) Broadcast(head *pb.Head, args ...interface{}) error {
 
 func (d *Service) Request(head *pb.Head, msg interface{}, reply proto.Message) error {
 	// 检测参数
-	if head.RouteId <= 0 || head.Id <= 0 {
+	if head.DstId <= 0 || head.DstIdType <= 0 {
 		return uerror.New(1, -1, "唯一ID为空: %v", head)
 	}
 	if head.DstNodeType >= pb.NodeType_End || head.DstNodeType <= pb.NodeType_Begin {
@@ -176,7 +172,7 @@ func (d *Service) Response(head *pb.Head, msg interface{}) error {
 func (d *Service) dispatcher(head *pb.Head) error {
 	head.SrcNodeType = d.node.Type
 	head.SrcNodeId = d.node.Id
-	router := d.tableObj.Get(head.IdType, head.Id)
+	router := d.tableObj.Get(head.DstIdType, head.DstId)
 	router.Set(d.node.Type, d.node.Id)
 	// 业务层直接指定具体节点
 	if head.DstNodeId > 0 {
@@ -189,14 +185,15 @@ func (d *Service) dispatcher(head *pb.Head) error {
 	// 优先从路由中选择
 	if nodeId := router.Get(head.DstNodeType); nodeId > 0 {
 		if d.clusterObj.Get(head.DstNodeType, nodeId) != nil {
+			router.Set(head.DstNodeType, nodeId)
 			head.DstNodeId = nodeId
 			return nil
 		}
 	}
 	//从集群中随机获取一个节点
-	if node := d.clusterObj.Random(head.DstNodeType, head.RouteId); node != nil {
-		head.DstNodeId = node.Id
+	if node := d.clusterObj.Random(head.DstNodeType, head.DstId); node != nil {
 		router.Set(head.DstNodeType, node.Id)
+		head.DstNodeId = node.Id
 		return nil
 	}
 	return uerror.New(1, -1, "未找到服务节点: %v", head)
@@ -207,14 +204,15 @@ func (d *Service) SendToClient(head *pb.Head, msg proto.Message) error {
 	head.SrcNodeType = d.node.Type
 	head.SrcNodeId = d.node.Id
 	head.DstNodeType = pb.NodeType_Gate
+	head.DstIdType = pb.IdType_UID
 
 	// 检测参数
-	if head.Id <= 0 {
+	if head.DstId <= 0 {
 		return uerror.New(1, -1, "唯一ID为空: %v", head)
 	}
 
 	// 读取路由节点
-	router := d.tableObj.Get(head.IdType, head.Id)
+	router := d.tableObj.Get(head.DstIdType, head.DstId)
 	head.DstNodeId = router.Get(head.DstNodeType)
 
 	// 判断节点是否还在
@@ -227,8 +225,6 @@ func (d *Service) SendToClient(head *pb.Head, msg proto.Message) error {
 	if err != nil {
 		return uerror.New(1, -1, "序列化失败：%v", err)
 	}
-
-	// 发送请求
 	return d.busObj.Send(head, buf)
 }
 
@@ -237,11 +233,12 @@ func (d *Service) NotifyToClient(uids []uint64, head *pb.Head, msg proto.Message
 	head.SrcNodeType = d.node.Type
 	head.SrcNodeId = d.node.Id
 	head.DstNodeType = pb.NodeType_Gate
+	head.DstIdType = pb.IdType_UID
 
 	for _, uid := range uids {
-		head.Id = uid
+		head.DstId = uid
 		// 读取路由节点
-		router := d.tableObj.Get(head.IdType, head.Id)
+		router := d.tableObj.Get(head.DstIdType, head.DstId)
 		head.DstNodeId = router.Get(head.DstNodeType)
 
 		// 判断节点是否还在
@@ -256,8 +253,6 @@ func (d *Service) NotifyToClient(uids []uint64, head *pb.Head, msg proto.Message
 			mlog.Errorf("序列化失败：%v", err)
 			continue
 		}
-
-		// 发送
 		if err := d.busObj.Send(head, buf); err != nil {
 			mlog.Errorf("通知玩家失败：%v, error:%v", head, err)
 		}

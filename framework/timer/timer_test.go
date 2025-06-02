@@ -7,8 +7,7 @@ import (
 )
 
 func TestTimer(t *testing.T) {
-	timer := NewTimer(4, 7, 4)
-
+	timer := NewTimer(4)
 	taskId := uint64(123)
 	for i := 0; i < 10000; i++ {
 		if err := timer.Register(&taskId, func() { fmt.Println("-->", i) }, 1*time.Second, -1); err != nil {

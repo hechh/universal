@@ -10,16 +10,16 @@ import (
 type IRouter interface {
 	Get(pb.NodeType) int32
 	Set(pb.NodeType, int32)
+	Update(*pb.Router) // 设置路由信息
 	GetData() *pb.Router
 	IsExpire(now, ttl int64) bool // 是否过期
 }
 
 // 路由表接口
 type ITable interface {
-	Get(pb.IdType, uint64) IRouter     // 获取路由信息
-	Add(pb.IdType, uint64, *pb.Router) // 设置路由信息
-	SetExpire(int64)                   // 设置路由过期时间
-	Close()                            // 关闭路由管理
+	Get(pb.IdType, uint64) IRouter // 获取路由信息
+	SetExpire(int64)               // 设置路由过期时间
+	Close()                        // 关闭路由管理
 }
 
 // 服务集群接口

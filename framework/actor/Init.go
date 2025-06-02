@@ -39,3 +39,10 @@ func Send(head *pb.Head, body []byte) error {
 	}
 	return uerror.New(1, -1, "Actor%s不存在", head.ActorName)
 }
+
+func getActorId(head *pb.Head) uint64 {
+	if head.DstId > 0 {
+		return head.DstId
+	}
+	return head.SrcId
+}

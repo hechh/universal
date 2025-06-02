@@ -18,17 +18,6 @@ type ActorMgr struct {
 	actorIdFunc func(*pb.Head) uint64
 }
 
-func (d *ActorMgr) getActorId(h *pb.Head) uint64 {
-	if d.actorIdFunc != nil {
-		return d.actorIdFunc(h)
-	}
-	return h.Id
-}
-
-func (d *ActorMgr) SetActorIdFunc(f func(*pb.Head) uint64) {
-	d.actorIdFunc = f
-}
-
 func (d *ActorMgr) GetCount() int {
 	return len(d.actors)
 }
@@ -99,8 +88,7 @@ func (d *ActorMgr) SendMsg(h *pb.Head, args ...interface{}) error {
 	}
 	switch h.SendType {
 	case pb.SendType_POINT, pb.SendType_RPC:
-		actorId := d.getActorId(h)
-		if act := d.GetActor(actorId); act != nil {
+		if act := d.GetActor(getActorId(h)); act != nil {
 			return act.SendMsg(h, args...)
 		} else {
 			return uerror.New(1, -1, "Actor不存在: %v", h)
@@ -125,8 +113,7 @@ func (d *ActorMgr) Send(h *pb.Head, buf []byte) error {
 	}
 	switch h.SendType {
 	case pb.SendType_POINT, pb.SendType_RPC:
-		actorId := d.getActorId(h)
-		if act := d.GetActor(actorId); act != nil {
+		if act := d.GetActor(getActorId(h)); act != nil {
 			return act.Send(h, buf)
 		} else {
 			return uerror.New(1, -1, "Actor不存在: %v", h)
