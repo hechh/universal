@@ -52,6 +52,13 @@ gate:
     port: 10001
     http_port: 10002
 
+game:
+  1:
+    log_level: debug # info, debug, warn, error, fatal
+    log_file: ./log/game1.log
+    ip: localhost
+    port: 10101
+
 db:
   1:
     log_level: debug # info, debug, warn, error, fatal
@@ -59,4 +66,31 @@ db:
     ip: localhost
     port: 10201
 
+gm:
+  1:
+    log_level: debug # info, debug, warn, error, fatal
+    log_file: ./log/gm1.log
+    ip: localhost
+    port: 10301
 
+match:
+  1:
+    log_level: debug # info, debug, warn, error, fatal
+    log_file: ./log/match1.log
+    ip: localhost
+    port: 10401
+
+room:
+  1:
+    log_level: debug # info, debug, warn, error, fatal
+    log_file: ./log/room1.log
+    ip: localhost
+    port: 10501
+
+builder:
+  1:
+    log_level: debug # info, debug, warn, error, fatal
+    log_file: ./log/builder1.log
+    ip: localhost
+    port: 10601
+  

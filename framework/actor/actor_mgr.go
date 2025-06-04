@@ -87,13 +87,13 @@ func (d *ActorMgr) SendMsg(h *pb.Head, args ...interface{}) error {
 		return uerror.New(1, -1, "%s.%s未实现", h.ActorName, h.FuncName)
 	}
 	switch h.SendType {
-	case pb.SendType_POINT, pb.SendType_RPC:
+	case pb.SendType_Point:
 		if act := d.GetActor(getActorId(h)); act != nil {
 			return act.SendMsg(h, args...)
 		} else {
 			return uerror.New(1, -1, "Actor不存在: %v", h)
 		}
-	case pb.SendType_BROADCAST:
+	case pb.SendType_Broadcast:
 		d.mutex.RLock()
 		for _, act := range d.actors {
 			if err := act.SendMsg(h, args...); err != nil {

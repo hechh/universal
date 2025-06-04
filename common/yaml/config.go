@@ -61,7 +61,12 @@ type Config struct {
 	Nats    *NatsConfig             `yaml:"nats"`
 	Common  *CommonConfig           `yaml:"common"`
 	Gate    map[int32]*ServerConfig `yaml:"gate"`
+	Game    map[int32]*ServerConfig `yaml:"game"`
 	Db      map[int32]*ServerConfig `yaml:"db"`
+	Gm      map[int32]*ServerConfig `yaml:"gm"`
+	Match   map[int32]*ServerConfig `yaml:"match"`
+	Room    map[int32]*ServerConfig `yaml:"room"`
+	Builder map[int32]*ServerConfig `yaml:"builder"`
 }
 
 func (c *Config) Unmarshal(buf []byte) error {
@@ -94,6 +99,37 @@ func LoadConfig(filename string, node *pb.Node) (*Config, error) {
 		node.Addr = fmt.Sprintf("%s:%d", srvCfg.Ip, srvCfg.Port)
 	case pb.NodeType_Db:
 		srvCfg, ok := cfg.Db[node.Id]
+		if !ok {
+			return nil, uerror.New(1, -1, "服务节点不存在: %s-%d", node.Type.String(), node.Id)
+		}
+		node.Addr = fmt.Sprintf("%s:%d", srvCfg.Ip, srvCfg.Port)
+	case pb.NodeType_Game:
+		srvCfg, ok := cfg.Game[node.Id]
+		if !ok {
+			return nil, uerror.New(1, -1, "服务节点不存在: %s-%d", node.Type.String(), node.Id)
+		}
+		node.Addr = fmt.Sprintf("%s:%d", srvCfg.Ip, srvCfg.Port)
+	case pb.NodeType_Gm:
+		srvCfg, ok := cfg.Gm[node.Id]
+		if !ok {
+			return nil, uerror.New(1, -1, "服务节点不存在: %s-%d", node.Type.String(), node.Id)
+		}
+		node.Addr = fmt.Sprintf("%s:%d", srvCfg.Ip, srvCfg.Port)
+	case pb.NodeType_Match:
+		srvCfg, ok := cfg.Match[node.Id]
+		if !ok {
+
+			return nil, uerror.New(1, -1, "服务节点不存在: %s-%d", node.Type.String(), node.Id)
+		}
+		node.Addr = fmt.Sprintf("%s:%d", srvCfg.Ip, srvCfg.Port)
+	case pb.NodeType_Room:
+		srvCfg, ok := cfg.Room[node.Id]
+		if !ok {
+			return nil, uerror.New(1, -1, "服务节点不存在: %s-%d", node.Type.String(), node.Id)
+		}
+		node.Addr = fmt.Sprintf("%s:%d", srvCfg.Ip, srvCfg.Port)
+	case pb.NodeType_Builder:
+		srvCfg, ok := cfg.Builder[node.Id]
 		if !ok {
 			return nil, uerror.New(1, -1, "服务节点不存在: %s-%d", node.Type.String(), node.Id)
 		}

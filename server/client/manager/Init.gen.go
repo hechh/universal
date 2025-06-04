@@ -15,8 +15,4 @@ var (
 )
 
 func init() {
-	cmds[16777216] = func() proto.Message { return &pb.LoginRequest{} }
-	cmds[16777217] = func() proto.Message { return &pb.LoginResponse{} }
-	cmds[16777218] = func() proto.Message { return &pb.HeartRequest{} }
-	cmds[16777219] = func() proto.Message { return &pb.HeartResponse{} }
 }

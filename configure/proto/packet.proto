@@ -3,29 +3,9 @@ package universal;
 
 option go_package = "universal/common/pb";
 
+import "core_enum_cfg.proto";
+
 // -------框架核心协议，请勿修改-------
-// 发送类型
-enum SendType {
-    POINT     = 0;  // 发送类型-点对点
-    BROADCAST = 1;  // 发送类型-广播
-    RPC       = 2;  // 发送类型-RPC
-}
-
-// route id类型
-enum IdType {
-    IdTypeNone = 0;  // 路由ID类型-无
-    UID        = 1;  // 路由ID类型-用户ID
-    ROOM_ID    = 2;  // 路由ID类型-房间ID
-}
-
-// 节点类型
-enum NodeType {
-    Begin = 0;  // 节点类型-Begin
-    Gate  = 1;  // 节点类型-Gate
-    Db    = 2;  // 节点类型-Db
-    Game  = 3;  // 节点类型-Game
-    End   = 4;  // 节点类型-End
-}
 
 // 节点信息
 message Node {
@@ -35,37 +15,43 @@ message Node {
     int32    Id   = 4;  // 节点ID
 }
 
+// 玩家路由信息
+message Router {
+    int32 Gate    = 1;  // 网关服务
+    int32 Game    = 2;  // 游戏服务
+    int32 Db      = 3;  // 数据库服务
+    int32 Gm      = 4;  // GM服务
+    int32 Match   = 5;  // 匹配服务
+    int32 Room    = 6;  // 房间服务
+    int32 Builder = 7;  // Builder服务
+}
+
+message NodeRouter {
+    NodeType NodeType = 1;  // 节点类型
+    int32    NodeId   = 2;  // 节点ID
+    IdType   IdType   = 3;  // 路由ID类型
+    uint64   Id       = 4;  // 路由ID
+}
+
+// 协议头
+message Head {
+    SendType   SendType  = 1;  // 消息发送类型
+    NodeRouter Src       = 2;  // 路由信息
+    NodeRouter Dst       = 3;  // 路由信息
+    uint64     Uid       = 4;  // 玩家Uid
+    uint32     Cmd       = 5;  // 消息命令
+    uint32     Seq       = 6;  // 消息序列号
+    string     ActorName = 7;  // 消息来源Actor名称
+    string     FuncName  = 8;  // 消息来源Actor函数名称
+    string     Reply     = 9;  // 消息回复Actor名称
+}
+
 // 内网包协议
 message Packet {
     Head   Head      = 1;  // 协议头
     bytes  Body      = 2;  // 消息体
     Router SrcRouter = 3;  // 路由信息
     Router DstRouter = 4;  // 路由信息
-}
-
-// 玩家路由信息
-message Router {
-    int32 Gate = 1;  // 网关服务
-    int32 Db   = 2;  // 数据库服务
-    int32 Game = 3;  // 游戏服务
-}
-
-// 协议头
-message Head {
-    SendType SendType    = 1;   // 消息发送类型
-    NodeType SrcNodeType = 2;   // 消息来源节点类型
-    int32    SrcNodeId   = 3;   // 消息来源节点ID
-    IdType   SrcIdType   = 4;   // 路由ID类型
-    uint64   SrcId       = 5;   // 消息ID
-    NodeType DstNodeType = 6;   // 消息目的节点类型
-    int32    DstNodeId   = 7;   // 消息目的节点ID
-    IdType   DstIdType   = 8;   // 路由ID类型
-    uint64   DstId       = 9;   // 路由ID
-    uint32   Seq         = 10;  // 消息序列号
-    uint32   Cmd         = 11;  // 消息命令
-    string   ActorName   = 12;  // 消息来源Actor名称
-    string   FuncName    = 13;  // 消息来源Actor函数名称
-    string   Reply       = 14;  // 消息回复Actor名称
 }
 
 // 应答协议头
