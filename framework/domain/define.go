@@ -6,6 +6,25 @@ import (
 	"github.com/golang/protobuf/proto"
 )
 
+type IRspProto interface {
+	proto.Message         // 响应协议接口
+	GetHead() *pb.RspHead // 获取响应头
+}
+
+// Actor接口定义
+type IActor interface {
+	GetId() uint64                          // 获取Actor ID
+	SetId(uint64)                           // 设置Actor ID
+	Start()                                 // 启动Actor
+	Stop()                                  // 停止Actor
+	GetActorName() string                   // 获取Actor名称
+	Register(IActor, ...int)                // 注册Actor
+	ParseFunc(interface{})                  // 解析方法列表
+	SendMsg(*pb.Head, ...interface{}) error // 发送消息
+	Send(*pb.Head, []byte) error            // 发送远程调用
+	// RegisterTimer(*pb.Head, time.Duration, int32) error // 注册定时器
+}
+
 // 路由接口
 type IRouter interface {
 	Get(pb.NodeType) int32        // 获取路由信息
