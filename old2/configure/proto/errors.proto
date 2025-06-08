@@ -1,0 +1,11 @@
+syntax = "proto3";
+package universal;
+
+option go_package = "universal/common/pb";
+
+// 错误码
+enum ErrorCode {
+    Success = 0;  // 成功
+    Failed  = 1;  // 失败
+    Timeout = 2;  // 超时
+}

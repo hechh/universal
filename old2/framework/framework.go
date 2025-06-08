@@ -1,0 +1,115 @@
+package framework
+
+import (
+	"universal/common/pb"
+	"universal/common/yaml"
+	"universal/framework/actor"
+	"universal/framework/internal/service"
+	"universal/library/mlog"
+
+	"github.com/golang/protobuf/proto"
+)
+
+var (
+	core *service.Service
+)
+
+func Init(node *pb.Node, server *yaml.ServerConfig, cfg *yaml.Config) (err error) {
+	core, err = service.NewService(node, server, cfg)
+	if err != nil {
+		return
+	}
+
+	actor.SetSend(core.SendToClient)
+	actor.SetResponse(core.Response)
+	return
+}
+
+func GetSelf() *pb.Node {
+	return core.GetNode()
+}
+
+// 跨服务发消息
+func Send(head *pb.Head, args ...interface{}) error {
+	return core.Send(head, args...)
+}
+
+// 跨服务类型广播
+func Broadcast(head *pb.Head, args ...interface{}) error {
+	return core.Broadcast(head, args...)
+}
+
+// 同步请求
+func Request(head *pb.Head, msg proto.Message, reply proto.Message) error {
+	return core.Request(head, msg, reply)
+}
+
+func Response(head *pb.Head, msg interface{}) error {
+	return core.Response(head, msg)
+}
+
+// 发送到客户端
+func SendToClient(head *pb.Head, msg proto.Message) error {
+	return core.SendToClient(head, msg)
+}
+
+// 通知客户端
+func NotifyToClient(uids []uint64, head *pb.Head, msg proto.Message) error {
+	core.NotifyToClient(uids, head, msg)
+	return nil
+}
+
+// 注册消息处理函数
+func RegisterBroadcastHandler(f func(*pb.Head, []byte)) error {
+	return core.RegisterBroadcastHandler(f)
+}
+
+// 注册消息处理函数
+func RegisterSendHandler(f func(*pb.Head, []byte)) error {
+	return core.RegisterSendHandler(f)
+}
+
+// 注册消息处理函数
+func RegisterReplyHandler(f func(*pb.Head, []byte)) error {
+	return core.RegisterReplyHandler(f)
+}
+
+// 默认内网消息处理器
+func DefaultSendHandler(head *pb.Head, buf []byte) {
+	mlog.Debugf("收到Nats send数据包 head:%v, body:%d", head, len(buf))
+	if err := actor.Send(head, buf); err != nil {
+		mlog.Errorf("跨服务调用错误: %v", err)
+	}
+}
+
+// 默认内网消息处理器
+func DefaultReplyHandler(head *pb.Head, buf []byte) {
+	mlog.Debugf("收到Nats rpc数据包 head:%v, body:%d", head, len(buf))
+	if err := actor.Send(head, buf); err != nil {
+		mlog.Errorf("跨服务调用错误: %v", err)
+	}
+}
+
+// 默认内网广播消息处理器
+func DefaultBroadcastHandler(head *pb.Head, buf []byte) {
+	mlog.Debugf("收到Nats broadcast数据包 head:%v, body:%d", head, len(buf))
+	if err := actor.Send(head, buf); err != nil {
+		mlog.Errorf("跨服务调用错误: %v", err)
+	}
+}
+
+func CopyHead(h *pb.Head, a, f string) *pb.Head {
+	return &pb.Head{
+		SendType:    h.SendType,
+		SrcNodeType: h.SrcNodeType,
+		SrcNodeId:   h.SrcNodeId,
+		DstNodeType: h.DstNodeType,
+		DstNodeId:   h.DstNodeId,
+		DstId:       h.DstId,
+		DstIdType:   h.DstIdType,
+		Cmd:         h.Cmd,
+		ActorName:   a,
+		FuncName:    f,
+		Reply:       h.Reply,
+	}
+}

@@ -1,0 +1,155 @@
+package templ
+
+const codeTpl = `
+{{/* 定义全局变量  */}}
+{{$type := .Name}} 
+{{$indexs := .IndexList}}
+{{$indexMap := .Indexs}}
+{{$pkg := .PbPkg}}
+
+/*
+* 本代码由cfgtool工具生成，请勿手动修改
+*/
+
+package {{.Pkg}}
+
+import (
+	"universal/common/config"
+	"universal/common/pb"
+	"sync/atomic"
+
+	"github.com/golang/protobuf/proto"
+)
+
+var obj atomic.Pointer[{{$type}}Data]
+
+type {{$type}}Data struct {
+{{- range $index := $indexs -}}
+    {{- if eq $index.Type.ValueOf 2 -}}         {{/*ValueOfList*/}}
+        _{{$index.Name}} []*{{$pkg}}.{{$type}}
+    {{- else if eq $index.Type.ValueOf 3 -}}    {{/*ValueOfMap*/}}
+        _{{$index.Name}} map[{{$index.Type.Name}}]*{{$pkg}}.{{$type}}
+    {{- else if eq $index.Type.ValueOf 4 -}}    {{/*ValueOfGroup*/}}
+        _{{$index.Name}} map[{{$index.Type.Name}}][]*{{$pkg}}.{{$type}}
+    {{- end -}}
+{{- end -}}
+}
+
+// 注册函数
+func init() {
+    config.Register("{{$type}}", parse)
+}
+
+func parse(buf string) error {
+    data := &{{$pkg}}.{{$type}}Ary{}
+    if err := proto.UnmarshalText(buf, data); err != nil {
+        return err
+    }
+
+{{if or (index $indexMap 3) (index $indexMap 4)}}
+{{range $index := $indexs -}}
+    {{- if eq $index.Type.ValueOf 3 -}}    {{/*ValueOfMap*/}}
+        _{{$index.Name}} := make(map[{{$index.Type.Name}}]*{{$pkg}}.{{$type}})
+    {{- else if eq $index.Type.ValueOf 4 -}}    {{/*ValueOfGroup*/}}
+        _{{$index.Name}} := make(map[{{$index.Type.Name}}][]*{{$pkg}}.{{$type}})
+    {{- end -}}  
+{{- end}}
+    for _, item :=range data.Ary {
+{{- range $index := $indexs -}} 
+    {{$key := $index.Value "item" ","}}
+    {{- if eq $index.Type.ValueOf 3 -}}    {{/*ValueOfMap*/}}
+        // map数据
+        {{- if or (eq $index.Type.TypeOf 1) (eq $index.Type.TypeOf 2) -}} {{/*TypeOfBase*/}}
+            _{{$index.Name}}[{{$key}}] = item
+        {{- else if eq $index.Type.TypeOf 3 -}} {{/*TypeOfStruct*/}}
+            key{{$index.Name}} := {{$index.Type.Name}}{ {{$key}} }
+            _{{$index.Name}}[key{{$index.Name}}] = item
+        {{- end -}}
+    {{- else if eq $index.Type.ValueOf 4 -}}    {{/*ValueOfGroup*/}}
+        // goup数据
+        {{- if or (eq $index.Type.TypeOf 1) (eq $index.Type.TypeOf 2) -}} {{/*TypeOfBase*/}}
+            _{{$index.Name}}[{{$key}}] = append(_{{$index.Name}}[{{$key}}], item)
+        {{- else if eq $index.Type.TypeOf 3 -}} {{/*TypeOfStruct*/}}
+            key{{$index.Name}} := {{$index.Type.Name}}{ {{$key}} }
+            _{{$index.Name}}[key{{$index.Name}}] = append(_{{$index.Name}}[key{{$index.Name}}], item)
+        {{- end -}}
+    {{- end -}}  
+{{- end -}}
+    }
+{{end}}
+    obj.Store(&{{$type}}Data{
+{{- range $index := $indexs}} 
+    {{- if or (eq $index.Type.ValueOf 3) (eq $index.Type.ValueOf 4)}}
+        _{{$index.Name}}: _{{$index.Name}},
+    {{- else}}
+        _{{$index.Name}}: data.Ary,
+    {{- end -}}  
+{{- end}}
+    })
+    return nil
+}
+
+{{$index := index (index $indexMap 2) 0}}
+{{if $index -}}
+func SGet() *{{$pkg}}.{{$type}} {
+    if obj := obj.Load(); obj != nil {
+        return obj._{{$index.Name}}[0]
+    }
+    return nil
+}
+
+func LGet() (rets []*{{$pkg}}.{{$type}}) {
+    if obj := obj.Load(); obj != nil {
+        rets = make([]*{{$pkg}}.{{$type}}, len(obj._{{$index.Name}}))
+        copy(rets, obj._{{$index.Name}})
+    }
+    return
+}
+
+func Walk(f func(*{{$pkg}}.{{$type}})bool) {
+    if obj := obj.Load(); obj != nil {
+        for _, item := range obj._{{$index.Name}} {
+            if !f(item) {
+                return
+            }
+        }
+    }
+    return
+}
+{{- end}}
+
+{{- range $index := $indexs -}} 
+    {{$arg := $index.Arg ","}}
+    {{$key := $index.Value "" ","}}
+    {{- if eq $index.Type.ValueOf 3 -}}    {{/*ValueOfMap*/}}
+func MGet{{$index.Name}}({{$arg}}) *{{$pkg}}.{{$type}} {
+    if obj := obj.Load(); obj != nil {
+        {{- if or (eq $index.Type.TypeOf 1) (eq $index.Type.TypeOf 2) -}}                       {{/*TypeOfBase*/}}
+            if val, ok := obj._{{$index.Name}}[{{$key}}]; ok {
+        {{- else if eq $index.Type.TypeOf 3 -}}                                                 {{/*TypeOfStruct*/}}
+            if val, ok := obj._{{$index.Name}}[{{$index.Type.Name}}{ {{$key}} }]; ok {
+        {{- end}}
+            return val
+        }
+    }
+    return nil
+}
+    {{- else if eq $index.Type.ValueOf 4 -}}    {{/*ValueOfGroup*/}}
+func GGet{{$index.Name}}({{$arg}}) (rets []*{{$pkg}}.{{$type}}) {
+    if obj := obj.Load(); obj != nil {
+        {{- if or (eq $index.Type.TypeOf 1) (eq $index.Type.TypeOf 2) -}} {{/*TypeOfBase*/}}
+            if vals, ok := obj._{{$index.Name}}[{{$key}}]; ok {
+        {{- else if eq $index.Type.TypeOf 3 -}} {{/*TypeOfStruct*/}}
+            if vals, ok := obj._{{$index.Name}}[{{$index.Type.Name}}{ {{$key}} }]; ok {
+        {{- end -}}
+            rets = make([]*{{$pkg}}.{{$type}}, len(vals))
+            copy(rets, vals)
+            return
+        }
+    }
+    return
+}
+    {{- end -}}  
+{{- end -}}
+
+`
