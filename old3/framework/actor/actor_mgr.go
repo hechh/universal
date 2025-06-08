@@ -1,12 +1,12 @@
 package actor
 
 import (
-	"poker_server/library/timer"
 	"reflect"
 	"sync"
 	"time"
 	"universal/framework/domain"
 	"universal/library/mlog"
+	"universal/library/timer"
 	"universal/library/uerror"
 )
 

@@ -1,0 +1,36 @@
+syntax = "proto3";
+package universal;
+
+option go_package = "universal/common/pb";
+
+// 错误码
+enum ErrorCode {
+    Success              = 0;   // 成功
+    Failed               = 1;   // 失败
+    Unknown              = 2;   // 未知错误
+    Timeout              = 3;   // 超时
+    SendTypeNotSupported = 4;   // 发送类型不支持
+    ActorNotFound        = 5;   // Actor未找到
+    FuncNotFound         = 6;   // 函数未找到
+    ActorIdNotFound      = 7;   // Actor ID未找到
+    MarshalFailed        = 8;   // 序列化失败
+    UnmarshalFailed      = 9;   // 反序列化失败
+    ReadFailed           = 10;  // 读取失败
+    WriteFailed          = 11;  // 写入失败
+    TypeNotSupported     = 12;  // 类型不支持
+    ClientNotFound       = 13;  // 客户端未找到
+    ConfigNotFound       = 14;  // 配置文件未找到
+    NodeNotFound         = 15;  // 节点未找到
+    CmdNotFound          = 16;  // 命令未找到
+    PingFailed           = 17;  // ping失败
+    ParseFailed          = 18;  // 解析失败
+    ConnectFailed        = 19;  // 网络连接失败
+    SubscribeFailed      = 20;  // 订阅失败
+    RequestFailed        = 21;  // 请求失败
+    ParamInvalid         = 22;  // 参数检查失败
+    TypeAssertFailed     = 23;  // 类型转换失败
+    MinSizeLimit         = 24;  // 小于最小限制
+    MaxSizeLimit         = 25;  // 超过最大限制
+    SystemCallFailed     = 26;  // 系统调用失败
+    OpenFileFailed       = 27;  // 打开文件失败
+}
