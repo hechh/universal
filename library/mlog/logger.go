@@ -57,15 +57,15 @@ func (l *Logger) SetLevel(level int32) {
 	atomic.StoreInt32(&l.level, level)
 }
 
-func (d *Logger) Trace(skip int, format string, args ...interface{}) {
-	if atomic.LoadInt32(&d.level) <= LOG_TRACE {
-		d.output(skip+1, LOG_TRACE, format, args...)
-	}
-}
-
 func (d *Logger) Debug(skip int, format string, args ...interface{}) {
 	if atomic.LoadInt32(&d.level) <= LOG_DEBUG {
 		d.output(skip+1, LOG_DEBUG, format, args...)
+	}
+}
+
+func (d *Logger) Trace(skip int, format string, args ...interface{}) {
+	if atomic.LoadInt32(&d.level) <= LOG_TRACE {
+		d.output(skip+1, LOG_TRACE, format, args...)
 	}
 }
 
@@ -94,7 +94,6 @@ func (d *Logger) Fatal(skip int, format string, args ...interface{}) {
 }
 
 func (d *Logger) output(skip int, level int32, format string, args ...interface{}) {
-	// 获取调用堆栈
 	pc, file, line, _ := runtime.Caller(skip + 1)
 	fname := path.Base(runtime.FuncForPC(pc).Name())
 	tt := time.Now()

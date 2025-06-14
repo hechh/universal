@@ -1,16 +1,9 @@
 package mlog
 
-import (
-	"universal/library/mlog/writer"
-)
-
-var (
-	logger = NewLogger(LOG_DEBUG, writer.NewStdWriter())
-)
+var logger = NewLogger(LOG_DEBUG, &StdWriter{})
 
 func Init(logpath, logname string, level int32) {
-	w := writer.NewWriter(logpath, logname, 1024)
-	logger = NewLogger(level, w)
+	logger = NewLogger(level, NewLogWriter(logpath, logname, 1024))
 }
 
 func Close() error {

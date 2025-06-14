@@ -3,23 +3,25 @@ package async
 import (
 	"sync"
 	"sync/atomic"
+	"universal/library/queue"
+	"universal/library/util"
 )
 
 type Async struct {
 	sync.WaitGroup
-	id     uint64         // 唯一id
-	status int32          // actor运行状态
-	queue  *Queue[func()] // 任务队列
-	notify chan struct{}  // 消耗通知
-	exit   chan struct{}  // 退出
+	id     uint64
+	status int32
+	tasks  *queue.Queue[func()]
+	notify chan struct{}
+	exit   chan struct{}
+	fatal  func(string, ...interface{})
 }
 
 func NewAsync() *Async {
 	return &Async{
-		status: 0,
-		queue:  NewQueue[func()](),
-		notify: make(chan struct{}, 1),
-		exit:   make(chan struct{}, 1),
+		tasks:  queue.NewQueue[func()](),
+		notify: make(chan struct{}, 2),
+		exit:   make(chan struct{}),
 	}
 }
 
@@ -35,14 +37,12 @@ func (d *Async) SetId(id uint64) {
 	atomic.StoreUint64(&d.id, id)
 }
 
-func (d *Async) Push(f func()) {
+func (d *Async) Start() {
 	if atomic.LoadInt32(&d.status) > 0 {
-		d.queue.Push(f)
-		select {
-		case d.notify <- struct{}{}:
-		default:
-		}
+		return
 	}
+	atomic.AddInt32(&d.status, 1)
+	util.SafeGo(d.fatal, d.run)
 }
 
 func (d *Async) Stop() {
@@ -55,31 +55,34 @@ func (d *Async) Stop() {
 	d.Wait()
 }
 
-func (d *Async) Start() {
+func (d *Async) Push(f func()) {
 	if atomic.LoadInt32(&d.status) > 0 {
-		return
+		d.tasks.Push(f)
+		select {
+		case d.notify <- struct{}{}:
+		default:
+		}
 	}
-	atomic.AddInt32(&d.status, 1)
-	go d.run()
 }
 
 func (d *Async) run() {
+	d.Add(1)
 	defer func() {
-		for f := d.queue.Pop(); f != nil; f = d.queue.Pop() {
-			SafeRecover(catch, f)
-		}
+		d.handle()
 		d.Done()
 	}()
-	d.Add(1)
-
 	for {
 		select {
 		case <-d.notify:
-			for f := d.queue.Pop(); f != nil; f = d.queue.Pop() {
-				SafeRecover(catch, f)
-			}
+			d.handle()
 		case <-d.exit:
 			return
 		}
+	}
+}
+
+func (d *Async) handle() {
+	for f := d.tasks.Pop(); f != nil; f = d.tasks.Pop() {
+		util.SafeRecover(d.fatal, f)
 	}
 }
