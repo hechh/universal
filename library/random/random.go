@@ -7,6 +7,12 @@ import (
 
 var randObj = rand.New(rand.NewSource(time.Now().UnixNano()))
 
+/*
+func Intn[T util.INumber](n T) T {
+	return T(randObj.Int63n(int64(n)))
+}
+*/
+
 // [0,n)
 func Intn(n int) int {
 	return randObj.Intn(n)

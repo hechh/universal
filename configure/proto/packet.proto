@@ -2,3 +2,54 @@ syntax = "proto3";
 package universal;
 
 option go_package = "universal/common/pb";
+
+import "global_enum_cfg.proto";
+
+// 发送类型
+enum SendType {
+    SendTypeNode = 0;  // 发送类型-无
+    POINT        = 1;  // 发送类型-点对点
+    BROADCAST    = 2;  // 发送类型-广播
+}
+
+enum RouterType {
+    RT_Node          = 0;
+    RT_Uid           = 1;
+    RT_RoomId        = 2;
+    RT_GeneratorType = 3;
+    RT_DataType      = 4;
+    RT_GameType      = 5;
+}
+
+message Router {
+    int32 gate    = 1;  // 网关服务
+    int32 room    = 2;  // 房间服务
+    int32 match   = 3;  // 匹配服务
+    int32 db      = 4;  // 数据服务
+    int32 builder = 5;  // 构建服务
+    int32 gm      = 6;  // GM服务
+    int32 game    = 7;  // 游戏服务
+}
+
+message NodeRouter {
+    NodeType   NodeType   = 1;
+    int32      NodeId     = 2;
+    string     ActorName  = 3;
+    string     FuncName   = 4;
+    uint64     ActorId    = 5;
+    RouterType RouterType = 6;
+    Router     Router     = 7;
+}
+
+message Head {
+    SendType   SendType  = 1;
+    NodeRouter Src       = 2;
+    NodeRouter Dst       = 3;
+    string     ActorName = 4;
+    string     FuncName  = 5;
+    uint64     ActorId   = 6;
+    uint32     Seq       = 7;
+    uint32     Cmd       = 8;
+    uint32     Reference = 9;
+    string     Reply     = 10;
+}
