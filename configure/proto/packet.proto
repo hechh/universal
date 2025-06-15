@@ -21,6 +21,13 @@ enum RouterType {
     RT_GameType      = 5;
 }
 
+message Node {
+    string   name = 1;  // 节点名称
+    string   addr = 2;  // 节点地址
+    NodeType type = 3;  // 节点类型
+    int32    id   = 4;  // 节点ID
+}
+
 message Router {
     int32 gate    = 1;  // 网关服务
     int32 room    = 2;  // 房间服务

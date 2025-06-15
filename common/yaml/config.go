@@ -41,6 +41,7 @@ type NatsConfig struct {
 type CommonConfig struct {
 	Env             string `yaml:"env"`
 	ConfigPath      string `yaml:"config_path"`
+	ConfigTopic     string `yaml:"config_topic"`
 	RouterExpire    int64  `yaml:"router_expire"`
 	DiscoveryExpire int64  `yaml:"discovery_expire"`
 	SecretKey       string `yaml:"secret_key"`
@@ -90,7 +91,7 @@ func NewConfig(filename string) (*Config, error) {
 func LoadConfig(filename string, nodeType pb.NodeType, nodeId int32) (*Config, *pb.Node, error) {
 	cfg, err := NewConfig(filename)
 	if err != nil {
-		return nil, nil, uerror.New(1, pb.ErrorCode_ParseFailed, "配置文件加载失败: %v", err)
+		return nil, nil, uerror.N(1, -1, "配置文件加载失败: %v", err)
 	}
 	var ok bool
 	var srvCfg *ServerConfig
@@ -113,7 +114,7 @@ func LoadConfig(filename string, nodeType pb.NodeType, nodeId int32) (*Config, *
 		srvCfg, ok = cfg.Client[nodeId]
 	}
 	if !ok {
-		return nil, nil, uerror.New(1, pb.ErrorCode_ConfigNotFound, "配置文件中未找到节点配置: %s", nodeType.String())
+		return nil, nil, uerror.N(1, -1, "配置文件中未找到节点配置: %s", nodeType.String())
 	}
 	return cfg, &pb.Node{
 		Name: strings.ToLower(nodeType.String()),

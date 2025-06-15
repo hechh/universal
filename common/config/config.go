@@ -1,11 +1,15 @@
 package config
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"path"
+	"sync"
 	"universal/common/yaml"
 	"universal/library/uerror"
+
+	clientv3 "go.etcd.io/etcd/client/v3"
 )
 
 var (
@@ -34,4 +38,12 @@ func Init(cfg *yaml.CommonConfig) error {
 		}
 	}
 	return nil
+}
+
+type ConfigEtcd struct {
+	sync.WaitGroup
+	topic  string
+	client *clientv3.Client
+	cancel context.CancelFunc
+	exit   chan struct{}
 }

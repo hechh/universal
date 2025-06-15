@@ -39,6 +39,7 @@ nats:
 common:
   env: develop  # develop, beta, release 
   config_path: ./data
+  config_topic: /universal/config
   router_expire: 900
   discovery_expire: 20
   secret_key: gH7%kL9!qW2#sD4*FpV6&nZ8@xJ0^yT1
