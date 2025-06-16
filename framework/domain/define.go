@@ -35,10 +35,11 @@ type IDiscovery interface {
 }
 
 type IRouter interface {
+	GetUpdateTime() int64
+	GetData() *pb.Router
+	SetData(*pb.Router)
 	Get(pb.NodeType) int32
 	Set(pb.NodeType, int32)
-	GetData() *pb.Node
-	SetData(*pb.Node)
 }
 
 type ITable interface {
