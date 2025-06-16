@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"fmt"
 	"path"
-	"universal/library/fileutil"
+	"universal/library/util"
 	"universal/tools/pbtool/domain"
 	"universal/tools/pbtool/internal/base"
 	"universal/tools/pbtool/internal/manager"
@@ -24,7 +24,7 @@ func GenString(buf *bytes.Buffer) error {
 
 		// 保存代码
 		dst := path.Join(domain.RedisPath, st.Pkg)
-		if err := fileutil.SaveGo(dst, st.Name+".gen.go", buf.Bytes()); err != nil {
+		if err := util.SaveGo(dst, st.Name+".gen.go", buf.Bytes()); err != nil {
 			fmt.Printf("生成失败：%v\n", st)
 		}
 		return true

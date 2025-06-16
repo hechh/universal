@@ -140,8 +140,8 @@ func (d *RedisClient) HKeys(key string) (rets []string, err error) {
 	return
 }
 
-func (d *RedisClient) HIncrBy(key string, field string, incr int64) (err error) {
-	_, err = d.client.HIncrBy(context.Background(), d.getKey(key), field, incr).Result()
+func (d *RedisClient) HIncrBy(key string, field string, incr int64) (newIncr int64, err error) {
+	newIncr, err = d.client.HIncrBy(context.Background(), d.getKey(key), field, incr).Result()
 	if err == goredis.Nil {
 		err = nil
 	}

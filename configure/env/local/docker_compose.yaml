@@ -4,11 +4,11 @@ services:
     restart: always
     container_name: mysql
     environment:
-      MYSQL_DATABASE: universal
+      MYSQL_DATABASE: poker
       MYSQL_ROOT_USER: root
       MYSQL_ROOT_PASSWORD: 123456
     ports:
-      - "3306:3306"
+      - "13306:3306"
     networks:
       poker_network:
 
@@ -19,7 +19,7 @@ services:
     container_name: redis
     environment:
       REDIS_USER: default
-      REDIS_PASSWORD: 23456
+      REDIS_PASSWORD: 123456
     ports:
       - "6379:6379"
     networks:
@@ -31,11 +31,11 @@ services:
     restart: always
     container_name: mongodb
     environment:
-      MONGO_INITDB_DATABASE: universal
+      MONGO_INITDB_DATABASE: poker
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: 123456
     ports:
-      - "27017:27017"
+      - "17017:17017"
     networks:
       poker_network:
 
@@ -50,8 +50,8 @@ services:
       - ETCD_ADVERTISE_CLIENT_URLS=http://etcd:2379
       - ETCD_LISTEN_CLIENT_URLS=http://0.0.0.0:2379
     ports:
-      - "2379:2379"
-      - "2380:2380"
+      - "12379:2379"
+      - "12380:2380"
     networks:
       poker_network:
 
@@ -60,8 +60,8 @@ services:
     image: nats:2.9-alpine
     container_name: nats
     ports:
-      - "4222:4222" # 客户端端口
-      - "8222:8222" # 监控端口
+      - "14222:4222" # 客户端端口
+      - "18222:8222" # 监控端口
     command: --cluster nats://0.0.0.0:6222   --cluster_name NATS_CLUSTER --no_advertise
     networks:
       poker_network:

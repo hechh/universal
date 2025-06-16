@@ -2,25 +2,23 @@ package service
 
 import (
 	"strings"
-	"universal/library/fileutil"
 	"universal/library/uerror"
-	"universal/tools/cfgtool/domain"
-	"universal/tools/cfgtool/internal/base"
+	"universal/library/util"
 	"universal/tools/cfgtool/internal/manager"
+	"universal/tools/cfgtool/internal/typespec"
 
-	"github.com/golang/protobuf/jsonpb"
+	"universal/tools/cfgtool/domain"
 )
 
 func GenData() error {
-	for _, cfg := range manager.GetConfigMap() {
+	for _, cfg := range manager.GetConfigs() {
 		// 反射new一个对象
 		ary := manager.NewProto(cfg.FileName, cfg.Name+"Ary")
 		if ary == nil {
-			return uerror.New(1, -1, "new %sAry is nil, %s", cfg.Name, cfg.FileName)
+			return uerror.N(1, -1, "new %sAry is nil, %s", cfg.Name, cfg.FileName)
 		}
 		// 加载xlsx数据
-		tab := manager.GetTable(cfg.FileName, cfg.Sheet)
-		for _, vals := range tab.Rows[3:] {
+		for _, vals := range cfg.Rows[3:] {
 			item, err := configValue(cfg, vals...)
 			if err != nil {
 				return err
@@ -28,21 +26,12 @@ func GenData() error {
 			ary.AddRepeatedFieldByName("Ary", item)
 		}
 		// 保存数据
-		if len(domain.JsonPath) > 0 {
-			buf, err := ary.MarshalJSONPB(&jsonpb.Marshaler{EnumsAsInts: true})
-			if err != nil {
-				return err
-			}
-			if err := fileutil.Save(domain.JsonPath, cfg.Name+".json", buf); err != nil {
-				return err
-			}
-		}
 		if len(domain.BytesPath) > 0 {
 			buf, err := ary.Marshal()
 			if err != nil {
 				return err
 			}
-			if err := fileutil.Save(domain.BytesPath, cfg.Name+".bytes", buf); err != nil {
+			if err := util.Save(domain.BytesPath, cfg.Name+".bytes", buf); err != nil {
 				return err
 			}
 		}
@@ -51,20 +40,19 @@ func GenData() error {
 			if err != nil {
 				return err
 			}
-			if err := fileutil.Save(domain.TextPath, cfg.Name+".conf", buf); err != nil {
+			if err := util.Save(domain.TextPath, cfg.Name+".conf", buf); err != nil {
 				return err
 			}
 		}
 	}
-	manager.Clear()
 	return nil
 }
 
-func configValue(f *base.Config, vals ...string) (interface{}, error) {
+func configValue(f *typespec.Config, vals ...string) (interface{}, error) {
 	// 反射new一个对象
 	item := manager.NewProto(f.FileName, f.Name)
 	if item == nil {
-		return nil, uerror.New(1, -1, "new %s is nil", f.Name)
+		return nil, uerror.N(1, -1, "new %s is nil", f.Name)
 	}
 
 	for i, field := range f.FieldList {
@@ -75,7 +63,6 @@ func configValue(f *base.Config, vals ...string) (interface{}, error) {
 		switch field.Type.TypeOf {
 		case domain.TypeOfBase, domain.TypeOfEnum:
 			item.SetFieldByName(field.Name, fieldValue(field, vals[i]))
-
 		case domain.TypeOfStruct:
 			st := manager.GetStruct(field.Type.Name)
 			rets, err := structValue(st, strings.Split(vals[i], "|")...)
@@ -96,27 +83,32 @@ func configValue(f *base.Config, vals ...string) (interface{}, error) {
 	return item, nil
 }
 
-func structValue(f *base.Struct, vals ...string) (rets []interface{}, err error) {
+func structValue(f *typespec.Struct, vals ...string) (rets []interface{}, err error) {
 	for _, val := range vals {
 		item := manager.NewProto(f.FileName, f.Name)
 		if item == nil {
-			return nil, uerror.New(1, -1, "new %s is nil", f.Name)
+			return nil, uerror.N(1, -1, "new %s is nil", f.Name)
 		}
 
 		strs := strings.Split(val, ":")
-		if len(strs) < len(f.Converts[strs[0]]) {
-			return nil, uerror.New(1, -1, "%s:%s配置错误: %s", f.FileName, f.Sheet, val)
-		}
-
-		for i, field := range f.Converts[strs[0]] {
-			item.SetFieldByName(field.Name, fieldValue(field, strs[i]))
+		if len(strs) == len(f.FieldList) {
+			for i, field := range f.FieldList {
+				item.SetFieldByName(field.Name, fieldValue(field, strs[i]))
+			}
+		} else {
+			if len(strs) < len(f.Converts[strs[0]]) {
+				return nil, uerror.N(1, -1, "%s:%s配置错误: %s", f.FileName, f.Sheet, val)
+			}
+			for i, field := range f.Converts[strs[0]] {
+				item.SetFieldByName(field.Name, fieldValue(field, strs[i]))
+			}
 		}
 		rets = append(rets, item)
 	}
 	return
 }
 
-func fieldValue(f *base.Field, val string) interface{} {
+func fieldValue(f *typespec.Field, val string) interface{} {
 	switch f.Type.ValueOf {
 	case domain.ValueOfBase:
 		return f.ConvFunc(val)

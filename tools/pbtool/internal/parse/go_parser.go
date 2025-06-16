@@ -24,7 +24,7 @@ func ParseFiles(v ast.Visitor, files ...string) error {
 		// 解析语法树
 		fs, err := parser.ParseFile(fset, filename, nil, parser.ParseComments)
 		if err != nil {
-			return uerror.New(1, -1, "filename: %v, error: %v", filename, err)
+			return uerror.N(1, -1, "filename: %v, error: %v", filename, err)
 		}
 		// 遍历语法树
 		ast.Walk(v, fs)

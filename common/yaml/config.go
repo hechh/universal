@@ -3,6 +3,7 @@ package yaml
 import (
 	"fmt"
 	"os"
+	"strings"
 	"universal/common/pb"
 	"universal/library/uerror"
 
@@ -38,11 +39,12 @@ type NatsConfig struct {
 }
 
 type CommonConfig struct {
-	Env            string `yaml:"env"`
-	ConfigurePath  string `yaml:"configure_path"`
-	RouterExpire   int64  `yaml:"router_expire"`
-	DicoveryExpire int64  `yaml:"discovery_expire"`
-	SecretKey      string `yaml:"secret_key"`
+	Env             string `yaml:"env"`
+	ConfigPath      string `yaml:"config_path"`
+	ConfigTopic     string `yaml:"config_topic"`
+	RouterExpire    int64  `yaml:"router_expire"`
+	DiscoveryExpire int64  `yaml:"discovery_expire"`
+	SecretKey       string `yaml:"secret_key"`
 }
 
 type ServerConfig struct {
@@ -60,13 +62,14 @@ type Config struct {
 	Etcd    *EtcdConfig             `yaml:"etcd"`
 	Nats    *NatsConfig             `yaml:"nats"`
 	Common  *CommonConfig           `yaml:"common"`
+	Client  map[int32]*ServerConfig `yaml:"client"`
 	Gate    map[int32]*ServerConfig `yaml:"gate"`
-	Game    map[int32]*ServerConfig `yaml:"game"`
-	Db      map[int32]*ServerConfig `yaml:"db"`
-	Gm      map[int32]*ServerConfig `yaml:"gm"`
-	Match   map[int32]*ServerConfig `yaml:"match"`
 	Room    map[int32]*ServerConfig `yaml:"room"`
+	Match   map[int32]*ServerConfig `yaml:"match"`
+	Db      map[int32]*ServerConfig `yaml:"db"`
 	Builder map[int32]*ServerConfig `yaml:"builder"`
+	Game    map[int32]*ServerConfig `yaml:"game"`
+	Gm      map[int32]*ServerConfig `yaml:"gm"`
 }
 
 func (c *Config) Unmarshal(buf []byte) error {
@@ -85,55 +88,38 @@ func NewConfig(filename string) (*Config, error) {
 	return cfg, nil
 }
 
-func LoadConfig(filename string, node *pb.Node) (*Config, error) {
+func LoadConfig(filename string, nodeType pb.NodeType, nodeId int32) (*Config, *pb.Node, error) {
 	cfg, err := NewConfig(filename)
 	if err != nil {
-		return nil, uerror.New(1, -1, "配置文件加载失败: %v", err)
+		return nil, nil, uerror.N(1, -1, "配置文件加载失败: %v", err)
 	}
-	switch node.Type {
-	case pb.NodeType_Gate:
-		srvCfg, ok := cfg.Gate[node.Id]
-		if !ok {
-			return nil, uerror.New(1, -1, "服务节点不存在: %s-%d", node.Type.String(), node.Id)
-		}
-		node.Addr = fmt.Sprintf("%s:%d", srvCfg.Ip, srvCfg.Port)
-	case pb.NodeType_Db:
-		srvCfg, ok := cfg.Db[node.Id]
-		if !ok {
-			return nil, uerror.New(1, -1, "服务节点不存在: %s-%d", node.Type.String(), node.Id)
-		}
-		node.Addr = fmt.Sprintf("%s:%d", srvCfg.Ip, srvCfg.Port)
-	case pb.NodeType_Game:
-		srvCfg, ok := cfg.Game[node.Id]
-		if !ok {
-			return nil, uerror.New(1, -1, "服务节点不存在: %s-%d", node.Type.String(), node.Id)
-		}
-		node.Addr = fmt.Sprintf("%s:%d", srvCfg.Ip, srvCfg.Port)
-	case pb.NodeType_Gm:
-		srvCfg, ok := cfg.Gm[node.Id]
-		if !ok {
-			return nil, uerror.New(1, -1, "服务节点不存在: %s-%d", node.Type.String(), node.Id)
-		}
-		node.Addr = fmt.Sprintf("%s:%d", srvCfg.Ip, srvCfg.Port)
-	case pb.NodeType_Match:
-		srvCfg, ok := cfg.Match[node.Id]
-		if !ok {
-
-			return nil, uerror.New(1, -1, "服务节点不存在: %s-%d", node.Type.String(), node.Id)
-		}
-		node.Addr = fmt.Sprintf("%s:%d", srvCfg.Ip, srvCfg.Port)
-	case pb.NodeType_Room:
-		srvCfg, ok := cfg.Room[node.Id]
-		if !ok {
-			return nil, uerror.New(1, -1, "服务节点不存在: %s-%d", node.Type.String(), node.Id)
-		}
-		node.Addr = fmt.Sprintf("%s:%d", srvCfg.Ip, srvCfg.Port)
-	case pb.NodeType_Builder:
-		srvCfg, ok := cfg.Builder[node.Id]
-		if !ok {
-			return nil, uerror.New(1, -1, "服务节点不存在: %s-%d", node.Type.String(), node.Id)
-		}
-		node.Addr = fmt.Sprintf("%s:%d", srvCfg.Ip, srvCfg.Port)
+	var ok bool
+	var srvCfg *ServerConfig
+	switch nodeType {
+	case pb.NodeType_NodeTypeGate:
+		srvCfg, ok = cfg.Gate[nodeId]
+	case pb.NodeType_NodeTypeRoom:
+		srvCfg, ok = cfg.Room[nodeId]
+	case pb.NodeType_NodeTypeMatch:
+		srvCfg, ok = cfg.Match[nodeId]
+	case pb.NodeType_NodeTypeDb:
+		srvCfg, ok = cfg.Db[nodeId]
+	case pb.NodeType_NodeTypeBuilder:
+		srvCfg, ok = cfg.Builder[nodeId]
+	case pb.NodeType_NodeTypeGame:
+		srvCfg, ok = cfg.Game[nodeId]
+	case pb.NodeType_NodeTypeGm:
+		srvCfg, ok = cfg.Gm[nodeId]
+	case pb.NodeType_NodeTypeClient:
+		srvCfg, ok = cfg.Client[nodeId]
 	}
-	return cfg, nil
+	if !ok {
+		return nil, nil, uerror.N(1, -1, "配置文件中未找到节点配置: %s", nodeType.String())
+	}
+	return cfg, &pb.Node{
+		Name: strings.ToLower(nodeType.String()),
+		Type: nodeType,
+		Id:   nodeId,
+		Addr: fmt.Sprintf("%s:%d", srvCfg.Ip, srvCfg.Port),
+	}, nil
 }

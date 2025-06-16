@@ -2,7 +2,7 @@ package templ
 
 import (
 	"text/template"
-	"universal/tools/cfgtool/internal/base"
+	"universal/library/util"
 )
 
 const protoTpl = `
@@ -16,11 +16,11 @@ package universal;
 
 option go_package = "universal/common/pb";
 
-{{range $item := .RefList -}}
+{{range $item := .ReferenceList -}}
 import "{{$item}}.proto";
 {{end}}
 
-{{- range $item := .EnumList}}
+{{- range $item := .Enums}}
 enum {{$item.Name}} {
 	{{- range $field := $item.ValueList}}
 	{{$field.Name}} = {{$field.Value}}; // {{$field.Desc}}
@@ -28,7 +28,7 @@ enum {{$item.Name}} {
 }
 {{end}}
 
-{{- range $item := .StructList}}
+{{- range $item := .Structs}}
 message {{$item.Name}} {
 	{{- range $pos, $field := $item.FieldList}}
 		{{- if eq $field.Type.ValueOf 1}}
@@ -40,7 +40,7 @@ message {{$item.Name}} {
 }
 {{end}}
 
-{{- range $item := .ConfigList}}
+{{- range $item := .Configs}}
 message {{$item.Name}} {
 	{{- range $pos, $field := $item.FieldList}}
 		{{- if eq $field.Type.ValueOf 1}}
@@ -56,19 +56,13 @@ message {{$item.Name}}Ary { repeated {{$item.Name}} Ary = 1; }
 `
 
 var (
-	ProtoTpl   *template.Template
-	CodeTpl    *template.Template
-	IndexTpl   *template.Template
-	HttpKitTpl *template.Template
+	ProtoTpl *template.Template
 )
 
 func init() {
 	funcs := template.FuncMap{
-		"sub": base.Sub,
-		"add": base.Add,
+		"sub": util.Sub[int],
+		"add": util.Add[int],
 	}
 	ProtoTpl = template.Must(template.New("ProtoTpl").Funcs(funcs).Parse(protoTpl))
-	IndexTpl = template.Must(template.New("IndexTpl").Funcs(funcs).Parse(indexTpl))
-	CodeTpl = template.Must(template.New("CodeTpl").Funcs(funcs).Parse(codeTpl))
-	HttpKitTpl = template.Must(template.New("HttpKitTpl").Funcs(funcs).Parse(httpKitTpl))
 }

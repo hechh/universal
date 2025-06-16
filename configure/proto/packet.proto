@@ -3,80 +3,60 @@ package universal;
 
 option go_package = "universal/common/pb";
 
-import "core_enum_cfg.proto";
+import "global_enum_cfg.proto";
 
-// -------框架核心协议，请勿修改-------
-
-// 节点信息
-message Node {
-    string   Name = 1;  // 节点名称
-    string   Addr = 2;  // 节点地址
-    NodeType Type = 3;  // 节点类型
-    int32    Id   = 4;  // 节点ID
+// 发送类型
+enum SendType {
+    SendTypeNode = 0;  // 发送类型-无
+    POINT        = 1;  // 发送类型-点对点
+    BROADCAST    = 2;  // 发送类型-广播
 }
 
-// 玩家路由信息
+enum RouterType {
+    RT_Node          = 0;
+    RT_Uid           = 1;
+    RT_RoomId        = 2;
+    RT_GeneratorType = 3;
+    RT_DataType      = 4;
+    RT_GameType      = 5;
+}
+
+message Node {
+    string   name = 1;  // 节点名称
+    string   addr = 2;  // 节点地址
+    NodeType type = 3;  // 节点类型
+    int32    id   = 4;  // 节点ID
+}
+
 message Router {
-    int32 Gate    = 1;  // 网关服务
-    int32 Game    = 2;  // 游戏服务
-    int32 Db      = 3;  // 数据库服务
-    int32 Gm      = 4;  // GM服务
-    int32 Match   = 5;  // 匹配服务
-    int32 Room    = 6;  // 房间服务
-    int32 Builder = 7;  // Builder服务
+    int32 gate    = 1;  // 网关服务
+    int32 room    = 2;  // 房间服务
+    int32 match   = 3;  // 匹配服务
+    int32 db      = 4;  // 数据服务
+    int32 builder = 5;  // 构建服务
+    int32 gm      = 6;  // GM服务
+    int32 game    = 7;  // 游戏服务
 }
 
 message NodeRouter {
-    NodeType NodeType = 1;  // 节点类型
-    int32    NodeId   = 2;  // 节点ID
-    IdType   IdType   = 3;  // 路由ID类型
-    uint64   Id       = 4;  // 路由ID
+    NodeType   NodeType   = 1;
+    int32      NodeId     = 2;
+    string     ActorName  = 3;
+    string     FuncName   = 4;
+    uint64     ActorId    = 5;
+    RouterType RouterType = 6;
+    Router     Router     = 7;
 }
 
-// 协议头
 message Head {
-    SendType   SendType  = 1;  // 消息发送类型
-    NodeRouter Src       = 2;  // 路由信息
-    NodeRouter Dst       = 3;  // 路由信息
-    uint64     Uid       = 4;  // 玩家Uid
-    uint32     Cmd       = 5;  // 消息命令
-    uint32     Seq       = 6;  // 消息序列号
-    string     ActorName = 7;  // 消息来源Actor名称
-    string     FuncName  = 8;  // 消息来源Actor函数名称
-    string     Reply     = 9;  // 消息回复Actor名称
-}
-
-// 内网包协议
-message Packet {
-    Head   Head      = 1;  // 协议头
-    bytes  Body      = 2;  // 消息体
-    Router SrcRouter = 3;  // 路由信息
-    Router DstRouter = 4;  // 路由信息
-}
-
-// 应答协议头
-message RspHead {
-    int32  Code = 1;  // 错误码
-    string Msg  = 2;  // 错误信息
-}
-
-// 登录协议
-message LoginRequest {
-    string Token = 1;  // token
-}
-
-message LoginResponse {
-    RspHead Head = 1;  // 协议头
-}
-
-message HeartRequest {
-    int64 Utc       = 1;  // UTC时区
-    int64 BeginTime = 2;  // 请求时间
-}
-
-message HeartResponse {
-    RspHead Head      = 1;  // 协议头
-    int64   Utc       = 2;  // UTC时区
-    int64   BeginTime = 3;  // 请求时间
-    int64   EndTime   = 4;  // 响应时间
+    SendType   SendType  = 1;
+    NodeRouter Src       = 2;
+    NodeRouter Dst       = 3;
+    string     ActorName = 4;
+    string     FuncName  = 5;
+    uint64     ActorId   = 6;
+    uint32     Seq       = 7;
+    uint32     Cmd       = 8;
+    uint32     Reference = 9;
+    string     Reply     = 10;
 }

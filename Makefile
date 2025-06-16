@@ -50,7 +50,7 @@ $(BUILD): %_build: %
 config:
 	@echo "gen config code..."
 	@rm -rf ${CFG_GO_PATH}
-	@go run ./tools/cfgtool/main.go -xlsx=${XLSX_PATH} -proto=${PROTO_PATH} -code=${CFG_GO_PATH} -text=${DATA_PATH} -pb=${PB_GO_PATH} -client=${HTTP_KIT_GO_PATH}
+	@go run ./tools/cfgtool/main.go -xlsx=${XLSX_PATH} -proto=${PROTO_PATH}  -text=${DATA_PATH} -pb=${PB_GO_PATH}
 	make pb
 	make pbtool
 

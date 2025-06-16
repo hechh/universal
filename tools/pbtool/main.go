@@ -3,7 +3,7 @@ package main
 import (
 	"bytes"
 	"flag"
-	"universal/library/fileutil"
+	"universal/library/util"
 	"universal/tools/pbtool/domain"
 	"universal/tools/pbtool/internal/parse"
 	"universal/tools/pbtool/service"
@@ -20,7 +20,7 @@ func main() {
 	}
 
 	// 加载所有文件
-	files, err := fileutil.Glob(domain.PbPath, ".*\\.pb\\.go", true)
+	files, err := util.Glob(domain.PbPath, ".*\\.pb\\.go", true)
 	if err != nil {
 		panic(err)
 	}

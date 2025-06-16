@@ -6,27 +6,36 @@ import (
 )
 
 type UError struct {
-	filename string // 文件名
-	line     int    // 文件行号
-	funcname string // 函数名
-	code     int32  // 错误码
-	msg      string // 错误
+	file  string
+	fname string
+	line  int
+	code  int32
+	msg   string
 }
 
-func New(depth int, code int32, format string, args ...interface{}) *UError {
-	// 获取调用堆栈
-	pc, file, line, _ := runtime.Caller(depth)
-	funcName := runtime.FuncForPC(pc).Name()
-	// 返回错误
-	return &UError{
-		filename: file,
-		line:     line,
-		funcname: funcName,
-		code:     code,
-		msg:      fmt.Sprintf(format, args...),
+func (ue *UError) Error() string {
+	return fmt.Sprintf("[%d]\t%s:%d %s\terror:%s", ue.code, ue.file, ue.line, ue.fname, ue.msg)
+}
+
+func (ue *UError) GetCode() int32 {
+	return ue.code
+}
+
+func (ue *UError) GetMsg() string {
+	return ue.msg
+}
+
+func E(depth int, code int32, err error) *UError {
+	if vv, ok := err.(*UError); ok {
+		return vv
 	}
+	pc, file, line, _ := runtime.Caller(depth)
+	fname := runtime.FuncForPC(pc).Name()
+	return &UError{file: file, line: line, fname: fname, code: code, msg: err.Error()}
 }
 
-func (e *UError) Error() string {
-	return fmt.Sprintf("%s:%d\t%s\t%s", e.filename, e.line, e.funcname, e.msg)
+func N(depth int, code int32, format string, args ...interface{}) *UError {
+	pc, file, line, _ := runtime.Caller(depth)
+	fname := runtime.FuncForPC(pc).Name()
+	return &UError{file: file, line: line, fname: fname, code: code, msg: fmt.Sprintf(format, args...)}
 }

@@ -31,29 +31,29 @@ func GetKey({{.Args}}) string {
 	return fmt.Sprintf("{{$format}}", {{range $i, $item := .Keys}} {{if $i}}, {{end}} {{$item.Name}} {{end}})
 }
 
-func Get({{.Args}}) (*pb.{{$pb}}, error) {
+func Get({{.Args}}) (*pb.{{$pb}}, bool, error) {
 	// 获取redis连接
 	client := manager.GetRedis(DBNAME)
 	if client == nil {
-		return nil, uerror.New(1, -1,"redis数据库不存在: %s", DBNAME)
+		return nil, false, uerror.New(1, -1,"redis数据库不存在: %s", DBNAME)
 	}
 	key := GetKey({{.Values}})
 
 	// 加载数据
 	str, err := client.Get(key)
 	if err != nil {
-		return nil, err
+		return nil, false, err
 	}
 
 	// 解析数据
 	data := &pb.{{$pb}}{}
 	if err := proto.Unmarshal([]byte(str), data); err != nil {
-		return nil, err
+		return nil, len(str)>0, err
 	}
-	return data, nil
+	return data, len(str)>0, nil
 }
 
-func Set({{.Args}}, data *pb.{{$pb}}) error {
+func Set({{if .Args}} {{.Args}}, {{end}} data *pb.{{$pb}}) error {
 	buf, err := proto.Marshal(data)
 	if err != nil {
 		return err
@@ -71,7 +71,7 @@ func Set({{.Args}}, data *pb.{{$pb}}) error {
 }
 
 
-func SetEX({{.Args}}, data *pb.{{$pb}}, ttl time.Duration) error {
+func SetEX({{if .Args}} {{.Args}}, {{end}} data *pb.{{$pb}}, ttl time.Duration) error {
 	buf, err := proto.Marshal(data)
 	if err != nil {
 		return err

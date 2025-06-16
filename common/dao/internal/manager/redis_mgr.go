@@ -2,10 +2,11 @@ package manager
 
 import (
 	"context"
-	"fmt"
 	"time"
 	"universal/common/dao/internal/redis"
+	"universal/common/pb"
 	"universal/common/yaml"
+	"universal/library/uerror"
 
 	goredis "github.com/go-redis/redis/v8"
 )
@@ -16,7 +17,7 @@ var (
 
 func InitRedis(cfgs map[int32]*yaml.DbConfig) error {
 	if len(cfgs) <= 0 {
-		return fmt.Errorf("redis配置为空")
+		return uerror.New(1, pb.ErrorCode_CONFIG_NOT_FOUND, "redis配置为空")
 	}
 	for _, cfg := range cfgs {
 		// 建立redis连接
@@ -33,7 +34,7 @@ func InitRedis(cfgs map[int32]*yaml.DbConfig) error {
 		})
 		// 连接到redis服务器，测试连通性
 		if _, err := cli.Ping(context.Background()).Result(); err != nil {
-			return fmt.Errorf("Redis connecting is failed, error: %v, cfg: %v", err, cfg)
+			return uerror.New(1, pb.ErrorCode_PING_FAILED, "ping测试失败：%v", err)
 		}
 		redisPool[cfg.DbName] = redis.NewRedisClient(cli, cfg.DbName)
 	}

@@ -1,11 +1,12 @@
 package dao
 
 import (
-	"fmt"
 	"time"
 	"universal/common/dao/internal/manager"
 	mredis "universal/common/dao/internal/redis"
+	"universal/common/pb"
 	"universal/common/yaml"
+	"universal/library/uerror"
 
 	"github.com/go-redis/redis/v8"
 )
@@ -21,7 +22,7 @@ func GetRedisClient(db string) *mredis.RedisClient {
 func IncrBy(dbid string, key string, val int64) (ret int64, err error) {
 	cli := manager.GetRedis(dbid)
 	if cli == nil {
-		err = fmt.Errorf("redis dbid(%d) not supported", dbid)
+		err = uerror.New(1, pb.ErrorCode_CLIENT_NOT_FOUND, "dbid:%s", dbid)
 		return
 	}
 	ret, err = cli.IncrBy(key, val)
@@ -31,7 +32,7 @@ func IncrBy(dbid string, key string, val int64) (ret int64, err error) {
 func Get(dbid string, key string) (str string, err error) {
 	cli := manager.GetRedis(dbid)
 	if cli == nil {
-		err = fmt.Errorf("redis dbid(%d) not supported", dbid)
+		err = uerror.New(1, pb.ErrorCode_CLIENT_NOT_FOUND, "dbid:%s", dbid)
 		return
 	}
 	str, err = cli.Get(key)
@@ -41,7 +42,7 @@ func Get(dbid string, key string) (str string, err error) {
 func Set(dbid string, key string, val interface{}) (err error) {
 	cli := manager.GetRedis(dbid)
 	if cli == nil {
-		err = fmt.Errorf("redis dbid(%d) not supported", dbid)
+		err = uerror.New(1, pb.ErrorCode_CLIENT_NOT_FOUND, "dbid:%s", dbid)
 		return
 	}
 	err = cli.Set(key, val)
@@ -52,7 +53,7 @@ func Set(dbid string, key string, val interface{}) (err error) {
 func SetNX(dbid string, key string, val interface{}) (exist bool, err error) {
 	cli := manager.GetRedis(dbid)
 	if cli == nil {
-		err = fmt.Errorf("redis dbid(%d) not supported", dbid)
+		err = uerror.New(1, pb.ErrorCode_CLIENT_NOT_FOUND, "dbid:%s", dbid)
 		return
 	}
 	exist, err = cli.SetNX(key, val)
@@ -63,7 +64,7 @@ func SetNX(dbid string, key string, val interface{}) (exist bool, err error) {
 func SetEX(dbid string, key string, val interface{}, ttl time.Duration) (err error) {
 	cli := manager.GetRedis(dbid)
 	if cli == nil {
-		err = fmt.Errorf("redis dbid(%d) not supported", dbid)
+		err = uerror.New(1, pb.ErrorCode_CLIENT_NOT_FOUND, "dbid:%s", dbid)
 		return
 	}
 	err = cli.SetEX(key, val, ttl)
@@ -74,7 +75,7 @@ func SetEX(dbid string, key string, val interface{}, ttl time.Duration) (err err
 func MGet(dbid string, keys ...string) (rets []interface{}, err error) {
 	cli := manager.GetRedis(dbid)
 	if cli == nil {
-		err = fmt.Errorf("redis dbid(%d) not supported", dbid)
+		err = uerror.New(1, pb.ErrorCode_CLIENT_NOT_FOUND, "dbid:%s", dbid)
 		return
 	}
 	args := []string{}
@@ -89,7 +90,7 @@ func MGet(dbid string, keys ...string) (rets []interface{}, err error) {
 func MSet(dbid string, args ...interface{}) (err error) {
 	cli := manager.GetRedis(dbid)
 	if cli == nil {
-		err = fmt.Errorf("redis dbid(%d) not supported", dbid)
+		err = uerror.New(1, pb.ErrorCode_CLIENT_NOT_FOUND, "dbid:%s", dbid)
 		return
 	}
 	err = cli.MSet(args...)
@@ -99,7 +100,7 @@ func MSet(dbid string, args ...interface{}) (err error) {
 func HGetAll(dbid string, key string) (ret map[string]string, err error) {
 	cli := manager.GetRedis(dbid)
 	if cli == nil {
-		err = fmt.Errorf("redis dbid(%d) not supported", dbid)
+		err = uerror.New(1, pb.ErrorCode_CLIENT_NOT_FOUND, "dbid:%s", dbid)
 		return
 	}
 	ret, err = cli.HGetAll(key)
@@ -109,7 +110,7 @@ func HGetAll(dbid string, key string) (ret map[string]string, err error) {
 func HGet(dbid string, key string, field string) (ret string, err error) {
 	cli := manager.GetRedis(dbid)
 	if cli == nil {
-		err = fmt.Errorf("redis dbid(%d) not supported", dbid)
+		err = uerror.New(1, pb.ErrorCode_CLIENT_NOT_FOUND, "dbid:%s", dbid)
 		return
 	}
 	ret, err = cli.HGet(key, field)
@@ -119,7 +120,7 @@ func HGet(dbid string, key string, field string) (ret string, err error) {
 func HDel(dbid string, key string, fields ...string) (err error) {
 	cli := manager.GetRedis(dbid)
 	if cli == nil {
-		err = fmt.Errorf("redis dbid(%d) not supported", dbid)
+		err = uerror.New(1, pb.ErrorCode_CLIENT_NOT_FOUND, "dbid:%s", dbid)
 		return
 	}
 	err = cli.HDel(key, fields...)
@@ -129,27 +130,25 @@ func HDel(dbid string, key string, fields ...string) (err error) {
 func HKeys(dbid string, key string) (rets []string, err error) {
 	cli := manager.GetRedis(dbid)
 	if cli == nil {
-		err = fmt.Errorf("redis dbid(%d) not supported", dbid)
+		err = uerror.New(1, pb.ErrorCode_CLIENT_NOT_FOUND, "dbid:%s", dbid)
 		return
 	}
 	rets, err = cli.HKeys(key)
 	return
 }
 
-func HIncrBy(dbid string, key string, field string, incr int64) (err error) {
+func HIncrBy(dbid string, key string, field string, incr int64) (int64, error) {
 	cli := manager.GetRedis(dbid)
 	if cli == nil {
-		err = fmt.Errorf("redis dbid(%d) not supported", dbid)
-		return
+		return 0, uerror.New(1, pb.ErrorCode_CLIENT_NOT_FOUND, "dbid:%s", dbid)
 	}
-	err = cli.HIncrBy(key, field, incr)
-	return
+	return cli.HIncrBy(key, field, incr)
 }
 
 func HSet(dbid string, key string, field string, val interface{}) (err error) {
 	cli := manager.GetRedis(dbid)
 	if cli == nil {
-		err = fmt.Errorf("redis dbid(%d) not supported", dbid)
+		err = uerror.New(1, pb.ErrorCode_CLIENT_NOT_FOUND, "dbid:%s", dbid)
 		return
 	}
 	err = cli.HSet(key, field, val)
@@ -159,7 +158,7 @@ func HSet(dbid string, key string, field string, val interface{}) (err error) {
 func HMSet(dbid string, key string, vals ...interface{}) (err error) {
 	cli := manager.GetRedis(dbid)
 	if cli == nil {
-		err = fmt.Errorf("redis dbid(%d) not supported", dbid)
+		err = uerror.New(1, pb.ErrorCode_CLIENT_NOT_FOUND, "dbid:%s", dbid)
 		return
 	}
 	err = cli.HMSet(key, vals...)
@@ -169,7 +168,7 @@ func HMSet(dbid string, key string, vals ...interface{}) (err error) {
 func ZAdd(dbid string, key string, members ...*redis.Z) (err error) {
 	cli := manager.GetRedis(dbid)
 	if cli == nil {
-		err = fmt.Errorf("redis dbid(%d) not supported", dbid)
+		err = uerror.New(1, pb.ErrorCode_CLIENT_NOT_FOUND, "dbid:%s", dbid)
 		return
 	}
 	err = cli.ZAdd(key, members...)
@@ -179,7 +178,7 @@ func ZAdd(dbid string, key string, members ...*redis.Z) (err error) {
 func ZCard(dbid string, key string) (count int64, err error) {
 	cli := manager.GetRedis(dbid)
 	if cli == nil {
-		err = fmt.Errorf("redis dbid(%d) not supported", dbid)
+		err = uerror.New(1, pb.ErrorCode_CLIENT_NOT_FOUND, "dbid:%s", dbid)
 		return
 	}
 	count, err = cli.ZCard(key)
@@ -190,7 +189,7 @@ func ZCard(dbid string, key string) (count int64, err error) {
 func ZRevRank(dbid string, key string, member string) (count int64, err error) {
 	cli := manager.GetRedis(dbid)
 	if cli == nil {
-		err = fmt.Errorf("redis dbid(%d) not supported", dbid)
+		err = uerror.New(1, pb.ErrorCode_CLIENT_NOT_FOUND, "dbid:%s", dbid)
 		return
 	}
 	count, err = cli.ZRevRank(key, member)
@@ -201,7 +200,7 @@ func ZRevRank(dbid string, key string, member string) (count int64, err error) {
 func ZRevRange(dbid string, key string, start, stop int64) (members []string, err error) {
 	cli := manager.GetRedis(dbid)
 	if cli == nil {
-		err = fmt.Errorf("redis dbid(%d) not supported", dbid)
+		err = uerror.New(1, pb.ErrorCode_CLIENT_NOT_FOUND, "dbid:%s", dbid)
 		return
 	}
 	members, err = cli.ZRevRange(key, start, stop)
@@ -211,7 +210,7 @@ func ZRevRange(dbid string, key string, start, stop int64) (members []string, er
 func ZScore(dbid string, key string, member string) (score float64, err error) {
 	cli := manager.GetRedis(dbid)
 	if cli == nil {
-		err = fmt.Errorf("redis dbid(%d) not supported", dbid)
+		err = uerror.New(1, pb.ErrorCode_CLIENT_NOT_FOUND, "dbid:%s", dbid)
 		return
 	}
 	score, err = cli.ZScore(key, member)
@@ -221,7 +220,7 @@ func ZScore(dbid string, key string, member string) (score float64, err error) {
 func ZRevRangeWithScores(dbid string, key string, start, stop int64) (members []redis.Z, err error) {
 	cli := manager.GetRedis(dbid)
 	if cli == nil {
-		err = fmt.Errorf("redis dbid(%d) not supported", dbid)
+		err = uerror.New(1, pb.ErrorCode_CLIENT_NOT_FOUND, "dbid:%s", dbid)
 		return
 	}
 	members, err = cli.ZRevRangeWithScores(key, start, stop)
@@ -231,7 +230,7 @@ func ZRevRangeWithScores(dbid string, key string, start, stop int64) (members []
 func RPush(dbid string, key string, values ...interface{}) (ret int64, err error) {
 	cli := manager.GetRedis(dbid)
 	if cli == nil {
-		err = fmt.Errorf("redis dbid(%d) not supported", dbid)
+		err = uerror.New(1, pb.ErrorCode_CLIENT_NOT_FOUND, "dbid:%s", dbid)
 		return
 	}
 	ret, err = cli.RPush(key, values...)
@@ -241,7 +240,7 @@ func RPush(dbid string, key string, values ...interface{}) (ret int64, err error
 func RPop(dbid string, key string) (ret string, err error) {
 	cli := manager.GetRedis(dbid)
 	if cli == nil {
-		err = fmt.Errorf("redis dbid(%d) not supported", dbid)
+		err = uerror.New(1, pb.ErrorCode_CLIENT_NOT_FOUND, "dbid:%s", dbid)
 		return
 	}
 	ret, err = cli.RPop(key)
@@ -251,7 +250,7 @@ func RPop(dbid string, key string) (ret string, err error) {
 func LLen(dbid string, key string) (ret int64, err error) {
 	cli := manager.GetRedis(dbid)
 	if cli == nil {
-		err = fmt.Errorf("redis dbid(%d) not supported", dbid)
+		err = uerror.New(1, pb.ErrorCode_CLIENT_NOT_FOUND, "dbid:%s", dbid)
 		return
 	}
 	ret, err = cli.LLen(key)
@@ -261,7 +260,7 @@ func LLen(dbid string, key string) (ret int64, err error) {
 func LRange(dbid string, key string, start, stop int64) (ret []string, err error) {
 	cli := manager.GetRedis(dbid)
 	if cli == nil {
-		err = fmt.Errorf("redis dbid(%d) not supported", dbid)
+		err = uerror.New(1, pb.ErrorCode_CLIENT_NOT_FOUND, "dbid:%s", dbid)
 		return
 	}
 	ret, err = cli.LRange(key, start, stop)
@@ -271,7 +270,7 @@ func LRange(dbid string, key string, start, stop int64) (ret []string, err error
 func LTrim(dbid string, key string, start, stop int64) (ret string, err error) {
 	cli := manager.GetRedis(dbid)
 	if cli == nil {
-		err = fmt.Errorf("redis dbid(%d) not supported", dbid)
+		err = uerror.New(1, pb.ErrorCode_CLIENT_NOT_FOUND, "dbid:%s", dbid)
 		return
 	}
 	ret, err = cli.LTrim(key, start, stop)
@@ -281,7 +280,7 @@ func LTrim(dbid string, key string, start, stop int64) (ret string, err error) {
 func LRem(dbid string, key string, val interface{}) (ret int64, err error) {
 	cli := manager.GetRedis(dbid)
 	if cli == nil {
-		err = fmt.Errorf("redis dbid(%d) not supported", dbid)
+		err = uerror.New(1, pb.ErrorCode_CLIENT_NOT_FOUND, "dbid:%s", dbid)
 		return
 	}
 	ret, err = cli.LRem(key, val)

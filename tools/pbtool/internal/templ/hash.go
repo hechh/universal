@@ -53,6 +53,10 @@ func HGetAll({{.Kargs}}) (ret map[string]*pb.{{$pb}}, err error) {
 	// 解析数据
 	ret = make(map[string]*pb.{{$pb}})
 	for k, item := range kvs {
+		if len(item) <= 0 {
+			continue
+		}
+
 		data := &pb.{{$pb}}{}
 		if err := proto.Unmarshal([]byte(item), data); err != nil {
 			return nil, err
@@ -82,11 +86,11 @@ func HMSet({{.Kargs}} {{if .Keys}},{{end}} data map[string]*pb.{{$pb}}) error {
 	return client.HMSet(key, vals...)
 }
 
-func HGet({{.Args}}) (*pb.{{$pb}}, error) {
+func HGet({{.Args}}) (*pb.{{$pb}}, bool, error) {
 	// 获取redis连接
 	client := manager.GetRedis(DBNAME)
 	if client == nil {
-		return nil, uerror.New(1, -1, "redis数据库不存在: %s", DBNAME)
+		return nil, false, uerror.New(1, -1, "redis数据库不存在: %s", DBNAME)
 	}
 	key := GetKey({{.Kvalues}})
 	field := GetField({{.Fvalues}})
@@ -94,15 +98,15 @@ func HGet({{.Args}}) (*pb.{{$pb}}, error) {
 	// 加载数据
 	str, err := client.HGet(key, field)
 	if err != nil {
-		return nil, err
+		return nil, false, err
 	}
 
 	// 解析数据
 	data := &pb.{{$pb}}{}
 	if err := proto.Unmarshal([]byte(str), data); err != nil {
-		return nil, err
+		return nil, len(str)>0, err
 	}
-	return data, nil
+	return data, len(str)>0, nil
 }
 
 func HSet({{.Args}}, data *pb.{{$pb}}) error {

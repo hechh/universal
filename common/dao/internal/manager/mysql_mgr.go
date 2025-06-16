@@ -4,6 +4,7 @@ import (
 	"sync"
 	"time"
 	"universal/common/dao/internal/mysql"
+	"universal/common/pb"
 	"universal/common/yaml"
 	"universal/library/async"
 	"universal/library/mlog"
@@ -33,17 +34,16 @@ func RegisterTable(dbname string, tables ...interface{}) {
 
 func InitMysql(cfgs map[int32]*yaml.DbConfig) error {
 	if len(cfgs) <= 0 {
-		return uerror.New(1, -1, "mysql配置为空")
+		return uerror.New(1, pb.ErrorCode_CONFIG_NOT_FOUND, "mysql配置为空")
 	}
 	// 初始化
 	for _, cfg := range cfgs {
 		client := mysql.NewOrmSql(cfg)
 		if err := client.Connect(mysqlPool.tables[cfg.DbName]...); err != nil {
-			return uerror.New(1, -1, "mysql连接失败, cfg:%v, error:%v", cfg, err)
+			return uerror.New(1, pb.ErrorCode_CONNECT_FAILED, "mysql连接失败, cfg:%v, error:%v", cfg, err)
 		}
 		mysqlPool.pool[cfg.DbName] = client
 	}
-
 	async.SafeGo(mlog.Fatalf, checkMysql)
 	return nil
 }

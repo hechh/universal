@@ -1,22 +1,22 @@
 package manager
 
-import (
-	"universal/tools/cfgtool/internal/base"
-
-	"github.com/spf13/cast"
-)
+import "github.com/spf13/cast"
 
 var (
-	convertMgr = make(map[string]*base.Convert)
+	convMgr = make(map[string]*ConvertInfo)
 )
 
+type ConvertInfo struct {
+	Name     string
+	ConvFunc func(string) interface{}
+}
+
 func GetConvFunc(name string) func(string) interface{} {
-	if val, ok := convertMgr[name]; ok {
+	if val, ok := convMgr[name]; ok {
 		return val.ConvFunc
 	}
-
 	// 默认枚举转换函数
-	if item, ok := enumMgr[name]; ok {
+	if item, ok := enums[name]; ok {
 		return func(str string) interface{} {
 			if vv, ok := item.Values[str]; ok {
 				return vv.Value
@@ -28,58 +28,58 @@ func GetConvFunc(name string) func(string) interface{} {
 }
 
 func GetConvType(name string) string {
-	if val, ok := convertMgr[name]; ok {
+	if val, ok := convMgr[name]; ok {
 		return val.Name
 	}
 	return name
 }
 
 func init() {
-	convertMgr["int"] = &base.Convert{
+	convMgr["int"] = &ConvertInfo{
 		Name: "int32",
 		ConvFunc: func(str string) interface{} {
 			return cast.ToInt32(str)
 		},
 	}
-	convertMgr["int8"] = convertMgr["int"]
-	convertMgr["int16"] = convertMgr["int"]
-	convertMgr["int32"] = convertMgr["int"]
-	convertMgr["int64"] = &base.Convert{
+	convMgr["int8"] = convMgr["int"]
+	convMgr["int16"] = convMgr["int"]
+	convMgr["int32"] = convMgr["int"]
+	convMgr["int64"] = &ConvertInfo{
 		Name: "int64",
 		ConvFunc: func(str string) interface{} {
 			return cast.ToInt64(str)
 		},
 	}
 
-	convertMgr["uint"] = &base.Convert{
+	convMgr["uint"] = &ConvertInfo{
 		Name: "uint32",
 		ConvFunc: func(str string) interface{} {
 			return cast.ToUint32(str)
 		},
 	}
-	convertMgr["uint8"] = convertMgr["uint"]
-	convertMgr["uint16"] = convertMgr["uint"]
-	convertMgr["uint32"] = convertMgr["uint"]
-	convertMgr["uint64"] = &base.Convert{
+	convMgr["uint8"] = convMgr["uint"]
+	convMgr["uint16"] = convMgr["uint"]
+	convMgr["uint32"] = convMgr["uint"]
+	convMgr["uint64"] = &ConvertInfo{
 		Name: "uint64",
 		ConvFunc: func(str string) interface{} {
 			return cast.ToUint64(str)
 		},
 	}
 
-	convertMgr["float"] = &base.Convert{
+	convMgr["float"] = &ConvertInfo{
 		Name: "float64",
 		ConvFunc: func(str string) interface{} {
 			return cast.ToFloat64(str)
 		},
 	}
-	convertMgr["bool"] = &base.Convert{
+	convMgr["bool"] = &ConvertInfo{
 		Name: "bool",
 		ConvFunc: func(str string) interface{} {
 			return cast.ToBool(str)
 		},
 	}
-	convertMgr["string"] = &base.Convert{
+	convMgr["string"] = &ConvertInfo{
 		Name: "string",
 		ConvFunc: func(str string) interface{} {
 			return str
