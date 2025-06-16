@@ -7,18 +7,8 @@ import "global_enum_cfg.proto";
 
 // 发送类型
 enum SendType {
-    SendTypeNode = 0;  // 发送类型-无
-    POINT        = 1;  // 发送类型-点对点
-    BROADCAST    = 2;  // 发送类型-广播
-}
-
-enum RouterType {
-    RT_Node          = 0;
-    RT_Uid           = 1;
-    RT_RoomId        = 2;
-    RT_GeneratorType = 3;
-    RT_DataType      = 4;
-    RT_GameType      = 5;
+    POINT     = 0;  // 发送类型-点对点
+    BROADCAST = 1;  // 发送类型-广播
 }
 
 message Node {
@@ -39,13 +29,12 @@ message Router {
 }
 
 message NodeRouter {
-    NodeType   NodeType   = 1;
-    int32      NodeId     = 2;
-    string     ActorName  = 3;
-    string     FuncName   = 4;
-    uint64     ActorId    = 5;
-    RouterType RouterType = 6;
-    Router     Router     = 7;
+    NodeType NodeType  = 1;
+    int32    NodeId    = 2;
+    string   ActorName = 3;
+    string   FuncName  = 4;
+    uint64   ActorId   = 5;
+    Router   Router    = 7;
 }
 
 message Head {
@@ -59,4 +48,14 @@ message Head {
     uint32     Cmd       = 8;
     uint32     Reference = 9;
     string     Reply     = 10;
+}
+
+message Packet {
+    Head  head = 1;
+    bytes body = 2;
+}
+
+message RspHead {
+    int32  code = 1;
+    string msg  = 2;
 }

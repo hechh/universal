@@ -4,7 +4,7 @@ import (
 	"sync"
 	"sync/atomic"
 	"universal/library/queue"
-	"universal/library/util"
+	"universal/library/safe"
 )
 
 type Async struct {
@@ -14,7 +14,6 @@ type Async struct {
 	tasks  *queue.Queue[func()]
 	notify chan struct{}
 	exit   chan struct{}
-	fatal  func(string, ...interface{})
 }
 
 func NewAsync() *Async {
@@ -42,7 +41,7 @@ func (d *Async) Start() {
 		return
 	}
 	atomic.AddInt32(&d.status, 1)
-	util.SafeGo(d.fatal, d.run)
+	safe.Go(d.run)
 }
 
 func (d *Async) Stop() {
@@ -68,21 +67,19 @@ func (d *Async) Push(f func()) {
 func (d *Async) run() {
 	d.Add(1)
 	defer func() {
-		d.handle()
+		for f := d.tasks.Pop(); f != nil; f = d.tasks.Pop() {
+			safe.Recover(f)
+		}
 		d.Done()
 	}()
 	for {
 		select {
 		case <-d.notify:
-			d.handle()
+			for f := d.tasks.Pop(); f != nil; f = d.tasks.Pop() {
+				safe.Recover(f)
+			}
 		case <-d.exit:
 			return
 		}
-	}
-}
-
-func (d *Async) handle() {
-	for f := d.tasks.Pop(); f != nil; f = d.tasks.Pop() {
-		util.SafeRecover(d.fatal, f)
 	}
 }

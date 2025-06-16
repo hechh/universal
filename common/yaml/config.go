@@ -40,6 +40,7 @@ type NatsConfig struct {
 
 type CommonConfig struct {
 	Env             string `yaml:"env"`
+	ConfigIsRemote  bool   `yaml:"config_is_remote"`
 	ConfigPath      string `yaml:"config_path"`
 	ConfigTopic     string `yaml:"config_topic"`
 	RouterExpire    int64  `yaml:"router_expire"`
