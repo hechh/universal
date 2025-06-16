@@ -14,6 +14,13 @@ type Table struct {
 	exit    chan struct{}
 }
 
+func NewTable() *Table {
+	return &Table{
+		routers: make(map[uint64]domain.IRouter),
+		exit:    make(chan struct{}),
+	}
+}
+
 func (d *Table) Get(id uint64) domain.IRouter {
 	d.mutex.RLock()
 	rr, ok := d.routers[id]
@@ -34,26 +41,15 @@ func (d *Table) Close() error {
 	return nil
 }
 
-func (d *Table) GetExpires(ttl int64) (keys []uint64) {
-	now := time.Now().Unix()
-	d.mutex.RLock()
-	defer d.mutex.RUnlock()
-	for key, rr := range d.routers {
-		if rr.GetUpdateTime()+ttl <= now {
-			keys = append(keys, key)
-		}
-	}
-	return
-}
-
 func (d *Table) Expire(ttl int64) {
 	safe.Go(func() {
 		tt := time.NewTicker(time.Duration(ttl/2) * time.Second)
 		defer tt.Stop()
+
 		for {
 			select {
 			case <-tt.C:
-				if keys := d.GetExpires(ttl); len(keys) > 0 {
+				if keys := d.getExpires(ttl); len(keys) > 0 {
 					d.mutex.Lock()
 					for _, k := range keys {
 						delete(d.routers, k)
@@ -65,4 +61,16 @@ func (d *Table) Expire(ttl int64) {
 			}
 		}
 	})
+}
+
+func (d *Table) getExpires(ttl int64) (keys []uint64) {
+	now := time.Now().Unix()
+	d.mutex.RLock()
+	defer d.mutex.RUnlock()
+	for key, rr := range d.routers {
+		if rr.GetUpdateTime()+ttl <= now {
+			keys = append(keys, key)
+		}
+	}
+	return
 }

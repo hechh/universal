@@ -44,12 +44,14 @@ type IRouter interface {
 
 type ITable interface {
 	Get(uint64) IRouter
+	Expire(int64)
+	Close() error
 }
 
 type IBus interface {
-	SetBroadcastHandler(*pb.Node, func(*pb.Packet)) error
-	SetSendHandler(*pb.Node, func(*pb.Packet)) error
-	SetReplyHandler(*pb.Node, func(*pb.Packet)) error
+	SetBroadcastHandler(*pb.Node, func(*pb.Head, []byte)) error
+	SetSendHandler(*pb.Node, func(*pb.Head, []byte)) error
+	SetReplyHandler(*pb.Node, func(*pb.Head, []byte)) error
 	Broadcast(*pb.Head, []byte) error
 	Send(*pb.Head, []byte) error
 	Request(*pb.Head, []byte, proto.Message) error

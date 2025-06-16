@@ -18,6 +18,11 @@ import (
 	"google.golang.org/protobuf/proto"
 )
 
+const (
+	KEEP_STATUS     = 1
+	REGISTER_STATUS = 2
+)
+
 type Etcd struct {
 	sync.WaitGroup
 	client *clientv3.Client
@@ -33,6 +38,11 @@ func NewEtcd(cfg *yaml.EtcdConfig) (*Etcd, error) {
 		return nil, err
 	}
 	return &Etcd{client: client, topic: cfg.Topic, exit: make(chan struct{})}, nil
+}
+
+func (d *Etcd) Close() error {
+	close(d.exit)
+	return d.client.Close()
 }
 
 func (d *Etcd) Watch(cls domain.ICluster) error {
@@ -62,7 +72,6 @@ func (d *Etcd) Watch(cls domain.ICluster) error {
 				time.Sleep(time.Second)
 				continue
 			}
-
 			for rsp := range wchan {
 				if rsp.Canceled {
 					mlog.Errorf("Etcd 监听被取消，尝试重新连接")
@@ -72,55 +81,58 @@ func (d *Etcd) Watch(cls domain.ICluster) error {
 					mlog.Errorf("Etcd 监听出现错误: %v", rsp.Err().Error())
 					continue
 				}
-
-				for _, event := range rsp.Events {
-					switch event.Type {
-					case clientv3.EventTypePut:
-						node := &pb.Node{}
-						if err := proto.Unmarshal(event.Kv.Value, node); err != nil {
-							mlog.Errorf("解析服务节点失败: %v", err)
-						} else {
-							if cls.Add(node) {
-								mlog.Infof("添加服务节点: %v", node)
-							}
-						}
-					case clientv3.EventTypeDelete:
-						key := string(event.Kv.Key)
-						id := cast.ToInt32(path.Base(key))
-						typ := pb.NodeType(cast.ToInt32(path.Base(path.Dir(key))))
-						if cls.Del(typ, id) {
-							mlog.Infof("删除服务节点: %s", key)
-						}
-					}
-				}
+				d.handleEvent(cls, rsp.Events...)
 			}
 		}
 	})
 	return nil
 }
 
+func (d *Etcd) handleEvent(cls domain.ICluster, events ...*clientv3.Event) {
+	for _, event := range events {
+		switch event.Type {
+		case clientv3.EventTypePut:
+			node := &pb.Node{}
+			if err := proto.Unmarshal(event.Kv.Value, node); err != nil {
+				mlog.Errorf("解析服务节点失败: %v", err)
+			} else {
+				if cls.Add(node) {
+					mlog.Infof("添加服务节点: %v", node)
+				}
+			}
+		case clientv3.EventTypeDelete:
+			key := string(event.Kv.Key)
+			id := cast.ToInt32(path.Base(key))
+			typ := pb.NodeType(cast.ToInt32(path.Base(path.Dir(key))))
+			if cls.Del(typ, id) {
+				mlog.Infof("删除服务节点: %s", key)
+			}
+		}
+	}
+}
+
 func (d *Etcd) Register(n *pb.Node, ttl int64) error {
 	if err := d.register(n, ttl); err != nil {
 		return err
 	}
-	d.status = 1
+	d.status = KEEP_STATUS
 
 	safe.Go(func() {
 		for {
 			switch d.status {
-			case 1:
+			case KEEP_STATUS:
 				if err := d.keepAlive(ttl); err != nil {
 					mlog.Errorf("服务保活失败：%v", err)
-					d.status = 0
+					d.status = REGISTER_STATUS
 				} else {
 					return
 				}
-			default:
+			case REGISTER_STATUS:
 				if err := d.register(n, ttl); err != nil {
 					mlog.Errorf("服务注册失败, 继续尝试注册服务: %v", err)
 					time.Sleep(2 * time.Second)
 				} else {
-					d.status = 1
+					d.status = KEEP_STATUS
 				}
 			}
 		}
