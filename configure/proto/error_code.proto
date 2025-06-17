@@ -1,0 +1,10 @@
+syntax = "proto3";
+package universal;
+
+option go_package = "universal/common/pb";
+
+enum ErrorCode {
+  Success      = 0;
+  ParamInvalid = 1;
+  NodeNotFound = 2;
+}
