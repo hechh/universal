@@ -13,4 +13,5 @@ enum ErrorCode {
   MarshalFailed      = 6;
   UnmarshalFailed    = 7;
   SendToSelfWrong    = 8;
+  NatsRequestFailed  = 9;
 }
