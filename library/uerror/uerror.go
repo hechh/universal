@@ -3,13 +3,30 @@ package uerror
 import (
 	"fmt"
 	"runtime"
+
+	"github.com/spf13/cast"
 )
+
+type IErrorCode interface {
+	String() string
+	Number() int32
+}
+
+type ErrorCode int32
+
+func (d ErrorCode) String() string {
+	return cast.ToString(d)
+}
+
+func (d ErrorCode) Number() int32 {
+	return int32(d)
+}
 
 type UError struct {
 	file  string
 	fname string
 	line  int
-	code  int32
+	code  IErrorCode
 	msg   string
 }
 
@@ -18,7 +35,7 @@ func (ue *UError) Error() string {
 }
 
 func (ue *UError) GetCode() int32 {
-	return ue.code
+	return ue.code.Number()
 }
 
 func (ue *UError) GetMsg() string {
@@ -31,11 +48,11 @@ func E(depth int, code int32, err error) *UError {
 	}
 	pc, file, line, _ := runtime.Caller(depth)
 	fname := runtime.FuncForPC(pc).Name()
-	return &UError{file: file, line: line, fname: fname, code: code, msg: err.Error()}
+	return &UError{file: file, line: line, fname: fname, code: ErrorCode(code), msg: err.Error()}
 }
 
 func N(depth int, code int32, format string, args ...interface{}) *UError {
 	pc, file, line, _ := runtime.Caller(depth)
 	fname := runtime.FuncForPC(pc).Name()
-	return &UError{file: file, line: line, fname: fname, code: code, msg: fmt.Sprintf(format, args...)}
+	return &UError{file: file, line: line, fname: fname, code: ErrorCode(code), msg: fmt.Sprintf(format, args...)}
 }
