@@ -44,10 +44,11 @@ message Head {
   string     ActorName = 4;
   string     FuncName  = 5;
   uint64     ActorId   = 6;
-  uint32     Seq       = 7;
-  uint32     Cmd       = 8;
-  uint32     Reference = 9;
-  string     Reply     = 10;
+  uint64     Uid       = 7;
+  uint32     Seq       = 8;
+  uint32     Cmd       = 9;
+  uint32     Reference = 10;
+  string     Reply     = 11;
 }
 
 message Packet {

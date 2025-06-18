@@ -1,15 +1,13 @@
 package service
 
 import (
-	"sync/atomic"
 	"universal/common/pb"
-	"universal/library/encode"
 	"universal/library/uerror"
 
 	"github.com/golang/protobuf/proto"
 )
 
-func Send(head *pb.Head, args ...interface{}) error {
+func Request(head *pb.Head, msg interface{}, rsp proto.Message) error {
 	if head.Src == nil {
 		return uerror.N(1, int32(pb.ErrorCode_NodeRouterIsNil), "%v", head)
 	}
@@ -31,26 +29,21 @@ func Send(head *pb.Head, args ...interface{}) error {
 	if head.Dst.NodeType == node.Type && head.Dst.NodeId == node.Id {
 		return uerror.N(1, int32(pb.ErrorCode_SendToSelfWrong), "%v", head)
 	}
-	atomic.AddUint32(&head.Reference, 1)
-	buf, err := marshal(args...)
+	buf, err := marshal(msg)
 	if err != nil {
 		return uerror.N(1, int32(pb.ErrorCode_MarshalFailed), "%v|%v", head, err)
 	}
-	return bus.Send(head, buf)
+	return bus.Request(head, buf, rsp)
 }
 
-func marshal(args ...interface{}) ([]byte, error) {
-	if len(args) == 1 {
-		switch vv := args[0].(type) {
-		case []byte:
-			return vv, nil
-		case proto.Message:
-			if buf, err := proto.Marshal(vv); err != nil {
-				return nil, err
-			} else {
-				return buf, nil
-			}
-		}
+func Response(head *pb.Head, msg interface{}) error {
+	if len(head.Reply) <= 0 {
+		return nil
 	}
-	return encode.Encode(args...)
+	head.SendType = pb.SendType_POINT
+	buf, err := marshal(msg)
+	if err != nil {
+		return uerror.N(1, int32(pb.ErrorCode_MarshalFailed), "%v|%v", head, err)
+	}
+	return bus.Response(head, buf)
 }

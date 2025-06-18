@@ -4,7 +4,13 @@ package universal;
 option go_package = "universal/common/pb";
 
 enum ErrorCode {
-  Success      = 0;
-  ParamInvalid = 1;
-  NodeNotFound = 2;
+  Success            = 0;
+  ParamInvalid       = 1;
+  NodeNotFound       = 2;
+  NodeTypeNotSupport = 3;
+  ActorIdIsZero      = 4;
+  NodeRouterIsNil    = 5;
+  MarshalFailed      = 6;
+  UnmarshalFailed    = 7;
+  SendToSelfWrong    = 8;
 }

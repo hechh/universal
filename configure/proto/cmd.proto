@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+package universal;
+
+option go_package = "universal/common/pb";
+
+enum CMD {
+  CMD_NONE = 0;
+}
