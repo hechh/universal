@@ -5,58 +5,39 @@ option go_package = "universal/common/pb";
 
 import "global_enum_cfg.proto";
 
-// 发送类型
-enum SendType {
-  POINT     = 0;  // 发送类型-点对点
-  BROADCAST = 1;  // 发送类型-广播
-}
-
 message Node {
-  string   name = 1;  // 节点名称
-  string   addr = 2;  // 节点地址
-  NodeType type = 3;  // 节点类型
-  int32    id   = 4;  // 节点ID
-}
-
-message Router {
-  int32 gate    = 1;  // 网关服务
-  int32 room    = 2;  // 房间服务
-  int32 match   = 3;  // 匹配服务
-  int32 db      = 4;  // 数据服务
-  int32 builder = 5;  // 构建服务
-  int32 gm      = 6;  // GM服务
-  int32 game    = 7;  // 游戏服务
+  string   Name = 1;  // 节点名称
+  string   Addr = 2;  // 节点地址
+  NodeType Type = 3;  // 节点类型
+  int32    Id   = 4;  // 节点ID
 }
 
 message NodeRouter {
-  NodeType NodeType  = 1;
-  int32    NodeId    = 2;
-  string   ActorName = 3;
-  string   FuncName  = 4;
-  uint64   ActorId   = 5;
-  Router   Router    = 7;
+  int32  Node      = 1;
+  string ActorFunc = 2;
+  uint64 ActorId   = 3;
+  bytes  Router    = 4;
 }
 
 message Head {
-  SendType   SendType  = 1;
-  NodeRouter Src       = 2;
-  NodeRouter Dst       = 3;
-  string     ActorName = 4;
-  string     FuncName  = 5;
-  uint64     ActorId   = 6;
-  uint64     Uid       = 7;
-  uint32     Seq       = 8;
-  uint32     Cmd       = 9;
+  NodeRouter Src       = 1;
+  NodeRouter Dst       = 2;
+  uint64     Uid       = 3;
+  uint32     Seq       = 4;
+  uint32     Cmd       = 5;
+  string     Reply     = 6;
+  string     ActorName = 7;
+  string     FuncName  = 8;
+  uint64     ActorId   = 9;
   uint32     Reference = 10;
-  string     Reply     = 11;
 }
 
 message Packet {
-  Head  head = 1;
-  bytes body = 2;
+  Head  Head = 1;
+  bytes Body = 2;
 }
 
 message RspHead {
-  int32  code = 1;
-  string msg  = 2;
+  int32  Code   = 1;
+  string ErrMsg = 2;
 }
