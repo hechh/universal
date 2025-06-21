@@ -1,13 +1,83 @@
 package router
 
 import (
-	"sync"
+	"sync/atomic"
 	"time"
 	"universal/common/pb"
-	"universal/framework/domain"
-	"universal/library/safe"
 )
 
+type Router struct {
+	updateTime int64
+	build      uint32
+	db         uint32
+	game       uint32
+	gate       uint32
+	room       uint32
+	match      uint32
+	gm         uint32
+}
+
+func (r *Router) Get(nodeType pb.NodeType) uint32 {
+	switch nodeType {
+	case pb.NodeType_NodeTypeBuild:
+		return atomic.LoadUint32(&r.build)
+	case pb.NodeType_NodeTypeDb:
+		return atomic.LoadUint32(&r.db)
+	case pb.NodeType_NodeTypeGame:
+		return atomic.LoadUint32(&r.game)
+	case pb.NodeType_NodeTypeGate:
+		return atomic.LoadUint32(&r.gate)
+	case pb.NodeType_NodeTypeRoom:
+		return atomic.LoadUint32(&r.room)
+	case pb.NodeType_NodeTypeMatch:
+		return atomic.LoadUint32(&r.match)
+	case pb.NodeType_NodeTypeGm:
+		return atomic.LoadUint32(&r.gm)
+	}
+	return 0
+}
+
+func (r *Router) Set(nodeType pb.NodeType, nodeId uint32) {
+	switch nodeType {
+	case pb.NodeType_NodeTypeBuild:
+		if !atomic.CompareAndSwapUint32(&r.build, nodeId, nodeId) {
+			atomic.StoreUint32(&r.build, nodeId)
+			atomic.StoreInt64(&r.updateTime, time.Now().Unix())
+		}
+	case pb.NodeType_NodeTypeDb:
+		if !atomic.CompareAndSwapUint32(&r.db, nodeId, nodeId) {
+			atomic.StoreUint32(&r.db, nodeId)
+			atomic.StoreInt64(&r.updateTime, time.Now().Unix())
+		}
+	case pb.NodeType_NodeTypeGame:
+		if !atomic.CompareAndSwapUint32(&r.game, nodeId, nodeId) {
+			atomic.StoreUint32(&r.game, nodeId)
+			atomic.StoreInt64(&r.updateTime, time.Now().Unix())
+		}
+	case pb.NodeType_NodeTypeGate:
+		if !atomic.CompareAndSwapUint32(&r.gate, nodeId, nodeId) {
+			atomic.StoreUint32(&r.gate, nodeId)
+			atomic.StoreInt64(&r.updateTime, time.Now().Unix())
+		}
+	case pb.NodeType_NodeTypeRoom:
+		if !atomic.CompareAndSwapUint32(&r.room, nodeId, nodeId) {
+			atomic.StoreUint32(&r.room, nodeId)
+			atomic.StoreInt64(&r.updateTime, time.Now().Unix())
+		}
+	case pb.NodeType_NodeTypeMatch:
+		if !atomic.CompareAndSwapUint32(&r.match, nodeId, nodeId) {
+			atomic.StoreUint32(&r.match, nodeId)
+			atomic.StoreInt64(&r.updateTime, time.Now().Unix())
+		}
+	case pb.NodeType_NodeTypeGm:
+		if !atomic.CompareAndSwapUint32(&r.gm, nodeId, nodeId) {
+			atomic.StoreUint32(&r.gm, nodeId)
+			atomic.StoreInt64(&r.updateTime, time.Now().Unix())
+		}
+	}
+}
+
+/*
 type Table struct {
 	mutex   sync.RWMutex
 	routers map[uint64]domain.IRouter
@@ -74,3 +144,4 @@ func (d *Table) getExpires(ttl int64) (keys []uint64) {
 	}
 	return
 }
+*/

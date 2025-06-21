@@ -12,6 +12,16 @@ message Node {
   uint32   Id   = 4;  // 节点ID
 }
 
+message Router {
+  uint32 Gate  = 1;
+  uint32 Game  = 2;
+  uint32 Db    = 3;
+  uint32 Build = 4;
+  uint32 Room  = 5;
+  uint32 Match = 6;
+  uint32 Gm    = 7;
+}
+
 message NodeRouter {
   NodeType NodeType  = 1;
   uint32   NodeId    = 2;

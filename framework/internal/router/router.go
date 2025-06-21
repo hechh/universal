@@ -1,5 +1,6 @@
 package router
 
+/*
 import (
 	"sync/atomic"
 	"time"
@@ -90,3 +91,4 @@ func (r *Router) Set(nodeType pb.NodeType, nodeId int32) {
 		}
 	}
 }
+*/
