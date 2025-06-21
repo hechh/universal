@@ -9,14 +9,15 @@ message Node {
   string   Name = 1;  // 节点名称
   string   Addr = 2;  // 节点地址
   NodeType Type = 3;  // 节点类型
-  int32    Id   = 4;  // 节点ID
+  uint32   Id   = 4;  // 节点ID
 }
 
 message NodeRouter {
-  int32  Node      = 1;
-  string ActorFunc = 2;
-  uint64 ActorId   = 3;
-  bytes  Router    = 4;
+  NodeType NodeType  = 1;
+  uint32   NodeId    = 2;
+  uint32   ActorName = 3;
+  uint32   FuncName  = 4;
+  uint64   ActorId   = 5;
 }
 
 message Head {
@@ -25,11 +26,11 @@ message Head {
   uint64     Uid       = 3;
   uint32     Seq       = 4;
   uint32     Cmd       = 5;
-  string     Reply     = 6;
-  string     ActorName = 7;
-  string     FuncName  = 8;
+  uint32     ActorName = 7;
+  uint32     FuncName  = 8;
   uint64     ActorId   = 9;
   uint32     Reference = 10;
+  string     Reply     = 6;
 }
 
 message Packet {
