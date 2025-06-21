@@ -26,11 +26,11 @@ message Head {
   uint64     Uid       = 3;
   uint32     Seq       = 4;
   uint32     Cmd       = 5;
-  uint32     ActorName = 7;
-  uint32     FuncName  = 8;
-  uint64     ActorId   = 9;
-  uint32     Reference = 10;
-  string     Reply     = 6;
+  uint32     ActorName = 6;
+  uint32     FuncName  = 7;
+  uint64     ActorId   = 8;
+  uint32     Reference = 9;
+  string     Reply     = 10;
 }
 
 message Packet {
