@@ -1,0 +1,9 @@
+2025-06-22T13:46:10.453+0800	INFO	test/pool_test.go:44	初始化mysql配置
+2025-06-22T13:46:10.460+0800	INFO	test/pool_test.go:59	启动框架服务: name:"Client"  addr:"localhost:10101"  type:NodeTypeClient  id:1
+2025-06-22T13:46:10.466+0800	INFO	discovery/etcd.go:62	添加服务节点: name:"Gate"  addr:"localhost:10101"  type:NodeTypeGate  id:1
+2025-06-22T13:46:10.466+0800	INFO	discovery/etcd.go:62	添加服务节点: name:"Match"  addr:"localhost:10301"  type:NodeTypeMatch  id:1
+2025-06-22T13:46:10.466+0800	INFO	discovery/etcd.go:62	添加服务节点: name:"Room"  addr:"localhost:10201"  type:NodeTypeRoom  id:1
+2025-06-22T13:46:10.466+0800	INFO	discovery/etcd.go:62	添加服务节点: name:"Db"  addr:"localhost:10401"  type:NodeTypeDb  id:1
+2025-06-22T13:46:10.466+0800	INFO	discovery/etcd.go:62	添加服务节点: name:"Builder"  addr:"localhost:10501"  type:NodeTypeBuilder  id:1
+2025-06-22T13:46:10.466+0800	INFO	discovery/etcd.go:62	添加服务节点: name:"Gm"  addr:"localhost:10701"  type:NodeTypeGm  id:1
+2025-06-22T13:46:10.466+0800	INFO	discovery/etcd.go:62	添加服务节点: name:"Game"  addr:"localhost:10601"  type:NodeTypeGame  id:1

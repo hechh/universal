@@ -1,0 +1,95 @@
+syntax = "proto3";
+package poker;
+
+option go_package = "./pb";
+
+import "global_enum.proto";
+import "global_enum_cfg.proto";
+import "client_room_rummy.proto";
+import "packet.proto";
+
+// 每局比赛字段 db:xorm/rummy_match_record
+message RummySettleMatch {
+  uint64          id         = 12; // @inject_tag: xorm:"bigint autoincr pk comment('主键ID')"
+  uint64          room_id    = 1;  // @inject_tag: xorm:"bigint index notnull comment('房间ID')"
+  repeated uint64 player_id  = 2;  // @inject_tag: xorm:"Text notnull comment('玩家ID')"
+  uint32          match      = 3;  // @inject_tag: xorm:"int comment('比赛局数')"
+  GameType        game_type   = 4;  // @inject_tag: xorm:"tinyint comment('游戏类型')"
+  RoomType        room_type   = 5;  // @inject_tag: xorm:"tinyint comment('房间类型')"
+  CoinType        coin_type   = 6;  // @inject_tag: xorm:"tinyint comment('货币类型')"
+  int64           base_score  = 7;  // @inject_tag: xorm:"bigint comment('底分')"
+  int64           rake_rate   = 8;  // @inject_tag: xorm:"bigint comment('每局抽水万分比')"
+  int64           created_at = 9;  // @inject_tag: xorm:"bigint comment('创建时间毫秒级')"
+  int64           finish_at  = 10; // @inject_tag: xorm:"bigint comment('结束时间毫秒级')"
+  int64           rake_coin  = 11; // @inject_tag: xorm:"bigint comment('比赛抽水')"
+  int64           settle_coin = 13;// @inject_tag: xorm:"bigint comment('比赛流水')"
+  repeated        RummySettlePlayerInfo players    = 14;  //@inject_tag: xorm:"blob comment('玩家手牌和结算账单')"
+}
+
+// 每局每轮操作记录回放专用 db:xorm/rummy_action_record
+message RummyActionRecord {
+  uint64         id         = 6;  // @inject_tag: xorm:"bigint autoincr pk comment('主键ID')"
+  uint64         room_id    = 1;  // @inject_tag: xorm:"bigint index notnull comment('房间ID')"
+  uint32         match_id   = 2;  // @inject_tag: xorm:"bigint comment('比赛局数')"
+  RummyEventType type       = 3;  // @inject_tag: xorm:"tinyint comment('通知类型')"
+  bytes          ntf_data   = 4;  // @inject_tag: xorm:"blob comment('通知的二进制数据')"
+  int64          created_at = 5;  // @inject_tag: xorm:"bigint comment('创建时间毫秒级')"
+}
+
+// 异步存数据至数据服 db:xorm/rummy_settle
+message RummySettleData {
+  uint64                  id          = 11;   // @inject_tag: xorm:"bigint autoincr pk comment('主键ID')"
+  uint64                  room_id      = 1;   // @inject_tag: xorm:"bigint index notnull comment('房间ID')"
+  uint64                  player_id    = 2;   // @inject_tag: xorm:"bigint index notnull comment('玩家ID')"
+  repeated RummyCardGroup groups       = 3;   // @inject_tag: xorm:"blob comment('玩家手牌组')"
+  uint32                  ghost_card   = 4;   // @inject_tag: xorm:"bigint comment('癞子牌')"
+  int64                   hand_score   = 5;   // @inject_tag: xorm:"bigint comment('手牌得分')"
+  int64                   coin         = 6;   // @inject_tag: xorm:"bigint comment('游戏输赢')"
+  RummyPlayState          state        = 7;   // @inject_tag: xorm:"tinyint comment('状态')"
+  int64                   created_at   = 8;   // @inject_tag: xorm:"bigint comment('创建时间毫秒级')"
+  uint32                  player_count = 9;   // @inject_tag: xorm:"bigint comment('游戏玩家人数')"
+  uint32                  match_id     = 10;  // @inject_tag: xorm:"bigint comment('比赛局数')"
+  GameType                game_type    = 14;  // @inject_tag: xorm:"tinyint comment('游戏类型')"
+  RoomType                room_type    = 15;  // @inject_tag: xorm:"tinyint comment('房间类型')"
+  CoinType                coin_type    = 16;  // @inject_tag: xorm:"tinyint comment('货币类型')"
+  int64                   base_score   = 17;  // @inject_tag: xorm:"bigint comment('底分')"
+  int64                   rake_coin    = 18;  // @inject_tag: xorm:"bigint comment('比赛抽水')"
+}
+
+message RummySettleInsertReq{
+  repeated RummySettleData data = 1;
+}
+
+message RummySettleInsertRsp{
+  RspHead                        head       = 1;  // 请求结果信息
+}
+
+message RummySettleSelectReq{
+  uint32 page = 1;
+  uint32 page_size = 2;
+}
+
+message RummySettleSelectRsp{
+  RspHead  head                 = 1;  //请求结果信息
+  repeated RummySettleData data = 2;  //用户比赛记录信息
+  int64   count                = 3;  //记录总数
+}
+
+message RummySettleMatchInsertReq{
+  repeated RummySettleMatch data = 1;
+}
+message RummySettleMatchInsertRsp{
+  RspHead                        head       = 1;  // 请求结果信息
+}
+
+message RummyMatchSelectReq{
+  uint32 page = 1;
+  uint32 page_size = 2;
+  uint64 room_id      = 3;
+}
+
+message RummyMatchSelectRsp{
+  RspHead  head                 = 1;  //请求结果信息
+  repeated RummySettleMatch data = 2;  //用户比赛记录信息
+  int64    count                = 3;  //记录总数
+}

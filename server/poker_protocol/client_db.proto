@@ -1,0 +1,89 @@
+syntax = "proto3";
+package poker;
+
+option go_package = "./pb";
+
+import "packet.proto";
+import "global_enum.proto";
+import "database.proto";
+import "report.proto";
+import "player_data.proto";
+import "client_room_rummy.proto";
+
+// ----------德州扑克房间数据-----------
+message UpdateTexasRoomDataNotify {
+  DataType               data_type = 2;  // 数据类型
+  repeated TexasRoomData list      = 3;  // 德州房间列表
+}
+
+message GetTexasRoomDataReq {
+  DataType data_type = 1;  // 数据类型
+}
+
+message GetTexasRoomDataRsp {
+  RspHead                head = 1;  // 响应头
+  repeated TexasRoomData list = 2;  // 德州房间列表
+}
+
+// ----------Rummy房间数据-----------
+message UpdateRummyRoomDataNotify {
+  DataType               data_type = 2;  // 数据类型
+  repeated RummyRoomData list      = 3;  // 德州房间列表
+}
+
+message GetRummyRoomDataReq {
+  DataType data_type = 1;  // 数据类型
+}
+
+message GetRummyRoomDataRsp {
+  RspHead                head = 1;  // 响应头
+  repeated RummyRoomData list = 2;  // 德州房间列表
+}
+
+// ----------房间生成器数据------------
+message UpdateGeneratorDataNotify {
+  DataType               data_type = 1;  // 数据类型
+  repeated GeneratorInfo list      = 2;  // 房间id生成器
+}
+
+message GetGeneratorDataReq {
+  DataType data_type = 1;  // 数据类型
+}
+
+message GetGeneratorDataRsp {
+  RspHead                head = 1;  // 响应头
+  repeated GeneratorInfo list = 2;  // 房间id生成器
+}
+
+// ----------------玩家数据--------------
+message UpdatePlayerDataNotify {
+  DataType   data_type = 1;  // 数据类型
+  PlayerData data      = 2;  // 玩家数据
+}
+
+message UpdateUserInfoNotify {
+  DataType data_type = 1;
+  UserInfo data      = 2;
+}
+
+message GetUserInfoReq {
+  repeated uint64 uid_list = 1;
+}
+
+message GetUserInfoRsp {
+  RspHead           head      = 1;
+  repeated UserInfo user_list = 2;
+}
+
+// 数据查询
+message GetTexasGameReportReq {
+  uint64 room_id   = 1;
+  uint32 round     = 2;
+  uint32 page      = 3;
+  uint32 page_size = 4;
+}
+
+message GetTexasGameReportRsp {
+  RspHead                  head = 1;
+  repeated TexasGameReport list = 2;
+}

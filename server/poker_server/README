@@ -1,0 +1,4 @@
+pb编译说明：
+1、安装最新版本protoc
+2、安装最新版本protoc-gen-go
+3、在protoc-gen-xorm目录执行 go install，安装protoc-gen-xorm插件
