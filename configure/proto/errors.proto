@@ -4,19 +4,10 @@ package universal;
 option go_package = "universal/common/pb";
 
 enum ErrorCode {
-  Success             = 0;
-  ParamInvalid        = 1;
-  NodeNotFound        = 2;
-  NodeTypeNotSupport  = 3;
-  ActorIdIsZero       = 4;
-  NodeRouterIsNil     = 5;
-  MarshalFailed       = 6;
-  UnmarshalFailed     = 7;
-  SendToSelfWrong     = 8;
-  NatsRequestFailed   = 9;
-  RedisConnectFailed  = 10;  // redis连接失败
-  RedisPingFailed     = 11;  // redis连接失败
-  RedisClientNotFound = 12;  // redisclient未找到
-  MysqlConnectFailed  = 14;  // redis连接失败
-  MysqlPingFailed     = 15;  // redis连接失败
+  Success            = 0;
+  NodeConfigNotFound = 1;
+  NatsConnectFailed  = 2;
+  EtcdConnectFailed  = 3;
+  EtcdWatchFailed    = 4;
+  EtcdRegisterFailed = 5;
 }

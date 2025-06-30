@@ -36,7 +36,7 @@ type NatsConfig struct {
 	Endpoints string `yaml:"endpoints"`
 }
 
-type TableConfig struct {
+type DataConfig struct {
 	IsRemote  bool     `yaml:"is_remote"`
 	Topic     string   `yaml:"topic"`
 	Path      string   `yaml:"path"`
@@ -50,21 +50,23 @@ type CommonConfig struct {
 }
 
 type NodeConfig struct {
-	RotuerTTL string `yaml:"router_ttl"`
-	LogLevel  string `yaml:"log_level"`
-	LogPath   string `yaml:"log_path"`
-	Ip        string `yaml:"ip"`
-	Port      int    `yaml:"port"`
-	HttpPort  int    `yaml:"http_port"`
+	RotuerTTL    int64  `yaml:"router_ttl"`
+	DiscoveryTTL int64  `yaml:"discovery_ttl"`
+	LogLevel     string `yaml:"log_level"`
+	LogPath      string `yaml:"log_path"`
+	Ip           string `yaml:"ip"`
+	Port         int    `yaml:"port"`
+	HttpPort     int    `yaml:"http_port"`
 }
 
 type Config struct {
+	Env     string                `yaml:"env"`
 	Mysql   map[int32]*DbConfig   `yaml:"mysql"`
 	Redis   map[int32]*DbConfig   `yaml:"redis"`
 	Mongodb map[int32]*DbConfig   `yaml:"mongodb"`
 	Etcd    *EtcdConfig           `yaml:"etcd"`
 	Nats    *NatsConfig           `yaml:"nats"`
-	Table   *TableConfig          `yaml:"table"`
+	Data    *DataConfig           `yaml:"data"`
 	Common  *CommonConfig         `yaml:"common"`
 	Client  map[int32]*NodeConfig `yaml:"client"`
 	Gate    map[int32]*NodeConfig `yaml:"gate"`

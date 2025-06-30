@@ -13,8 +13,8 @@ import (
 )
 
 var (
-	tab  domain.ITable   = router.NewTable()
-	cls  domain.ICluster = cluster.NewCluster()
+	tab  domain.ITable = router.NewTable()
+	cls  domain.INode  = cluster.NewCluster()
 	node *pb.Node
 	dis  domain.IDiscovery
 	bus  domain.IBus

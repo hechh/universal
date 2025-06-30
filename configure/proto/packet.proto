@@ -14,13 +14,13 @@ message Node {
 }
 
 message Router {
-  uint32 Gate  = 1;
-  uint32 Game  = 2;
-  uint32 Db    = 3;
-  uint32 Build = 4;
-  uint32 Room  = 5;
-  uint32 Match = 6;
-  uint32 Gm    = 7;
+  int32 Gate  = 1;
+  int32 Game  = 2;
+  int32 Db    = 3;
+  int32 Build = 4;
+  int32 Room  = 5;
+  int32 Match = 6;
+  int32 Gm    = 7;
 }
 
 message NodeRouter {

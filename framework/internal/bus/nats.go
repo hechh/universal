@@ -6,7 +6,6 @@ import (
 	"universal/common/pb"
 	"universal/common/yaml"
 	"universal/library/mlog"
-	"universal/library/uerror"
 	"universal/library/util"
 
 	"github.com/golang/protobuf/proto"
@@ -100,7 +99,7 @@ func (n *Nats) SetReplyHandler(node *pb.Node, ff func(*pb.Head, []byte)) error {
 func (d *Nats) Broadcast(head *pb.Head, msg []byte) error {
 	msgBuf, err := proto.Marshal(&pb.Packet{Head: head, Body: msg})
 	if err != nil {
-		return uerror.E(1, int32(pb.ErrorCode_MarshalFailed), err)
+		return err
 	}
 	return d.client.Publish(d.broadChannel(head.Dst.NodeType), msgBuf)
 }
@@ -108,7 +107,7 @@ func (d *Nats) Broadcast(head *pb.Head, msg []byte) error {
 func (d *Nats) Send(head *pb.Head, msg []byte) error {
 	msgBuf, err := proto.Marshal(&pb.Packet{Head: head, Body: msg})
 	if err != nil {
-		return uerror.E(1, int32(pb.ErrorCode_MarshalFailed), err)
+		return err
 	}
 	return d.client.Publish(d.sendChannel(head.Dst.NodeType, head.Dst.NodeId), msgBuf)
 }
@@ -116,14 +115,14 @@ func (d *Nats) Send(head *pb.Head, msg []byte) error {
 func (d *Nats) Request(head *pb.Head, req []byte, rsp proto.Message) error {
 	msgBuf, err := proto.Marshal(&pb.Packet{Head: head, Body: req})
 	if err != nil {
-		return uerror.E(1, int32(pb.ErrorCode_MarshalFailed), err)
+		return err
 	}
 	resp, err := d.client.Request(d.replyChannel(head.Dst.NodeType, head.Dst.NodeId), msgBuf, 3000*time.Millisecond)
 	if err != nil {
-		return uerror.E(1, int32(pb.ErrorCode_NatsRequestFailed), err)
+		return err
 	}
 	if err := proto.Unmarshal(resp.Data, rsp); err != nil {
-		return uerror.E(1, int32(pb.ErrorCode_UnmarshalFailed), err)
+		return err
 	}
 	return nil
 }

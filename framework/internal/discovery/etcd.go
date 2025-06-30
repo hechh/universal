@@ -48,7 +48,7 @@ func NewEtcd(cfg *yaml.EtcdConfig) (cli *Etcd, err error) {
 	return cli, err
 }
 
-func (d *Etcd) Watch(cls domain.ICluster) (err error) {
+func (d *Etcd) Watch(cls domain.INode) (err error) {
 	ctx := context.Background()
 	tctx, cancel := context.WithTimeout(ctx, 3*time.Second)
 	defer cancel()
@@ -92,7 +92,7 @@ func (d *Etcd) Watch(cls domain.ICluster) (err error) {
 	return nil
 }
 
-func (d *Etcd) handleEvent(cls domain.ICluster, events ...*clientv3.Event) {
+func (d *Etcd) handleEvent(cls domain.INode, events ...*clientv3.Event) {
 	for _, event := range events {
 		switch event.Type {
 		case clientv3.EventTypePut:

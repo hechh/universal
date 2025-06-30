@@ -28,7 +28,7 @@ type IActor interface {
 	Send(*pb.Head, []byte) error
 }
 
-type ICluster interface {
+type INode interface {
 	GetCount(pb.NodeType) int
 	Get(pb.NodeType, int32) *pb.Node
 	Del(pb.NodeType, int32) bool
@@ -38,15 +38,15 @@ type ICluster interface {
 
 type IDiscovery interface {
 	Register(*pb.Node, int64) error
-	Watch(ICluster) error
+	Watch(INode) error
 	Close() error
 }
 
 type IRouter interface {
 	GetData() *pb.Router
-	SetData(*pb.Router)
-	Get(pb.NodeType) uint32
-	Set(pb.NodeType, uint32)
+	SetData(*pb.Router) IRouter
+	Get(pb.NodeType) int32
+	Set(pb.NodeType, int32) IRouter
 }
 
 type ITable interface {
