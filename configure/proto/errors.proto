@@ -4,10 +4,13 @@ package universal;
 option go_package = "universal/common/pb";
 
 enum ErrorCode {
-  Success            = 0;
-  NodeConfigNotFound = 1;
-  NatsConnectFailed  = 2;
-  EtcdConnectFailed  = 3;
-  EtcdWatchFailed    = 4;
-  EtcdRegisterFailed = 5;
+  Success              = 0;
+  NodeConfigNotFound   = 1;
+  NatsConnectFailed    = 2;
+  EtcdConnectFailed    = 3;
+  EtcdWatchFailed      = 4;
+  EtcdRegisterFailed   = 5;
+  DstNodeRouterIsNil   = 6;
+  NodeNotFound         = 7;
+  NodeTypeNotSupported = 8;
 }
