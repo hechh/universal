@@ -8,50 +8,51 @@ import (
 )
 
 type IAsync interface {
-	GetIdPointer() *uint64 // 获取id地址
-	GetId() uint64         // 获取actor id
-	SetId(uint64)          // 设置 actor id
-	Start()                // 开始协程
-	Stop()                 // 停止协程
+	GetIdPointer() *uint64
+	GetId() uint64
+	SetId(uint64)
+	Start()
+	Stop()
 	Push(f func())
 }
 
 type IActor interface {
 	IAsync
-	GetActorName() string                               // 获取 actor名称
-	Register(IActor)                                    // 注册 iactor
-	ParseFunc(interface{})                              // 解析成员函数
-	RegisterTimer(*pb.Head, time.Duration, int32) error // 注册定时器
-	SendMsg(*pb.Head, ...interface{}) error             // 发送消息
-	Send(*pb.Head, []byte) error                        // 发送消息
+	GetActorName() string
+	ParseFunc(interface{})
+	Register(IActor)
+	RegisterTimer(*pb.Head, time.Duration, int32) error
+	BroadcastMsg(*pb.Head, ...interface{}) error
+	Broadcast(*pb.Head, []byte) error
+	SendMsg(*pb.Head, ...interface{}) error
+	Send(*pb.Head, []byte) error
 }
 
 type ICluster interface {
-	GetCount(pb.NodeType) int            // 获取节点数量
-	Get(pb.NodeType, int32) *pb.Node     // 获取节点
-	Del(pb.NodeType, int32) bool         // 删除节点
-	Add(*pb.Node) bool                   // 添加节点
-	Random(pb.NodeType, uint64) *pb.Node // 随机节点
+	GetCount(pb.NodeType) int
+	Get(pb.NodeType, int32) *pb.Node
+	Del(pb.NodeType, int32) bool
+	Add(*pb.Node) bool
+	Random(pb.NodeType, uint64) *pb.Node
 }
 
 type IDiscovery interface {
-	Register(*pb.Node, int64) error // 注册服务
-	Watch(ICluster) error           // 监听服务
-	Close() error                   // 关闭服务
+	Register(*pb.Node, int64) error
+	Watch(ICluster) error
+	Close() error
 }
 
 type IRouter interface {
-	GetUpdateTime() int64
 	GetData() *pb.Router
 	SetData(*pb.Router)
-	Get(pb.NodeType) int32
-	Set(pb.NodeType, int32)
+	Get(pb.NodeType) uint32
+	Set(pb.NodeType, uint32)
 }
 
 type ITable interface {
+	GetOrNew(uint64) IRouter
 	Get(uint64) IRouter
-	Expire(int64)
-	Close() error
+	Close()
 }
 
 type IBus interface {
@@ -62,7 +63,7 @@ type IBus interface {
 	Send(*pb.Head, []byte) error
 	Request(*pb.Head, []byte, proto.Message) error
 	Response(*pb.Head, []byte) error
-	Close() error
+	Close()
 }
 
 type IRspProto interface {

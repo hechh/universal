@@ -31,21 +31,21 @@ type Nats struct {
 	client *nats.Conn
 }
 
-func NewNats(cfg *yaml.NatsConfig) (*Nats, error) {
-	var client *nats.Conn
-	if err := util.Retry(3, time.Second, func() error {
-		cli, err := nats.Connect(cfg.Endpoints, close, waitRecon, reconErr, disconErr)
+func NewNats(cfg *yaml.NatsConfig) (cli *Nats, err error) {
+	err = util.Retry(3, time.Second, func() error {
+		client, err := nats.Connect(cfg.Endpoints, close, waitRecon, reconErr, disconErr)
 		if err == nil {
-			client = cli
+			cli = &Nats{
+				topic:  cfg.Topic,
+				client: client,
+			}
 		}
 		return err
-	}); err != nil {
-		return nil, err
-	}
-	return &Nats{client: client, topic: cfg.Topic}, nil
+	})
+	return
 }
 
-func (n *Nats) broadcastChannel(t pb.NodeType) string {
+func (n *Nats) broadChannel(t pb.NodeType) string {
 	return fmt.Sprintf("%s/%d", n.topic, t)
 }
 
@@ -58,13 +58,12 @@ func (n *Nats) replyChannel(t pb.NodeType, id int32) string {
 }
 
 func (n *Nats) SetBroadcastHandler(node *pb.Node, ff func(*pb.Head, []byte)) error {
-	_, err := n.client.Subscribe(n.broadcastChannel(node.Type), func(msg *nats.Msg) {
+	_, err := n.client.Subscribe(n.broadChannel(node.Type), func(msg *nats.Msg) {
 		pack := &pb.Packet{}
 		if err := proto.Unmarshal(msg.Data, pack); err != nil {
 			mlog.Errorf("nats解析packet包失败: %v", err)
 			return
 		}
-		mlog.Debugf("收到Nats广播数据包 bodySize:%d, pack:%v", len(msg.Data), pack)
 
 		ff(pack.Head, pack.Body)
 	})
@@ -78,7 +77,6 @@ func (n *Nats) SetSendHandler(node *pb.Node, ff func(*pb.Head, []byte)) error {
 			mlog.Errorf("nats解析packet包失败: %v", err)
 			return
 		}
-		mlog.Debugf("收到Nats单播数据包 bodySize:%d, pack:%v", len(msg.Data), pack)
 
 		ff(pack.Head, pack.Body)
 	})
@@ -92,7 +90,6 @@ func (n *Nats) SetReplyHandler(node *pb.Node, ff func(*pb.Head, []byte)) error {
 			mlog.Errorf("nats解析packet包失败: %v", err)
 			return
 		}
-		mlog.Debugf("收到Nats广播数据包 bodySize:%d, pack:%v", len(msg.Data), pack)
 
 		pack.Head.Reply = msg.Reply
 		ff(pack.Head, pack.Body)
@@ -103,15 +100,15 @@ func (n *Nats) SetReplyHandler(node *pb.Node, ff func(*pb.Head, []byte)) error {
 func (d *Nats) Broadcast(head *pb.Head, msg []byte) error {
 	msgBuf, err := proto.Marshal(&pb.Packet{Head: head, Body: msg})
 	if err != nil {
-		return uerror.N(1, int32(pb.ErrorCode_MarshalFailed), "head:%v, error:%v", head, err)
+		return uerror.E(1, int32(pb.ErrorCode_MarshalFailed), err)
 	}
-	return d.client.Publish(d.broadcastChannel(head.Dst.NodeType), msgBuf)
+	return d.client.Publish(d.broadChannel(head.Dst.NodeType), msgBuf)
 }
 
 func (d *Nats) Send(head *pb.Head, msg []byte) error {
 	msgBuf, err := proto.Marshal(&pb.Packet{Head: head, Body: msg})
 	if err != nil {
-		return uerror.N(1, int32(pb.ErrorCode_MarshalFailed), "head:%v, error:%v", head, err)
+		return uerror.E(1, int32(pb.ErrorCode_MarshalFailed), err)
 	}
 	return d.client.Publish(d.sendChannel(head.Dst.NodeType, head.Dst.NodeId), msgBuf)
 }
@@ -119,14 +116,14 @@ func (d *Nats) Send(head *pb.Head, msg []byte) error {
 func (d *Nats) Request(head *pb.Head, req []byte, rsp proto.Message) error {
 	msgBuf, err := proto.Marshal(&pb.Packet{Head: head, Body: req})
 	if err != nil {
-		return uerror.N(1, int32(pb.ErrorCode_MarshalFailed), "head:%v, error:%v", head, err)
+		return uerror.E(1, int32(pb.ErrorCode_MarshalFailed), err)
 	}
 	resp, err := d.client.Request(d.replyChannel(head.Dst.NodeType, head.Dst.NodeId), msgBuf, 3000*time.Millisecond)
 	if err != nil {
-		return uerror.N(1, int32(pb.ErrorCode_NatsRequestFailed), "head:%v, error:%v", head, err)
+		return uerror.E(1, int32(pb.ErrorCode_NatsRequestFailed), err)
 	}
 	if err := proto.Unmarshal(resp.Data, rsp); err != nil {
-		return uerror.N(1, int32(pb.ErrorCode_UnmarshalFailed), "head:%v, error:%v", head, err)
+		return uerror.E(1, int32(pb.ErrorCode_UnmarshalFailed), err)
 	}
 	return nil
 }
@@ -135,9 +132,8 @@ func (d *Nats) Response(head *pb.Head, msg []byte) error {
 	return d.client.Publish(head.Reply, msg)
 }
 
-func (n *Nats) Close() error {
+func (n *Nats) Close() {
 	if n.client != nil {
 		n.client.Close()
 	}
-	return nil
 }

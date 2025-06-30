@@ -25,7 +25,7 @@ message Router {
 
 message NodeRouter {
   NodeType NodeType  = 1;
-  uint32   NodeId    = 2;
+  int32    NodeId    = 2;
   uint32   ActorName = 3;
   uint32   FuncName  = 4;
   uint64   ActorId   = 5;

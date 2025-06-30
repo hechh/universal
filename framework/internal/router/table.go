@@ -1,147 +1,89 @@
 package router
 
 import (
-	"sync/atomic"
+	"sync"
 	"time"
 	"universal/common/pb"
+	"universal/framework/domain"
+	"universal/library/safe"
 )
 
-type Router struct {
-	updateTime int64
-	build      uint32
-	db         uint32
-	game       uint32
-	gate       uint32
-	room       uint32
-	match      uint32
-	gm         uint32
-}
-
-func (r *Router) Get(nodeType pb.NodeType) uint32 {
-	switch nodeType {
-	case pb.NodeType_NodeTypeBuild:
-		return atomic.LoadUint32(&r.build)
-	case pb.NodeType_NodeTypeDb:
-		return atomic.LoadUint32(&r.db)
-	case pb.NodeType_NodeTypeGame:
-		return atomic.LoadUint32(&r.game)
-	case pb.NodeType_NodeTypeGate:
-		return atomic.LoadUint32(&r.gate)
-	case pb.NodeType_NodeTypeRoom:
-		return atomic.LoadUint32(&r.room)
-	case pb.NodeType_NodeTypeMatch:
-		return atomic.LoadUint32(&r.match)
-	case pb.NodeType_NodeTypeGm:
-		return atomic.LoadUint32(&r.gm)
-	}
-	return 0
-}
-
-func (r *Router) Set(nodeType pb.NodeType, nodeId uint32) {
-	switch nodeType {
-	case pb.NodeType_NodeTypeBuild:
-		if !atomic.CompareAndSwapUint32(&r.build, nodeId, nodeId) {
-			atomic.StoreUint32(&r.build, nodeId)
-			atomic.StoreInt64(&r.updateTime, time.Now().Unix())
-		}
-	case pb.NodeType_NodeTypeDb:
-		if !atomic.CompareAndSwapUint32(&r.db, nodeId, nodeId) {
-			atomic.StoreUint32(&r.db, nodeId)
-			atomic.StoreInt64(&r.updateTime, time.Now().Unix())
-		}
-	case pb.NodeType_NodeTypeGame:
-		if !atomic.CompareAndSwapUint32(&r.game, nodeId, nodeId) {
-			atomic.StoreUint32(&r.game, nodeId)
-			atomic.StoreInt64(&r.updateTime, time.Now().Unix())
-		}
-	case pb.NodeType_NodeTypeGate:
-		if !atomic.CompareAndSwapUint32(&r.gate, nodeId, nodeId) {
-			atomic.StoreUint32(&r.gate, nodeId)
-			atomic.StoreInt64(&r.updateTime, time.Now().Unix())
-		}
-	case pb.NodeType_NodeTypeRoom:
-		if !atomic.CompareAndSwapUint32(&r.room, nodeId, nodeId) {
-			atomic.StoreUint32(&r.room, nodeId)
-			atomic.StoreInt64(&r.updateTime, time.Now().Unix())
-		}
-	case pb.NodeType_NodeTypeMatch:
-		if !atomic.CompareAndSwapUint32(&r.match, nodeId, nodeId) {
-			atomic.StoreUint32(&r.match, nodeId)
-			atomic.StoreInt64(&r.updateTime, time.Now().Unix())
-		}
-	case pb.NodeType_NodeTypeGm:
-		if !atomic.CompareAndSwapUint32(&r.gm, nodeId, nodeId) {
-			atomic.StoreUint32(&r.gm, nodeId)
-			atomic.StoreInt64(&r.updateTime, time.Now().Unix())
-		}
-	}
-}
-
-/*
 type Table struct {
-	mutex   sync.RWMutex
-	routers map[uint64]domain.IRouter
-	exit    chan struct{}
+	mutex sync.RWMutex
+	data  map[uint64]*Router
+	exit  chan struct{}
+	ttl   int64
 }
 
-func NewTable() *Table {
-	return &Table{
-		routers: make(map[uint64]domain.IRouter),
-		exit:    make(chan struct{}),
+func NewTable(ttl int64) *Table {
+	ret := &Table{
+		data: make(map[uint64]*Router),
+		exit: make(chan struct{}),
+		ttl:  ttl,
 	}
+	safe.Go(ret.run)
+	return ret
 }
 
-func (d *Table) Get(id uint64) domain.IRouter {
-	d.mutex.RLock()
-	rr, ok := d.routers[id]
-	d.mutex.RUnlock()
-	if ok {
+func (t *Table) Get(id uint64) domain.IRouter {
+	t.mutex.RLock()
+	defer t.mutex.RLock()
+	return t.data[id]
+}
+
+func (t *Table) GetOrNew(id uint64) domain.IRouter {
+	if rr := t.Get(id); rr != nil {
 		return rr
 	}
-
-	val := &Router{Router: &pb.Router{}, updateTime: time.Now().Unix()}
-	d.mutex.Lock()
-	d.routers[id] = val
-	d.mutex.Unlock()
-	return val
+	rr := &Router{Router: &pb.Router{}, updateTime: time.Now().Unix()}
+	t.mutex.Lock()
+	defer t.mutex.Unlock()
+	t.data[id] = rr
+	return rr
 }
 
-func (d *Table) Close() error {
-	close(d.exit)
-	return nil
+func (t *Table) Walk(f func(uint64, *Router) bool) {
+	t.mutex.RLock()
+	defer t.mutex.RUnlock()
+	for id, rr := range t.data {
+		if !f(id, rr) {
+			return
+		}
+	}
 }
 
-func (d *Table) Expire(ttl int64) {
+func (t *Table) Remove(ids ...uint64) {
+	t.mutex.Lock()
+	defer t.mutex.Unlock()
+	for _, id := range ids {
+		delete(t.data, id)
+	}
+}
+
+func (t *Table) Close() {
+	close(t.exit)
+}
+
+func (t *Table) run() {
 	safe.Go(func() {
-		tt := time.NewTicker(time.Duration(ttl/2) * time.Second)
+		tt := time.NewTicker(time.Duration(t.ttl/2) * time.Second)
 		defer tt.Stop()
 
 		for {
 			select {
 			case <-tt.C:
-				if keys := d.getExpires(ttl); len(keys) > 0 {
-					d.mutex.Lock()
-					for _, k := range keys {
-						delete(d.routers, k)
+				now := time.Now().Unix()
+				dels := []uint64{}
+				t.Walk(func(id uint64, rr *Router) bool {
+					if t.ttl >= now-rr.GetUpdateTime() {
+						dels = append(dels, id)
 					}
-					d.mutex.Unlock()
-				}
-			case <-d.exit:
+					return true
+				})
+				t.Remove(dels...)
+			case <-t.exit:
 				return
 			}
 		}
 	})
 }
-
-func (d *Table) getExpires(ttl int64) (keys []uint64) {
-	now := time.Now().Unix()
-	d.mutex.RLock()
-	defer d.mutex.RUnlock()
-	for key, rr := range d.routers {
-		if rr.GetUpdateTime()+ttl <= now {
-			keys = append(keys, key)
-		}
-	}
-	return
-}
-*/

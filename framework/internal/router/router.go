@@ -1,6 +1,5 @@
 package router
 
-/*
 import (
 	"sync/atomic"
 	"time"
@@ -16,79 +15,54 @@ func (r *Router) GetUpdateTime() int64 {
 	return atomic.LoadInt64(&r.updateTime)
 }
 
+func (r *Router) SetUpdateTime(now int64) {
+	atomic.StoreInt64(&r.updateTime, now)
+}
+
 func (r *Router) GetData() *pb.Router {
 	return r.Router
 }
 
-func (r *Router) SetData(rr *pb.Router) {
-	r.Set(pb.NodeType_NodeTypeBuilder, rr.Builder)
-	r.Set(pb.NodeType_NodeTypeDb, rr.Db)
-	r.Set(pb.NodeType_NodeTypeGame, rr.Game)
-	r.Set(pb.NodeType_NodeTypeGm, rr.Gm)
-	r.Set(pb.NodeType_NodeTypeMatch, rr.Match)
-	r.Set(pb.NodeType_NodeTypeRoom, rr.Room)
-	r.Set(pb.NodeType_NodeTypeGate, rr.Gate)
+func (r *Router) SetData(data *pb.Router) {
+	r.Router = data
 }
 
-func (r *Router) Get(nodeType pb.NodeType) int32 {
+func (r *Router) Get(nodeType pb.NodeType) uint32 {
 	switch nodeType {
-	case pb.NodeType_NodeTypeGame:
-		return atomic.LoadInt32(&r.Game)
-	case pb.NodeType_NodeTypeRoom:
-		return atomic.LoadInt32(&r.Room)
-	case pb.NodeType_NodeTypeMatch:
-		return atomic.LoadInt32(&r.Match)
+	case pb.NodeType_NodeTypeBuild:
+		return atomic.LoadUint32(&r.Build)
 	case pb.NodeType_NodeTypeDb:
-		return atomic.LoadInt32(&r.Db)
-	case pb.NodeType_NodeTypeBuilder:
-		return atomic.LoadInt32(&r.Builder)
+		return atomic.LoadUint32(&r.Db)
+	case pb.NodeType_NodeTypeGame:
+		return atomic.LoadUint32(&r.Game)
+	case pb.NodeType_NodeTypeGate:
+		return atomic.LoadUint32(&r.Gate)
+	case pb.NodeType_NodeTypeRoom:
+		return atomic.LoadUint32(&r.Room)
+	case pb.NodeType_NodeTypeMatch:
+		return atomic.LoadUint32(&r.Match)
 	case pb.NodeType_NodeTypeGm:
-		return atomic.LoadInt32(&r.Gm)
-	default:
-		return atomic.LoadInt32(&r.Gate)
+		return atomic.LoadUint32(&r.Gm)
 	}
+	return 0
 }
 
-func (r *Router) Set(nodeType pb.NodeType, nodeId int32) {
-	if nodeId <= 0 {
-		return
-	}
+func (r *Router) Set(nodeType pb.NodeType, nodeId uint32) {
 	switch nodeType {
-	case pb.NodeType_NodeTypeGame:
-		if !atomic.CompareAndSwapInt32(&r.Game, nodeId, nodeId) {
-			atomic.StoreInt32(&r.Game, nodeId)
-			atomic.StoreInt64(&r.updateTime, time.Now().Unix())
-		}
-	case pb.NodeType_NodeTypeRoom:
-		if !atomic.CompareAndSwapInt32(&r.Room, nodeId, nodeId) {
-			atomic.StoreInt32(&r.Room, nodeId)
-			atomic.StoreInt64(&r.updateTime, time.Now().Unix())
-		}
-	case pb.NodeType_NodeTypeMatch:
-		if !atomic.CompareAndSwapInt32(&r.Match, nodeId, nodeId) {
-			atomic.StoreInt32(&r.Match, nodeId)
-			atomic.StoreInt64(&r.updateTime, time.Now().Unix())
-		}
+	case pb.NodeType_NodeTypeBuild:
+		atomic.StoreUint32(&r.Build, nodeId)
 	case pb.NodeType_NodeTypeDb:
-		if !atomic.CompareAndSwapInt32(&r.Db, nodeId, nodeId) {
-			atomic.StoreInt32(&r.Db, nodeId)
-			atomic.StoreInt64(&r.updateTime, time.Now().Unix())
-		}
-	case pb.NodeType_NodeTypeBuilder:
-		if !atomic.CompareAndSwapInt32(&r.Builder, nodeId, nodeId) {
-			atomic.StoreInt32(&r.Builder, nodeId)
-			atomic.StoreInt64(&r.updateTime, time.Now().Unix())
-		}
+		atomic.StoreUint32(&r.Db, nodeId)
+	case pb.NodeType_NodeTypeGame:
+		atomic.StoreUint32(&r.Game, nodeId)
+	case pb.NodeType_NodeTypeGate:
+		atomic.StoreUint32(&r.Gate, nodeId)
+	case pb.NodeType_NodeTypeRoom:
+		atomic.StoreUint32(&r.Room, nodeId)
+	case pb.NodeType_NodeTypeMatch:
+		atomic.StoreUint32(&r.Match, nodeId)
 	case pb.NodeType_NodeTypeGm:
-		if !atomic.CompareAndSwapInt32(&r.Gm, nodeId, nodeId) {
-			atomic.StoreInt32(&r.Gm, nodeId)
-			atomic.StoreInt64(&r.updateTime, time.Now().Unix())
-		}
-	default:
-		if !atomic.CompareAndSwapInt32(&r.Gate, nodeId, nodeId) {
-			atomic.StoreInt32(&r.Gate, nodeId)
-			atomic.StoreInt64(&r.updateTime, time.Now().Unix())
-		}
+		atomic.StoreUint32(&r.Gm, nodeId)
 	}
+	r.SetUpdateTime(time.Now().Unix())
 }
-*/
