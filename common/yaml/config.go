@@ -1,11 +1,9 @@
 package yaml
 
 import (
-	"fmt"
 	"os"
 	"strings"
 	"universal/common/pb"
-	"universal/library/uerror"
 
 	"gopkg.in/yaml.v3"
 )
@@ -20,7 +18,8 @@ type SlaveConfig struct {
 
 type DbConfig struct {
 	DbName   string                 `yaml:"dbname"`
-	Db       int                    `yaml:"db"`
+	Db       int32                  `yaml:"db"`
+	Prefix   string                 `yaml:"prefix"`
 	User     string                 `yaml:"user"`
 	Password string                 `yaml:"password"`
 	Host     string                 `yaml:"host"`
@@ -34,93 +33,92 @@ type EtcdConfig struct {
 
 type NatsConfig struct {
 	Topic     string `yaml:"topic"`
-	Channel   string `yaml:"channel"`
 	Endpoints string `yaml:"endpoints"`
+}
+
+type TableConfig struct {
+	IsRemote  bool     `yaml:"is_remote"`
+	Topic     string   `yaml:"topic"`
+	Path      string   `yaml:"path"`
+	Endpoints []string `yaml:"endpoints"`
 }
 
 type CommonConfig struct {
 	Env             string `yaml:"env"`
-	ConfigIsRemote  bool   `yaml:"config_is_remote"`
-	ConfigPath      string `yaml:"config_path"`
-	ConfigTopic     string `yaml:"config_topic"`
-	RouterExpire    int64  `yaml:"router_expire"`
 	DiscoveryExpire int64  `yaml:"discovery_expire"`
 	SecretKey       string `yaml:"secret_key"`
 }
 
-type ServerConfig struct {
-	LogLevel string `yaml:"log_level"`
-	LogFile  string `yaml:"log_file"`
-	Ip       string `yaml:"ip"`
-	Port     int    `yaml:"port"`
-	HttpPort int    `yaml:"http_port"`
+type NodeConfig struct {
+	RotuerTTL string `yaml:"router_ttl"`
+	LogLevel  string `yaml:"log_level"`
+	LogPath   string `yaml:"log_path"`
+	Ip        string `yaml:"ip"`
+	Port      int    `yaml:"port"`
+	HttpPort  int    `yaml:"http_port"`
 }
 
 type Config struct {
-	Mysql   map[int32]*DbConfig     `yaml:"mysql"`
-	Redis   map[int32]*DbConfig     `yaml:"redis"`
-	Mongodb map[int32]*DbConfig     `yaml:"mongodb"`
-	Etcd    *EtcdConfig             `yaml:"etcd"`
-	Nats    *NatsConfig             `yaml:"nats"`
-	Common  *CommonConfig           `yaml:"common"`
-	Client  map[int32]*ServerConfig `yaml:"client"`
-	Gate    map[int32]*ServerConfig `yaml:"gate"`
-	Room    map[int32]*ServerConfig `yaml:"room"`
-	Match   map[int32]*ServerConfig `yaml:"match"`
-	Db      map[int32]*ServerConfig `yaml:"db"`
-	Builder map[int32]*ServerConfig `yaml:"builder"`
-	Game    map[int32]*ServerConfig `yaml:"game"`
-	Gm      map[int32]*ServerConfig `yaml:"gm"`
+	Mysql   map[int32]*DbConfig   `yaml:"mysql"`
+	Redis   map[int32]*DbConfig   `yaml:"redis"`
+	Mongodb map[int32]*DbConfig   `yaml:"mongodb"`
+	Etcd    *EtcdConfig           `yaml:"etcd"`
+	Nats    *NatsConfig           `yaml:"nats"`
+	Table   *TableConfig          `yaml:"table"`
+	Common  *CommonConfig         `yaml:"common"`
+	Client  map[int32]*NodeConfig `yaml:"client"`
+	Gate    map[int32]*NodeConfig `yaml:"gate"`
+	Room    map[int32]*NodeConfig `yaml:"room"`
+	Match   map[int32]*NodeConfig `yaml:"match"`
+	Db      map[int32]*NodeConfig `yaml:"db"`
+	Build   map[int32]*NodeConfig `yaml:"build"`
+	Game    map[int32]*NodeConfig `yaml:"game"`
+	Gm      map[int32]*NodeConfig `yaml:"gm"`
 }
 
-func (c *Config) Unmarshal(buf []byte) error {
-	return yaml.Unmarshal(buf, c)
-}
-
-func NewConfig(filename string) (*Config, error) {
+func ParseConfig(filename string) (*Config, error) {
 	content, err := os.ReadFile(filename)
 	if err != nil {
 		return nil, err
 	}
 	cfg := new(Config)
-	if err = cfg.Unmarshal(content); err != nil {
+	if err = yaml.Unmarshal(content, cfg); err != nil {
 		return nil, err
 	}
 	return cfg, nil
 }
 
-func LoadConfig(filename string, nodeType pb.NodeType, nodeId int32) (*Config, *pb.Node, error) {
-	cfg, err := NewConfig(filename)
-	if err != nil {
-		return nil, nil, uerror.N(1, -1, "配置文件加载失败: %v", err)
-	}
-	var ok bool
-	var srvCfg *ServerConfig
+func GetNodeConfig(cfg *Config, nodeType pb.NodeType, nodeId int32) *NodeConfig {
 	switch nodeType {
 	case pb.NodeType_NodeTypeGate:
-		srvCfg, ok = cfg.Gate[nodeId]
+		return cfg.Gate[nodeId]
 	case pb.NodeType_NodeTypeRoom:
-		srvCfg, ok = cfg.Room[nodeId]
+		return cfg.Room[nodeId]
 	case pb.NodeType_NodeTypeMatch:
-		srvCfg, ok = cfg.Match[nodeId]
+		return cfg.Match[nodeId]
 	case pb.NodeType_NodeTypeDb:
-		srvCfg, ok = cfg.Db[nodeId]
-	case pb.NodeType_NodeTypeBuilder:
-		srvCfg, ok = cfg.Builder[nodeId]
+		return cfg.Db[nodeId]
+	case pb.NodeType_NodeTypeBuild:
+		return cfg.Build[nodeId]
 	case pb.NodeType_NodeTypeGame:
-		srvCfg, ok = cfg.Game[nodeId]
+		return cfg.Game[nodeId]
 	case pb.NodeType_NodeTypeGm:
-		srvCfg, ok = cfg.Gm[nodeId]
+		return cfg.Gm[nodeId]
 	case pb.NodeType_NodeTypeClient:
-		srvCfg, ok = cfg.Client[nodeId]
+		return cfg.Client[nodeId]
 	}
-	if !ok {
-		return nil, nil, uerror.N(1, -1, "配置文件中未找到节点配置: %s", nodeType.String())
+	return nil
+}
+
+func GetNode(gcfg *Config, nodeType pb.NodeType, nodeId int32) *pb.Node {
+	if cfg := GetNodeConfig(gcfg, nodeType, nodeId); cfg != nil {
+		return &pb.Node{
+			Name: strings.TrimPrefix(nodeType.String(), "NodeType"),
+			Type: nodeType,
+			Id:   nodeId,
+			Ip:   cfg.Ip,
+			Port: int32(cfg.Port),
+		}
 	}
-	return cfg, &pb.Node{
-		Name: strings.ToLower(nodeType.String()),
-		Type: nodeType,
-		Id:   nodeId,
-		Addr: fmt.Sprintf("%s:%d", srvCfg.Ip, srvCfg.Port),
-	}, nil
+	return nil
 }

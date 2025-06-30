@@ -4,13 +4,13 @@ services:
     restart: always
     container_name: mysql
     environment:
-      MYSQL_DATABASE: poker
+      MYSQL_DATABASE: universal
       MYSQL_ROOT_USER: root
       MYSQL_ROOT_PASSWORD: 123456
     ports:
       - "13306:3306"
     networks:
-      poker_network:
+      universal_network:
 
 
   redis:
@@ -23,7 +23,7 @@ services:
     ports:
       - "6379:6379"
     networks:
-      poker_network:
+      universal_network:
 
 
   mongodb:
@@ -31,13 +31,13 @@ services:
     restart: always
     container_name: mongodb
     environment:
-      MONGO_INITDB_DATABASE: poker
+      MONGO_INITDB_DATABASE: universal
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: 123456
     ports:
       - "17017:17017"
     networks:
-      poker_network:
+      universal_network:
 
 
   etcd:
@@ -45,15 +45,15 @@ services:
     restart: always
     container_name: etcd
     environment:
-      # 允许无认证访问（生产环境不建议）
+      - ETCD_NAME=etcd1
       - ALLOW_NONE_AUTHENTICATION=yes
-      - ETCD_ADVERTISE_CLIENT_URLS=http://etcd:2379
+      - ETCD_ADVERTISE_CLIENT_URLS=http://0.0.0.0:2379
       - ETCD_LISTEN_CLIENT_URLS=http://0.0.0.0:2379
     ports:
       - "12379:2379"
       - "12380:2380"
     networks:
-      poker_network:
+      universal_network:
 
 
   nats:
@@ -63,10 +63,16 @@ services:
       - "14222:4222" # 客户端端口
       - "18222:8222" # 监控端口
     command: --cluster nats://0.0.0.0:6222   --cluster_name NATS_CLUSTER --no_advertise
+    healthcheck:
+      # 添加健康检查（确保服务就绪后才标记为健康）
+      test: [ "CMD-SHELL", "nats health -s nats://localhost:14222" ]
+      interval: 5s
+      timeout: 5s
+      retries: 5
     networks:
-      poker_network:
+      universal_network:
 
 
 networks:
-  poker_network:
+  universal_network:
     driver: bridge

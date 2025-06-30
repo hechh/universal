@@ -4,13 +4,13 @@ services:
     restart: always
     container_name: mysql
     environment:
-      MYSQL_DATABASE: poker
+      MYSQL_DATABASE: universal
       MYSQL_ROOT_USER: root
       MYSQL_ROOT_PASSWORD: 123456
     ports:
       - "13306:3306"
     networks:
-      poker_network:
+      universal_network:
 
 
   redis:
@@ -23,7 +23,7 @@ services:
     ports:
       - "6379:6379"
     networks:
-      poker_network:
+      universal_network:
 
 
   mongodb:
@@ -31,13 +31,13 @@ services:
     restart: always
     container_name: mongodb
     environment:
-      MONGO_INITDB_DATABASE: poker
+      MONGO_INITDB_DATABASE: universal
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: 123456
     ports:
       - "17017:17017"
     networks:
-      poker_network:
+      universal_network:
 
 
   etcd:
@@ -53,7 +53,7 @@ services:
       - "12379:2379"
       - "12380:2380"
     networks:
-      poker_network:
+      universal_network:
 
 
   nats:
@@ -70,9 +70,9 @@ services:
       timeout: 5s
       retries: 5
     networks:
-      poker_network:
+      universal_network:
 
 
 networks:
-  poker_network:
+  universal_network:
     driver: bridge

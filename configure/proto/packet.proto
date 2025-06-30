@@ -7,9 +7,10 @@ import "global_enum_cfg.proto";
 
 message Node {
   string   Name = 1;  // 节点名称
-  string   Addr = 2;  // 节点地址
-  NodeType Type = 3;  // 节点类型
-  uint32   Id   = 4;  // 节点ID
+  NodeType Type = 4;  // 节点类型
+  int32    Id   = 5;  // 节点ID
+  string   Ip   = 2;  // ip地址
+  int32    Port = 3;  // 端口
 }
 
 message Router {
@@ -28,17 +29,18 @@ message NodeRouter {
   uint32   ActorName = 3;
   uint32   FuncName  = 4;
   uint64   ActorId   = 5;
+  Router   Router    = 6;
 }
 
 message Head {
   NodeRouter Src       = 1;
   NodeRouter Dst       = 2;
   uint64     Uid       = 3;
-  uint32     Seq       = 4;
-  uint32     Cmd       = 5;
-  uint32     ActorName = 6;
-  uint32     FuncName  = 7;
-  uint64     ActorId   = 8;
+  uint64     ActorId   = 4;
+  uint32     ActorName = 5;
+  uint32     FuncName  = 6;
+  uint32     Seq       = 7;
+  uint32     Cmd       = 8;
   uint32     Reference = 9;
   string     Reply     = 10;
 }

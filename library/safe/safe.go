@@ -4,7 +4,7 @@ import "runtime/debug"
 
 var catch func(string, ...interface{})
 
-func Set(cb func(string, ...interface{})) {
+func Catch(cb func(string, ...interface{})) {
 	catch = cb
 }
 

@@ -23,7 +23,7 @@ type Watcher struct {
 	exit   chan struct{}
 }
 
-func NewWatcher(cfg *yaml.EtcdConfig, ccfg *yaml.CommonConfig) (*Watcher, error) {
+func NewWatcher(cfg *yaml.TableConfig) (*Watcher, error) {
 	cli, err := clientv3.New(clientv3.Config{
 		Endpoints:            cfg.Endpoints,
 		DialTimeout:          5 * time.Second,
@@ -36,8 +36,8 @@ func NewWatcher(cfg *yaml.EtcdConfig, ccfg *yaml.CommonConfig) (*Watcher, error)
 	}
 	return &Watcher{
 		client: cli,
-		topic:  ccfg.ConfigTopic,
-		cpath:  ccfg.ConfigPath,
+		topic:  cfg.Topic,
+		cpath:  cfg.Path,
 		exit:   make(chan struct{}),
 	}, nil
 }
@@ -58,7 +58,7 @@ func (d *Watcher) Load(tmps map[string]struct{}) error {
 	for _, kv := range rsp.Kvs {
 		sheet := path.Base(string(kv.Key))
 		if f, ok := fileMgr[sheet]; ok {
-			if err := f(string(kv.Value)); err != nil {
+			if err := f(kv.Value); err != nil {
 				return uerror.N(1, -1, "加载%s配置错误： %v", sheet, err)
 			}
 			tmps[sheet] = struct{}{}
@@ -105,7 +105,7 @@ func (d *Watcher) Watch(tmps map[string]struct{}) {
 						mlog.Infof("更新配置：%s", filepath.Join(d.cpath, sheet+".conf"))
 					}
 
-					if err := f(string(event.Kv.Value)); err != nil {
+					if err := f(event.Kv.Value); err != nil {
 						mlog.Errorf("加载%s配置错误： %v", sheet, err)
 					} else {
 						if _, ok := tmps[sheet]; !ok {

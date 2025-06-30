@@ -7,11 +7,17 @@ import (
 	"github.com/golang/protobuf/proto"
 )
 
+type IAsync interface {
+	GetIdPointer() *uint64 // 获取id地址
+	GetId() uint64         // 获取actor id
+	SetId(uint64)          // 设置 actor id
+	Start()                // 开始协程
+	Stop()                 // 停止协程
+	Push(f func())
+}
+
 type IActor interface {
-	GetId() uint64                                      // 获取actor id
-	SetId(uint64)                                       // 设置 actor id
-	Start()                                             // 开始协程
-	Stop()                                              // 停止协程
+	IAsync
 	GetActorName() string                               // 获取 actor名称
 	Register(IActor)                                    // 注册 iactor
 	ParseFunc(interface{})                              // 解析成员函数
