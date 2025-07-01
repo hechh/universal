@@ -1,6 +1,9 @@
 package util
 
-import "time"
+import (
+	"sync"
+	"time"
+)
 
 func Or[T any](flag bool, a, b T) T {
 	if flag {
@@ -52,4 +55,20 @@ func Add[T INumber](a, b T) T {
 
 func Sub[T INumber](a, b T) T {
 	return a - b
+}
+
+func Pool[T any]() *sync.Pool {
+	return &sync.Pool{
+		New: func() interface{} {
+			return new(T)
+		},
+	}
+}
+
+func ArrayPool[T any](size int) *sync.Pool {
+	return &sync.Pool{
+		New: func() interface{} {
+			return make([]T, size)
+		},
+	}
 }

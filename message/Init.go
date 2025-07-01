@@ -1,5 +1,5 @@
 package message
 
-func init() {
+func Init() {
 
 }
