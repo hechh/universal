@@ -5,6 +5,8 @@ import (
 	"encoding/gob"
 	"reflect"
 	"sync"
+
+	"github.com/golang/protobuf/proto"
 )
 
 type GobEncoder struct {
@@ -64,4 +66,20 @@ func Decode(data []byte, mfun reflect.Method, pos int) (rets []reflect.Value, er
 		rets[i] = val.Elem()
 	}
 	return
+}
+
+func Marshal(args ...interface{}) ([]byte, error) {
+	if len(args) == 1 {
+		switch vv := args[0].(type) {
+		case []byte:
+			return vv, nil
+		case proto.Message:
+			buf, err := proto.Marshal(vv)
+			if err != nil {
+				return nil, err
+			}
+			return buf, nil
+		}
+	}
+	return Encode(args...)
 }

@@ -50,7 +50,7 @@ type CommonConfig struct {
 }
 
 type NodeConfig struct {
-	RotuerTTL    int64  `yaml:"router_ttl"`
+	RouterTTL    int64  `yaml:"router_ttl"`
 	DiscoveryTTL int64  `yaml:"discovery_ttl"`
 	LogLevel     string `yaml:"log_level"`
 	LogPath      string `yaml:"log_path"`

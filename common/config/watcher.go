@@ -23,7 +23,7 @@ type Watcher struct {
 	exit   chan struct{}
 }
 
-func NewWatcher(cfg *yaml.TableConfig) (*Watcher, error) {
+func NewWatcher(cfg *yaml.DataConfig) (*Watcher, error) {
 	cli, err := clientv3.New(clientv3.Config{
 		Endpoints:            cfg.Endpoints,
 		DialTimeout:          5 * time.Second,

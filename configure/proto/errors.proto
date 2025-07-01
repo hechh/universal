@@ -10,7 +10,11 @@ enum ErrorCode {
   EtcdConnectFailed    = 3;
   EtcdWatchFailed      = 4;
   EtcdRegisterFailed   = 5;
-  DstNodeRouterIsNil   = 6;
+  NodeRouterIsNil      = 6;
   NodeNotFound         = 7;
   NodeTypeNotSupported = 8;
+  RedisClientNotFound  = 9;
+  ProtoMarshalFailed   = 10;
+  ProtoUnmarshalFailed = 11;
+  NodeTypeInvalid      = 12;
 }

@@ -31,11 +31,14 @@ func (t *Table) Get(id uint64) domain.IRouter {
 	return t.data[id]
 }
 
-func (t *Table) GetOrNew(id uint64) domain.IRouter {
+func (t *Table) GetOrNew(id uint64, self *pb.Node) domain.IRouter {
 	if rr := t.Get(id); rr != nil {
 		return rr
 	}
+
 	rr := &Router{Router: &pb.Router{}, updateTime: time.Now().Unix()}
+	rr.Set(self.Type, self.Id)
+
 	t.mutex.Lock()
 	defer t.mutex.Unlock()
 	t.data[id] = rr

@@ -50,7 +50,7 @@ type IRouter interface {
 }
 
 type ITable interface {
-	GetOrNew(uint64) IRouter
+	GetOrNew(uint64, *pb.Node) IRouter
 	Get(uint64) IRouter
 	Close()
 }

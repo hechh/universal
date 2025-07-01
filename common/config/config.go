@@ -21,7 +21,7 @@ func Register(sheet string, f func([]byte) error) {
 	fileMgr[sheet] = f
 }
 
-func Init(cfg *yaml.TableConfig) (err error) {
+func Init(cfg *yaml.DataConfig) (err error) {
 	tmps := make(map[string]struct{})
 	if err := InitConfig(cfg.Path, tmps); err != nil {
 		return err
