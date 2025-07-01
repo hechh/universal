@@ -148,6 +148,10 @@ func SendToClient(head *pb.Head, msg proto.Message, uids ...uint64) error {
 	if err != nil {
 		return uerror.E(1, int32(pb.ErrorCode_ProtoMarshalFailed), err)
 	}
+	if head.Uid > 0 {
+		uids = append(uids, head.Uid)
+	}
+
 	head.Dst = &pb.NodeRouter{NodeType: pb.NodeType_NodeTypeGate}
 	QueryRouter(head.Src)
 	for _, uid := range uids {
