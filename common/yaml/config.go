@@ -112,15 +112,12 @@ func GetNodeConfig(cfg *Config, nodeType pb.NodeType, nodeId int32) *NodeConfig 
 	return nil
 }
 
-func GetNode(gcfg *Config, nodeType pb.NodeType, nodeId int32) *pb.Node {
-	if cfg := GetNodeConfig(gcfg, nodeType, nodeId); cfg != nil {
-		return &pb.Node{
-			Name: strings.TrimPrefix(nodeType.String(), "NodeType"),
-			Type: nodeType,
-			Id:   nodeId,
-			Ip:   cfg.Ip,
-			Port: int32(cfg.Port),
-		}
+func GetNode(cfg *NodeConfig, nodeType pb.NodeType, nodeId int32) *pb.Node {
+	return &pb.Node{
+		Name: strings.TrimPrefix(nodeType.String(), "NodeType"),
+		Type: nodeType,
+		Id:   nodeId,
+		Ip:   cfg.Ip,
+		Port: int32(cfg.Port),
 	}
-	return nil
 }

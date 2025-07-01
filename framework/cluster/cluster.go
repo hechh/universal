@@ -25,40 +25,14 @@ var (
 	buss domain.IBus
 )
 
-func Init(cfg *yaml.Config, nodeType pb.NodeType, nodeId int32) error {
-	srvCfg := yaml.GetNodeConfig(cfg, nodeType, nodeId)
-	if srvCfg == nil {
-		return uerror.N(1, int32(pb.ErrorCode_NodeConfigNotFound), "%s(%d)", nodeType, nodeId)
-	}
-	safe.Catch(mlog.Fatalf)
-	self = yaml.GetNode(cfg, nodeType, nodeId)
-	tab = router.NewTable(srvCfg.RouterTTL)
-	cls = node.NewNode()
-
-	if cli, err := bus.NewNats(cfg.Nats); err != nil {
-		return uerror.E(1, int32(pb.ErrorCode_NatsConnectFailed), err)
-	} else {
-		buss = cli
-	}
-
-	if cli, err := discovery.NewEtcd(cfg.Etcd); err != nil {
-		return uerror.E(1, int32(pb.ErrorCode_EtcdConnectFailed), err)
-	} else {
-		dis = cli
-	}
-	if err := dis.Watch(cls); err != nil {
-		return uerror.E(1, int32(pb.ErrorCode_EtcdWatchFailed), err)
-	}
-	if err := dis.Register(self, srvCfg.DiscoveryTTL); err != nil {
-		return uerror.E(1, int32(pb.ErrorCode_EtcdRegisterFailed), err)
-	}
-	return nil
-}
-
 func Close() {
 	tab.Close()
 	dis.Close()
 	buss.Close()
+}
+
+func GetSelf() *pb.Node {
+	return self
 }
 
 func UpdateRouter(rrs ...*pb.NodeRouter) {
@@ -132,9 +106,6 @@ func Request(head *pb.Head, msg interface{}, rsp proto.Message) error {
 }
 
 func Response(head *pb.Head, msg interface{}) error {
-	if len(head.Reply) <= 0 {
-		return nil
-	}
 	QueryRouter(head.Dst, head.Src)
 	buf, err := encode.Marshal(msg)
 	if err != nil {
@@ -151,9 +122,15 @@ func SendToClient(head *pb.Head, msg proto.Message, uids ...uint64) error {
 	if head.Uid > 0 {
 		uids = append(uids, head.Uid)
 	}
-
-	head.Dst = &pb.NodeRouter{NodeType: pb.NodeType_NodeTypeGate}
+	if head.Cmd%2 == 0 {
+		if _, ok := pb.CMD_name[int32(head.Cmd)+1]; ok {
+			head.Cmd++
+			head.Seq++
+		}
+	}
 	QueryRouter(head.Src)
+	atomic.AddUint32(&head.Reference, 1)
+	head.Dst = &pb.NodeRouter{NodeType: pb.NodeType_NodeTypeGate}
 	for _, uid := range uids {
 		head.Dst.ActorId = uid
 		if err := Dispatcher(head); err == nil {
@@ -164,6 +141,21 @@ func SendToClient(head *pb.Head, msg proto.Message, uids ...uint64) error {
 		if err := buss.Send(head, buf); err != nil {
 			mlog.Errorf("发送客户端失败：%v", err)
 		}
+	}
+	return nil
+}
+
+func SendResponse(head *pb.Head, rsp proto.Message) error {
+	if len(head.Reply) > 0 {
+		return Response(head, rsp)
+	}
+	if head.Cmd > 0 {
+		head.Src = head.Dst
+		return SendToClient(head, rsp)
+	}
+	if head.Src != nil && head.Src.ActorId > 0 && head.Src.ActorFunc > 0 {
+		head.Src, head.Dst = head.Dst, head.Src
+		return Send(head, rsp)
 	}
 	return nil
 }
@@ -195,4 +187,35 @@ func Dispatcher(head *pb.Head) error {
 		return nil
 	}
 	return uerror.N(1, int32(pb.ErrorCode_NodeNotFound), "%v", head.Dst)
+}
+
+func Init(cfg *yaml.Config, nodeType pb.NodeType, nodeId int32) error {
+	srvCfg := yaml.GetNodeConfig(cfg, nodeType, nodeId)
+	if srvCfg == nil {
+		return uerror.N(1, int32(pb.ErrorCode_NodeConfigNotFound), "%s(%d)", nodeType, nodeId)
+	}
+
+	safe.Catch(mlog.Fatalf)
+	self = yaml.GetNode(srvCfg, nodeType, nodeId)
+	tab = router.NewTable(srvCfg.RouterTTL)
+	cls = node.NewNode()
+
+	if cli, err := bus.NewNats(cfg.Nats); err != nil {
+		return uerror.E(1, int32(pb.ErrorCode_NatsConnectFailed), err)
+	} else {
+		buss = cli
+	}
+
+	if cli, err := discovery.NewEtcd(cfg.Etcd); err != nil {
+		return uerror.E(1, int32(pb.ErrorCode_EtcdConnectFailed), err)
+	} else {
+		dis = cli
+	}
+	if err := dis.Watch(cls); err != nil {
+		return uerror.E(1, int32(pb.ErrorCode_EtcdWatchFailed), err)
+	}
+	if err := dis.Register(self, srvCfg.DiscoveryTTL); err != nil {
+		return uerror.E(1, int32(pb.ErrorCode_EtcdRegisterFailed), err)
+	}
+	return nil
 }

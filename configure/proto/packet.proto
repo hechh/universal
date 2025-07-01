@@ -26,8 +26,7 @@ message Router {
 message NodeRouter {
   NodeType NodeType  = 1;
   int32    NodeId    = 2;
-  uint32   ActorName = 3;
-  uint32   FuncName  = 4;
+  uint32   ActorFunc = 3;
   uint64   ActorId   = 5;
   Router   Router    = 7;
 }
@@ -36,8 +35,8 @@ message Head {
   NodeRouter Src       = 1;
   NodeRouter Dst       = 2;
   uint64     Uid       = 3;
-  uint32     ActorName = 5;
-  uint32     FuncName  = 6;
+  string     ActorName = 5;
+  string     FuncName  = 6;
   uint64     ActorId   = 4;
   uint32     Seq       = 7;
   uint32     Cmd       = 8;
