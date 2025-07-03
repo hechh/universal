@@ -52,7 +52,6 @@ func (d *Etcd) Watch(cls domain.INode) (err error) {
 	ctx := context.Background()
 	tctx, cancel := context.WithTimeout(ctx, 3*time.Second)
 	defer cancel()
-
 	rsp, err := d.client.Get(tctx, d.topic, clientv3.WithPrefix())
 	if err != nil {
 		return err
@@ -116,11 +115,10 @@ func (d *Etcd) handleEvent(cls domain.INode, events ...*clientv3.Event) {
 }
 
 func (d *Etcd) Register(n *pb.Node, ttl int64) error {
+	// 创建租约
 	ctx := context.Background()
 	tctx, cancel := context.WithTimeout(ctx, 3*time.Second)
 	defer cancel()
-
-	// 创建租约
 	if err := util.Retry(3, time.Second, func() error {
 		if rsp, err := d.client.Grant(tctx, ttl); err != nil {
 			return err
@@ -133,26 +131,25 @@ func (d *Etcd) Register(n *pb.Node, ttl int64) error {
 	}
 
 	// 注册服务
-	buf, err := proto.Marshal(n)
-	if err != nil {
+	if buf, err := proto.Marshal(n); err != nil {
 		return err
-	}
-	channel := fmt.Sprintf("%s/%d/%d", d.topic, n.Type, n.Id)
-	if _, err = d.client.Put(ctx, channel, string(buf), clientv3.WithLease(d.lease)); err != nil {
-		return err
+	} else {
+		channel := fmt.Sprintf("%s/%d/%d", d.topic, n.Type, n.Id)
+		if _, err = d.client.Put(ctx, channel, string(buf), clientv3.WithLease(d.lease)); err != nil {
+			return err
+		}
 	}
 
 	// 保活
-	keep, err := d.client.KeepAlive(ctx, d.lease)
-	if err != nil {
+	if keep, err := d.client.KeepAlive(ctx, d.lease); err != nil {
 		return err
+	} else {
+		d.Add(1)
+		safe.Go(func() {
+			defer d.Done()
+			d.keepAlive(keep, n, ttl)
+		})
 	}
-
-	d.Add(1)
-	safe.Go(func() {
-		defer d.Done()
-		d.keepAlive(keep, n, ttl)
-	})
 	return nil
 }
 

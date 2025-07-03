@@ -2,7 +2,6 @@ package util
 
 import (
 	"sync"
-	"time"
 )
 
 func Or[T any](flag bool, a, b T) T {
@@ -31,18 +30,6 @@ func Suffix[T any](arr []T, pos int) []T {
 		return nil
 	}
 	return arr[pos:]
-}
-
-func Retry(attempts int, sleep time.Duration, f func() error) (err error) {
-	for i := 0; i < attempts; i++ {
-		if err = f(); err == nil {
-			return
-		}
-
-		time.Sleep(sleep)
-		sleep *= 2
-	}
-	return err
 }
 
 type INumber interface {
