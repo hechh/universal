@@ -96,7 +96,7 @@ func (m *Method) result(ref uint32, head *pb.Head, params []reflect.Value, err e
 	case CMD_HANDLER:
 		req := params[2].Interface().(proto.Message)
 		rsp := params[3].Interface().(domain.IRspProto)
-		rsp.SetHead(ToRspHead(err))
+		rsp.SetHead(toRspHead(err))
 		var reterr error
 		if atomic.CompareAndSwapUint32(&head.Reference, ref, ref) {
 			reterr = sendRsp(head, rsp)

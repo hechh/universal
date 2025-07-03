@@ -5,7 +5,7 @@ import (
 	"strings"
 	"universal/common/pb"
 	"universal/framework/domain"
-	"universal/framework/funcs"
+	"universal/framework/internal/funcs"
 	"universal/library/async"
 	"universal/library/uerror"
 )
@@ -15,14 +15,6 @@ type Actor struct {
 	name  string
 	rval  reflect.Value
 	funcs map[string]*funcs.Method
-}
-
-func parseName(rr reflect.Type) string {
-	name := rr.String()
-	if index := strings.Index(name, "."); index > -1 {
-		name = name[index+1:]
-	}
-	return name
 }
 
 func (a *Actor) GetActorName() string {
@@ -37,13 +29,15 @@ func (a *Actor) Register(ac domain.IActor, _ ...int) {
 
 func (d *Actor) ParseFunc(tt interface{}) {
 	switch vv := tt.(type) {
-	case map[string]*FuncInfo:
+	case map[string]*funcs.Method:
 		d.funcs = vv
 	case reflect.Type:
-		d.funcs = make(map[string]*FuncInfo)
+		d.funcs = make(map[string]*funcs.Method)
 		for i := 0; i < vv.NumMethod(); i++ {
 			m := vv.Method(i)
-			d.funcs[m.Name] = parseFuncInfo(m)
+			if ff := funcs.NewMethod(m); ff != nil {
+				d.funcs[m.Name] = ff
+			}
 		}
 	default:
 		panic("注册参数错误，必须是方法列表或reflect.Type")
@@ -53,13 +47,25 @@ func (d *Actor) ParseFunc(tt interface{}) {
 func (d *Actor) SendMsg(h *pb.Head, args ...interface{}) error {
 	mm, ok := d.funcs[h.FuncName]
 	if !ok {
-		return uerror.N(1, -1, "%s.%s未实现, head:%v", h.ActorName, h.FuncName, h)
+		return uerror.N(1, -1, "%v", h)
 	}
-	switch mm.flag {
-	case CMD_HANDLER:
-		d.Push(mm.localCmd(d.rval, h, args...))
-	default:
-		d.Push(mm.localProto(d.rval, h, args...))
-	}
+	d.Push(mm.Call(d.rval, h, args...))
 	return nil
+}
+
+func (d *Actor) Send(h *pb.Head, buf []byte) error {
+	mm, ok := d.funcs[h.FuncName]
+	if !ok {
+		return uerror.N(1, -1, "%v", h)
+	}
+	d.Push(mm.Rpc(d.rval, h, buf))
+	return nil
+}
+
+func parseName(rr reflect.Type) string {
+	name := rr.String()
+	if index := strings.Index(name, "."); index > -1 {
+		name = name[index+1:]
+	}
+	return name
 }

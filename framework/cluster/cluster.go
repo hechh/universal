@@ -25,6 +25,37 @@ var (
 	buss domain.IBus
 )
 
+func Init(cfg *yaml.Config, nodeType pb.NodeType, nodeId int32) error {
+	srvCfg := yaml.GetNodeConfig(cfg, nodeType, nodeId)
+	if srvCfg == nil {
+		return uerror.N(1, int32(pb.ErrorCode_NodeConfigNotFound), "%s(%d)", nodeType, nodeId)
+	}
+
+	safe.Catch(mlog.Fatalf)
+	self = yaml.GetNode(srvCfg, nodeType, nodeId)
+	tab = router.NewTable(srvCfg.RouterTTL)
+	cls = node.NewNode()
+
+	if cli, err := bus.NewNats(cfg.Nats); err != nil {
+		return uerror.E(1, int32(pb.ErrorCode_NatsConnectFailed), err)
+	} else {
+		buss = cli
+	}
+
+	if cli, err := discovery.NewEtcd(cfg.Etcd); err != nil {
+		return uerror.E(1, int32(pb.ErrorCode_EtcdConnectFailed), err)
+	} else {
+		dis = cli
+	}
+	if err := dis.Watch(cls); err != nil {
+		return uerror.E(1, int32(pb.ErrorCode_EtcdWatchFailed), err)
+	}
+	if err := dis.Register(self, srvCfg.DiscoveryTTL); err != nil {
+		return uerror.E(1, int32(pb.ErrorCode_EtcdRegisterFailed), err)
+	}
+	return nil
+}
+
 func Close() {
 	tab.Close()
 	dis.Close()
@@ -187,35 +218,4 @@ func Dispatcher(head *pb.Head) error {
 		return nil
 	}
 	return uerror.N(1, int32(pb.ErrorCode_NodeNotFound), "%v", head.Dst)
-}
-
-func Init(cfg *yaml.Config, nodeType pb.NodeType, nodeId int32) error {
-	srvCfg := yaml.GetNodeConfig(cfg, nodeType, nodeId)
-	if srvCfg == nil {
-		return uerror.N(1, int32(pb.ErrorCode_NodeConfigNotFound), "%s(%d)", nodeType, nodeId)
-	}
-
-	safe.Catch(mlog.Fatalf)
-	self = yaml.GetNode(srvCfg, nodeType, nodeId)
-	tab = router.NewTable(srvCfg.RouterTTL)
-	cls = node.NewNode()
-
-	if cli, err := bus.NewNats(cfg.Nats); err != nil {
-		return uerror.E(1, int32(pb.ErrorCode_NatsConnectFailed), err)
-	} else {
-		buss = cli
-	}
-
-	if cli, err := discovery.NewEtcd(cfg.Etcd); err != nil {
-		return uerror.E(1, int32(pb.ErrorCode_EtcdConnectFailed), err)
-	} else {
-		dis = cli
-	}
-	if err := dis.Watch(cls); err != nil {
-		return uerror.E(1, int32(pb.ErrorCode_EtcdWatchFailed), err)
-	}
-	if err := dis.Register(self, srvCfg.DiscoveryTTL); err != nil {
-		return uerror.E(1, int32(pb.ErrorCode_EtcdRegisterFailed), err)
-	}
-	return nil
 }

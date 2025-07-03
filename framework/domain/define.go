@@ -1,7 +1,6 @@
 package domain
 
 import (
-	"time"
 	"universal/common/pb"
 
 	"github.com/golang/protobuf/proto"
@@ -19,11 +18,8 @@ type IAsync interface {
 type IActor interface {
 	IAsync
 	GetActorName() string
+	Register(IActor, ...int)
 	ParseFunc(interface{})
-	Register(IActor)
-	RegisterTimer(*pb.Head, time.Duration, int32) error
-	BroadcastMsg(*pb.Head, ...interface{}) error
-	Broadcast(*pb.Head, []byte) error
 	SendMsg(*pb.Head, ...interface{}) error
 	Send(*pb.Head, []byte) error
 }

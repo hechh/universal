@@ -41,7 +41,7 @@ func put(rets []reflect.Value) {
 	args.Put(rets)
 }
 
-func ToRspHead(err error) *pb.RspHead {
+func toRspHead(err error) *pb.RspHead {
 	switch vv := err.(type) {
 	case nil:
 		return nil

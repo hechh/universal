@@ -1,4 +1,4 @@
-package route
+package router
 
 import (
 	"hash/crc32"
@@ -51,7 +51,7 @@ func register[T comparable](key T, item *RouteInfo, tmps map[pb.NodeType]map[T]*
 	}
 }
 
-func NewNRouter(nt pb.NodeType, actorFunc string, actorId uint64) *pb.NodeRouter {
+func NewNodeRouter(nt pb.NodeType, actorFunc string, actorId uint64) *pb.NodeRouter {
 	if api := get[string](nt, actorFunc, actors); api != nil {
 		return &pb.NodeRouter{
 			NodeType:  nt,
@@ -62,7 +62,11 @@ func NewNRouter(nt pb.NodeType, actorFunc string, actorId uint64) *pb.NodeRouter
 	return nil
 }
 
-func ParseNRouter(head *pb.Head, dst *pb.NodeRouter) {
+func to(otherid uint64, idType uint32) uint64 {
+	return (otherid << 8) | uint64(idType&0xFF)
+}
+
+func ParseNodeRouter(head *pb.Head, dst *pb.NodeRouter) {
 	if dst != nil {
 		if api := get[uint32](dst.NodeType, dst.ActorFunc, values); api != nil {
 			head.ActorName = api.ActorName
@@ -72,17 +76,13 @@ func ParseNRouter(head *pb.Head, dst *pb.NodeRouter) {
 	}
 }
 
+func parse(actorId uint64) uint64 {
+	return actorId >> 8
+}
+
 func get[T comparable](nt pb.NodeType, actorFunc T, tmps map[pb.NodeType]map[T]*RouteInfo) *RouteInfo {
 	if vals, ok := tmps[nt]; ok {
 		return vals[actorFunc]
 	}
 	return nil
-}
-
-func to(otherid uint64, idType uint32) uint64 {
-	return (otherid << 8) | uint64(idType&0xFF)
-}
-
-func parse(actorId uint64) uint64 {
-	return actorId >> 8
 }

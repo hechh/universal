@@ -5,6 +5,12 @@ option go_package = "universal/common/pb";
 
 import "global_enum_cfg.proto";
 
+// 发送类型
+enum SendType {
+  POINT     = 0;  // 发送类型-点对点
+  BROADCAST = 1;  // 发送类型-广播
+}
+
 message Node {
   string   Name = 1;  // 节点名称
   NodeType Type = 4;  // 节点类型
@@ -42,6 +48,7 @@ message Head {
   uint32     Cmd       = 8;
   uint32     Reference = 9;
   string     Reply     = 10;
+  SendType   SendType  = 11;
 }
 
 message Packet {
