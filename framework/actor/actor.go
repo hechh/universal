@@ -2,8 +2,10 @@ package actor
 
 import (
 	"reflect"
+	"strings"
 	"universal/common/pb"
 	"universal/framework/domain"
+	"universal/framework/funcs"
 	"universal/library/async"
 	"universal/library/uerror"
 )
@@ -12,7 +14,15 @@ type Actor struct {
 	*async.Async
 	name  string
 	rval  reflect.Value
-	funcs map[string]*FuncInfo
+	funcs map[string]*funcs.Method
+}
+
+func parseName(rr reflect.Type) string {
+	name := rr.String()
+	if index := strings.Index(name, "."); index > -1 {
+		name = name[index+1:]
+	}
+	return name
 }
 
 func (a *Actor) GetActorName() string {
