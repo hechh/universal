@@ -6,6 +6,12 @@ import (
 	"github.com/golang/protobuf/proto"
 )
 
+type IRspProto interface {
+	proto.Message
+	GetHead() *pb.RspHead
+	SetHead(*pb.RspHead)
+}
+
 type IAsync interface {
 	GetIdPointer() *uint64
 	GetId() uint64
@@ -60,12 +66,6 @@ type IBus interface {
 	Request(*pb.Head, []byte, proto.Message) error
 	Response(*pb.Head, []byte) error
 	Close()
-}
-
-type IRspProto interface {
-	proto.Message
-	GetHead() *pb.RspHead
-	SetHead(*pb.RspHead)
 }
 
 type IFrame interface {
