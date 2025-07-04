@@ -7,6 +7,7 @@ import (
 	"universal/framework/domain"
 	"universal/framework/internal/bus"
 	"universal/framework/internal/discovery"
+	"universal/framework/internal/funcs"
 	"universal/framework/internal/node"
 	"universal/framework/internal/router"
 	"universal/library/encode"
@@ -32,6 +33,7 @@ func Init(cfg *yaml.Config, nodeType pb.NodeType, nodeId int32) error {
 	}
 
 	safe.Catch(mlog.Fatalf)
+	funcs.Init(SendResponse)
 	self = yaml.GetNode(srvCfg, nodeType, nodeId)
 	tab = router.NewTable(srvCfg.RouterTTL)
 	cls = node.NewNode()

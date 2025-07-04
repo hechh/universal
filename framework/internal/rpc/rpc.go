@@ -25,17 +25,13 @@ type ActorRpc struct {
 	values map[uint32]*RpcInfo
 }
 
-func NewActorRpc() *ActorRpc {
-	return &ActorRpc{
-		actors: make(map[string]*RpcInfo),
-		values: make(map[uint32]*RpcInfo),
-	}
-}
-
 func Register(nt pb.NodeType, idType uint32, actorFunc string, ccs ...pb.CMD) {
 	vals, ok := rpcs[nt]
 	if !ok {
-		vals = NewActorRpc()
+		vals = &ActorRpc{
+			actors: make(map[string]*RpcInfo),
+			values: make(map[uint32]*RpcInfo),
+		}
 		rpcs[nt] = vals
 	}
 	item := &RpcInfo{

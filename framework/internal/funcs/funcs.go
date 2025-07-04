@@ -14,14 +14,11 @@ import (
 )
 
 const (
-	HEAD_FLAG          = 1 << 0
-	REQ_FLAG           = 1 << 1
-	RSP_FLAG           = 1 << 2
-	BYTES_FLAG         = 1 << 3
-	CMD_HANDLER        = HEAD_FLAG | REQ_FLAG | RSP_FLAG // *pb.head, proto.Message, domain.IRspProto
-	NOTIFY_HANDLER     = HEAD_FLAG | REQ_FLAG            // *pb.Head, proto.Message
-	HEAD_BYTES_HANDLER = HEAD_FLAG | BYTES_FLAG          // *pb.Head, []byte
-	BYTES_HANDLER      = BYTES_FLAG                      // []byte
+	HEAD_FLAG  = 1 << 0
+	REQ_FLAG   = 1 << 1
+	RSP_FLAG   = 1 << 2
+	BYTES_FLAG = 1 << 3
+	GOB_FLAG   = 1 << 4
 )
 
 var (
@@ -72,16 +69,21 @@ func NewMethod(m reflect.Method) *Method {
 	if outs > 1 || outs == 1 && !m.Type.Out(0).Implements(errorType) {
 		return nil
 	}
-	hasHead := util.Or[int](ins > 1 && m.Type.In(1).AssignableTo(headType), 1, 0)
-	hasReq := util.Or[int](ins > 2 && m.Type.In(2).Implements(reqType), 1, 0)
-	hasRsp := util.Or[int](ins > 3 && m.Type.In(3).Implements(rspType), 1, 0)
-	hasBytes := 1
-	for i := util.Or[int](hasHead > 0, 1, 2); i < ins; i++ {
-		if !m.Type.In(i).AssignableTo(bytesType) {
-			hasBytes = 0
+	flag := uint32(0)
+	for i := 1; i < ins; i++ {
+		if m.Type.In(i).AssignableTo(headType) {
+			flag = flag | HEAD_FLAG
+		} else if m.Type.In(i).Implements(rspType) {
+			flag = flag | RSP_FLAG
+		} else if m.Type.In(i).Implements(reqType) {
+			flag = flag | REQ_FLAG
+		} else if m.Type.In(i).AssignableTo(bytesType) {
+			flag = flag | BYTES_FLAG
+		} else {
+			flag = flag | GOB_FLAG
 		}
 	}
-	return &Method{Method: m, ins: ins, flag: uint32(hasHead | hasReq<<1 | hasRsp<<2 | hasBytes<<3)}
+	return &Method{Method: m, ins: ins, flag: flag}
 }
 
 func (m *Method) Call(rval reflect.Value, head *pb.Head, args ...interface{}) func() {
@@ -117,7 +119,7 @@ func (m *Method) Rpc(rval reflect.Value, head *pb.Head, buf []byte) func() {
 			pos++
 		}
 		switch m.flag {
-		case CMD_HANDLER, NOTIFY_HANDLER:
+		case (HEAD_FLAG | REQ_FLAG | RSP_FLAG), (HEAD_FLAG | REQ_FLAG), (HEAD_FLAG | RSP_FLAG), (REQ_FLAG | RSP_FLAG), REQ_FLAG:
 			for i := pos; i < m.ins; i++ {
 				params[i] = reflect.New(m.Type.In(i).Elem())
 			}
@@ -125,7 +127,7 @@ func (m *Method) Rpc(rval reflect.Value, head *pb.Head, buf []byte) func() {
 				mlog.Errorf("参数解析失败 %v", head)
 				return
 			}
-		case HEAD_BYTES_HANDLER, BYTES_HANDLER:
+		case (HEAD_FLAG | BYTES_FLAG), (BYTES_FLAG):
 			params[pos] = reflect.ValueOf(buf)
 		default:
 			if err := encode.Decode(buf, m.Method, params, pos); err != nil {
@@ -142,7 +144,7 @@ func (m *Method) Rpc(rval reflect.Value, head *pb.Head, buf []byte) func() {
 
 func (m *Method) result(ref uint32, head *pb.Head, params []reflect.Value, err error) {
 	switch m.flag {
-	case CMD_HANDLER:
+	case (HEAD_FLAG | REQ_FLAG | RSP_FLAG):
 		req := params[2].Interface().(proto.Message)
 		rsp := params[3].Interface().(domain.IRspProto)
 		rsp.SetHead(toRspHead(err))
@@ -155,7 +157,7 @@ func (m *Method) result(ref uint32, head *pb.Head, params []reflect.Value, err e
 		} else {
 			mlog.Debug(1, "head:%v, req:%v, rsp:%v, error:%v", head, req, rsp, reterr)
 		}
-	case NOTIFY_HANDLER:
+	case (HEAD_FLAG | REQ_FLAG):
 		req := params[2].Interface().(proto.Message)
 		if err != nil {
 			mlog.Error(1, "head:%v, notify:%v, error:%v", head, req, err)
