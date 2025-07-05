@@ -46,6 +46,10 @@ func Close() {
 	buss.Close()
 }
 
+func GetSelf() *pb.Node {
+	return cls.GetSelf()
+}
+
 func UpdateRouter(rrs ...*pb.NodeRouter) {
 	for _, rr := range rrs {
 		if rr == nil || rr.Router == nil || rr.ActorId <= 0 {
