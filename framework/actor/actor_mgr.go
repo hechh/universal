@@ -4,6 +4,7 @@ import (
 	"reflect"
 	"sync"
 	"sync/atomic"
+	"time"
 	"universal/common/pb"
 	"universal/framework/domain"
 	"universal/framework/internal/funcs"
@@ -17,6 +18,30 @@ type ActorMgr struct {
 	mutex  sync.RWMutex
 	actors map[uint64]domain.IActor
 	funcs  map[string]*funcs.Method
+}
+
+func (d *ActorMgr) GetCount() int {
+	return len(d.actors)
+}
+
+func (d *ActorMgr) GetActor(id uint64) domain.IActor {
+	d.mutex.RLock()
+	defer d.mutex.RUnlock()
+	return d.actors[id]
+}
+
+func (d *ActorMgr) DelActor(id uint64) {
+	d.mutex.Lock()
+	defer d.mutex.Unlock()
+	delete(d.actors, id)
+}
+
+func (d *ActorMgr) AddActor(act domain.IActor) {
+	act.ParseFunc(d.funcs)
+	id := act.GetId()
+	d.mutex.Lock()
+	defer d.mutex.Unlock()
+	d.actors[id] = act
 }
 
 func (d *ActorMgr) GetIdPointer() *uint64 {
@@ -47,8 +72,6 @@ func (d *ActorMgr) Stop() {
 		act.Stop()
 	}
 }
-
-func (d *ActorMgr) Push(func()) {}
 
 func (d *ActorMgr) GetActorName() string {
 	return d.name
@@ -127,26 +150,10 @@ func (d *ActorMgr) Send(h *pb.Head, buf []byte) error {
 	return nil
 }
 
-func (d *ActorMgr) GetCount() int {
-	return len(d.actors)
-}
-
-func (d *ActorMgr) GetActor(id uint64) domain.IActor {
-	d.mutex.RLock()
-	defer d.mutex.RUnlock()
-	return d.actors[id]
-}
-
-func (d *ActorMgr) DelActor(id uint64) {
-	d.mutex.Lock()
-	defer d.mutex.Unlock()
-	delete(d.actors, id)
-}
-
-func (d *ActorMgr) AddActor(act domain.IActor) {
-	act.ParseFunc(d.funcs)
-	id := act.GetId()
-	d.mutex.Lock()
-	defer d.mutex.Unlock()
-	d.actors[id] = act
+func (d *ActorMgr) RegisterTimer(h *pb.Head, ttl time.Duration, times int32) error {
+	return t.Register(d.GetIdPointer(), func() {
+		if err := d.SendMsg(h); err != nil {
+			mlog.Errorf("Actor定时器转发失败: %v", err)
+		}
+	}, ttl, times)
 }

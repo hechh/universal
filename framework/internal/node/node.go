@@ -12,15 +12,20 @@ type pool struct {
 }
 
 type Node struct {
+	self  *pb.Node
 	pools map[pb.NodeType]*pool
 }
 
-func NewNode() *Node {
+func NewNode(nn *pb.Node) *Node {
 	pools := make(map[pb.NodeType]*pool)
 	for i := pb.NodeType_NodeTypeBegin + 1; i < pb.NodeType_NodeTypeEnd; i++ {
 		pools[i] = &pool{nodes: make(map[int32]*pb.Node)}
 	}
-	return &Node{pools: pools}
+	return &Node{pools: pools, self: nn}
+}
+
+func (c *Node) GetSelf() *pb.Node {
+	return c.self
 }
 
 func (c *Node) GetCount(nodeType pb.NodeType) int {

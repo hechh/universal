@@ -3,19 +3,21 @@ package actor
 import (
 	"reflect"
 	"sync/atomic"
+	"time"
 	"universal/common/pb"
 	"universal/framework/domain"
 	"universal/framework/internal/funcs"
 	"universal/library/async"
+	"universal/library/mlog"
 	"universal/library/uerror"
 	"universal/library/util"
 )
 
 type ActorPool struct {
-	id    uint64
-	name  string
 	size  int
 	pool  []*async.Async
+	id    uint64
+	name  string
 	rval  reflect.Value
 	funcs map[string]*funcs.Method
 }
@@ -45,8 +47,6 @@ func (d *ActorPool) Stop() {
 	}
 }
 
-func (d *ActorPool) Push(func()) {}
-
 func (d *ActorPool) GetActorName() string {
 	return d.name
 }
@@ -57,8 +57,8 @@ func (d *ActorPool) Register(ac domain.IActor, sizes ...int) {
 	for i := 0; i < d.size; i++ {
 		d.pool[i] = async.NewAsync()
 	}
-	d.rval = reflect.ValueOf(ac)
 	d.name = parseName(d.rval.Elem().Type())
+	d.rval = reflect.ValueOf(ac)
 }
 
 func (d *ActorPool) ParseFunc(tt interface{}) {
@@ -94,4 +94,12 @@ func (d *ActorPool) Send(h *pb.Head, buf []byte) error {
 	}
 	d.pool[h.ActorId%uint64(d.size)].Push(mm.Rpc(d.rval, h, buf))
 	return nil
+}
+
+func (d *ActorPool) RegisterTimer(h *pb.Head, ttl time.Duration, times int32) error {
+	return t.Register(d.GetIdPointer(), func() {
+		if err := d.SendMsg(h); err != nil {
+			mlog.Errorf("Actor定时器转发失败: %v", err)
+		}
+	}, ttl, times)
 }

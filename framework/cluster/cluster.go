@@ -7,55 +7,37 @@ import (
 	"universal/framework/domain"
 	"universal/framework/internal/bus"
 	"universal/framework/internal/discovery"
-	"universal/framework/internal/funcs"
 	"universal/framework/internal/node"
 	"universal/framework/internal/router"
 	"universal/library/encode"
 	"universal/library/mlog"
-	"universal/library/safe"
 	"universal/library/uerror"
 
 	"github.com/golang/protobuf/proto"
 )
 
 var (
-	self *pb.Node
 	tab  domain.ITable
 	cls  domain.INode
 	dis  domain.IDiscovery
 	buss domain.IBus
 )
 
-func Init(cfg *yaml.Config, nodeType pb.NodeType, nodeId int32) error {
-	srvCfg := yaml.GetNodeConfig(cfg, nodeType, nodeId)
-	if srvCfg == nil {
-		return uerror.N(1, int32(pb.ErrorCode_NodeConfigNotFound), "%s(%d)", nodeType, nodeId)
-	}
-
-	safe.Catch(mlog.Fatalf)
-	funcs.Init(SendResponse)
-	self = yaml.GetNode(srvCfg, nodeType, nodeId)
+func Init(cfg *yaml.Config, srvCfg *yaml.NodeConfig, nn *pb.Node) (err error) {
 	tab = router.NewTable(srvCfg.RouterTTL)
-	cls = node.NewNode()
-
-	if cli, err := bus.NewNats(cfg.Nats); err != nil {
-		return uerror.E(1, int32(pb.ErrorCode_NatsConnectFailed), err)
-	} else {
-		buss = cli
+	cls = node.NewNode(nn)
+	dis, err = discovery.NewEtcd(cfg.Etcd)
+	if err != nil {
+		return
 	}
-
-	if cli, err := discovery.NewEtcd(cfg.Etcd); err != nil {
-		return uerror.E(1, int32(pb.ErrorCode_EtcdConnectFailed), err)
-	} else {
-		dis = cli
+	if err = dis.Watch(cls); err != nil {
+		return
 	}
-	if err := dis.Watch(cls); err != nil {
-		return uerror.E(1, int32(pb.ErrorCode_EtcdWatchFailed), err)
+	if err = dis.Register(cls, srvCfg.DiscoveryTTL); err != nil {
+		return
 	}
-	if err := dis.Register(self, srvCfg.DiscoveryTTL); err != nil {
-		return uerror.E(1, int32(pb.ErrorCode_EtcdRegisterFailed), err)
-	}
-	return nil
+	buss, err = bus.NewNats(cfg.Nats)
+	return
 }
 
 func Close() {
@@ -64,16 +46,12 @@ func Close() {
 	buss.Close()
 }
 
-func GetSelf() *pb.Node {
-	return self
-}
-
 func UpdateRouter(rrs ...*pb.NodeRouter) {
 	for _, rr := range rrs {
 		if rr == nil || rr.Router == nil || rr.ActorId <= 0 {
 			return
 		}
-		tab.GetOrNew(rr.ActorId, self).SetData(rr.Router)
+		tab.GetOrNew(rr.ActorId, cls.GetSelf()).SetData(rr.Router)
 	}
 }
 
@@ -82,23 +60,23 @@ func QueryRouter(rrs ...*pb.NodeRouter) {
 		if rr == nil || rr.Router == nil || rr.ActorId <= 0 {
 			return
 		}
-		rr.Router = tab.GetOrNew(rr.ActorId, self).GetData()
+		rr.Router = tab.GetOrNew(rr.ActorId, cls.GetSelf()).GetData()
 	}
 }
 
 func SetBroadcastHandler(f func(*pb.Head, []byte)) error {
-	return buss.SetBroadcastHandler(self, f)
+	return buss.SetBroadcastHandler(cls.GetSelf(), f)
 }
 
 func SetSendHandler(f func(*pb.Head, []byte)) error {
-	return buss.SetSendHandler(self, func(head *pb.Head, body []byte) {
+	return buss.SetSendHandler(cls.GetSelf(), func(head *pb.Head, body []byte) {
 		UpdateRouter(head.Src, head.Dst)
 		f(head, body)
 	})
 }
 
 func SetReplyHandler(f func(*pb.Head, []byte)) error {
-	return buss.SetReplyHandler(self, func(head *pb.Head, body []byte) {
+	return buss.SetReplyHandler(cls.GetSelf(), func(head *pb.Head, body []byte) {
 		UpdateRouter(head.Src, head.Dst)
 		f(head, body)
 	})
@@ -200,7 +178,7 @@ func Dispatcher(head *pb.Head) error {
 	if head.Dst.NodeType >= pb.NodeType_NodeTypeEnd || head.Dst.NodeType <= pb.NodeType_NodeTypeBegin {
 		return uerror.N(1, int32(pb.ErrorCode_NodeTypeNotSupported), "%v", head.Dst)
 	}
-	if head.Dst.NodeType == self.Type {
+	if head.Dst.NodeType == cls.GetSelf().Type {
 		return uerror.N(1, int32(pb.ErrorCode_NodeTypeInvalid), "%v", head.Dst)
 	}
 	if head.Dst.NodeId > 0 {

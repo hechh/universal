@@ -137,3 +137,21 @@ func levelToString(level int32) string {
 	}
 	return ""
 }
+
+func StringToLevel(str string) int32 {
+	switch str {
+	case "TRACE":
+		return LOG_TRACE
+	case "DEBUG":
+		return LOG_DEBUG
+	case "WARN":
+		return LOG_WARN
+	case "INFO":
+		return LOG_INFO
+	case "ERROR":
+		return LOG_ERROR
+	case "FATAL":
+		return LOG_FATAL
+	}
+	return LOG_WARN
+}

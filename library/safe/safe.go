@@ -1,17 +1,22 @@
 package safe
 
-import "runtime/debug"
+import (
+	"runtime/debug"
+	"universal/library/mlog"
+)
 
+/*
 var catch func(string, ...interface{})
 
-func Catch(cb func(string, ...interface{})) {
+func Init(cb func(string, ...interface{})) {
 	catch = cb
 }
+*/
 
 func Recover(f func()) {
 	defer func() {
 		if err := recover(); err != nil {
-			catch("%v stack: %v", err, string(debug.Stack()))
+			mlog.Fatalf("%v stack: %v", err, string(debug.Stack()))
 		}
 	}()
 	f()

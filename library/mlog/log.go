@@ -1,8 +1,9 @@
 package mlog
 
-var logger = NewLogger(LOG_DEBUG, &StdWriter{})
+var logger *Logger = NewLogger(LOG_DEBUG, &StdWriter{})
 
 func Init(logpath, logname string, level int32) {
+	logger.Close()
 	logger = NewLogger(level, NewLogWriter(logpath, logname, 1024))
 }
 

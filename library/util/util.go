@@ -29,7 +29,6 @@ func Retry(attempts int, sleep time.Duration, f func() error) (err error) {
 		if err = f(); err == nil {
 			return
 		}
-
 		time.Sleep(sleep)
 		sleep *= 2
 	}

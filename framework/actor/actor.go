@@ -2,11 +2,12 @@ package actor
 
 import (
 	"reflect"
-	"strings"
+	"time"
 	"universal/common/pb"
 	"universal/framework/domain"
 	"universal/framework/internal/funcs"
 	"universal/library/async"
+	"universal/library/mlog"
 	"universal/library/uerror"
 )
 
@@ -23,8 +24,8 @@ func (a *Actor) GetActorName() string {
 
 func (a *Actor) Register(ac domain.IActor, _ ...int) {
 	a.Async = async.NewAsync()
-	a.rval = reflect.ValueOf(ac)
 	a.name = parseName(a.rval.Elem().Type())
+	a.rval = reflect.ValueOf(ac)
 }
 
 func (d *Actor) ParseFunc(tt interface{}) {
@@ -62,10 +63,10 @@ func (d *Actor) Send(h *pb.Head, buf []byte) error {
 	return nil
 }
 
-func parseName(rr reflect.Type) string {
-	name := rr.String()
-	if index := strings.Index(name, "."); index > -1 {
-		name = name[index+1:]
-	}
-	return name
+func (d *Actor) RegisterTimer(h *pb.Head, ttl time.Duration, times int32) error {
+	return t.Register(d.GetIdPointer(), func() {
+		if err := d.SendMsg(h); err != nil {
+			mlog.Errorf("Actor定时器转发失败: %v", err)
+		}
+	}, ttl, times)
 }

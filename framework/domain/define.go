@@ -1,6 +1,7 @@
 package domain
 
 import (
+	"time"
 	"universal/common/pb"
 
 	"github.com/golang/protobuf/proto"
@@ -12,25 +13,22 @@ type IRspProto interface {
 	SetHead(*pb.RspHead)
 }
 
-type IAsync interface {
+type IActor interface {
 	GetIdPointer() *uint64
 	GetId() uint64
 	SetId(uint64)
 	Start()
 	Stop()
-	Push(f func())
-}
-
-type IActor interface {
-	IAsync
 	GetActorName() string
 	Register(IActor, ...int)
 	ParseFunc(interface{})
 	SendMsg(*pb.Head, ...interface{}) error
 	Send(*pb.Head, []byte) error
+	RegisterTimer(*pb.Head, time.Duration, int32) error
 }
 
 type INode interface {
+	GetSelf() *pb.Node
 	GetCount(pb.NodeType) int
 	Get(pb.NodeType, int32) *pb.Node
 	Del(pb.NodeType, int32) bool
@@ -39,7 +37,7 @@ type INode interface {
 }
 
 type IDiscovery interface {
-	Register(*pb.Node, int64) error
+	Register(INode, int64) error
 	Watch(INode) error
 	Close() error
 }

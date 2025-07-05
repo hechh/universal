@@ -21,31 +21,25 @@ import (
 type Etcd struct {
 	sync.WaitGroup
 	client *clientv3.Client
-	lease  clientv3.LeaseID
 	exit   chan struct{}
 	topic  string
 }
 
 func NewEtcd(cfg *yaml.EtcdConfig) (cli *Etcd, err error) {
-	v3cfg := clientv3.Config{
-		Endpoints:            cfg.Endpoints,
-		DialTimeout:          5 * time.Second,
-		DialKeepAliveTime:    30 * time.Second,
-		DialKeepAliveTimeout: 3 * time.Second,
-		MaxCallSendMsgSize:   10 * 1024 * 1024,
-	}
 	err = util.Retry(3, time.Second, func() error {
-		client, err := clientv3.New(v3cfg)
+		client, err := clientv3.New(clientv3.Config{
+			Endpoints:            cfg.Endpoints,
+			DialTimeout:          5 * time.Second,
+			DialKeepAliveTime:    30 * time.Second,
+			DialKeepAliveTimeout: 3 * time.Second,
+			MaxCallSendMsgSize:   10 * 1024 * 1024,
+		})
 		if err == nil {
-			cli = &Etcd{
-				client: client,
-				topic:  cfg.Topic,
-				exit:   make(chan struct{}),
-			}
+			cli = &Etcd{client: client, topic: cfg.Topic, exit: make(chan struct{})}
 		}
 		return err
 	})
-	return cli, err
+	return
 }
 
 func (d *Etcd) Watch(cls domain.INode) (err error) {
@@ -114,66 +108,70 @@ func (d *Etcd) handleEvent(cls domain.INode, events ...*clientv3.Event) {
 	}
 }
 
-func (d *Etcd) Register(n *pb.Node, ttl int64) error {
-	// 创建租约
+func (d *Etcd) Register(cls domain.INode, ttl int64) error {
 	ctx := context.Background()
 	tctx, cancel := context.WithTimeout(ctx, 3*time.Second)
 	defer cancel()
+
+	// 创建租约
+	var lease clientv3.LeaseID
 	if err := util.Retry(3, time.Second, func() error {
-		if rsp, err := d.client.Grant(tctx, ttl); err != nil {
-			return err
-		} else {
-			d.lease = clientv3.LeaseID(rsp.ID)
-			return nil
+		rsp, err := d.client.Grant(tctx, ttl)
+		if err == nil {
+			lease = rsp.ID
 		}
+		return err
 	}); err != nil {
 		return err
 	}
 
 	// 注册服务
-	if buf, err := proto.Marshal(n); err != nil {
+	n := cls.GetSelf()
+	buf, err := proto.Marshal(n)
+	if err != nil {
 		return err
-	} else {
-		channel := fmt.Sprintf("%s/%d/%d", d.topic, n.Type, n.Id)
-		if _, err = d.client.Put(ctx, channel, string(buf), clientv3.WithLease(d.lease)); err != nil {
-			return err
-		}
+	}
+	channel := fmt.Sprintf("%s/%d/%d", d.topic, n.Type, n.Id)
+	if _, err = d.client.Put(ctx, channel, string(buf), clientv3.WithLease(lease)); err != nil {
+		return err
 	}
 
 	// 保活
-	if keep, err := d.client.KeepAlive(ctx, d.lease); err != nil {
+	keep, err := d.client.KeepAlive(ctx, lease)
+	if err != nil {
 		return err
-	} else {
-		d.Add(1)
-		safe.Go(func() {
-			defer d.Done()
-			d.keepAlive(keep, n, ttl)
-		})
 	}
+
+	d.Add(1)
+	safe.Go(func() {
+		defer d.Done()
+		d.keepAlive(cls, ttl, keep, lease)
+	})
 	return nil
 }
 
-func (d *Etcd) keepAlive(keep <-chan *clientv3.LeaseKeepAliveResponse, n *pb.Node, ttl int64) {
+func (d *Etcd) keepAlive(cls domain.INode, ttl int64, keep <-chan *clientv3.LeaseKeepAliveResponse, lease clientv3.LeaseID) {
 	tt := time.NewTicker(time.Duration(ttl/2) * time.Second)
 	defer func() {
 		tt.Stop()
-		d.client.Revoke(context.Background(), d.lease)
+		d.client.Revoke(context.Background(), lease)
 	}()
 	for {
 		select {
 		case _, ok := <-keep:
 			if !ok {
-				if err := d.Register(n, ttl); err != nil {
-					mlog.Errorf("尝试重新注册失败 %v", err)
+				mlog.Errorf("保活失败, 尝试重新注册保活")
+				if err := d.Register(cls, ttl); err != nil {
+					mlog.Errorf("尝试重新注册服务失败 %v", err)
 				} else {
 					return
 				}
 			}
 		case <-tt.C:
-			if _, err := d.client.TimeToLive(context.Background(), d.lease); err != nil {
+			if _, err := d.client.TimeToLive(context.Background(), lease); err != nil {
 				mlog.Errorf("保活异常, 尝试重新注册 %v", err)
-				if err := d.Register(n, ttl); err != nil {
-					mlog.Errorf("尝试重新注册失败 %v", err)
+				if err := d.Register(cls, ttl); err != nil {
+					mlog.Errorf("尝试重新注册服务失败 %v", err)
 				} else {
 					return
 				}
