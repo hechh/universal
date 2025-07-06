@@ -43,6 +43,10 @@ type DataConfig struct {
 	Endpoints []string `yaml:"endpoints"`
 }
 
+type CommonConfig struct {
+	SecretKey string `yaml:"secret_key"`
+}
+
 type NodeConfig struct {
 	RouterTTL    int64  `yaml:"router_ttl"`
 	DiscoveryTTL int64  `yaml:"discovery_ttl"`
@@ -61,6 +65,7 @@ type Config struct {
 	Etcd    *EtcdConfig           `yaml:"etcd"`
 	Nats    *NatsConfig           `yaml:"nats"`
 	Data    *DataConfig           `yaml:"data"`
+	Common  *CommonConfig         `yaml:"common"`
 	Client  map[int32]*NodeConfig `yaml:"client"`
 	Gate    map[int32]*NodeConfig `yaml:"gate"`
 	Room    map[int32]*NodeConfig `yaml:"room"`

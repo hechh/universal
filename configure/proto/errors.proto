@@ -17,4 +17,5 @@ enum ErrorCode {
   ProtoMarshalFailed   = 10;
   ProtoUnmarshalFailed = 11;
   NodeTypeInvalid      = 12;
+  SOCKET_MAX_LIMIT     = 13;
 }

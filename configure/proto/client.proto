@@ -1,0 +1,37 @@
+syntax = "proto3";
+package universal;
+
+option go_package = "universal/common/pb";
+
+import "packet.proto";
+
+// 登录协议
+message LoginReq {
+  string token = 1;  // token
+}
+
+message LoginRsp {
+  RspHead head = 1;  // 协议头
+}
+
+// 登出协议
+message LogoutReq {
+  uint64 uid = 1;  // 玩家ID
+}
+
+message LogoutRsp {
+  RspHead head = 1;  // 协议头
+}
+
+// 心跳协议
+message HeartReq {
+  int64 utc        = 1;  // UTC时区
+  int64 begin_time = 2;  // 请求时间
+}
+
+message HeartRsp {
+  RspHead head       = 1;  // 协议头
+  int64   utc        = 2;  // UTC时区
+  int64   begin_time = 3;  // 请求时间
+  int64   end_time   = 4;  // 响应时间
+}

@@ -1,3 +1,5 @@
+env: develop  # develop, beta, release 
+
 mysql:
   1:
     dbname: universal
@@ -23,24 +25,22 @@ nats:
   topic: universal/nats
   endpoints: localhost:14222
 
-table:
+data:
   is_remote: true
-  patch: ./data
-  topic: universal/table
+  path: ./data
+  topic: universal/data
   endpoints:
     - http://localhost:12379
 
-
 common:
-  env: develop  # develop, beta, release 
-  discovery_expire: 20
-  secret_key: gH7%kL9!qW2#sD4*FpV6&nZ8@xJ0^yT1
+  secret_key: gtuv9&nZ8@x1%kL9!J0^yT1W9#sD1*fP
 
 client:
   1:
     router_ttl: 900
+    discovery_ttl: 20
     log_level: debug # info, debug, warn, error, fatal
-    log_file: ./log/client.log
+    log_path: ./log
     ip: localhost
     port: 10101
     http_port: 22345
@@ -48,8 +48,9 @@ client:
 gate:
   1:
     router_ttl: 900
+    discovery_ttl: 20
     log_level: debug # info, debug, warn, error, fatal
-    log_file: ./log/gate1.log
+    log_path: ./log
     ip: localhost
     port: 10101
     http_port: 10001
@@ -57,48 +58,53 @@ gate:
 room:
   1:
     router_ttl: 900
+    discovery_ttl: 20
     log_level: debug # info, debug, warn, error, fatal
-    log_file: ./log/room1.log
+    log_path: ./log
     ip: localhost
     port: 10201
 
 match:
   1:
     router_ttl: 900
+    discovery_ttl: 20
     log_level: debug # info, debug, warn, error, fatal
-    log_file: ./log/match1.log
+    log_path: ./log
     ip: localhost
     port: 10301
-
 
 db:
   1:
     router_ttl: 900
+    discovery_ttl: 20
     log_level: debug # info, debug, warn, error, fatal
-    log_file: ./log/db1.log
+    log_path: ./log
     ip: localhost
     port: 10401
 
 builder:
   1:
     router_ttl: 900
+    discovery_ttl: 20
     log_level: debug # info, debug, warn, error, fatal
-    log_file: ./log/builder1.log
+    log_path: ./log/builder1.log
     ip: localhost
     port: 10501
   
 game:
   1:
     router_ttl: 900
+    discovery_ttl: 20
     log_level: debug # info, debug, warn, error, fatal
-    log_file: ./log/game1.log
+    log_path: ./log
     ip: localhost
     port: 10601
 
 gm:
   1:
     router_ttl: 900
+    discovery_ttl: 20
     log_level: debug # info, debug, warn, error, fatal
-    log_file: ./log/gm1.log
+    log_path: ./log
     ip: localhost
     port: 10701

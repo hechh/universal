@@ -12,17 +12,17 @@ var (
 	rpcs = make(map[pb.NodeType]*ActorRpc)
 )
 
-type RpcInfo struct {
-	Cmd       pb.CMD
-	NodeType  pb.NodeType
-	IdType    uint32
-	ActorFunc string
-	Id        uint32
-}
-
 type ActorRpc struct {
 	actors map[string]*RpcInfo
 	values map[uint32]*RpcInfo
+}
+
+type RpcInfo struct {
+	cmd       pb.CMD
+	nodeType  pb.NodeType
+	idType    uint32
+	actorFunc string
+	id        uint32
 }
 
 func Register(nt pb.NodeType, idType uint32, actorFunc string, ccs ...pb.CMD) {
@@ -35,15 +35,31 @@ func Register(nt pb.NodeType, idType uint32, actorFunc string, ccs ...pb.CMD) {
 		rpcs[nt] = vals
 	}
 	item := &RpcInfo{
-		Cmd:       util.Index[pb.CMD](ccs, 0, pb.CMD_CMD_NONE),
-		NodeType:  nt,
-		IdType:    idType,
-		ActorFunc: actorFunc,
-		Id:        crc32.ChecksumIEEE([]byte(actorFunc)),
+		cmd:       util.Index[pb.CMD](ccs, 0, pb.CMD_CMD_NONE),
+		nodeType:  nt,
+		idType:    idType,
+		actorFunc: actorFunc,
+		id:        crc32.ChecksumIEEE([]byte(actorFunc)),
 	}
-	cmds[item.Cmd] = item
-	vals.actors[item.ActorFunc] = item
-	vals.values[item.Id] = item
+	cmds[item.cmd] = item
+	vals.actors[item.actorFunc] = item
+	vals.values[item.id] = item
+}
+
+func Get(cmd pb.CMD) *RpcInfo {
+	return cmds[cmd-cmd%2]
+}
+
+func NewNodeRouterByCmd(cmd pb.CMD, actorId uint64) *pb.NodeRouter {
+	api, ok := cmds[cmd-cmd%2]
+	if !ok {
+		return nil
+	}
+	return &pb.NodeRouter{
+		NodeType:  api.nodeType,
+		ActorFunc: api.id,
+		ActorId:   actorId<<8 | uint64(api.idType&0xFF),
+	}
 }
 
 func NewNodeRouter(nt pb.NodeType, actorFunc string, actorId uint64) *pb.NodeRouter {
@@ -57,8 +73,8 @@ func NewNodeRouter(nt pb.NodeType, actorFunc string, actorId uint64) *pb.NodeRou
 	}
 	return &pb.NodeRouter{
 		NodeType:  nt,
-		ActorFunc: api.Id,
-		ActorId:   actorId<<8 | uint64(api.IdType&0xFF),
+		ActorFunc: api.id,
+		ActorId:   actorId<<8 | uint64(api.idType&0xFF),
 	}
 }
 
@@ -74,8 +90,8 @@ func ParseNodeRouter(head *pb.Head, dst *pb.NodeRouter) {
 	if !ok {
 		return
 	}
-	pos := strings.Index(api.ActorFunc, ".")
-	head.ActorName = api.ActorFunc[:pos]
-	head.FuncName = api.ActorFunc[pos+1:]
+	pos := strings.Index(api.actorFunc, ".")
+	head.ActorName = api.actorFunc[:pos]
+	head.FuncName = api.actorFunc[pos+1:]
 	head.ActorId = (dst.ActorId >> 8)
 }

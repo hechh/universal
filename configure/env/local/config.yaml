@@ -6,6 +6,7 @@ mysql:
     user: root
     password: 123456
     host: localhost:13306
+    slave:
 
 redis:
   1:
@@ -26,17 +27,20 @@ nats:
 
 data:
   is_remote: true
-  patch: ./data
+  path: ./data
   topic: universal/data
   endpoints:
     - http://localhost:12379
+
+common:
+  secret_key: gtuv9&nZ8@x1%kL9!J0^yT1W9#sD1*fP
 
 client:
   1:
     router_ttl: 900
     discovery_ttl: 20
     log_level: debug # info, debug, warn, error, fatal
-    log_file: ./log/client.log
+    log_path: ./log
     ip: localhost
     port: 10101
     http_port: 22345
@@ -46,7 +50,7 @@ gate:
     router_ttl: 900
     discovery_ttl: 20
     log_level: debug # info, debug, warn, error, fatal
-    log_file: ./log/gate1.log
+    log_path: ./log
     ip: localhost
     port: 10101
     http_port: 10001
@@ -56,7 +60,7 @@ room:
     router_ttl: 900
     discovery_ttl: 20
     log_level: debug # info, debug, warn, error, fatal
-    log_file: ./log/room1.log
+    log_path: ./log
     ip: localhost
     port: 10201
 
@@ -65,7 +69,7 @@ match:
     router_ttl: 900
     discovery_ttl: 20
     log_level: debug # info, debug, warn, error, fatal
-    log_file: ./log/match1.log
+    log_path: ./log
     ip: localhost
     port: 10301
 
@@ -74,7 +78,7 @@ db:
     router_ttl: 900
     discovery_ttl: 20
     log_level: debug # info, debug, warn, error, fatal
-    log_file: ./log/db1.log
+    log_path: ./log
     ip: localhost
     port: 10401
 
@@ -83,7 +87,7 @@ builder:
     router_ttl: 900
     discovery_ttl: 20
     log_level: debug # info, debug, warn, error, fatal
-    log_file: ./log/builder1.log
+    log_path: ./log
     ip: localhost
     port: 10501
 
@@ -92,7 +96,7 @@ game:
     router_ttl: 900
     discovery_ttl: 20
     log_level: debug # info, debug, warn, error, fatal
-    log_file: ./log/game1.log
+    log_path: ./log
     ip: localhost
     port: 10601
 
@@ -101,6 +105,6 @@ gm:
     router_ttl: 900
     discovery_ttl: 20
     log_level: debug # info, debug, warn, error, fatal
-    log_file: ./log/gm1.log
+    log_path: ./log
     ip: localhost
     port: 10701
