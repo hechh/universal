@@ -9,6 +9,7 @@ import (
 	"universal/library/pprof"
 	"universal/library/signal"
 	"universal/message"
+	"universal/server/gate/internal/token"
 )
 
 func main() {
@@ -32,6 +33,7 @@ func main() {
 	// 初始化日志库
 	mlog.Init(srvCfg.LogPath, nn.Name, mlog.StringToLevel(srvCfg.LogLevel))
 	pprof.Init("localhost", srvCfg.Port+10000)
+	token.Init(cfg.Common.SecretKey)
 
 	// 初始化集群
 	if err := cluster.Init(cfg, srvCfg, nn); err != nil {
