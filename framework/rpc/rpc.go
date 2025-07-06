@@ -25,7 +25,28 @@ type RpcInfo struct {
 	id        uint32
 }
 
-func Register(nt pb.NodeType, idType uint32, actorFunc string, ccs ...pb.CMD) {
+func Register(nt pb.NodeType, idType uint32, actorName string, funcs ...string) {
+	vals, ok := rpcs[nt]
+	if !ok {
+		vals = &ActorRpc{
+			actors: make(map[string]*RpcInfo),
+			values: make(map[uint32]*RpcInfo),
+		}
+		rpcs[nt] = vals
+	}
+	for _, fun := range funcs {
+		actorFunc := actorName + "." + fun
+		item := &RpcInfo{
+			nodeType:  nt,
+			idType:    idType,
+			actorFunc: actorFunc,
+			id:        crc32.ChecksumIEEE([]byte(actorFunc)),
+		}
+		vals.actors[item.actorFunc] = item
+		vals.values[item.id] = item
+	}
+}
+func RegisterCmd(nt pb.NodeType, idType uint32, actorFunc string, cc pb.CMD) {
 	vals, ok := rpcs[nt]
 	if !ok {
 		vals = &ActorRpc{
@@ -35,7 +56,7 @@ func Register(nt pb.NodeType, idType uint32, actorFunc string, ccs ...pb.CMD) {
 		rpcs[nt] = vals
 	}
 	item := &RpcInfo{
-		cmd:       util.Index[pb.CMD](ccs, 0, pb.CMD_CMD_NONE),
+		cmd:       cc,
 		nodeType:  nt,
 		idType:    idType,
 		actorFunc: actorFunc,

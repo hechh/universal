@@ -36,18 +36,6 @@ func (p *Player) Stop() {
 	p.Actor.Stop()
 }
 
-func (p *Player) SendToClient(head *pb.Head, msg interface{}) error {
-	var buf []byte
-	switch vv := msg.(type) {
-	case []byte:
-		buf = vv
-	case proto.Message:
-		buf, _ = proto.Marshal(vv)
-	}
-	atomic.AddUint32(&head.Reference, 1)
-	return p.inet.Write(&pb.Packet{Head: head, Body: buf})
-}
-
 func (p *Player) Login() error {
 	p.inet.SetReadExpire(5)
 	pack := &pb.Packet{}
@@ -84,6 +72,18 @@ func (p *Player) Login() error {
 func (p *Player) LoginSuccess(head *pb.Head, rsp *pb.LoginRsp) error {
 	p.status = 1
 	return p.SendToClient(head, rsp)
+}
+
+func (p *Player) SendToClient(head *pb.Head, msg interface{}) error {
+	var buf []byte
+	switch vv := msg.(type) {
+	case []byte:
+		buf = vv
+	case proto.Message:
+		buf, _ = proto.Marshal(vv)
+	}
+	atomic.AddUint32(&head.Reference, 1)
+	return p.inet.Write(&pb.Packet{Head: head, Body: buf})
 }
 
 func (p *Player) Dispatcher() {
