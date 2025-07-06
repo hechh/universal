@@ -6,10 +6,9 @@ import (
 	"universal/common/yaml"
 	"universal/framework/cluster"
 	"universal/library/mlog"
-	"universal/library/pprof"
 	"universal/library/signal"
 	"universal/message"
-	"universal/server/gate/internal/token"
+	"universal/server/gate/internal/player"
 )
 
 func main() {
@@ -20,30 +19,28 @@ func main() {
 	flag.Parse()
 
 	// 加载配置
-	cfg, err := yaml.ParseConfig(conf)
+	cfg, srvCfg, nn, err := yaml.LoadAndParse(conf, pb.NodeType_NodeTypeGate, int32(nodeId))
 	if err != nil {
 		panic(err)
 	}
-	srvCfg := yaml.GetNodeConfig(cfg, pb.NodeType_NodeTypeGate, int32(nodeId))
-	if srvCfg == nil {
-		panic("节点配置不存在")
-	}
-	nn := yaml.GetNode(srvCfg, pb.NodeType_NodeTypeGate, int32(nodeId))
 
 	// 初始化日志库
+	message.Init()
 	mlog.Init(srvCfg.LogPath, nn.Name, mlog.StringToLevel(srvCfg.LogLevel))
-	pprof.Init("localhost", srvCfg.Port+10000)
-	token.Init(cfg.Common.SecretKey)
 
 	// 初始化集群
 	if err := cluster.Init(cfg, srvCfg, nn); err != nil {
 		panic(err)
 	}
 
-	message.Init()
+	if err := player.Init(cfg, srvCfg); err != nil {
+		panic(err)
+	}
 
 	// 信号捕捉
 	signal.SignalNotify(func() {
-
+		player.Close()
+		cluster.Close()
+		mlog.Close()
 	})
 }

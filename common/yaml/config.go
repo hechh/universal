@@ -4,6 +4,7 @@ import (
 	"os"
 	"strings"
 	"universal/common/pb"
+	"universal/library/uerror"
 
 	"gopkg.in/yaml.v3"
 )
@@ -76,7 +77,7 @@ type Config struct {
 	Gm      map[int32]*NodeConfig `yaml:"gm"`
 }
 
-func ParseConfig(filename string) (*Config, error) {
+func Load(filename string) (*Config, error) {
 	content, err := os.ReadFile(filename)
 	if err != nil {
 		return nil, err
@@ -86,6 +87,18 @@ func ParseConfig(filename string) (*Config, error) {
 		return nil, err
 	}
 	return cfg, nil
+}
+
+func LoadAndParse(filename string, nodeType pb.NodeType, nodeId int32) (cfg *Config, srvCfg *NodeConfig, nn *pb.Node, err error) {
+	if cfg, err = Load(filename); err != nil {
+		return
+	}
+	if srvCfg = GetNodeConfig(cfg, nodeType, nodeId); srvCfg != nil {
+		nn = GetNode(srvCfg, nodeType, nodeId)
+	} else {
+		err = uerror.N(1, int32(pb.ErrorCode_NodeConfigNotFound), "%s(%d)", nodeType, nodeId)
+	}
+	return
 }
 
 func GetNodeConfig(cfg *Config, nodeType pb.NodeType, nodeId int32) *NodeConfig {

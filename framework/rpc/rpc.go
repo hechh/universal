@@ -46,10 +46,6 @@ func Register(nt pb.NodeType, idType uint32, actorFunc string, ccs ...pb.CMD) {
 	vals.values[item.id] = item
 }
 
-func Get(cmd pb.CMD) *RpcInfo {
-	return cmds[cmd-cmd%2]
-}
-
 func NewNodeRouterByCmd(cmd pb.CMD, actorId uint64) *pb.NodeRouter {
 	api, ok := cmds[cmd-cmd%2]
 	if !ok {
@@ -78,20 +74,24 @@ func NewNodeRouter(nt pb.NodeType, actorFunc string, actorId uint64) *pb.NodeRou
 	}
 }
 
-func ParseNodeRouter(head *pb.Head, dst *pb.NodeRouter) {
-	if dst == nil {
+func ParseNodeRouter(head *pb.Head, actorFuncs ...string) {
+	if head.Dst == nil {
 		return
 	}
-	vals, ok := rpcs[dst.NodeType]
+	vals, ok := rpcs[head.Dst.NodeType]
 	if !ok {
 		return
 	}
-	api, ok := vals.values[dst.ActorFunc]
-	if !ok {
-		return
+	var api *RpcInfo
+	if head.Dst.ActorFunc > 0 {
+		api, ok = vals.values[head.Dst.ActorFunc]
+	} else {
+		api, ok = vals.actors[util.Index[string](actorFuncs, 0, "")]
 	}
-	pos := strings.Index(api.actorFunc, ".")
-	head.ActorName = api.actorFunc[:pos]
-	head.FuncName = api.actorFunc[pos+1:]
-	head.ActorId = (dst.ActorId >> 8)
+	if ok {
+		pos := strings.Index(api.actorFunc, ".")
+		head.ActorName = api.actorFunc[:pos]
+		head.FuncName = api.actorFunc[pos+1:]
+		head.ActorId = (head.Dst.ActorId >> 8)
+	}
 }

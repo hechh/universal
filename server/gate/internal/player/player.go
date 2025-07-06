@@ -93,12 +93,14 @@ func (p *Player) Dispatcher() {
 			mlog.Errorf("读取数据包失败, websocket异常中断: %v", err)
 			return
 		}
+
 		if p.status <= 0 {
 			continue
 		}
+
 		switch pack.Head.Dst.NodeType {
 		case pb.NodeType_NodeTypeGate:
-			rpc.ParseNodeRouter(pack.Head, pack.Head.Dst)
+			rpc.ParseNodeRouter(pack.Head)
 			mlog.Debugf("收到websocket数据包 pack:%v", pack)
 			if err := actor.Send(pack.Head, pack.Body); err != nil {
 				mlog.Errorf("gate服务Actor调用: %v", err)

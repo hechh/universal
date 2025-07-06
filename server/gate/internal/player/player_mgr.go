@@ -28,6 +28,13 @@ var upgrader = websocket.Upgrader{
 	},
 }
 
+func (d *PlayerMgr) Close() {
+	atomic.StoreInt32(&d.status, 0)
+	d.mgr.Stop()
+	d.Actor.Stop()
+	mlog.Infof("PlayerMgr服务关闭")
+}
+
 func (d *PlayerMgr) Init(ip string, port int) error {
 	// 初始化ActorMgr
 	d.mgr = new(actor.ActorMgr)

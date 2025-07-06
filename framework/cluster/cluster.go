@@ -11,6 +11,7 @@ import (
 	"universal/framework/internal/router"
 	"universal/library/encode"
 	"universal/library/mlog"
+	"universal/library/pprof"
 	"universal/library/uerror"
 
 	"github.com/golang/protobuf/proto"
@@ -26,6 +27,8 @@ var (
 func Init(cfg *yaml.Config, srvCfg *yaml.NodeConfig, nn *pb.Node) (err error) {
 	tab = router.NewTable(srvCfg.RouterTTL)
 	cls = node.NewNode(nn)
+	pprof.Init("localhost", srvCfg.Port+10000)
+
 	dis, err = discovery.NewEtcd(cfg.Etcd)
 	if err != nil {
 		return
