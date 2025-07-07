@@ -14,22 +14,24 @@ import (
 )
 
 const (
-	HEAD_FLAG  = 1 << 0
-	REQ_FLAG   = 1 << 1
-	RSP_FLAG   = 1 << 2
-	BYTES_FLAG = 1 << 3
-	GOB_FLAG   = 1 << 4
+	HEAD_FLAG      = 1 << 0
+	REQ_FLAG       = 1 << 1
+	RSP_FLAG       = 1 << 2
+	BYTES_FLAG     = 1 << 3
+	INTERFACE_FLAG = 1 << 4
+	GOB_FLAG       = 1 << 5
 )
 
 var (
-	headType  = reflect.TypeOf((*pb.Head)(nil))
-	reqType   = reflect.TypeOf((*proto.Message)(nil)).Elem()
-	rspType   = reflect.TypeOf((*domain.IRspProto)(nil)).Elem()
-	bytesType = reflect.TypeOf((*[]byte)(nil)).Elem()
-	errorType = reflect.TypeOf((*error)(nil)).Elem()
-	nilValue  = reflect.ValueOf((*error)(nil))
-	args      = util.ArrayPool[reflect.Value](6)
-	sendRsp   func(*pb.Head, proto.Message) error
+	headType      = reflect.TypeOf((*pb.Head)(nil))
+	reqType       = reflect.TypeOf((*proto.Message)(nil)).Elem()
+	rspType       = reflect.TypeOf((*domain.IRspProto)(nil)).Elem()
+	bytesType     = reflect.TypeOf((*[]byte)(nil)).Elem()
+	errorType     = reflect.TypeOf((*error)(nil)).Elem()
+	interfaceType = reflect.TypeOf((*interface{})(nil)).Elem()
+	nilValue      = reflect.ValueOf((*error)(nil))
+	args          = util.ArrayPool[reflect.Value](6)
+	sendRsp       func(*pb.Head, proto.Message) error
 )
 
 func Init(f func(*pb.Head, proto.Message) error) {
@@ -79,6 +81,8 @@ func NewMethod(m reflect.Method) *Method {
 			flag = flag | REQ_FLAG
 		} else if m.Type.In(i).AssignableTo(bytesType) {
 			flag = flag | BYTES_FLAG
+		} else if m.Type.In(i) == interfaceType {
+			flag = flag | INTERFACE_FLAG
 		} else {
 			flag = flag | GOB_FLAG
 		}

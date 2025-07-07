@@ -171,7 +171,7 @@ func SendResponse(head *pb.Head, rsp proto.Message) error {
 		head.Src = head.Dst
 		return SendToClient(head, rsp)
 	}
-	if head.Src != nil && head.Src.ActorId > 0 && head.Src.ActorFunc > 0 {
+	if head.Src != nil && head.Src.ActorId > 0 && len(head.Src.ActorFunc) > 0 {
 		head.Src, head.Dst = head.Dst, head.Src
 		return Send(head, rsp)
 	}

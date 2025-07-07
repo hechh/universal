@@ -43,7 +43,7 @@ message Router {
 message NodeRouter {
   NodeType NodeType  = 1;
   int32    NodeId    = 2;
-  uint32   ActorFunc = 3;
+  string   ActorFunc = 3;
   uint64   ActorId   = 5;
   Router   Router    = 7;
 }
