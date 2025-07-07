@@ -184,5 +184,6 @@ func (d *Etcd) keepAlive(cls domain.INode, ttl int64, keep <-chan *clientv3.Leas
 
 func (d *Etcd) Close() error {
 	close(d.exit)
+	d.Wait()
 	return d.client.Close()
 }

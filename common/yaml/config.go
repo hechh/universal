@@ -45,6 +45,7 @@ type DataConfig struct {
 }
 
 type CommonConfig struct {
+	Env       string `yaml:"env"`
 	SecretKey string `yaml:"secret_key"`
 }
 
@@ -59,7 +60,6 @@ type NodeConfig struct {
 }
 
 type Config struct {
-	Env     string                `yaml:"env"`
 	Mysql   map[int32]*DbConfig   `yaml:"mysql"`
 	Redis   map[int32]*DbConfig   `yaml:"redis"`
 	Mongodb map[int32]*DbConfig   `yaml:"mongodb"`

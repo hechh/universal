@@ -26,8 +26,14 @@ func (r *Router) GetData() *pb.Router {
 }
 
 func (r *Router) SetData(data *pb.Router) domain.IRouter {
-	r.Router = data
-	return r.SetUpdateTime(time.Now().Unix())
+	r.Set(pb.NodeType_NodeTypeBuild, data.Build)
+	r.Set(pb.NodeType_NodeTypeRoom, data.Room)
+	r.Set(pb.NodeType_NodeTypeMatch, data.Match)
+	r.Set(pb.NodeType_NodeTypeDb, data.Db)
+	r.Set(pb.NodeType_NodeTypeGame, data.Game)
+	r.Set(pb.NodeType_NodeTypeGate, data.Gate)
+	r.Set(pb.NodeType_NodeTypeGm, data.Gm)
+	return r
 }
 
 func (r *Router) Get(nodeType pb.NodeType) int32 {
@@ -51,21 +57,30 @@ func (r *Router) Get(nodeType pb.NodeType) int32 {
 }
 
 func (r *Router) Set(nodeType pb.NodeType, nodeId int32) domain.IRouter {
-	switch nodeType {
-	case pb.NodeType_NodeTypeBuild:
-		atomic.StoreInt32(&r.Build, nodeId)
-	case pb.NodeType_NodeTypeDb:
-		atomic.StoreInt32(&r.Db, nodeId)
-	case pb.NodeType_NodeTypeGame:
-		atomic.StoreInt32(&r.Game, nodeId)
-	case pb.NodeType_NodeTypeGate:
-		atomic.StoreInt32(&r.Gate, nodeId)
-	case pb.NodeType_NodeTypeRoom:
-		atomic.StoreInt32(&r.Room, nodeId)
-	case pb.NodeType_NodeTypeMatch:
-		atomic.StoreInt32(&r.Match, nodeId)
-	case pb.NodeType_NodeTypeGm:
-		atomic.StoreInt32(&r.Gm, nodeId)
+	if nodeId > 0 {
+		switch nodeType {
+		case pb.NodeType_NodeTypeBuild:
+			atomic.StoreInt32(&r.Build, nodeId)
+			r.SetUpdateTime(time.Now().Unix())
+		case pb.NodeType_NodeTypeDb:
+			atomic.StoreInt32(&r.Db, nodeId)
+			r.SetUpdateTime(time.Now().Unix())
+		case pb.NodeType_NodeTypeGame:
+			atomic.StoreInt32(&r.Game, nodeId)
+			r.SetUpdateTime(time.Now().Unix())
+		case pb.NodeType_NodeTypeGate:
+			atomic.StoreInt32(&r.Gate, nodeId)
+			r.SetUpdateTime(time.Now().Unix())
+		case pb.NodeType_NodeTypeRoom:
+			atomic.StoreInt32(&r.Room, nodeId)
+			r.SetUpdateTime(time.Now().Unix())
+		case pb.NodeType_NodeTypeMatch:
+			atomic.StoreInt32(&r.Match, nodeId)
+			r.SetUpdateTime(time.Now().Unix())
+		case pb.NodeType_NodeTypeGm:
+			atomic.StoreInt32(&r.Gm, nodeId)
+			r.SetUpdateTime(time.Now().Unix())
+		}
 	}
-	return r.SetUpdateTime(time.Now().Unix())
+	return r
 }

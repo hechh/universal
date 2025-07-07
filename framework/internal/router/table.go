@@ -68,25 +68,23 @@ func (t *Table) Close() {
 }
 
 func (t *Table) run() {
-	safe.Go(func() {
-		tt := time.NewTicker(time.Duration(t.ttl/2) * time.Second)
-		defer tt.Stop()
+	tt := time.NewTicker(time.Duration(t.ttl/2) * time.Second)
+	defer tt.Stop()
 
-		for {
-			select {
-			case <-tt.C:
-				now := time.Now().Unix()
-				dels := []uint64{}
-				t.Walk(func(id uint64, rr *Router) bool {
-					if t.ttl >= now-rr.GetUpdateTime() {
-						dels = append(dels, id)
-					}
-					return true
-				})
-				t.Remove(dels...)
-			case <-t.exit:
-				return
-			}
+	for {
+		select {
+		case <-tt.C:
+			now := time.Now().Unix()
+			dels := []uint64{}
+			t.Walk(func(id uint64, rr *Router) bool {
+				if t.ttl >= now-rr.GetUpdateTime() {
+					dels = append(dels, id)
+				}
+				return true
+			})
+			t.Remove(dels...)
+		case <-t.exit:
+			return
 		}
-	})
+	}
 }
