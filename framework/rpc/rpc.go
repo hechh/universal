@@ -1,4 +1,4 @@
-package cmd
+package rpc
 
 import (
 	"strings"
@@ -24,7 +24,7 @@ func Register(nt pb.NodeType, actorName string, actorType uint32) {
 	types[nt][actorName] = actorType
 }
 
-func RegisterCmd(cc pb.CMD, nt pb.NodeType, actorFunc string) {
+func RegisterCmd(nt pb.NodeType, actorFunc string, cc pb.CMD) {
 	cmds[cc] = &CmdInfo{
 		cmd:       cc,
 		nodeType:  nt,
@@ -41,7 +41,7 @@ func NewNodeRouterByCmd(cmd pb.CMD, actorId uint64) *pb.NodeRouter {
 	if !ok {
 		return nil
 	}
-	actorType, ok := vals[api.actorFunc]
+	actorType, ok := vals[prefixString(api.actorFunc, strings.Index(api.actorFunc, "."))]
 	if !ok {
 		return nil
 	}
@@ -57,7 +57,7 @@ func NewNodeRouter(nt pb.NodeType, actorFunc string, actorId uint64) *pb.NodeRou
 	if !ok {
 		return nil
 	}
-	actorType, ok := vals[actorFunc]
+	actorType, ok := vals[prefixString(actorFunc, strings.Index(actorFunc, "."))]
 	if !ok {
 		return nil
 	}
@@ -77,4 +77,11 @@ func ParseNodeRouter(head *pb.Head, actorFuncs ...string) {
 	head.ActorName = actorFunc[:pos]
 	head.FuncName = actorFunc[pos+1:]
 	head.ActorId = (head.Dst.ActorId >> 8)
+}
+
+func prefixString(str string, pos int) string {
+	if pos < 0 || pos > len(str) {
+		return str
+	}
+	return str[:pos]
 }

@@ -20,14 +20,14 @@ func Index[T any](arr []T, pos int, def T) T {
 
 func Prefix[T any](arr []T, pos int) []T {
 	if pos < 0 || pos >= len(arr) {
-		return nil
+		return arr
 	}
 	return arr[:pos]
 }
 
 func Suffix[T any](arr []T, pos int) []T {
 	if pos < 0 || pos >= len(arr) {
-		return nil
+		return arr
 	}
 	return arr[pos:]
 }
