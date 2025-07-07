@@ -99,7 +99,7 @@ func (p *Player) Dispatcher() {
 		}
 
 		switch pack.Head.Dst.NodeType {
-		case pb.NodeType_NodeTypeGate:
+		case pb.NodeType_Gate:
 			rpc.ParseNodeRouter(pack.Head)
 			mlog.Debugf("收到websocket数据包 pack:%v", pack)
 			if err := actor.Send(pack.Head, pack.Body); err != nil {

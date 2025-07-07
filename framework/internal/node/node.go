@@ -18,7 +18,7 @@ type Node struct {
 
 func NewNode(nn *pb.Node) *Node {
 	pools := make(map[pb.NodeType]*pool)
-	for i := pb.NodeType_NodeTypeBegin + 1; i < pb.NodeType_NodeTypeEnd; i++ {
+	for i := pb.NodeType_Begin + 1; i < pb.NodeType_End; i++ {
 		pools[i] = &pool{nodes: make(map[int32]*pb.Node)}
 	}
 	return &Node{pools: pools, self: nn}

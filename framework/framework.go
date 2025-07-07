@@ -11,60 +11,60 @@ import (
 
 func SwapToGate(head *pb.Head, actorFunc string, actorId uint64) *pb.Head {
 	head.Dst, head.Src = head.Src, head.Dst
-	head.Dst = rpc.NewNodeRouter(pb.NodeType_NodeTypeGate, actorFunc, actorId)
+	head.Dst = rpc.NewNodeRouter(pb.NodeType_Gate, actorFunc, actorId)
 	return head
 }
 func SwapToGame(head *pb.Head, actorFunc string, actorId uint64) *pb.Head {
 	head.Dst, head.Src = head.Src, head.Dst
-	head.Dst = rpc.NewNodeRouter(pb.NodeType_NodeTypeGame, actorFunc, actorId)
+	head.Dst = rpc.NewNodeRouter(pb.NodeType_Game, actorFunc, actorId)
 	return head
 }
 func SwapToDb(head *pb.Head, actorFunc string, actorId uint64) *pb.Head {
 	head.Dst, head.Src = head.Src, head.Dst
-	head.Dst = rpc.NewNodeRouter(pb.NodeType_NodeTypeDb, actorFunc, actorId)
+	head.Dst = rpc.NewNodeRouter(pb.NodeType_Db, actorFunc, actorId)
 	return head
 }
 func SwapToGm(head *pb.Head, actorFunc string, actorId uint64) *pb.Head {
 	head.Dst, head.Src = head.Src, head.Dst
-	head.Dst = rpc.NewNodeRouter(pb.NodeType_NodeTypeGm, actorFunc, actorId)
+	head.Dst = rpc.NewNodeRouter(pb.NodeType_Gm, actorFunc, actorId)
 	return head
 }
 func SwapToRoom(head *pb.Head, actorFunc string, actorId uint64) *pb.Head {
 	head.Dst, head.Src = head.Src, head.Dst
-	head.Dst = rpc.NewNodeRouter(pb.NodeType_NodeTypeRoom, actorFunc, actorId)
+	head.Dst = rpc.NewNodeRouter(pb.NodeType_Room, actorFunc, actorId)
 	return head
 }
 func SwapToMatch(head *pb.Head, actorFunc string, actorId uint64) *pb.Head {
 	head.Dst, head.Src = head.Src, head.Dst
-	head.Dst = rpc.NewNodeRouter(pb.NodeType_NodeTypeMatch, actorFunc, actorId)
+	head.Dst = rpc.NewNodeRouter(pb.NodeType_Match, actorFunc, actorId)
 	return head
 }
 func SwapToBuild(head *pb.Head, actorFunc string, actorId uint64) *pb.Head {
 	head.Dst, head.Src = head.Src, head.Dst
-	head.Dst = rpc.NewNodeRouter(pb.NodeType_NodeTypeBuild, actorFunc, actorId)
+	head.Dst = rpc.NewNodeRouter(pb.NodeType_Build, actorFunc, actorId)
 	return head
 }
 
 func SendToGate(head *pb.Head, actorFunc string, actorId uint64, srcs ...interface{}) *pb.Head {
-	return sendTo(head, pb.NodeType_NodeTypeGate, actorFunc, actorId, srcs...)
+	return sendTo(head, pb.NodeType_Gate, actorFunc, actorId, srcs...)
 }
 func SendToGame(head *pb.Head, actorFunc string, actorId uint64, srcs ...interface{}) *pb.Head {
-	return sendTo(head, pb.NodeType_NodeTypeGame, actorFunc, actorId, srcs...)
+	return sendTo(head, pb.NodeType_Game, actorFunc, actorId, srcs...)
 }
 func SendToDb(head *pb.Head, actorFunc string, actorId uint64, srcs ...interface{}) *pb.Head {
-	return sendTo(head, pb.NodeType_NodeTypeDb, actorFunc, actorId, srcs...)
+	return sendTo(head, pb.NodeType_Db, actorFunc, actorId, srcs...)
 }
 func SendToGm(head *pb.Head, actorFunc string, actorId uint64, srcs ...interface{}) *pb.Head {
-	return sendTo(head, pb.NodeType_NodeTypeGm, actorFunc, actorId, srcs...)
+	return sendTo(head, pb.NodeType_Gm, actorFunc, actorId, srcs...)
 }
 func SendToRoom(head *pb.Head, actorFunc string, actorId uint64, srcs ...interface{}) *pb.Head {
-	return sendTo(head, pb.NodeType_NodeTypeRoom, actorFunc, actorId, srcs...)
+	return sendTo(head, pb.NodeType_Room, actorFunc, actorId, srcs...)
 }
 func SendToMatch(head *pb.Head, actorFunc string, actorId uint64, srcs ...interface{}) *pb.Head {
-	return sendTo(head, pb.NodeType_NodeTypeMatch, actorFunc, actorId, srcs...)
+	return sendTo(head, pb.NodeType_Match, actorFunc, actorId, srcs...)
 }
 func SendToBuild(head *pb.Head, actorFunc string, actorId uint64, srcs ...interface{}) *pb.Head {
-	return sendTo(head, pb.NodeType_NodeTypeBuild, actorFunc, actorId, srcs...)
+	return sendTo(head, pb.NodeType_Build, actorFunc, actorId, srcs...)
 }
 
 func sendTo(head *pb.Head, nt pb.NodeType, actorFunc string, actorId uint64, srcs ...interface{}) *pb.Head {
@@ -84,25 +84,25 @@ func sendTo(head *pb.Head, nt pb.NodeType, actorFunc string, actorId uint64, src
 }
 
 func NewToGate(uid uint64, actorFunc string, actorId uint64, srcs ...interface{}) *pb.Head {
-	return newTo(uid, pb.NodeType_NodeTypeGate, actorFunc, actorId, srcs...)
+	return newTo(uid, pb.NodeType_Gate, actorFunc, actorId, srcs...)
 }
 func NewToDb(uid uint64, actorFunc string, actorId uint64, srcs ...interface{}) *pb.Head {
-	return newTo(uid, pb.NodeType_NodeTypeDb, actorFunc, actorId, srcs...)
+	return newTo(uid, pb.NodeType_Db, actorFunc, actorId, srcs...)
 }
 func NewToGame(uid uint64, actorFunc string, actorId uint64, srcs ...interface{}) *pb.Head {
-	return newTo(uid, pb.NodeType_NodeTypeGame, actorFunc, actorId, srcs...)
+	return newTo(uid, pb.NodeType_Game, actorFunc, actorId, srcs...)
 }
 func NewToMatch(uid uint64, actorFunc string, actorId uint64, srcs ...interface{}) *pb.Head {
-	return newTo(uid, pb.NodeType_NodeTypeMatch, actorFunc, actorId, srcs...)
+	return newTo(uid, pb.NodeType_Match, actorFunc, actorId, srcs...)
 }
 func NewToRoom(uid uint64, actorFunc string, actorId uint64, srcs ...interface{}) *pb.Head {
-	return newTo(uid, pb.NodeType_NodeTypeRoom, actorFunc, actorId, srcs...)
+	return newTo(uid, pb.NodeType_Room, actorFunc, actorId, srcs...)
 }
 func NewToBuild(uid uint64, actorFunc string, actorId uint64, srcs ...interface{}) *pb.Head {
-	return newTo(uid, pb.NodeType_NodeTypeBuild, actorFunc, actorId, srcs...)
+	return newTo(uid, pb.NodeType_Build, actorFunc, actorId, srcs...)
 }
 func NewToGm(uid uint64, actorFunc string, actorId uint64, srcs ...interface{}) *pb.Head {
-	return newTo(uid, pb.NodeType_NodeTypeGm, actorFunc, actorId, srcs...)
+	return newTo(uid, pb.NodeType_Gm, actorFunc, actorId, srcs...)
 }
 
 func newTo(uid uint64, nt pb.NodeType, actorFunc string, actorId uint64, srcs ...interface{}) *pb.Head {

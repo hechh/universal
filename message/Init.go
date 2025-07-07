@@ -6,6 +6,6 @@ import (
 )
 
 func Init() {
-	rpc.Register(pb.NodeType_NodeTypeGate, 0, "Player", "SendToClient", "LoginSuccess")
-	rpc.Register(pb.NodeType_NodeTypeGate, 1, "PlayerMgr", "Kick")
+	rpc.Register(pb.NodeType_Gate, 0, "Player", "SendToClient", "LoginSuccess")
+	rpc.Register(pb.NodeType_Gate, 1, "PlayerMgr", "Kick")
 }

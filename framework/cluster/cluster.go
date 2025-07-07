@@ -148,7 +148,7 @@ func SendToClient(head *pb.Head, msg proto.Message, uids ...uint64) error {
 	}
 	QueryRouter(head.Src)
 	atomic.AddUint32(&head.Reference, 1)
-	head.Dst = &pb.NodeRouter{NodeType: pb.NodeType_NodeTypeGate}
+	head.Dst = &pb.NodeRouter{NodeType: pb.NodeType_Gate}
 	for _, uid := range uids {
 		head.Dst.ActorId = uid
 		if err := Dispatcher(head); err == nil {
@@ -182,7 +182,7 @@ func Dispatcher(head *pb.Head) error {
 	if head.Dst == nil || head.Dst.ActorId <= 0 {
 		return uerror.N(1, int32(pb.ErrorCode_NodeRouterIsNil), "%v", head)
 	}
-	if head.Dst.NodeType >= pb.NodeType_NodeTypeEnd || head.Dst.NodeType <= pb.NodeType_NodeTypeBegin {
+	if head.Dst.NodeType >= pb.NodeType_End || head.Dst.NodeType <= pb.NodeType_Begin {
 		return uerror.N(1, int32(pb.ErrorCode_NodeTypeNotSupported), "%v", head.Dst)
 	}
 	if head.Dst.NodeType == cls.GetSelf().Type {
