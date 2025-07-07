@@ -12,7 +12,7 @@ SERVER_PATH=./server
 
 
 ## 需要编译的服务
-TARGET=client gate
+TARGET=gate
 LINUX=$(TARGET:%=%_linux)
 BUILD=$(TARGET:%=%_build)
 START=$(TARGET:%=%_start)

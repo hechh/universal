@@ -96,8 +96,8 @@ func (d *ActorPool) Send(h *pb.Head, buf []byte) error {
 	return nil
 }
 
-func (d *ActorPool) RegisterTimer(h *pb.Head, ttl time.Duration, times int32) error {
-	return t.Register(d.GetIdPointer(), func() {
+func (d *ActorPool) RegisterTimer(id *uint64, h *pb.Head, ttl time.Duration, times int32) error {
+	return t.Register(id, func() {
 		if err := d.SendMsg(h); err != nil {
 			mlog.Errorf("Actor定时器转发失败: %v", err)
 		}

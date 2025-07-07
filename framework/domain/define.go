@@ -24,7 +24,7 @@ type IActor interface {
 	ParseFunc(interface{})
 	SendMsg(*pb.Head, ...interface{}) error
 	Send(*pb.Head, []byte) error
-	RegisterTimer(*pb.Head, time.Duration, int32) error
+	RegisterTimer(*uint64, *pb.Head, time.Duration, int32) error
 }
 
 type INode interface {
