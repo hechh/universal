@@ -40,7 +40,8 @@ func (d *Actor) ParseFunc(tt interface{}) {
 		d.funcs = make(map[string]*funcs.Method)
 		for i := 0; i < vv.NumMethod(); i++ {
 			m := vv.Method(i)
-			if ff := funcs.NewMethod(m); ff != nil {
+			ff := funcs.NewMethod(d, m)
+			if ff != nil {
 				d.funcs[m.Name] = ff
 			}
 		}

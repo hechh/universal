@@ -22,7 +22,15 @@ func (r *Router) SetUpdateTime(now int64) domain.IRouter {
 }
 
 func (r *Router) GetData() *pb.Router {
-	return r.Router
+	return &pb.Router{
+		Build: atomic.LoadInt32(&r.Build),
+		Room:  atomic.LoadInt32(&r.Room),
+		Match: atomic.LoadInt32(&r.Match),
+		Db:    atomic.LoadInt32(&r.Db),
+		Game:  atomic.LoadInt32(&r.Game),
+		Gate:  atomic.LoadInt32(&r.Gate),
+		Gm:    atomic.LoadInt32(&r.Gm),
+	}
 }
 
 func (r *Router) SetData(data *pb.Router) domain.IRouter {

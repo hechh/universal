@@ -95,7 +95,7 @@ func (d *ActorMgr) ParseFunc(rr interface{}) {
 		d.funcs = make(map[string]*funcs.Method)
 		for i := 0; i < vv.NumMethod(); i++ {
 			m := vv.Method(i)
-			if ff := funcs.NewMethod(m); ff != nil {
+			if ff := funcs.NewMethod(d, m); ff != nil {
 				d.funcs[m.Name] = ff
 			}
 		}

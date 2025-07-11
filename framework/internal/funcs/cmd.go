@@ -1,10 +1,9 @@
-package cmd
+package funcs
 
 import (
 	"hash/crc32"
 	"strings"
 	"universal/common/pb"
-	"universal/library/util"
 )
 
 var (
@@ -21,36 +20,35 @@ type ApiInfo struct {
 	id        uint32
 }
 
-func get(actorFunc string) uint32 {
+func getValue(actorFunc string) uint32 {
 	if _, ok := names[actorFunc]; ok {
 		names[actorFunc] = crc32.ChecksumIEEE([]byte(actorFunc))
 	}
 	return names[actorFunc]
 }
 
-func Get(val uint32) *ApiInfo {
-	return apis[val]
-}
-
-func GetByCmd(cmd pb.CMD) *ApiInfo {
-	return cmds[cmd]
-}
-
-func Register(nt pb.NodeType, actorType uint32, actorFunc string, cmdargs ...pb.CMD) {
-	item := &ApiInfo{
-		cmd:       util.Index[pb.CMD](cmdargs, 0, pb.CMD_CMD_NONE),
-		nodeType:  nt,
-		actorType: actorType,
-		actorFunc: actorFunc,
-		id:        get(actorFunc),
+func Register(nt pb.NodeType, actorFunc string, actorType uint32, cmdargs ...pb.CMD) {
+	iid := getValue(actorFunc)
+	item, ok := apis[iid]
+	if !ok {
+		item = &ApiInfo{
+			nodeType:  nt,
+			actorType: actorType,
+			actorFunc: actorFunc,
+			id:        iid,
+		}
+		apis[iid] = item
 	}
-	if item.cmd != pb.CMD_CMD_NONE {
-		cmds[item.cmd] = item
+	if len(cmdargs) > 0 {
+		item.cmd = cmdargs[0]
 	}
-	apis[names[actorFunc]] = item
 }
 
-func NewNodeRouter(api *ApiInfo, actorId uint64) *pb.NodeRouter {
+func NewNodeRouterByCmd(cmd pb.CMD, actorId uint64) *pb.NodeRouter {
+	api, ok := cmds[cmd]
+	if !ok {
+		return nil
+	}
 	return &pb.NodeRouter{NodeType: api.nodeType, ActorFunc: api.id, ActorId: actorId}
 }
 
@@ -60,7 +58,7 @@ func ParseNodeRouter(head *pb.Head, actorFuncs ...string) {
 	if head.Dst.ActorFunc > 0 {
 		api, ok = apis[head.Dst.ActorFunc]
 	} else if len(actorFuncs) > 0 {
-		api, ok = apis[get(actorFuncs[0])]
+		api, ok = apis[getValue(actorFuncs[0])]
 	}
 	if ok {
 		pos := strings.Index(api.actorFunc, ".")

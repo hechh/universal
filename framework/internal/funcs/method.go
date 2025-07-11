@@ -12,13 +12,34 @@ import (
 	"github.com/golang/protobuf/proto"
 )
 
+const (
+	HEAD_FLAG      = 1 << 0
+	REQ_FLAG       = 1 << 1
+	RSP_FLAG       = 1 << 2
+	BYTES_FLAG     = 1 << 3
+	INTERFACE_FLAG = 1 << 4
+	GOB_FLAG       = 1 << 5
+)
+
+var (
+	headType      = reflect.TypeOf((*pb.Head)(nil))
+	reqType       = reflect.TypeOf((*proto.Message)(nil)).Elem()
+	rspType       = reflect.TypeOf((*domain.IRspProto)(nil)).Elem()
+	bytesType     = reflect.TypeOf((*[]byte)(nil)).Elem()
+	errorType     = reflect.TypeOf((*error)(nil)).Elem()
+	interfaceType = reflect.TypeOf((*interface{})(nil)).Elem()
+	nilValue      = reflect.ValueOf((*error)(nil))
+)
+
 type Method struct {
 	reflect.Method
 	ins  int
 	flag uint32
 }
 
-func NewMethod(m reflect.Method) *Method {
+func NewMethod(act domain.IActor, m reflect.Method) *Method {
+	Register(self.Type, act.GetActorName()+"."+m.Name, act.GetActorType())
+
 	ins, outs := m.Type.NumIn(), m.Type.NumOut()
 	if outs > 1 || outs == 1 && !m.Type.Out(0).Implements(errorType) {
 		return nil
@@ -33,10 +54,8 @@ func NewMethod(m reflect.Method) *Method {
 			flag = flag | REQ_FLAG
 		} else if m.Type.In(i).AssignableTo(bytesType) {
 			flag = flag | BYTES_FLAG
-			/*
-				} else if m.Type.In(i) == interfaceType {
-					flag = flag | INTERFACE_FLAG
-			*/
+		} else if m.Type.In(i) == interfaceType {
+			flag = flag | INTERFACE_FLAG
 		} else {
 			flag = flag | GOB_FLAG
 		}
@@ -85,7 +104,7 @@ func (m *Method) Rpc(rval reflect.Value, head *pb.Head, buf []byte) func() {
 				mlog.Errorf("参数解析失败 %v", head)
 				return
 			}
-		case (HEAD_FLAG | BYTES_FLAG), (BYTES_FLAG):
+		case (HEAD_FLAG | BYTES_FLAG), (BYTES_FLAG), (HEAD_FLAG | INTERFACE_FLAG), (INTERFACE_FLAG):
 			params[pos] = reflect.ValueOf(buf)
 		default:
 			if err := encode.Decode(buf, m.Method, params, pos); err != nil {
