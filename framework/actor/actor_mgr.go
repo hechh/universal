@@ -73,6 +73,10 @@ func (d *ActorMgr) Stop() {
 	}
 }
 
+func (a *ActorMgr) GetActorType() uint32 {
+	return 0
+}
+
 func (d *ActorMgr) GetActorName() string {
 	return d.name
 }
@@ -102,14 +106,14 @@ func (d *ActorMgr) ParseFunc(rr interface{}) {
 
 func (d *ActorMgr) SendMsg(h *pb.Head, args ...interface{}) error {
 	if _, ok := d.funcs[h.FuncName]; !ok {
-		return uerror.N(1, -1, "%v", h)
+		return uerror.New(1, -1, "%v", h)
 	}
 	switch h.SendType {
 	case pb.SendType_POINT:
 		if act := d.GetActor(h.ActorId); act != nil {
 			return act.SendMsg(h, args...)
 		} else {
-			return uerror.N(1, -1, "Actor不存在: %v", h)
+			return uerror.New(1, -1, "Actor不存在: %v", h)
 		}
 	case pb.SendType_BROADCAST:
 		d.mutex.RLock()
@@ -120,21 +124,21 @@ func (d *ActorMgr) SendMsg(h *pb.Head, args ...interface{}) error {
 			}
 		}
 	default:
-		return uerror.N(1, -1, "%v", h)
+		return uerror.New(1, -1, "%v", h)
 	}
 	return nil
 }
 
 func (d *ActorMgr) Send(h *pb.Head, buf []byte) error {
 	if _, ok := d.funcs[h.FuncName]; !ok {
-		return uerror.N(1, -1, "%v", h)
+		return uerror.New(1, -1, "%v", h)
 	}
 	switch h.SendType {
 	case pb.SendType_POINT:
 		if act := d.GetActor(h.ActorId); act != nil {
 			return act.Send(h, buf)
 		} else {
-			return uerror.N(1, -1, "Actor不存在: %v", h)
+			return uerror.New(1, -1, "Actor不存在: %v", h)
 		}
 	case pb.SendType_BROADCAST:
 		d.mutex.RLock()
@@ -145,7 +149,7 @@ func (d *ActorMgr) Send(h *pb.Head, buf []byte) error {
 			}
 		}
 	default:
-		return uerror.N(1, -1, "%v", h)
+		return uerror.New(1, -1, "%v", h)
 	}
 	return nil
 }

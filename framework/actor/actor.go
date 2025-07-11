@@ -18,6 +18,10 @@ type Actor struct {
 	funcs map[string]*funcs.Method
 }
 
+func (a *Actor) GetActorType() uint32 {
+	return 0
+}
+
 func (a *Actor) GetActorName() string {
 	return a.name
 }
@@ -48,7 +52,7 @@ func (d *Actor) ParseFunc(tt interface{}) {
 func (d *Actor) SendMsg(h *pb.Head, args ...interface{}) error {
 	mm, ok := d.funcs[h.FuncName]
 	if !ok {
-		return uerror.N(1, -1, "%v", h)
+		return uerror.New(1, -1, "%v", h)
 	}
 	d.Push(mm.Call(d.rval, h, args...))
 	return nil
@@ -57,7 +61,7 @@ func (d *Actor) SendMsg(h *pb.Head, args ...interface{}) error {
 func (d *Actor) Send(h *pb.Head, buf []byte) error {
 	mm, ok := d.funcs[h.FuncName]
 	if !ok {
-		return uerror.N(1, -1, "%v", h)
+		return uerror.New(1, -1, "%v", h)
 	}
 	d.Push(mm.Rpc(d.rval, h, buf))
 	return nil

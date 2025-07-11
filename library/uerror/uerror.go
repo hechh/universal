@@ -25,7 +25,7 @@ func (ue *UError) GetMsg() string {
 	return ue.msg
 }
 
-func E(depth int, code int32, err error) *UError {
+func Err(depth int, code int32, err error) *UError {
 	if vv, ok := err.(*UError); ok {
 		return vv
 	}
@@ -34,7 +34,7 @@ func E(depth int, code int32, err error) *UError {
 	return &UError{file: file, line: line, fname: fname, code: code, msg: err.Error()}
 }
 
-func N(depth int, code int32, format string, args ...interface{}) *UError {
+func New(depth int, code int32, format string, args ...interface{}) *UError {
 	pc, file, line, _ := runtime.Caller(depth)
 	fname := runtime.FuncForPC(pc).Name()
 	return &UError{file: file, line: line, fname: fname, code: code, msg: fmt.Sprintf(format, args...)}

@@ -32,7 +32,7 @@ func NewWatcher(cfg *yaml.DataConfig) (*Watcher, error) {
 		MaxCallSendMsgSize:   10 * 1024 * 1024,
 	})
 	if err != nil {
-		return nil, uerror.N(1, -1, "Etcd连接失败: %v", err)
+		return nil, uerror.New(1, -1, "Etcd连接失败: %v", err)
 	}
 	return &Watcher{
 		client: cli,
@@ -52,14 +52,14 @@ func (d *Watcher) Close() error {
 func (d *Watcher) Load(tmps map[string]struct{}) error {
 	rsp, err := d.client.Get(context.Background(), d.topic, clientv3.WithPrefix())
 	if err != nil {
-		return uerror.N(1, -1, "获取注册服务节点失败: %v", err)
+		return uerror.New(1, -1, "获取注册服务节点失败: %v", err)
 	}
 
 	for _, kv := range rsp.Kvs {
 		sheet := path.Base(string(kv.Key))
 		if f, ok := fileMgr[sheet]; ok {
 			if err := f(kv.Value); err != nil {
-				return uerror.N(1, -1, "加载%s配置错误： %v", sheet, err)
+				return uerror.New(1, -1, "加载%s配置错误： %v", sheet, err)
 			}
 			tmps[sheet] = struct{}{}
 

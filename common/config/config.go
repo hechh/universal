@@ -48,10 +48,10 @@ func InitConfig(cpath string, tmps map[string]struct{}) error {
 		}
 		buf, err := ioutil.ReadFile(filename)
 		if err != nil {
-			return uerror.N(1, -1, sheet)
+			return uerror.New(1, -1, sheet)
 		}
 		if err := f(buf); err != nil {
-			return uerror.N(1, -1, "加载%s配置错误： %v", sheet, err)
+			return uerror.New(1, -1, "加载%s配置错误： %v", sheet, err)
 		}
 		if tmps != nil {
 			tmps[sheet] = struct{}{}

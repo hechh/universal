@@ -37,7 +37,7 @@ func GenToken(tt *Token) (string, error) {
 func cb(token *jwt.Token) (interface{}, error) {
 	// 验证签名算法
 	if _, ok := token.Method.(*jwt.SigningMethodHMAC); !ok {
-		return nil, uerror.N(1, -1, "unexpected signing method: %v", token.Header["alg"])
+		return nil, uerror.New(1, -1, "unexpected signing method: %v", token.Header["alg"])
 	}
 	return secretKey, nil
 }
@@ -50,5 +50,5 @@ func ParseToken(tt string) (*Token, error) {
 	if ret, ok := tok.Claims.(*Token); ok && tok.Valid {
 		return ret, nil
 	}
-	return nil, uerror.N(1, -1, "token is invalid")
+	return nil, uerror.New(1, -1, "token is invalid")
 }

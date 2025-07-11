@@ -15,7 +15,7 @@ func GenData() error {
 		// 反射new一个对象
 		ary := manager.NewProto(cfg.FileName, cfg.Name+"Ary")
 		if ary == nil {
-			return uerror.N(1, -1, "new %sAry is nil, %s", cfg.Name, cfg.FileName)
+			return uerror.New(1, -1, "new %sAry is nil, %s", cfg.Name, cfg.FileName)
 		}
 		// 加载xlsx数据
 		for _, vals := range cfg.Rows[3:] {
@@ -52,7 +52,7 @@ func configValue(f *typespec.Config, vals ...string) (interface{}, error) {
 	// 反射new一个对象
 	item := manager.NewProto(f.FileName, f.Name)
 	if item == nil {
-		return nil, uerror.N(1, -1, "new %s is nil", f.Name)
+		return nil, uerror.New(1, -1, "new %s is nil", f.Name)
 	}
 
 	for i, field := range f.FieldList {
@@ -87,7 +87,7 @@ func structValue(f *typespec.Struct, vals ...string) (rets []interface{}, err er
 	for _, val := range vals {
 		item := manager.NewProto(f.FileName, f.Name)
 		if item == nil {
-			return nil, uerror.N(1, -1, "new %s is nil", f.Name)
+			return nil, uerror.New(1, -1, "new %s is nil", f.Name)
 		}
 
 		strs := strings.Split(val, ":")
@@ -97,7 +97,7 @@ func structValue(f *typespec.Struct, vals ...string) (rets []interface{}, err er
 			}
 		} else {
 			if len(strs) < len(f.Converts[strs[0]]) {
-				return nil, uerror.N(1, -1, "%s:%s配置错误: %s", f.FileName, f.Sheet, val)
+				return nil, uerror.New(1, -1, "%s:%s配置错误: %s", f.FileName, f.Sheet, val)
 			}
 			for i, field := range f.Converts[strs[0]] {
 				item.SetFieldByName(field.Name, fieldValue(field, strs[i]))

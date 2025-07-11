@@ -13,12 +13,17 @@ type IRspProto interface {
 	SetHead(*pb.RspHead)
 }
 
-type IActor interface {
+type IAsync interface {
 	GetIdPointer() *uint64
 	GetId() uint64
 	SetId(uint64)
 	Start()
 	Stop()
+}
+
+type IActor interface {
+	IAsync
+	GetActorType() uint32
 	GetActorName() string
 	Register(IActor, ...int)
 	ParseFunc(interface{})

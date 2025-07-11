@@ -22,14 +22,14 @@ func SendMsg(head *pb.Head, args ...interface{}) error {
 	if act, ok := actors[head.ActorName]; ok {
 		return act.SendMsg(head, args...)
 	}
-	return uerror.N(1, -1, "%v", head)
+	return uerror.New(1, -1, "%v", head)
 }
 
 func Send(head *pb.Head, buf []byte) error {
 	if act, ok := actors[head.ActorName]; ok {
 		return act.Send(head, buf)
 	}
-	return uerror.N(1, -1, "%v", head)
+	return uerror.New(1, -1, "%v", head)
 }
 
 func parseName(rr reflect.Type) string {

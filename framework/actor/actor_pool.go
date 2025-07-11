@@ -47,6 +47,10 @@ func (d *ActorPool) Stop() {
 	}
 }
 
+func (a *ActorPool) GetActorType() uint32 {
+	return 0
+}
+
 func (d *ActorPool) GetActorName() string {
 	return d.name
 }
@@ -81,7 +85,7 @@ func (d *ActorPool) ParseFunc(tt interface{}) {
 func (d *ActorPool) SendMsg(h *pb.Head, args ...interface{}) error {
 	mm, ok := d.funcs[h.FuncName]
 	if !ok {
-		return uerror.N(1, -1, "%v", h)
+		return uerror.New(1, -1, "%v", h)
 	}
 	d.pool[h.ActorId%uint64(d.size)].Push(mm.Call(d.rval, h, args...))
 	return nil
@@ -90,7 +94,7 @@ func (d *ActorPool) SendMsg(h *pb.Head, args ...interface{}) error {
 func (d *ActorPool) Send(h *pb.Head, buf []byte) error {
 	mm, ok := d.funcs[h.FuncName]
 	if !ok {
-		return uerror.N(1, -1, "%v", h)
+		return uerror.New(1, -1, "%v", h)
 	}
 	d.pool[h.ActorId%uint64(d.size)].Push(mm.Rpc(d.rval, h, buf))
 	return nil

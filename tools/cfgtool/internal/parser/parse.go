@@ -45,7 +45,7 @@ func parseFile(filename string) error {
 			fmt.Printf("%s没有定义生成表\n", filename)
 			return nil
 		}
-		return uerror.N(1, -1, "获取生成表失败:%s", err.Error())
+		return uerror.New(1, -1, "获取生成表失败:%s", err.Error())
 	}
 	file := strings.TrimSuffix(path.Base(filename), path.Ext(filename))
 	defaultFile := path.Base(file)
@@ -65,14 +65,14 @@ func parseFile(filename string) error {
 			case "@enum":
 				datas, err := fp.GetRows(strs[1])
 				if err != nil {
-					return uerror.N(1, -1, "获取枚举数据失败:%s", err.Error())
+					return uerror.New(1, -1, "获取枚举数据失败:%s", err.Error())
 				}
 				parseEnum(datas, util.Index[string](rules, 1, defaultFile), strs[1])
 			case "@struct":
 				ones := strings.Split(strs[1], ":")
 				datas, err := fp.GetRows(ones[0])
 				if err != nil {
-					return uerror.N(1, -1, "获取结构数据失败:%s", err.Error())
+					return uerror.New(1, -1, "获取结构数据失败:%s", err.Error())
 				}
 				st := manager.GetOrNewStruct(ones[1])
 				st.Set(util.Index[string](rules, 1, defaultFile), ones[0], datas)
@@ -80,7 +80,7 @@ func parseFile(filename string) error {
 				ones := strings.Split(strs[1], ":")
 				datas, err := fp.GetRows(ones[0])
 				if err != nil {
-					return uerror.N(1, -1, "获取结构数据失败:%s", err.Error())
+					return uerror.New(1, -1, "获取结构数据失败:%s", err.Error())
 				}
 				cfg := manager.GetOrNewConfig(ones[1])
 				cfg.Set(util.Index[string](rules, 1, defaultFile), ones[0], datas, util.Suffix[string](strs, 2))

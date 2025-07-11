@@ -96,7 +96,7 @@ func LoadAndParse(filename string, nodeType pb.NodeType, nodeId int32) (cfg *Con
 	if srvCfg = GetNodeConfig(cfg, nodeType, nodeId); srvCfg != nil {
 		nn = GetNode(srvCfg, nodeType, nodeId)
 	} else {
-		err = uerror.N(1, int32(pb.ErrorCode_NodeConfigNotFound), "%s(%d)", nodeType, nodeId)
+		err = uerror.New(1, -1, "%s(%d)", nodeType, nodeId)
 	}
 	return
 }

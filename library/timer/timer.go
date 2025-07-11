@@ -1,12 +1,12 @@
 package timer
 
 import (
+	"fmt"
 	"sort"
 	"sync/atomic"
 	"time"
 	"universal/library/queue"
 	"universal/library/safe"
-	"universal/library/uerror"
 )
 
 type Task struct {
@@ -60,10 +60,10 @@ func NewTimer(tick int64) *Timer {
 func (d *Timer) Register(taskId *uint64, f func(), ttl time.Duration, times int32) error {
 	tt := int64(ttl / time.Millisecond)
 	if tt>>d.head.shift <= 0 {
-		return uerror.N(1, -1, "小于定时器最小时间间隔:%dms", 1<<d.head.shift)
+		return fmt.Errorf("小于定时器最小时间间隔:%dms", 1<<d.head.shift)
 	}
 	if (tt >> d.tail.shift) > d.tail.mask {
-		return uerror.N(1, -1, "定时器超出最大时间范围:%dms", d.tail.shift)
+		return fmt.Errorf("定时器超出最大时间范围:%dms", d.tail.shift)
 	}
 	d.tasks.Push(&Task{
 		taskId: taskId,

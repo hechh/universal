@@ -33,22 +33,22 @@ message NodeRouter {
   NodeType NodeType  = 1;
   int32    NodeId    = 2;
   uint32   ActorFunc = 3;
-  uint64   ActorId   = 5;
-  Router   Router    = 7;
+  uint64   ActorId   = 4;
+  Router   Router    = 5;
 }
 
 message Head {
-  NodeRouter Src       = 1;
-  NodeRouter Dst       = 2;
-  uint64     Uid       = 3;
-  string     ActorName = 5;
-  string     FuncName  = 6;
-  uint64     ActorId   = 4;
-  uint32     Seq       = 7;
-  uint32     Cmd       = 8;
-  uint32     Reference = 9;
-  string     Reply     = 10;
-  SendType   SendType  = 11;
+  SendType   SendType  = 1;
+  NodeRouter Src       = 2;
+  NodeRouter Dst       = 3;
+  string     ActorName = 4;
+  string     FuncName  = 5;
+  uint64     ActorId   = 6;
+  uint64     Uid       = 7;
+  uint32     Seq       = 8;
+  uint32     Cmd       = 9;
+  uint32     Reference = 10;
+  string     Reply     = 11;
 }
 
 message Packet {

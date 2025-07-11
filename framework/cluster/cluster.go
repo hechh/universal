@@ -93,7 +93,7 @@ func Broadcast(head *pb.Head, args ...interface{}) error {
 	QueryRouter(head.Dst, head.Src)
 	buf, err := encode.Marshal(args...)
 	if err != nil {
-		return uerror.E(1, int32(pb.ErrorCode_ProtoMarshalFailed), err)
+		return uerror.Err(1, int32(pb.ErrorCode_ProtoMarshalFailed), err)
 	}
 	return buss.Broadcast(head, buf)
 }
@@ -106,7 +106,7 @@ func Send(head *pb.Head, args ...interface{}) error {
 	atomic.AddUint32(&head.Reference, 1)
 	buf, err := encode.Marshal(args...)
 	if err != nil {
-		return uerror.E(1, int32(pb.ErrorCode_ProtoMarshalFailed), err)
+		return uerror.Err(1, int32(pb.ErrorCode_ProtoMarshalFailed), err)
 	}
 	return buss.Send(head, buf)
 }
@@ -118,7 +118,7 @@ func Request(head *pb.Head, msg interface{}, rsp proto.Message) error {
 	QueryRouter(head.Dst, head.Src)
 	buf, err := encode.Marshal(msg)
 	if err != nil {
-		return uerror.E(1, int32(pb.ErrorCode_ProtoMarshalFailed), err)
+		return uerror.Err(1, int32(pb.ErrorCode_ProtoMarshalFailed), err)
 	}
 	return buss.Request(head, buf, rsp)
 }
@@ -127,7 +127,7 @@ func Response(head *pb.Head, msg interface{}) error {
 	QueryRouter(head.Dst, head.Src)
 	buf, err := encode.Marshal(msg)
 	if err != nil {
-		return uerror.E(1, int32(pb.ErrorCode_ProtoMarshalFailed), err)
+		return uerror.Err(1, int32(pb.ErrorCode_ProtoMarshalFailed), err)
 	}
 	return buss.Response(head, buf)
 }
@@ -135,7 +135,7 @@ func Response(head *pb.Head, msg interface{}) error {
 func SendToClient(head *pb.Head, msg proto.Message, uids ...uint64) error {
 	buf, err := encode.Marshal(msg)
 	if err != nil {
-		return uerror.E(1, int32(pb.ErrorCode_ProtoMarshalFailed), err)
+		return uerror.Err(1, int32(pb.ErrorCode_ProtoMarshalFailed), err)
 	}
 	if head.Uid > 0 {
 		uids = append(uids, head.Uid)
@@ -148,7 +148,7 @@ func SendToClient(head *pb.Head, msg proto.Message, uids ...uint64) error {
 	}
 	QueryRouter(head.Src)
 	atomic.AddUint32(&head.Reference, 1)
-	head.Dst = &pb.NodeRouter{NodeType: pb.NodeType_NodeTypeGate}
+	head.Dst = &pb.NodeRouter{Type: pb.NodeType_NodeTypeGate}
 	for _, uid := range uids {
 		head.Dst.ActorId = uid
 		if err := Dispatcher(head); err == nil {
@@ -180,29 +180,29 @@ func SendResponse(head *pb.Head, rsp proto.Message) error {
 
 func Dispatcher(head *pb.Head) error {
 	if head.Dst == nil || head.Dst.ActorId <= 0 {
-		return uerror.N(1, int32(pb.ErrorCode_NodeRouterIsNil), "%v", head)
+		return uerror.New(1, int32(pb.ErrorCode_NodeRouterIsNil), "%v", head)
 	}
-	if head.Dst.NodeType >= pb.NodeType_NodeTypeEnd || head.Dst.NodeType <= pb.NodeType_NodeTypeBegin {
-		return uerror.N(1, int32(pb.ErrorCode_NodeTypeNotSupported), "%v", head.Dst)
+	if head.Dst.Type >= pb.NodeType_NodeTypeEnd || head.Dst.Type <= pb.NodeType_NodeTypeBegin {
+		return uerror.New(1, int32(pb.ErrorCode_NodeTypeNotSupported), "%v", head.Dst)
 	}
-	if head.Dst.NodeType == cls.GetSelf().Type {
-		return uerror.N(1, int32(pb.ErrorCode_NodeTypeInvalid), "%v", head.Dst)
+	if head.Dst.Type == cls.GetSelf().Type {
+		return uerror.New(1, int32(pb.ErrorCode_NodeTypeInvalid), "%v", head.Dst)
 	}
-	if head.Dst.NodeId > 0 {
-		if cls.Get(head.Dst.NodeType, head.Dst.NodeId) != nil {
+	if head.Dst.Id > 0 {
+		if cls.Get(head.Dst.Type, head.Dst.Id) != nil {
 			return nil
 		}
-		return uerror.N(1, int32(pb.ErrorCode_NodeNotFound), "%v", head.Dst)
+		return uerror.New(1, int32(pb.ErrorCode_NodeNotFound), "%v", head.Dst)
 	}
-	if nodeId := tab.Get(head.Dst.ActorId).Get(head.Dst.NodeType); nodeId > 0 {
-		if cls.Get(head.Dst.NodeType, nodeId) != nil {
-			head.Dst.NodeId = nodeId
+	if nodeId := tab.Get(head.Dst.ActorId).Get(head.Dst.Type); nodeId > 0 {
+		if cls.Get(head.Dst.Type, nodeId) != nil {
+			head.Dst.Id = nodeId
 			return nil
 		}
 	}
-	if nn := cls.Random(head.Dst.NodeType, head.Dst.ActorId); nn != nil {
-		head.Dst.NodeId = nn.Id
+	if nn := cls.Random(head.Dst.Type, head.Dst.ActorId); nn != nil {
+		head.Dst.Id = nn.Id
 		return nil
 	}
-	return uerror.N(1, int32(pb.ErrorCode_NodeNotFound), "%v", head.Dst)
+	return uerror.New(1, int32(pb.ErrorCode_NodeNotFound), "%v", head.Dst)
 }

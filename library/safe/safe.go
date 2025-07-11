@@ -5,14 +5,6 @@ import (
 	"universal/library/mlog"
 )
 
-/*
-var catch func(string, ...interface{})
-
-func Init(cb func(string, ...interface{})) {
-	catch = cb
-}
-*/
-
 func Recover(f func()) {
 	defer func() {
 		if err := recover(); err != nil {
