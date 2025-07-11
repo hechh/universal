@@ -33,6 +33,10 @@ func NewMethod(m reflect.Method) *Method {
 			flag = flag | REQ_FLAG
 		} else if m.Type.In(i).AssignableTo(bytesType) {
 			flag = flag | BYTES_FLAG
+			/*
+				} else if m.Type.In(i) == interfaceType {
+					flag = flag | INTERFACE_FLAG
+			*/
 		} else {
 			flag = flag | GOB_FLAG
 		}

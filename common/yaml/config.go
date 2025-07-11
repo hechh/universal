@@ -45,6 +45,7 @@ type DataConfig struct {
 }
 
 type CommonConfig struct {
+	Env       string `yaml:"env"`
 	SecretKey string `yaml:"secret_key"`
 }
 
@@ -59,7 +60,6 @@ type NodeConfig struct {
 }
 
 type Config struct {
-	Env     string                `yaml:"env"`
 	Mysql   map[int32]*DbConfig   `yaml:"mysql"`
 	Redis   map[int32]*DbConfig   `yaml:"redis"`
 	Mongodb map[int32]*DbConfig   `yaml:"mongodb"`
@@ -103,21 +103,21 @@ func LoadAndParse(filename string, nodeType pb.NodeType, nodeId int32) (cfg *Con
 
 func GetNodeConfig(cfg *Config, nodeType pb.NodeType, nodeId int32) *NodeConfig {
 	switch nodeType {
-	case pb.NodeType_NodeTypeGate:
+	case pb.NodeType_Gate:
 		return cfg.Gate[nodeId]
-	case pb.NodeType_NodeTypeRoom:
+	case pb.NodeType_Room:
 		return cfg.Room[nodeId]
-	case pb.NodeType_NodeTypeMatch:
+	case pb.NodeType_Match:
 		return cfg.Match[nodeId]
-	case pb.NodeType_NodeTypeDb:
+	case pb.NodeType_Db:
 		return cfg.Db[nodeId]
-	case pb.NodeType_NodeTypeBuild:
+	case pb.NodeType_Build:
 		return cfg.Build[nodeId]
-	case pb.NodeType_NodeTypeGame:
+	case pb.NodeType_Game:
 		return cfg.Game[nodeId]
-	case pb.NodeType_NodeTypeGm:
+	case pb.NodeType_Gm:
 		return cfg.Gm[nodeId]
-	case pb.NodeType_NodeTypeClient:
+	case pb.NodeType_Client:
 		return cfg.Client[nodeId]
 	}
 	return nil

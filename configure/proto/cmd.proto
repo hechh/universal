@@ -5,5 +5,8 @@ package universal;
 option go_package = "universal/common/pb";
 
 enum CMD {
-  CMD_NONE = 0;
+  CMD_NONE       = 0;
+  CMD_LOGIN_REQ  = 1;
+  CMD_LOGOUT_REQ = 2;
+  CMD_HEART_REQ  = 3;
 }

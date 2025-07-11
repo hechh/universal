@@ -19,7 +19,7 @@ func main() {
 	flag.Parse()
 
 	// 加载配置
-	cfg, srvCfg, nn, err := yaml.LoadAndParse(conf, pb.NodeType_NodeTypeGate, int32(nodeId))
+	cfg, srvCfg, nn, err := yaml.LoadAndParse(conf, pb.NodeType_Gate, int32(nodeId))
 	if err != nil {
 		panic(err)
 	}

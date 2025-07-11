@@ -22,7 +22,7 @@ func main() {
 	flag.StringVar(&config, "config", "config.yaml", "配置文件目录")
 	flag.Parse()
 
-	cfg, err := yaml.NewConfig(config)
+	cfg, err := yaml.Load(config)
 	if err != nil {
 		panic(err)
 	}

@@ -101,7 +101,7 @@ func (d *Nats) Broadcast(head *pb.Head, msg []byte) error {
 	if err != nil {
 		return err
 	}
-	return d.client.Publish(d.broadChannel(head.Dst.Type), msgBuf)
+	return d.client.Publish(d.broadChannel(head.Dst.NodeType), msgBuf)
 }
 
 func (d *Nats) Send(head *pb.Head, msg []byte) error {
@@ -109,7 +109,7 @@ func (d *Nats) Send(head *pb.Head, msg []byte) error {
 	if err != nil {
 		return err
 	}
-	return d.client.Publish(d.sendChannel(head.Dst.Type, head.Dst.Id), msgBuf)
+	return d.client.Publish(d.sendChannel(head.Dst.NodeType, head.Dst.NodeId), msgBuf)
 }
 
 func (d *Nats) Request(head *pb.Head, req []byte, rsp proto.Message) error {
@@ -117,7 +117,7 @@ func (d *Nats) Request(head *pb.Head, req []byte, rsp proto.Message) error {
 	if err != nil {
 		return err
 	}
-	resp, err := d.client.Request(d.replyChannel(head.Dst.Type, head.Dst.Id), msgBuf, 3000*time.Millisecond)
+	resp, err := d.client.Request(d.replyChannel(head.Dst.NodeType, head.Dst.NodeId), msgBuf, 3000*time.Millisecond)
 	if err != nil {
 		return err
 	}

@@ -31,7 +31,7 @@ func (d *Frame) Decode(buf []byte, msg *pb.Packet) error {
 	// 确当路由节点
 	msg.Head = &pb.Head{
 		Uid: uid,
-		Src: rpc.NewNodeRouter(pb.NodeType_NodeTypeGate, "Player.SendToClient", uid),
+		Src: rpc.NewNodeRouter(pb.NodeType_Gate, "Player.SendToClient", uid),
 		Dst: rpc.NewNodeRouterByCmd(pb.CMD(cmd), routeId),
 		Cmd: cmd,
 		Seq: seq,
@@ -57,15 +57,3 @@ func (d *Frame) Encode(pack *pb.Packet, buf []byte) error {
 	copy(buf[pos:], pack.Body)
 	return nil
 }
-
-/*
-type WsPacket struct {
-	Cmd     uint32 // 消息id
-	Uid     uint64 // 玩家uid
-	RouteId uint64 // 路由 id
-	Seq     uint32 // 序列号
-	Version uint32 // 版本号
-	Extra   uint32 // 扩展字段
-	Body    []byte // 消息体
-}
-*/

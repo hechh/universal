@@ -148,7 +148,7 @@ func SendToClient(head *pb.Head, msg proto.Message, uids ...uint64) error {
 	}
 	QueryRouter(head.Src)
 	atomic.AddUint32(&head.Reference, 1)
-	head.Dst = &pb.NodeRouter{Type: pb.NodeType_NodeTypeGate}
+	head.Dst = &pb.NodeRouter{NodeType: pb.NodeType_Gate}
 	for _, uid := range uids {
 		head.Dst.ActorId = uid
 		if err := Dispatcher(head); err == nil {
@@ -182,26 +182,26 @@ func Dispatcher(head *pb.Head) error {
 	if head.Dst == nil || head.Dst.ActorId <= 0 {
 		return uerror.New(1, int32(pb.ErrorCode_NodeRouterIsNil), "%v", head)
 	}
-	if head.Dst.Type >= pb.NodeType_NodeTypeEnd || head.Dst.Type <= pb.NodeType_NodeTypeBegin {
+	if head.Dst.NodeType >= pb.NodeType_End || head.Dst.NodeType <= pb.NodeType_Begin {
 		return uerror.New(1, int32(pb.ErrorCode_NodeTypeNotSupported), "%v", head.Dst)
 	}
-	if head.Dst.Type == cls.GetSelf().Type {
+	if head.Dst.NodeType == cls.GetSelf().Type {
 		return uerror.New(1, int32(pb.ErrorCode_NodeTypeInvalid), "%v", head.Dst)
 	}
-	if head.Dst.Id > 0 {
-		if cls.Get(head.Dst.Type, head.Dst.Id) != nil {
+	if head.Dst.NodeId > 0 {
+		if cls.Get(head.Dst.NodeType, head.Dst.NodeId) != nil {
 			return nil
 		}
 		return uerror.New(1, int32(pb.ErrorCode_NodeNotFound), "%v", head.Dst)
 	}
-	if nodeId := tab.Get(head.Dst.ActorId).Get(head.Dst.Type); nodeId > 0 {
-		if cls.Get(head.Dst.Type, nodeId) != nil {
-			head.Dst.Id = nodeId
+	if nodeId := tab.Get(head.Dst.ActorId).Get(head.Dst.NodeType); nodeId > 0 {
+		if cls.Get(head.Dst.NodeType, nodeId) != nil {
+			head.Dst.NodeId = nodeId
 			return nil
 		}
 	}
-	if nn := cls.Random(head.Dst.Type, head.Dst.ActorId); nn != nil {
-		head.Dst.Id = nn.Id
+	if nn := cls.Random(head.Dst.NodeType, head.Dst.ActorId); nn != nil {
+		head.Dst.NodeId = nn.Id
 		return nil
 	}
 	return uerror.New(1, int32(pb.ErrorCode_NodeNotFound), "%v", head.Dst)

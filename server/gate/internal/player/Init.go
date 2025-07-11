@@ -10,7 +10,9 @@ import (
 	"universal/server/gate/internal/token"
 )
 
-var mgr *PlayerMgr = &PlayerMgr{}
+var (
+	mgr = &PlayerMgr{}
+)
 
 func Init(cfg *yaml.Config, srvcfg *yaml.NodeConfig) error {
 	token.Init(cfg.Common.SecretKey)
