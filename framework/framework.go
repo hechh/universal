@@ -2,11 +2,23 @@ package framework
 
 import (
 	"universal/common/pb"
+	"universal/common/yaml"
 	"universal/framework/cluster"
+	"universal/framework/internal/funcs"
+	"universal/library/pprof"
 	"universal/library/util"
 
 	"github.com/spf13/cast"
 )
+
+func Init(cfg *yaml.Config, srvCfg *yaml.NodeConfig, nn *pb.Node) error {
+	if err := cluster.Init(cfg, srvCfg, nn); err != nil {
+		return err
+	}
+	funcs.Init(nn, cluster.SendResponse)
+	pprof.Init("localhost", srvCfg.Port+10000)
+	return nil
+}
 
 func CopyToGate(head *pb.Head, actorFunc string, actorId uint64, srcs ...interface{}) *pb.Head {
 	return CopyHead(head, pb.NodeType_Gate, actorFunc, actorId, srcs...)

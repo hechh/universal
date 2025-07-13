@@ -5,6 +5,7 @@ import (
 	"strings"
 	"universal/common/pb"
 	"universal/framework/define"
+	"universal/framework/internal/funcs"
 	"universal/library/timer"
 	"universal/library/uerror"
 )
@@ -38,4 +39,8 @@ func parseName(rr reflect.Type) string {
 		name = name[index+1:]
 	}
 	return name
+}
+
+func NewNodeRouter(actorFunc string, id uint64) *pb.NodeRouter {
+	return funcs.NewNodeRouter(actorFunc, id)
 }

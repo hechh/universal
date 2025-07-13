@@ -23,7 +23,7 @@ func Register(cmd pb.CMD, nt pb.NodeType, actorType uint32, actorName, funcName 
 	cmds[cmd] = &CmdInfo{cmd, nt, actorType, actorName, funcName, id}
 }
 
-func NewNodeRouter(cmd pb.CMD, actorId uint32) *pb.NodeRouter {
+func NewNodeRouter(cmd pb.CMD, actorId uint64) *pb.NodeRouter {
 	info, ok := cmds[cmd]
 	if !ok {
 		return nil

@@ -11,13 +11,29 @@ import (
 )
 
 var (
+	self    *pb.Node
+	args    = util.ArrayPool[reflect.Value](6)
 	apis    = make(map[uint32]*Method)
 	sendRsp func(*pb.Head, proto.Message) error
-	args    = util.ArrayPool[reflect.Value](6)
 )
 
-func Init(f func(*pb.Head, proto.Message) error) {
+func Init(nn *pb.Node, f func(*pb.Head, proto.Message) error) {
+	self = nn
 	sendRsp = f
+}
+
+func NewNodeRouter(actorFunc string, id uint64) *pb.NodeRouter {
+	actId := util.GetCrc32(actorFunc)
+	rr, ok := apis[actId]
+	if !ok {
+		return nil
+	}
+	return &pb.NodeRouter{
+		NodeType:  self.Type,
+		NodeId:    self.Id,
+		ActorFunc: actId,
+		ActorId:   id<<8 | uint64(rr.act.GetActorType()&0xFF),
+	}
 }
 
 func AddReference(head *pb.Head) {
@@ -27,7 +43,6 @@ func AddReference(head *pb.Head) {
 		}
 	}
 }
-
 func ParseNodeRouter(head *pb.Head, ffs ...string) error {
 	var ok bool
 	var rr *Method
@@ -54,15 +69,6 @@ func register(mm *Method) *Method {
 	return mm
 }
 
-func get(size int) []reflect.Value {
-	rets := args.Get().([]reflect.Value)
-	return rets[:size]
-}
-
-func put(rets []reflect.Value) {
-	args.Put(rets)
-}
-
 func toRspHead(err error) *pb.RspHead {
 	switch vv := err.(type) {
 	case nil:
@@ -74,4 +80,13 @@ func toRspHead(err error) *pb.RspHead {
 	default:
 		return nil
 	}
+}
+
+func get(size int) []reflect.Value {
+	rets := args.Get().([]reflect.Value)
+	return rets[:size]
+}
+
+func put(rets []reflect.Value) {
+	args.Put(rets)
 }

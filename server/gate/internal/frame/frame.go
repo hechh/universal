@@ -3,7 +3,8 @@ package frame
 import (
 	"encoding/binary"
 	"universal/common/pb"
-	"universal/framework/rpc"
+	"universal/framework/actor"
+	"universal/framework/cmd"
 )
 
 type Frame struct{}
@@ -15,7 +16,7 @@ func (d *Frame) GetSize(pac *pb.Packet) int {
 // 解码数据包
 func (d *Frame) Decode(buf []byte, msg *pb.Packet) error {
 	pos := 0
-	cmd := binary.BigEndian.Uint32(buf[pos:])
+	cmdVal := binary.BigEndian.Uint32(buf[pos:])
 	pos += 4
 	uid := binary.BigEndian.Uint64(buf[pos:])
 	pos += 8
@@ -31,9 +32,9 @@ func (d *Frame) Decode(buf []byte, msg *pb.Packet) error {
 	// 确当路由节点
 	msg.Head = &pb.Head{
 		Uid: uid,
-		Src: rpc.NewNodeRouter(pb.NodeType_Gate, "Player.SendToClient", uid),
-		Dst: rpc.NewNodeRouterByCmd(pb.CMD(cmd), routeId),
-		Cmd: cmd,
+		Src: actor.NewNodeRouter("Player.SendToClient", uid),
+		Dst: cmd.NewNodeRouter(pb.CMD(cmdVal), routeId),
+		Cmd: cmdVal,
 		Seq: seq,
 	}
 	return nil
