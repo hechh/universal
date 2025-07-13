@@ -4,7 +4,7 @@ import (
 	"encoding/binary"
 	"time"
 	"universal/common/pb"
-	"universal/framework/domain"
+	"universal/framework/define"
 	"universal/library/uerror"
 
 	"github.com/gorilla/websocket"
@@ -12,7 +12,7 @@ import (
 
 type Socket struct {
 	max    int
-	frame  domain.IFrame
+	frame  define.IFrame
 	conn   *websocket.Conn
 	wbytes []byte
 }
@@ -25,7 +25,7 @@ func NewSocket(conn *websocket.Conn, max int) *Socket {
 	}
 }
 
-func (d *Socket) Register(frame domain.IFrame) {
+func (d *Socket) Register(frame define.IFrame) {
 	d.frame = frame
 }
 

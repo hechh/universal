@@ -8,7 +8,7 @@ import (
 	"time"
 	"universal/common/pb"
 	"universal/common/yaml"
-	"universal/framework/domain"
+	"universal/framework/define"
 	"universal/library/mlog"
 	"universal/library/safe"
 	"universal/library/util"
@@ -42,7 +42,7 @@ func NewEtcd(cfg *yaml.EtcdConfig) (cli *Etcd, err error) {
 	return
 }
 
-func (d *Etcd) Watch(cls domain.INode) (err error) {
+func (d *Etcd) Watch(cls define.INode) (err error) {
 	ctx := context.Background()
 	tctx, cancel := context.WithTimeout(ctx, 3*time.Second)
 	defer cancel()
@@ -85,7 +85,7 @@ func (d *Etcd) Watch(cls domain.INode) (err error) {
 	return nil
 }
 
-func (d *Etcd) handleEvent(cls domain.INode, events ...*clientv3.Event) {
+func (d *Etcd) handleEvent(cls define.INode, events ...*clientv3.Event) {
 	for _, event := range events {
 		switch event.Type {
 		case clientv3.EventTypePut:
@@ -108,7 +108,7 @@ func (d *Etcd) handleEvent(cls domain.INode, events ...*clientv3.Event) {
 	}
 }
 
-func (d *Etcd) Register(cls domain.INode, ttl int64) error {
+func (d *Etcd) Register(cls define.INode, ttl int64) error {
 	ctx := context.Background()
 	tctx, cancel := context.WithTimeout(ctx, 3*time.Second)
 	defer cancel()
@@ -150,7 +150,7 @@ func (d *Etcd) Register(cls domain.INode, ttl int64) error {
 	return nil
 }
 
-func (d *Etcd) keepAlive(cls domain.INode, ttl int64, keep <-chan *clientv3.LeaseKeepAliveResponse, lease clientv3.LeaseID) {
+func (d *Etcd) keepAlive(cls define.INode, ttl int64, keep <-chan *clientv3.LeaseKeepAliveResponse, lease clientv3.LeaseID) {
 	tt := time.NewTicker(time.Duration(ttl/2) * time.Second)
 	defer func() {
 		tt.Stop()

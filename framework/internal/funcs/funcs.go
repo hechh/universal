@@ -4,7 +4,7 @@ import (
 	"reflect"
 	"sync/atomic"
 	"universal/common/pb"
-	"universal/framework/domain"
+	"universal/framework/define"
 	"universal/library/encode"
 	"universal/library/mlog"
 	"universal/library/uerror"
@@ -27,7 +27,7 @@ var (
 	args          = util.ArrayPool[reflect.Value](6)
 	headType      = reflect.TypeOf((*pb.Head)(nil))
 	reqType       = reflect.TypeOf((*proto.Message)(nil)).Elem()
-	rspType       = reflect.TypeOf((*domain.IRspProto)(nil)).Elem()
+	rspType       = reflect.TypeOf((*define.IRspProto)(nil)).Elem()
 	bytesType     = reflect.TypeOf((*[]byte)(nil)).Elem()
 	errorType     = reflect.TypeOf((*error)(nil)).Elem()
 	interfaceType = reflect.TypeOf((*interface{})(nil)).Elem()
@@ -50,10 +50,10 @@ func put(rets []reflect.Value) {
 type Method struct {
 	reflect.Method
 	mask uint32
-	act  domain.IActor
+	act  define.IActor
 }
 
-func NewMethod(act domain.IActor, m reflect.Method) *Method {
+func NewMethod(act define.IActor, m reflect.Method) *Method {
 	ins, outs := m.Type.NumIn(), m.Type.NumOut()
 	if outs > 1 || outs == 1 && !m.Type.Out(0).Implements(errorType) {
 		return nil
@@ -163,7 +163,7 @@ func (r *Method) result(pos int, ref uint32, head *pb.Head, params []reflect.Val
 	switch r.mask {
 	case (HEAD_FLAG | REQ_FLAG | RSP_FLAG), (REQ_FLAG | RSP_FLAG):
 		req := params[pos].Interface().(proto.Message)
-		rsp := params[pos+1].Interface().(domain.IRspProto)
+		rsp := params[pos+1].Interface().(define.IRspProto)
 		rsp.SetHead(toRspHead(err))
 		var reterr error
 		if r.mask == (HEAD_FLAG|REQ_FLAG|RSP_FLAG) && atomic.CompareAndSwapUint32(&head.Reference, ref, ref) {

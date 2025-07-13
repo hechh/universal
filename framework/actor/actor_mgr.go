@@ -6,7 +6,7 @@ import (
 	"sync/atomic"
 	"time"
 	"universal/common/pb"
-	"universal/framework/domain"
+	"universal/framework/define"
 	"universal/framework/internal/funcs"
 	"universal/library/mlog"
 	"universal/library/uerror"
@@ -16,15 +16,15 @@ type ActorMgr struct {
 	id     uint64
 	name   string
 	mutex  sync.RWMutex
-	actors map[uint64]domain.IActor
-	funcs  map[string]domain.IFuncs
+	actors map[uint64]define.IActor
+	funcs  map[string]define.IFuncs
 }
 
 func (d *ActorMgr) GetCount() int {
 	return len(d.actors)
 }
 
-func (d *ActorMgr) GetActor(id uint64) domain.IActor {
+func (d *ActorMgr) GetActor(id uint64) define.IActor {
 	d.mutex.RLock()
 	defer d.mutex.RUnlock()
 	return d.actors[id]
@@ -36,7 +36,7 @@ func (d *ActorMgr) DelActor(id uint64) {
 	delete(d.actors, id)
 }
 
-func (d *ActorMgr) AddActor(act domain.IActor) {
+func (d *ActorMgr) AddActor(act define.IActor) {
 	act.ParseFunc(d.funcs)
 	id := act.GetId()
 	d.mutex.Lock()
@@ -81,18 +81,18 @@ func (d *ActorMgr) GetActorName() string {
 	return d.name
 }
 
-func (d *ActorMgr) Register(ac domain.IActor, _ ...int) {
+func (d *ActorMgr) Register(ac define.IActor, _ ...int) {
 	rtype := reflect.TypeOf(ac)
 	d.name = parseName(rtype)
-	d.actors = make(map[uint64]domain.IActor)
+	d.actors = make(map[uint64]define.IActor)
 }
 
 func (d *ActorMgr) ParseFunc(rr interface{}) {
 	switch vv := rr.(type) {
-	case map[string]domain.IFuncs:
+	case map[string]define.IFuncs:
 		d.funcs = vv
 	case reflect.Type:
-		d.funcs = make(map[string]domain.IFuncs)
+		d.funcs = make(map[string]define.IFuncs)
 		for i := 0; i < vv.NumMethod(); i++ {
 			m := vv.Method(i)
 			if ff := funcs.NewMethod(d, m); ff != nil {
@@ -107,14 +107,14 @@ func (d *ActorMgr) ParseFunc(rr interface{}) {
 
 func (d *ActorMgr) SendMsg(h *pb.Head, args ...interface{}) error {
 	if _, ok := d.funcs[h.FuncName]; !ok {
-		return uerror.New(1, -1, "%v", h)
+		return uerror.New(1, -1, "请求不存在(%s.%s)", h.ActorName, h.FuncName)
 	}
 	switch h.SendType {
 	case pb.SendType_POINT:
 		if act := d.GetActor(h.ActorId); act != nil {
 			return act.SendMsg(h, args...)
 		} else {
-			return uerror.New(1, -1, "Actor不存在: %v", h)
+			return uerror.New(1, -1, "Actor不存在%d", h.ActorId)
 		}
 	case pb.SendType_BROADCAST:
 		d.mutex.RLock()
@@ -125,21 +125,21 @@ func (d *ActorMgr) SendMsg(h *pb.Head, args ...interface{}) error {
 			}
 		}
 	default:
-		return uerror.New(1, -1, "%v", h)
+		return uerror.New(1, -1, "发送类型不支持%v", h.SendType)
 	}
 	return nil
 }
 
 func (d *ActorMgr) Send(h *pb.Head, buf []byte) error {
 	if _, ok := d.funcs[h.FuncName]; !ok {
-		return uerror.New(1, -1, "%v", h)
+		return uerror.New(1, -1, "请求不存在(%s.%s)", h.ActorName, h.FuncName)
 	}
 	switch h.SendType {
 	case pb.SendType_POINT:
 		if act := d.GetActor(h.ActorId); act != nil {
 			return act.Send(h, buf)
 		} else {
-			return uerror.New(1, -1, "Actor不存在: %v", h)
+			return uerror.New(1, -1, "Actor不存在%d", h.ActorId)
 		}
 	case pb.SendType_BROADCAST:
 		d.mutex.RLock()
@@ -150,7 +150,7 @@ func (d *ActorMgr) Send(h *pb.Head, buf []byte) error {
 			}
 		}
 	default:
-		return uerror.New(1, -1, "%v", h)
+		return uerror.New(1, -1, "发送类型不支持%v", h.SendType)
 	}
 	return nil
 }

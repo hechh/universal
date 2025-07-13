@@ -5,7 +5,7 @@ import (
 	"sync/atomic"
 	"time"
 	"universal/common/pb"
-	"universal/framework/domain"
+	"universal/framework/define"
 	"universal/framework/internal/funcs"
 	"universal/library/async"
 	"universal/library/mlog"
@@ -19,7 +19,7 @@ type ActorPool struct {
 	id    uint64
 	name  string
 	rval  reflect.Value
-	funcs map[string]domain.IFuncs
+	funcs map[string]define.IFuncs
 }
 
 func (d *ActorPool) GetIdPointer() *uint64 {
@@ -55,7 +55,7 @@ func (d *ActorPool) GetActorName() string {
 	return d.name
 }
 
-func (d *ActorPool) Register(ac domain.IActor, sizes ...int) {
+func (d *ActorPool) Register(ac define.IActor, sizes ...int) {
 	d.size = util.Index[int](sizes, 0, 10)
 	d.pool = make([]*async.Async, d.size)
 	for i := 0; i < d.size; i++ {
@@ -67,10 +67,10 @@ func (d *ActorPool) Register(ac domain.IActor, sizes ...int) {
 
 func (d *ActorPool) ParseFunc(tt interface{}) {
 	switch vv := tt.(type) {
-	case map[string]domain.IFuncs:
+	case map[string]define.IFuncs:
 		d.funcs = vv
 	case reflect.Type:
-		d.funcs = make(map[string]domain.IFuncs)
+		d.funcs = make(map[string]define.IFuncs)
 		for i := 0; i < vv.NumMethod(); i++ {
 			m := vv.Method(i)
 			if ff := funcs.NewMethod(d, m); ff != nil {
@@ -86,7 +86,7 @@ func (d *ActorPool) ParseFunc(tt interface{}) {
 func (d *ActorPool) SendMsg(h *pb.Head, args ...interface{}) error {
 	mm, ok := d.funcs[h.FuncName]
 	if !ok {
-		return uerror.New(1, -1, "%v", h)
+		return uerror.New(1, -1, "请求不存在(%s.%s)", h.ActorName, h.FuncName)
 	}
 	d.pool[h.ActorId%uint64(d.size)].Push(mm.Call(d.rval, h, args...))
 	return nil
@@ -95,7 +95,7 @@ func (d *ActorPool) SendMsg(h *pb.Head, args ...interface{}) error {
 func (d *ActorPool) Send(h *pb.Head, buf []byte) error {
 	mm, ok := d.funcs[h.FuncName]
 	if !ok {
-		return uerror.New(1, -1, "%v", h)
+		return uerror.New(1, -1, "请求不存在(%s.%s)", h.ActorName, h.FuncName)
 	}
 	d.pool[h.ActorId%uint64(d.size)].Push(mm.Rpc(d.rval, h, buf))
 	return nil

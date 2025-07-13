@@ -4,7 +4,7 @@ import (
 	"sync"
 	"time"
 	"universal/common/pb"
-	"universal/framework/domain"
+	"universal/framework/define"
 	"universal/library/safe"
 )
 
@@ -25,13 +25,13 @@ func NewTable(ttl int64) *Table {
 	return ret
 }
 
-func (t *Table) Get(id uint64) domain.IRouter {
+func (t *Table) Get(id uint64) define.IRouter {
 	t.mutex.RLock()
 	defer t.mutex.RLock()
 	return t.data[id]
 }
 
-func (t *Table) GetOrNew(id uint64, self *pb.Node) domain.IRouter {
+func (t *Table) GetOrNew(id uint64, self *pb.Node) define.IRouter {
 	if rr := t.Get(id); rr != nil {
 		return rr
 	}

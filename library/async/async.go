@@ -41,6 +41,7 @@ func (d *Async) Start() {
 		return
 	}
 	atomic.AddInt32(&d.status, 1)
+	d.Add(1)
 	safe.Go(d.run)
 }
 
@@ -49,9 +50,9 @@ func (d *Async) Stop() {
 		return
 	}
 	atomic.StoreInt32(&d.status, 0)
-	atomic.StoreUint64(&d.id, 0)
-	d.exit <- struct{}{}
+	close(d.exit)
 	d.Wait()
+	atomic.StoreUint64(&d.id, 0)
 }
 
 func (d *Async) Push(f func()) {
@@ -65,7 +66,6 @@ func (d *Async) Push(f func()) {
 }
 
 func (d *Async) run() {
-	d.Add(1)
 	defer func() {
 		for f := d.tasks.Pop(); f != nil; f = d.tasks.Pop() {
 			safe.Recover(f)

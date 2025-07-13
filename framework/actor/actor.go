@@ -4,7 +4,7 @@ import (
 	"reflect"
 	"time"
 	"universal/common/pb"
-	"universal/framework/domain"
+	"universal/framework/define"
 	"universal/framework/internal/funcs"
 	"universal/library/async"
 	"universal/library/mlog"
@@ -15,7 +15,7 @@ type Actor struct {
 	*async.Async
 	name  string
 	rval  reflect.Value
-	funcs map[string]domain.IFuncs
+	funcs map[string]define.IFuncs
 }
 
 func (a *Actor) GetActorType() uint32 {
@@ -26,7 +26,7 @@ func (a *Actor) GetActorName() string {
 	return a.name
 }
 
-func (a *Actor) Register(ac domain.IActor, _ ...int) {
+func (a *Actor) Register(ac define.IActor, _ ...int) {
 	a.Async = async.NewAsync()
 	a.rval = reflect.ValueOf(ac)
 	a.name = parseName(a.rval.Elem().Type())
@@ -34,10 +34,10 @@ func (a *Actor) Register(ac domain.IActor, _ ...int) {
 
 func (d *Actor) ParseFunc(tt interface{}) {
 	switch vv := tt.(type) {
-	case map[string]domain.IFuncs:
+	case map[string]define.IFuncs:
 		d.funcs = vv
 	case reflect.Type:
-		d.funcs = make(map[string]domain.IFuncs)
+		d.funcs = make(map[string]define.IFuncs)
 		for i := 0; i < vv.NumMethod(); i++ {
 			m := vv.Method(i)
 			ff := funcs.NewMethod(d, m)
@@ -54,7 +54,7 @@ func (d *Actor) ParseFunc(tt interface{}) {
 func (d *Actor) SendMsg(h *pb.Head, args ...interface{}) error {
 	mm, ok := d.funcs[h.FuncName]
 	if !ok {
-		return uerror.New(1, -1, "%v", h)
+		return uerror.New(1, -1, "请求不存在(%s.%s)", h.ActorName, h.FuncName)
 	}
 	d.Push(mm.Call(d.rval, h, args...))
 	return nil
@@ -63,7 +63,7 @@ func (d *Actor) SendMsg(h *pb.Head, args ...interface{}) error {
 func (d *Actor) Send(h *pb.Head, buf []byte) error {
 	mm, ok := d.funcs[h.FuncName]
 	if !ok {
-		return uerror.New(1, -1, "%v", h)
+		return uerror.New(1, -1, "请求不存在(%s.%s)", h.ActorName, h.FuncName)
 	}
 	d.Push(mm.Rpc(d.rval, h, buf))
 	return nil

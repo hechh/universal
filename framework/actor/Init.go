@@ -4,7 +4,7 @@ import (
 	"reflect"
 	"strings"
 	"universal/common/pb"
-	"universal/framework/domain"
+	"universal/framework/define"
 	"universal/library/timer"
 	"universal/library/uerror"
 	"universal/library/util"
@@ -12,8 +12,8 @@ import (
 
 var (
 	names  = make(map[string]uint32)
-	apis   = make(map[uint32]domain.IFuncs)
-	actors = make(map[string]domain.IActor)
+	apis   = make(map[uint32]define.IFuncs)
+	actors = make(map[string]define.IActor)
 	t      = timer.NewTimer(4)
 )
 
@@ -26,7 +26,7 @@ func GetCrc32(actorFunc string) uint32 {
 
 func Parse(head *pb.Head, ffs ...string) error {
 	var ok bool
-	var rr domain.IFuncs
+	var rr define.IFuncs
 	if head.Dst.ActorFunc > 0 {
 		rr, ok = apis[head.Dst.ActorFunc]
 	} else if len(ffs) > 0 {
@@ -38,7 +38,7 @@ func Parse(head *pb.Head, ffs ...string) error {
 	return rr.Parse(head)
 }
 
-func Register(ac domain.IActor) {
+func Register(ac define.IActor) {
 	actors[ac.GetActorName()] = ac
 }
 

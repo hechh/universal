@@ -4,29 +4,32 @@ import (
 	"sync/atomic"
 	"universal/common/pb"
 	"universal/common/yaml"
-	"universal/framework/domain"
+	"universal/framework/define"
 	"universal/framework/internal/bus"
 	"universal/framework/internal/discovery"
+	"universal/framework/internal/funcs"
 	"universal/framework/internal/node"
 	"universal/framework/internal/router"
 	"universal/library/encode"
 	"universal/library/mlog"
 	"universal/library/pprof"
 	"universal/library/uerror"
+	"universal/library/util"
 
 	"github.com/golang/protobuf/proto"
 )
 
 var (
-	tab  domain.ITable
-	cls  domain.INode
-	dis  domain.IDiscovery
-	buss domain.IBus
+	cls  define.INode
+	tab  define.ITable
+	dis  define.IDiscovery
+	buss define.IBus
 )
 
 func Init(cfg *yaml.Config, srvCfg *yaml.NodeConfig, nn *pb.Node) (err error) {
 	tab = router.NewTable(srvCfg.RouterTTL)
 	cls = node.NewNode(nn)
+	funcs.Init(SendResponse)
 	pprof.Init("localhost", srvCfg.Port+10000)
 
 	dis, err = discovery.NewEtcd(cfg.Etcd)
@@ -53,21 +56,30 @@ func GetSelf() *pb.Node {
 	return cls.GetSelf()
 }
 
+func NewNodeRouter(actorFunc string, actorId uint64) *pb.NodeRouter {
+	self := cls.GetSelf()
+	return &pb.NodeRouter{
+		NodeType:  self.Type,
+		NodeId:    self.Id,
+		ActorFunc: util.GetCrc32(actorFunc),
+		ActorId:   actorId,
+	}
+}
+
 func UpdateRouter(rrs ...*pb.NodeRouter) {
 	for _, rr := range rrs {
-		if rr == nil || rr.Router == nil || rr.ActorId <= 0 {
-			return
+		if rr != nil && rr.ActorId > 0 {
+			tab.GetOrNew(rr.ActorId, cls.GetSelf()).SetData(rr.Router)
+			rr.Router = nil
 		}
-		tab.GetOrNew(rr.ActorId, cls.GetSelf()).SetData(rr.Router)
 	}
 }
 
 func QueryRouter(rrs ...*pb.NodeRouter) {
 	for _, rr := range rrs {
-		if rr == nil || rr.Router == nil || rr.ActorId <= 0 {
-			return
+		if rr != nil && rr.ActorId > 0 {
+			rr.Router = tab.GetOrNew(rr.ActorId, cls.GetSelf()).GetData()
 		}
-		rr.Router = tab.GetOrNew(rr.ActorId, cls.GetSelf()).GetData()
 	}
 }
 
@@ -90,7 +102,6 @@ func SetReplyHandler(f func(*pb.Head, []byte)) error {
 }
 
 func Broadcast(head *pb.Head, args ...interface{}) error {
-	QueryRouter(head.Dst, head.Src)
 	buf, err := encode.Marshal(args...)
 	if err != nil {
 		return uerror.Err(1, int32(pb.ErrorCode_ProtoMarshalFailed), err)
@@ -150,9 +161,9 @@ func SendToClient(head *pb.Head, msg proto.Message, uids ...uint64) error {
 	atomic.AddUint32(&head.Reference, 1)
 	head.Dst = &pb.NodeRouter{NodeType: pb.NodeType_Gate}
 	for _, uid := range uids {
-		head.Dst.ActorId = uid
+		head.Dst.ActorId = define.UidToActorId(uid)
 		if err := Dispatcher(head); err == nil {
-			mlog.Errorf("玩家已经不在线 %v", err)
+			mlog.Errorf("路由失败:%v", err)
 			continue
 		}
 		QueryRouter(head.Dst)
@@ -179,22 +190,24 @@ func SendResponse(head *pb.Head, rsp proto.Message) error {
 }
 
 func Dispatcher(head *pb.Head) error {
-	if head.Dst == nil || head.Dst.ActorId <= 0 {
-		return uerror.New(1, int32(pb.ErrorCode_NodeRouterIsNil), "%v", head)
+	self := cls.GetSelf()
+	if head.Dst == nil || head.Dst.ActorId <= 0 || head.Dst.ActorFunc <= 0 {
+		return uerror.New(1, int32(pb.ErrorCode_NodeRouterIsNil), "参数错误")
 	}
 	if head.Dst.NodeType >= pb.NodeType_End || head.Dst.NodeType <= pb.NodeType_Begin {
-		return uerror.New(1, int32(pb.ErrorCode_NodeTypeNotSupported), "%v", head.Dst)
+		return uerror.New(1, int32(pb.ErrorCode_NodeTypeNotSupported), "节点类型不支持")
 	}
-	if head.Dst.NodeType == cls.GetSelf().Type {
-		return uerror.New(1, int32(pb.ErrorCode_NodeTypeInvalid), "%v", head.Dst)
+	if head.Dst.NodeType == self.Type {
+		return uerror.New(1, int32(pb.ErrorCode_NodeTypeInvalid), "禁止同节点类型发送")
 	}
 	if head.Dst.NodeId > 0 {
 		if cls.Get(head.Dst.NodeType, head.Dst.NodeId) != nil {
 			return nil
 		}
-		return uerror.New(1, int32(pb.ErrorCode_NodeNotFound), "%v", head.Dst)
+		return uerror.New(1, int32(pb.ErrorCode_NodeNotFound), "节点不存在")
 	}
-	if nodeId := tab.Get(head.Dst.ActorId).Get(head.Dst.NodeType); nodeId > 0 {
+	dstTab := tab.GetOrNew(head.Dst.ActorId, self)
+	if nodeId := dstTab.Get(head.Dst.NodeType); nodeId > 0 {
 		if cls.Get(head.Dst.NodeType, nodeId) != nil {
 			head.Dst.NodeId = nodeId
 			return nil

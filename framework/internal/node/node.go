@@ -57,16 +57,6 @@ func (c *Node) Add(node *pb.Node) bool {
 	return true
 }
 
-func (c *Node) gets(nodeType pb.NodeType) (rets []*pb.Node) {
-	nn := c.pools[nodeType]
-	nn.mutex.RLock()
-	defer nn.mutex.RUnlock()
-	for _, item := range nn.nodes {
-		rets = append(rets, item)
-	}
-	return
-}
-
 // 随机获取节点
 func (c *Node) Random(nodeType pb.NodeType, seed uint64) *pb.Node {
 	items := c.gets(nodeType)
@@ -78,4 +68,14 @@ func (c *Node) Random(nodeType pb.NodeType, seed uint64) *pb.Node {
 		return items[random.Int32n(int32(llen))]
 	}
 	return items[seed%uint64(llen)]
+}
+
+func (c *Node) gets(nodeType pb.NodeType) (rets []*pb.Node) {
+	nn := c.pools[nodeType]
+	nn.mutex.RLock()
+	defer nn.mutex.RUnlock()
+	for _, item := range nn.nodes {
+		rets = append(rets, item)
+	}
+	return
 }
