@@ -1,6 +1,7 @@
 package util
 
 import (
+	"hash/crc32"
 	"reflect"
 	"time"
 	"unsafe"
@@ -33,4 +34,8 @@ func Retry(attempts int, sleep time.Duration, f func() error) (err error) {
 		sleep *= 2
 	}
 	return err
+}
+
+func GetCrc32(name string) uint32 {
+	return crc32.ChecksumIEEE(StringToBytes(name))
 }

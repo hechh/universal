@@ -16,12 +16,8 @@ func (r *Router) GetUpdateTime() int64 {
 	return atomic.LoadInt64(&r.updateTime)
 }
 
-func (r *Router) SetUpdateTime(now int64) domain.IRouter {
-	atomic.StoreInt64(&r.updateTime, now)
-	return r
-}
-
 func (r *Router) GetData() *pb.Router {
+	atomic.StoreInt64(&r.updateTime, time.Now().Unix())
 	return &pb.Router{
 		Build: atomic.LoadInt32(&r.Build),
 		Room:  atomic.LoadInt32(&r.Room),
@@ -45,20 +41,28 @@ func (r *Router) SetData(data *pb.Router) domain.IRouter {
 }
 
 func (r *Router) Get(nodeType pb.NodeType) int32 {
+	now := time.Now().Unix()
 	switch nodeType {
 	case pb.NodeType_Build:
+		atomic.StoreInt64(&r.updateTime, now)
 		return atomic.LoadInt32(&r.Build)
 	case pb.NodeType_Db:
+		atomic.StoreInt64(&r.updateTime, now)
 		return atomic.LoadInt32(&r.Db)
 	case pb.NodeType_Game:
+		atomic.StoreInt64(&r.updateTime, now)
 		return atomic.LoadInt32(&r.Game)
 	case pb.NodeType_Gate:
+		atomic.StoreInt64(&r.updateTime, now)
 		return atomic.LoadInt32(&r.Gate)
 	case pb.NodeType_Room:
+		atomic.StoreInt64(&r.updateTime, now)
 		return atomic.LoadInt32(&r.Room)
 	case pb.NodeType_Match:
+		atomic.StoreInt64(&r.updateTime, now)
 		return atomic.LoadInt32(&r.Match)
 	case pb.NodeType_Gm:
+		atomic.StoreInt64(&r.updateTime, now)
 		return atomic.LoadInt32(&r.Gm)
 	}
 	return 0
@@ -66,28 +70,29 @@ func (r *Router) Get(nodeType pb.NodeType) int32 {
 
 func (r *Router) Set(nodeType pb.NodeType, nodeId int32) domain.IRouter {
 	if nodeId > 0 {
+		now := time.Now().Unix()
 		switch nodeType {
 		case pb.NodeType_Build:
 			atomic.StoreInt32(&r.Build, nodeId)
-			r.SetUpdateTime(time.Now().Unix())
+			atomic.StoreInt64(&r.updateTime, now)
 		case pb.NodeType_Db:
 			atomic.StoreInt32(&r.Db, nodeId)
-			r.SetUpdateTime(time.Now().Unix())
+			atomic.StoreInt64(&r.updateTime, now)
 		case pb.NodeType_Game:
 			atomic.StoreInt32(&r.Game, nodeId)
-			r.SetUpdateTime(time.Now().Unix())
+			atomic.StoreInt64(&r.updateTime, now)
 		case pb.NodeType_Gate:
 			atomic.StoreInt32(&r.Gate, nodeId)
-			r.SetUpdateTime(time.Now().Unix())
+			atomic.StoreInt64(&r.updateTime, now)
 		case pb.NodeType_Room:
 			atomic.StoreInt32(&r.Room, nodeId)
-			r.SetUpdateTime(time.Now().Unix())
+			atomic.StoreInt64(&r.updateTime, now)
 		case pb.NodeType_Match:
 			atomic.StoreInt32(&r.Match, nodeId)
-			r.SetUpdateTime(time.Now().Unix())
+			atomic.StoreInt64(&r.updateTime, now)
 		case pb.NodeType_Gm:
 			atomic.StoreInt32(&r.Gm, nodeId)
-			r.SetUpdateTime(time.Now().Unix())
+			atomic.StoreInt64(&r.updateTime, now)
 		}
 	}
 	return r

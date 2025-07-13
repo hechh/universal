@@ -1,11 +1,18 @@
 package domain
 
 import (
+	"reflect"
 	"time"
 	"universal/common/pb"
 
 	"github.com/golang/protobuf/proto"
 )
+
+type IFuncs interface {
+	Parse(*pb.Head) error
+	Rpc(reflect.Value, *pb.Head, []byte) func()
+	Call(reflect.Value, *pb.Head, ...interface{}) func()
+}
 
 type IRspProto interface {
 	proto.Message

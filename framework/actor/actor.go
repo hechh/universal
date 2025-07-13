@@ -15,7 +15,7 @@ type Actor struct {
 	*async.Async
 	name  string
 	rval  reflect.Value
-	funcs map[string]*funcs.Method
+	funcs map[string]domain.IFuncs
 }
 
 func (a *Actor) GetActorType() uint32 {
@@ -28,21 +28,22 @@ func (a *Actor) GetActorName() string {
 
 func (a *Actor) Register(ac domain.IActor, _ ...int) {
 	a.Async = async.NewAsync()
-	a.name = parseName(a.rval.Elem().Type())
 	a.rval = reflect.ValueOf(ac)
+	a.name = parseName(a.rval.Elem().Type())
 }
 
 func (d *Actor) ParseFunc(tt interface{}) {
 	switch vv := tt.(type) {
-	case map[string]*funcs.Method:
+	case map[string]domain.IFuncs:
 		d.funcs = vv
 	case reflect.Type:
-		d.funcs = make(map[string]*funcs.Method)
+		d.funcs = make(map[string]domain.IFuncs)
 		for i := 0; i < vv.NumMethod(); i++ {
 			m := vv.Method(i)
 			ff := funcs.NewMethod(d, m)
 			if ff != nil {
 				d.funcs[m.Name] = ff
+				apis[GetCrc32(d.name+"."+m.Name)] = ff
 			}
 		}
 	default:

@@ -17,7 +17,7 @@ type ActorMgr struct {
 	name   string
 	mutex  sync.RWMutex
 	actors map[uint64]domain.IActor
-	funcs  map[string]*funcs.Method
+	funcs  map[string]domain.IFuncs
 }
 
 func (d *ActorMgr) GetCount() int {
@@ -89,14 +89,15 @@ func (d *ActorMgr) Register(ac domain.IActor, _ ...int) {
 
 func (d *ActorMgr) ParseFunc(rr interface{}) {
 	switch vv := rr.(type) {
-	case map[string]*funcs.Method:
+	case map[string]domain.IFuncs:
 		d.funcs = vv
 	case reflect.Type:
-		d.funcs = make(map[string]*funcs.Method)
+		d.funcs = make(map[string]domain.IFuncs)
 		for i := 0; i < vv.NumMethod(); i++ {
 			m := vv.Method(i)
 			if ff := funcs.NewMethod(d, m); ff != nil {
 				d.funcs[m.Name] = ff
+				apis[GetCrc32(d.name+"."+m.Name)] = ff
 			}
 		}
 	default:
