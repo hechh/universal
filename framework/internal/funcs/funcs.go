@@ -7,7 +7,6 @@ import (
 	"universal/framework/define"
 	"universal/library/encode"
 	"universal/library/mlog"
-	"universal/library/uerror"
 	"universal/library/util"
 
 	"github.com/golang/protobuf/proto"
@@ -23,8 +22,6 @@ const (
 )
 
 var (
-	sendRsp       func(*pb.Head, proto.Message) error
-	args          = util.ArrayPool[reflect.Value](6)
 	headType      = reflect.TypeOf((*pb.Head)(nil))
 	reqType       = reflect.TypeOf((*proto.Message)(nil)).Elem()
 	rspType       = reflect.TypeOf((*define.IRspProto)(nil)).Elem()
@@ -33,19 +30,6 @@ var (
 	interfaceType = reflect.TypeOf((*interface{})(nil)).Elem()
 	nilError      = reflect.ValueOf((*error)(nil)).Elem()
 )
-
-func Init(f func(*pb.Head, proto.Message) error) {
-	sendRsp = f
-}
-
-func get(size int) []reflect.Value {
-	rets := args.Get().([]reflect.Value)
-	return rets[:size]
-}
-
-func put(rets []reflect.Value) {
-	args.Put(rets)
-}
 
 type Method struct {
 	reflect.Method
@@ -82,18 +66,7 @@ func NewMethod(act define.IActor, m reflect.Method) *Method {
 			mask = mask | GOB_FLAG
 		}
 	}
-	return &Method{Method: m, mask: mask, act: act}
-}
-
-func (r *Method) Parse(head *pb.Head) error {
-	actorType := head.Dst.ActorId & 0xFF
-	if r.act.GetActorType() != uint32(actorType) {
-		return uerror.New(1, -1, "ActorType错误%v", head.Dst)
-	}
-	head.ActorName = r.act.GetActorName()
-	head.FuncName = r.Name
-	head.ActorId = (head.Dst.ActorId >> 8)
-	return nil
+	return register(&Method{Method: m, mask: mask, act: act})
 }
 
 func (r *Method) Call(rval reflect.Value, head *pb.Head, args ...interface{}) func() {
@@ -187,18 +160,5 @@ func (r *Method) result(pos int, ref uint32, head *pb.Head, params []reflect.Val
 		} else {
 			mlog.Debug(1, "%d|%s|%s|%d|%v|%v error:%v", head.Uid, head.ActorName, head.FuncName, head.ActorId, head.Src, head.Dst, err)
 		}
-	}
-}
-
-func toRspHead(err error) *pb.RspHead {
-	switch vv := err.(type) {
-	case nil:
-		return nil
-	case *uerror.UError:
-		return &pb.RspHead{Code: vv.GetCode(), ErrMsg: vv.GetMsg()}
-	case error:
-		return &pb.RspHead{Code: -1, ErrMsg: vv.Error()}
-	default:
-		return nil
 	}
 }

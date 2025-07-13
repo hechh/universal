@@ -7,6 +7,17 @@ import (
 	"unsafe"
 )
 
+var (
+	names = make(map[string]uint32)
+)
+
+func GetCrc32(actorFunc string) uint32 {
+	if _, ok := names[actorFunc]; !ok {
+		names[actorFunc] = crc32.ChecksumIEEE(StringToBytes(actorFunc))
+	}
+	return names[actorFunc]
+}
+
 func StringToBytes(str string) []byte {
 	if len(str) == 0 {
 		return nil
@@ -34,8 +45,4 @@ func Retry(attempts int, sleep time.Duration, f func() error) (err error) {
 		sleep *= 2
 	}
 	return err
-}
-
-func GetCrc32(name string) uint32 {
-	return crc32.ChecksumIEEE(StringToBytes(name))
 }

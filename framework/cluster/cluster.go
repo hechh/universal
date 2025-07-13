@@ -89,6 +89,10 @@ func SetBroadcastHandler(f func(*pb.Head, []byte)) error {
 
 func SetSendHandler(f func(*pb.Head, []byte)) error {
 	return buss.SetSendHandler(cls.GetSelf(), func(head *pb.Head, body []byte) {
+		if err := funcs.ParseNodeRouter(head, "Player.SendToClient"); err != nil {
+			mlog.Errorf("Nats解析消息失败: %v", err)
+			return
+		}
 		UpdateRouter(head.Src, head.Dst)
 		f(head, body)
 	})
@@ -96,6 +100,10 @@ func SetSendHandler(f func(*pb.Head, []byte)) error {
 
 func SetReplyHandler(f func(*pb.Head, []byte)) error {
 	return buss.SetReplyHandler(cls.GetSelf(), func(head *pb.Head, body []byte) {
+		if err := funcs.ParseNodeRouter(head, "Player.SendToClient"); err != nil {
+			mlog.Errorf("Nats解析消息失败: %v", err)
+			return
+		}
 		UpdateRouter(head.Src, head.Dst)
 		f(head, body)
 	})
@@ -114,7 +122,7 @@ func Send(head *pb.Head, args ...interface{}) error {
 		return err
 	}
 	QueryRouter(head.Dst, head.Src)
-	atomic.AddUint32(&head.Reference, 1)
+	funcs.AddReference(head)
 	buf, err := encode.Marshal(args...)
 	if err != nil {
 		return uerror.Err(1, int32(pb.ErrorCode_ProtoMarshalFailed), err)

@@ -75,7 +75,6 @@ func (d *ActorPool) ParseFunc(tt interface{}) {
 			m := vv.Method(i)
 			if ff := funcs.NewMethod(d, m); ff != nil {
 				d.funcs[m.Name] = ff
-				apis[GetCrc32(d.name+"."+m.Name)] = ff
 			}
 		}
 	default:
