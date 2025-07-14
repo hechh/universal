@@ -76,12 +76,12 @@ func Parse(head *pb.Head, ffs ...string) error {
 	if !ok {
 		return uerror.New(1, -1, "请求接口不存在%v", head.Dst)
 	}
-	actorType := head.Dst.ActorId & 0xFF
-	if rr.GetActorType() != uint32(actorType) {
+	actorType := uint32(head.Dst.ActorId & 0xFF)
+	if rr.GetActorType() != actorType {
 		return uerror.New(1, -1, "ActorType错误%v", head.Dst)
 	}
 	head.ActorName = rr.GetActorName()
 	head.FuncName = rr.GetFuncName()
-	head.ActorId = (head.Dst.ActorId >> 8)
+	head.ActorId = head.Dst.ActorId >> 8
 	return nil
 }

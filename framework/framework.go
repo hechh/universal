@@ -2,23 +2,11 @@ package framework
 
 import (
 	"universal/common/pb"
-	"universal/common/yaml"
-	"universal/framework/cluster"
 	"universal/framework/internal/request"
-	"universal/library/pprof"
 	"universal/library/util"
 
 	"github.com/spf13/cast"
 )
-
-func Init(cfg *yaml.Config, srvCfg *yaml.NodeConfig, nn *pb.Node) error {
-	if err := cluster.Init(cfg, srvCfg, nn); err != nil {
-		return err
-	}
-	request.Init(nn, cluster.SendResponse)
-	pprof.Init("localhost", srvCfg.Port+10000)
-	return nil
-}
 
 func CopyToGate(head *pb.Head, actorFunc string, actorId uint64, srcs ...interface{}) *pb.Head {
 	return CopyHead(head, pb.NodeType_Gate, actorFunc, actorId, srcs...)
@@ -52,7 +40,7 @@ func CopyHead(head *pb.Head, nt pb.NodeType, actorFunc string, actorId uint64, s
 	act := cast.ToString(util.Index[interface{}](srcs, 0, ""))
 	actId := cast.ToUint64(util.Index[interface{}](srcs, 1, 0))
 	return &pb.Head{
-		Src: cluster.NewNodeRouter(act, actId),
+		Src: request.NewNodeRouter(act, actId),
 		Dst: &pb.NodeRouter{
 			NodeType:  nt,
 			ActorFunc: request.GetCrc32(actorFunc),
@@ -98,7 +86,7 @@ func NewHead(uid uint64, nt pb.NodeType, actorFunc string, actorId uint64, srcs 
 	srcId := cast.ToUint64(util.Index[interface{}](srcs, 1, 0))
 	return &pb.Head{
 		Uid: uid,
-		Src: cluster.NewNodeRouter(srcFunc, srcId),
+		Src: request.NewNodeRouter(srcFunc, srcId),
 		Dst: &pb.NodeRouter{
 			NodeType:  nt,
 			ActorFunc: request.GetCrc32(actorFunc),

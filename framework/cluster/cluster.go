@@ -12,6 +12,7 @@ import (
 	"universal/framework/internal/router"
 	"universal/library/encode"
 	"universal/library/mlog"
+	"universal/library/pprof"
 	"universal/library/uerror"
 
 	"github.com/golang/protobuf/proto"
@@ -27,6 +28,9 @@ var (
 func Init(cfg *yaml.Config, srvCfg *yaml.NodeConfig, nn *pb.Node) (err error) {
 	tab = router.NewTable(srvCfg.RouterTTL)
 	cls = node.NewNode(nn)
+	request.Init(nn, SendResponse)
+	pprof.Init("localhost", srvCfg.Port+10000)
+
 	dis, err = discovery.NewEtcd(cfg.Etcd)
 	if err != nil {
 		return
@@ -45,20 +49,6 @@ func Close() {
 	tab.Close()
 	dis.Close()
 	buss.Close()
-}
-
-func GetSelf() *pb.Node {
-	return cls.GetSelf()
-}
-
-func NewNodeRouter(actorFunc string, actorId uint64) *pb.NodeRouter {
-	self := cls.GetSelf()
-	return &pb.NodeRouter{
-		NodeType:  self.Type,
-		NodeId:    self.Id,
-		ActorFunc: request.GetCrc32(actorFunc),
-		ActorId:   actorId,
-	}
 }
 
 func UpdateRouter(rrs ...*pb.NodeRouter) {
@@ -143,6 +133,19 @@ func Response(head *pb.Head, msg interface{}) error {
 		return uerror.Err(1, int32(pb.ErrorCode_ProtoMarshalFailed), err)
 	}
 	return buss.Response(head, buf)
+}
+
+func SendCmd(head *pb.Head, args ...interface{}) error {
+	if err := Dispatcher(head); err != nil {
+		return err
+	}
+	QueryRouter(head.Dst, head.Src)
+	atomic.AddUint32(&head.Reference, 1)
+	buf, err := encode.Marshal(args...)
+	if err != nil {
+		return uerror.Err(1, int32(pb.ErrorCode_ProtoMarshalFailed), err)
+	}
+	return buss.Send(head, buf)
 }
 
 func SendToClient(head *pb.Head, msg proto.Message, uids ...uint64) error {
