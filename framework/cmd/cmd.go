@@ -2,7 +2,7 @@ package cmd
 
 import (
 	"universal/common/pb"
-	"universal/library/util"
+	"universal/framework/internal/request"
 )
 
 var (
@@ -19,7 +19,7 @@ type CmdInfo struct {
 }
 
 func Register(cmd pb.CMD, nt pb.NodeType, actorType uint32, actorName, funcName string) {
-	id := util.GetCrc32(actorName + "." + funcName)
+	id := request.GetCrc32(actorName + "." + funcName)
 	cmds[cmd] = &CmdInfo{cmd, nt, actorType, actorName, funcName, id}
 }
 

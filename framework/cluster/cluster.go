@@ -7,13 +7,12 @@ import (
 	"universal/framework/define"
 	"universal/framework/internal/bus"
 	"universal/framework/internal/discovery"
-	"universal/framework/internal/funcs"
 	"universal/framework/internal/node"
+	"universal/framework/internal/request"
 	"universal/framework/internal/router"
 	"universal/library/encode"
 	"universal/library/mlog"
 	"universal/library/uerror"
-	"universal/library/util"
 
 	"github.com/golang/protobuf/proto"
 )
@@ -57,7 +56,7 @@ func NewNodeRouter(actorFunc string, actorId uint64) *pb.NodeRouter {
 	return &pb.NodeRouter{
 		NodeType:  self.Type,
 		NodeId:    self.Id,
-		ActorFunc: util.GetCrc32(actorFunc),
+		ActorFunc: request.GetCrc32(actorFunc),
 		ActorId:   actorId,
 	}
 }
@@ -85,7 +84,7 @@ func SetBroadcastHandler(f func(*pb.Head, []byte)) error {
 
 func SetSendHandler(f func(*pb.Head, []byte)) error {
 	return buss.SetSendHandler(cls.GetSelf(), func(head *pb.Head, body []byte) {
-		if err := funcs.ParseNodeRouter(head, "Player.SendToClient"); err != nil {
+		if err := request.Parse(head, "Player.SendToClient"); err != nil {
 			mlog.Errorf("Nats解析消息失败: %v", err)
 			return
 		}
@@ -96,7 +95,7 @@ func SetSendHandler(f func(*pb.Head, []byte)) error {
 
 func SetReplyHandler(f func(*pb.Head, []byte)) error {
 	return buss.SetReplyHandler(cls.GetSelf(), func(head *pb.Head, body []byte) {
-		if err := funcs.ParseNodeRouter(head, "Player.SendToClient"); err != nil {
+		if err := request.Parse(head, "Player.SendToClient"); err != nil {
 			mlog.Errorf("Nats解析消息失败: %v", err)
 			return
 		}
@@ -118,7 +117,6 @@ func Send(head *pb.Head, args ...interface{}) error {
 		return err
 	}
 	QueryRouter(head.Dst, head.Src)
-	funcs.AddReference(head)
 	buf, err := encode.Marshal(args...)
 	if err != nil {
 		return uerror.Err(1, int32(pb.ErrorCode_ProtoMarshalFailed), err)

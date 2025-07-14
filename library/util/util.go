@@ -1,22 +1,10 @@
 package util
 
 import (
-	"hash/crc32"
 	"reflect"
 	"time"
 	"unsafe"
 )
-
-var (
-	names = make(map[string]uint32)
-)
-
-func GetCrc32(actorFunc string) uint32 {
-	if _, ok := names[actorFunc]; !ok {
-		names[actorFunc] = crc32.ChecksumIEEE(StringToBytes(actorFunc))
-	}
-	return names[actorFunc]
-}
 
 func StringToBytes(str string) []byte {
 	if len(str) == 0 {

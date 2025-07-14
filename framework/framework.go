@@ -4,7 +4,7 @@ import (
 	"universal/common/pb"
 	"universal/common/yaml"
 	"universal/framework/cluster"
-	"universal/framework/internal/funcs"
+	"universal/framework/internal/request"
 	"universal/library/pprof"
 	"universal/library/util"
 
@@ -15,7 +15,7 @@ func Init(cfg *yaml.Config, srvCfg *yaml.NodeConfig, nn *pb.Node) error {
 	if err := cluster.Init(cfg, srvCfg, nn); err != nil {
 		return err
 	}
-	funcs.Init(nn, cluster.SendResponse)
+	request.Init(nn, cluster.SendResponse)
 	pprof.Init("localhost", srvCfg.Port+10000)
 	return nil
 }
@@ -55,7 +55,7 @@ func CopyHead(head *pb.Head, nt pb.NodeType, actorFunc string, actorId uint64, s
 		Src: cluster.NewNodeRouter(act, actId),
 		Dst: &pb.NodeRouter{
 			NodeType:  nt,
-			ActorFunc: util.GetCrc32(actorFunc),
+			ActorFunc: request.GetCrc32(actorFunc),
 			ActorId:   actorId,
 		},
 		Uid:   head.Uid,
@@ -101,7 +101,7 @@ func NewHead(uid uint64, nt pb.NodeType, actorFunc string, actorId uint64, srcs 
 		Src: cluster.NewNodeRouter(srcFunc, srcId),
 		Dst: &pb.NodeRouter{
 			NodeType:  nt,
-			ActorFunc: util.GetCrc32(actorFunc),
+			ActorFunc: request.GetCrc32(actorFunc),
 			ActorId:   actorId,
 		},
 	}

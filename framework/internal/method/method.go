@@ -1,83 +1,77 @@
-package funcs
+package method
 
 import (
 	"reflect"
 	"sync/atomic"
 	"universal/common/pb"
 	"universal/framework/define"
+	"universal/framework/internal/request"
 	"universal/library/encode"
 	"universal/library/mlog"
+	"universal/library/uerror"
 	"universal/library/util"
 
 	"github.com/golang/protobuf/proto"
 )
 
-const (
-	HEAD_FLAG      = 1 << 0
-	REQ_FLAG       = 1 << 1
-	RSP_FLAG       = 1 << 2
-	BYTES_FLAG     = 1 << 3
-	INTERFACE_FLAG = 1 << 4
-	GOB_FLAG       = 1 << 5
-)
-
-var (
-	headType      = reflect.TypeOf((*pb.Head)(nil))
-	reqType       = reflect.TypeOf((*proto.Message)(nil)).Elem()
-	rspType       = reflect.TypeOf((*define.IRspProto)(nil)).Elem()
-	bytesType     = reflect.TypeOf((*[]byte)(nil)).Elem()
-	errorType     = reflect.TypeOf((*error)(nil)).Elem()
-	interfaceType = reflect.TypeOf((*interface{})(nil)).Elem()
-	nilError      = reflect.ValueOf((*error)(nil)).Elem()
-)
-
 type Method struct {
+	define.IActor
 	reflect.Method
 	mask uint32
-	act  define.IActor
 }
 
 func NewMethod(act define.IActor, m reflect.Method) *Method {
 	ins, outs := m.Type.NumIn(), m.Type.NumOut()
-	if outs > 1 || outs == 1 && !m.Type.Out(0).Implements(errorType) {
+	if outs > 1 || outs == 1 && !m.Type.Out(0).Implements(define.ErrorType) {
 		return nil
 	}
 	mask := uint32(0)
 	for i := 1; i < ins; i++ {
-		if m.Type.In(i).AssignableTo(headType) {
-			mask = mask | HEAD_FLAG
+		if m.Type.In(i).AssignableTo(define.HeadType) {
+			mask = mask | define.HEAD_FLAG
 			continue
 		}
-		if m.Type.In(i).Implements(rspType) {
-			mask = mask | RSP_FLAG
+		if m.Type.In(i).Implements(define.RspType) {
+			mask = mask | define.RSP_FLAG
 			continue
 		}
-		if m.Type.In(i).Implements(reqType) {
-			mask = mask | REQ_FLAG
+		if m.Type.In(i).Implements(define.ReqType) {
+			mask = mask | define.REQ_FLAG
 			continue
 		}
-		if m.Type.In(i).AssignableTo(bytesType) {
-			mask = mask | BYTES_FLAG
+		if m.Type.In(i).AssignableTo(define.BytesType) {
+			mask = mask | define.BYTES_FLAG
 			continue
 		}
-		if m.Type.In(i) == interfaceType {
-			mask = mask | INTERFACE_FLAG
+		if m.Type.In(i) == define.InterfaceType {
+			mask = mask | define.INTERFACE_FLAG
 		} else {
-			mask = mask | GOB_FLAG
+			mask = mask | define.GOB_FLAG
 		}
 	}
-	return register(&Method{Method: m, mask: mask, act: act})
+	return &Method{Method: m, mask: mask, IActor: act}
+}
+
+func (r *Method) GetFuncName() string {
+	return r.Name
+}
+
+func (r *Method) addReference(head *pb.Head) uint32 {
+	if r.mask == define.HEAD_REQ_RSP_MASK {
+		return atomic.AddUint32(&head.Reference, 1)
+	}
+	return 0
 }
 
 func (r *Method) Call(rval reflect.Value, head *pb.Head, args ...interface{}) func() {
-	ref := r.getReference(head)
+	ref := r.addReference(head)
 	return func() {
-		params := get(r.Type.NumIn())
-		defer put(params)
+		params := request.GetReflectValueArray(r.Type.NumIn())
+		defer request.PutReflectValueArray(params)
 
 		params[0] = rval
 		pos := 1
-		if r.mask&HEAD_FLAG == HEAD_FLAG {
+		if r.mask&define.HEAD_FLAG == define.HEAD_FLAG {
 			params[pos] = reflect.ValueOf(head)
 			pos++
 		}
@@ -86,68 +80,61 @@ func (r *Method) Call(rval reflect.Value, head *pb.Head, args ...interface{}) fu
 		}
 
 		rets := r.Func.Call(params)
-		r.result(pos, ref, head, params, util.Index[reflect.Value](rets, 0, nilError).Interface().(error))
+		r.result(pos, ref, head, params, util.Index[reflect.Value](rets, 0, define.NilError).Interface().(error))
 	}
 }
 
 func (r *Method) Rpc(rval reflect.Value, head *pb.Head, buf []byte) func() {
-	ref := r.getReference(head)
+	ref := r.addReference(head)
 	return func() {
-		params := get(r.Type.NumIn())
-		defer put(params)
+		params := request.GetReflectValueArray(r.Type.NumIn())
+		defer request.PutReflectValueArray(params)
 
 		params[0] = rval
 		pos := 1
-		if r.mask&HEAD_FLAG == HEAD_FLAG {
+		if r.mask&define.HEAD_FLAG == define.HEAD_FLAG {
 			params[pos] = reflect.ValueOf(head)
 			pos++
 		}
 		switch r.mask {
-		case (HEAD_FLAG | REQ_FLAG | RSP_FLAG), (HEAD_FLAG | REQ_FLAG), (HEAD_FLAG | RSP_FLAG), (REQ_FLAG | RSP_FLAG), REQ_FLAG, RSP_FLAG:
+		case define.HEAD_REQ_RSP_MASK, define.HEAD_REQ_MASK, define.HEAD_RSP_MASK, define.REQ_RSP_MASK, define.REQ_FLAG, define.RSP_FLAG:
 			for i := pos; i < r.Type.NumIn(); i++ {
 				params[i] = reflect.New(r.Type.In(i).Elem())
 			}
 			if err := proto.Unmarshal(buf, params[pos].Interface().(proto.Message)); err != nil {
-				mlog.Errorf("参数解析失败 %v", head)
+				mlog.Errorf("参数解析失败 %v", err)
 				return
 			}
-		case (HEAD_FLAG | BYTES_FLAG), BYTES_FLAG, (HEAD_FLAG | INTERFACE_FLAG), INTERFACE_FLAG:
+		case define.HEAD_BYTES_MASK, define.BYTES_FLAG, define.HEAD_INTERFACE_MASK, define.INTERFACE_FLAG:
 			params[pos] = reflect.ValueOf(buf)
 		default:
 			if err := encode.Decode(buf, r.Method, params, pos); err != nil {
-				mlog.Errorf("参数解析失败 %v", head)
+				mlog.Errorf("参数解析失败 %v", err)
 				return
 			}
 		}
 
 		rets := r.Func.Call(params)
-		r.result(pos, ref, head, params, util.Index[reflect.Value](rets, 0, nilError).Interface().(error))
+		r.result(pos, ref, head, params, util.Index[reflect.Value](rets, 0, define.NilError).Interface().(error))
 	}
-}
-
-func (r *Method) getReference(head *pb.Head) uint32 {
-	if r.mask == (HEAD_FLAG | REQ_FLAG | RSP_FLAG) {
-		return atomic.AddUint32(&head.Reference, 1)
-	}
-	return 0
 }
 
 func (r *Method) result(pos int, ref uint32, head *pb.Head, params []reflect.Value, err error) {
 	switch r.mask {
-	case (HEAD_FLAG | REQ_FLAG | RSP_FLAG), (REQ_FLAG | RSP_FLAG):
+	case define.HEAD_REQ_RSP_MASK, define.REQ_RSP_MASK:
 		req := params[pos].Interface().(proto.Message)
 		rsp := params[pos+1].Interface().(define.IRspProto)
 		rsp.SetHead(toRspHead(err))
 		var reterr error
-		if r.mask == (HEAD_FLAG|REQ_FLAG|RSP_FLAG) && atomic.CompareAndSwapUint32(&head.Reference, ref, ref) {
-			reterr = sendRsp(head, rsp)
+		if r.mask == define.HEAD_REQ_RSP_MASK && atomic.CompareAndSwapUint32(&head.Reference, ref, ref) {
+			reterr = request.SendResponse(head, rsp)
 		}
 		if err != nil || reterr != nil {
 			mlog.Error(1, "%d|%s|%s|%d|%v|%v req:%v, rsp:%v, error:%v", head.Uid, head.ActorName, head.FuncName, head.ActorId, head.Src, head.Dst, req, rsp, reterr)
 		} else {
 			mlog.Debug(1, "%d|%s|%s|%d|%v|%v req:%v, rsp:%v, error:%v", head.Uid, head.ActorName, head.FuncName, head.ActorId, head.Src, head.Dst, req, rsp, reterr)
 		}
-	case (HEAD_FLAG | REQ_FLAG), REQ_FLAG, RSP_FLAG:
+	case define.HEAD_REQ_MASK, define.REQ_FLAG, define.RSP_FLAG:
 		req := params[pos].Interface().(proto.Message)
 		if err != nil {
 			mlog.Error(1, "%d|%s|%s|%d|%v|%v req:%v, error:%v", head.Uid, head.ActorName, head.FuncName, head.ActorId, head.Src, head.Dst, req, err)
@@ -160,5 +147,18 @@ func (r *Method) result(pos int, ref uint32, head *pb.Head, params []reflect.Val
 		} else {
 			mlog.Debug(1, "%d|%s|%s|%d|%v|%v error:%v", head.Uid, head.ActorName, head.FuncName, head.ActorId, head.Src, head.Dst, err)
 		}
+	}
+}
+
+func toRspHead(err error) *pb.RspHead {
+	switch vv := err.(type) {
+	case nil:
+		return nil
+	case *uerror.UError:
+		return &pb.RspHead{Code: vv.GetCode(), ErrMsg: vv.GetMsg()}
+	case error:
+		return &pb.RspHead{Code: -1, ErrMsg: vv.Error()}
+	default:
+		return nil
 	}
 }

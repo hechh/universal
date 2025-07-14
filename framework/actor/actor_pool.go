@@ -6,7 +6,8 @@ import (
 	"time"
 	"universal/common/pb"
 	"universal/framework/define"
-	"universal/framework/internal/funcs"
+	"universal/framework/internal/method"
+	"universal/framework/internal/request"
 	"universal/library/async"
 	"universal/library/mlog"
 	"universal/library/uerror"
@@ -19,7 +20,7 @@ type ActorPool struct {
 	id    uint64
 	name  string
 	rval  reflect.Value
-	funcs map[string]define.IFuncs
+	funcs map[string]*method.Method
 }
 
 func (d *ActorPool) GetIdPointer() *uint64 {
@@ -67,14 +68,15 @@ func (d *ActorPool) Register(ac define.IActor, sizes ...int) {
 
 func (d *ActorPool) ParseFunc(tt interface{}) {
 	switch vv := tt.(type) {
-	case map[string]define.IFuncs:
+	case map[string]*method.Method:
 		d.funcs = vv
 	case reflect.Type:
-		d.funcs = make(map[string]define.IFuncs)
+		d.funcs = make(map[string]*method.Method)
 		for i := 0; i < vv.NumMethod(); i++ {
 			m := vv.Method(i)
-			if ff := funcs.NewMethod(d, m); ff != nil {
+			if ff := method.NewMethod(d, m); ff != nil {
 				d.funcs[m.Name] = ff
+				request.Register(ff)
 			}
 		}
 	default:
