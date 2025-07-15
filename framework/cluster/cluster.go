@@ -3,152 +3,116 @@ package cluster
 import (
 	"sync/atomic"
 	"universal/common/pb"
-	"universal/common/yaml"
 	"universal/framework/define"
-	"universal/framework/internal/bus"
-	"universal/framework/internal/discovery"
-	"universal/framework/internal/node"
 	"universal/framework/internal/request"
-	"universal/framework/internal/router"
 	"universal/library/encode"
 	"universal/library/mlog"
-	"universal/library/pprof"
 	"universal/library/uerror"
 
 	"github.com/golang/protobuf/proto"
 )
 
-var (
-	cls  define.INode
-	tab  define.ITable
-	dis  define.IDiscovery
-	buss define.IBus
-)
-
-func Init(cfg *yaml.Config, srvCfg *yaml.NodeConfig, nn *pb.Node) (err error) {
-	tab = router.NewTable(srvCfg.RouterTTL)
-	cls = node.NewNode(nn)
-	request.Init(nn, SendResponse)
-	pprof.Init("localhost", srvCfg.Port+10000)
-
-	dis, err = discovery.NewEtcd(cfg.Etcd)
-	if err != nil {
-		return
-	}
-	if err = dis.Watch(cls); err != nil {
-		return
-	}
-	if err = dis.Register(cls, srvCfg.DiscoveryTTL); err != nil {
-		return
-	}
-	buss, err = bus.NewNats(cfg.Nats)
-	return
+type Cluster struct {
+	nodeMgr  define.INode
+	tableMgr define.ITable
+	dis      define.IDiscovery
+	client   define.IBus
 }
 
-func Close() {
-	tab.Close()
-	dis.Close()
-	buss.Close()
+func NewCluster(n define.INode, t define.ITable, d define.IDiscovery, c define.IBus) *Cluster {
+	return &Cluster{n, t, d, c}
 }
 
-func UpdateRouter(rrs ...*pb.NodeRouter) {
+func (c *Cluster) GetSelf() *pb.Node {
+	return c.nodeMgr.GetSelf()
+}
+
+func (c *Cluster) Close() {
+	c.tableMgr.Close()
+	c.dis.Close()
+	c.client.Close()
+}
+
+func (c *Cluster) updateRouter(rrs ...*pb.NodeRouter) {
 	for _, rr := range rrs {
 		if rr != nil && rr.ActorId > 0 {
-			tab.GetOrNew(rr.ActorId, cls.GetSelf()).SetData(rr.Router)
+			c.tableMgr.GetOrNew(rr.ActorId, c.nodeMgr.GetSelf()).SetData(rr.Router)
 			rr.Router = nil
 		}
 	}
 }
 
-func QueryRouter(rrs ...*pb.NodeRouter) {
+func (c *Cluster) queryRouter(rrs ...*pb.NodeRouter) {
 	for _, rr := range rrs {
 		if rr != nil && rr.ActorId > 0 {
-			rr.Router = tab.GetOrNew(rr.ActorId, cls.GetSelf()).GetData()
+			rr.Router = c.tableMgr.GetOrNew(rr.ActorId, c.nodeMgr.GetSelf()).GetData()
 		}
 	}
 }
 
-func SetBroadcastHandler(f func(*pb.Head, []byte)) error {
-	return buss.SetBroadcastHandler(cls.GetSelf(), f)
+func (c *Cluster) SetBroadcastHandler(f func(*pb.Head, []byte)) error {
+	return c.client.SetBroadcastHandler(c.nodeMgr.GetSelf(), f)
 }
 
-func SetSendHandler(f func(*pb.Head, []byte)) error {
-	return buss.SetSendHandler(cls.GetSelf(), func(head *pb.Head, body []byte) {
+func (c *Cluster) SetSendHandler(f func(*pb.Head, []byte)) error {
+	return c.client.SetSendHandler(c.nodeMgr.GetSelf(), func(head *pb.Head, body []byte) {
 		if err := request.Parse(head, "Player.SendToClient"); err != nil {
 			mlog.Errorf("Nats解析消息失败: %v", err)
 			return
 		}
-		UpdateRouter(head.Src, head.Dst)
+		c.updateRouter(head.Src, head.Dst)
 		f(head, body)
 	})
 }
 
-func SetReplyHandler(f func(*pb.Head, []byte)) error {
-	return buss.SetReplyHandler(cls.GetSelf(), func(head *pb.Head, body []byte) {
+func (c *Cluster) SetReplyHandler(f func(*pb.Head, []byte)) error {
+	return c.client.SetReplyHandler(c.nodeMgr.GetSelf(), func(head *pb.Head, body []byte) {
 		if err := request.Parse(head, "Player.SendToClient"); err != nil {
 			mlog.Errorf("Nats解析消息失败: %v", err)
 			return
 		}
-		UpdateRouter(head.Src, head.Dst)
+		c.updateRouter(head.Src, head.Dst)
 		f(head, body)
 	})
 }
 
-func Broadcast(head *pb.Head, args ...interface{}) error {
+func (c *Cluster) Broadcast(head *pb.Head, args ...interface{}) error {
+	if head.Dst == nil || (head.Dst.NodeType >= pb.NodeType_End && head.Dst.NodeType <= pb.NodeType_Begin) {
+		return uerror.New(1, int32(pb.ErrorCode_NodeTypeNotSupported), "节点类型不支持")
+	}
 	buf, err := encode.Marshal(args...)
 	if err != nil {
 		return uerror.Err(1, int32(pb.ErrorCode_ProtoMarshalFailed), err)
 	}
-	return buss.Broadcast(head, buf)
+	return c.client.Broadcast(head, buf)
 }
 
-func Send(head *pb.Head, args ...interface{}) error {
-	if err := Dispatcher(head); err != nil {
+func (c *Cluster) Send(head *pb.Head, args ...interface{}) error {
+	if err := c.dispatcher(head); err != nil {
 		return err
 	}
-	QueryRouter(head.Dst, head.Src)
+	c.queryRouter(head.Dst, head.Src)
 	buf, err := encode.Marshal(args...)
 	if err != nil {
 		return uerror.Err(1, int32(pb.ErrorCode_ProtoMarshalFailed), err)
 	}
-	return buss.Send(head, buf)
+	return c.client.Send(head, buf)
 }
 
-func Request(head *pb.Head, msg interface{}, rsp proto.Message) error {
-	if err := Dispatcher(head); err != nil {
+func (c *Cluster) SendCmd(head *pb.Head, args ...interface{}) error {
+	if err := c.dispatcher(head); err != nil {
 		return err
 	}
-	QueryRouter(head.Dst, head.Src)
-	buf, err := encode.Marshal(msg)
-	if err != nil {
-		return uerror.Err(1, int32(pb.ErrorCode_ProtoMarshalFailed), err)
-	}
-	return buss.Request(head, buf, rsp)
-}
-
-func Response(head *pb.Head, msg interface{}) error {
-	QueryRouter(head.Dst, head.Src)
-	buf, err := encode.Marshal(msg)
-	if err != nil {
-		return uerror.Err(1, int32(pb.ErrorCode_ProtoMarshalFailed), err)
-	}
-	return buss.Response(head, buf)
-}
-
-func SendCmd(head *pb.Head, args ...interface{}) error {
-	if err := Dispatcher(head); err != nil {
-		return err
-	}
-	QueryRouter(head.Dst, head.Src)
+	c.queryRouter(head.Dst, head.Src)
 	atomic.AddUint32(&head.Reference, 1)
 	buf, err := encode.Marshal(args...)
 	if err != nil {
 		return uerror.Err(1, int32(pb.ErrorCode_ProtoMarshalFailed), err)
 	}
-	return buss.Send(head, buf)
+	return c.client.Send(head, buf)
 }
 
-func SendToClient(head *pb.Head, msg proto.Message, uids ...uint64) error {
+func (c *Cluster) SendToClient(head *pb.Head, msg proto.Message, uids ...uint64) error {
 	buf, err := encode.Marshal(msg)
 	if err != nil {
 		return uerror.Err(1, int32(pb.ErrorCode_ProtoMarshalFailed), err)
@@ -162,40 +126,46 @@ func SendToClient(head *pb.Head, msg proto.Message, uids ...uint64) error {
 			head.Seq++
 		}
 	}
-	QueryRouter(head.Src)
+	c.queryRouter(head.Src)
 	atomic.AddUint32(&head.Reference, 1)
 	head.Dst = &pb.NodeRouter{NodeType: pb.NodeType_Gate}
 	for _, uid := range uids {
 		head.Dst.ActorId = define.UidToActorId(uid)
-		if err := Dispatcher(head); err == nil {
+		if err := c.dispatcher(head); err == nil {
 			mlog.Errorf("路由失败:%v", err)
 			continue
 		}
-		QueryRouter(head.Dst)
-		if err := buss.Send(head, buf); err != nil {
+		c.queryRouter(head.Dst)
+		if err := c.client.Send(head, buf); err != nil {
 			mlog.Errorf("发送客户端失败：%v", err)
 		}
 	}
 	return nil
 }
 
-func SendResponse(head *pb.Head, rsp proto.Message) error {
-	if len(head.Reply) > 0 {
-		return Response(head, rsp)
+func (c *Cluster) Request(head *pb.Head, msg interface{}, rsp proto.Message) error {
+	if err := c.dispatcher(head); err != nil {
+		return err
 	}
-	if head.Cmd > 0 {
-		head.Src = head.Dst
-		return SendToClient(head, rsp)
+	c.queryRouter(head.Dst, head.Src)
+	buf, err := encode.Marshal(msg)
+	if err != nil {
+		return uerror.Err(1, int32(pb.ErrorCode_ProtoMarshalFailed), err)
 	}
-	if head.Src != nil && head.Src.ActorId > 0 && head.Src.ActorFunc > 0 {
-		head.Src, head.Dst = head.Dst, head.Src
-		return Send(head, rsp)
-	}
-	return nil
+	return c.client.Request(head, buf, rsp)
 }
 
-func Dispatcher(head *pb.Head) error {
-	self := cls.GetSelf()
+func (c *Cluster) Response(head *pb.Head, msg interface{}) error {
+	buf, err := encode.Marshal(msg)
+	if err != nil {
+		return uerror.Err(1, int32(pb.ErrorCode_ProtoMarshalFailed), err)
+	}
+	c.queryRouter(head.Dst, head.Src)
+	return c.client.Response(head, buf)
+}
+
+func (c *Cluster) dispatcher(head *pb.Head) error {
+	self := c.nodeMgr.GetSelf()
 	if head.Dst == nil || head.Dst.ActorId <= 0 || head.Dst.ActorFunc <= 0 {
 		return uerror.New(1, int32(pb.ErrorCode_NodeRouterIsNil), "参数错误")
 	}
@@ -206,21 +176,40 @@ func Dispatcher(head *pb.Head) error {
 		return uerror.New(1, int32(pb.ErrorCode_NodeTypeInvalid), "禁止同节点类型发送")
 	}
 	if head.Dst.NodeId > 0 {
-		if cls.Get(head.Dst.NodeType, head.Dst.NodeId) != nil {
+		if c.nodeMgr.Get(head.Dst.NodeType, head.Dst.NodeId) != nil {
 			return nil
 		}
 		return uerror.New(1, int32(pb.ErrorCode_NodeNotFound), "节点不存在")
 	}
-	dstTab := tab.GetOrNew(head.Dst.ActorId, self)
+
+	// 从路由表中查询
+	dstTab := c.tableMgr.GetOrNew(head.Dst.ActorId, self)
 	if nodeId := dstTab.Get(head.Dst.NodeType); nodeId > 0 {
-		if cls.Get(head.Dst.NodeType, nodeId) != nil {
+		if c.nodeMgr.Get(head.Dst.NodeType, nodeId) != nil {
 			head.Dst.NodeId = nodeId
 			return nil
 		}
 	}
-	if nn := cls.Random(head.Dst.NodeType, head.Dst.ActorId); nn != nil {
+
+	// 从集群节点中随机
+	if nn := c.nodeMgr.Random(head.Dst.NodeType, head.Dst.ActorId); nn != nil {
 		head.Dst.NodeId = nn.Id
 		return nil
 	}
 	return uerror.New(1, int32(pb.ErrorCode_NodeNotFound), "%v", head.Dst)
+}
+
+func (c *Cluster) SendResponse(head *pb.Head, rsp proto.Message) error {
+	if len(head.Reply) > 0 {
+		return c.Response(head, rsp)
+	}
+	if head.Cmd > 0 {
+		head.Src = head.Dst
+		return c.SendToClient(head, rsp)
+	}
+	if head.Src != nil && head.Src.ActorId > 0 && head.Src.ActorFunc > 0 {
+		head.Src, head.Dst = head.Dst, head.Src
+		return c.Send(head, rsp)
+	}
+	return nil
 }

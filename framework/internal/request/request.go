@@ -2,41 +2,21 @@ package request
 
 import (
 	"hash/crc32"
-	"reflect"
 	"strings"
 	"universal/common/pb"
 	"universal/library/uerror"
 	"universal/library/util"
-
-	"github.com/golang/protobuf/proto"
 )
 
 var (
-	self         *pb.Node
-	apis         = make(map[uint32]IRequest)
-	names        = make(map[string]uint32)
-	args         = util.ArrayPool[reflect.Value](6)
-	SendResponse func(*pb.Head, proto.Message) error
+	apis  = make(map[uint32]IRequest)
+	names = make(map[string]uint32)
 )
 
 type IRequest interface {
 	GetActorType() uint32
 	GetActorName() string
 	GetFuncName() string
-}
-
-func Init(nn *pb.Node, f func(*pb.Head, proto.Message) error) {
-	self = nn
-	SendResponse = f
-}
-
-func GetReflectValueArray(size int) []reflect.Value {
-	rets := args.Get().([]reflect.Value)
-	return rets[:size]
-}
-
-func PutReflectValueArray(rets []reflect.Value) {
-	args.Put(rets)
 }
 
 func Register(mm IRequest) {
@@ -51,7 +31,7 @@ func GetCrc32(strs ...string) uint32 {
 	return names[actorFunc]
 }
 
-func NewNodeRouter(actorFunc string, id uint64) *pb.NodeRouter {
+func NewNodeRouter(self *pb.Node, actorFunc string, id uint64) *pb.NodeRouter {
 	actId := GetCrc32(actorFunc)
 	rr, ok := apis[actId]
 	if !ok {

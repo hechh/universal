@@ -5,7 +5,6 @@ import (
 	"sync/atomic"
 	"universal/common/pb"
 	"universal/framework/define"
-	"universal/framework/internal/request"
 	"universal/library/encode"
 	"universal/library/mlog"
 	"universal/library/uerror"
@@ -13,6 +12,24 @@ import (
 
 	"github.com/golang/protobuf/proto"
 )
+
+var (
+	args         = util.ArrayPool[reflect.Value](6)
+	sendResponse func(*pb.Head, proto.Message) error
+)
+
+func Init(f func(*pb.Head, proto.Message) error) {
+	sendResponse = f
+}
+
+func get(size int) []reflect.Value {
+	rets := args.Get().([]reflect.Value)
+	return rets[:size]
+}
+
+func put(rets []reflect.Value) {
+	args.Put(rets)
+}
 
 type Method struct {
 	define.IActor
@@ -66,8 +83,8 @@ func (r *Method) addReference(head *pb.Head) uint32 {
 func (r *Method) Call(rval reflect.Value, head *pb.Head, args ...interface{}) func() {
 	ref := r.addReference(head)
 	return func() {
-		params := request.GetReflectValueArray(r.Type.NumIn())
-		defer request.PutReflectValueArray(params)
+		params := get(r.Type.NumIn())
+		defer put(params)
 
 		params[0] = rval
 		pos := 1
@@ -87,8 +104,8 @@ func (r *Method) Call(rval reflect.Value, head *pb.Head, args ...interface{}) fu
 func (r *Method) Rpc(rval reflect.Value, head *pb.Head, buf []byte) func() {
 	ref := r.addReference(head)
 	return func() {
-		params := request.GetReflectValueArray(r.Type.NumIn())
-		defer request.PutReflectValueArray(params)
+		params := get(r.Type.NumIn())
+		defer put(params)
 
 		params[0] = rval
 		pos := 1
@@ -127,7 +144,7 @@ func (r *Method) result(pos int, ref uint32, head *pb.Head, params []reflect.Val
 		rsp.SetHead(toRspHead(err))
 		var reterr error
 		if r.mask == define.HEAD_REQ_RSP_MASK && atomic.CompareAndSwapUint32(&head.Reference, ref, ref) {
-			reterr = request.SendResponse(head, rsp)
+			reterr = sendResponse(head, rsp)
 		}
 		if err != nil || reterr != nil {
 			mlog.Error(1, "%d|%s|%s|%d|%v|%v req:%v, rsp:%v, error:%v", head.Uid, head.ActorName, head.FuncName, head.ActorId, head.Src, head.Dst, req, rsp, reterr)

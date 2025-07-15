@@ -2,6 +2,7 @@ package framework
 
 import (
 	"universal/common/pb"
+	"universal/framework/cluster"
 	"universal/framework/internal/request"
 	"universal/library/util"
 
@@ -40,7 +41,7 @@ func CopyHead(head *pb.Head, nt pb.NodeType, actorFunc string, actorId uint64, s
 	act := cast.ToString(util.Index[interface{}](srcs, 0, ""))
 	actId := cast.ToUint64(util.Index[interface{}](srcs, 1, 0))
 	return &pb.Head{
-		Src: request.NewNodeRouter(act, actId),
+		Src: request.NewNodeRouter(cluster.GetSelf(), act, actId),
 		Dst: &pb.NodeRouter{
 			NodeType:  nt,
 			ActorFunc: request.GetCrc32(actorFunc),
@@ -86,7 +87,7 @@ func NewHead(uid uint64, nt pb.NodeType, actorFunc string, actorId uint64, srcs 
 	srcId := cast.ToUint64(util.Index[interface{}](srcs, 1, 0))
 	return &pb.Head{
 		Uid: uid,
-		Src: request.NewNodeRouter(srcFunc, srcId),
+		Src: request.NewNodeRouter(cluster.GetSelf(), srcFunc, srcId),
 		Dst: &pb.NodeRouter{
 			NodeType:  nt,
 			ActorFunc: request.GetCrc32(actorFunc),
