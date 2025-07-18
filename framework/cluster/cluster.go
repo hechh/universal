@@ -92,19 +92,9 @@ func (c *Cluster) Send(head *pb.Head, args ...interface{}) error {
 		return err
 	}
 	c.queryRouter(head.Dst, head.Src)
-	buf, err := encode.Marshal(args...)
-	if err != nil {
-		return uerror.Err(1, int32(pb.ErrorCode_ProtoMarshalFailed), err)
+	if head.Cmd > 0 {
+		atomic.AddUint32(&head.Reference, 1)
 	}
-	return c.client.Send(head, buf)
-}
-
-func (c *Cluster) SendCmd(head *pb.Head, args ...interface{}) error {
-	if err := c.dispatcher(head); err != nil {
-		return err
-	}
-	c.queryRouter(head.Dst, head.Src)
-	atomic.AddUint32(&head.Reference, 1)
 	buf, err := encode.Marshal(args...)
 	if err != nil {
 		return uerror.Err(1, int32(pb.ErrorCode_ProtoMarshalFailed), err)
@@ -131,7 +121,7 @@ func (c *Cluster) SendToClient(head *pb.Head, msg proto.Message, uids ...uint64)
 	head.Dst = &pb.NodeRouter{NodeType: pb.NodeType_Gate}
 	for _, uid := range uids {
 		head.Dst.ActorId = define.UidToActorId(uid)
-		if err := c.dispatcher(head); err == nil {
+		if err := c.dispatcher(head); err != nil {
 			mlog.Errorf("路由失败:%v", err)
 			continue
 		}

@@ -71,10 +71,6 @@ func Send(head *pb.Head, args ...interface{}) error {
 	return clusterObj.Send(head, args...)
 }
 
-func SendCmd(head *pb.Head, args ...interface{}) error {
-	return clusterObj.SendCmd(head, args...)
-}
-
 func SendToClient(head *pb.Head, msg proto.Message, uids ...uint64) error {
 	return clusterObj.SendToClient(head, msg, uids...)
 }
