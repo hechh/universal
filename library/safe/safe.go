@@ -5,6 +5,12 @@ import (
 	"universal/library/mlog"
 )
 
+func Go(f func()) {
+	go func() {
+		Recover(f)
+	}()
+}
+
 func Recover(f func()) {
 	defer func() {
 		if err := recover(); err != nil {
@@ -12,10 +18,4 @@ func Recover(f func()) {
 		}
 	}()
 	f()
-}
-
-func Go(f func()) {
-	go func() {
-		Recover(f)
-	}()
 }

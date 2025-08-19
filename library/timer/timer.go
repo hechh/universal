@@ -47,7 +47,7 @@ func NewTimer(tick int64) *Timer {
 			{mask: (1 << 5) - 1, shift: tick + 22, cursor: now, buckets: make([]*Task, 1<<5)},
 			{mask: (1 << 5) - 1, shift: tick + 27, cursor: now, buckets: make([]*Task, 1<<5)},
 		},
-		tasks: queue.NewQueue[*Task](),
+		tasks: queue.New[*Task](),
 		exit:  make(chan struct{}),
 	}
 	ret.head = ret.wheels[0]

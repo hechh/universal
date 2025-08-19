@@ -4,24 +4,15 @@ import (
 	"bytes"
 	"fmt"
 	"path"
+	"path/filepath"
 	"runtime"
 	"strconv"
 	"sync"
 	"sync/atomic"
-	"time"
-)
-
-const (
-	LOG_DEBUG = 1
-	LOG_TRACE = 2
-	LOG_WARN  = 3
-	LOG_INFO  = 4
-	LOG_ERROR = 5
-	LOG_FATAL = 6
 )
 
 type IWriter interface {
-	Write(time.Time, []byte) error
+	Write(*meta) error
 	Close() error
 }
 
@@ -57,15 +48,15 @@ func (l *Logger) SetLevel(level int32) {
 	atomic.StoreInt32(&l.level, level)
 }
 
-func (d *Logger) Debug(skip int, format string, args ...interface{}) {
-	if atomic.LoadInt32(&d.level) <= LOG_DEBUG {
-		d.output(skip+1, LOG_DEBUG, format, args...)
-	}
-}
-
 func (d *Logger) Trace(skip int, format string, args ...interface{}) {
 	if atomic.LoadInt32(&d.level) <= LOG_TRACE {
 		d.output(skip+1, LOG_TRACE, format, args...)
+	}
+}
+
+func (d *Logger) Debug(skip int, format string, args ...interface{}) {
+	if atomic.LoadInt32(&d.level) <= LOG_DEBUG {
+		d.output(skip+1, LOG_DEBUG, format, args...)
 	}
 }
 
@@ -94,29 +85,29 @@ func (d *Logger) Fatal(skip int, format string, args ...interface{}) {
 }
 
 func (d *Logger) output(skip int, level int32, format string, args ...interface{}) {
-	pc, file, line, _ := runtime.Caller(skip + 1)
-	fname := path.Base(runtime.FuncForPC(pc).Name())
-	tt := time.Now()
-
-	builder := d.pool.Get().(*bytes.Buffer)
-	defer d.pool.Put(builder)
-	builder.Reset()
-
 	// 格式化输出
-	builder.WriteString(tt.Format("2006-01-02 15:04:05.000"))
-	builder.WriteByte(' ')
-	builder.WriteString(levelToString(level))
-	builder.WriteByte(' ')
-	builder.WriteString(file)
-	builder.WriteByte(':')
-	builder.WriteString(strconv.Itoa(line))
-	builder.WriteByte(' ')
-	builder.WriteString(fname)
-	builder.WriteByte(' ')
-	builder.WriteString(fmt.Sprintf(format, args...))
-	builder.WriteByte('\n')
+	mdata := get()
+	mdata.buf.WriteByte('[')
+	mdata.buf.WriteString(mdata.tt.Format("2006-01-02 15:04:05.000"))
+	mdata.buf.WriteString("]\t[")
+	mdata.buf.WriteString(levelToString(level))
+	mdata.buf.WriteString("]\t")
+	if skip > 0 {
+		pc, file, line, _ := runtime.Caller(skip + 1)
+		fname := path.Base(runtime.FuncForPC(pc).Name())
+		mdata.buf.WriteString(filepath.Base(file))
+		mdata.buf.WriteByte(':')
+		mdata.buf.WriteString(strconv.Itoa(line))
+		mdata.buf.WriteByte(' ')
+		mdata.buf.WriteString(fname)
+		mdata.buf.WriteByte('\t')
+	}
+	mdata.buf.WriteString(fmt.Sprintf(format, args...))
+	mdata.buf.WriteByte('\n')
+	// 输出日志
 	for _, ww := range d.writers {
-		ww.Write(tt, builder.Bytes())
+		mdata.Add()
+		ww.Write(mdata)
 	}
 }
 
@@ -136,22 +127,4 @@ func levelToString(level int32) string {
 		return "FATAL"
 	}
 	return ""
-}
-
-func StringToLevel(str string) int32 {
-	switch str {
-	case "TRACE":
-		return LOG_TRACE
-	case "DEBUG":
-		return LOG_DEBUG
-	case "WARN":
-		return LOG_WARN
-	case "INFO":
-		return LOG_INFO
-	case "ERROR":
-		return LOG_ERROR
-	case "FATAL":
-		return LOG_FATAL
-	}
-	return LOG_WARN
 }

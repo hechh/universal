@@ -13,16 +13,16 @@ type Node[T any] struct {
 type Queue[T any] struct {
 	head  *Node[T]
 	tail  *Node[T]
-	count int64
+	count int32
 }
 
-func NewQueue[T any]() *Queue[T] {
-	node := new(Node[T])
-	return &Queue[T]{head: node, tail: node}
+func New[T any]() *Queue[T] {
+	nn := new(Node[T])
+	return &Queue[T]{head: nn, tail: nn}
 }
 
-func (d *Queue[T]) GetCount() int64 {
-	return atomic.LoadInt64(&d.count)
+func (d *Queue[T]) Size() int32 {
+	return atomic.LoadInt32(&d.count)
 }
 
 func (d *Queue[T]) Push(val T) {
@@ -30,12 +30,12 @@ func (d *Queue[T]) Push(val T) {
 	addNode.value = val
 	prevNode := (*Node[T])(atomic.SwapPointer((*unsafe.Pointer)(unsafe.Pointer(&d.tail)), unsafe.Pointer(addNode)))
 	atomic.StorePointer((*unsafe.Pointer)(unsafe.Pointer(&prevNode.next)), unsafe.Pointer(addNode))
-	atomic.AddInt64(&d.count, 1)
+	atomic.AddInt32(&d.count, 1)
 }
 
 func (d *Queue[T]) Pop() (ret T) {
 	if node := (*Node[T])(atomic.LoadPointer((*unsafe.Pointer)(unsafe.Pointer(&d.head.next)))); node != nil {
-		atomic.AddInt64(&d.count, -1)
+		atomic.AddInt32(&d.count, -1)
 		ret = node.value
 		d.head.next = nil
 		d.head = node

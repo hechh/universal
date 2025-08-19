@@ -16,10 +16,10 @@ type Async struct {
 	exit   chan struct{}
 }
 
-func NewAsync() *Async {
+func New() *Async {
 	return &Async{
-		tasks:  queue.NewQueue[func()](),
-		notify: make(chan struct{}, 2),
+		tasks:  queue.New[func()](),
+		notify: make(chan struct{}, 1),
 		exit:   make(chan struct{}),
 	}
 }
@@ -36,7 +36,7 @@ func (d *Async) SetId(id uint64) {
 	atomic.StoreUint64(&d.id, id)
 }
 
-func (d *Async) Start() {
+func (d *Async) Start(id uint64) {
 	if atomic.LoadInt32(&d.status) > 0 {
 		return
 	}
@@ -50,18 +50,16 @@ func (d *Async) Stop() {
 		return
 	}
 	atomic.StoreInt32(&d.status, 0)
+	atomic.StoreUint64(&d.id, 0)
 	close(d.exit)
 	d.Wait()
-	atomic.StoreUint64(&d.id, 0)
 }
 
 func (d *Async) Push(f func()) {
-	if atomic.LoadInt32(&d.status) > 0 {
-		d.tasks.Push(f)
-		select {
-		case d.notify <- struct{}{}:
-		default:
-		}
+	d.tasks.Push(f)
+	select {
+	case d.notify <- struct{}{}:
+	default:
 	}
 }
 

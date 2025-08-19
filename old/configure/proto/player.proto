@@ -1,0 +1,33 @@
+syntax = "proto3";
+package universal;
+
+option go_package = "universal/common/pb";
+
+import "packet.proto";
+
+message PbItem {
+  int32 PropId = 1;  // 道具id
+  int64 Count  = 2;  // 数量
+}
+
+message PlayerBagData {
+  map<uint32, PbItem> Items = 1;  // 道具列表，key为道具id，value为道具信息
+}
+
+message PlayerBaseData {
+  string             Name           = 1;  // 玩家名称
+  string             Avatar         = 2;  // 玩家头像
+  int64              CreateTime     = 3;  // 创建时间
+  uint32             LastLoginTime  = 4;  // 上次登录时间
+  uint32             LastLogoutTime = 5;  // 上次登出时间
+  int32              NowLoginTime   = 6;  // 当前登录时间
+  map<int32, uint64> RoomInfo       = 7;  // 房间信息
+}
+
+message PlayerData {
+  uint64         Id      = 1;  // @inject_tag: xorm:"bigint autoincr pk"
+  uint64         Version = 2;  // @inject_tag: xorm:"version"
+  uint64         Uid     = 3;  // @inject_tag: xorm:"bigint index notnull comment('玩家ID')"
+  PlayerBaseData Base    = 4;  // @inject_tag: xorm:"blob comment('玩家信息')"
+  PlayerBagData  Bag     = 5;  // @inject_tag: xorm:"blob comment('背包系统')"
+}

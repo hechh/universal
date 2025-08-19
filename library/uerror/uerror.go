@@ -2,6 +2,7 @@ package uerror
 
 import (
 	"fmt"
+	"path/filepath"
 	"runtime"
 )
 
@@ -14,7 +15,7 @@ type UError struct {
 }
 
 func (ue *UError) Error() string {
-	return fmt.Sprintf("[%d]\t%s:%d %s\terror:%s", ue.code, ue.file, ue.line, ue.fname, ue.msg)
+	return fmt.Sprintf("%s:%d|%s|Code(%d)|ErrMsg(%s)", ue.file, ue.line, ue.fname, ue.code, ue.msg)
 }
 
 func (ue *UError) GetCode() int32 {
@@ -31,7 +32,7 @@ func Err(depth int, code int32, err error) *UError {
 	}
 	pc, file, line, _ := runtime.Caller(depth)
 	fname := runtime.FuncForPC(pc).Name()
-	return &UError{file: file, line: line, fname: fname, code: code, msg: err.Error()}
+	return &UError{file: filepath.Base(file), line: line, fname: fname, code: code, msg: err.Error()}
 }
 
 func New(depth int, code int32, format string, args ...interface{}) *UError {

@@ -6,13 +6,19 @@ import (
 	"path"
 	"sync"
 	"time"
-	"universal/library/builder"
 	"universal/library/queue"
 )
 
-type meta struct {
-	time time.Time
-	buff []byte
+type StdWriter struct{}
+
+func (d *StdWriter) Write(m *meta) error {
+	defer put(m)
+	_, err := fmt.Fprintln(os.Stdout, m.tt.Format("2006-01-02 15:04:05")+"\t"+m.buf.String())
+	return err
+}
+
+func (d *StdWriter) Close() error {
+	return nil
 }
 
 type LogWriter struct {
@@ -20,7 +26,7 @@ type LogWriter struct {
 	lpath   string
 	lname   string
 	logs    *queue.Queue[*meta]
-	builder *builder.Builder
+	builder *Builder
 	exit    chan struct{}
 	notify  chan struct{}
 }
@@ -29,17 +35,18 @@ func NewLogWriter(lpath, lname string, size int) *LogWriter {
 	w := &LogWriter{
 		lpath:   lpath,
 		lname:   lname,
-		logs:    queue.NewQueue[*meta](),
+		logs:    queue.New[*meta](),
 		notify:  make(chan struct{}, 1),
 		exit:    make(chan struct{}),
-		builder: builder.NewBuilder(size),
+		builder: NewBuilder(size),
 	}
+	w.Add(1)
 	go w.run()
 	return w
 }
 
-func (l *LogWriter) Write(tt time.Time, buf []byte) error {
-	l.logs.Push(&meta{time: tt, buff: buf})
+func (l *LogWriter) Write(mdata *meta) error {
+	l.logs.Push(mdata)
 	select {
 	case l.notify <- struct{}{}:
 	default:
@@ -48,49 +55,39 @@ func (l *LogWriter) Write(tt time.Time, buf []byte) error {
 }
 
 func (l *LogWriter) Close() error {
-	l.exit <- struct{}{}
+	close(l.exit)
 	l.Wait()
+	l.builder.Flush()
 	return l.builder.Close()
 }
 
-func (m *meta) GetFileName(lname string) string {
-	return fmt.Sprintf("%s_%04d%02d%02d_%02d.log", lname, m.time.Year(), m.time.Month(), m.time.Day(), m.time.Hour())
+func (l *LogWriter) GetFileName(m *meta) string {
+	return path.Join(l.lpath, fmt.Sprintf("%s_%04d%02d%02d_%02d.log", l.lname, m.tt.Year(), m.tt.Month(), m.tt.Day(), m.tt.Hour()))
 }
 
 func (l *LogWriter) run() {
-	l.Add(1)
 	tt := time.NewTicker(1 * time.Second)
 	defer func() {
 		tt.Stop()
-		l.handle()
+		for mm := l.logs.Pop(); mm != nil; mm = l.logs.Pop() {
+			l.builder.Set(l.GetFileName(mm))
+			l.builder.Write(mm.buf.Bytes())
+			put(mm)
+		}
 		l.Done()
 	}()
 	for {
 		select {
 		case <-l.notify:
-			l.handle()
+			for mm := l.logs.Pop(); mm != nil; mm = l.logs.Pop() {
+				l.builder.Set(l.GetFileName(mm))
+				l.builder.Write(mm.buf.Bytes())
+				put(mm)
+			}
 		case <-tt.C:
 			l.builder.Flush()
 		case <-l.exit:
 			return
 		}
 	}
-}
-
-func (l *LogWriter) handle() {
-	for mm := l.logs.Pop(); mm != nil; mm = l.logs.Pop() {
-		l.builder.Set(path.Join(l.lpath, mm.GetFileName(l.lname)))
-		l.builder.Write(mm.buff)
-	}
-}
-
-type StdWriter struct{}
-
-func (d *StdWriter) Write(t time.Time, buf []byte) error {
-	_, err := fmt.Fprintln(os.Stdout, t.Format("2006-01-02 15:04:05")+"\t"+string(buf))
-	return err
-}
-
-func (d *StdWriter) Close() error {
-	return nil
 }

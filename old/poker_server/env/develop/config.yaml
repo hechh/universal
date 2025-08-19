@@ -1,0 +1,157 @@
+mysql:
+  1:
+    dbname: poker
+    user: root
+    password: 123456
+    host: 192.168.50.250:13306
+    slave:
+
+redis:
+  1:
+    dbname: poker
+    db: 1
+    user: default
+    password: 123456
+    host: 192.168.50.250:16379
+  
+mongodb:
+  1:
+    dbname: poker
+    user: root
+    password: 123456
+    host: 192.168.50.250:17017
+    slave: 
+      1: 
+        dbname:  poker
+        user: root
+        password: 123456
+        host: 192.168.50.250:17017
+
+etcd:
+  topic: poker_server/etcd
+  endpoints:
+    - http://192.168.50.250:12379
+  
+nats:
+  topic: poker_server/nats
+  endpoints: 192.168.50.250:14222
+
+data:
+  is_remote: true
+  path: /data/poker/data
+  topic: poker/config
+  endpoints:
+    - http://192.168.50.250:12379
+
+common:
+  env: develop  # develop, beta, release 
+  secret_key: gH7%kL9!qW2#sD4*FpV6&nZ8@xJ0^yT1
+
+client:
+  1:
+    router_ttl: 900
+    discovery_ttl: 20
+    log_level: debug # info, debug, warn, error, fatal
+    log_path: ./log
+    ip: 192.168.50.250
+    port: 10101
+    http_port: 22345
+
+gate:
+  1:
+    router_ttl: 900
+    discovery_ttl: 20
+    log_level: debug # info, debug, warn, error, fatal
+    log_path: ./log
+    ip: 192.168.50.250
+    port: 10101
+    http_port: 10001
+
+room:
+  1:
+    router_ttl: 900
+    discovery_ttl: 20
+    log_level: debug # info, debug, warn, error, fatal
+    log_path: ./log
+    ip: 192.168.50.250
+    port: 10201
+  2:
+    router_ttl: 900
+    discovery_ttl: 20
+    log_level: debug # info, debug, warn, error, fatal
+    log_path: ./log
+    ip: 192.168.50.250
+    port: 10202
+
+match:
+  1:
+    router_ttl: 900
+    discovery_ttl: 20
+    log_level: debug # info, debug, warn, error, fatal
+    log_path: ./log
+    ip: 192.168.50.250
+    port: 10301
+  2:
+    router_ttl: 900
+    discovery_ttl: 20
+    log_level: debug # info, debug, warn, error, fatal
+    log_path: ./log
+    ip: 192.168.50.250
+    port: 10302
+
+db:
+  1:
+    router_ttl: 90000
+    discovery_ttl: 20
+    log_level: debug # info, debug, warn, error, fatal
+    log_path: ./log
+    ip: 192.168.50.250
+    port: 10401
+  2:
+    router_ttl: 90000
+    discovery_ttl: 20
+    log_level: debug # info, debug, warn, error, fatal
+    log_path: ./log
+    ip: 192.168.50.250
+    port: 10402
+
+builder:
+  1:
+    router_ttl: 90000
+    discovery_ttl: 20
+    log_level: debug # info, debug, warn, error, fatal
+    log_path: ./log
+    ip: 192.168.50.250
+    port: 10501
+  2:
+    router_ttl: 90000
+    discovery_ttl: 20
+    log_level: debug # info, debug, warn, error, fatal
+    log_path: ./log
+    ip: 192.168.50.250
+    port: 10502
+  
+game:
+  1:
+    router_ttl: 900
+    discovery_ttl: 20
+    log_level: debug # info, debug, warn, error, fatal
+    log_path: ./log
+    ip: 192.168.50.250
+    port: 10601
+  2:
+    router_ttl: 900
+    discovery_ttl: 20
+    log_level: debug # info, debug, warn, error, fatal
+    log_path: ./log
+    ip: 192.168.50.250
+    port: 10602
+
+gm:
+  1:
+    router_ttl: 900
+    discovery_ttl: 20
+    log_level: debug # info, debug, warn, error, fatal
+    log_path: ./log
+    ip: 192.168.50.250
+    port: 10701
