@@ -1,12 +1,16 @@
 package fileutil
 
 import (
+	"go/ast"
 	"go/format"
+	"go/parser"
+	"go/token"
 	"io/ioutil"
 	"os"
 	"path"
 	"path/filepath"
 	"regexp"
+	"universal/library/uerror"
 )
 
 // os.O_CREATE|os.O_APPEND|os.O_RDWR
@@ -74,4 +78,24 @@ func Glob(dir, pattern string, recursive bool) (rets []string, err error) {
 		return nil
 	})
 	return
+}
+
+// 解析go文件
+func ParseFiles(v ast.Visitor, files ...string) error {
+	fset := token.NewFileSet()
+	for _, filename := range files {
+		// 解析语法树
+		fs, err := parser.ParseFile(fset, filename, nil, parser.ParseComments)
+		if err != nil {
+			return uerror.New(1, -1, "filename: %v, error: %v", filename, err)
+		}
+		// 遍历语法树
+		ast.Walk(v, fs)
+		/*
+			buf := bytes.NewBuffer(nil)
+			ast.Fprint(buf, fset, fs, nil)
+			os.WriteFile(fmt.Sprintf("%s.ini", filename), buf.Bytes(), 0644)
+		*/
+	}
+	return nil
 }

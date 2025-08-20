@@ -7,6 +7,7 @@ import (
 	"universal/common/pb"
 	"universal/framework/define"
 	"universal/library/mlog"
+	"universal/library/templ"
 	"universal/library/uerror"
 
 	"github.com/golang/protobuf/proto"
@@ -19,21 +20,23 @@ type Attribute struct {
 }
 
 func NewAttribute(f interface{}, args ...string) *Attribute {
-	return &Attribute{fun: f, reqname: args[0], rspname: args[1]}
+	return &Attribute{
+		fun:     f,
+		reqname: templ.Index[string](args, 0, ""),
+		rspname: templ.Index[string](args, 1, ""),
+	}
 }
 
 func (a *Attribute) add(head *pb.Head) uint32 {
 	switch a.fun.(type) {
-	case define.TwoFunc:
-		return atomic.AddUint32(&head.Reference, 1)
-	case define.HeadTwoFunc:
+	case define.TwoFunc, define.HeadTwoFunc:
 		return atomic.AddUint32(&head.Reference, 1)
 	default:
 		return atomic.LoadUint32(&head.Reference)
 	}
 }
 
-func (a *Attribute) Call(ff define.SendRspFunc, pp define.IFactory, head *pb.Head, args ...proto.Message) func() {
+func (a *Attribute) Call(ff define.SendRspFunc, head *pb.Head, args ...proto.Message) func() {
 	ref := a.add(head)
 	return func() {
 		nowMs := time.Now().UnixMilli()
@@ -52,13 +55,13 @@ func (a *Attribute) Call(ff define.SendRspFunc, pp define.IFactory, head *pb.Hea
 		case define.HeadTwoFunc:
 			err = f(head, args[0], args[1])
 		default:
-			err = uerror.New(0, -1, "处理类型不支持: %s.%s", head.ActorName, head.FuncName)
+			err = uerror.New(1, -1, "处理类型不支持: %s.%s", head.ActorName, head.FuncName)
 		}
 		a.result(ref, nowMs, err, ff, head, args...)
 	}
 }
 
-func (a *Attribute) Rpc(ff define.SendRspFunc, pp define.IFactory, head *pb.Head, buf []byte) func() {
+func (a *Attribute) Rpc(pp define.IFactory, ff define.SendRspFunc, head *pb.Head, buf []byte) func() {
 	ref := a.add(head)
 	return func() {
 		nowMs := time.Now().UnixMilli()
@@ -92,7 +95,7 @@ func (a *Attribute) Rpc(ff define.SendRspFunc, pp define.IFactory, head *pb.Head
 				err = f(head, req, rsp)
 			}
 		default:
-			err = uerror.New(0, -1, "处理类型不支持: %s.%s", head.ActorName, head.FuncName)
+			err = uerror.New(1, -1, "处理类型不支持: %s.%s", head.ActorName, head.FuncName)
 		}
 		a.result(ref, nowMs, err, ff, head, req, rsp)
 	}
@@ -100,14 +103,21 @@ func (a *Attribute) Rpc(ff define.SendRspFunc, pp define.IFactory, head *pb.Head
 
 func (a *Attribute) result(ref uint32, nowMs int64, err error, ff define.SendRspFunc, head *pb.Head, args ...proto.Message) {
 	endMs := time.Now().UnixMilli()
-	if atomic.CompareAndSwapUint32(&head.Reference, ref, ref) {
-		rsp := args[1].(define.IRspProto)
-		rsp.SetHead(base.ToRspHead(err))
-		reterr := ff(head, rsp)
-		if err != nil || reterr != nil {
-			mlog.Errorf("耗时(%dms)|Req<%v>|Rsp<%v>|SendError<%v>|Error<%v>", endMs-nowMs, args[0], rsp, reterr, err)
-		} else {
-			mlog.Tracef("耗时(%dms)|Req<%v>|Rsp<%v>|SendError<%v>", endMs-nowMs, args[0], rsp, reterr)
+	var reterr error
+	var rsp define.IRspProto
+	switch a.fun.(type) {
+	case define.TwoFunc, define.HeadTwoFunc:
+		if atomic.CompareAndSwapUint32(&head.Reference, ref, ref) {
+			rsp = args[1].(define.IRspProto)
+			rsp.SetHead(base.ToRspHead(err))
+			if ff != nil {
+				reterr = ff(head, rsp)
+			}
 		}
+	}
+	if err != nil || reterr != nil {
+		mlog.Errorf("耗时(%dms)|Req<%v>|Rsp<%v>|SendError<%v>|Error<%v>", endMs-nowMs, args[0], rsp, reterr, err)
+	} else {
+		mlog.Tracef("耗时(%dms)|Req<%v>|Rsp<%v>|SendError<%v>", endMs-nowMs, args[0], rsp, reterr)
 	}
 }

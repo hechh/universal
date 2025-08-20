@@ -2,7 +2,7 @@ package uerror
 
 import (
 	"fmt"
-	"path/filepath"
+	"path"
 	"runtime"
 )
 
@@ -32,11 +32,11 @@ func Err(depth int, code int32, err error) *UError {
 	}
 	pc, file, line, _ := runtime.Caller(depth)
 	fname := runtime.FuncForPC(pc).Name()
-	return &UError{file: filepath.Base(file), line: line, fname: fname, code: code, msg: err.Error()}
+	return &UError{file: path.Base(file), line: line, fname: path.Base(fname), code: code, msg: err.Error()}
 }
 
 func New(depth int, code int32, format string, args ...interface{}) *UError {
 	pc, file, line, _ := runtime.Caller(depth)
 	fname := runtime.FuncForPC(pc).Name()
-	return &UError{file: file, line: line, fname: fname, code: code, msg: fmt.Sprintf(format, args...)}
+	return &UError{file: path.Base(file), line: line, fname: path.Base(fname), code: code, msg: fmt.Sprintf(format, args...)}
 }
