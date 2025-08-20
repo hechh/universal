@@ -153,6 +153,22 @@ func (i *MapExpr) FullName(curpkg string) string {
 	return fmt.Sprintf("map[%s]%s", i.key.FullName(curpkg), i.IType.FullName(curpkg))
 }
 
+func ParseType(fac domain.IFactory, pkg string, expr ast.Expr) domain.IType {
+	switch vv := expr.(type) {
+	case *ast.Ident:
+		return NewIdentExpr(fac, pkg, vv)
+	case *ast.SelectorExpr:
+		return NewSelectorExpr(fac, pkg, vv)
+	case *ast.StarExpr:
+		return NewStarExpr(fac, pkg, vv)
+	case *ast.ArrayType:
+		return NewArrayExpr(fac, pkg, vv)
+	case *ast.MapType:
+		return NewMapExpr(fac, pkg, vv)
+	}
+	return nil
+}
+
 type Attribute struct {
 	domain.IType
 	name string // 字段名字

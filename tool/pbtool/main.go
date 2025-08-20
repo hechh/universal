@@ -25,10 +25,8 @@ func main() {
 		panic(err)
 	}
 
-	/*
-		err = fileutil.ParseFiles(&parse.GoParser{}, files...)
-		if err != nil {
-			panic(err)
-		}
-	*/
+	par := parse.NewGoParser(fac, "state", "sizeCache", "unknownFields")
+	if err := fileutil.ParseFiles(par, files...); err != nil {
+		panic(err)
+	}
 }
