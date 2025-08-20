@@ -470,7 +470,7 @@ type Head struct {
 	Seq       uint32      `protobuf:"varint,8,opt,name=Seq,proto3" json:"Seq,omitempty"`
 	Cmd       uint32      `protobuf:"varint,9,opt,name=Cmd,proto3" json:"Cmd,omitempty"`
 	Reply     string      `protobuf:"bytes,10,opt,name=Reply,proto3" json:"Reply,omitempty"`
-	Reference uint32      `protobuf:"varint,11,opt,name=Reference,proto3" json:"Reference,omitempty"` //  uint32     Depth     = 12;
+	Reference uint32      `protobuf:"varint,11,opt,name=Reference,proto3" json:"Reference,omitempty"`
 }
 
 func (x *Head) Reset() {

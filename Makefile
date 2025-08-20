@@ -52,7 +52,6 @@ config:
 	@rm -rf ${CFG_GO_PATH}
 	@go run ./tools/cfgtool/main.go -xlsx=${XLSX_PATH} -proto=${PROTO_PATH}  -text=${DATA_PATH} -pb=${PB_GO_PATH}
 	make pb
-	make pbtool
 
 pb:
 	@echo "Building pb"
@@ -62,10 +61,7 @@ ifeq (${SYSTEM}, windows)
 else # linux darwin(mac)
 	protoc -I${PROTO_PATH} ${PROTO_PATH}/*.proto --go_out=..
 endif 
-
-pbtool:
-	@echo "gen redis code..."
-	@go run ./tools/pbtool/main.go -pb=${PB_GO_PATH} -redis=${REDIS_GO_PATH}
+	@go run ./tool/pbtool/main.go -pb=${PB_GO_PATH} 
 
 
 #------------------------docker环境选项-----------------------------
