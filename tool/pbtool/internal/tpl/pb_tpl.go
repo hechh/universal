@@ -9,6 +9,10 @@ const packageTpl = `
 
 package {{.}}
 
+import (
+	"github.com/golang/protobuf/proto"
+)
+
 `
 
 const memberTpl = `
@@ -21,7 +25,23 @@ func (d *{{$stname}}) Set{{$field.GetName}}(v {{$field.FullName "pb"}}) {
 
 `
 
+const factoryTpl = `
+var (
+	factorys = make(map[string]func() proto.Message)
+)
+
+func init() {
+{{- range $cls := .}}
+{{- if eq $cls.GetKind 3}}
+	factorys["{{$cls.GetName}}"] = func() proto.Message { return &{{$cls.GetName}}{} }
+{{- end}}
+{{- end}}
+}
+
+`
+
 var (
 	PackageTpl *template.Template = template.Must(template.New("pb").Parse(packageTpl))
 	MemberTpl  *template.Template = template.Must(template.New("pb").Parse(memberTpl))
+	FactoryTpl *template.Template = template.Must(template.New("pb").Parse(factoryTpl))
 )

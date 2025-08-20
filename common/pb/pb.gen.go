@@ -4,6 +4,10 @@
 
 package pb
 
+import (
+	"github.com/golang/protobuf/proto"
+)
+
 func (d *LoginReq) SetToken(v string) {
 	d.Token = v
 }
@@ -195,4 +199,27 @@ func (d *PlayerData) SetBase(v *PlayerBaseData) {
 }
 func (d *PlayerData) SetBag(v *PlayerBagData) {
 	d.Bag = v
+}
+
+var (
+	factorys = make(map[string]func() proto.Message)
+)
+
+func init() {
+	factorys["LoginReq"] = func() proto.Message { return &LoginReq{} }
+	factorys["LoginRsp"] = func() proto.Message { return &LoginRsp{} }
+	factorys["LogoutReq"] = func() proto.Message { return &LogoutReq{} }
+	factorys["LogoutRsp"] = func() proto.Message { return &LogoutRsp{} }
+	factorys["HeartReq"] = func() proto.Message { return &HeartReq{} }
+	factorys["HeartRsp"] = func() proto.Message { return &HeartRsp{} }
+	factorys["Node"] = func() proto.Message { return &Node{} }
+	factorys["Router"] = func() proto.Message { return &Router{} }
+	factorys["NodeRouter"] = func() proto.Message { return &NodeRouter{} }
+	factorys["Head"] = func() proto.Message { return &Head{} }
+	factorys["Packet"] = func() proto.Message { return &Packet{} }
+	factorys["RspHead"] = func() proto.Message { return &RspHead{} }
+	factorys["PbItem"] = func() proto.Message { return &PbItem{} }
+	factorys["PlayerBagData"] = func() proto.Message { return &PlayerBagData{} }
+	factorys["PlayerBaseData"] = func() proto.Message { return &PlayerBaseData{} }
+	factorys["PlayerData"] = func() proto.Message { return &PlayerData{} }
 }

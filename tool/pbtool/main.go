@@ -43,6 +43,9 @@ func main() {
 			panic(err)
 		}
 	}
+	if err := tpl.FactoryTpl.Execute(buff, manager.GetAll()); err != nil {
+		panic(err)
+	}
 	if err := fileutil.SaveGo(domain.PbPath, "pb.gen.go", buff.Bytes()); err != nil {
 		panic(err)
 	}
