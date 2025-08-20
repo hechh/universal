@@ -3,6 +3,7 @@ package typespec
 import (
 	"fmt"
 	"go/ast"
+	"strings"
 	"universal/tool/pbtool/domain"
 )
 
@@ -182,6 +183,10 @@ func (a *Attribute) GetName() string {
 	return a.name
 }
 
+func (a *Attribute) String() string {
+	return fmt.Sprintf("\t%s\t%s", a.name, a.FullName(""))
+}
+
 type Class struct {
 	domain.IType
 	fields map[string]domain.IAttribute
@@ -208,4 +213,12 @@ func (c *Class) Get(name string) domain.IAttribute {
 
 func (c *Class) GetAll() []domain.IAttribute {
 	return c.list
+}
+
+func (a *Class) String() string {
+	strs := []string{}
+	for _, field := range a.list {
+		strs = append(strs, field.String())
+	}
+	return fmt.Sprintf("type\t%s\tstruct\t{\n%s\n}\n", a.GetName(), strings.Join(strs, "\n"))
 }

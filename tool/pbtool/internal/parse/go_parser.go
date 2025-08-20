@@ -5,6 +5,7 @@ import (
 	"go/token"
 	"universal/library/templ"
 	"universal/tool/pbtool/domain"
+	"universal/tool/pbtool/internal/manager"
 	"universal/tool/pbtool/internal/typespec"
 )
 
@@ -36,10 +37,15 @@ func (g *GoParser) Visit(n ast.Node) ast.Visitor {
 			for _, field := range nn.Fields.List {
 				ft := typespec.ParseType(g, g.pkg, field.Type)
 				for _, item := range field.Names {
+					if _, ok := g.filter[item.Name]; ok {
+						continue
+					}
 					cls.Add(typespec.NewAttribute(item.Name, ft))
 				}
 			}
 		}
+		// fmt.Println(cls.GetName(), "------------->", cls.String())
+		manager.Register(cls)
 	}
 	return nil
 }

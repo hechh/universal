@@ -33,6 +33,7 @@ type IType interface {
 type IAttribute interface {
 	IType
 	GetName() string // 获取字段名
+	String() string
 }
 
 // 类型接口
@@ -41,4 +42,5 @@ type IClass interface {
 	Add(IAttribute)
 	Get(string) IAttribute
 	GetAll() []IAttribute
+	String() string
 }
