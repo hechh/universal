@@ -16,6 +16,11 @@ var (
 	sendrsp define.SendRspFunc
 )
 
+func Init(nn *pb.Node, srsp define.SendRspFunc) {
+	self = nn
+	sendrsp = srsp
+}
+
 func Register(ac define.IActor) {
 	actors[ac.GetActorName()] = ac
 }
