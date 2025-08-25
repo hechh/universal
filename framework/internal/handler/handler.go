@@ -1,4 +1,4 @@
-package attribute
+package handler
 
 import (
 	"sync/atomic"
@@ -25,17 +25,17 @@ func (f Handler[S, T, R]) Call(sendrsp define.SendRspFunc, s interface{}, head *
 		// 参数解析
 		req, ok := any(args[0]).(*T)
 		if !ok {
-			mlog.Errorf("调用%s.%s参数类型错误%v", head.ActorName, head.FuncName, args[0])
+			mlog.Errorf("调用%s参数类型错误%v", val2str[head.ActorFunc], args[0])
 			return
 		}
 		rsp, ok := any(args[1]).(*R)
 		if !ok {
-			mlog.Errorf("调用%s.%s参数类型错误%v", head.ActorName, head.FuncName, args[1])
+			mlog.Errorf("调用%s参数类型错误%v", val2str[head.ActorFunc], args[1])
 			return
 		}
 		obj, ok := s.(*S)
 		if !ok {
-			mlog.Errorf("调用%s.%s参数类型错误%v", head.ActorName, head.FuncName, s)
+			mlog.Errorf("调用%s参数类型错误%v", val2str[head.ActorFunc], s)
 			return
 		}
 
@@ -74,7 +74,7 @@ func (f Handler[S, T, R]) Rpc(sendrsp define.SendRspFunc, s interface{}, head *p
 		}
 		obj, ok := s.(*S)
 		if !ok {
-			mlog.Errorf("调用%s.%s参数类型错误%v", head.ActorName, head.FuncName, s)
+			mlog.Errorf("调用%s参数类型错误%v", val2str[head.ActorFunc], s)
 			return
 		}
 		rsp := f.NewRsp()

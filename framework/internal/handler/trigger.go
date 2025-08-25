@@ -1,21 +1,19 @@
-package attribute
+package handler
 
 import (
 	"time"
 	"universal/common/pb"
 	"universal/framework/define"
 	"universal/library/mlog"
-
-	"github.com/golang/protobuf/proto"
 )
 
 type Trigger[S any] func(*S, *pb.Head) error
 
-func (f Trigger[S]) Call(sendrsp define.SendRspFunc, s interface{}, head *pb.Head, args ...proto.Message) func() {
+func (f Trigger[S]) Call(sendrsp define.SendRspFunc, s interface{}, head *pb.Head, args ...interface{}) func() {
 	return func() {
 		obj, ok := s.(*S)
 		if !ok {
-			mlog.Errorf("调用%s.%s参数类型错误%v", head.ActorName, head.FuncName, s)
+			mlog.Errorf("调用%s参数类型错误%v", val2str[head.ActorFunc], s)
 			return
 		}
 
@@ -34,7 +32,7 @@ func (f Trigger[S]) Rpc(sendrsp define.SendRspFunc, s interface{}, head *pb.Head
 	return func() {
 		obj, ok := s.(*S)
 		if !ok {
-			mlog.Errorf("调用%s.%s参数类型错误%v", head.ActorName, head.FuncName, s)
+			mlog.Errorf("调用%s参数类型错误%v", val2str[head.ActorFunc], s)
 			return
 		}
 

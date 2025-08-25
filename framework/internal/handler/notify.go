@@ -1,4 +1,4 @@
-package attribute
+package handler
 
 import (
 	"sync/atomic"
@@ -21,12 +21,12 @@ func (f Notify[S, T]) Call(sendrsp define.SendRspFunc, s interface{}, head *pb.H
 		// 参数解析
 		req, ok := any(args[0]).(*T)
 		if !ok {
-			mlog.Errorf("调用%s.%s参数类型错误%v", head.ActorName, head.FuncName, args[0])
+			mlog.Errorf("调用%s参数类型错误%v", val2str[head.ActorFunc], args[0])
 			return
 		}
 		obj, ok := s.(*S)
 		if !ok {
-			mlog.Errorf("调用%s.%s参数类型错误%v", head.ActorName, head.FuncName, s)
+			mlog.Errorf("调用%s参数类型错误%v", val2str[head.ActorFunc], s)
 			return
 		}
 
@@ -35,9 +35,9 @@ func (f Notify[S, T]) Call(sendrsp define.SendRspFunc, s interface{}, head *pb.H
 		err := f(obj, head, req)
 		endMs := time.Now().UnixMilli()
 		if err != nil {
-			mlog.Errorf("%s.%s耗时(%dms)|Event<%v>|Error<%v>", head.ActorName, head.FuncName, endMs-startMs, args[0], err)
+			mlog.Errorf("%s耗时(%dms)|Event<%v>|Error<%v>", val2str[head.ActorFunc], endMs-startMs, args[0], err)
 		} else {
-			mlog.Tracef("%s.%s耗时(%dms)|Event<%v>", head.ActorName, head.FuncName, endMs-startMs, args[0])
+			mlog.Tracef("%s耗时(%dms)|Event<%v>", val2str[head.ActorFunc], endMs-startMs, args[0])
 		}
 
 		// 是否回复
@@ -65,7 +65,7 @@ func (f Notify[S, T]) Rpc(sendrsp define.SendRspFunc, s interface{}, head *pb.He
 		}
 		obj, ok := s.(*S)
 		if !ok {
-			mlog.Errorf("调用%s.%s参数类型错误%v", head.ActorName, head.FuncName, s)
+			mlog.Errorf("调用%s参数类型错误%v", val2str[head.ActorFunc], s)
 			return
 		}
 
