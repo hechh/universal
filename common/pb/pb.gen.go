@@ -113,8 +113,11 @@ func (d *Head) SetSrc(v *NodeRouter) {
 func (d *Head) SetDst(v *NodeRouter) {
 	d.Dst = v
 }
-func (d *Head) SetActorFunc(v uint32) {
-	d.ActorFunc = v
+func (d *Head) SetActorName(v string) {
+	d.ActorName = v
+}
+func (d *Head) SetFuncName(v string) {
+	d.FuncName = v
 }
 func (d *Head) SetActorId(v uint64) {
 	d.ActorId = v

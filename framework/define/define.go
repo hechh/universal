@@ -19,7 +19,6 @@ type IActor interface {
 	IAsync
 	GetActorName() string
 	Register(IActor, ...int)
-	ParseFunc(interface{})
 	SendMsg(*pb.Head, ...interface{}) error
 	Send(*pb.Head, []byte) error
 	RegisterTimer(*uint64, *pb.Head, time.Duration, int32) error

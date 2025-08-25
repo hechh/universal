@@ -5,9 +5,8 @@ import (
 	"testing"
 	"time"
 	"universal/common/pb"
-	"universal/library/util"
 
-	"google.golang.org/protobuf/proto"
+	"github.com/golang/protobuf/proto"
 )
 
 type Player struct {
@@ -27,14 +26,16 @@ func (p *Player) Login(h *pb.Head, req *pb.LoginReq, rsp *pb.LoginRsp) error {
 }
 
 func TestHandler(t *testing.T) {
-	RegisterNotify[Player, pb.HeartReq]("Player.Heart", (*Player).Heart)
-	RegisterHandler[Player, pb.LoginReq, pb.LoginRsp]("Player.Login", (*Player).Login)
+	Register1[Player, pb.HeartReq](pb.NodeType_Db, "Player.Heart", (*Player).Heart)
+	Register2[Player, pb.LoginReq, pb.LoginRsp](pb.NodeType_Db, "Player.Login", (*Player).Login)
 
 	pl := &Player{name: "hhh"}
 
-	Call(nil, pl, &pb.Head{ActorFunc: util.String2Int("Player.Login")}, &pb.LoginReq{Token: "asdfasdf"}, &pb.LoginRsp{})()
+	ff := GetHandler(pb.NodeType_Db, "Player", "Login")
+	ff.Call(nil, pl, &pb.Head{}, &pb.LoginReq{Token: "asdfasdf"}, &pb.LoginRsp{})()
 
 	req := &pb.HeartReq{BeginTime: time.Now().Unix()}
 	buf, _ := proto.Marshal(req)
-	Rpc(nil, pl, &pb.Head{ActorFunc: util.String2Int("Player.Heart")}, buf)()
+	rf := GetHandler(pb.NodeType_Db, "Player", "Heart")
+	rf.Rpc(nil, pl, &pb.Head{}, buf)()
 }
