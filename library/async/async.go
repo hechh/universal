@@ -36,7 +36,7 @@ func (d *Async) SetId(id uint64) {
 	atomic.StoreUint64(&d.id, id)
 }
 
-func (d *Async) Start(id uint64) {
+func (d *Async) Start() {
 	if atomic.LoadInt32(&d.status) > 0 {
 		return
 	}

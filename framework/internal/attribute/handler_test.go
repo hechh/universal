@@ -2,22 +2,12 @@ package attribute
 
 import (
 	"fmt"
-	"reflect"
-	"strings"
 	"testing"
 	"time"
 	"universal/common/pb"
 
-	"github.com/golang/protobuf/proto"
+	"google.golang.org/protobuf/proto"
 )
-
-func parseName(rr reflect.Type) string {
-	name := rr.String()
-	if index := strings.Index(name, "."); index > -1 {
-		name = name[index+1:]
-	}
-	return name
-}
 
 type Player struct {
 	name string
@@ -35,13 +25,23 @@ func (p *Player) Login(h *pb.Head, req *pb.LoginReq, rsp *pb.LoginRsp) error {
 	return nil
 }
 
+func TestMethod(t *testing.T) {
+	mm := NewMethod()
+	mm.Register("Heart", Notify[Player, pb.HeartReq]((*Player).Heart))
+	mm.Register("Login", Handler[Player, pb.LoginReq, pb.LoginRsp]((*Player).Login))
+
+	pl := &Player{name: "hhh"}
+	mm.Call(nil, pl, &pb.Head{FuncName: "Heart"}, &pb.HeartReq{BeginTime: time.Now().Unix()})()
+}
+
 func TestHandler(t *testing.T) {
-	pl := &Player{}
-	ll := Handler[pb.LoginReq, pb.LoginRsp](pl.Login)
-	ll.Call(nil, &pb.Head{}, &pb.LoginReq{Token: "asdfasdf"}, &pb.LoginRsp{})()
+	pl := &Player{name: "hhh"}
+
+	ll := Handler[Player, pb.LoginReq, pb.LoginRsp]((*Player).Login)
+	ll.Call(nil, pl, &pb.Head{}, &pb.LoginReq{Token: "asdfasdf"}, &pb.LoginRsp{})()
 
 	req := &pb.HeartReq{BeginTime: time.Now().Unix()}
 	buf, _ := proto.Marshal(req)
-	attr := Notify[pb.HeartReq](pl.Heart)
-	attr.Rpc(nil, &pb.Head{}, buf)()
+	attr := Notify[Player, pb.HeartReq]((*Player).Heart)
+	attr.Rpc(nil, pl, &pb.Head{}, buf)()
 }

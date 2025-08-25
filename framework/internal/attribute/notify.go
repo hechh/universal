@@ -9,13 +9,13 @@ import (
 	"universal/library/mlog"
 )
 
-type Notify[T any] func(*pb.Head, *T) error
+type Notify[S any, T any] func(*S, *pb.Head, *T) error
 
-func (f Notify[T]) New() *T {
+func (f Notify[S, T]) New() *T {
 	return new(T)
 }
 
-func (f Notify[T]) Call(sendrsp define.SendRspFunc, head *pb.Head, args ...interface{}) func() {
+func (f Notify[S, T]) Call(sendrsp define.SendRspFunc, s interface{}, head *pb.Head, args ...interface{}) func() {
 	ref := atomic.AddUint32(&head.Reference, 1)
 	return func() {
 		// 参数解析
@@ -24,10 +24,15 @@ func (f Notify[T]) Call(sendrsp define.SendRspFunc, head *pb.Head, args ...inter
 			mlog.Errorf("调用%s.%s参数类型错误%v", head.ActorName, head.FuncName, args[0])
 			return
 		}
+		obj, ok := s.(*S)
+		if !ok {
+			mlog.Errorf("调用%s.%s参数类型错误%v", head.ActorName, head.FuncName, s)
+			return
+		}
 
 		// 接口调用
 		startMs := time.Now().UnixMilli()
-		err := f(head, req)
+		err := f(obj, head, req)
 		endMs := time.Now().UnixMilli()
 		if err != nil {
 			mlog.Errorf("%s.%s耗时(%dms)|Event<%v>|Error<%v>", head.ActorName, head.FuncName, endMs-startMs, args[0], err)
@@ -49,7 +54,7 @@ func (f Notify[T]) Call(sendrsp define.SendRspFunc, head *pb.Head, args ...inter
 	}
 }
 
-func (f Notify[T]) Rpc(sendrsp define.SendRspFunc, head *pb.Head, buf []byte) func() {
+func (f Notify[S, T]) Rpc(sendrsp define.SendRspFunc, s interface{}, head *pb.Head, buf []byte) func() {
 	ref := atomic.AddUint32(&head.Reference, 1)
 	return func() {
 		// 参数解析
@@ -58,10 +63,15 @@ func (f Notify[T]) Rpc(sendrsp define.SendRspFunc, head *pb.Head, buf []byte) fu
 			mlog.Errorf("协议解析失败<%v>", err)
 			return
 		}
+		obj, ok := s.(*S)
+		if !ok {
+			mlog.Errorf("调用%s.%s参数类型错误%v", head.ActorName, head.FuncName, s)
+			return
+		}
 
 		// 接口调用
 		startMs := time.Now().UnixMilli()
-		err := f(head, req)
+		err := f(obj, head, req)
 		endMs := time.Now().UnixMilli()
 		if err != nil {
 			mlog.Errorf("耗时(%dms)|Event<%v>|Error<%v>", endMs-startMs, req, err)

@@ -9,17 +9,17 @@ import (
 	"universal/library/mlog"
 )
 
-type Handler[T any, R any] func(*pb.Head, *T, *R) error
+type Handler[S any, T any, R any] func(*S, *pb.Head, *T, *R) error
 
-func (f Handler[T, R]) NewReq() *T {
+func (f Handler[S, T, R]) NewReq() *T {
 	return new(T)
 }
 
-func (f Handler[T, R]) NewRsp() *R {
+func (f Handler[S, T, R]) NewRsp() *R {
 	return new(R)
 }
 
-func (f Handler[T, R]) Call(sendrsp define.SendRspFunc, head *pb.Head, args ...interface{}) func() {
+func (f Handler[S, T, R]) Call(sendrsp define.SendRspFunc, s interface{}, head *pb.Head, args ...interface{}) func() {
 	ref := atomic.AddUint32(&head.Reference, 1)
 	return func() {
 		// 参数解析
@@ -33,10 +33,15 @@ func (f Handler[T, R]) Call(sendrsp define.SendRspFunc, head *pb.Head, args ...i
 			mlog.Errorf("调用%s.%s参数类型错误%v", head.ActorName, head.FuncName, args[1])
 			return
 		}
+		obj, ok := s.(*S)
+		if !ok {
+			mlog.Errorf("调用%s.%s参数类型错误%v", head.ActorName, head.FuncName, s)
+			return
+		}
 
 		// 接口调用
 		startMs := time.Now().UnixMilli()
-		err := f(head, req, rsp)
+		err := f(obj, head, req, rsp)
 		endMs := time.Now().UnixMilli()
 		if err != nil {
 			mlog.Errorf("耗时(%dms)|Req<%v>|Rsp<%v>|Error<%v>", endMs-startMs, req, rsp, err)
@@ -58,7 +63,7 @@ func (f Handler[T, R]) Call(sendrsp define.SendRspFunc, head *pb.Head, args ...i
 	}
 }
 
-func (f Handler[T, R]) Rpc(sendrsp define.SendRspFunc, head *pb.Head, buf []byte) func() {
+func (f Handler[S, T, R]) Rpc(sendrsp define.SendRspFunc, s interface{}, head *pb.Head, buf []byte) func() {
 	ref := atomic.AddUint32(&head.Reference, 1)
 	return func() {
 		// 参数解析
@@ -67,11 +72,16 @@ func (f Handler[T, R]) Rpc(sendrsp define.SendRspFunc, head *pb.Head, buf []byte
 			mlog.Errorf("参数解析失败%v", err)
 			return
 		}
+		obj, ok := s.(*S)
+		if !ok {
+			mlog.Errorf("调用%s.%s参数类型错误%v", head.ActorName, head.FuncName, s)
+			return
+		}
 		rsp := f.NewRsp()
 
 		// 接口调用
 		startMs := time.Now().UnixMilli()
-		err := f(head, req, rsp)
+		err := f(obj, head, req, rsp)
 		endMs := time.Now().UnixMilli()
 		if err != nil {
 			mlog.Errorf("耗时(%dms)|Req<%v>|Rsp<%v>|Error<%v>", endMs-startMs, req, rsp, err)
