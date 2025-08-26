@@ -2,7 +2,6 @@ package redis
 
 import (
 	"time"
-	"universal/common/pb"
 	"universal/common/redis/internal/manager"
 	"universal/library/uerror"
 
@@ -12,7 +11,7 @@ import (
 func IncrBy(dbid int32, key string, val int64) (int64, error) {
 	cli := manager.GetRedis(dbid)
 	if cli == nil {
-		return 0, uerror.New(1, int32(pb.ErrorCode_RedisClientNotFound), "DB(%d)", dbid)
+		return 0, uerror.New(1, -1, "DB(%d)", dbid)
 	}
 	return cli.IncrBy(key, val)
 }
@@ -20,7 +19,7 @@ func IncrBy(dbid int32, key string, val int64) (int64, error) {
 func Get(dbid int32, key string) (string, error) {
 	cli := manager.GetRedis(dbid)
 	if cli == nil {
-		return "", uerror.New(1, int32(pb.ErrorCode_RedisClientNotFound), "DB(%d)", dbid)
+		return "", uerror.New(1, -1, "DB(%d)", dbid)
 	}
 	return cli.Get(key)
 }
@@ -28,7 +27,7 @@ func Get(dbid int32, key string) (string, error) {
 func Set(dbid int32, key string, val interface{}) error {
 	cli := manager.GetRedis(dbid)
 	if cli == nil {
-		return uerror.New(1, int32(pb.ErrorCode_RedisClientNotFound), "DB(%d)", dbid)
+		return uerror.New(1, -1, "DB(%d)", dbid)
 	}
 	return cli.Set(key, val)
 }
@@ -37,7 +36,7 @@ func Set(dbid int32, key string, val interface{}) error {
 func SetNX(dbid int32, key string, val interface{}) (bool, error) {
 	cli := manager.GetRedis(dbid)
 	if cli == nil {
-		return false, uerror.New(1, int32(pb.ErrorCode_RedisClientNotFound), "DB(%d)", dbid)
+		return false, uerror.New(1, -1, "DB(%d)", dbid)
 	}
 	return cli.SetNX(key, val)
 }
@@ -46,7 +45,7 @@ func SetNX(dbid int32, key string, val interface{}) (bool, error) {
 func SetEX(dbid int32, key string, val interface{}, ttl time.Duration) error {
 	cli := manager.GetRedis(dbid)
 	if cli == nil {
-		return uerror.New(1, int32(pb.ErrorCode_RedisClientNotFound), "DB(%d)", dbid)
+		return uerror.New(1, -1, "DB(%d)", dbid)
 	}
 	return cli.SetEX(key, val, ttl)
 }
@@ -55,7 +54,7 @@ func SetEX(dbid int32, key string, val interface{}, ttl time.Duration) error {
 func MGet(dbid int32, keys ...string) ([]interface{}, error) {
 	cli := manager.GetRedis(dbid)
 	if cli == nil {
-		return nil, uerror.New(1, int32(pb.ErrorCode_RedisClientNotFound), "DB(%d)", dbid)
+		return nil, uerror.New(1, -1, "DB(%d)", dbid)
 	}
 	args := []string{}
 	for i := 0; i < len(keys); i++ {
@@ -68,7 +67,7 @@ func MGet(dbid int32, keys ...string) ([]interface{}, error) {
 func MSet(dbid int32, args ...interface{}) error {
 	cli := manager.GetRedis(dbid)
 	if cli == nil {
-		return uerror.New(1, int32(pb.ErrorCode_RedisClientNotFound), "DB(%d)", dbid)
+		return uerror.New(1, -1, "DB(%d)", dbid)
 	}
 	return cli.MSet(args...)
 }
@@ -76,7 +75,7 @@ func MSet(dbid int32, args ...interface{}) error {
 func HGetAll(dbid int32, key string) (map[string]string, error) {
 	cli := manager.GetRedis(dbid)
 	if cli == nil {
-		return nil, uerror.New(1, int32(pb.ErrorCode_RedisClientNotFound), "DB(%d)", dbid)
+		return nil, uerror.New(1, -1, "DB(%d)", dbid)
 	}
 	return cli.HGetAll(key)
 }
@@ -84,7 +83,7 @@ func HGetAll(dbid int32, key string) (map[string]string, error) {
 func HGet(dbid int32, key string, field string) (string, error) {
 	cli := manager.GetRedis(dbid)
 	if cli == nil {
-		return "", uerror.New(1, int32(pb.ErrorCode_RedisClientNotFound), "DB(%d)", dbid)
+		return "", uerror.New(1, -1, "DB(%d)", dbid)
 	}
 	return cli.HGet(key, field)
 }
@@ -92,7 +91,7 @@ func HGet(dbid int32, key string, field string) (string, error) {
 func HDel(dbid int32, key string, fields ...string) error {
 	cli := manager.GetRedis(dbid)
 	if cli == nil {
-		return uerror.New(1, int32(pb.ErrorCode_RedisClientNotFound), "DB(%d)", dbid)
+		return uerror.New(1, -1, "DB(%d)", dbid)
 	}
 	return cli.HDel(key, fields...)
 }
@@ -100,7 +99,7 @@ func HDel(dbid int32, key string, fields ...string) error {
 func HKeys(dbid int32, key string) ([]string, error) {
 	cli := manager.GetRedis(dbid)
 	if cli == nil {
-		return nil, uerror.New(1, int32(pb.ErrorCode_RedisClientNotFound), "DB(%d)", dbid)
+		return nil, uerror.New(1, -1, "DB(%d)", dbid)
 	}
 	return cli.HKeys(key)
 }
@@ -108,7 +107,7 @@ func HKeys(dbid int32, key string) ([]string, error) {
 func HIncrBy(dbid int32, key string, field string, incr int64) (int64, error) {
 	cli := manager.GetRedis(dbid)
 	if cli == nil {
-		return 0, uerror.New(1, int32(pb.ErrorCode_RedisClientNotFound), "DB(%d)", dbid)
+		return 0, uerror.New(1, -1, "DB(%d)", dbid)
 	}
 	return cli.HIncrBy(key, field, incr)
 }
@@ -116,7 +115,7 @@ func HIncrBy(dbid int32, key string, field string, incr int64) (int64, error) {
 func HSet(dbid int32, key string, field string, val interface{}) error {
 	cli := manager.GetRedis(dbid)
 	if cli == nil {
-		return uerror.New(1, int32(pb.ErrorCode_RedisClientNotFound), "DB(%d)", dbid)
+		return uerror.New(1, -1, "DB(%d)", dbid)
 	}
 	return cli.HSet(key, field, val)
 }
@@ -124,7 +123,7 @@ func HSet(dbid int32, key string, field string, val interface{}) error {
 func HMSet(dbid int32, key string, vals ...interface{}) error {
 	cli := manager.GetRedis(dbid)
 	if cli == nil {
-		return uerror.New(1, int32(pb.ErrorCode_RedisClientNotFound), "DB(%d)", dbid)
+		return uerror.New(1, -1, "DB(%d)", dbid)
 	}
 	return cli.HMSet(key, vals...)
 }
@@ -132,7 +131,7 @@ func HMSet(dbid int32, key string, vals ...interface{}) error {
 func ZAdd(dbid int32, key string, members ...*redis.Z) error {
 	cli := manager.GetRedis(dbid)
 	if cli == nil {
-		return uerror.New(1, int32(pb.ErrorCode_RedisClientNotFound), "DB(%d)", dbid)
+		return uerror.New(1, -1, "DB(%d)", dbid)
 	}
 	return cli.ZAdd(key, members...)
 }
@@ -140,7 +139,7 @@ func ZAdd(dbid int32, key string, members ...*redis.Z) error {
 func ZCard(dbid int32, key string) (int64, error) {
 	cli := manager.GetRedis(dbid)
 	if cli == nil {
-		return 0, uerror.New(1, int32(pb.ErrorCode_RedisClientNotFound), "DB(%d)", dbid)
+		return 0, uerror.New(1, -1, "DB(%d)", dbid)
 	}
 	return cli.ZCard(key)
 }
@@ -149,7 +148,7 @@ func ZCard(dbid int32, key string) (int64, error) {
 func ZRevRank(dbid int32, key string, member string) (int64, error) {
 	cli := manager.GetRedis(dbid)
 	if cli == nil {
-		return 0, uerror.New(1, int32(pb.ErrorCode_RedisClientNotFound), "DB(%d)", dbid)
+		return 0, uerror.New(1, -1, "DB(%d)", dbid)
 	}
 	return cli.ZRevRank(key, member)
 }
@@ -158,7 +157,7 @@ func ZRevRank(dbid int32, key string, member string) (int64, error) {
 func ZRevRange(dbid int32, key string, start, stop int64) ([]string, error) {
 	cli := manager.GetRedis(dbid)
 	if cli == nil {
-		return nil, uerror.New(1, int32(pb.ErrorCode_RedisClientNotFound), "DB(%d)", dbid)
+		return nil, uerror.New(1, -1, "DB(%d)", dbid)
 	}
 	return cli.ZRevRange(key, start, stop)
 }
@@ -166,7 +165,7 @@ func ZRevRange(dbid int32, key string, start, stop int64) ([]string, error) {
 func ZScore(dbid int32, key string, member string) (float64, error) {
 	cli := manager.GetRedis(dbid)
 	if cli == nil {
-		return 0, uerror.New(1, int32(pb.ErrorCode_RedisClientNotFound), "DB(%d)", dbid)
+		return 0, uerror.New(1, -1, "DB(%d)", dbid)
 	}
 	return cli.ZScore(key, member)
 }
@@ -174,7 +173,7 @@ func ZScore(dbid int32, key string, member string) (float64, error) {
 func ZRevRangeWithScores(dbid int32, key string, start, stop int64) ([]redis.Z, error) {
 	cli := manager.GetRedis(dbid)
 	if cli == nil {
-		return nil, uerror.New(1, int32(pb.ErrorCode_RedisClientNotFound), "DB(%d)", dbid)
+		return nil, uerror.New(1, -1, "DB(%d)", dbid)
 	}
 	return cli.ZRevRangeWithScores(key, start, stop)
 }
@@ -182,7 +181,7 @@ func ZRevRangeWithScores(dbid int32, key string, start, stop int64) ([]redis.Z, 
 func RPush(dbid int32, key string, values ...interface{}) (int64, error) {
 	cli := manager.GetRedis(dbid)
 	if cli == nil {
-		return 0, uerror.New(1, int32(pb.ErrorCode_RedisClientNotFound), "DB(%d)", dbid)
+		return 0, uerror.New(1, -1, "DB(%d)", dbid)
 	}
 	return cli.RPush(key, values...)
 }
@@ -190,7 +189,7 @@ func RPush(dbid int32, key string, values ...interface{}) (int64, error) {
 func RPop(dbid int32, key string) (string, error) {
 	cli := manager.GetRedis(dbid)
 	if cli == nil {
-		return "", uerror.New(1, int32(pb.ErrorCode_RedisClientNotFound), "DB(%d)", dbid)
+		return "", uerror.New(1, -1, "DB(%d)", dbid)
 	}
 	return cli.RPop(key)
 }
@@ -198,7 +197,7 @@ func RPop(dbid int32, key string) (string, error) {
 func LLen(dbid int32, key string) (int64, error) {
 	cli := manager.GetRedis(dbid)
 	if cli == nil {
-		return 0, uerror.New(1, int32(pb.ErrorCode_RedisClientNotFound), "DB(%d)", dbid)
+		return 0, uerror.New(1, -1, "DB(%d)", dbid)
 	}
 	return cli.LLen(key)
 }
@@ -206,7 +205,7 @@ func LLen(dbid int32, key string) (int64, error) {
 func LRange(dbid int32, key string, start, stop int64) ([]string, error) {
 	cli := manager.GetRedis(dbid)
 	if cli == nil {
-		return nil, uerror.New(1, int32(pb.ErrorCode_RedisClientNotFound), "DB(%d)", dbid)
+		return nil, uerror.New(1, -1, "DB(%d)", dbid)
 	}
 	return cli.LRange(key, start, stop)
 }
@@ -214,7 +213,7 @@ func LRange(dbid int32, key string, start, stop int64) ([]string, error) {
 func LTrim(dbid int32, key string, start, stop int64) (string, error) {
 	cli := manager.GetRedis(dbid)
 	if cli == nil {
-		return "", uerror.New(1, int32(pb.ErrorCode_RedisClientNotFound), "DB(%d)", dbid)
+		return "", uerror.New(1, -1, "DB(%d)", dbid)
 	}
 	return cli.LTrim(key, start, stop)
 }
@@ -222,7 +221,7 @@ func LTrim(dbid int32, key string, start, stop int64) (string, error) {
 func LRem(dbid int32, key string, val interface{}) (int64, error) {
 	cli := manager.GetRedis(dbid)
 	if cli == nil {
-		return 0, uerror.New(1, int32(pb.ErrorCode_RedisClientNotFound), "DB(%d)", dbid)
+		return 0, uerror.New(1, -1, "DB(%d)", dbid)
 	}
 	return cli.LRem(key, val)
 }
