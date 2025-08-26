@@ -9,9 +9,9 @@ import (
 
 type ZeroProto[S any] func(*S, *pb.Head) error
 
-func (f ZeroProto[S]) Call(sendrsp define.SendRspFunc, s interface{}, head *pb.Head, args ...interface{}) func() {
+func (f ZeroProto[S]) Call(sendrsp define.SendRspFunc, s define.IActor, head *pb.Head, args ...interface{}) func() {
 	return func() {
-		obj, ok := s.(*S)
+		obj, ok := any(s).(*S)
 		if !ok {
 			mlog.Errorf("调用%s.%s参数类型错误%v", head.ActorName, head.FuncName, s)
 			return
@@ -28,9 +28,9 @@ func (f ZeroProto[S]) Call(sendrsp define.SendRspFunc, s interface{}, head *pb.H
 	}
 }
 
-func (f ZeroProto[S]) Rpc(sendrsp define.SendRspFunc, s interface{}, head *pb.Head, buf []byte) func() {
+func (f ZeroProto[S]) Rpc(sendrsp define.SendRspFunc, s define.IActor, head *pb.Head, buf []byte) func() {
 	return func() {
-		obj, ok := s.(*S)
+		obj, ok := any(s).(*S)
 		if !ok {
 			mlog.Errorf("调用%s.%s参数类型错误%v", head.ActorName, head.FuncName, s)
 			return

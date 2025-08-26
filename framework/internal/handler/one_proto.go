@@ -15,7 +15,7 @@ func (f OneProto[S, T]) New() *T {
 	return new(T)
 }
 
-func (f OneProto[S, T]) Call(sendrsp define.SendRspFunc, s interface{}, head *pb.Head, args ...interface{}) func() {
+func (f OneProto[S, T]) Call(sendrsp define.SendRspFunc, s define.IActor, head *pb.Head, args ...interface{}) func() {
 	ref := atomic.AddUint32(&head.Reference, 1)
 	return func() {
 		// 参数解析
@@ -24,7 +24,7 @@ func (f OneProto[S, T]) Call(sendrsp define.SendRspFunc, s interface{}, head *pb
 			mlog.Errorf("调用%s.%s参数类型错误%v", head.ActorName, head.FuncName, args[0])
 			return
 		}
-		obj, ok := s.(*S)
+		obj, ok := any(s).(*S)
 		if !ok {
 			mlog.Errorf("调用%s.%s参数类型错误%v", head.ActorName, head.FuncName, s)
 			return
@@ -54,7 +54,7 @@ func (f OneProto[S, T]) Call(sendrsp define.SendRspFunc, s interface{}, head *pb
 	}
 }
 
-func (f OneProto[S, T]) Rpc(sendrsp define.SendRspFunc, s interface{}, head *pb.Head, buf []byte) func() {
+func (f OneProto[S, T]) Rpc(sendrsp define.SendRspFunc, s define.IActor, head *pb.Head, buf []byte) func() {
 	ref := atomic.AddUint32(&head.Reference, 1)
 	return func() {
 		// 参数解析
@@ -63,7 +63,7 @@ func (f OneProto[S, T]) Rpc(sendrsp define.SendRspFunc, s interface{}, head *pb.
 			mlog.Errorf("协议解析失败<%v>", err)
 			return
 		}
-		obj, ok := s.(*S)
+		obj, ok := any(s).(*S)
 		if !ok {
 			mlog.Errorf("调用%s.%s参数类型错误%v", head.ActorName, head.FuncName, s)
 			return

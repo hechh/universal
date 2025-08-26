@@ -10,9 +10,9 @@ import (
 )
 
 var (
-	self    *pb.Node
 	actors  = make(map[string]define.IActor)
 	t       = timer.NewTimer(4)
+	self    *pb.Node
 	sendrsp define.SendRspFunc
 )
 

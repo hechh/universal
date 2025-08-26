@@ -109,7 +109,7 @@ func (d *ActorMgr) SendMsg(h *pb.Head, args ...interface{}) error {
 
 func (d *ActorMgr) Send(h *pb.Head, buf []byte) error {
 	if _, ok := d.funcs[h.FuncName]; !ok {
-		return uerror.New(1, -1, "请求不存在(%s.%s)", h.ActorName, h.FuncName)
+		return uerror.New(1, -1, "接口%s.%s未注册", h.ActorName, h.FuncName)
 	}
 	switch h.SendType {
 	case pb.SendType_POINT:

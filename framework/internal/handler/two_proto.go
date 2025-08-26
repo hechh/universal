@@ -19,7 +19,7 @@ func (f TwoProto[S, T, R]) NewRsp() *R {
 	return new(R)
 }
 
-func (f TwoProto[S, T, R]) Call(sendrsp define.SendRspFunc, s interface{}, head *pb.Head, args ...interface{}) func() {
+func (f TwoProto[S, T, R]) Call(sendrsp define.SendRspFunc, s define.IActor, head *pb.Head, args ...interface{}) func() {
 	ref := atomic.AddUint32(&head.Reference, 1)
 	return func() {
 		// 参数解析
@@ -33,7 +33,7 @@ func (f TwoProto[S, T, R]) Call(sendrsp define.SendRspFunc, s interface{}, head 
 			mlog.Errorf("调用%s.%s参数类型错误%v", head.ActorName, head.FuncName, args[1])
 			return
 		}
-		obj, ok := s.(*S)
+		obj, ok := any(s).(*S)
 		if !ok {
 			mlog.Errorf("调用%s.%s参数类型错误%v", head.ActorName, head.FuncName, s)
 			return
@@ -63,7 +63,7 @@ func (f TwoProto[S, T, R]) Call(sendrsp define.SendRspFunc, s interface{}, head 
 	}
 }
 
-func (f TwoProto[S, T, R]) Rpc(sendrsp define.SendRspFunc, s interface{}, head *pb.Head, buf []byte) func() {
+func (f TwoProto[S, T, R]) Rpc(sendrsp define.SendRspFunc, s define.IActor, head *pb.Head, buf []byte) func() {
 	ref := atomic.AddUint32(&head.Reference, 1)
 	return func() {
 		// 参数解析
@@ -72,7 +72,7 @@ func (f TwoProto[S, T, R]) Rpc(sendrsp define.SendRspFunc, s interface{}, head *
 			mlog.Errorf("调用%s.%s参数解析失败%v", head.ActorName, head.FuncName, err)
 			return
 		}
-		obj, ok := s.(*S)
+		obj, ok := any(s).(*S)
 		if !ok {
 			mlog.Errorf("调用%s.%s参数类型错误%v", head.ActorName, head.FuncName, s)
 			return

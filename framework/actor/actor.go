@@ -14,7 +14,7 @@ import (
 type Actor struct {
 	*async.Async
 	name  string
-	rval  define.IActor
+	self  define.IActor
 	funcs map[string]define.IHandler
 }
 
@@ -24,8 +24,8 @@ func (a *Actor) GetActorName() string {
 
 func (a *Actor) Register(ac define.IActor, _ ...int) {
 	a.Async = async.New()
-	a.rval = ac
 	a.name = parseName(reflect.TypeOf(ac))
+	a.self = ac
 	a.funcs = handler.GetActor(self.Type, a.name)
 }
 
@@ -34,7 +34,7 @@ func (d *Actor) SendMsg(h *pb.Head, args ...interface{}) error {
 	if !ok {
 		return uerror.New(1, -1, "接口%s.%s未注册", h.ActorName, h.FuncName)
 	}
-	d.Push(mm.Call(sendrsp, d.rval, h, args...))
+	d.Push(mm.Call(sendrsp, d.self, h, args...))
 	return nil
 }
 
@@ -43,7 +43,7 @@ func (d *Actor) Send(h *pb.Head, buf []byte) error {
 	if !ok {
 		return uerror.New(1, -1, "接口%s.%s未注册", h.ActorName, h.FuncName)
 	}
-	d.Push(mm.Rpc(sendrsp, d.rval, h, buf))
+	d.Push(mm.Rpc(sendrsp, d.self, h, buf))
 	return nil
 }
 

@@ -96,6 +96,9 @@ func (n *Nats) SetReplyHandler(node *pb.Node, ff func(*pb.Head, []byte)) error {
 }
 
 func (d *Nats) Broadcast(head *pb.Head, msg []byte) error {
+	head.ActorId = 0
+	head.ActorName = ""
+	head.FuncName = ""
 	msgBuf, err := proto.Marshal(&pb.Packet{Head: head, Body: msg})
 	if err != nil {
 		return err
@@ -104,6 +107,9 @@ func (d *Nats) Broadcast(head *pb.Head, msg []byte) error {
 }
 
 func (d *Nats) Send(head *pb.Head, msg []byte) error {
+	head.ActorId = 0
+	head.ActorName = ""
+	head.FuncName = ""
 	msgBuf, err := proto.Marshal(&pb.Packet{Head: head, Body: msg})
 	if err != nil {
 		return err
@@ -112,6 +118,9 @@ func (d *Nats) Send(head *pb.Head, msg []byte) error {
 }
 
 func (d *Nats) Request(head *pb.Head, req []byte, rsp proto.Message) error {
+	head.ActorId = 0
+	head.ActorName = ""
+	head.FuncName = ""
 	msgBuf, err := proto.Marshal(&pb.Packet{Head: head, Body: req})
 	if err != nil {
 		return err
@@ -127,6 +136,9 @@ func (d *Nats) Request(head *pb.Head, req []byte, rsp proto.Message) error {
 }
 
 func (d *Nats) Response(head *pb.Head, msg []byte) error {
+	head.ActorId = 0
+	head.ActorName = ""
+	head.FuncName = ""
 	return d.client.Publish(head.Reply, msg)
 }
 

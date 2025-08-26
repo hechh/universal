@@ -18,7 +18,7 @@ type ActorPool struct {
 	pool  []*async.Async
 	id    uint64
 	name  string
-	rval  define.IActor
+	self  define.IActor
 	funcs map[string]define.IHandler
 }
 
@@ -58,7 +58,7 @@ func (d *ActorPool) Register(ac define.IActor, sizes ...int) {
 		d.pool[i] = async.New()
 	}
 	d.name = parseName(reflect.TypeOf(ac))
-	d.rval = ac
+	d.self = ac
 	d.funcs = handler.GetActor(self.Type, d.name)
 }
 
@@ -67,7 +67,7 @@ func (d *ActorPool) SendMsg(h *pb.Head, args ...interface{}) error {
 	if !ok {
 		return uerror.New(1, -1, "接口%s.%s未注册", h.ActorName, h.FuncName)
 	}
-	d.pool[h.ActorId%uint64(d.size)].Push(mm.Call(sendrsp, d.rval, h, args...))
+	d.pool[h.ActorId%uint64(d.size)].Push(mm.Call(sendrsp, d.self, h, args...))
 	return nil
 }
 
@@ -76,7 +76,7 @@ func (d *ActorPool) Send(h *pb.Head, buf []byte) error {
 	if !ok {
 		return uerror.New(1, -1, "接口%s.%s未注册", h.ActorName, h.FuncName)
 	}
-	d.pool[h.ActorId%uint64(d.size)].Push(mm.Rpc(sendrsp, d.rval, h, buf))
+	d.pool[h.ActorId%uint64(d.size)].Push(mm.Rpc(sendrsp, d.self, h, buf))
 	return nil
 }
 
