@@ -83,8 +83,8 @@ type IRouter interface {
 }
 
 type ITable interface {
-	GetOrNew(uint64, *pb.Node) IRouter
-	Get(uint64) IRouter
+	GetOrNew(pb.RouterType, uint64, *pb.Node) IRouter
+	Get(pb.RouterType, uint64) IRouter
 	Close()
 }
 

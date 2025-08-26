@@ -25,17 +25,25 @@ func NewTable(ttl int64) *Table {
 	return ret
 }
 
-func (t *Table) Get(id uint64) define.IRouter {
-	t.mutex.RLock()
-	defer t.mutex.RLock()
-	return t.data[id]
+func getkey(routerType pb.RouterType, id uint64) uint64 {
+	return uint64(routerType)<<56 | id&0xFFFFFFFFFFFFFF
 }
 
-func (t *Table) GetOrNew(id uint64, self *pb.Node) define.IRouter {
-	if rr := t.Get(id); rr != nil {
+func (t *Table) Get(routerType pb.RouterType, id uint64) define.IRouter {
+	t.mutex.RLock()
+	defer t.mutex.RLock()
+	if val, ok := t.data[getkey(routerType, id)]; ok {
+		return val
+	}
+	return nil
+}
+
+func (t *Table) GetOrNew(routerType pb.RouterType, id uint64, self *pb.Node) define.IRouter {
+	if rr := t.Get(routerType, id); rr != nil {
 		return rr
 	}
 
+	// 创建路由信息
 	rr := &Router{Router: &pb.Router{}, updateTime: time.Now().Unix()}
 	rr.Set(self.Type, self.Id)
 
