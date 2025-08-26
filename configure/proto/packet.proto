@@ -47,27 +47,26 @@ message Router {
 }
 
 message NodeRouter {
-  NodeType   NodeType   = 1;
-  int32      NodeId     = 2;
-  RouterType RouterType = 3;
-  uint64     RouterId   = 4;
-  uint32     ActorFunc  = 5;
-  uint64     ActorId    = 6;
-  Router     Router     = 7;
+  NodeType NodeType  = 1;
+  int32    NodeId    = 2;
+  uint64   RouterId  = 3;
+  uint32   ActorFunc = 4;
+  uint64   ActorId   = 5;
+  Router   Router    = 6;
 }
 
 message Head {
   SendType   SendType  = 1;
   NodeRouter Src       = 2;
   NodeRouter Dst       = 3;
-  string     ActorName = 4;
-  string     FuncName  = 5;
-  uint64     ActorId   = 6;
-  uint64     Uid       = 7;
-  uint32     Seq       = 8;
-  uint32     Cmd       = 9;
-  string     Reply     = 10;
-  uint32     Reference = 11;
+  uint64     Uid       = 4;
+  uint32     Seq       = 5;
+  uint32     Cmd       = 6;
+  uint32     Reference = 7;
+  string     Reply     = 8;
+  string     ActorName = 9;
+  string     FuncName  = 10;
+  uint64     ActorId   = 11;
 }
 
 message Packet {

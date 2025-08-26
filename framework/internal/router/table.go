@@ -25,21 +25,17 @@ func NewTable(ttl int64) *Table {
 	return ret
 }
 
-func getkey(routerType pb.RouterType, id uint64) uint64 {
-	return uint64(routerType)<<56 | id&0xFFFFFFFFFFFFFF
-}
-
-func (t *Table) Get(routerType pb.RouterType, id uint64) define.IRouter {
+func (t *Table) Get(id uint64) define.IRouter {
 	t.mutex.RLock()
 	defer t.mutex.RLock()
-	if val, ok := t.data[getkey(routerType, id)]; ok {
+	if val, ok := t.data[id]; ok {
 		return val
 	}
 	return nil
 }
 
-func (t *Table) GetOrNew(routerType pb.RouterType, id uint64, self *pb.Node) define.IRouter {
-	if rr := t.Get(routerType, id); rr != nil {
+func (t *Table) GetOrNew(id uint64, self *pb.Node) define.IRouter {
+	if rr := t.Get(id); rr != nil {
 		return rr
 	}
 

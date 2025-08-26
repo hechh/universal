@@ -26,23 +26,6 @@ func GetActor(nt pb.NodeType, actorName string) map[string]define.IHandler {
 	return hs
 }
 
-func GetActorFunc(id uint32) (actorName string, funcName string) {
-	str, ok := val2str[id]
-	if !ok {
-		return
-	}
-	pos := strings.Index(str, ".")
-	actorName = str[:pos]
-	funcName = str[pos+1:]
-	return
-}
-
-func GetActorFuncId(val string) uint32 {
-	id := util.String2Int(val)
-	val2str[id] = val
-	return id
-}
-
 func GetHandler(nt pb.NodeType, actorName, funcName string) define.IHandler {
 	return GetActor(nt, actorName)[funcName]
 }
@@ -69,4 +52,29 @@ func Register2[S any, T any, R any](nt pb.NodeType, actorFunc string, h TwoProto
 	hs := GetActor(nt, actorName)
 	hs[funcName] = h
 	val2str[util.String2Int(actorFunc)] = actorFunc
+}
+
+func GenRouterId(id uint64, tt uint64) uint64 {
+	return (id << 8) | tt
+}
+
+func ParseRouterId(routerId uint64) uint64 {
+	return (routerId >> 8)
+}
+
+func GetActorFunc(id uint32) (actorName string, funcName string) {
+	str, ok := val2str[id]
+	if !ok {
+		return
+	}
+	pos := strings.Index(str, ".")
+	actorName = str[:pos]
+	funcName = str[pos+1:]
+	return
+}
+
+func GetActorFuncId(val string) uint32 {
+	id := util.String2Int(val)
+	val2str[id] = val
+	return id
 }

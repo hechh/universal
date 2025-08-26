@@ -88,9 +88,6 @@ func (d *NodeRouter) SetNodeType(v NodeType) {
 func (d *NodeRouter) SetNodeId(v int32) {
 	d.NodeId = v
 }
-func (d *NodeRouter) SetRouterType(v RouterType) {
-	d.RouterType = v
-}
 func (d *NodeRouter) SetRouterId(v uint64) {
 	d.RouterId = v
 }
@@ -113,15 +110,6 @@ func (d *Head) SetSrc(v *NodeRouter) {
 func (d *Head) SetDst(v *NodeRouter) {
 	d.Dst = v
 }
-func (d *Head) SetActorName(v string) {
-	d.ActorName = v
-}
-func (d *Head) SetFuncName(v string) {
-	d.FuncName = v
-}
-func (d *Head) SetActorId(v uint64) {
-	d.ActorId = v
-}
 func (d *Head) SetUid(v uint64) {
 	d.Uid = v
 }
@@ -131,11 +119,20 @@ func (d *Head) SetSeq(v uint32) {
 func (d *Head) SetCmd(v uint32) {
 	d.Cmd = v
 }
+func (d *Head) SetReference(v uint32) {
+	d.Reference = v
+}
 func (d *Head) SetReply(v string) {
 	d.Reply = v
 }
-func (d *Head) SetReference(v uint32) {
-	d.Reference = v
+func (d *Head) SetActorName(v string) {
+	d.ActorName = v
+}
+func (d *Head) SetFuncName(v string) {
+	d.FuncName = v
+}
+func (d *Head) SetActorId(v uint64) {
+	d.ActorId = v
 }
 
 func (d *Packet) SetHead(v *Head) {

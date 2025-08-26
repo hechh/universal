@@ -57,3 +57,39 @@ func defaultHandler(head *pb.Head, buf []byte) {
 		mlog.Errorf("跨服务调用actor错误: %v", err)
 	}
 }
+
+func NewNodeRouterByUid(nt pb.NodeType, uid uint64, actorFunc string) *pb.NodeRouter {
+	return &pb.NodeRouter{
+		NodeType:  nt,
+		RouterId:  handler.GenRouterId(uid, uint64(pb.RouterType_UID)),
+		ActorFunc: handler.GetActorFuncId(actorFunc),
+	}
+}
+
+func NewNodeRouterByRoomId(nt pb.NodeType, roomId uint64, actorFunc string) *pb.NodeRouter {
+	return &pb.NodeRouter{
+		NodeType:  nt,
+		RouterId:  handler.GenRouterId(roomId, uint64(pb.RouterType_ROOM_ID)),
+		ActorFunc: handler.GetActorFuncId(actorFunc),
+	}
+}
+
+func NewNodeRouterByRandomId(nt pb.NodeType, id uint64, actorFunc string) *pb.NodeRouter {
+	return &pb.NodeRouter{
+		NodeType:  nt,
+		RouterId:  handler.GenRouterId(id, uint64(pb.RouterType_RANDOM_ID)),
+		ActorFunc: handler.GetActorFuncId(actorFunc),
+	}
+}
+
+func CopyTo(head *pb.Head, dst *pb.NodeRouter) *pb.Head {
+	newSrc := *head.Src
+	return &pb.Head{
+		SendType: head.SendType,
+		Src:      &newSrc,
+		Dst:      dst,
+		Uid:      head.Uid,
+		Seq:      head.Seq,
+		Cmd:      head.Cmd,
+	}
+}

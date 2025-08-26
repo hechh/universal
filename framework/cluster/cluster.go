@@ -7,6 +7,7 @@ import (
 	"universal/framework/define"
 	"universal/framework/internal/bus"
 	"universal/framework/internal/discovery"
+	"universal/framework/internal/handler"
 	"universal/framework/internal/node"
 	"universal/framework/internal/router"
 	"universal/library/encode"
@@ -71,16 +72,8 @@ func SetReplyHandler(f func(*pb.Head, []byte)) error {
 func updateRouter(rrs ...*pb.NodeRouter) {
 	for _, rr := range rrs {
 		if rr != nil && rr.Router != nil {
-			tableMgr.GetOrNew(rr.RouterType, rr.RouterId, nodeMgr.GetSelf()).SetData(rr.Router)
+			tableMgr.GetOrNew(rr.RouterId, nodeMgr.GetSelf()).SetData(rr.Router)
 			rr.Router = nil
-		}
-	}
-}
-
-func queryRouter(rrs ...*pb.NodeRouter) {
-	for _, rr := range rrs {
-		if rr != nil {
-			rr.Router = tableMgr.GetOrNew(rr.RouterType, rr.RouterId, nodeMgr.GetSelf()).GetData()
 		}
 	}
 }
@@ -141,6 +134,14 @@ func Response(head *pb.Head, msg interface{}) error {
 	return busObj.Response(head, buf)
 }
 
+func queryRouter(rrs ...*pb.NodeRouter) {
+	for _, rr := range rrs {
+		if rr != nil {
+			rr.Router = tableMgr.GetOrNew(rr.RouterId, nodeMgr.GetSelf()).GetData()
+		}
+	}
+}
+
 func dispatcher(head *pb.Head) error {
 	if head.Dst == nil {
 		return uerror.New(1, -1, "Dst参数错误")
@@ -160,7 +161,7 @@ func dispatcher(head *pb.Head) error {
 	}
 	defer mlog.Debugf("Dispatcher %v", head)
 	// 从路由表中读取
-	dstTab := tableMgr.GetOrNew(head.Dst.RouterType, head.Dst.RouterId, self)
+	dstTab := tableMgr.GetOrNew(head.Dst.RouterId, self)
 	if nodeId := dstTab.Get(head.Dst.NodeType); nodeId > 0 {
 		if nodeMgr.Get(head.Dst.NodeType, nodeId) != nil {
 			head.Dst.NodeId = nodeId
@@ -198,18 +199,17 @@ func SendToClient(head *pb.Head, msg proto.Message, uids ...uint64) error {
 		} else {
 			continue
 		}
-		dstTab := tableMgr.Get(pb.RouterType_UID, uid)
+		dstTab := tableMgr.Get(handler.GenRouterId(uid, uint64(pb.RouterType_UID)))
 		if dstTab == nil {
 			mlog.Warnf("玩家路由不存在 uid:%d", uid)
 			continue
 		}
 		head.Uid = uid
 		head.Dst = &pb.NodeRouter{
-			NodeType:   pb.NodeType_Gate,
-			NodeId:     dstTab.Get(pb.NodeType_Gate),
-			RouterType: pb.RouterType_UID,
-			RouterId:   uid,
-			Router:     dstTab.GetData(),
+			NodeType: pb.NodeType_Gate,
+			NodeId:   dstTab.Get(pb.NodeType_Gate),
+			RouterId: uid,
+			Router:   dstTab.GetData(),
 		}
 		if err := busObj.Send(head, buf); err != nil {
 			mlog.Errorf("发送客户端失败：%v", err)
