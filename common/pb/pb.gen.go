@@ -149,55 +149,6 @@ func (d *RspHead) SetErrMsg(v string) {
 	d.ErrMsg = v
 }
 
-func (d *PbItem) SetPropId(v int32) {
-	d.PropId = v
-}
-func (d *PbItem) SetCount(v int64) {
-	d.Count = v
-}
-
-func (d *PlayerBagData) SetItems(v map[uint32]*PbItem) {
-	d.Items = v
-}
-
-func (d *PlayerBaseData) SetName(v string) {
-	d.Name = v
-}
-func (d *PlayerBaseData) SetAvatar(v string) {
-	d.Avatar = v
-}
-func (d *PlayerBaseData) SetCreateTime(v int64) {
-	d.CreateTime = v
-}
-func (d *PlayerBaseData) SetLastLoginTime(v uint32) {
-	d.LastLoginTime = v
-}
-func (d *PlayerBaseData) SetLastLogoutTime(v uint32) {
-	d.LastLogoutTime = v
-}
-func (d *PlayerBaseData) SetNowLoginTime(v int32) {
-	d.NowLoginTime = v
-}
-func (d *PlayerBaseData) SetRoomInfo(v map[int32]uint64) {
-	d.RoomInfo = v
-}
-
-func (d *PlayerData) SetId(v uint64) {
-	d.Id = v
-}
-func (d *PlayerData) SetVersion(v uint64) {
-	d.Version = v
-}
-func (d *PlayerData) SetUid(v uint64) {
-	d.Uid = v
-}
-func (d *PlayerData) SetBase(v *PlayerBaseData) {
-	d.Base = v
-}
-func (d *PlayerData) SetBag(v *PlayerBagData) {
-	d.Bag = v
-}
-
 var (
 	factorys = make(map[string]func() proto.Message)
 )
@@ -215,8 +166,4 @@ func init() {
 	factorys["Head"] = func() proto.Message { return &Head{} }
 	factorys["Packet"] = func() proto.Message { return &Packet{} }
 	factorys["RspHead"] = func() proto.Message { return &RspHead{} }
-	factorys["PbItem"] = func() proto.Message { return &PbItem{} }
-	factorys["PlayerBagData"] = func() proto.Message { return &PlayerBagData{} }
-	factorys["PlayerBaseData"] = func() proto.Message { return &PlayerBaseData{} }
-	factorys["PlayerData"] = func() proto.Message { return &PlayerData{} }
 }
