@@ -26,6 +26,23 @@ func GetActor(nt pb.NodeType, actorName string) map[string]define.IHandler {
 	return hs
 }
 
+func GetActorFunc(id uint32) (actorName string, funcName string) {
+	str, ok := val2str[id]
+	if !ok {
+		return
+	}
+	pos := strings.Index(str, ".")
+	actorName = str[:pos]
+	funcName = str[pos+1:]
+	return
+}
+
+func GetActorFuncId(val string) uint32 {
+	id := util.String2Int(val)
+	val2str[id] = val
+	return id
+}
+
 func GetHandler(nt pb.NodeType, actorName, funcName string) define.IHandler {
 	return GetActor(nt, actorName)[funcName]
 }

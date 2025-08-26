@@ -45,6 +45,7 @@ type DataConfig struct {
 }
 
 type CommonConfig struct {
+	Pprof     bool   `yaml:"pprof"`
 	Env       string `yaml:"env"`
 	SecretKey string `yaml:"secret_key"`
 }

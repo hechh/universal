@@ -9,6 +9,7 @@ require (
 	github.com/golang/protobuf v1.5.4
 	github.com/gorilla/websocket v1.5.3
 	github.com/nats-io/nats.go v1.45.0
+	github.com/sony/sonyflake v1.3.0
 	github.com/spf13/cast v1.9.2
 	go.etcd.io/etcd/client/v3 v3.6.4
 	google.golang.org/protobuf v1.36.8
