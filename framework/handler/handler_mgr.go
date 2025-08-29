@@ -55,6 +55,30 @@ func RegisterCmd[S any, T any, R any](nt pb.NodeType, actorFunc string, h entity
 	val2str[util.String2Int(actorFunc)] = actorFunc
 }
 
+func RegisterGob1[S any, T any](nt pb.NodeType, actorFunc string, h entity.Gob1Handler[S, T]) {
+	pos := strings.Index(actorFunc, ".")
+	actorName, funcName := actorFunc[:pos], actorFunc[pos+1:]
+	hs := GetActor(nt, actorName)
+	hs[funcName] = h
+	val2str[util.String2Int(actorFunc)] = actorFunc
+}
+
+func RegisterGob2[S any, T any, U any](nt pb.NodeType, actorFunc string, h entity.Gob2Handler[S, T, U]) {
+	pos := strings.Index(actorFunc, ".")
+	actorName, funcName := actorFunc[:pos], actorFunc[pos+1:]
+	hs := GetActor(nt, actorName)
+	hs[funcName] = h
+	val2str[util.String2Int(actorFunc)] = actorFunc
+}
+
+func RegisterGob3[S any, T any, U any, A any](nt pb.NodeType, actorFunc string, h entity.Gob3Handler[S, T, U, A]) {
+	pos := strings.Index(actorFunc, ".")
+	actorName, funcName := actorFunc[:pos], actorFunc[pos+1:]
+	hs := GetActor(nt, actorName)
+	hs[funcName] = h
+	val2str[util.String2Int(actorFunc)] = actorFunc
+}
+
 func GenRouterId(id uint64, tt uint64) uint64 {
 	return (id << 8) | tt
 }

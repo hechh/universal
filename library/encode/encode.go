@@ -52,7 +52,21 @@ func Encode(args ...interface{}) ([]byte, error) {
 }
 
 // 解码
-func Decode(data []byte, mfun reflect.Method, rets []reflect.Value, pos int) (err error) {
+func Decode(data []byte, args ...interface{}) error {
+	item := decPool.Get().(*GobDecoder)
+	defer decPool.Put(item)
+	item.buf.Reset()
+	item.buf.Write(data)
+	for _, arg := range args {
+		if err := item.dec.Decode(arg); err != nil {
+			return err
+		}
+	}
+	return nil
+}
+
+// 解码
+func DecodeValue(data []byte, mfun reflect.Method, rets []reflect.Value, pos int) (err error) {
 	item := decPool.Get().(*GobDecoder)
 	defer decPool.Put(item)
 	item.buf.Reset()
