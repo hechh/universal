@@ -5,7 +5,7 @@ import (
 	"universal/common/yaml"
 	"universal/framework/actor"
 	"universal/framework/cluster"
-	"universal/framework/internal/handler"
+	"universal/framework/handler"
 	"universal/framework/recycle"
 	"universal/library/mlog"
 	"universal/library/pprof"

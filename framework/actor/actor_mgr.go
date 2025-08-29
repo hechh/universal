@@ -7,7 +7,7 @@ import (
 	"time"
 	"universal/common/pb"
 	"universal/framework/define"
-	"universal/framework/internal/handler"
+	"universal/framework/handler"
 	"universal/library/mlog"
 	"universal/library/uerror"
 )

@@ -1,21 +1,21 @@
-package handler
+package entity
 
 import (
 	"sync/atomic"
 	"time"
-	"universal/common/base"
 	"universal/common/pb"
+	"universal/framework/base"
 	"universal/framework/define"
 	"universal/library/mlog"
 )
 
-type OneProto[S any, T any] func(*S, *pb.Head, *T) error
+type EventHandler[S any, T any] func(*S, *pb.Head, *T) error
 
-func (f OneProto[S, T]) New() *T {
+func (f EventHandler[S, T]) New() *T {
 	return new(T)
 }
 
-func (f OneProto[S, T]) Call(sendrsp define.SendRspFunc, s define.IActor, head *pb.Head, args ...interface{}) func() {
+func (f EventHandler[S, T]) Call(sendrsp define.SendRspFunc, s define.IActor, head *pb.Head, args ...interface{}) func() {
 	ref := atomic.AddUint32(&head.Reference, 1)
 	return func() {
 		// 参数解析
@@ -42,19 +42,17 @@ func (f OneProto[S, T]) Call(sendrsp define.SendRspFunc, s define.IActor, head *
 
 		// 是否回复
 		if sendrsp != nil && atomic.CompareAndSwapUint32(&head.Reference, ref, ref) {
-			rspProto, ok := any(req).(define.IRspProto)
-			if !ok {
-				return
-			}
-			rspProto.SetHead(base.ToRspHead(err))
-			if err := sendrsp(head, rspProto); err != nil {
-				mlog.Errorf("回复失败|Rsp<%v>|%v", rspProto, err)
+			if rspProto, ok := any(req).(define.IRspProto); ok {
+				rspProto.SetHead(base.ToRspHead(err))
+				if err := sendrsp(head, rspProto); err != nil {
+					mlog.Errorf("回复失败|Rsp<%v>|%v", rspProto, err)
+				}
 			}
 		}
 	}
 }
 
-func (f OneProto[S, T]) Rpc(sendrsp define.SendRspFunc, s define.IActor, head *pb.Head, buf []byte) func() {
+func (f EventHandler[S, T]) Rpc(sendrsp define.SendRspFunc, s define.IActor, head *pb.Head, buf []byte) func() {
 	ref := atomic.AddUint32(&head.Reference, 1)
 	return func() {
 		// 参数解析
@@ -81,13 +79,11 @@ func (f OneProto[S, T]) Rpc(sendrsp define.SendRspFunc, s define.IActor, head *p
 
 		// 是否回复
 		if sendrsp != nil && atomic.CompareAndSwapUint32(&head.Reference, ref, ref) {
-			rspProto, ok := any(req).(define.IRspProto)
-			if !ok {
-				return
-			}
-			rspProto.SetHead(base.ToRspHead(err))
-			if err = sendrsp(head, rspProto); err != nil {
-				mlog.Errorf("回复失败|Rsp<%v>|%v", rspProto, err)
+			if rspProto, ok := any(req).(define.IRspProto); ok {
+				rspProto.SetHead(base.ToRspHead(err))
+				if err = sendrsp(head, rspProto); err != nil {
+					mlog.Errorf("回复失败|Rsp<%v>|%v", rspProto, err)
+				}
 			}
 		}
 	}

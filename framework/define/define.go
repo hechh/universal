@@ -32,7 +32,7 @@ type IRspProto interface {
 }
 
 // 应答函数
-type SendRspFunc func(*pb.Head, IRspProto) error
+type SendRspFunc func(*pb.Head, interface{}) error
 
 // 处理器接口
 type IHandler interface {

@@ -6,11 +6,11 @@ import (
 	"time"
 	"universal/common/pb"
 	"universal/framework/define"
-	"universal/framework/internal/handler"
+	"universal/framework/handler"
 	"universal/library/async"
 	"universal/library/mlog"
-	"universal/library/templ"
 	"universal/library/uerror"
+	"universal/library/util"
 )
 
 type ActorPool struct {
@@ -52,7 +52,7 @@ func (d *ActorPool) GetActorName() string {
 }
 
 func (d *ActorPool) Register(ac define.IActor, sizes ...int) {
-	d.size = templ.Index[int](sizes, 0, 10)
+	d.size = util.Index[int](sizes, 0, 10)
 	d.pool = make([]*async.Async, d.size)
 	for i := 0; i < d.size; i++ {
 		d.pool[i] = async.New()

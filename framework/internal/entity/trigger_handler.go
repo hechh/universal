@@ -1,4 +1,4 @@
-package handler
+package entity
 
 import (
 	"time"
@@ -7,9 +7,9 @@ import (
 	"universal/library/mlog"
 )
 
-type ZeroProto[S any] func(*S, *pb.Head) error
+type TriggerHandler[S any] func(*S, *pb.Head) error
 
-func (f ZeroProto[S]) Call(sendrsp define.SendRspFunc, s define.IActor, head *pb.Head, args ...interface{}) func() {
+func (f TriggerHandler[S]) Call(sendrsp define.SendRspFunc, s define.IActor, head *pb.Head, args ...interface{}) func() {
 	return func() {
 		obj, ok := any(s).(*S)
 		if !ok {
@@ -28,7 +28,7 @@ func (f ZeroProto[S]) Call(sendrsp define.SendRspFunc, s define.IActor, head *pb
 	}
 }
 
-func (f ZeroProto[S]) Rpc(sendrsp define.SendRspFunc, s define.IActor, head *pb.Head, buf []byte) func() {
+func (f TriggerHandler[S]) Rpc(sendrsp define.SendRspFunc, s define.IActor, head *pb.Head, buf []byte) func() {
 	return func() {
 		obj, ok := any(s).(*S)
 		if !ok {

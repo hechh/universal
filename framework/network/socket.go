@@ -60,7 +60,7 @@ func (d *Socket) SetWriteExpire(expire int64) {
 func (d *Socket) Write(pack *pb.Packet) error {
 	ll := d.frame.GetSize(pack)
 	if ll > d.max {
-		return uerror.New(1, int32(pb.ErrorCode_SOCKET_MAX_LIMIT), "超过最大包长限制: %d", d.max)
+		return uerror.New(1, -1, "超过最大包长限制: %d", d.max)
 	}
 
 	buf := d.newWrite(ll + 4)

@@ -6,7 +6,7 @@ import (
 	"time"
 	"universal/common/pb"
 	"universal/framework/actor"
-	"universal/framework/internal/handler"
+	"universal/framework/handler"
 )
 
 type Player struct {
@@ -31,8 +31,8 @@ func (p *Player) Login(h *pb.Head, req *pb.LoginReq, rsp *pb.LoginRsp) error {
 
 func init() {
 	actor.Init(&pb.Node{Type: pb.NodeType_Db}, nil)
-	handler.Register1[Player, pb.HeartReq](pb.NodeType_Db, "Player.Heart", (*Player).Heart)
-	handler.Register2[Player, pb.LoginReq, pb.LoginRsp](pb.NodeType_Db, "Player.Login", (*Player).Login)
+	handler.RegisterEvent[Player, pb.HeartReq](pb.NodeType_Db, "Player.Heart", (*Player).Heart)
+	handler.RegisterCmd[Player, pb.LoginReq, pb.LoginRsp](pb.NodeType_Db, "Player.Login", (*Player).Login)
 }
 
 func TestHandler(t *testing.T) {
