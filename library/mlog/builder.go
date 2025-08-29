@@ -2,7 +2,7 @@ package mlog
 
 import (
 	"os"
-	"universal/library/fileutil"
+	"universal/library/util"
 )
 
 type Builder struct {
@@ -17,7 +17,7 @@ func NewBuilder(size int) *Builder {
 }
 
 func (d *Builder) Set(filename string) error {
-	if d.fp != nil && !fileutil.IsSameFile(d.fp, filename) {
+	if d.fp != nil && !util.IsSameFile(d.fp, filename) {
 		if err := d.Flush(); err != nil {
 			return err
 		}
@@ -27,7 +27,7 @@ func (d *Builder) Set(filename string) error {
 		d.fp = nil
 	}
 	if d.fp == nil {
-		fp, err := fileutil.CreateFile(filename, os.O_CREATE|os.O_APPEND|os.O_RDWR)
+		fp, err := util.CreateFile(filename, os.O_CREATE|os.O_APPEND|os.O_RDWR)
 		if err != nil {
 			return err
 		}

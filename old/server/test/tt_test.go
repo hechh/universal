@@ -5,7 +5,7 @@ import (
 	"testing"
 	"universal/common/pb"
 
-	"google.golang.org/protobuf/proto"
+	"github.com/golang/protobuf/proto"
 )
 
 func TestPacket(t *testing.T) {

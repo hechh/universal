@@ -4,11 +4,11 @@ import (
 	"bytes"
 	"flag"
 	"path/filepath"
-	"universal/library/fileutil"
+	"universal/library/util"
 	"universal/tool/pbtool/domain"
 	"universal/tool/pbtool/internal/manager"
 	"universal/tool/pbtool/internal/parse"
-	"universal/tool/pbtool/internal/tpl"
+	"universal/tool/pbtool/internal/templ"
 )
 
 func main() {
@@ -19,34 +19,34 @@ func main() {
 		panic(".pb.go文件目录为空")
 	}
 
-	files, err := fileutil.Glob(domain.PbPath, ".*\\.pb\\.go", true)
+	files, err := util.Glob(domain.PbPath, ".*\\.pb\\.go", true)
 	if err != nil {
 		panic(err)
 	}
 
 	fac := parse.NewTypeParser()
-	if err := fileutil.ParseFiles(fac, files...); err != nil {
+	if err := util.ParseFiles(fac, files...); err != nil {
 		panic(err)
 	}
 
 	par := parse.NewGoParser(fac, "state", "sizeCache", "unknownFields")
-	if err := fileutil.ParseFiles(par, files...); err != nil {
+	if err := util.ParseFiles(par, files...); err != nil {
 		panic(err)
 	}
 
 	buff := bytes.NewBuffer(nil)
-	if err := tpl.PackageTpl.Execute(buff, filepath.Base(domain.PbPath)); err != nil {
+	if err := templ.PackageTpl.Execute(buff, filepath.Base(domain.PbPath)); err != nil {
 		panic(err)
 	}
 	for _, cls := range manager.GetAll() {
-		if err := tpl.MemberTpl.Execute(buff, cls); err != nil {
+		if err := templ.MemberTpl.Execute(buff, cls); err != nil {
 			panic(err)
 		}
 	}
-	if err := tpl.FactoryTpl.Execute(buff, manager.GetAll()); err != nil {
+	if err := templ.FactoryTpl.Execute(buff, manager.GetAll()); err != nil {
 		panic(err)
 	}
-	if err := fileutil.SaveGo(domain.PbPath, "pb.gen.go", buff.Bytes()); err != nil {
+	if err := util.SaveGo(domain.PbPath, "pb.gen.go", buff.Bytes()); err != nil {
 		panic(err)
 	}
 }

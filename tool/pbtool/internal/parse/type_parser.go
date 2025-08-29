@@ -3,7 +3,7 @@ package parse
 import (
 	"go/ast"
 	"go/token"
-	"universal/library/templ"
+	"universal/library/util"
 	"universal/tool/pbtool/domain"
 )
 
@@ -35,7 +35,7 @@ func (p *TypeParser) Visit(n ast.Node) ast.Visitor {
 	case *ast.File:
 		return p
 	case *ast.GenDecl:
-		return templ.Or[*TypeParser](vv.Tok != token.TYPE, nil, p)
+		return util.Or[*TypeParser](vv.Tok != token.TYPE, nil, p)
 	case *ast.TypeSpec:
 		switch nn := vv.Type.(type) {
 		case *ast.StructType:

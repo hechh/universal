@@ -1,4 +1,4 @@
-package tpl
+package templ
 
 import "text/template"
 
@@ -9,9 +9,11 @@ const packageTpl = `
 
 package {{.}}
 
+/*
 import (
 	"github.com/golang/protobuf/proto"
 )
+*/
 
 `
 
@@ -26,6 +28,7 @@ func (d *{{$stname}}) Set{{$field.GetName}}(v {{$field.FullName "pb"}}) {
 `
 
 const factoryTpl = `
+/*
 var (
 	factorys = make(map[string]func() proto.Message)
 )
@@ -37,7 +40,7 @@ func init() {
 {{- end}}
 {{- end}}
 }
-
+*/
 `
 
 var (

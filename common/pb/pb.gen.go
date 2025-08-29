@@ -4,9 +4,11 @@
 
 package pb
 
+/*
 import (
 	"github.com/golang/protobuf/proto"
 )
+*/
 
 func (d *LoginReq) SetToken(v string) {
 	d.Token = v
@@ -149,6 +151,7 @@ func (d *RspHead) SetErrMsg(v string) {
 	d.ErrMsg = v
 }
 
+/*
 var (
 	factorys = make(map[string]func() proto.Message)
 )
@@ -167,3 +170,4 @@ func init() {
 	factorys["Packet"] = func() proto.Message { return &Packet{} }
 	factorys["RspHead"] = func() proto.Message { return &RspHead{} }
 }
+*/

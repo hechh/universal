@@ -3,7 +3,7 @@ package parse
 import (
 	"go/ast"
 	"go/token"
-	"universal/library/templ"
+	"universal/library/util"
 	"universal/tool/pbtool/domain"
 	"universal/tool/pbtool/internal/manager"
 	"universal/tool/pbtool/internal/typespec"
@@ -29,7 +29,7 @@ func (g *GoParser) Visit(n ast.Node) ast.Visitor {
 		g.pkg = vv.Name.Name
 		return g
 	case *ast.GenDecl:
-		return templ.Or[*GoParser](vv.Tok != token.TYPE, nil, g)
+		return util.Or[*GoParser](vv.Tok != token.TYPE, nil, g)
 	case *ast.TypeSpec:
 		cls := typespec.NewClass(typespec.NewIdentExpr(g, g.pkg, vv.Name))
 		switch nn := vv.Type.(type) {

@@ -1,4 +1,4 @@
-package fileutil
+package util
 
 import (
 	"go/ast"

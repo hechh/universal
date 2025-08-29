@@ -8,10 +8,10 @@ import (
 	"sync"
 	"time"
 	"universal/common/yaml"
-	"universal/library/fileutil"
 	"universal/library/mlog"
 	"universal/library/safe"
 	"universal/library/uerror"
+	"universal/library/util"
 
 	clientv3 "go.etcd.io/etcd/client/v3"
 )
@@ -69,7 +69,7 @@ func (d *Watcher) Download(tmps map[string]struct{}) error {
 			}
 			tmps[sheet] = struct{}{}
 
-			if err := fileutil.Save(d.cpath, sheet+".conf", kv.Value); err == nil {
+			if err := util.Save(d.cpath, sheet+".conf", kv.Value); err == nil {
 				mlog.Infof("更新配置：%s", filepath.Join(d.cpath, sheet+".conf"))
 			}
 		}
@@ -107,7 +107,7 @@ func (d *Watcher) Watch(tmps map[string]struct{}) error {
 					continue
 				}
 
-				if err := fileutil.Save(d.cpath, sheet+".conf", event.Kv.Value); err == nil {
+				if err := util.Save(d.cpath, sheet+".conf", event.Kv.Value); err == nil {
 					mlog.Infof("更新配置：%s", filepath.Join(d.cpath, sheet+".conf"))
 				}
 
