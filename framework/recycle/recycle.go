@@ -2,7 +2,6 @@ package recycle
 
 import (
 	"sync"
-	"universal/framework/define"
 	"universal/library/queue"
 	"universal/library/safe"
 )
@@ -15,12 +14,10 @@ type IDestroy interface {
 	Close()
 }
 
-type WrapDestroy struct {
-	define.IActor
-}
+type DestroyFunc func()
 
-func (w *WrapDestroy) Close() {
-	w.Stop()
+func (f DestroyFunc) Close() {
+	f()
 }
 
 type Recycle struct {
@@ -45,14 +42,8 @@ func Close() {
 	gc.Wait()
 }
 
-func DestroyActor(acts ...define.IActor) {
-	for _, act := range acts {
-		gc.tasks.Push(&WrapDestroy{IActor: act})
-	}
-	select {
-	case gc.notify <- struct{}{}:
-	default:
-	}
+func WrapIDestroy(f func()) IDestroy {
+	return DestroyFunc(f)
 }
 
 func Destroy(fs ...IDestroy) {

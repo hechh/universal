@@ -176,7 +176,7 @@ func dispatcher(head *pb.Head) error {
 	return uerror.New(1, -1, "Dst路由节点不存在")
 }
 
-func SendToClient(head *pb.Head, msg proto.Message, uids ...uint64) error {
+func SendToClient(head *pb.Head, msg interface{}, uids ...uint64) error {
 	if head.Uid > 0 {
 		uids = append(uids, head.Uid)
 	}
@@ -218,7 +218,7 @@ func SendToClient(head *pb.Head, msg proto.Message, uids ...uint64) error {
 	return nil
 }
 
-func SendResponse(head *pb.Head, rsp proto.Message) (err error) {
+func SendResponse(head *pb.Head, rsp interface{}) (err error) {
 	if len(head.Reply) > 0 {
 		err = Response(head, rsp)
 		return

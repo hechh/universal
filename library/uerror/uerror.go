@@ -30,13 +30,19 @@ func Err(depth int, code int32, err error) *UError {
 	if vv, ok := err.(*UError); ok {
 		return vv
 	}
-	pc, file, line, _ := runtime.Caller(depth)
-	fname := runtime.FuncForPC(pc).Name()
-	return &UError{file: path.Base(file), line: line, fname: path.Base(fname), code: code, msg: err.Error()}
+	if depth > 0 {
+		pc, file, line, _ := runtime.Caller(depth)
+		fname := runtime.FuncForPC(pc).Name()
+		return &UError{file: path.Base(file), line: line, fname: path.Base(fname), code: code, msg: err.Error()}
+	}
+	return &UError{code: code, msg: err.Error()}
 }
 
 func New(depth int, code int32, format string, args ...interface{}) *UError {
-	pc, file, line, _ := runtime.Caller(depth)
-	fname := runtime.FuncForPC(pc).Name()
-	return &UError{file: path.Base(file), line: line, fname: path.Base(fname), code: code, msg: fmt.Sprintf(format, args...)}
+	if depth > 0 {
+		pc, file, line, _ := runtime.Caller(depth)
+		fname := runtime.FuncForPC(pc).Name()
+		return &UError{file: path.Base(file), line: line, fname: path.Base(fname), code: code, msg: fmt.Sprintf(format, args...)}
+	}
+	return &UError{code: code, msg: fmt.Sprintf(format, args...)}
 }
