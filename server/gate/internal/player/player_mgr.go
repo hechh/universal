@@ -3,10 +3,10 @@ package player
 import (
 	"fmt"
 	"net/http"
-	"reflect"
 	"sync/atomic"
 	"universal/common/pb"
 	"universal/framework/actor"
+	"universal/framework/handler"
 	"universal/library/mlog"
 	"universal/library/safe"
 	"universal/server/gate/internal/frame"
@@ -40,12 +40,10 @@ func (d *PlayerMgr) Init(ip string, port int) error {
 	d.mgr = new(actor.ActorMgr)
 	player := &Player{}
 	d.mgr.Register(player)
-	d.mgr.ParseFunc(reflect.TypeOf(player))
 	actor.Register(d.mgr)
 
 	// 初始化Actor
 	d.Actor.Register(d)
-	d.Actor.ParseFunc(reflect.TypeOf(d))
 	d.Actor.Start()
 	actor.Register(d)
 
@@ -100,7 +98,7 @@ func (d *PlayerMgr) accept(conn *websocket.Conn) {
 	usr.Dispatcher()
 }
 
-func (d *PlayerMgr) Kick(head *pb.Head) {
+func (d *PlayerMgr) Kick(head *pb.Head) error {
 	if act := d.mgr.GetActor(head.Uid); act != nil {
 		d.mgr.DelActor(head.Uid)
 
@@ -110,4 +108,9 @@ func (d *PlayerMgr) Kick(head *pb.Head) {
 			d.Done()
 		})
 	}
+	return nil
+}
+
+func init() {
+	handler.RegisterTrigger[PlayerMgr](pb.NodeType_Gate, "PlayerMgr.Kick", (*PlayerMgr).Kick)
 }

@@ -4,18 +4,17 @@ import (
 	"flag"
 	"fmt"
 	"net/http"
-	"poker_server/common/config"
-	"poker_server/common/pb"
-	"poker_server/common/token"
-	"poker_server/common/yaml"
-	"poker_server/framework/cluster"
-	"poker_server/library/mlog"
-	"poker_server/library/safe"
-	"poker_server/library/signal"
-	"poker_server/library/util"
-	"poker_server/message"
-	"poker_server/server/client/internal/player"
-	"poker_server/server/client/internal/stat"
+	"universal/common/config"
+	"universal/common/pb"
+	"universal/common/token"
+	"universal/common/yaml"
+	"universal/framework/cluster"
+	"universal/library/mlog"
+	"universal/library/safe"
+	"universal/library/util"
+	"universal/message"
+	"universal/server/client/internal/player"
+	"universal/server/client/internal/stat"
 
 	"github.com/spf13/cast"
 )
@@ -61,7 +60,7 @@ func main() {
 		http.ListenAndServe(fmt.Sprintf(":%d", port), nil)
 	})
 
-	signal.SignalNotify(func() {
+	util.SignalNotify(func() {
 		cluster.Close()
 		mlog.Close()
 	})

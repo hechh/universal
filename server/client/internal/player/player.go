@@ -3,19 +3,18 @@ package player
 import (
 	"bytes"
 	"fmt"
-	"poker_server/common/pb"
-	"poker_server/common/token"
-	"poker_server/common/yaml"
-	"poker_server/framework/actor"
-	"poker_server/framework/domain"
-	"poker_server/framework/network"
-	"poker_server/library/mlog"
-	"poker_server/library/safe"
-	"poker_server/library/uerror"
-	"poker_server/server/client/internal/frame"
-	"poker_server/server/client/internal/request"
-	"poker_server/server/client/internal/stat"
 	"sync"
+	"universal/common/yaml"
+	"universal/framework/actor"
+	"universal/framework/define"
+	"universal/framework/network"
+	"universal/library/mlog"
+	"universal/library/safe"
+	"universal/server/client/internal/frame"
+	"universal/server/client/internal/request"
+	"universal/server/client/internal/stat"
+	"universal/server/gate/internal/token"
+
 	"sync/atomic"
 	"time"
 
@@ -42,7 +41,7 @@ func put(val *bytes.Buffer) {
 type ClientPlayer struct {
 	actor.Actor
 	cmds map[uint32]*atomic.Pointer[stat.CmdStat]
-	conn domain.INet
+	conn define.INet
 	cfg  *yaml.NodeConfig
 	node *pb.Node
 	uid  uint64

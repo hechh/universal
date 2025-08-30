@@ -1,7 +1,7 @@
 package request
 
 import (
-	"poker_server/common/pb"
+	"universal/common/pb"
 
 	"github.com/golang/protobuf/proto"
 )

@@ -2,13 +2,14 @@ package player
 
 import (
 	"encoding/json"
-	"poker_server/common/pb"
-	"poker_server/common/yaml"
-	"poker_server/framework/actor"
-	"poker_server/library/safe"
-	"poker_server/library/uerror"
-	"poker_server/server/client/internal/request"
-	"poker_server/server/client/internal/stat"
+	"universal/common/yaml"
+	"universal/library/safe"
+	"universal/library/uerror"
+	"universal/server/client/internal/request"
+
+	"universal/framework/actor"
+	"universal/server/client/internal/stat"
+
 	"reflect"
 
 	"github.com/golang/protobuf/proto"

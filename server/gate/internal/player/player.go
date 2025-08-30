@@ -6,9 +6,8 @@ import (
 	"universal/common/pb"
 	"universal/framework/actor"
 	"universal/framework/cluster"
-	"universal/framework/domain"
+	"universal/framework/define"
 	"universal/framework/network"
-	"universal/framework/rpc"
 	"universal/library/mlog"
 	"universal/server/gate/internal/token"
 
@@ -18,16 +17,16 @@ import (
 
 type Player struct {
 	actor.Actor
-	inet      domain.INet
+	inet      define.INet
 	status    int32
 	loginTime int64
 }
 
-func NewPlayer(conn *websocket.Conn, fr domain.IFrame) *Player {
+func NewPlayer(conn *websocket.Conn, fr define.IFrame) *Player {
 	p := &Player{}
 	p.Actor.Register(p)
 	p.inet = network.NewSocket(conn, 1024*1024)
-	p.inet.Register(fr)
+	p.inet.SetFrame(fr)
 	return p
 }
 
@@ -100,11 +99,13 @@ func (p *Player) Dispatcher() {
 
 		switch pack.Head.Dst.NodeType {
 		case pb.NodeType_Gate:
-			rpc.ParseNodeRouter(pack.Head)
-			mlog.Debugf("收到websocket数据包 pack:%v", pack)
-			if err := actor.Send(pack.Head, pack.Body); err != nil {
-				mlog.Errorf("gate服务Actor调用: %v", err)
-			}
+			/*
+				rpc.ParseNodeRouter(pack.Head)
+				mlog.Debugf("收到websocket数据包 pack:%v", pack)
+				if err := actor.Send(pack.Head, pack.Body); err != nil {
+					mlog.Errorf("gate服务Actor调用: %v", err)
+				}
+			*/
 		default:
 			if err := cluster.Send(pack.Head, pack.Body); err != nil {
 				mlog.Errorf("转发websocket数据包失败: pack:%v, error:%v", pack, err)

@@ -20,6 +20,11 @@ func (p *Player) Init() {
 	actor.Register(p)
 }
 
+func (p *Player) Kick(head *pb.Head) error {
+
+	return nil
+}
+
 func (p *Player) Print(head *pb.Head, val uint32, str string) error {
 	fmt.Println(val, "=====>", str)
 	return nil
@@ -39,7 +44,8 @@ func init() {
 	actor.Init(&pb.Node{Type: pb.NodeType_Db}, nil)
 	handler.RegisterGob2[Player, uint32, string](pb.NodeType_Db, "Player.Print", (*Player).Print)
 	handler.RegisterEvent[Player, pb.HeartReq](pb.NodeType_Db, "Player.Heart", (*Player).Heart)
-	handler.RegisterCmd[Player, pb.LoginReq, pb.LoginRsp](pb.NodeType_Db, "Player.Login", (*Player).Login)
+	handler.RegisterTrigger[Player](pb.NodeType_Db, "Player.Kick", (*Player).Kick)
+	handler.RegisterCmd[Player, pb.LoginReq, pb.LoginRsp](pb.NodeType_Db, pb.CMD_CMD_LOGIN_REQ, pb.RouterType_UID, "Player.Login", (*Player).Login)
 }
 
 func TestHandler(t *testing.T) {

@@ -2,8 +2,8 @@ package frame
 
 import (
 	"encoding/binary"
-	"poker_server/common/pb"
-	"poker_server/framework/request"
+	"universal/common/pb"
+	"universal/framework/handler"
 )
 
 type WsPacket struct {
@@ -49,7 +49,7 @@ func (d *Frame) Decode(buf []byte, msg *pb.Packet) error {
 	// 确当路由节点
 	msg.Body = pack.Body
 	msg.Head = &pb.Head{
-		Dst: request.NewCmdRouter(pack.Cmd-pack.Cmd%2, pack.RouteId),
+		Dst: handler.NewCmdNodeRouter(pack.Cmd-pack.Cmd%2, pack.RouteId, 0),
 		Uid: pack.Uid,
 		Cmd: pack.Cmd,
 		Seq: pack.Seq,

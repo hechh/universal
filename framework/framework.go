@@ -53,7 +53,7 @@ func defaultHandler(head *pb.Head, buf []byte) {
 	}
 }
 
-func NewNodeRouterByUid(nt pb.NodeType, uid, actorId uint64, actorFunc string) *pb.NodeRouter {
+func NewNodeRouterByUid(nt pb.NodeType, uid, actorId uint64, actorFunc interface{}) *pb.NodeRouter {
 	return &pb.NodeRouter{
 		NodeType:  nt,
 		RouterId:  handler.GenRouterId(uid, uint64(pb.RouterType_UID)),
@@ -62,7 +62,7 @@ func NewNodeRouterByUid(nt pb.NodeType, uid, actorId uint64, actorFunc string) *
 	}
 }
 
-func NewNodeRouterByRoomId(nt pb.NodeType, roomId, actorId uint64, actorFunc string) *pb.NodeRouter {
+func NewNodeRouterByRoomId(nt pb.NodeType, roomId, actorId uint64, actorFunc interface{}) *pb.NodeRouter {
 	return &pb.NodeRouter{
 		NodeType:  nt,
 		RouterId:  handler.GenRouterId(roomId, uint64(pb.RouterType_ROOM_ID)),
@@ -71,7 +71,7 @@ func NewNodeRouterByRoomId(nt pb.NodeType, roomId, actorId uint64, actorFunc str
 	}
 }
 
-func NewNodeRouterByRandomId(nt pb.NodeType, id, actorId uint64, actorFunc string) *pb.NodeRouter {
+func NewNodeRouterByRandomId(nt pb.NodeType, id, actorId uint64, actorFunc interface{}) *pb.NodeRouter {
 	return &pb.NodeRouter{
 		NodeType:  nt,
 		RouterId:  handler.GenRouterId(id, uint64(pb.RouterType_RANDOM_ID)),

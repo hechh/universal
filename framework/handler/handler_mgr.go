@@ -6,12 +6,22 @@ import (
 	"universal/framework/define"
 	"universal/framework/internal/entity"
 	"universal/library/util"
+
+	"github.com/spf13/cast"
 )
 
 var (
 	val2str = make(map[uint32]string)
+	cmds    = make(map[uint32]*CmdInfo)
 	apis    = make(map[pb.NodeType]map[string]map[string]define.IHandler)
 )
+
+type CmdInfo struct {
+	cmd uint32
+	af  string
+	rt  pb.RouterType
+	nt  pb.NodeType
+}
 
 func GetActor(nt pb.NodeType, actorName string) map[string]define.IHandler {
 	mm, ok := apis[nt]
@@ -47,11 +57,17 @@ func RegisterEvent[S any, T any](nt pb.NodeType, actorFunc string, h entity.Even
 	val2str[util.String2Int(actorFunc)] = actorFunc
 }
 
-func RegisterCmd[S any, T any, R any](nt pb.NodeType, actorFunc string, h entity.CmdHandler[S, T, R]) {
+func RegisterCmd[S any, T any, R any](nt pb.NodeType, cmd pb.CMD, rt pb.RouterType, actorFunc string, h entity.CmdHandler[S, T, R]) {
 	pos := strings.Index(actorFunc, ".")
 	actorName, funcName := actorFunc[:pos], actorFunc[pos+1:]
 	hs := GetActor(nt, actorName)
 	hs[funcName] = h
+	cmds[uint32(cmd)] = &CmdInfo{
+		cmd: uint32(cmd),
+		nt:  nt,
+		af:  actorFunc,
+		rt:  rt,
+	}
 	val2str[util.String2Int(actorFunc)] = actorFunc
 }
 
@@ -98,8 +114,25 @@ func GetActorFunc(id uint32) (actorName string, funcName string) {
 	return
 }
 
-func GetActorFuncId(val string) uint32 {
-	id := util.String2Int(val)
-	val2str[id] = val
-	return id
+func GetActorFuncId(str interface{}) uint32 {
+	switch val := str.(type) {
+	case string:
+		id := util.String2Int(val)
+		val2str[id] = val
+		return id
+	default:
+		return cast.ToUint32(val)
+	}
+}
+
+func NewCmdNodeRouter(cmd uint32, id, actorId uint64) *pb.NodeRouter {
+	if str, ok := cmds[cmd]; ok {
+		return &pb.NodeRouter{
+			NodeType:  str.nt,
+			RouterId:  GenRouterId(id, uint64(str.rt)),
+			ActorId:   util.Or[uint64](actorId > 0, actorId, 0),
+			ActorFunc: GetActorFuncId(str.af),
+		}
+	}
+	return nil
 }

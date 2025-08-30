@@ -1,10 +1,10 @@
 package stat
 
 import (
-	"poker_server/framework/actor"
-	"poker_server/library/mlog"
 	"reflect"
 	"time"
+	"universal/framework/actor"
+	"universal/library/mlog"
 )
 
 type Statistics struct {

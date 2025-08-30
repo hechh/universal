@@ -4,6 +4,7 @@ import (
 	"encoding/binary"
 	"universal/common/pb"
 	"universal/framework"
+	"universal/framework/handler"
 )
 
 type Frame struct{}
@@ -19,7 +20,7 @@ func (d *Frame) Decode(buf []byte, msg *pb.Packet) error {
 	pos += 4
 	uid := binary.BigEndian.Uint64(buf[pos:])
 	pos += 8
-	//routeId := binary.BigEndian.Uint64(buf[pos:])
+	routeId := binary.BigEndian.Uint64(buf[pos:])
 	pos += 8
 	seq := binary.BigEndian.Uint32(buf[pos:])
 	pos += 4
@@ -32,8 +33,7 @@ func (d *Frame) Decode(buf []byte, msg *pb.Packet) error {
 	msg.Head = &pb.Head{
 		Uid: uid,
 		Src: framework.NewNodeRouterByUid(pb.NodeType_Gate, uid, 0, "Player.SendToClient"),
-		// todo Dst
-		//Dst: cmd.NewNodeRouter(pb.CMD(cmdVal), routeId),
+		Dst: handler.NewCmdNodeRouter(cmdVal, routeId, 0),
 		Cmd: cmdVal,
 		Seq: seq,
 	}
