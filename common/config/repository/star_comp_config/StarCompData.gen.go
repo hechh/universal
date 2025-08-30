@@ -12,7 +12,7 @@ import (
 	"github.com/golang/protobuf/proto"
 )
 
-var obj = atomic.Value{}
+var obj = atomic.Pointer[StarCompConfigData]{}
 
 type StarCompConfigData struct {
 	_List  []*pb.StarCompConfig
@@ -49,48 +49,43 @@ func parse(buf string) error {
 }
 
 func SGet() *pb.StarCompConfig {
-	obj, ok := obj.Load().(*StarCompConfigData)
-	if !ok {
-		return nil
+	if data := obj.Load(); data != nil {
+		return data._List[len(data._List)-1]
 	}
-	return obj._List[len(obj._List)-1]
+	return nil
 }
 
 func LGet() (rets []*pb.StarCompConfig) {
-	obj, ok := obj.Load().(*StarCompConfigData)
-	if !ok {
-		return
+	if data := obj.Load(); data != nil {
+		rets = make([]*pb.StarCompConfig, len(data._List))
+		copy(rets, data._List)
 	}
-	rets = make([]*pb.StarCompConfig, len(obj._List))
-	copy(rets, obj._List)
 	return
 }
 
 func Walk(f func(*pb.StarCompConfig) bool) {
-	obj, ok := obj.Load().(*StarCompConfigData)
-	if !ok {
-		return
-	}
-	for _, item := range obj._List {
-		if !f(item) {
-			return
+	if data := obj.Load(); data != nil {
+		for _, item := range data._List {
+			if !f(item) {
+				return
+			}
 		}
 	}
 }
 
 func MGetIDKey(val int32) int32 {
-	if obj, ok := obj.Load().(*StarCompConfigData); ok && val > obj._MaxID {
-		return obj._MaxID
+	if data := obj.Load(); data != nil && val > data._MaxID {
+		return data._MaxID
 	}
 	return val
 }
 
 func MGetID(ID int32) *pb.StarCompConfig {
-	obj, ok := obj.Load().(*StarCompConfigData)
-	if !ok {
+	data := obj.Load()
+	if data == nil {
 		return nil
 	}
-	if val, ok := obj._ID[ID]; ok {
+	if val, ok := data._ID[ID]; ok {
 		return val
 	}
 	return nil

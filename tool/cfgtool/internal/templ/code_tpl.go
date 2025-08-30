@@ -21,7 +21,7 @@ import (
 	"github.com/golang/protobuf/proto"
 )
 
-var obj = atomic.Value{}
+var obj = atomic.Pointer[{{$type}}Data]{}
 
 type {{$type}}Data struct {
 {{- range $index := $indexs -}}
@@ -106,31 +106,26 @@ func parse(buf string) error {
 {{$index := index (index $indexMap 2) 0}}
 {{if $index -}}
 func SGet() *{{$pkg}}.{{$type}} {
-    obj, ok := obj.Load().(*{{$type}}Data)
-    if !ok {
-        return nil
+    if data := obj.Load(); data != nil {
+        return data._{{$index.Name}}[len(data._{{$index.Name}})-1]
     }
-    return obj._{{$index.Name}}[len(obj._{{$index.Name}})-1]
+    return nil
 }
 
 func LGet() (rets []*{{$pkg}}.{{$type}}) {
-    obj, ok := obj.Load().(*{{$type}}Data)
-    if !ok {
-        return
+    if data := obj.Load(); data != nil {
+        rets = make([]*{{$pkg}}.{{$type}}, len(data._{{$index.Name}}))
+        copy(rets, data._{{$index.Name}})
     }
-    rets = make([]*{{$pkg}}.{{$type}}, len(obj._{{$index.Name}}))
-    copy(rets, obj._{{$index.Name}})
     return
 }
 
 func Walk(f func(*{{$pkg}}.{{$type}})bool) {
-    obj, ok := obj.Load().(*{{$type}}Data)
-    if !ok {
-        return
-    }
-    for _, item := range obj._{{$index.Name}} {
-        if !f(item) {
-            return
+    if data := obj.Load(); data != nil {
+        for _, item := range data._{{$index.Name}} {
+            if !f(item) {
+                return
+            }
         }
     }
 }
@@ -142,22 +137,22 @@ func Walk(f func(*{{$pkg}}.{{$type}})bool) {
     {{- if eq $index.Type.ValueOf 3 -}}    {{/*ValueOfMap*/}}
 {{- if or (eq $index.Type.Name "int32") (eq $index.Type.Name "uint32") (eq $index.Type.Name "int64") (eq $index.Type.Name "uint64") }}
 func MGet{{$index.Name}}Key(val {{$index.Type.Name}}) {{$index.Type.Name}} {
-    if obj, ok := obj.Load().(*{{$type}}Data); ok && val > obj._Max{{$index.Name}} {
-        return obj._Max{{$index.Name}}
+    if data := obj.Load(); data != nil && val > data._Max{{$index.Name}} {
+        return data._Max{{$index.Name}}
     }
     return val
 }
 {{- end}}
 
 func MGet{{$index.Name}}({{$arg}}) *{{$pkg}}.{{$type}} {
-    obj, ok := obj.Load().(*{{$type}}Data)
-    if !ok {
+    data := obj.Load()
+    if data == nil {
         return nil
     }
     {{- if or (eq $index.Type.TypeOf 1) (eq $index.Type.TypeOf 2) -}}                       {{/*TypeOfBase*/}}
-        if val, ok := obj._{{$index.Name}}[{{$key}}]; ok {
+        if val, ok := data._{{$index.Name}}[{{$key}}]; ok {
     {{- else if eq $index.Type.TypeOf 3 -}}                                                 {{/*TypeOfStruct*/}}
-        if val, ok := obj._{{$index.Name}}[{{$index.Type.Name}}{ {{$key}} }]; ok {
+        if val, ok := data._{{$index.Name}}[{{$index.Type.Name}}{ {{$key}} }]; ok {
     {{- end}}
         return val
     }
@@ -165,14 +160,14 @@ func MGet{{$index.Name}}({{$arg}}) *{{$pkg}}.{{$type}} {
 }
     {{- else if eq $index.Type.ValueOf 4 -}}    {{/*ValueOfGroup*/}}
 func GGet{{$index.Name}}({{$arg}}) (rets []*{{$pkg}}.{{$type}}) {
-    obj, ok := obj.Load().(*{{$type}}Data)
-    if !ok {
+    data := obj.Load()
+    if data == nil {
         return
     } 
     {{- if or (eq $index.Type.TypeOf 1) (eq $index.Type.TypeOf 2) -}} {{/*TypeOfBase*/}}
-        if vals, ok := obj._{{$index.Name}}[{{$key}}]; ok {
+        if vals, ok := data._{{$index.Name}}[{{$key}}]; ok {
     {{- else if eq $index.Type.TypeOf 3 -}} {{/*TypeOfStruct*/}}
-        if vals, ok := obj._{{$index.Name}}[{{$index.Type.Name}}{ {{$key}} }]; ok {
+        if vals, ok := data._{{$index.Name}}[{{$index.Type.Name}}{ {{$key}} }]; ok {
     {{- end -}}
         rets = make([]*{{$pkg}}.{{$type}}, len(vals))
         copy(rets, vals)
