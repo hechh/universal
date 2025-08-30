@@ -14,8 +14,8 @@ const codeTpl = `
 package {{.Pkg}}
 
 import (
-	"poker_server/common/config"
-	"poker_server/common/pb"
+	"universal/common/config"
+	"universal/common/pb"
 	"sync/atomic"
 
 	"github.com/golang/protobuf/proto"

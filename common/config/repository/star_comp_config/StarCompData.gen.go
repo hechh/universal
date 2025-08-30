@@ -5,9 +5,9 @@
 package star_comp_config
 
 import (
-	"poker_server/common/config"
-	"poker_server/common/pb"
 	"sync/atomic"
+	"universal/common/config"
+	"universal/common/pb"
 
 	"github.com/golang/protobuf/proto"
 )
