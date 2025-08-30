@@ -15,12 +15,12 @@ type Player struct {
 }
 
 func (p *Player) Init() {
-	p.Register(p)
-	p.Start()
+	p.Actor.Register(p)
+	p.Actor.Start()
 	actor.Register(p)
 }
 
-func (p *Player) Print(val uint32, str string) error {
+func (p *Player) Print(head *pb.Head, val uint32, str string) error {
 	fmt.Println(val, "=====>", str)
 	return nil
 }

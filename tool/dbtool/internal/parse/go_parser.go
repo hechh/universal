@@ -14,7 +14,7 @@ import (
 )
 
 type Parser struct {
-	rule string
+	rules []string
 }
 
 // 解析go文件
@@ -37,7 +37,7 @@ func (d *Parser) Visit(node ast.Node) ast.Visitor {
 	case *ast.File:
 		return d
 	case *ast.GenDecl:
-		d.rule = ""
+		d.rules = d.rules[:0]
 		if n.Doc == nil || len(n.Doc.List) <= 0 || n.Tok != token.TYPE {
 			return nil
 		}
@@ -46,25 +46,27 @@ func (d *Parser) Visit(node ast.Node) ast.Visitor {
 			rule = strings.TrimSpace(rule)
 			if strings.HasPrefix(rule, domain.RULE_HEAD) {
 				rule = strings.TrimPrefix(rule, domain.RULE_HEAD)
-				d.rule = rule
+				d.rules = append(d.rules, rule)
 			}
 		}
-		if len(d.rule) <= 0 {
+		if len(d.rules) <= 0 {
 			return nil
 		}
 		return d
 	case *ast.TypeSpec:
 		switch vv := n.Type.(type) {
 		case *ast.StructType:
-			strs := strings.Split(d.rule, "|")
-			switch strings.ToLower(strs[0]) {
-			case domain.STRING:
-				if item := parseString(n.Name.Name, vv, strs...); item != nil {
-					manager.AddString(item)
-				}
-			case domain.HASH:
-				if item := parseHash(n.Name.Name, vv, strs...); item != nil {
-					manager.AddHash(item)
+			for _, rule := range d.rules {
+				strs := strings.Split(rule, "|")
+				switch strings.ToLower(strs[0]) {
+				case domain.STRING:
+					if item := parseString(n.Name.Name, vv, strs...); item != nil {
+						manager.AddString(item)
+					}
+				case domain.HASH:
+					if item := parseHash(n.Name.Name, vv, strs...); item != nil {
+						manager.AddHash(item)
+					}
 				}
 			}
 		}
@@ -112,7 +114,9 @@ func parseString(name string, vv *ast.StructType, strs ...string) *base.String {
 func parseKey(str string) (format string, ffs []*base.Field) {
 	ffmts := []string{}
 	var keys []string
-	if index := strings.Index(str, ":"); index > 0 {
+	if index := strings.Index(str, "@"); index < 0 {
+		ffmts = append(ffmts, str)
+	} else if index := strings.Index(str, ":"); index > 0 {
 		ffmts = strings.Split(str[:index], ",")
 		keys = strings.Split(str[index+1:], ",")
 	} else {

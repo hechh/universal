@@ -46,6 +46,13 @@ func (d *HeartRsp) SetEndTime(v int64) {
 	d.EndTime = v
 }
 
+func (d *UserData) SetUid(v uint64) {
+	d.Uid = v
+}
+func (d *UserData) SetAge(v uint32) {
+	d.Age = v
+}
+
 func (d *Node) SetName(v string) {
 	d.Name = v
 }
@@ -163,6 +170,7 @@ func init() {
 	factorys["LogoutRsp"] = func() proto.Message { return &LogoutRsp{} }
 	factorys["HeartReq"] = func() proto.Message { return &HeartReq{} }
 	factorys["HeartRsp"] = func() proto.Message { return &HeartRsp{} }
+	factorys["UserData"] = func() proto.Message { return &UserData{} }
 	factorys["Node"] = func() proto.Message { return &Node{} }
 	factorys["Router"] = func() proto.Message { return &Router{} }
 	factorys["NodeRouter"] = func() proto.Message { return &NodeRouter{} }

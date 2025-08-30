@@ -11,7 +11,7 @@ import (
 
 func Test_Parser(t *testing.T) {
 	domain.PbPath = "../../../common/pb/"
-	domain.RedisPath = "../../../common/dao/repository/redis/"
+	domain.RedisPath = "../../../common/redis/repository/"
 
 	if len(domain.PbPath) <= 0 {
 		panic("proto文件目录不能为空")

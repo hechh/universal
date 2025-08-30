@@ -8,7 +8,7 @@ const stringTpl = `
 {{$format := .Format}}
 
 /*
-* 本代码由pbtool工具生成，请勿手动修改
+* 本代码由dbtool工具生成，请勿手动修改
 */
 
 package {{$pkg}}
@@ -17,7 +17,7 @@ import (
 	"fmt"
 	"universal/common/redis/internal/manager"
 	"universal/common/pb"
-	"universal/framework/library/uerror"
+	"universal/library/uerror"
 	"time"
 
 	"github.com/golang/protobuf/proto"

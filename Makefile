@@ -1,25 +1,20 @@
 
 SYSTEM=$(shell go env GOOS)
+
 XLSX_PATH=./configure/xlsx
-PROTO_PATH=./configure/proto
-DATA_PATH=./configure/data
-CFG_GO_PATH=./common/config/repository/
-REDIS_GO_PATH=./common/dao/repository/redis
-PB_GO_PATH=./common/pb
-HTTP_KIT_GO_PATH=./server/client/manager
+GEN_DATA_PATH=./configure/data
+GEN_PROTO_PATH=./configure/proto
+GEN_PB_GO_PATH=./common/pb
+GEN_CFG_PATH=./common/config/repository/
 OUTPUT=./output
-SERVER_PATH=./server
+GEN_REDIS_GO_PATH=./common/redis/repository/
 
 
-## 需要编译的服务
+.PHONY: ${TARGET} cfgtool dbtool pb startall stopall docker_stop docker_run
+
 TARGET=gate
 LINUX=$(TARGET:%=%_linux)
 BUILD=$(TARGET:%=%_build)
-START=$(TARGET:%=%_start)
-STOP=$(TARGET:%=%_stop)
-
-
-.PHONY: ${TARGET} config pb pbtool startall stopall docker_stop docker_run
 
 
 all: clean
@@ -45,24 +40,28 @@ $(BUILD): %_build: %
 	@echo "Building $*"
 	go build ${GCFLAGS} -o ${OUTPUT}/$* ${SERVER_PATH}/$*
 
-
 #------------------------生成代码选项-----------------------------
-config:
+cfgtool:
 	@echo "gen config code..."
-	@rm -rf ${CFG_GO_PATH}
-	@go run ./tools/cfgtool/main.go -xlsx=${XLSX_PATH} -proto=${PROTO_PATH}  -text=${DATA_PATH} -pb=${PB_GO_PATH}
+	@rm -rf ${GEN_CFG_PATH}
+	@go run ./tool/cfgtool/main.go -xlsx=${XLSX_PATH} -proto=${GEN_PROTO_PATH}  -text=${GEN_DATA_PATH}
+#	@go run ./tool/cfgtool/main.go -xlsx=${XLSX_PATH} -proto=${GEN_PROTO_PATH}  -text=${GEN_DATA_PATH} -pb=${GEN_PB_GO_PATH}
 	make pb
+
+dbtool: pb
+	@echo "gen redis code..."
+	@rm -rf ${GEN_REDIS_GO_PATH}
+	@go run ./tool/dbtool/main.go -pb=${GEN_PB_GO_PATH} -redis=${GEN_REDIS_GO_PATH}
 
 pb:
 	@echo "Building pb"
-	-rm -rf ${PB_GO_PATH}/*.pb.go && mkdir -p ${PB_GO_PATH}
+	-rm -rf ${GEN_PB_GO_PATH}/*.pb.go && mkdir -p ${GEN_PB_GO_PATH}
 ifeq (${SYSTEM}, windows)
-	protoc.exe -I${PROTO_PATH} ${PROTO_PATH}/*.proto --go_out=..
+	protoc.exe -I${GEN_PROTO_PATH} ${GEN_PROTO_PATH}/*.proto --go_out=..
 else # linux darwin(mac)
-	protoc -I${PROTO_PATH} ${PROTO_PATH}/*.proto --go_out=..
+	protoc -I${GEN_PB_GO_PATH} ${GEN_PROTO_PATH}/*.proto --go_out=..
 endif 
-	@go run ./tool/pbtool/main.go -pb=${PB_GO_PATH} 
-
+	@go run ./tool/pbtool/main.go -pb=${GEN_PB_GO_PATH} 
 
 #------------------------docker环境选项-----------------------------
 startall: ${START}
@@ -79,8 +78,8 @@ $(STOP): %_stop: %
 
 docker_stop:
 	@echo "停止docker环境"
-	docker-compose -f ./configure/env/local/docker_compose.yaml down
+	docker-compose -f ./configure/env/docker_compose.yaml down
 
 docker_run:
 	@echo "启动docker环境"
-	docker-compose -f ./configure/env/local/docker_compose.yaml up -d
+	docker-compose -f ./configure/env/docker_compose.yaml up -d

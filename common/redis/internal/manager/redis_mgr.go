@@ -10,10 +10,10 @@ import (
 )
 
 var (
-	redisPool = make(map[int32]*client.RedisClient)
+	redisPool = make(map[string]*client.RedisClient)
 )
 
-func InitRedis(cfgs map[int32]*yaml.DbConfig) error {
+func InitRedis(cfgs map[string]*yaml.DbConfig) error {
 	for _, cfg := range cfgs {
 		// 建立redis连接
 		cli := goredis.NewClient(&goredis.Options{
@@ -31,11 +31,11 @@ func InitRedis(cfgs map[int32]*yaml.DbConfig) error {
 		if _, err := cli.Ping(context.Background()).Result(); err != nil {
 			return err
 		}
-		redisPool[cfg.Db] = client.NewRedisClient(cli, cfg.Prefix)
+		redisPool[cfg.DbName] = client.NewRedisClient(cli, cfg.Prefix)
 	}
 	return nil
 }
 
-func GetRedis(db int32) *client.RedisClient {
+func GetRedis(db string) *client.RedisClient {
 	return redisPool[db]
 }

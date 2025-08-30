@@ -8,7 +8,7 @@ import (
 	"universal/library/mlog"
 )
 
-type Gob1Handler[S any, T any] func(*S, T) error
+type Gob1Handler[S any, T any] func(*S, *pb.Head, T) error
 
 func (f Gob1Handler[S, T]) New() *T {
 	return new(T)
@@ -30,7 +30,7 @@ func (f Gob1Handler[S, T]) Call(sendrsp define.SendRspFunc, s define.IActor, hea
 
 		// 接口调用
 		startMs := time.Now().UnixMilli()
-		err := f(obj, arg1)
+		err := f(obj, head, arg1)
 		endMs := time.Now().UnixMilli()
 		if err != nil {
 			mlog.Errorf("%s.%s耗时(%dms)|Arg1<%v>|Error<%v>", head.ActorName, head.FuncName, endMs-startMs, arg1, err)
@@ -56,7 +56,7 @@ func (f Gob1Handler[S, T]) Rpc(sendrsp define.SendRspFunc, s define.IActor, head
 
 		// 接口调用
 		startMs := time.Now().UnixMilli()
-		err := f(obj, *req)
+		err := f(obj, head, *req)
 		endMs := time.Now().UnixMilli()
 		if err != nil {
 			mlog.Errorf("%s.%s耗时(%dms)|Arg1<%v>|Error<%v>", head.ActorName, head.FuncName, endMs-startMs, *req, err)

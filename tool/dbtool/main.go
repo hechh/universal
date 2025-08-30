@@ -9,7 +9,7 @@ import (
 	"universal/tool/dbtool/service"
 )
 
-// pbtool工具用于生成dao/repository/redis/目录下的代码
+// dbtool工具用于生成dao/repository/redis/目录下的代码
 func main() {
 	flag.StringVar(&domain.PbPath, "pb", "", "proto文件目录")
 	flag.StringVar(&domain.RedisPath, "redis", "", "redis文件目录")

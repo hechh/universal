@@ -8,7 +8,7 @@ import (
 	"universal/library/mlog"
 )
 
-type Gob2Handler[S any, T any, U any] func(*S, T, U) error
+type Gob2Handler[S any, T any, U any] func(*S, *pb.Head, T, U) error
 
 func (f Gob2Handler[S, T, U]) NewT() *T {
 	return new(T)
@@ -39,7 +39,7 @@ func (f Gob2Handler[S, T, U]) Call(sendrsp define.SendRspFunc, s define.IActor, 
 
 		// 接口调用
 		startMs := time.Now().UnixMilli()
-		err := f(obj, arg1, arg2)
+		err := f(obj, head, arg1, arg2)
 		endMs := time.Now().UnixMilli()
 		if err != nil {
 			mlog.Errorf("%s.%s耗时(%dms)|Arg1<%v>|Arg2<%v>|Error<%v>", head.ActorName, head.FuncName, endMs-startMs, arg1, arg2, err)
@@ -70,7 +70,7 @@ func (f Gob2Handler[S, T, U]) Rpc(sendrsp define.SendRspFunc, s define.IActor, h
 
 		// 接口调用
 		startMs := time.Now().UnixMilli()
-		err := f(obj, *arg1, *arg2)
+		err := f(obj, head, *arg1, *arg2)
 		endMs := time.Now().UnixMilli()
 		if err != nil {
 			mlog.Errorf("%s.%s耗时(%dms)|Arg1<%v>|Arg2<%v>|Error<%v>", head.ActorName, head.FuncName, endMs-startMs, *arg1, *arg2, err)

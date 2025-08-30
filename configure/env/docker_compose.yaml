@@ -8,7 +8,7 @@ services:
       MYSQL_ROOT_USER: root
       MYSQL_ROOT_PASSWORD: 123456
     ports:
-      - "13306:3306"
+      - "3306:3306"
     networks:
       universal_network:
 
@@ -50,8 +50,8 @@ services:
       - ETCD_ADVERTISE_CLIENT_URLS=http://0.0.0.0:2379
       - ETCD_LISTEN_CLIENT_URLS=http://0.0.0.0:2379
     ports:
-      - "12379:2379"
-      - "12380:2380"
+      - "2379:2379"
+      - "2380:2380"
     networks:
       universal_network:
 
@@ -60,12 +60,12 @@ services:
     image: nats:2.9-alpine
     container_name: nats
     ports:
-      - "14222:4222" # 客户端端口
-      - "18222:8222" # 监控端口
+      - "4222:4222" # 客户端端口
+      - "8222:8222" # 监控端口
     command: --cluster nats://0.0.0.0:6222   --cluster_name NATS_CLUSTER --no_advertise
     healthcheck:
       # 添加健康检查（确保服务就绪后才标记为健康）
-      test: [ "CMD-SHELL", "nats health -s nats://localhost:14222" ]
+      test: [ "CMD-SHELL", "nats health -s nats://localhost:4222" ]
       interval: 5s
       timeout: 5s
       retries: 5

@@ -1,48 +1,38 @@
-package templ
-
-const hashTpl = `
-{{/* 定义全局变量  */}}
-{{$pkg := .Pkg}}
-{{$pb := .Name}} 
-{{$dbname := .DbName}}
-{{$kformat := .KFormat}}
-{{$fformat := .FFormat}}
-
 /*
-* 本代码由dbtool工具生成，请勿手动修改
-*/
+* 本代码由pbtool工具生成，请勿手动修改
+ */
 
-package {{$pkg}}
+package user_data
 
 import (
 	"fmt"
-	"universal/common/redis/internal/manager"
 	"universal/common/pb"
+	"universal/common/redis/internal/manager"
 	"universal/library/uerror"
 
 	"github.com/golang/protobuf/proto"
 )
 
 const (
-	DBNAME = "{{$dbname}}"
+	DBNAME = "universal"
 )
 
-func GetKey({{.Kargs}}) string {
-	return fmt.Sprintf("{{$kformat}}", {{range $i, $item := .Keys}} {{if $i}}, {{end}} {{$item.Name}} {{end}})
+func GetKey() string {
+	return fmt.Sprintf("uesr_data")
 }
 
-func GetField({{.Fargs}}) string {
-	return fmt.Sprintf("{{$fformat}}", {{range $i, $item := .Fields}} {{if $i}}, {{end}} {{$item.Name}} {{end}})
+func GetField(uid uint64) string {
+	return fmt.Sprintf("%d", uid)
 }
 
-func HGetAll({{.Kargs}}) (ret map[string]*pb.{{$pb}}, err error) {
+func HGetAll() (ret map[string]*pb.UserData, err error) {
 	// 获取redis连接
 	client := manager.GetRedis(DBNAME)
 	if client == nil {
 		err = uerror.New(1, -1, "redis数据库不存在: %s", DBNAME)
 		return
 	}
-	key := GetKey({{.Kvalues}})
+	key := GetKey()
 
 	// 加载数据
 	kvs, err := client.HGetAll(key)
@@ -51,13 +41,13 @@ func HGetAll({{.Kargs}}) (ret map[string]*pb.{{$pb}}, err error) {
 	}
 
 	// 解析数据
-	ret = make(map[string]*pb.{{$pb}})
+	ret = make(map[string]*pb.UserData)
 	for k, item := range kvs {
 		if len(item) <= 0 {
 			continue
 		}
 
-		data := &pb.{{$pb}}{}
+		data := &pb.UserData{}
 		if err := proto.Unmarshal([]byte(item), data); err != nil {
 			return nil, err
 		}
@@ -66,13 +56,13 @@ func HGetAll({{.Kargs}}) (ret map[string]*pb.{{$pb}}, err error) {
 	return
 }
 
-func HMSet({{.Kargs}} {{if .Keys}},{{end}} data map[string]*pb.{{$pb}}) error {
+func HMSet(data map[string]*pb.UserData) error {
 	// 获取redis连接
 	client := manager.GetRedis(DBNAME)
 	if client == nil {
 		return uerror.New(1, -1, "redis数据库不存在: %s", DBNAME)
 	}
-	key := GetKey({{.Kvalues}})
+	key := GetKey()
 
 	// 设置数据
 	vals := []interface{}{}
@@ -86,14 +76,14 @@ func HMSet({{.Kargs}} {{if .Keys}},{{end}} data map[string]*pb.{{$pb}}) error {
 	return client.HMSet(key, vals...)
 }
 
-func HGet({{.Args}}) (*pb.{{$pb}}, bool, error) {
+func HGet(uid uint64) (*pb.UserData, bool, error) {
 	// 获取redis连接
 	client := manager.GetRedis(DBNAME)
 	if client == nil {
 		return nil, false, uerror.New(1, -1, "redis数据库不存在: %s", DBNAME)
 	}
-	key := GetKey({{.Kvalues}})
-	field := GetField({{.Fvalues}})
+	key := GetKey()
+	field := GetField(uid)
 
 	// 加载数据
 	str, err := client.HGet(key, field)
@@ -102,21 +92,21 @@ func HGet({{.Args}}) (*pb.{{$pb}}, bool, error) {
 	}
 
 	// 解析数据
-	data := &pb.{{$pb}}{}
+	data := &pb.UserData{}
 	if err := proto.Unmarshal([]byte(str), data); err != nil {
-		return nil, len(str)>0, err
+		return nil, len(str) > 0, err
 	}
-	return data, len(str)>0, nil
+	return data, len(str) > 0, nil
 }
 
-func HSet({{.Args}}, data *pb.{{$pb}}) error {
+func HSet(uid uint64, data *pb.UserData) error {
 	// 获取redis连接
 	client := manager.GetRedis(DBNAME)
 	if client == nil {
 		return uerror.New(1, -1, "redis数据库不存在: %s", DBNAME)
 	}
-	key := GetKey({{.Kvalues}})
-	field := GetField({{.Fvalues}})
+	key := GetKey()
+	field := GetField(uid)
 
 	// 序列化数据
 	buf, err := proto.Marshal(data)
@@ -128,14 +118,12 @@ func HSet({{.Args}}, data *pb.{{$pb}}) error {
 	return client.HSet(key, field, buf)
 }
 
-func HDel({{.Kargs}} {{if .Keys}},{{end}} fields ...string) error {
+func HDel(fields ...string) error {
 	// 获取redis连接
 	client := manager.GetRedis(DBNAME)
 	if client == nil {
 		return uerror.New(1, -1, "redis数据库不存在: %s", DBNAME)
 	}
-	key := GetKey({{.Kvalues}})
+	key := GetKey()
 	return client.HDel(key, fields...)
 }
-
-`

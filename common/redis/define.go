@@ -8,13 +8,13 @@ import (
 
 // 定义redis数据库枚举
 const (
-	REDIS_DB_DEFAULT = 0
+	REDIS_DB_DEFAULT = "universal"
 )
 
-func Init(cfgs map[int32]*yaml.DbConfig) error {
+func Init(cfgs map[string]*yaml.DbConfig) error {
 	return manager.InitRedis(cfgs)
 }
 
-func GetClient(db int32) *client.RedisClient {
+func GetClient(db string) *client.RedisClient {
 	return manager.GetRedis(db)
 }

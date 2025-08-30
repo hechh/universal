@@ -1,0 +1,10 @@
+syntax = "proto3";
+package universal;
+
+option go_package = "universal/common/pb";
+
+//@dbtool:hash|universal|uesr_data|uid@uint64|#玩家数据
+message UserData {
+  uint64 uid = 1;
+  uint32 age = 2;
+}

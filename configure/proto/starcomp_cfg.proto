@@ -1,0 +1,43 @@
+
+/*
+* 本代码由cfgtool工具生成，请勿手动修改
+*/
+
+syntax = "proto3";
+
+package poker;
+
+option go_package = "./pb";
+
+
+enum CoinType {
+	CoinTypeNone = 0; // 货币类型-无
+	CoinTypeCoin = 1; // 货币类型-金币
+	CoinTypeAce = 2; // 货币类型-ACE
+	CoinTypeScore = 3; // 货币类型-积分
+	CoinTypeTicket = 4; // 货币类型-门票
+}
+
+message Reward {
+	CoinType CoinType = 1; // 货币类型
+	int64 Incr = 2; // 数量
+	int64 Total = 3; // 总数量
+}
+
+message StarCompConfig {
+	int32 ID = 1; // 唯一ID
+	string Title = 2; // 赛事标题
+	Reward Consume = 3; // 报名消耗货币类型
+	int32 PrizeType = 4; // 排名奖励类型
+}
+
+message StarCompConfigAry { repeated StarCompConfig Ary = 1; }
+
+message StarCompRankConfig {
+	int32 PrizeType = 1; // 奖励类型
+	int32 Level = 2; // 排名 
+	repeated Reward Rewards = 3; // 奖励
+}
+
+message StarCompRankConfigAry { repeated StarCompRankConfig Ary = 1; }
+
