@@ -13,7 +13,7 @@ import (
 )
 
 func TestConfig(t *testing.T) {
-	domain.XlsxPath = "../../../../poker_gameconf"
+	domain.XlsxPath = "../../../configure/xlsx"
 	domain.TextPath = "../gen/data"
 	domain.ProtoPath = "../gen/proto"
 	domain.CodePath = "../gen/code"

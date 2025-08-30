@@ -158,6 +158,47 @@ func (d *RspHead) SetErrMsg(v string) {
 	d.ErrMsg = v
 }
 
+func (d *Reward) SetCoinType(v CoinType) {
+	d.CoinType = v
+}
+func (d *Reward) SetIncr(v int64) {
+	d.Incr = v
+}
+func (d *Reward) SetTotal(v int64) {
+	d.Total = v
+}
+
+func (d *StarCompConfig) SetID(v int32) {
+	d.ID = v
+}
+func (d *StarCompConfig) SetTitle(v string) {
+	d.Title = v
+}
+func (d *StarCompConfig) SetConsume(v *Reward) {
+	d.Consume = v
+}
+func (d *StarCompConfig) SetPrizeType(v int32) {
+	d.PrizeType = v
+}
+
+func (d *StarCompConfigAry) SetAry(v []*StarCompConfig) {
+	d.Ary = v
+}
+
+func (d *StarCompRankConfig) SetPrizeType(v int32) {
+	d.PrizeType = v
+}
+func (d *StarCompRankConfig) SetLevel(v int32) {
+	d.Level = v
+}
+func (d *StarCompRankConfig) SetRewards(v []*Reward) {
+	d.Rewards = v
+}
+
+func (d *StarCompRankConfigAry) SetAry(v []*StarCompRankConfig) {
+	d.Ary = v
+}
+
 /*
 var (
 	factorys = make(map[string]func() proto.Message)
@@ -177,5 +218,10 @@ func init() {
 	factorys["Head"] = func() proto.Message { return &Head{} }
 	factorys["Packet"] = func() proto.Message { return &Packet{} }
 	factorys["RspHead"] = func() proto.Message { return &RspHead{} }
+	factorys["Reward"] = func() proto.Message { return &Reward{} }
+	factorys["StarCompConfig"] = func() proto.Message { return &StarCompConfig{} }
+	factorys["StarCompConfigAry"] = func() proto.Message { return &StarCompConfigAry{} }
+	factorys["StarCompRankConfig"] = func() proto.Message { return &StarCompRankConfig{} }
+	factorys["StarCompRankConfigAry"] = func() proto.Message { return &StarCompRankConfigAry{} }
 }
 */

@@ -44,8 +44,8 @@ $(BUILD): %_build: %
 cfgtool:
 	@echo "gen config code..."
 	@rm -rf ${GEN_CFG_PATH}
-	@go run ./tool/cfgtool/main.go -xlsx=${XLSX_PATH} -proto=${GEN_PROTO_PATH}  -text=${GEN_DATA_PATH}
-#	@go run ./tool/cfgtool/main.go -xlsx=${XLSX_PATH} -proto=${GEN_PROTO_PATH}  -text=${GEN_DATA_PATH} -pb=${GEN_PB_GO_PATH}
+#	@go run ./tool/cfgtool/main.go -xlsx=${XLSX_PATH} -proto=${GEN_PROTO_PATH}  -text=${GEN_DATA_PATH}
+	@go run ./tool/cfgtool/main.go -xlsx=${XLSX_PATH} -proto=${GEN_PROTO_PATH}  -text=${GEN_DATA_PATH} -pb=${GEN_PB_GO_PATH} -code=${GEN_CFG_PATH}
 	make pb
 
 dbtool: pb

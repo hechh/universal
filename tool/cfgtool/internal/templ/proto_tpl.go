@@ -11,10 +11,9 @@ const protoTpl = `
 */
 
 syntax = "proto3";
+package universal;
 
-package poker;
-
-option go_package = "./pb";
+option go_package = "universal/common/pb";
 
 {{range $item := .RefList -}}
 import "{{$item}}.proto";
