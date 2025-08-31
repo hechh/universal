@@ -1,0 +1,44 @@
+mysql:
+  1:
+    dbname: universal
+    user: root
+    password: 123456
+    host: localhost:3306
+    slave:
+
+redis:
+  1:
+    prefix: "develop"
+    db: 0
+    user: default
+    password: 123456
+    host: localhost:6379
+
+etcd:
+  topic: universal/etcd
+  endpoints:
+    - http://localhost:2379
+
+nats:
+  topic: universal/nats
+  endpoints: localhost:4222
+
+data:
+  is_remote: true
+  path: ./data
+  topic: universal/data
+  endpoints:
+    - http://localhost:2379
+
+common:
+  env: develop  # develop, beta, release 
+
+gate:
+  1:
+    router_ttl: 900
+    discovery_ttl: 20
+    log_level: debug # info, debug, warn, error, fatal
+    log_path: ./log
+    ip: localhost
+    port: 10101
+    http_port: 10001
