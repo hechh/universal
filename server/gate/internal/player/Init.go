@@ -30,10 +30,5 @@ func Close() {
 }
 
 func defaultHandler(head *pb.Head, body []byte) {
-	/*
-		rpc.ParseNodeRouter(head, "Player.SendToClient")
-		if err := actor.Send(head, body); err != nil {
-			mlog.Errorf("Actor消息转发失败: %v", err)
-		}
-	*/
+	// todo
 }

@@ -8,7 +8,6 @@ import (
 	"universal/library/mlog"
 	"universal/library/util"
 	"universal/message"
-	"universal/server/gate/internal/player"
 )
 
 func main() {
@@ -19,7 +18,7 @@ func main() {
 	flag.Parse()
 
 	// 加载配置
-	cfg, srvCfg, nn, err := yaml.LoadAndParse(conf, pb.NodeType_Gate, int32(nodeId))
+	cfg, srvCfg, nn, err := yaml.LoadAndParse(conf, pb.NodeType_Game, int32(nodeId))
 	if err != nil {
 		panic(err)
 	}
@@ -34,13 +33,10 @@ func main() {
 		panic(err)
 	}
 
-	if err := player.Init(cfg, srvCfg); err != nil {
-		panic(err)
-	}
+	// todo
 
 	// 信号捕捉
 	util.SignalNotify(func() {
-		player.Close()
 		cluster.Close()
 		mlog.Close()
 	})

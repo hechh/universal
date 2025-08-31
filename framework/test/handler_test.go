@@ -7,7 +7,6 @@ import (
 	"universal/common/pb"
 	"universal/framework/actor"
 	"universal/framework/handler"
-	"universal/library/encode"
 )
 
 type Player struct {
@@ -45,7 +44,7 @@ func init() {
 	handler.RegisterGob2[Player, uint32, string](pb.NodeType_Db, "Player.Print", (*Player).Print)
 	handler.RegisterEvent[Player, pb.HeartReq](pb.NodeType_Db, "Player.Heart", (*Player).Heart)
 	handler.RegisterTrigger[Player](pb.NodeType_Db, "Player.Kick", (*Player).Kick)
-	handler.RegisterCmd[Player, pb.LoginReq, pb.LoginRsp](pb.NodeType_Db, pb.CMD_CMD_LOGIN_REQ, pb.RouterType_UID, "Player.Login", (*Player).Login)
+	handler.RegisterCmd[Player, pb.LoginReq, pb.LoginRsp](pb.NodeType_Db, "Player.Login", (*Player).Login)
 }
 
 func TestHandler(t *testing.T) {
@@ -55,30 +54,4 @@ func TestHandler(t *testing.T) {
 	pl.SendMsg(&pb.Head{FuncName: "Heart"}, &pb.HeartReq{BeginTime: time.Now().Unix()})
 	pl.SendMsg(&pb.Head{FuncName: "Print"}, uint32(3421), "hchtest")
 	pl.Stop()
-
-	/*
-		ff := handler.GetHandler(pb.NodeType_Db, "Player", "Login")
-		ff.Call(nil, pl, &pb.Head{}, &pb.LoginReq{Token: "asdfasdf"}, &pb.LoginRsp{})()
-
-		req := &pb.HeartReq{BeginTime: time.Now().Unix()}
-		buf, _ := proto.Marshal(req)
-		rf := handler.GetHandler(pb.NodeType_Db, "Player", "Heart")
-		rf.Rpc(nil, pl, &pb.Head{}, buf)()
-	*/
-}
-
-func TestGob(t *testing.T) {
-	arg1 := uint32(100)
-	buf, err := encode.Encode(arg1)
-	if err != nil {
-		t.Log("=====1=====>", err)
-		return
-	}
-
-	param1 := new(uint32)
-	if err := encode.Decode(buf, param1); err != nil {
-		t.Log("=====2=====>", err)
-		return
-	}
-	t.Log(*param1)
 }

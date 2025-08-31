@@ -33,7 +33,7 @@ func (d *Frame) Decode(buf []byte, msg *pb.Packet) error {
 	msg.Head = &pb.Head{
 		Uid: uid,
 		Src: framework.NewNodeRouterByUid(pb.NodeType_Gate, uid, 0, "Player.SendToClient"),
-		Dst: handler.NewCmdNodeRouter(cmdVal, routeId, 0),
+		Dst: handler.NewNodeRouterByCmd(cmdVal, routeId, 0),
 		Cmd: cmdVal,
 		Seq: seq,
 	}

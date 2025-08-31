@@ -57,18 +57,21 @@ func RegisterEvent[S any, T any](nt pb.NodeType, actorFunc string, h entity.Even
 	val2str[util.String2Int(actorFunc)] = actorFunc
 }
 
-func RegisterCmd[S any, T any, R any](nt pb.NodeType, cmd pb.CMD, rt pb.RouterType, actorFunc string, h entity.CmdHandler[S, T, R]) {
+func RegisterCmd[S any, T any, R any](nt pb.NodeType, actorFunc string, h entity.CmdHandler[S, T, R]) {
 	pos := strings.Index(actorFunc, ".")
 	actorName, funcName := actorFunc[:pos], actorFunc[pos+1:]
 	hs := GetActor(nt, actorName)
 	hs[funcName] = h
+	val2str[util.String2Int(actorFunc)] = actorFunc
+}
+
+func RegisterRpc(nt pb.NodeType, cmd pb.CMD, rt pb.RouterType, actorFunc string) {
 	cmds[uint32(cmd)] = &CmdInfo{
 		cmd: uint32(cmd),
 		nt:  nt,
 		af:  actorFunc,
 		rt:  rt,
 	}
-	val2str[util.String2Int(actorFunc)] = actorFunc
 }
 
 func RegisterGob1[S any, T any](nt pb.NodeType, actorFunc string, h entity.Gob1Handler[S, T]) {
@@ -125,7 +128,7 @@ func GetActorFuncId(str interface{}) uint32 {
 	}
 }
 
-func NewCmdNodeRouter(cmd uint32, id, actorId uint64) *pb.NodeRouter {
+func NewNodeRouterByCmd(cmd uint32, id, actorId uint64) *pb.NodeRouter {
 	if str, ok := cmds[cmd]; ok {
 		return &pb.NodeRouter{
 			NodeType:  str.nt,

@@ -5,7 +5,6 @@ import (
 	"time"
 	"universal/common/pb"
 	"universal/framework/actor"
-	"universal/framework/cluster"
 	"universal/framework/define"
 	"universal/framework/network"
 	"universal/library/mlog"
@@ -59,12 +58,8 @@ func (p *Player) Login() error {
 	p.Actor.SetId(tt.Uid)
 	p.loginTime = now
 
-	/*
-		head := framework.SwapToDb(pack.Head, tt.Uid, "PlayerDataMgr", "Login")
-		head.Src = framework.NewSrcRouter(pb.RouterType_RouterTypeUid, tt.Uid)
-		head.Dst.RouterType = pb.RouterType_RouterTypeUid
-		return framework.Send(head, req)
-	*/
+	// todo
+
 	return nil
 }
 
@@ -99,19 +94,9 @@ func (p *Player) Dispatcher() {
 
 		switch pack.Head.Dst.NodeType {
 		case pb.NodeType_Gate:
-			/*
-				rpc.ParseNodeRouter(pack.Head)
-				mlog.Debugf("收到websocket数据包 pack:%v", pack)
-				if err := actor.Send(pack.Head, pack.Body); err != nil {
-					mlog.Errorf("gate服务Actor调用: %v", err)
-				}
-			*/
+			// todo
 		default:
-			if err := cluster.Send(pack.Head, pack.Body); err != nil {
-				mlog.Errorf("转发websocket数据包失败: pack:%v, error:%v", pack, err)
-			} else {
-				mlog.Debugf("转发websocket数据包 pack:%v", pack)
-			}
+			// todo
 		}
 	}
 }

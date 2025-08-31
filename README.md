@@ -160,15 +160,7 @@ message UserData {
 }
 ```
 
-## 四、交流联系
-```
-QQ(wx)：812417032
-
-C++20版本universal框架正在开发中，敬请期待
-
-```
-
-
+## 四、使用案例
 ```go
 type Player struct {
 	actor.Actor
@@ -213,5 +205,10 @@ func TestPlayer(t testing.T) {
     // 等待usr处理完所有消息之后，主动关闭Actor协程和任务队列
     usr.Stop()
 }
-
 ```
+
+## 五、交流联系
+```
+QQ(wx)：812417032
+```
+
